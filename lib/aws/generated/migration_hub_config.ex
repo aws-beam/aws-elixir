@@ -112,7 +112,7 @@ defmodule AWS.MigrationHubConfig do
   ## Example:
       
       describe_home_region_controls_result() :: %{
-        "HomeRegionControls" => list(home_region_control()()),
+        "HomeRegionControls" => list(home_region_control()),
         "NextToken" => String.t()
       }
       
@@ -275,7 +275,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, create_home_region_control_errors()}
   def create_home_region_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHomeRegionControl", input, options)
   end
@@ -292,7 +293,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, delete_home_region_control_errors()}
   def delete_home_region_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHomeRegionControl", input, options)
   end
@@ -307,7 +309,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, describe_home_region_controls_errors()}
   def describe_home_region_controls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHomeRegionControls", input, options)
   end
@@ -329,7 +332,8 @@ defmodule AWS.MigrationHubConfig do
           | {:error, term()}
           | {:error, get_home_region_errors()}
   def get_home_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHomeRegion", input, options)
   end

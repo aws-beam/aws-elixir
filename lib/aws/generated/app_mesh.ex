@@ -317,7 +317,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       grpc_route_match() :: %{
-        "metadata" => list(grpc_route_metadata()()),
+        "metadata" => list(grpc_route_metadata()),
         "methodName" => String.t(),
         "port" => integer(),
         "serviceName" => String.t()
@@ -358,7 +358,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       tls_validation_context_acm_trust() :: %{
-        "certificateAuthorityArns" => list(String.t()())
+        "certificateAuthorityArns" => list(String.t())
       }
 
   """
@@ -385,7 +385,7 @@ defmodule AWS.AppMesh do
         "meshOwner" => String.t(),
         "routeName" => String.t(),
         "spec" => route_spec(),
-        "tags" => list(tag_ref()())
+        "tags" => list(tag_ref())
       }
 
   """
@@ -429,7 +429,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       tcp_route_action() :: %{
-        "weightedTargets" => list(weighted_target()())
+        "weightedTargets" => list(weighted_target())
       }
 
   """
@@ -523,7 +523,7 @@ defmodule AWS.AppMesh do
 
       list_routes_output() :: %{
         "nextToken" => [String.t()],
-        "routes" => list(route_ref()())
+        "routes" => list(route_ref())
       }
 
   """
@@ -557,10 +557,10 @@ defmodule AWS.AppMesh do
   ## Example:
 
       http_retry_policy() :: %{
-        "httpRetryEvents" => list(String.t()()),
+        "httpRetryEvents" => list(String.t()),
         "maxRetries" => float(),
         "perRetryTimeout" => duration(),
-        "tcpRetryEvents" => list(String.t()())
+        "tcpRetryEvents" => list(String.t())
       }
 
   """
@@ -572,7 +572,7 @@ defmodule AWS.AppMesh do
 
       virtual_gateway_spec() :: %{
         "backendDefaults" => virtual_gateway_backend_defaults(),
-        "listeners" => list(virtual_gateway_listener()()),
+        "listeners" => list(virtual_gateway_listener()),
         "logging" => virtual_gateway_logging()
       }
 
@@ -629,7 +629,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       aws_cloud_map_service_discovery() :: %{
-        "attributes" => list(aws_cloud_map_instance_attribute()()),
+        "attributes" => list(aws_cloud_map_instance_attribute()),
         "ipPreference" => String.t(),
         "namespaceName" => String.t(),
         "serviceName" => String.t()
@@ -691,7 +691,7 @@ defmodule AWS.AppMesh do
 
       list_tags_for_resource_output() :: %{
         "nextToken" => [String.t()],
-        "tags" => list(tag_ref()())
+        "tags" => list(tag_ref())
       }
 
   """
@@ -763,7 +763,7 @@ defmodule AWS.AppMesh do
 
       list_virtual_nodes_output() :: %{
         "nextToken" => [String.t()],
-        "virtualNodes" => list(virtual_node_ref()())
+        "virtualNodes" => list(virtual_node_ref())
       }
 
   """
@@ -808,7 +808,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       list_meshes_output() :: %{
-        "meshes" => list(mesh_ref()()),
+        "meshes" => list(mesh_ref()),
         "nextToken" => [String.t()]
       }
 
@@ -1052,7 +1052,7 @@ defmodule AWS.AppMesh do
         "clientToken" => [String.t()],
         "meshOwner" => String.t(),
         "spec" => virtual_router_spec(),
-        "tags" => list(tag_ref()()),
+        "tags" => list(tag_ref()),
         "virtualRouterName" => String.t()
       }
 
@@ -1086,7 +1086,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       subject_alternative_name_matchers() :: %{
-        "exact" => list(String.t()())
+        "exact" => list(String.t())
       }
 
   """
@@ -1109,7 +1109,7 @@ defmodule AWS.AppMesh do
 
       list_virtual_gateways_output() :: %{
         optional("nextToken") => [String.t()],
-        required("virtualGateways") => list(virtual_gateway_ref()())
+        required("virtualGateways") => list(virtual_gateway_ref())
       }
 
   """
@@ -1345,7 +1345,7 @@ defmodule AWS.AppMesh do
         "clientToken" => [String.t()],
         "meshOwner" => String.t(),
         "spec" => virtual_node_spec(),
-        "tags" => list(tag_ref()()),
+        "tags" => list(tag_ref()),
         "virtualNodeName" => String.t()
       }
 
@@ -1357,7 +1357,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       virtual_router_spec() :: %{
-        "listeners" => list(virtual_router_listener()())
+        "listeners" => list(virtual_router_listener())
       }
 
   """
@@ -1395,7 +1395,7 @@ defmodule AWS.AppMesh do
 
       tag_resource_input() :: %{
         "resourceArn" => String.t(),
-        "tags" => list(tag_ref()())
+        "tags" => list(tag_ref())
       }
 
   """
@@ -1431,7 +1431,7 @@ defmodule AWS.AppMesh do
         "clientToken" => [String.t()],
         "meshOwner" => String.t(),
         "spec" => virtual_service_spec(),
-        "tags" => list(tag_ref()()),
+        "tags" => list(tag_ref()),
         "virtualServiceName" => String.t()
       }
 
@@ -1444,7 +1444,7 @@ defmodule AWS.AppMesh do
 
       list_virtual_routers_output() :: %{
         "nextToken" => [String.t()],
-        "virtualRouters" => list(virtual_router_ref()())
+        "virtualRouters" => list(virtual_router_ref())
       }
 
   """
@@ -1455,7 +1455,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       grpc_route_action() :: %{
-        "weightedTargets" => list(weighted_target()())
+        "weightedTargets" => list(weighted_target())
       }
 
   """
@@ -1478,7 +1478,7 @@ defmodule AWS.AppMesh do
 
       list_virtual_services_output() :: %{
         "nextToken" => [String.t()],
-        "virtualServices" => list(virtual_service_ref()())
+        "virtualServices" => list(virtual_service_ref())
       }
 
   """
@@ -1562,7 +1562,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       http_route_action() :: %{
-        "weightedTargets" => list(weighted_target()())
+        "weightedTargets" => list(weighted_target())
       }
 
   """
@@ -1682,7 +1682,7 @@ defmodule AWS.AppMesh do
       virtual_gateway_client_policy_tls() :: %{
         "certificate" => list(),
         "enforce" => [boolean()],
-        "ports" => list(integer()()),
+        "ports" => list(integer()),
         "validation" => virtual_gateway_tls_validation_context()
       }
 
@@ -1733,7 +1733,7 @@ defmodule AWS.AppMesh do
 
       untag_resource_input() :: %{
         "resourceArn" => String.t(),
-        "tagKeys" => list(String.t()())
+        "tagKeys" => list(String.t())
       }
 
   """
@@ -1821,8 +1821,8 @@ defmodule AWS.AppMesh do
 
       virtual_node_spec() :: %{
         "backendDefaults" => backend_defaults(),
-        "backends" => list(list()()),
-        "listeners" => list(listener()()),
+        "backends" => list(list()),
+        "listeners" => list(listener()),
         "logging" => logging(),
         "serviceDiscovery" => list()
       }
@@ -1967,7 +1967,7 @@ defmodule AWS.AppMesh do
 
       grpc_gateway_route_match() :: %{
         "hostname" => gateway_route_hostname_match(),
-        "metadata" => list(grpc_gateway_route_metadata()()),
+        "metadata" => list(grpc_gateway_route_metadata()),
         "port" => integer(),
         "serviceName" => String.t()
       }
@@ -1993,7 +1993,7 @@ defmodule AWS.AppMesh do
       client_policy_tls() :: %{
         "certificate" => list(),
         "enforce" => [boolean()],
-        "ports" => list(integer()()),
+        "ports" => list(integer()),
         "validation" => tls_validation_context()
       }
 
@@ -2020,7 +2020,7 @@ defmodule AWS.AppMesh do
       create_gateway_route_input() :: %{
         optional("clientToken") => [String.t()],
         optional("meshOwner") => String.t(),
-        optional("tags") => list(tag_ref()()),
+        optional("tags") => list(tag_ref()),
         required("gatewayRouteName") => String.t(),
         required("spec") => gateway_route_spec()
       }
@@ -2079,7 +2079,7 @@ defmodule AWS.AppMesh do
 
       list_gateway_routes_output() :: %{
         optional("nextToken") => [String.t()],
-        required("gatewayRoutes") => list(gateway_route_ref()())
+        required("gatewayRoutes") => list(gateway_route_ref())
       }
 
   """
@@ -2155,7 +2155,7 @@ defmodule AWS.AppMesh do
       create_virtual_gateway_input() :: %{
         optional("clientToken") => [String.t()],
         optional("meshOwner") => String.t(),
-        optional("tags") => list(tag_ref()()),
+        optional("tags") => list(tag_ref()),
         required("spec") => virtual_gateway_spec(),
         required("virtualGatewayName") => String.t()
       }
@@ -2231,7 +2231,7 @@ defmodule AWS.AppMesh do
   ## Example:
 
       virtual_gateway_tls_validation_context_acm_trust() :: %{
-        "certificateAuthorityArns" => list(String.t()())
+        "certificateAuthorityArns" => list(String.t())
       }
 
   """
@@ -2265,11 +2265,11 @@ defmodule AWS.AppMesh do
   ## Example:
 
       grpc_retry_policy() :: %{
-        "grpcRetryEvents" => list(String.t()()),
-        "httpRetryEvents" => list(String.t()()),
+        "grpcRetryEvents" => list(String.t()),
+        "httpRetryEvents" => list(String.t()),
         "maxRetries" => float(),
         "perRetryTimeout" => duration(),
-        "tcpRetryEvents" => list(String.t()())
+        "tcpRetryEvents" => list(String.t())
       }
 
   """
@@ -2306,12 +2306,12 @@ defmodule AWS.AppMesh do
   ## Example:
 
       http_route_match() :: %{
-        "headers" => list(http_route_header()()),
+        "headers" => list(http_route_header()),
         "method" => String.t(),
         "path" => http_path_match(),
         "port" => integer(),
         "prefix" => [String.t()],
-        "queryParameters" => list(http_query_parameter()()),
+        "queryParameters" => list(http_query_parameter()),
         "scheme" => String.t()
       }
 
@@ -2471,13 +2471,13 @@ defmodule AWS.AppMesh do
   ## Example:
 
       http_gateway_route_match() :: %{
-        "headers" => list(http_gateway_route_header()()),
+        "headers" => list(http_gateway_route_header()),
         "hostname" => gateway_route_hostname_match(),
         "method" => String.t(),
         "path" => http_path_match(),
         "port" => integer(),
         "prefix" => [String.t()],
-        "queryParameters" => list(http_query_parameter()())
+        "queryParameters" => list(http_query_parameter())
       }
 
   """
@@ -2581,7 +2581,7 @@ defmodule AWS.AppMesh do
         "clientToken" => [String.t()],
         "meshName" => String.t(),
         "spec" => mesh_spec(),
-        "tags" => list(tag_ref()())
+        "tags" => list(tag_ref())
       }
 
   """

@@ -49,7 +49,7 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       list_connectors_response() :: %{
-        "Connectors" => list(connector_summary()()),
+        "Connectors" => list(connector_summary()),
         "NextToken" => String.t()
       }
 
@@ -417,7 +417,7 @@ defmodule AWS.PcaConnectorScep do
   ## Example:
 
       list_challenge_metadata_response() :: %{
-        "Challenges" => list(challenge_metadata_summary()()),
+        "Challenges" => list(challenge_metadata_summary()),
         "NextToken" => String.t()
       }
 

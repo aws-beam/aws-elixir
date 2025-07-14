@@ -61,7 +61,7 @@ defmodule AWS.RAM do
 
       list_permissions_response() :: %{
         "nextToken" => String.t(),
-        "permissions" => list(resource_share_permission_summary()())
+        "permissions" => list(resource_share_permission_summary())
       }
 
   """
@@ -108,7 +108,7 @@ defmodule AWS.RAM do
       tag_resource_request() :: %{
         optional("resourceArn") => String.t(),
         optional("resourceShareArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -135,7 +135,7 @@ defmodule AWS.RAM do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => list(any()),
-        optional("workIds") => list(String.t()())
+        optional("workIds") => list(String.t())
       }
 
   """
@@ -161,7 +161,7 @@ defmodule AWS.RAM do
 
       list_resources_response() :: %{
         "nextToken" => String.t(),
-        "resources" => list(resource()())
+        "resources" => list(resource())
       }
 
   """
@@ -227,11 +227,11 @@ defmodule AWS.RAM do
       create_resource_share_request() :: %{
         optional("allowExternalPrincipals") => boolean(),
         optional("clientToken") => String.t(),
-        optional("permissionArns") => list(String.t()()),
-        optional("principals") => list(String.t()()),
-        optional("resourceArns") => list(String.t()()),
-        optional("sources") => list(String.t()()),
-        optional("tags") => list(tag()()),
+        optional("permissionArns") => list(String.t()),
+        optional("principals") => list(String.t()),
+        optional("resourceArns") => list(String.t()),
+        optional("sources") => list(String.t()),
+        optional("tags") => list(tag()),
         required("name") => String.t()
       }
 
@@ -317,7 +317,7 @@ defmodule AWS.RAM do
         "permissionType" => list(any()),
         "resourceType" => String.t(),
         "status" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "version" => String.t()
       }
 
@@ -341,7 +341,7 @@ defmodule AWS.RAM do
 
       get_resource_share_invitations_response() :: %{
         "nextToken" => String.t(),
-        "resourceShareInvitations" => list(resource_share_invitation()())
+        "resourceShareInvitations" => list(resource_share_invitation())
       }
 
   """
@@ -467,7 +467,7 @@ defmodule AWS.RAM do
       untag_resource_request() :: %{
         optional("resourceArn") => String.t(),
         optional("resourceShareArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -505,7 +505,7 @@ defmodule AWS.RAM do
         "receiverAccountId" => String.t(),
         "receiverArn" => String.t(),
         "resourceShareArn" => String.t(),
-        "resourceShareAssociations" => list(resource_share_association()()),
+        "resourceShareAssociations" => list(resource_share_association()),
         "resourceShareInvitationArn" => String.t(),
         "resourceShareName" => String.t(),
         "senderAccountId" => String.t(),
@@ -551,7 +551,7 @@ defmodule AWS.RAM do
 
       disassociate_resource_share_response() :: %{
         "clientToken" => String.t(),
-        "resourceShareAssociations" => list(resource_share_association()())
+        "resourceShareAssociations" => list(resource_share_association())
       }
 
   """
@@ -614,7 +614,7 @@ defmodule AWS.RAM do
         optional("nextToken") => String.t(),
         optional("principal") => String.t(),
         optional("resourceArn") => String.t(),
-        optional("resourceShareArns") => list(String.t()()),
+        optional("resourceShareArns") => list(String.t()),
         required("associationType") => list(any())
       }
 
@@ -649,7 +649,7 @@ defmodule AWS.RAM do
         "permissionType" => list(any()),
         "resourceType" => String.t(),
         "status" => list(any()),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "version" => String.t()
       }
 
@@ -688,7 +688,7 @@ defmodule AWS.RAM do
 
       list_replace_permission_associations_work_response() :: %{
         "nextToken" => String.t(),
-        "replacePermissionAssociationsWorks" => list(replace_permission_associations_work()())
+        "replacePermissionAssociationsWorks" => list(replace_permission_associations_work())
       }
 
   """
@@ -774,9 +774,9 @@ defmodule AWS.RAM do
         optional("nextToken") => String.t(),
         optional("permissionArn") => String.t(),
         optional("permissionVersion") => integer(),
-        optional("resourceShareArns") => list(String.t()()),
+        optional("resourceShareArns") => list(String.t()),
         optional("resourceShareStatus") => list(any()),
-        optional("tagFilters") => list(tag_filter()()),
+        optional("tagFilters") => list(tag_filter()),
         required("resourceOwner") => list(any())
       }
 
@@ -789,7 +789,7 @@ defmodule AWS.RAM do
 
       list_permission_versions_response() :: %{
         "nextToken" => String.t(),
-        "permissions" => list(resource_share_permission_summary()())
+        "permissions" => list(resource_share_permission_summary())
       }
 
   """
@@ -820,7 +820,7 @@ defmodule AWS.RAM do
         "resourceShareArn" => String.t(),
         "status" => list(any()),
         "statusMessage" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -855,7 +855,7 @@ defmodule AWS.RAM do
 
       list_principals_response() :: %{
         "nextToken" => String.t(),
-        "principals" => list(principal()())
+        "principals" => list(principal())
       }
 
   """
@@ -892,7 +892,7 @@ defmodule AWS.RAM do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("principal") => String.t(),
-        required("resourceArns") => list(String.t()())
+        required("resourceArns") => list(String.t())
       }
 
   """
@@ -904,7 +904,7 @@ defmodule AWS.RAM do
 
       get_resource_policies_response() :: %{
         "nextToken" => String.t(),
-        "policies" => list(String.t()())
+        "policies" => list(String.t())
       }
 
   """
@@ -916,9 +916,9 @@ defmodule AWS.RAM do
 
       disassociate_resource_share_request() :: %{
         optional("clientToken") => String.t(),
-        optional("principals") => list(String.t()()),
-        optional("resourceArns") => list(String.t()()),
-        optional("sources") => list(String.t()()),
+        optional("principals") => list(String.t()),
+        optional("resourceArns") => list(String.t()),
+        optional("sources") => list(String.t()),
         required("resourceShareArn") => String.t()
       }
 
@@ -944,7 +944,7 @@ defmodule AWS.RAM do
 
       create_permission_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t(),
         required("policyTemplate") => String.t(),
         required("resourceType") => String.t()
@@ -960,8 +960,8 @@ defmodule AWS.RAM do
       get_resource_share_invitations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("resourceShareArns") => list(String.t()()),
-        optional("resourceShareInvitationArns") => list(String.t()())
+        optional("resourceShareArns") => list(String.t()),
+        optional("resourceShareInvitationArns") => list(String.t())
       }
 
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.RAM do
 
       list_pending_invitation_resources_response() :: %{
         "nextToken" => String.t(),
-        "resources" => list(resource()())
+        "resources" => list(resource())
       }
 
   """
@@ -1017,9 +1017,9 @@ defmodule AWS.RAM do
 
       associate_resource_share_request() :: %{
         optional("clientToken") => String.t(),
-        optional("principals") => list(String.t()()),
-        optional("resourceArns") => list(String.t()()),
-        optional("sources") => list(String.t()()),
+        optional("principals") => list(String.t()),
+        optional("resourceArns") => list(String.t()),
+        optional("sources") => list(String.t()),
         required("resourceShareArn") => String.t()
       }
 
@@ -1032,7 +1032,7 @@ defmodule AWS.RAM do
 
       get_resource_share_associations_response() :: %{
         "nextToken" => String.t(),
-        "resourceShareAssociations" => list(resource_share_association()())
+        "resourceShareAssociations" => list(resource_share_association())
       }
 
   """
@@ -1156,7 +1156,7 @@ defmodule AWS.RAM do
 
       associate_resource_share_response() :: %{
         "clientToken" => String.t(),
-        "resourceShareAssociations" => list(resource_share_association()())
+        "resourceShareAssociations" => list(resource_share_association())
       }
 
   """
@@ -1188,7 +1188,7 @@ defmodule AWS.RAM do
 
       list_resource_share_permissions_response() :: %{
         "nextToken" => String.t(),
-        "permissions" => list(resource_share_permission_summary()())
+        "permissions" => list(resource_share_permission_summary())
       }
 
   """
@@ -1202,9 +1202,9 @@ defmodule AWS.RAM do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("principal") => String.t(),
-        optional("resourceArns") => list(String.t()()),
+        optional("resourceArns") => list(String.t()),
         optional("resourceRegionScope") => list(any()),
-        optional("resourceShareArns") => list(String.t()()),
+        optional("resourceShareArns") => list(String.t()),
         optional("resourceType") => String.t(),
         required("resourceOwner") => list(any())
       }
@@ -1218,7 +1218,7 @@ defmodule AWS.RAM do
 
       list_permission_associations_response() :: %{
         "nextToken" => String.t(),
-        "permissions" => list(associated_permission()())
+        "permissions" => list(associated_permission())
       }
 
   """
@@ -1241,7 +1241,7 @@ defmodule AWS.RAM do
 
       tag_filter() :: %{
         "tagKey" => String.t(),
-        "tagValues" => list(String.t()())
+        "tagValues" => list(String.t())
       }
 
   """
@@ -1265,9 +1265,9 @@ defmodule AWS.RAM do
       list_principals_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("principals") => list(String.t()()),
+        optional("principals") => list(String.t()),
         optional("resourceArn") => String.t(),
-        optional("resourceShareArns") => list(String.t()()),
+        optional("resourceShareArns") => list(String.t()),
         optional("resourceType") => String.t(),
         required("resourceOwner") => list(any())
       }
@@ -1281,7 +1281,7 @@ defmodule AWS.RAM do
 
       list_resource_types_response() :: %{
         "nextToken" => String.t(),
-        "resourceTypes" => list(service_name_and_resource_type()())
+        "resourceTypes" => list(service_name_and_resource_type())
       }
 
   """
@@ -1306,7 +1306,7 @@ defmodule AWS.RAM do
 
       get_resource_shares_response() :: %{
         "nextToken" => String.t(),
-        "resourceShares" => list(resource_share()())
+        "resourceShares" => list(resource_share())
       }
 
   """

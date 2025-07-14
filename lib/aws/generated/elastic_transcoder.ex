@@ -35,7 +35,7 @@ defmodule AWS.ElasticTranscoder do
 
       list_pipelines_response() :: %{
         "NextPageToken" => String.t(),
-        "Pipelines" => list(pipeline()())
+        "Pipelines" => list(pipeline())
       }
 
   """
@@ -49,7 +49,7 @@ defmodule AWS.ElasticTranscoder do
         "Format" => String.t(),
         "HlsContentProtection" => hls_content_protection(),
         "Name" => String.t(),
-        "OutputKeys" => list(String.t()()),
+        "OutputKeys" => list(String.t()),
         "PlayReadyDrm" => play_ready_drm()
       }
 
@@ -62,7 +62,7 @@ defmodule AWS.ElasticTranscoder do
 
       update_pipeline_response() :: %{
         "Pipeline" => pipeline(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
 
   """
@@ -112,8 +112,8 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       captions() :: %{
-        "CaptionFormats" => list(caption_format()()),
-        "CaptionSources" => list(caption_source()()),
+        "CaptionFormats" => list(caption_format()),
+        "CaptionSources" => list(caption_source()),
         "MergePolicy" => String.t()
       }
 
@@ -149,7 +149,7 @@ defmodule AWS.ElasticTranscoder do
 
       create_pipeline_response() :: %{
         "Pipeline" => pipeline(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
 
   """
@@ -163,7 +163,7 @@ defmodule AWS.ElasticTranscoder do
         required("InputBucket") => String.t(),
         required("OutputBucket") => String.t(),
         required("Role") => String.t(),
-        required("Topics") => list(String.t()())
+        required("Topics") => list(String.t())
       }
 
   """
@@ -174,7 +174,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       input_captions() :: %{
-        "CaptionSources" => list(caption_source()()),
+        "CaptionSources" => list(caption_source()),
         "MergePolicy" => String.t()
       }
 
@@ -187,7 +187,7 @@ defmodule AWS.ElasticTranscoder do
 
       read_pipeline_response() :: %{
         "Pipeline" => pipeline(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
 
   """
@@ -239,7 +239,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       list_jobs_by_pipeline_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextPageToken" => String.t()
       }
 
@@ -252,11 +252,11 @@ defmodule AWS.ElasticTranscoder do
 
       create_job_request() :: %{
         optional("Input") => job_input(),
-        optional("Inputs") => list(job_input()()),
+        optional("Inputs") => list(job_input()),
         optional("Output") => create_job_output(),
         optional("OutputKeyPrefix") => String.t(),
-        optional("Outputs") => list(create_job_output()()),
-        optional("Playlists") => list(create_job_playlist()()),
+        optional("Outputs") => list(create_job_output()),
+        optional("Playlists") => list(create_job_playlist()),
         optional("UserMetadata") => map(),
         required("PipelineId") => String.t()
       }
@@ -294,7 +294,7 @@ defmodule AWS.ElasticTranscoder do
         "AlbumArt" => job_album_art(),
         "AppliedColorSpaceConversion" => String.t(),
         "Captions" => captions(),
-        "Composition" => list(clip()()),
+        "Composition" => list(clip()),
         "Duration" => float(),
         "DurationMillis" => float(),
         "Encryption" => encryption(),
@@ -310,7 +310,7 @@ defmodule AWS.ElasticTranscoder do
         "StatusDetail" => String.t(),
         "ThumbnailEncryption" => encryption(),
         "ThumbnailPattern" => String.t(),
-        "Watermarks" => list(job_watermark()()),
+        "Watermarks" => list(job_watermark()),
         "Width" => integer()
       }
 
@@ -447,7 +447,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       list_jobs_by_status_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextPageToken" => String.t()
       }
 
@@ -473,7 +473,7 @@ defmodule AWS.ElasticTranscoder do
         "PaddingPolicy" => String.t(),
         "Resolution" => String.t(),
         "SizingPolicy" => String.t(),
-        "Watermarks" => list(preset_watermark()())
+        "Watermarks" => list(preset_watermark())
       }
 
   """
@@ -511,7 +511,7 @@ defmodule AWS.ElasticTranscoder do
 
       pipeline_output_config() :: %{
         "Bucket" => String.t(),
-        "Permissions" => list(permission()()),
+        "Permissions" => list(permission()),
         "StorageClass" => String.t()
       }
 
@@ -551,7 +551,7 @@ defmodule AWS.ElasticTranscoder do
 
       list_presets_response() :: %{
         "NextPageToken" => String.t(),
-        "Presets" => list(preset()())
+        "Presets" => list(preset())
       }
 
   """
@@ -708,7 +708,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       job_album_art() :: %{
-        "Artwork" => list(artwork()()),
+        "Artwork" => list(artwork()),
         "MergePolicy" => String.t()
       }
 
@@ -747,12 +747,12 @@ defmodule AWS.ElasticTranscoder do
         "Arn" => String.t(),
         "Id" => String.t(),
         "Input" => job_input(),
-        "Inputs" => list(job_input()()),
+        "Inputs" => list(job_input()),
         "Output" => job_output(),
         "OutputKeyPrefix" => String.t(),
-        "Outputs" => list(job_output()()),
+        "Outputs" => list(job_output()),
         "PipelineId" => String.t(),
-        "Playlists" => list(playlist()()),
+        "Playlists" => list(playlist()),
         "Status" => String.t(),
         "Timing" => timing(),
         "UserMetadata" => map()
@@ -856,7 +856,7 @@ defmodule AWS.ElasticTranscoder do
       create_job_output() :: %{
         "AlbumArt" => job_album_art(),
         "Captions" => captions(),
-        "Composition" => list(clip()()),
+        "Composition" => list(clip()),
         "Encryption" => encryption(),
         "Key" => String.t(),
         "PresetId" => String.t(),
@@ -864,7 +864,7 @@ defmodule AWS.ElasticTranscoder do
         "SegmentDuration" => String.t(),
         "ThumbnailEncryption" => encryption(),
         "ThumbnailPattern" => String.t(),
-        "Watermarks" => list(job_watermark()())
+        "Watermarks" => list(job_watermark())
       }
 
   """
@@ -894,7 +894,7 @@ defmodule AWS.ElasticTranscoder do
         "Format" => String.t(),
         "HlsContentProtection" => hls_content_protection(),
         "Name" => String.t(),
-        "OutputKeys" => list(String.t()()),
+        "OutputKeys" => list(String.t()),
         "PlayReadyDrm" => play_ready_drm(),
         "Status" => String.t(),
         "StatusDetail" => String.t()
@@ -936,7 +936,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       test_role_response() :: %{
-        "Messages" => list(String.t()()),
+        "Messages" => list(String.t()),
         "Success" => String.t()
       }
 
@@ -960,7 +960,7 @@ defmodule AWS.ElasticTranscoder do
   ## Example:
 
       permission() :: %{
-        "Access" => list(String.t()()),
+        "Access" => list(String.t()),
         "Grantee" => String.t(),
         "GranteeType" => String.t()
       }

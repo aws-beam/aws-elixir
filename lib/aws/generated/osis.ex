@@ -33,7 +33,7 @@ defmodule AWS.OSIS do
 
       tag_resource_request() :: %{
         required("Arn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -56,7 +56,7 @@ defmodule AWS.OSIS do
 
       list_pipelines_response() :: %{
         "NextToken" => String.t(),
-        "Pipelines" => list(pipeline_summary()())
+        "Pipelines" => list(pipeline_summary())
       }
 
   """
@@ -110,7 +110,7 @@ defmodule AWS.OSIS do
   ## Example:
 
       get_pipeline_change_progress_response() :: %{
-        "ChangeProgressStatuses" => list(change_progress_status()())
+        "ChangeProgressStatuses" => list(change_progress_status())
       }
 
   """
@@ -123,9 +123,9 @@ defmodule AWS.OSIS do
       pipeline() :: %{
         "BufferOptions" => buffer_options(),
         "CreatedAt" => non_neg_integer(),
-        "Destinations" => list(pipeline_destination()()),
+        "Destinations" => list(pipeline_destination()),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
-        "IngestEndpointUrls" => list(String.t()()),
+        "IngestEndpointUrls" => list(String.t()),
         "LastUpdatedAt" => non_neg_integer(),
         "LogPublishingOptions" => log_publishing_options(),
         "MaxUnits" => integer(),
@@ -133,12 +133,12 @@ defmodule AWS.OSIS do
         "PipelineArn" => String.t(),
         "PipelineConfigurationBody" => String.t(),
         "PipelineName" => String.t(),
-        "ServiceVpcEndpoints" => list(service_vpc_endpoint()()),
+        "ServiceVpcEndpoints" => list(service_vpc_endpoint()),
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcEndpointService" => String.t(),
-        "VpcEndpoints" => list(vpc_endpoint()())
+        "VpcEndpoints" => list(vpc_endpoint())
       }
 
   """
@@ -171,7 +171,7 @@ defmodule AWS.OSIS do
   ## Example:
 
       change_progress_status() :: %{
-        "ChangeProgressStages" => list(change_progress_stage()()),
+        "ChangeProgressStages" => list(change_progress_stage()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalNumberOfStages" => integer()
@@ -186,7 +186,7 @@ defmodule AWS.OSIS do
 
       untag_resource_request() :: %{
         required("Arn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -237,7 +237,7 @@ defmodule AWS.OSIS do
   ## Example:
 
       list_pipeline_blueprints_response() :: %{
-        "Blueprints" => list(pipeline_blueprint_summary()())
+        "Blueprints" => list(pipeline_blueprint_summary())
       }
 
   """
@@ -285,7 +285,7 @@ defmodule AWS.OSIS do
         optional("BufferOptions") => buffer_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
         optional("LogPublishingOptions") => log_publishing_options(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcOptions") => vpc_options(),
         required("MaxUnits") => integer(),
         required("MinUnits") => integer(),
@@ -359,7 +359,7 @@ defmodule AWS.OSIS do
 
       pipeline_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Destinations" => list(pipeline_destination()()),
+        "Destinations" => list(pipeline_destination()),
         "LastUpdatedAt" => non_neg_integer(),
         "MaxUnits" => integer(),
         "MinUnits" => integer(),
@@ -367,7 +367,7 @@ defmodule AWS.OSIS do
         "PipelineName" => String.t(),
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -389,7 +389,7 @@ defmodule AWS.OSIS do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -532,7 +532,7 @@ defmodule AWS.OSIS do
   ## Example:
 
       validate_pipeline_response() :: %{
-        "Errors" => list(validation_message()()),
+        "Errors" => list(validation_message()),
         "isValid" => boolean()
       }
 
@@ -598,8 +598,8 @@ defmodule AWS.OSIS do
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcAttachmentOptions" => vpc_attachment_options(),
         "VpcEndpointManagement" => list(any())
       }

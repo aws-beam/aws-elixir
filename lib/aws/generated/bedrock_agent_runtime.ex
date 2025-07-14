@@ -19,7 +19,7 @@ defmodule AWS.BedrockAgentRuntime do
         "agentId" => [String.t()],
         "collaboratorName" => String.t(),
         "function" => [String.t()],
-        "parameters" => list(function_parameter()())
+        "parameters" => list(function_parameter())
       }
 
   """
@@ -41,7 +41,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       file_part() :: %{
-        "files" => list(output_file()())
+        "files" => list(output_file())
       }
 
   """
@@ -77,7 +77,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       return_control_results() :: %{
         "invocationId" => [String.t()],
-        "returnControlInvocationResults" => list(list()())
+        "returnControlInvocationResults" => list(list())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       guardrail_content_policy_assessment() :: %{
-        "filters" => list(guardrail_content_filter()())
+        "filters" => list(guardrail_content_filter())
       }
 
   """
@@ -231,7 +231,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       list_flow_execution_events_response() :: %{
-        "flowExecutionEvents" => list(list()()),
+        "flowExecutionEvents" => list(list()),
         "nextToken" => String.t()
       }
 
@@ -356,10 +356,10 @@ defmodule AWS.BedrockAgentRuntime do
 
       inline_session_state() :: %{
         "conversationHistory" => conversation_history(),
-        "files" => list(input_file()()),
+        "files" => list(input_file()),
         "invocationId" => [String.t()],
         "promptSessionAttributes" => map(),
-        "returnControlInvocationResults" => list(list()()),
+        "returnControlInvocationResults" => list(list()),
         "sessionAttributes" => map()
       }
 
@@ -371,7 +371,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       list_invocations_response() :: %{
-        "invocationSummaries" => list(invocation_summary()()),
+        "invocationSummaries" => list(invocation_summary()),
         "nextToken" => String.t()
       }
 
@@ -421,7 +421,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       prompt_override_configuration() :: %{
         "overrideLambda" => String.t(),
-        "promptConfigurations" => list(prompt_configuration()())
+        "promptConfigurations" => list(prompt_configuration())
       }
 
   """
@@ -469,7 +469,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       citation() :: %{
         "generatedResponsePart" => generated_response_part(),
-        "retrievedReferences" => list(retrieved_reference()())
+        "retrievedReferences" => list(retrieved_reference())
       }
 
   """
@@ -480,7 +480,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       inline_agent_file_part() :: %{
-        "files" => list(output_file()())
+        "files" => list(output_file())
       }
 
   """
@@ -491,7 +491,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       retrieve_and_generate_response() :: %{
-        "citations" => list(citation()()),
+        "citations" => list(citation()),
         "guardrailAction" => list(any()),
         "output" => retrieve_and_generate_output(),
         "sessionId" => String.t()
@@ -525,7 +525,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       node_input_event() :: %{
-        "fields" => list(node_input_field()()),
+        "fields" => list(node_input_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -565,7 +565,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       conversation_history() :: %{
-        "messages" => list(message()())
+        "messages" => list(message())
       }
 
   """
@@ -616,7 +616,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       inline_agent_return_control_payload() :: %{
         "invocationId" => [String.t()],
-        "invocationInputs" => list(list()())
+        "invocationInputs" => list(list())
       }
 
   """
@@ -645,7 +645,7 @@ defmodule AWS.BedrockAgentRuntime do
         "executionType" => list(any()),
         "function" => String.t(),
         "invocationId" => [String.t()],
-        "parameters" => list(parameter()()),
+        "parameters" => list(parameter()),
         "requestBody" => request_body(),
         "verb" => String.t()
       }
@@ -727,7 +727,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       flow_execution_input_event() :: %{
-        "fields" => list(flow_input_field()()),
+        "fields" => list(flow_input_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -775,7 +775,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       generate_query_response() :: %{
-        "queries" => list(generated_query()())
+        "queries" => list(generated_query())
       }
 
   """
@@ -786,7 +786,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -958,7 +958,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       retrieval_result_content() :: %{
         "byteContent" => [String.t()],
-        "row" => list(retrieval_result_content_column()()),
+        "row" => list(retrieval_result_content_column()),
         "text" => [String.t()],
         "type" => list(any())
       }
@@ -1034,7 +1034,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       content_body() :: %{
         "body" => [String.t()],
-        "images" => list(image_input()())
+        "images" => list(image_input())
       }
 
   """
@@ -1119,8 +1119,8 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       guardrail_word_policy_assessment() :: %{
-        "customWords" => list(guardrail_custom_word()()),
-        "managedWordLists" => list(guardrail_managed_word()())
+        "customWords" => list(guardrail_custom_word()),
+        "managedWordLists" => list(guardrail_managed_word())
       }
 
   """
@@ -1154,7 +1154,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       flow_trace_node_input_event() :: %{
-        "fields" => list(flow_trace_node_input_field()()),
+        "fields" => list(flow_trace_node_input_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -1206,7 +1206,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       list_sessions_response() :: %{
         "nextToken" => String.t(),
-        "sessionSummaries" => list(session_summary()())
+        "sessionSummaries" => list(session_summary())
       }
 
   """
@@ -1217,7 +1217,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       flow_execution_output_event() :: %{
-        "fields" => list(flow_output_field()()),
+        "fields" => list(flow_output_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -1314,7 +1314,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       list_invocation_steps_response() :: %{
-        "invocationStepSummaries" => list(invocation_step_summary()()),
+        "invocationStepSummaries" => list(invocation_step_summary()),
         "nextToken" => String.t()
       }
 
@@ -1348,8 +1348,8 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       guardrail_sensitive_information_policy_assessment() :: %{
-        "piiEntities" => list(guardrail_pii_entity_filter()()),
-        "regexes" => list(guardrail_regex_filter()())
+        "piiEntities" => list(guardrail_pii_entity_filter()),
+        "regexes" => list(guardrail_regex_filter())
       }
 
   """
@@ -1418,7 +1418,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       return_control_payload() :: %{
         "invocationId" => [String.t()],
-        "invocationInputs" => list(list()())
+        "invocationInputs" => list(list())
       }
 
   """
@@ -1483,11 +1483,11 @@ defmodule AWS.BedrockAgentRuntime do
 
       session_state() :: %{
         "conversationHistory" => conversation_history(),
-        "files" => list(input_file()()),
+        "files" => list(input_file()),
         "invocationId" => [String.t()],
-        "knowledgeBaseConfigurations" => list(knowledge_base_configuration()()),
+        "knowledgeBaseConfigurations" => list(knowledge_base_configuration()),
         "promptSessionAttributes" => map(),
-        "returnControlInvocationResults" => list(list()()),
+        "returnControlInvocationResults" => list(list()),
         "sessionAttributes" => map()
       }
 
@@ -1524,7 +1524,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       condition_result_event() :: %{
         "nodeName" => String.t(),
-        "satisfiedConditions" => list(satisfied_condition()()),
+        "satisfiedConditions" => list(satisfied_condition()),
         "timestamp" => non_neg_integer()
       }
 
@@ -1600,7 +1600,7 @@ defmodule AWS.BedrockAgentRuntime do
       external_sources_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => external_sources_generation_configuration(),
         "modelArn" => String.t(),
-        "sources" => list(external_source()())
+        "sources" => list(external_source())
       }
 
   """
@@ -1617,7 +1617,7 @@ defmodule AWS.BedrockAgentRuntime do
         "apiPath" => String.t(),
         "collaboratorName" => String.t(),
         "httpMethod" => [String.t()],
-        "parameters" => list(api_parameter()()),
+        "parameters" => list(api_parameter()),
         "requestBody" => api_request_body()
       }
 
@@ -1788,7 +1788,7 @@ defmodule AWS.BedrockAgentRuntime do
       start_flow_execution_request() :: %{
         optional("flowExecutionName") => String.t(),
         optional("modelPerformanceConfiguration") => model_performance_configuration(),
-        required("inputs") => list(flow_input()())
+        required("inputs") => list(flow_input())
       }
 
   """
@@ -1826,9 +1826,9 @@ defmodule AWS.BedrockAgentRuntime do
 
       guardrail_trace() :: %{
         "action" => list(any()),
-        "inputAssessments" => list(guardrail_assessment()()),
+        "inputAssessments" => list(guardrail_assessment()),
         "metadata" => metadata(),
-        "outputAssessments" => list(guardrail_assessment()()),
+        "outputAssessments" => list(guardrail_assessment()),
         "traceId" => String.t()
       }
 
@@ -1955,7 +1955,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       flow_trace_node_output_event() :: %{
-        "fields" => list(flow_trace_node_output_field()()),
+        "fields" => list(flow_trace_node_output_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -1979,7 +1979,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       implicit_filter_configuration() :: %{
-        "metadataAttributes" => list(metadata_attribute_schema()()),
+        "metadataAttributes" => list(metadata_attribute_schema()),
         "modelArn" => String.t()
       }
 
@@ -2155,7 +2155,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       attribution() :: %{
-        "citations" => list(citation()())
+        "citations" => list(citation())
       }
 
   """
@@ -2169,7 +2169,7 @@ defmodule AWS.BedrockAgentRuntime do
         "agentAliasId" => String.t(),
         "agentId" => String.t(),
         "agentVersion" => String.t(),
-        "callerChain" => list(list()()),
+        "callerChain" => list(list()),
         "collaboratorName" => String.t(),
         "eventTime" => non_neg_integer(),
         "sessionId" => String.t(),
@@ -2260,7 +2260,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       guardrail_topic_policy_assessment() :: %{
-        "topics" => list(guardrail_topic()())
+        "topics" => list(guardrail_topic())
       }
 
   """
@@ -2295,7 +2295,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       property_parameters() :: %{
-        "properties" => list(parameter()())
+        "properties" => list(parameter())
       }
 
   """
@@ -2321,7 +2321,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       flow_trace_condition_node_result_event() :: %{
         "nodeName" => String.t(),
-        "satisfiedConditions" => list(flow_trace_condition()()),
+        "satisfiedConditions" => list(flow_trace_condition()),
         "timestamp" => non_neg_integer()
       }
 
@@ -2413,16 +2413,16 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       collaborator() :: %{
-        "actionGroups" => list(agent_action_group()()),
+        "actionGroups" => list(agent_action_group()),
         "agentCollaboration" => list(any()),
         "agentName" => String.t(),
-        "collaboratorConfigurations" => list(collaborator_configuration()()),
+        "collaboratorConfigurations" => list(collaborator_configuration()),
         "customerEncryptionKeyArn" => String.t(),
         "foundationModel" => String.t(),
         "guardrailConfiguration" => guardrail_configuration_with_arn(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
-        "knowledgeBases" => list(knowledge_base()()),
+        "knowledgeBases" => list(knowledge_base()),
         "promptOverrideConfiguration" => prompt_override_configuration()
       }
 
@@ -2459,7 +2459,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       get_flow_execution_response() :: %{
         "endedAt" => non_neg_integer(),
-        "errors" => list(flow_execution_error()()),
+        "errors" => list(flow_execution_error()),
         "executionArn" => String.t(),
         "flowAliasIdentifier" => String.t(),
         "flowIdentifier" => String.t(),
@@ -2488,7 +2488,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       get_agent_memory_response() :: %{
-        "memoryContents" => list(list()()),
+        "memoryContents" => list(list()),
         "nextToken" => String.t()
       }
 
@@ -2599,7 +2599,7 @@ defmodule AWS.BedrockAgentRuntime do
       citation_event() :: %{
         "citation" => citation(),
         "generatedResponsePart" => generated_response_part(),
-        "retrievedReferences" => list(retrieved_reference()())
+        "retrievedReferences" => list(retrieved_reference())
       }
 
   """
@@ -2623,7 +2623,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       list_flow_executions_response() :: %{
-        "flowExecutionSummaries" => list(flow_execution_summary()()),
+        "flowExecutionSummaries" => list(flow_execution_summary()),
         "nextToken" => String.t()
       }
 
@@ -2635,12 +2635,12 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       invoke_inline_agent_request() :: %{
-        optional("actionGroups") => list(agent_action_group()()),
+        optional("actionGroups") => list(agent_action_group()),
         optional("agentCollaboration") => list(any()),
         optional("agentName") => String.t(),
         optional("bedrockModelConfigurations") => inline_bedrock_model_configurations(),
-        optional("collaboratorConfigurations") => list(collaborator_configuration()()),
-        optional("collaborators") => list(collaborator()()),
+        optional("collaboratorConfigurations") => list(collaborator_configuration()),
+        optional("collaborators") => list(collaborator()),
         optional("customOrchestration") => custom_orchestration(),
         optional("customerEncryptionKeyArn") => String.t(),
         optional("enableTrace") => [boolean()],
@@ -2649,7 +2649,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("idleSessionTTLInSeconds") => integer(),
         optional("inlineSessionState") => inline_session_state(),
         optional("inputText") => String.t(),
-        optional("knowledgeBases") => list(knowledge_base()()),
+        optional("knowledgeBases") => list(knowledge_base()),
         optional("orchestrationType") => list(any()),
         optional("promptCreationConfigurations") => prompt_creation_configurations(),
         optional("promptOverrideConfiguration") => prompt_override_configuration(),
@@ -2690,7 +2690,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       rerank_response() :: %{
         "nextToken" => String.t(),
-        "results" => list(rerank_result()())
+        "results" => list(rerank_result())
       }
 
   """
@@ -2813,7 +2813,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       knowledge_base_lookup_output() :: %{
         "metadata" => metadata(),
-        "retrievedReferences" => list(retrieved_reference()())
+        "retrievedReferences" => list(retrieved_reference())
       }
 
   """
@@ -2898,9 +2898,9 @@ defmodule AWS.BedrockAgentRuntime do
 
       rerank_request() :: %{
         optional("nextToken") => String.t(),
-        required("queries") => list(rerank_query()()),
+        required("queries") => list(rerank_query()),
         required("rerankingConfiguration") => reranking_configuration(),
-        required("sources") => list(rerank_source()())
+        required("sources") => list(rerank_source())
       }
 
   """
@@ -3084,7 +3084,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("enableTrace") => [boolean()],
         optional("executionId") => String.t(),
         optional("modelPerformanceConfiguration") => model_performance_configuration(),
-        required("inputs") => list(flow_input()())
+        required("inputs") => list(flow_input())
       }
 
   """
@@ -3110,7 +3110,7 @@ defmodule AWS.BedrockAgentRuntime do
       retrieve_response() :: %{
         "guardrailAction" => list(any()),
         "nextToken" => String.t(),
-        "retrievalResults" => list(knowledge_base_retrieval_result()())
+        "retrievalResults" => list(knowledge_base_retrieval_result())
       }
 
   """
@@ -3195,7 +3195,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       inline_agent_trace_part() :: %{
-        "callerChain" => list(list()()),
+        "callerChain" => list(list()),
         "collaboratorName" => String.t(),
         "eventTime" => non_neg_integer(),
         "sessionId" => String.t(),
@@ -3252,7 +3252,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       node_output_event() :: %{
-        "fields" => list(node_output_field()()),
+        "fields" => list(node_output_field()),
         "nodeName" => String.t(),
         "timestamp" => non_neg_integer()
       }
@@ -3278,7 +3278,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       message() :: %{
-        "content" => list(list()()),
+        "content" => list(list()),
         "role" => list(any())
       }
 

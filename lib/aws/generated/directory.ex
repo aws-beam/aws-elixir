@@ -46,7 +46,7 @@ defmodule AWS.Directory do
   ## Example:
       
       list_certificates_result() :: %{
-        "CertificatesInfo" => list(certificate_info()()),
+        "CertificatesInfo" => list(certificate_info()),
         "NextToken" => String.t()
       }
       
@@ -148,7 +148,7 @@ defmodule AWS.Directory do
       create_directory_request() :: %{
         optional("Description") => String.t(),
         optional("ShortName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcSettings") => directory_vpc_settings(),
         required("Name") => String.t(),
         required("Password") => String.t(),
@@ -200,7 +200,7 @@ defmodule AWS.Directory do
       
       describe_event_topics_request() :: %{
         optional("DirectoryId") => String.t(),
-        optional("TopicNames") => list(String.t()())
+        optional("TopicNames") => list(String.t())
       }
       
   """
@@ -211,7 +211,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_ldaps_settings_result() :: %{
-        "LDAPSSettingsInfo" => list(ldaps_setting_info()()),
+        "LDAPSSettingsInfo" => list(ldaps_setting_info()),
         "NextToken" => String.t()
       }
       
@@ -224,7 +224,7 @@ defmodule AWS.Directory do
       
       update_conditional_forwarder_request() :: %{
         required("DirectoryId") => String.t(),
-        required("DnsIpAddrs") => list(String.t()()),
+        required("DnsIpAddrs") => list(String.t()),
         required("RemoteDomainName") => String.t()
       }
       
@@ -342,7 +342,7 @@ defmodule AWS.Directory do
   ## Example:
       
       create_trust_request() :: %{
-        optional("ConditionalForwarderIpAddrs") => list(String.t()()),
+        optional("ConditionalForwarderIpAddrs") => list(String.t()),
         optional("SelectiveAuth") => list(any()),
         optional("TrustType") => list(any()),
         required("DirectoryId") => String.t(),
@@ -474,7 +474,7 @@ defmodule AWS.Directory do
       
       create_conditional_forwarder_request() :: %{
         required("DirectoryId") => String.t(),
-        required("DnsIpAddrs") => list(String.t()()),
+        required("DnsIpAddrs") => list(String.t()),
         required("RemoteDomainName") => String.t()
       }
       
@@ -671,7 +671,7 @@ defmodule AWS.Directory do
   ## Example:
       
       computer() :: %{
-        "ComputerAttributes" => list(attribute()()),
+        "ComputerAttributes" => list(attribute()),
         "ComputerId" => String.t(),
         "ComputerName" => String.t()
       }
@@ -719,7 +719,7 @@ defmodule AWS.Directory do
       
       list_schema_extensions_result() :: %{
         "NextToken" => String.t(),
-        "SchemaExtensionsInfo" => list(schema_extension_info()())
+        "SchemaExtensionsInfo" => list(schema_extension_info())
       }
       
   """
@@ -742,7 +742,7 @@ defmodule AWS.Directory do
       
       add_tags_to_resource_request() :: %{
         required("ResourceId") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -824,7 +824,7 @@ defmodule AWS.Directory do
       
       describe_update_directory_result() :: %{
         "NextToken" => String.t(),
-        "UpdateActivities" => list(update_info_entry()())
+        "UpdateActivities" => list(update_info_entry())
       }
       
   """
@@ -870,7 +870,7 @@ defmodule AWS.Directory do
       
       describe_trusts_result() :: %{
         "NextToken" => String.t(),
-        "Trusts" => list(trust()())
+        "Trusts" => list(trust())
       }
       
   """
@@ -937,7 +937,7 @@ defmodule AWS.Directory do
       owner_directory_description() :: %{
         "AccountId" => String.t(),
         "DirectoryId" => String.t(),
-        "DnsIpAddrs" => list(String.t()()),
+        "DnsIpAddrs" => list(String.t()),
         "RadiusSettings" => radius_settings(),
         "RadiusStatus" => list(any()),
         "VpcSettings" => directory_vpc_settings_description()
@@ -960,7 +960,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_directories_request() :: %{
-        optional("DirectoryIds") => list(String.t()()),
+        optional("DirectoryIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1093,7 +1093,7 @@ defmodule AWS.Directory do
         "DisplayLabel" => String.t(),
         "RadiusPort" => integer(),
         "RadiusRetries" => integer(),
-        "RadiusServers" => list(String.t()()),
+        "RadiusServers" => list(String.t()),
         "RadiusTimeout" => integer(),
         "SharedSecret" => String.t(),
         "UseSameUsername" => boolean()
@@ -1128,7 +1128,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_event_topics_result() :: %{
-        "EventTopics" => list(event_topic()())
+        "EventTopics" => list(event_topic())
       }
       
   """
@@ -1244,7 +1244,7 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_vpc_settings() :: %{
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -1315,7 +1315,7 @@ defmodule AWS.Directory do
       connect_directory_request() :: %{
         optional("Description") => String.t(),
         optional("ShortName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConnectSettings") => directory_connect_settings(),
         required("Name") => String.t(),
         required("Password") => String.t(),
@@ -1330,9 +1330,9 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_vpc_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "SecurityGroupId" => String.t(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -1344,7 +1344,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_conditional_forwarders_result() :: %{
-        "ConditionalForwarders" => list(conditional_forwarder()())
+        "ConditionalForwarders" => list(conditional_forwarder())
       }
       
   """
@@ -1356,7 +1356,7 @@ defmodule AWS.Directory do
       
       describe_shared_directories_result() :: %{
         "NextToken" => String.t(),
-        "SharedDirectories" => list(shared_directory()())
+        "SharedDirectories" => list(shared_directory())
       }
       
   """
@@ -1367,7 +1367,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_client_authentication_settings_result() :: %{
-        "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()()),
+        "ClientAuthenticationSettingsInfo" => list(client_authentication_setting_info()),
         "NextToken" => String.t()
       }
       
@@ -1408,7 +1408,7 @@ defmodule AWS.Directory do
         "Description" => String.t(),
         "DesiredNumberOfDomainControllers" => integer(),
         "DirectoryId" => String.t(),
-        "DnsIpAddrs" => list(String.t()()),
+        "DnsIpAddrs" => list(String.t()),
         "Edition" => list(any()),
         "LaunchTime" => non_neg_integer(),
         "Name" => String.t(),
@@ -1481,7 +1481,7 @@ defmodule AWS.Directory do
       add_ip_routes_request() :: %{
         optional("UpdateSecurityGroupForDirectoryControllers") => boolean(),
         required("DirectoryId") => String.t(),
-        required("IpRoutes") => list(ip_route()())
+        required("IpRoutes") => list(ip_route())
       }
       
   """
@@ -1492,7 +1492,7 @@ defmodule AWS.Directory do
   ## Example:
       
       conditional_forwarder() :: %{
-        "DnsIpAddrs" => list(String.t()()),
+        "DnsIpAddrs" => list(String.t()),
         "RemoteDomainName" => String.t(),
         "ReplicationScope" => list(any())
       }
@@ -1515,7 +1515,7 @@ defmodule AWS.Directory do
       
       update_settings_request() :: %{
         required("DirectoryId") => String.t(),
-        required("Settings") => list(setting()())
+        required("Settings") => list(setting())
       }
       
   """
@@ -1552,7 +1552,7 @@ defmodule AWS.Directory do
       
       describe_snapshots_result() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -1563,7 +1563,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_directories_result() :: %{
-        "DirectoryDescriptions" => list(directory_description()()),
+        "DirectoryDescriptions" => list(directory_description()),
         "NextToken" => String.t()
       }
       
@@ -1587,7 +1587,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_domain_controllers_result() :: %{
-        "DomainControllers" => list(domain_controller()()),
+        "DomainControllers" => list(domain_controller()),
         "NextToken" => String.t()
       }
       
@@ -1600,7 +1600,7 @@ defmodule AWS.Directory do
       
       remove_tags_from_resource_request() :: %{
         required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1691,7 +1691,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_conditional_forwarders_request() :: %{
-        optional("RemoteDomainNames") => list(String.t()()),
+        optional("RemoteDomainNames") => list(String.t()),
         required("DirectoryId") => String.t()
       }
       
@@ -1706,7 +1706,7 @@ defmodule AWS.Directory do
         optional("DirectoryId") => String.t(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("TrustIds") => list(String.t()())
+        optional("TrustIds") => list(String.t())
       }
       
   """
@@ -1775,7 +1775,7 @@ defmodule AWS.Directory do
       
       list_tags_for_resource_result() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1839,7 +1839,7 @@ defmodule AWS.Directory do
   ## Example:
       
       list_ip_routes_result() :: %{
-        "IpRoutesInfo" => list(ip_route_info()()),
+        "IpRoutesInfo" => list(ip_route_info()),
         "NextToken" => String.t()
       }
       
@@ -1924,7 +1924,7 @@ defmodule AWS.Directory do
       describe_shared_directories_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("SharedDirectoryIds") => list(String.t()()),
+        optional("SharedDirectoryIds") => list(String.t()),
         required("OwnerDirectoryId") => String.t()
       }
       
@@ -2028,7 +2028,7 @@ defmodule AWS.Directory do
   ## Example:
       
       list_log_subscriptions_result() :: %{
-        "LogSubscriptions" => list(log_subscription()()),
+        "LogSubscriptions" => list(log_subscription()),
         "NextToken" => String.t()
       }
       
@@ -2101,7 +2101,7 @@ defmodule AWS.Directory do
       describe_settings_result() :: %{
         "DirectoryId" => String.t(),
         "NextToken" => String.t(),
-        "SettingEntries" => list(setting_entry()())
+        "SettingEntries" => list(setting_entry())
       }
       
   """
@@ -2124,7 +2124,7 @@ defmodule AWS.Directory do
   ## Example:
       
       remove_ip_routes_request() :: %{
-        required("CidrIps") => list(String.t()()),
+        required("CidrIps") => list(String.t()),
         required("DirectoryId") => String.t()
       }
       
@@ -2175,7 +2175,7 @@ defmodule AWS.Directory do
         optional("DirectoryId") => String.t(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("SnapshotIds") => list(String.t()())
+        optional("SnapshotIds") => list(String.t())
       }
       
   """
@@ -2289,11 +2289,11 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_connect_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "ConnectIps" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "ConnectIps" => list(String.t()),
         "CustomerUserName" => String.t(),
         "SecurityGroupId" => String.t(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -2357,7 +2357,7 @@ defmodule AWS.Directory do
         optional("Description") => String.t(),
         optional("Edition") => list(any()),
         optional("ShortName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("Password") => String.t(),
         required("VpcSettings") => directory_vpc_settings()
@@ -2372,7 +2372,7 @@ defmodule AWS.Directory do
       
       describe_regions_result() :: %{
         "NextToken" => String.t(),
-        "RegionsDescription" => list(region_description()())
+        "RegionsDescription" => list(region_description())
       }
       
   """
@@ -2426,7 +2426,7 @@ defmodule AWS.Directory do
   ## Example:
       
       regions_info() :: %{
-        "AdditionalRegions" => list(String.t()()),
+        "AdditionalRegions" => list(String.t()),
         "PrimaryRegion" => String.t()
       }
       
@@ -2474,7 +2474,7 @@ defmodule AWS.Directory do
   ## Example:
       
       create_computer_request() :: %{
-        optional("ComputerAttributes") => list(attribute()()),
+        optional("ComputerAttributes") => list(attribute()),
         optional("OrganizationalUnitDistinguishedName") => String.t(),
         required("ComputerName") => String.t(),
         required("DirectoryId") => String.t(),
@@ -2524,9 +2524,9 @@ defmodule AWS.Directory do
   ## Example:
       
       directory_connect_settings() :: %{
-        "CustomerDnsIps" => list(String.t()()),
+        "CustomerDnsIps" => list(String.t()),
         "CustomerUserName" => String.t(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -2562,7 +2562,7 @@ defmodule AWS.Directory do
   ## Example:
       
       describe_domain_controllers_request() :: %{
-        optional("DomainControllerIds") => list(String.t()()),
+        optional("DomainControllerIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         required("DirectoryId") => String.t()
@@ -3191,7 +3191,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, accept_shared_directory_errors()}
   def accept_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptSharedDirectory", input, options)
   end
@@ -3219,7 +3220,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_ip_routes_errors()}
   def add_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddIpRoutes", input, options)
   end
@@ -3233,7 +3235,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_region_errors()}
   def add_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRegion", input, options)
   end
@@ -3252,7 +3255,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3273,7 +3277,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, cancel_schema_extension_errors()}
   def cancel_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSchemaExtension", input, options)
   end
@@ -3293,7 +3298,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, connect_directory_errors()}
   def connect_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConnectDirectory", input, options)
   end
@@ -3314,7 +3320,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -3328,7 +3335,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_computer_errors()}
   def create_computer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputer", input, options)
   end
@@ -3348,7 +3356,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_conditional_forwarder_errors()}
   def create_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConditionalForwarder", input, options)
   end
@@ -3371,7 +3380,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_directory_errors()}
   def create_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectory", input, options)
   end
@@ -3388,7 +3398,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_log_subscription_errors()}
   def create_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLogSubscription", input, options)
   end
@@ -3411,7 +3422,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_microsoft_ad_errors()}
   def create_microsoft_ad(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMicrosoftAD", input, options)
   end
@@ -3428,7 +3440,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -3456,7 +3469,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, create_trust_errors()}
   def create_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrust", input, options)
   end
@@ -3472,7 +3486,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_conditional_forwarder_errors()}
   def delete_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConditionalForwarder", input, options)
   end
@@ -3492,7 +3507,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_directory_errors()}
   def delete_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectory", input, options)
   end
@@ -3506,7 +3522,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_log_subscription_errors()}
   def delete_log_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLogSubscription", input, options)
   end
@@ -3520,7 +3537,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -3536,7 +3554,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, delete_trust_errors()}
   def delete_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrust", input, options)
   end
@@ -3552,7 +3571,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, deregister_certificate_errors()}
   def deregister_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterCertificate", input, options)
   end
@@ -3567,7 +3587,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, deregister_event_topic_errors()}
   def deregister_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEventTopic", input, options)
   end
@@ -3582,7 +3603,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
@@ -3607,7 +3629,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_client_authentication_settings_errors()}
   def describe_client_authentication_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientAuthenticationSettings", input, options)
   end
@@ -3625,7 +3648,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_conditional_forwarders_errors()}
   def describe_conditional_forwarders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConditionalForwarders", input, options)
   end
@@ -3653,7 +3677,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_directories_errors()}
   def describe_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectories", input, options)
   end
@@ -3669,7 +3694,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_directory_data_access_errors()}
   def describe_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectoryDataAccess", input, options)
   end
@@ -3683,7 +3709,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_domain_controllers_errors()}
   def describe_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainControllers", input, options)
   end
@@ -3703,7 +3730,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_event_topics_errors()}
   def describe_event_topics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTopics", input, options)
   end
@@ -3717,7 +3745,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_ldaps_settings_errors()}
   def describe_ldaps_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLDAPSSettings", input, options)
   end
@@ -3732,7 +3761,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_regions_errors()}
   def describe_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegions", input, options)
   end
@@ -3747,7 +3777,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_settings_errors()}
   def describe_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSettings", input, options)
   end
@@ -3761,7 +3792,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_shared_directories_errors()}
   def describe_shared_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSharedDirectories", input, options)
   end
@@ -3784,7 +3816,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -3802,7 +3835,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_trusts_errors()}
   def describe_trusts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrusts", input, options)
   end
@@ -3816,7 +3850,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, describe_update_directory_errors()}
   def describe_update_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUpdateDirectory", input, options)
   end
@@ -3830,7 +3865,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_client_authentication_errors()}
   def disable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableClientAuthentication", input, options)
   end
@@ -3849,7 +3885,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_directory_data_access_errors()}
   def disable_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableDirectoryDataAccess", input, options)
   end
@@ -3863,7 +3900,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_ldaps_errors()}
   def disable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableLDAPS", input, options)
   end
@@ -3879,7 +3917,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_radius_errors()}
   def disable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableRadius", input, options)
   end
@@ -3893,7 +3932,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, disable_sso_errors()}
   def disable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSso", input, options)
   end
@@ -3907,7 +3947,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_client_authentication_errors()}
   def enable_client_authentication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableClientAuthentication", input, options)
   end
@@ -3925,7 +3966,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_directory_data_access_errors()}
   def enable_directory_data_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableDirectoryDataAccess", input, options)
   end
@@ -3939,7 +3981,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_ldaps_errors()}
   def enable_ldaps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableLDAPS", input, options)
   end
@@ -3955,7 +3998,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_radius_errors()}
   def enable_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableRadius", input, options)
   end
@@ -3974,7 +4018,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, enable_sso_errors()}
   def enable_sso(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSso", input, options)
   end
@@ -3988,7 +4033,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, get_directory_limits_errors()}
   def get_directory_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDirectoryLimits", input, options)
   end
@@ -4002,7 +4048,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, get_snapshot_limits_errors()}
   def get_snapshot_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshotLimits", input, options)
   end
@@ -4018,7 +4065,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -4032,7 +4080,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_ip_routes_errors()}
   def list_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIpRoutes", input, options)
   end
@@ -4046,7 +4095,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_log_subscriptions_errors()}
   def list_log_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLogSubscriptions", input, options)
   end
@@ -4060,7 +4110,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_schema_extensions_errors()}
   def list_schema_extensions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaExtensions", input, options)
   end
@@ -4074,7 +4125,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4088,7 +4140,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, register_certificate_errors()}
   def register_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCertificate", input, options)
   end
@@ -4111,7 +4164,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, register_event_topic_errors()}
   def register_event_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEventTopic", input, options)
   end
@@ -4126,7 +4180,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, reject_shared_directory_errors()}
   def reject_shared_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectSharedDirectory", input, options)
   end
@@ -4140,7 +4195,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_ip_routes_errors()}
   def remove_ip_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveIpRoutes", input, options)
   end
@@ -4159,7 +4215,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_region_errors()}
   def remove_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRegion", input, options)
   end
@@ -4173,7 +4230,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -4212,7 +4270,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, reset_user_password_errors()}
   def reset_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetUserPassword", input, options)
   end
@@ -4237,7 +4296,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, restore_from_snapshot_errors()}
   def restore_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromSnapshot", input, options)
   end
@@ -4275,7 +4335,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, share_directory_errors()}
   def share_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ShareDirectory", input, options)
   end
@@ -4289,7 +4350,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, start_schema_extension_errors()}
   def start_schema_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSchemaExtension", input, options)
   end
@@ -4303,7 +4365,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, unshare_directory_errors()}
   def unshare_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnshareDirectory", input, options)
   end
@@ -4319,7 +4382,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_conditional_forwarder_errors()}
   def update_conditional_forwarder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConditionalForwarder", input, options)
   end
@@ -4333,7 +4397,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_directory_setup_errors()}
   def update_directory_setup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectorySetup", input, options)
   end
@@ -4360,7 +4425,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_number_of_domain_controllers_errors()}
   def update_number_of_domain_controllers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNumberOfDomainControllers", input, options)
   end
@@ -4376,7 +4442,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_radius_errors()}
   def update_radius(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRadius", input, options)
   end
@@ -4390,7 +4457,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_settings_errors()}
   def update_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSettings", input, options)
   end
@@ -4406,7 +4474,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, update_trust_errors()}
   def update_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrust", input, options)
   end
@@ -4426,7 +4495,8 @@ defmodule AWS.Directory do
           | {:error, term()}
           | {:error, verify_trust_errors()}
   def verify_trust(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyTrust", input, options)
   end

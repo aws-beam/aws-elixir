@@ -48,7 +48,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       common_control_filter() :: %{
-        "Objectives" => list(objective_resource_filter()())
+        "Objectives" => list(objective_resource_filter())
       }
 
   """
@@ -59,7 +59,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       list_control_mappings_response() :: %{
-        "ControlMappings" => list(control_mapping()()),
+        "ControlMappings" => list(control_mapping()),
         "NextToken" => String.t()
       }
 
@@ -87,7 +87,7 @@ defmodule AWS.ControlCatalog do
 
       list_objectives_response() :: %{
         "NextToken" => String.t(),
-        "Objectives" => list(objective_summary()())
+        "Objectives" => list(objective_summary())
       }
 
   """
@@ -125,8 +125,8 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       control_mapping_filter() :: %{
-        "CommonControlArns" => list(String.t()()),
-        "ControlArns" => list(String.t()()),
+        "CommonControlArns" => list(String.t()),
+        "ControlArns" => list(String.t()),
         "MappingTypes" => list(list(any())())
       }
 
@@ -138,7 +138,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       list_controls_response() :: %{
-        "Controls" => list(control_summary()()),
+        "Controls" => list(control_summary()),
         "NextToken" => String.t()
       }
 
@@ -174,7 +174,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       list_domains_response() :: %{
-        "Domains" => list(domain_summary()()),
+        "Domains" => list(domain_summary()),
         "NextToken" => String.t()
       }
 
@@ -210,12 +210,12 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       control_summary() :: %{
-        "Aliases" => list(String.t()()),
+        "Aliases" => list(String.t()),
         "Arn" => String.t(),
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
         "Description" => [String.t()],
-        "GovernedResources" => list(String.t()()),
+        "GovernedResources" => list(String.t()),
         "Implementation" => implementation_summary(),
         "Name" => [String.t()],
         "Severity" => list(any())
@@ -241,7 +241,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       list_common_controls_response() :: %{
-        "CommonControls" => list(common_control_summary()()),
+        "CommonControls" => list(common_control_summary()),
         "NextToken" => String.t()
       }
 
@@ -276,7 +276,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       region_configuration() :: %{
-        "DeployableRegions" => list(String.t()()),
+        "DeployableRegions" => list(String.t()),
         "Scope" => list(any())
       }
 
@@ -324,7 +324,7 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       objective_filter() :: %{
-        "Domains" => list(domain_resource_filter()())
+        "Domains" => list(domain_resource_filter())
       }
 
   """
@@ -381,8 +381,8 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       implementation_filter() :: %{
-        "Identifiers" => list(String.t()()),
-        "Types" => list(String.t()())
+        "Identifiers" => list(String.t()),
+        "Types" => list(String.t())
       }
 
   """
@@ -404,15 +404,15 @@ defmodule AWS.ControlCatalog do
   ## Example:
 
       get_control_response() :: %{
-        "Aliases" => list(String.t()()),
+        "Aliases" => list(String.t()),
         "Arn" => String.t(),
         "Behavior" => list(any()),
         "CreateTime" => [non_neg_integer()],
         "Description" => [String.t()],
-        "GovernedResources" => list(String.t()()),
+        "GovernedResources" => list(String.t()),
         "Implementation" => implementation_details(),
         "Name" => [String.t()],
-        "Parameters" => list(control_parameter()()),
+        "Parameters" => list(control_parameter()),
         "RegionConfiguration" => region_configuration(),
         "Severity" => list(any())
       }

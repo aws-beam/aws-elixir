@@ -77,7 +77,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_events_for_organization_response() :: %{
-        "events" => list(organization_event()()),
+        "events" => list(organization_event()),
         "nextToken" => String.t()
       }
       
@@ -113,16 +113,16 @@ defmodule AWS.Health do
   ## Example:
       
       organization_event_filter() :: %{
-        "awsAccountIds" => list(String.t()()),
+        "awsAccountIds" => list(String.t()),
         "endTime" => date_time_range(),
-        "entityArns" => list(String.t()()),
-        "entityValues" => list(String.t()()),
+        "entityArns" => list(String.t()),
+        "entityValues" => list(String.t()),
         "eventStatusCodes" => list(list(any())()),
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t()()),
+        "eventTypeCodes" => list(String.t()),
         "lastUpdatedTime" => date_time_range(),
-        "regions" => list(String.t()()),
-        "services" => list(String.t()()),
+        "regions" => list(String.t()),
+        "services" => list(String.t()),
         "startTime" => date_time_range()
       }
       
@@ -135,7 +135,7 @@ defmodule AWS.Health do
       
       describe_event_details_for_organization_request() :: %{
         optional("locale") => String.t(),
-        required("organizationEventDetailFilters") => list(event_account_filter()())
+        required("organizationEventDetailFilters") => list(event_account_filter())
       }
       
   """
@@ -146,7 +146,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_affected_accounts_for_organization_response() :: %{
-        "affectedAccounts" => list(String.t()()),
+        "affectedAccounts" => list(String.t()),
         "eventScopeCode" => list(any()),
         "nextToken" => String.t()
       }
@@ -189,7 +189,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_response() :: %{
-        "entityAggregates" => list(entity_aggregate()())
+        "entityAggregates" => list(entity_aggregate())
       }
       
   """
@@ -241,12 +241,12 @@ defmodule AWS.Health do
   ## Example:
       
       entity_filter() :: %{
-        "entityArns" => list(String.t()()),
-        "entityValues" => list(String.t()()),
-        "eventArns" => list(String.t()()),
-        "lastUpdatedTimes" => list(date_time_range()()),
+        "entityArns" => list(String.t()),
+        "entityValues" => list(String.t()),
+        "eventArns" => list(String.t()),
+        "lastUpdatedTimes" => list(date_time_range()),
         "statusCodes" => list(list(any())()),
-        "tags" => list(map()())
+        "tags" => list(map())
       }
       
   """
@@ -271,8 +271,8 @@ defmodule AWS.Health do
         optional("locale") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("organizationEntityAccountFilters") => list(entity_account_filter()()),
-        optional("organizationEntityFilters") => list(event_account_filter()())
+        optional("organizationEntityAccountFilters") => list(entity_account_filter()),
+        optional("organizationEntityFilters") => list(event_account_filter())
       }
       
   """
@@ -283,8 +283,8 @@ defmodule AWS.Health do
   ## Example:
       
       describe_affected_entities_for_organization_response() :: %{
-        "entities" => list(affected_entity()()),
-        "failedSet" => list(organization_affected_entities_error_item()()),
+        "entities" => list(affected_entity()),
+        "failedSet" => list(organization_affected_entities_error_item()),
         "nextToken" => String.t()
       }
       
@@ -308,7 +308,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_for_organization_response() :: %{
-        "organizationEntityAggregates" => list(organization_entity_aggregate()())
+        "organizationEntityAggregates" => list(organization_entity_aggregate())
       }
       
   """
@@ -319,8 +319,8 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_for_organization_request() :: %{
-        optional("awsAccountIds") => list(String.t()()),
-        required("eventArns") => list(String.t()())
+        optional("awsAccountIds") => list(String.t()),
+        required("eventArns") => list(String.t())
       }
       
   """
@@ -332,7 +332,7 @@ defmodule AWS.Health do
       
       describe_event_details_request() :: %{
         optional("locale") => String.t(),
-        required("eventArns") => list(String.t()())
+        required("eventArns") => list(String.t())
       }
       
   """
@@ -343,7 +343,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_event_types_response() :: %{
-        "eventTypes" => list(event_type()()),
+        "eventTypes" => list(event_type()),
         "nextToken" => String.t()
       }
       
@@ -355,7 +355,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_request() :: %{
-        optional("eventArns") => list(String.t()())
+        optional("eventArns") => list(String.t())
       }
       
   """
@@ -379,7 +379,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_affected_entities_response() :: %{
-        "entities" => list(affected_entity()()),
+        "entities" => list(affected_entity()),
         "nextToken" => String.t()
       }
       
@@ -402,7 +402,7 @@ defmodule AWS.Health do
   ## Example:
       
       organization_entity_aggregate() :: %{
-        "accounts" => list(account_entity_aggregate()()),
+        "accounts" => list(account_entity_aggregate()),
         "count" => integer(),
         "eventArn" => String.t(),
         "statuses" => map()
@@ -468,19 +468,19 @@ defmodule AWS.Health do
   ## Example:
       
       event_filter() :: %{
-        "availabilityZones" => list(String.t()()),
-        "endTimes" => list(date_time_range()()),
-        "entityArns" => list(String.t()()),
-        "entityValues" => list(String.t()()),
-        "eventArns" => list(String.t()()),
+        "availabilityZones" => list(String.t()),
+        "endTimes" => list(date_time_range()),
+        "entityArns" => list(String.t()),
+        "entityValues" => list(String.t()),
+        "eventArns" => list(String.t()),
         "eventStatusCodes" => list(list(any())()),
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t()()),
-        "lastUpdatedTimes" => list(date_time_range()()),
-        "regions" => list(String.t()()),
-        "services" => list(String.t()()),
-        "startTimes" => list(date_time_range()()),
-        "tags" => list(map()())
+        "eventTypeCodes" => list(String.t()),
+        "lastUpdatedTimes" => list(date_time_range()),
+        "regions" => list(String.t()),
+        "services" => list(String.t()),
+        "startTimes" => list(date_time_range()),
+        "tags" => list(map())
       }
       
   """
@@ -554,7 +554,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_event_aggregates_response() :: %{
-        "eventAggregates" => list(event_aggregate()()),
+        "eventAggregates" => list(event_aggregate()),
         "nextToken" => String.t()
       }
       
@@ -578,8 +578,8 @@ defmodule AWS.Health do
       
       event_type_filter() :: %{
         "eventTypeCategories" => list(list(any())()),
-        "eventTypeCodes" => list(String.t()()),
-        "services" => list(String.t()())
+        "eventTypeCodes" => list(String.t()),
+        "services" => list(String.t())
       }
       
   """
@@ -590,8 +590,8 @@ defmodule AWS.Health do
   ## Example:
       
       describe_event_details_for_organization_response() :: %{
-        "failedSet" => list(organization_event_details_error_item()()),
-        "successfulSet" => list(organization_event_details()())
+        "failedSet" => list(organization_event_details_error_item()),
+        "successfulSet" => list(organization_event_details())
       }
       
   """
@@ -649,8 +649,8 @@ defmodule AWS.Health do
   ## Example:
       
       describe_event_details_response() :: %{
-        "failedSet" => list(event_details_error_item()()),
-        "successfulSet" => list(event_details()())
+        "failedSet" => list(event_details_error_item()),
+        "successfulSet" => list(event_details())
       }
       
   """
@@ -686,7 +686,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_events_response() :: %{
-        "events" => list(event()()),
+        "events" => list(event()),
         "nextToken" => String.t()
       }
       
@@ -774,7 +774,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_affected_accounts_for_organization_errors()}
   def describe_affected_accounts_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAffectedAccountsForOrganization", input, options)
   end
@@ -809,7 +810,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_affected_entities_errors()}
   def describe_affected_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAffectedEntities", input, options)
   end
@@ -852,7 +854,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_affected_entities_for_organization_errors()}
   def describe_affected_entities_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAffectedEntitiesForOrganization", input, options)
   end
@@ -866,7 +869,8 @@ defmodule AWS.Health do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_entity_aggregates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntityAggregates", input, options)
   end
@@ -884,7 +888,8 @@ defmodule AWS.Health do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_entity_aggregates_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntityAggregatesForOrganization", input, options)
   end
@@ -906,7 +911,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_event_aggregates_errors()}
   def describe_event_aggregates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventAggregates", input, options)
   end
@@ -938,7 +944,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_event_details_errors()}
   def describe_event_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventDetails", input, options)
   end
@@ -996,7 +1003,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_event_details_for_organization_errors()}
   def describe_event_details_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventDetailsForOrganization", input, options)
   end
@@ -1024,7 +1032,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_event_types_errors()}
   def describe_event_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTypes", input, options)
   end
@@ -1068,7 +1077,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -1121,7 +1131,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, describe_events_for_organization_errors()}
   def describe_events_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventsForOrganization", input, options)
   end
@@ -1139,7 +1150,8 @@ defmodule AWS.Health do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_health_service_status_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1182,7 +1194,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, disable_health_service_access_for_organization_errors()}
   def disable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1233,7 +1246,8 @@ defmodule AWS.Health do
           | {:error, term()}
           | {:error, enable_health_service_access_for_organization_errors()}
   def enable_health_service_access_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableHealthServiceAccessForOrganization", input, options)
   end

@@ -83,8 +83,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_update_bill_scenario_commitment_modification_response() :: %{
-        "errors" => list(batch_update_bill_scenario_commitment_modification_error()()),
-        "items" => list(bill_scenario_commitment_modification_item()())
+        "errors" => list(batch_update_bill_scenario_commitment_modification_error()),
+        "items" => list(bill_scenario_commitment_modification_item())
       }
       
   """
@@ -108,7 +108,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_workload_estimate_usage_response() :: %{
-        "items" => list(workload_estimate_usage_item()()),
+        "items" => list(workload_estimate_usage_item()),
         "nextToken" => String.t()
       }
       
@@ -122,7 +122,7 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_scenarios_request() :: %{
         optional("createdAtFilter") => filter_timestamp(),
         optional("expiresAtFilter") => filter_timestamp(),
-        optional("filters") => list(list_bill_scenarios_filter()()),
+        optional("filters") => list(list_bill_scenarios_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -135,7 +135,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_input_usage_modifications_request() :: %{
-        optional("filters") => list(list_usage_filter()()),
+        optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("billEstimateId") => String.t()
@@ -179,8 +179,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_update_bill_scenario_usage_modification_response() :: %{
-        "errors" => list(batch_update_bill_scenario_usage_modification_error()()),
-        "items" => list(bill_scenario_usage_modification_item()())
+        "errors" => list(batch_update_bill_scenario_usage_modification_error()),
+        "items" => list(bill_scenario_usage_modification_item())
       }
       
   """
@@ -286,7 +286,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_line_items_request() :: %{
-        optional("filters") => list(list_bill_estimate_line_items_filter()()),
+        optional("filters") => list(list_bill_estimate_line_items_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("billEstimateId") => String.t()
@@ -314,7 +314,7 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_create_workload_estimate_usage_request() :: %{
         optional("clientToken") => String.t(),
-        required("usage") => list(batch_create_workload_estimate_usage_entry()()),
+        required("usage") => list(batch_create_workload_estimate_usage_entry()),
         required("workloadEstimateId") => String.t()
       }
       
@@ -342,8 +342,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_create_workload_estimate_usage_response() :: %{
-        "errors" => list(batch_create_workload_estimate_usage_error()()),
-        "items" => list(batch_create_workload_estimate_usage_item()())
+        "errors" => list(batch_create_workload_estimate_usage_error()),
+        "items" => list(batch_create_workload_estimate_usage_item())
       }
       
   """
@@ -367,7 +367,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_workload_estimates_response() :: %{
-        "items" => list(workload_estimate_summary()()),
+        "items" => list(workload_estimate_summary()),
         "nextToken" => String.t()
       }
       
@@ -394,7 +394,7 @@ defmodule AWS.BCMPricingCalculator do
       list_bill_estimates_request() :: %{
         optional("createdAtFilter") => filter_timestamp(),
         optional("expiresAtFilter") => filter_timestamp(),
-        optional("filters") => list(list_bill_estimates_filter()()),
+        optional("filters") => list(list_bill_estimates_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -425,7 +425,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_scenario_commitment_modifications_response() :: %{
-        "items" => list(bill_scenario_commitment_modification_item()()),
+        "items" => list(bill_scenario_commitment_modification_item()),
         "nextToken" => String.t()
       }
       
@@ -507,7 +507,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_scenarios_response() :: %{
-        "items" => list(bill_scenario_summary()()),
+        "items" => list(bill_scenario_summary()),
         "nextToken" => String.t()
       }
       
@@ -533,7 +533,7 @@ defmodule AWS.BCMPricingCalculator do
       
       untag_resource_request() :: %{
         required("arn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -550,7 +550,7 @@ defmodule AWS.BCMPricingCalculator do
         "id" => String.t(),
         "location" => [String.t()],
         "operation" => String.t(),
-        "quantities" => list(usage_quantity()()),
+        "quantities" => list(usage_quantity()),
         "serviceCode" => String.t(),
         "usageAccountId" => String.t(),
         "usageType" => String.t()
@@ -583,7 +583,7 @@ defmodule AWS.BCMPricingCalculator do
         "id" => String.t(),
         "location" => [String.t()],
         "operation" => String.t(),
-        "quantities" => list(usage_quantity()()),
+        "quantities" => list(usage_quantity()),
         "serviceCode" => String.t(),
         "usageAccountId" => String.t(),
         "usageType" => String.t()
@@ -631,8 +631,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_update_workload_estimate_usage_response() :: %{
-        "errors" => list(batch_update_workload_estimate_usage_error()()),
-        "items" => list(workload_estimate_usage_item()())
+        "errors" => list(batch_update_workload_estimate_usage_error()),
+        "items" => list(workload_estimate_usage_item())
       }
       
   """
@@ -714,7 +714,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_line_items_response() :: %{
-        "items" => list(bill_estimate_line_item_summary()()),
+        "items" => list(bill_estimate_line_item_summary()),
         "nextToken" => String.t()
       }
       
@@ -743,7 +743,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_workload_estimate_usage_request() :: %{
-        optional("filters") => list(list_usage_filter()()),
+        optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("workloadEstimateId") => String.t()
@@ -917,7 +917,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_input_usage_modifications_response() :: %{
-        "items" => list(bill_estimate_input_usage_modification_summary()()),
+        "items" => list(bill_estimate_input_usage_modification_summary()),
         "nextToken" => String.t()
       }
       
@@ -936,7 +936,7 @@ defmodule AWS.BCMPricingCalculator do
         "key" => String.t(),
         "location" => [String.t()],
         "operation" => String.t(),
-        "quantities" => list(usage_quantity()()),
+        "quantities" => list(usage_quantity()),
         "serviceCode" => String.t(),
         "usageAccountId" => String.t(),
         "usageType" => String.t()
@@ -996,7 +996,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_delete_bill_scenario_usage_modification_response() :: %{
-        "errors" => list(batch_delete_bill_scenario_usage_modification_error()())
+        "errors" => list(batch_delete_bill_scenario_usage_modification_error())
       }
       
   """
@@ -1019,7 +1019,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_create_bill_scenario_usage_modification_entry() :: %{
-        "amounts" => list(usage_amount()()),
+        "amounts" => list(usage_amount()),
         "availabilityZone" => String.t(),
         "group" => String.t(),
         "historicalUsage" => historical_usage_entity(),
@@ -1051,7 +1051,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_update_bill_scenario_usage_modification_entry() :: %{
-        "amounts" => list(usage_amount()()),
+        "amounts" => list(usage_amount()),
         "group" => String.t(),
         "id" => String.t()
       }
@@ -1078,7 +1078,7 @@ defmodule AWS.BCMPricingCalculator do
       list_workload_estimates_request() :: %{
         optional("createdAtFilter") => filter_timestamp(),
         optional("expiresAtFilter") => filter_timestamp(),
-        optional("filters") => list(list_workload_estimates_filter()()),
+        optional("filters") => list(list_workload_estimates_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1092,7 +1092,7 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_delete_bill_scenario_usage_modification_request() :: %{
         required("billScenarioId") => String.t(),
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -1115,7 +1115,7 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_bill_scenario_commitment_modification_request() :: %{
         required("billScenarioId") => String.t(),
-        required("commitmentModifications") => list(batch_update_bill_scenario_commitment_modification_entry()())
+        required("commitmentModifications") => list(batch_update_bill_scenario_commitment_modification_entry())
       }
       
   """
@@ -1169,7 +1169,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_update_workload_estimate_usage_request() :: %{
-        required("usage") => list(batch_update_workload_estimate_usage_entry()()),
+        required("usage") => list(batch_update_workload_estimate_usage_entry()),
         required("workloadEstimateId") => String.t()
       }
       
@@ -1219,7 +1219,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_scenario_usage_modifications_response() :: %{
-        "items" => list(bill_scenario_usage_modification_item()()),
+        "items" => list(bill_scenario_usage_modification_item()),
         "nextToken" => String.t()
       }
       
@@ -1231,7 +1231,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimates_response() :: %{
-        "items" => list(bill_estimate_summary()()),
+        "items" => list(bill_estimate_summary()),
         "nextToken" => String.t()
       }
       
@@ -1244,7 +1244,7 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_update_bill_scenario_usage_modification_request() :: %{
         required("billScenarioId") => String.t(),
-        required("usageModifications") => list(batch_update_bill_scenario_usage_modification_entry()())
+        required("usageModifications") => list(batch_update_bill_scenario_usage_modification_entry())
       }
       
   """
@@ -1277,7 +1277,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_scenario_usage_modifications_request() :: %{
-        optional("filters") => list(list_usage_filter()()),
+        optional("filters") => list(list_usage_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("billScenarioId") => String.t()
@@ -1291,7 +1291,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_input_commitment_modifications_response() :: %{
-        "items" => list(bill_estimate_input_commitment_modification_summary()()),
+        "items" => list(bill_estimate_input_commitment_modification_summary()),
         "nextToken" => String.t()
       }
       
@@ -1339,8 +1339,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_create_bill_scenario_usage_modification_response() :: %{
-        "errors" => list(batch_create_bill_scenario_usage_modification_error()()),
-        "items" => list(batch_create_bill_scenario_usage_modification_item()())
+        "errors" => list(batch_create_bill_scenario_usage_modification_error()),
+        "items" => list(batch_create_bill_scenario_usage_modification_item())
       }
       
   """
@@ -1353,7 +1353,7 @@ defmodule AWS.BCMPricingCalculator do
       batch_create_bill_scenario_usage_modification_request() :: %{
         optional("clientToken") => String.t(),
         required("billScenarioId") => String.t(),
-        required("usageModifications") => list(batch_create_bill_scenario_usage_modification_entry()())
+        required("usageModifications") => list(batch_create_bill_scenario_usage_modification_entry())
       }
       
   """
@@ -1391,7 +1391,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_delete_workload_estimate_usage_request() :: %{
-        required("ids") => list(String.t()()),
+        required("ids") => list(String.t()),
         required("workloadEstimateId") => String.t()
       }
       
@@ -1403,7 +1403,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -1476,11 +1476,11 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       expression() :: %{
-        "and" => list(expression()()),
+        "and" => list(expression()),
         "costCategories" => expression_filter(),
         "dimensions" => expression_filter(),
         "not" => expression(),
-        "or" => list(expression()()),
+        "or" => list(expression()),
         "tags" => expression_filter()
       }
       
@@ -1492,7 +1492,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_delete_workload_estimate_usage_response() :: %{
-        "errors" => list(batch_delete_workload_estimate_usage_error()())
+        "errors" => list(batch_delete_workload_estimate_usage_error())
       }
       
   """
@@ -1505,7 +1505,7 @@ defmodule AWS.BCMPricingCalculator do
       batch_create_bill_scenario_commitment_modification_request() :: %{
         optional("clientToken") => String.t(),
         required("billScenarioId") => String.t(),
-        required("commitmentModifications") => list(batch_create_bill_scenario_commitment_modification_entry()())
+        required("commitmentModifications") => list(batch_create_bill_scenario_commitment_modification_entry())
       }
       
   """
@@ -1601,8 +1601,8 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_create_bill_scenario_commitment_modification_response() :: %{
-        "errors" => list(batch_create_bill_scenario_commitment_modification_error()()),
-        "items" => list(batch_create_bill_scenario_commitment_modification_item()())
+        "errors" => list(batch_create_bill_scenario_commitment_modification_error()),
+        "items" => list(batch_create_bill_scenario_commitment_modification_item())
       }
       
   """
@@ -1661,7 +1661,7 @@ defmodule AWS.BCMPricingCalculator do
       
       batch_delete_bill_scenario_commitment_modification_request() :: %{
         required("billScenarioId") => String.t(),
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -1758,7 +1758,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       batch_delete_bill_scenario_commitment_modification_response() :: %{
-        "errors" => list(batch_delete_bill_scenario_commitment_modification_error()())
+        "errors" => list(batch_delete_bill_scenario_commitment_modification_error())
       }
       
   """
@@ -1769,7 +1769,7 @@ defmodule AWS.BCMPricingCalculator do
   ## Example:
       
       list_bill_estimate_commitments_response() :: %{
-        "items" => list(bill_estimate_commitment_summary()()),
+        "items" => list(bill_estimate_commitment_summary()),
         "nextToken" => String.t()
       }
       
@@ -1927,7 +1927,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_create_bill_scenario_commitment_modification_errors()}
   def batch_create_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1957,7 +1958,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_create_bill_scenario_usage_modification_errors()}
   def batch_create_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateBillScenarioUsageModification", input, options)
   end
@@ -1981,7 +1983,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_create_workload_estimate_usage_errors()}
   def batch_create_workload_estimate_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateWorkloadEstimateUsage", input, options)
   end
@@ -2013,7 +2016,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_delete_bill_scenario_commitment_modification_errors()}
   def batch_delete_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2047,7 +2051,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_delete_bill_scenario_usage_modification_errors()}
   def batch_delete_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteBillScenarioUsageModification", input, options)
   end
@@ -2075,7 +2080,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_delete_workload_estimate_usage_errors()}
   def batch_delete_workload_estimate_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteWorkloadEstimateUsage", input, options)
   end
@@ -2102,7 +2108,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_update_bill_scenario_commitment_modification_errors()}
   def batch_update_bill_scenario_commitment_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2134,7 +2141,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_update_bill_scenario_usage_modification_errors()}
   def batch_update_bill_scenario_usage_modification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateBillScenarioUsageModification", input, options)
   end
@@ -2160,7 +2168,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, batch_update_workload_estimate_usage_errors()}
   def batch_update_workload_estimate_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateWorkloadEstimateUsage", input, options)
   end
@@ -2182,7 +2191,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, create_bill_estimate_errors()}
   def create_bill_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBillEstimate", input, options)
   end
@@ -2197,7 +2207,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, create_bill_scenario_errors()}
   def create_bill_scenario(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBillScenario", input, options)
   end
@@ -2211,7 +2222,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, create_workload_estimate_errors()}
   def create_workload_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkloadEstimate", input, options)
   end
@@ -2225,7 +2237,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, delete_bill_estimate_errors()}
   def delete_bill_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBillEstimate", input, options)
   end
@@ -2239,7 +2252,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, delete_bill_scenario_errors()}
   def delete_bill_scenario(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBillScenario", input, options)
   end
@@ -2253,7 +2267,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, delete_workload_estimate_errors()}
   def delete_workload_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkloadEstimate", input, options)
   end
@@ -2267,7 +2282,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, get_bill_estimate_errors()}
   def get_bill_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBillEstimate", input, options)
   end
@@ -2281,7 +2297,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, get_bill_scenario_errors()}
   def get_bill_scenario(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBillScenario", input, options)
   end
@@ -2295,7 +2312,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPreferences", input, options)
   end
@@ -2309,7 +2327,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, get_workload_estimate_errors()}
   def get_workload_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkloadEstimate", input, options)
   end
@@ -2323,7 +2342,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_estimate_commitments_errors()}
   def list_bill_estimate_commitments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillEstimateCommitments", input, options)
   end
@@ -2341,7 +2361,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_estimate_input_commitment_modifications_errors()}
   def list_bill_estimate_input_commitment_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2365,7 +2386,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_estimate_input_usage_modifications_errors()}
   def list_bill_estimate_input_usage_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillEstimateInputUsageModifications", input, options)
   end
@@ -2379,7 +2401,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_estimate_line_items_errors()}
   def list_bill_estimate_line_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillEstimateLineItems", input, options)
   end
@@ -2393,7 +2416,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_estimates_errors()}
   def list_bill_estimates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillEstimates", input, options)
   end
@@ -2411,7 +2435,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_scenario_commitment_modifications_errors()}
   def list_bill_scenario_commitment_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillScenarioCommitmentModifications", input, options)
   end
@@ -2429,7 +2454,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_scenario_usage_modifications_errors()}
   def list_bill_scenario_usage_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillScenarioUsageModifications", input, options)
   end
@@ -2443,7 +2469,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_bill_scenarios_errors()}
   def list_bill_scenarios(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillScenarios", input, options)
   end
@@ -2457,7 +2484,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2471,7 +2499,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_workload_estimate_usage_errors()}
   def list_workload_estimate_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkloadEstimateUsage", input, options)
   end
@@ -2485,7 +2514,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, list_workload_estimates_errors()}
   def list_workload_estimates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkloadEstimates", input, options)
   end
@@ -2499,7 +2529,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2513,7 +2544,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2527,7 +2559,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, update_bill_estimate_errors()}
   def update_bill_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBillEstimate", input, options)
   end
@@ -2541,7 +2574,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, update_bill_scenario_errors()}
   def update_bill_scenario(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBillScenario", input, options)
   end
@@ -2555,7 +2589,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePreferences", input, options)
   end
@@ -2569,7 +2604,8 @@ defmodule AWS.BCMPricingCalculator do
           | {:error, term()}
           | {:error, update_workload_estimate_errors()}
   def update_workload_estimate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkloadEstimate", input, options)
   end

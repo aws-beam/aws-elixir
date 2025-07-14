@@ -110,7 +110,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t()())
+        required("PhoneNumberIds") => list(String.t())
       }
 
   """
@@ -132,7 +132,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_update_user_response() :: %{
-        "UserErrors" => list(user_error()())
+        "UserErrors" => list(user_error())
       }
 
   """
@@ -143,7 +143,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_create_room_membership_response() :: %{
-        "Errors" => list(member_error()())
+        "Errors" => list(member_error())
       }
 
   """
@@ -176,7 +176,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_update_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -217,7 +217,7 @@ defmodule AWS.Chime do
 
       list_phone_number_orders_response() :: %{
         "NextToken" => String.t(),
-        "PhoneNumberOrders" => list(phone_number_order()())
+        "PhoneNumberOrders" => list(phone_number_order())
       }
 
   """
@@ -253,7 +253,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_unsuspend_user_response() :: %{
-        "UserErrors" => list(user_error()())
+        "UserErrors" => list(user_error())
       }
 
   """
@@ -265,7 +265,7 @@ defmodule AWS.Chime do
 
       list_room_memberships_response() :: %{
         "NextToken" => String.t(),
-        "RoomMemberships" => list(room_membership()())
+        "RoomMemberships" => list(room_membership())
       }
 
   """
@@ -299,7 +299,7 @@ defmodule AWS.Chime do
   ## Example:
 
       search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t()()),
+        "E164PhoneNumbers" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -312,7 +312,7 @@ defmodule AWS.Chime do
 
       list_rooms_response() :: %{
         "NextToken" => String.t(),
-        "Rooms" => list(room()())
+        "Rooms" => list(room())
       }
 
   """
@@ -474,7 +474,7 @@ defmodule AWS.Chime do
   ## Example:
 
       phone_number() :: %{
-        "Associations" => list(phone_number_association()()),
+        "Associations" => list(phone_number_association()),
         "CallingName" => String.t(),
         "CallingNameStatus" => list(any()),
         "Capabilities" => phone_number_capabilities(),
@@ -592,7 +592,7 @@ defmodule AWS.Chime do
   ## Example:
 
       create_phone_number_order_request() :: %{
-        required("E164PhoneNumbers") => list(String.t()()),
+        required("E164PhoneNumbers") => list(String.t()),
         required("ProductType") => list(any())
       }
 
@@ -650,7 +650,7 @@ defmodule AWS.Chime do
   ## Example:
 
       list_supported_phone_number_countries_response() :: %{
-        "PhoneNumberCountries" => list(phone_number_country()())
+        "PhoneNumberCountries" => list(phone_number_country())
       }
 
   """
@@ -661,7 +661,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_create_room_membership_request() :: %{
-        required("MembershipItemList") => list(membership_item()())
+        required("MembershipItemList") => list(membership_item())
       }
 
   """
@@ -744,7 +744,7 @@ defmodule AWS.Chime do
   ## Example:
 
       list_accounts_response() :: %{
-        "Accounts" => list(account()()),
+        "Accounts" => list(account()),
         "NextToken" => String.t()
       }
 
@@ -785,7 +785,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_delete_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -856,7 +856,7 @@ defmodule AWS.Chime do
 
       list_users_response() :: %{
         "NextToken" => String.t(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
 
   """
@@ -886,7 +886,7 @@ defmodule AWS.Chime do
         "CreatedTimestamp" => non_neg_integer(),
         "DefaultLicense" => list(any()),
         "Name" => String.t(),
-        "SigninDelegateGroups" => list(signin_delegate_group()()),
+        "SigninDelegateGroups" => list(signin_delegate_group()),
         "SupportedLicenses" => list(list(any())())
       }
 
@@ -899,7 +899,7 @@ defmodule AWS.Chime do
 
       phone_number_order() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "OrderedPhoneNumbers" => list(ordered_phone_number()()),
+        "OrderedPhoneNumbers" => list(ordered_phone_number()),
         "PhoneNumberOrderId" => String.t(),
         "ProductType" => list(any()),
         "Status" => list(any()),
@@ -934,7 +934,7 @@ defmodule AWS.Chime do
   ## Example:
 
       disassociate_signin_delegate_groups_from_account_request() :: %{
-        required("GroupNames") => list(String.t()())
+        required("GroupNames") => list(String.t())
       }
 
   """
@@ -1109,7 +1109,7 @@ defmodule AWS.Chime do
   ## Example:
 
       invite_users_response() :: %{
-        "Invites" => list(invite()())
+        "Invites" => list(invite())
       }
 
   """
@@ -1129,7 +1129,7 @@ defmodule AWS.Chime do
   ## Example:
 
       list_bots_response() :: %{
-        "Bots" => list(bot()()),
+        "Bots" => list(bot()),
         "NextToken" => String.t()
       }
 
@@ -1223,7 +1223,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_suspend_user_request() :: %{
-        required("UserIdList") => list(String.t()())
+        required("UserIdList") => list(String.t())
       }
 
   """
@@ -1305,7 +1305,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_unsuspend_user_request() :: %{
-        required("UserIdList") => list(String.t()())
+        required("UserIdList") => list(String.t())
       }
 
   """
@@ -1353,7 +1353,7 @@ defmodule AWS.Chime do
 
       invite_users_request() :: %{
         optional("UserType") => list(any()),
-        required("UserEmailList") => list(String.t()())
+        required("UserEmailList") => list(String.t())
       }
 
   """
@@ -1497,7 +1497,7 @@ defmodule AWS.Chime do
 
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
-        "PhoneNumbers" => list(phone_number()())
+        "PhoneNumbers" => list(phone_number())
       }
 
   """
@@ -1562,7 +1562,7 @@ defmodule AWS.Chime do
   ## Example:
 
       associate_signin_delegate_groups_with_account_request() :: %{
-        required("SigninDelegateGroups") => list(signin_delegate_group()())
+        required("SigninDelegateGroups") => list(signin_delegate_group())
       }
 
   """
@@ -1729,7 +1729,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_suspend_user_response() :: %{
-        "UserErrors" => list(user_error()())
+        "UserErrors" => list(user_error())
       }
 
   """
@@ -1740,7 +1740,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_update_phone_number_request() :: %{
-        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
+        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
       }
 
   """
@@ -1850,7 +1850,7 @@ defmodule AWS.Chime do
   ## Example:
 
       batch_update_user_request() :: %{
-        required("UpdateUserRequestItems") => list(update_user_request_item()())
+        required("UpdateUserRequestItems") => list(update_user_request_item())
       }
 
   """

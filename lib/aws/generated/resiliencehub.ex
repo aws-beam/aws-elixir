@@ -31,7 +31,7 @@ defmodule AWS.Resiliencehub do
         "creationTime" => non_neg_integer(),
         "description" => String.t(),
         "driftStatus" => list(any()),
-        "eventSubscriptions" => list(event_subscription()()),
+        "eventSubscriptions" => list(event_subscription()),
         "lastAppComplianceEvaluationTime" => non_neg_integer(),
         "lastDriftEvaluationTime" => non_neg_integer(),
         "lastResiliencyScoreEvaluationTime" => non_neg_integer(),
@@ -54,7 +54,7 @@ defmodule AWS.Resiliencehub do
 
       batch_update_recommendation_status_request() :: %{
         required("appArn") => String.t(),
-        required("requestEntries") => list(update_recommendation_status_request_entry()())
+        required("requestEntries") => list(update_recommendation_status_request_entry())
       }
 
   """
@@ -66,7 +66,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_component_compliances_response() :: %{
         optional("nextToken") => String.t(),
-        required("componentCompliances") => list(app_component_compliance()())
+        required("componentCompliances") => list(app_component_compliance())
       }
 
   """
@@ -91,7 +91,7 @@ defmodule AWS.Resiliencehub do
 
       list_apps_response() :: %{
         optional("nextToken") => String.t(),
-        required("appSummaries") => list(app_summary()())
+        required("appSummaries") => list(app_summary())
       }
 
   """
@@ -127,7 +127,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_component_recommendations_response() :: %{
         optional("nextToken") => String.t(),
-        required("componentRecommendations") => list(component_recommendation()())
+        required("componentRecommendations") => list(component_recommendation())
       }
 
   """
@@ -184,7 +184,7 @@ defmodule AWS.Resiliencehub do
       add_draft_app_version_resource_mappings_response() :: %{
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
-        required("resourceMappings") => list(resource_mapping()())
+        required("resourceMappings") => list(resource_mapping())
       }
 
   """
@@ -199,7 +199,7 @@ defmodule AWS.Resiliencehub do
         optional("awsApplicationArn") => String.t(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("eventSubscriptions") => list(event_subscription()()),
+        optional("eventSubscriptions") => list(event_subscription()),
         optional("permissionModel") => permission_model(),
         optional("policyArn") => String.t(),
         optional("tags") => map(),
@@ -215,7 +215,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_resources_response() :: %{
         optional("nextToken") => String.t(),
-        required("physicalResources") => list(physical_resource()()),
+        required("physicalResources") => list(physical_resource()),
         required("resolutionId") => String.t()
       }
 
@@ -270,7 +270,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_versions_response() :: %{
         optional("nextToken") => String.t(),
-        required("appVersions") => list(app_version_summary()())
+        required("appVersions") => list(app_version_summary())
       }
 
   """
@@ -361,7 +361,7 @@ defmodule AWS.Resiliencehub do
       list_unsupported_app_version_resources_response() :: %{
         optional("nextToken") => String.t(),
         required("resolutionId") => String.t(),
-        required("unsupportedResources") => list(unsupported_resource()())
+        required("unsupportedResources") => list(unsupported_resource())
       }
 
   """
@@ -405,7 +405,7 @@ defmodule AWS.Resiliencehub do
         optional("clientToken") => String.t(),
         optional("resourceName") => String.t(),
         required("appArn") => String.t(),
-        required("appComponents") => list(String.t()()),
+        required("appComponents") => list(String.t()),
         required("logicalResourceId") => logical_resource_id(),
         required("physicalResourceId") => String.t(),
         required("resourceType") => String.t()
@@ -452,7 +452,7 @@ defmodule AWS.Resiliencehub do
         "optimizationType" => list(any()),
         "recommendationCompliance" => map(),
         "referenceId" => String.t(),
-        "suggestedChanges" => list(String.t()())
+        "suggestedChanges" => list(String.t())
       }
 
   """
@@ -502,10 +502,10 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       import_resources_to_draft_app_version_request() :: %{
-        optional("eksSources") => list(eks_source()()),
+        optional("eksSources") => list(eks_source()),
         optional("importStrategy") => list(any()),
-        optional("sourceArns") => list(String.t()()),
-        optional("terraformSources") => list(terraform_source()()),
+        optional("sourceArns") => list(String.t()),
+        optional("terraformSources") => list(terraform_source()),
         required("appArn") => String.t()
       }
 
@@ -544,7 +544,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       list_app_version_app_components_response() :: %{
-        optional("appComponents") => list(app_component()()),
+        optional("appComponents") => list(app_component()),
         optional("nextToken") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t()
@@ -559,8 +559,8 @@ defmodule AWS.Resiliencehub do
 
       batch_update_recommendation_status_response() :: %{
         "appArn" => String.t(),
-        "failedEntries" => list(batch_update_recommendation_status_failed_entry()()),
-        "successfulEntries" => list(batch_update_recommendation_status_successful_entry()())
+        "failedEntries" => list(batch_update_recommendation_status_failed_entry()),
+        "successfulEntries" => list(batch_update_recommendation_status_successful_entry())
       }
 
   """
@@ -667,7 +667,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -734,7 +734,7 @@ defmodule AWS.Resiliencehub do
 
       resource_errors_details() :: %{
         "hasMoreErrors" => boolean(),
-        "resourceErrors" => list(resource_error()())
+        "resourceErrors" => list(resource_error())
       }
 
   """
@@ -746,7 +746,7 @@ defmodule AWS.Resiliencehub do
 
       component_recommendation() :: %{
         "appComponentName" => String.t(),
-        "configRecommendations" => list(config_recommendation()()),
+        "configRecommendations" => list(config_recommendation()),
         "recommendationStatus" => list(any())
       }
 
@@ -758,7 +758,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       assessment_risk_recommendation() :: %{
-        "appComponents" => list(String.t()()),
+        "appComponents" => list(String.t()),
         "recommendation" => String.t(),
         "risk" => String.t()
       }
@@ -842,7 +842,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_version_resource_mappings_response() :: %{
         optional("nextToken") => String.t(),
-        required("resourceMappings") => list(resource_mapping()())
+        required("resourceMappings") => list(resource_mapping())
       }
 
   """
@@ -957,9 +957,9 @@ defmodule AWS.Resiliencehub do
 
       alarm_recommendation() :: %{
         "appComponentName" => String.t(),
-        "appComponentNames" => list(String.t()()),
+        "appComponentNames" => list(String.t()),
         "description" => String.t(),
-        "items" => list(recommendation_item()()),
+        "items" => list(recommendation_item()),
         "name" => String.t(),
         "prerequisite" => String.t(),
         "recommendationId" => String.t(),
@@ -977,7 +977,7 @@ defmodule AWS.Resiliencehub do
 
       list_recommendation_templates_response() :: %{
         optional("nextToken") => String.t(),
-        optional("recommendationTemplates") => list(recommendation_template()())
+        optional("recommendationTemplates") => list(recommendation_template())
       }
 
   """
@@ -1027,7 +1027,7 @@ defmodule AWS.Resiliencehub do
 
       accept_resource_grouping_recommendations_response() :: %{
         "appArn" => String.t(),
-        "failedEntries" => list(failed_grouping_recommendation_entry()())
+        "failedEntries" => list(failed_grouping_recommendation_entry())
       }
 
   """
@@ -1056,7 +1056,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_assessments_response() :: %{
         optional("nextToken") => String.t(),
-        required("assessmentSummaries") => list(app_assessment_summary()())
+        required("assessmentSummaries") => list(app_assessment_summary())
       }
 
   """
@@ -1092,7 +1092,7 @@ defmodule AWS.Resiliencehub do
 
       accept_resource_grouping_recommendations_request() :: %{
         required("appArn") => String.t(),
-        required("entries") => list(accept_grouping_recommendation_entry()())
+        required("entries") => list(accept_grouping_recommendation_entry())
       }
 
   """
@@ -1118,7 +1118,7 @@ defmodule AWS.Resiliencehub do
 
       add_draft_app_version_resource_mappings_request() :: %{
         required("appArn") => String.t(),
-        required("resourceMappings") => list(resource_mapping()())
+        required("resourceMappings") => list(resource_mapping())
       }
 
   """
@@ -1256,7 +1256,7 @@ defmodule AWS.Resiliencehub do
 
       list_metrics_response() :: %{
         "nextToken" => String.t(),
-        "rows" => list(list(String.t()())())
+        "rows" => list(list(String.t())())
       }
 
   """
@@ -1268,7 +1268,7 @@ defmodule AWS.Resiliencehub do
 
       list_alarm_recommendations_response() :: %{
         optional("nextToken") => String.t(),
-        required("alarmRecommendations") => list(alarm_recommendation()())
+        required("alarmRecommendations") => list(alarm_recommendation())
       }
 
   """
@@ -1367,7 +1367,7 @@ defmodule AWS.Resiliencehub do
 
       list_suggested_resiliency_policies_response() :: %{
         optional("nextToken") => String.t(),
-        required("resiliencyPolicies") => list(resiliency_policy()())
+        required("resiliencyPolicies") => list(resiliency_policy())
       }
 
   """
@@ -1470,7 +1470,7 @@ defmodule AWS.Resiliencehub do
 
       physical_resource() :: %{
         "additionalInfo" => map(),
-        "appComponents" => list(app_component()()),
+        "appComponents" => list(app_component()),
         "excluded" => boolean(),
         "logicalResourceId" => logical_resource_id(),
         "parentResourceName" => String.t(),
@@ -1524,7 +1524,7 @@ defmodule AWS.Resiliencehub do
 
       reject_resource_grouping_recommendations_request() :: %{
         required("appArn") => String.t(),
-        required("entries") => list(reject_grouping_recommendation_entry()())
+        required("entries") => list(reject_grouping_recommendation_entry())
       }
 
   """
@@ -1536,7 +1536,7 @@ defmodule AWS.Resiliencehub do
 
       list_test_recommendations_response() :: %{
         optional("nextToken") => String.t(),
-        required("testRecommendations") => list(test_recommendation()())
+        required("testRecommendations") => list(test_recommendation())
       }
 
   """
@@ -1609,7 +1609,7 @@ defmodule AWS.Resiliencehub do
 
       eks_source() :: %{
         "eksClusterArn" => String.t(),
-        "namespaces" => list(String.t()())
+        "namespaces" => list(String.t())
       }
 
   """
@@ -1634,7 +1634,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_assessment_resource_drifts_response() :: %{
         "nextToken" => String.t(),
-        "resourceDrifts" => list(resource_drift()())
+        "resourceDrifts" => list(resource_drift())
       }
 
   """
@@ -1646,7 +1646,7 @@ defmodule AWS.Resiliencehub do
 
       update_app_version_resource_request() :: %{
         optional("additionalInfo") => map(),
-        optional("appComponents") => list(String.t()()),
+        optional("appComponents") => list(String.t()),
         optional("awsAccountId") => String.t(),
         optional("awsRegion") => String.t(),
         optional("excluded") => boolean(),
@@ -1699,7 +1699,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       list_resource_grouping_recommendations_response() :: %{
-        "groupingRecommendations" => list(grouping_recommendation()()),
+        "groupingRecommendations" => list(grouping_recommendation()),
         "nextToken" => String.t()
       }
 
@@ -1734,7 +1734,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       list_app_assessment_compliance_drifts_response() :: %{
-        "complianceDrifts" => list(compliance_drift()()),
+        "complianceDrifts" => list(compliance_drift()),
         "nextToken" => String.t()
       }
 
@@ -1781,9 +1781,9 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       import_resources_to_draft_app_version_response() :: %{
-        optional("eksSources") => list(eks_source()()),
-        optional("sourceArns") => list(String.t()()),
-        optional("terraformSources") => list(terraform_source()()),
+        optional("eksSources") => list(eks_source()),
+        optional("sourceArns") => list(String.t()),
+        optional("terraformSources") => list(terraform_source()),
         required("appArn") => String.t(),
         required("appVersion") => String.t(),
         required("status") => list(any())
@@ -1825,7 +1825,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       permission_model() :: %{
-        "crossAccountRoleArns" => list(String.t()()),
+        "crossAccountRoleArns" => list(String.t()),
         "invokerRoleName" => String.t(),
         "type" => list(any())
       }
@@ -1855,7 +1855,7 @@ defmodule AWS.Resiliencehub do
 
       list_app_input_sources_response() :: %{
         optional("nextToken") => String.t(),
-        required("appInputSources") => list(app_input_source()())
+        required("appInputSources") => list(app_input_source())
       }
 
   """
@@ -1908,7 +1908,7 @@ defmodule AWS.Resiliencehub do
         optional("assessmentSchedule") => list(any()),
         optional("clearResiliencyPolicyArn") => boolean(),
         optional("description") => String.t(),
-        optional("eventSubscriptions") => list(event_subscription()()),
+        optional("eventSubscriptions") => list(event_subscription()),
         optional("permissionModel") => permission_model(),
         optional("policyArn") => String.t(),
         required("appArn") => String.t()
@@ -1953,10 +1953,10 @@ defmodule AWS.Resiliencehub do
       test_recommendation() :: %{
         "appComponentId" => String.t(),
         "appComponentName" => String.t(),
-        "dependsOnAlarms" => list(String.t()()),
+        "dependsOnAlarms" => list(String.t()),
         "description" => String.t(),
         "intent" => String.t(),
-        "items" => list(recommendation_item()()),
+        "items" => list(recommendation_item()),
         "name" => String.t(),
         "prerequisite" => String.t(),
         "recommendationId" => String.t(),
@@ -2136,7 +2136,7 @@ defmodule AWS.Resiliencehub do
         "message" => String.t(),
         "name" => String.t(),
         "needsReplacements" => boolean(),
-        "recommendationIds" => list(String.t()()),
+        "recommendationIds" => list(String.t()),
         "recommendationTemplateArn" => String.t(),
         "recommendationTypes" => list(list(any())()),
         "startTime" => non_neg_integer(),
@@ -2153,12 +2153,12 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       list_metrics_request() :: %{
-        optional("conditions") => list(condition()()),
+        optional("conditions") => list(condition()),
         optional("dataSource") => String.t(),
-        optional("fields") => list(field()()),
+        optional("fields") => list(field()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("sorts") => list(sort()())
+        optional("sorts") => list(sort())
       }
 
   """
@@ -2198,7 +2198,7 @@ defmodule AWS.Resiliencehub do
 
       list_sop_recommendations_response() :: %{
         optional("nextToken") => String.t(),
-        required("sopRecommendations") => list(sop_recommendation()())
+        required("sopRecommendations") => list(sop_recommendation())
       }
 
   """
@@ -2402,7 +2402,7 @@ defmodule AWS.Resiliencehub do
 
       list_resiliency_policies_response() :: %{
         optional("nextToken") => String.t(),
-        required("resiliencyPolicies") => list(resiliency_policy()())
+        required("resiliencyPolicies") => list(resiliency_policy())
       }
 
   """
@@ -2413,7 +2413,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       assessment_summary() :: %{
-        "riskRecommendations" => list(assessment_risk_recommendation()()),
+        "riskRecommendations" => list(assessment_risk_recommendation()),
         "summary" => String.t()
       }
 
@@ -2426,7 +2426,7 @@ defmodule AWS.Resiliencehub do
 
       reject_resource_grouping_recommendations_response() :: %{
         "appArn" => String.t(),
-        "failedEntries" => list(failed_grouping_recommendation_entry()())
+        "failedEntries" => list(failed_grouping_recommendation_entry())
       }
 
   """
@@ -2437,12 +2437,12 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       remove_draft_app_version_resource_mappings_request() :: %{
-        optional("appRegistryAppNames") => list(String.t()()),
-        optional("eksSourceNames") => list(String.t()()),
-        optional("logicalStackNames") => list(String.t()()),
-        optional("resourceGroupNames") => list(String.t()()),
-        optional("resourceNames") => list(String.t()()),
-        optional("terraformSourceNames") => list(String.t()()),
+        optional("appRegistryAppNames") => list(String.t()),
+        optional("eksSourceNames") => list(String.t()),
+        optional("logicalStackNames") => list(String.t()),
+        optional("resourceGroupNames") => list(String.t()),
+        optional("resourceNames") => list(String.t()),
+        optional("terraformSourceNames") => list(String.t()),
         required("appArn") => String.t()
       }
 
@@ -2458,7 +2458,7 @@ defmodule AWS.Resiliencehub do
         "physicalResourceId" => physical_resource_id(),
         "resourceName" => String.t(),
         "resourceType" => String.t(),
-        "sourceAppComponentIds" => list(String.t()())
+        "sourceAppComponentIds" => list(String.t())
       }
 
   """
@@ -2495,7 +2495,7 @@ defmodule AWS.Resiliencehub do
       sop_recommendation() :: %{
         "appComponentName" => String.t(),
         "description" => String.t(),
-        "items" => list(recommendation_item()()),
+        "items" => list(recommendation_item()),
         "name" => String.t(),
         "prerequisite" => String.t(),
         "recommendationId" => String.t(),
@@ -2543,7 +2543,7 @@ defmodule AWS.Resiliencehub do
         optional("bucketName") => String.t(),
         optional("clientToken") => String.t(),
         optional("format") => list(any()),
-        optional("recommendationIds") => list(String.t()()),
+        optional("recommendationIds") => list(String.t()),
         optional("recommendationTypes") => list(list(any())()),
         optional("tags") => map(),
         required("assessmentArn") => String.t(),
@@ -2574,9 +2574,9 @@ defmodule AWS.Resiliencehub do
         "creationTime" => non_neg_integer(),
         "groupingAppComponent" => grouping_app_component(),
         "groupingRecommendationId" => String.t(),
-        "recommendationReasons" => list(String.t()()),
+        "recommendationReasons" => list(String.t()),
         "rejectionReason" => list(any()),
-        "resources" => list(grouping_resource()()),
+        "resources" => list(grouping_resource()),
         "score" => float(),
         "status" => list(any())
       }
@@ -2589,7 +2589,7 @@ defmodule AWS.Resiliencehub do
   ## Example:
 
       describe_draft_app_version_resources_import_status_response() :: %{
-        optional("errorDetails") => list(error_detail()()),
+        optional("errorDetails") => list(error_detail()),
         optional("errorMessage") => String.t(),
         required("appArn") => String.t(),
         required("appVersion") => String.t(),

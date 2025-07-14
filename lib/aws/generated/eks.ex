@@ -34,7 +34,7 @@ defmodule AWS.EKS do
 
       list_nodegroups_response() :: %{
         "nextToken" => String.t(),
-        "nodegroups" => list(String.t()())
+        "nodegroups" => list(String.t())
       }
 
   """
@@ -65,7 +65,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_access_policies_response() :: %{
-        "accessPolicies" => list(access_policy()()),
+        "accessPolicies" => list(access_policy()),
         "nextToken" => String.t()
       }
 
@@ -109,7 +109,7 @@ defmodule AWS.EKS do
       addon_issue() :: %{
         "code" => list(any()),
         "message" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
 
   """
@@ -156,7 +156,7 @@ defmodule AWS.EKS do
 
       encryption_config() :: %{
         "provider" => provider(),
-        "resources" => list(String.t()())
+        "resources" => list(String.t())
       }
 
   """
@@ -168,7 +168,7 @@ defmodule AWS.EKS do
 
       update_labels_payload() :: %{
         "addOrUpdateLabels" => map(),
-        "removeLabels" => list(String.t()())
+        "removeLabels" => list(String.t())
       }
 
   """
@@ -192,7 +192,7 @@ defmodule AWS.EKS do
       outpost_config_response() :: %{
         "controlPlaneInstanceType" => String.t(),
         "controlPlanePlacement" => control_plane_placement_response(),
-        "outpostArns" => list(String.t()())
+        "outpostArns" => list(String.t())
       }
 
   """
@@ -204,7 +204,7 @@ defmodule AWS.EKS do
 
       compute_config_response() :: %{
         "enabled" => boolean(),
-        "nodePools" => list(String.t()()),
+        "nodePools" => list(String.t()),
         "nodeRoleArn" => String.t()
       }
 
@@ -218,7 +218,7 @@ defmodule AWS.EKS do
       compatibility() :: %{
         "clusterVersion" => String.t(),
         "defaultVersion" => boolean(),
-        "platformVersions" => list(String.t()())
+        "platformVersions" => list(String.t())
       }
 
   """
@@ -244,7 +244,7 @@ defmodule AWS.EKS do
         optional("capacityType") => list(any()),
         optional("clientRequestToken") => String.t(),
         optional("diskSize") => integer(),
-        optional("instanceTypes") => list(String.t()()),
+        optional("instanceTypes") => list(String.t()),
         optional("labels") => map(),
         optional("launchTemplate") => launch_template_specification(),
         optional("nodeRepairConfig") => node_repair_config(),
@@ -252,12 +252,12 @@ defmodule AWS.EKS do
         optional("remoteAccess") => remote_access_config(),
         optional("scalingConfig") => nodegroup_scaling_config(),
         optional("tags") => map(),
-        optional("taints") => list(taint()()),
+        optional("taints") => list(taint()),
         optional("updateConfig") => nodegroup_update_config(),
         optional("version") => String.t(),
         required("nodeRole") => String.t(),
         required("nodegroupName") => String.t(),
-        required("subnets") => list(String.t()())
+        required("subnets") => list(String.t())
       }
 
   """
@@ -293,7 +293,7 @@ defmodule AWS.EKS do
         "clusterName" => String.t(),
         "message" => String.t(),
         "nodegroupName" => String.t(),
-        "validZones" => list(String.t()())
+        "validZones" => list(String.t())
       }
 
   """
@@ -329,7 +329,7 @@ defmodule AWS.EKS do
   ## Example:
 
       access_scope() :: %{
-        "namespaces" => list(String.t()()),
+        "namespaces" => list(String.t()),
         "type" => list(any())
       }
 
@@ -341,7 +341,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_associated_access_policies_response() :: %{
-        "associatedAccessPolicies" => list(associated_access_policy()()),
+        "associatedAccessPolicies" => list(associated_access_policy()),
         "clusterName" => String.t(),
         "nextToken" => String.t(),
         "principalArn" => String.t()
@@ -386,8 +386,8 @@ defmodule AWS.EKS do
   ## Example:
 
       remote_network_config_request() :: %{
-        "remoteNodeNetworks" => list(remote_node_network()()),
-        "remotePodNetworks" => list(remote_pod_network()())
+        "remoteNodeNetworks" => list(remote_node_network()),
+        "remotePodNetworks" => list(remote_pod_network())
       }
 
   """
@@ -460,7 +460,7 @@ defmodule AWS.EKS do
         "addonName" => String.t(),
         "addonVersion" => String.t(),
         "configurationSchema" => String.t(),
-        "podIdentityConfiguration" => list(addon_pod_identity_configuration()())
+        "podIdentityConfiguration" => list(addon_pod_identity_configuration())
       }
 
   """
@@ -528,7 +528,7 @@ defmodule AWS.EKS do
   ## Example:
 
       addon_pod_identity_configuration() :: %{
-        "recommendedManagedPolicies" => list(String.t()()),
+        "recommendedManagedPolicies" => list(String.t()),
         "serviceAccount" => String.t()
       }
 
@@ -553,7 +553,7 @@ defmodule AWS.EKS do
 
       update_access_entry_request() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("kubernetesGroups") => list(String.t()()),
+        optional("kubernetesGroups") => list(String.t()),
         optional("username") => String.t()
       }
 
@@ -565,7 +565,7 @@ defmodule AWS.EKS do
   ## Example:
 
       addon_compatibility_detail() :: %{
-        "compatibleVersions" => list(String.t()()),
+        "compatibleVersions" => list(String.t()),
         "name" => String.t()
       }
 
@@ -583,7 +583,7 @@ defmodule AWS.EKS do
         "createdAt" => non_neg_integer(),
         "diskSize" => integer(),
         "health" => nodegroup_health(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "labels" => map(),
         "launchTemplate" => launch_template_specification(),
         "modifiedAt" => non_neg_integer(),
@@ -596,9 +596,9 @@ defmodule AWS.EKS do
         "resources" => nodegroup_resources(),
         "scalingConfig" => nodegroup_scaling_config(),
         "status" => list(any()),
-        "subnets" => list(String.t()()),
+        "subnets" => list(String.t()),
         "tags" => map(),
-        "taints" => list(taint()()),
+        "taints" => list(taint()),
         "updateConfig" => nodegroup_update_config(),
         "version" => String.t()
       }
@@ -660,7 +660,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_insights_response() :: %{
-        "insights" => list(insight_summary()()),
+        "insights" => list(insight_summary()),
         "nextToken" => String.t()
       }
 
@@ -727,7 +727,7 @@ defmodule AWS.EKS do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -796,7 +796,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_pod_identity_associations_response() :: %{
-        "associations" => list(pod_identity_association_summary()()),
+        "associations" => list(pod_identity_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -822,7 +822,7 @@ defmodule AWS.EKS do
       fargate_profile_issue() :: %{
         "code" => list(any()),
         "message" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
 
   """
@@ -834,7 +834,7 @@ defmodule AWS.EKS do
 
       compute_config_request() :: %{
         "enabled" => boolean(),
-        "nodePools" => list(String.t()()),
+        "nodePools" => list(String.t()),
         "nodeRoleArn" => String.t()
       }
 
@@ -850,9 +850,9 @@ defmodule AWS.EKS do
         optional("kubernetesVersion") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("owners") => list(String.t()()),
-        optional("publishers") => list(String.t()()),
-        optional("types") => list(String.t()())
+        optional("owners") => list(String.t()),
+        optional("publishers") => list(String.t()),
+        optional("types") => list(String.t())
       }
 
   """
@@ -873,7 +873,7 @@ defmodule AWS.EKS do
         "marketplaceInformation" => marketplace_information(),
         "modifiedAt" => non_neg_integer(),
         "owner" => String.t(),
-        "podIdentityAssociations" => list(String.t()()),
+        "podIdentityAssociations" => list(String.t()),
         "publisher" => String.t(),
         "serviceAccountRoleArn" => String.t(),
         "status" => list(any()),
@@ -888,8 +888,8 @@ defmodule AWS.EKS do
   ## Example:
 
       update_taints_payload() :: %{
-        "addOrUpdateTaints" => list(taint()()),
-        "removeTaints" => list(taint()())
+        "addOrUpdateTaints" => list(taint()),
+        "removeTaints" => list(taint())
       }
 
   """
@@ -903,7 +903,7 @@ defmodule AWS.EKS do
         "accessEntryArn" => String.t(),
         "clusterName" => String.t(),
         "createdAt" => non_neg_integer(),
-        "kubernetesGroups" => list(String.t()()),
+        "kubernetesGroups" => list(String.t()),
         "modifiedAt" => non_neg_integer(),
         "principalArn" => String.t(),
         "tags" => map(),
@@ -994,7 +994,7 @@ defmodule AWS.EKS do
         optional("bootstrapSelfManagedAddons") => boolean(),
         optional("clientRequestToken") => String.t(),
         optional("computeConfig") => compute_config_request(),
-        optional("encryptionConfig") => list(encryption_config()()),
+        optional("encryptionConfig") => list(encryption_config()),
         optional("kubernetesNetworkConfig") => kubernetes_network_config_request(),
         optional("logging") => logging(),
         optional("outpostConfig") => outpost_config_request(),
@@ -1018,9 +1018,9 @@ defmodule AWS.EKS do
 
       update() :: %{
         "createdAt" => non_neg_integer(),
-        "errors" => list(error_detail()()),
+        "errors" => list(error_detail()),
         "id" => String.t(),
-        "params" => list(update_param()()),
+        "params" => list(update_param()),
         "status" => list(any()),
         "type" => list(any())
       }
@@ -1034,7 +1034,7 @@ defmodule AWS.EKS do
 
       insights_filter() :: %{
         "categories" => list(list(any())()),
-        "kubernetesVersions" => list(String.t()()),
+        "kubernetesVersions" => list(String.t()),
         "statuses" => list(list(any())())
       }
 
@@ -1091,7 +1091,7 @@ defmodule AWS.EKS do
         optional("addonVersion") => String.t(),
         optional("clientRequestToken") => String.t(),
         optional("configurationValues") => String.t(),
-        optional("podIdentityAssociations") => list(addon_pod_identity_associations()()),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
         optional("resolveConflicts") => list(any()),
         optional("serviceAccountRoleArn") => String.t()
       }
@@ -1117,7 +1117,7 @@ defmodule AWS.EKS do
       outpost_config_request() :: %{
         "controlPlaneInstanceType" => String.t(),
         "controlPlanePlacement" => control_plane_placement_request(),
-        "outpostArns" => list(String.t()())
+        "outpostArns" => list(String.t())
       }
 
   """
@@ -1140,7 +1140,7 @@ defmodule AWS.EKS do
 
       describe_cluster_versions_request() :: %{
         optional("clusterType") => String.t(),
-        optional("clusterVersions") => list(String.t()()),
+        optional("clusterVersions") => list(String.t()),
         optional("defaultOnly") => boolean(),
         optional("includeAll") => boolean(),
         optional("maxResults") => integer(),
@@ -1157,7 +1157,7 @@ defmodule AWS.EKS do
   ## Example:
 
       deprecation_detail() :: %{
-        "clientStats" => list(client_stat()()),
+        "clientStats" => list(client_stat()),
         "replacedWith" => String.t(),
         "startServingReplacementVersion" => String.t(),
         "stopServingVersion" => String.t(),
@@ -1210,7 +1210,7 @@ defmodule AWS.EKS do
 
       associate_encryption_config_request() :: %{
         optional("clientRequestToken") => String.t(),
-        required("encryptionConfig") => list(encryption_config()())
+        required("encryptionConfig") => list(encryption_config())
       }
 
   """
@@ -1223,7 +1223,7 @@ defmodule AWS.EKS do
       issue() :: %{
         "code" => list(any()),
         "message" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
 
   """
@@ -1252,7 +1252,7 @@ defmodule AWS.EKS do
         "computeConfig" => compute_config_response(),
         "connectorConfig" => connector_config_response(),
         "createdAt" => non_neg_integer(),
-        "encryptionConfig" => list(encryption_config()()),
+        "encryptionConfig" => list(encryption_config()),
         "endpoint" => String.t(),
         "health" => cluster_health(),
         "id" => String.t(),
@@ -1307,7 +1307,7 @@ defmodule AWS.EKS do
 
       list_updates_response() :: %{
         "nextToken" => String.t(),
-        "updateIds" => list(String.t()())
+        "updateIds" => list(String.t())
       }
 
   """
@@ -1318,7 +1318,7 @@ defmodule AWS.EKS do
   ## Example:
 
       describe_addon_versions_response() :: %{
-        "addons" => list(addon_info()()),
+        "addons" => list(addon_info()),
         "nextToken" => String.t()
       }
 
@@ -1381,7 +1381,7 @@ defmodule AWS.EKS do
   ## Example:
 
       describe_cluster_versions_response() :: %{
-        "clusterVersions" => list(cluster_version_information()()),
+        "clusterVersions" => list(cluster_version_information()),
         "nextToken" => String.t()
       }
 
@@ -1393,7 +1393,7 @@ defmodule AWS.EKS do
   ## Example:
 
       fargate_profile_health() :: %{
-        "issues" => list(fargate_profile_issue()())
+        "issues" => list(fargate_profile_issue())
       }
 
   """
@@ -1407,7 +1407,7 @@ defmodule AWS.EKS do
         optional("addonVersion") => String.t(),
         optional("clientRequestToken") => String.t(),
         optional("configurationValues") => String.t(),
-        optional("podIdentityAssociations") => list(addon_pod_identity_associations()()),
+        optional("podIdentityAssociations") => list(addon_pod_identity_associations()),
         optional("resolveConflicts") => list(any()),
         optional("serviceAccountRoleArn") => String.t(),
         optional("tags") => map(),
@@ -1422,8 +1422,8 @@ defmodule AWS.EKS do
   ## Example:
 
       remote_network_config_response() :: %{
-        "remoteNodeNetworks" => list(remote_node_network()()),
-        "remotePodNetworks" => list(remote_pod_network()())
+        "remoteNodeNetworks" => list(remote_node_network()),
+        "remotePodNetworks" => list(remote_pod_network())
       }
 
   """
@@ -1511,9 +1511,9 @@ defmodule AWS.EKS do
       vpc_config_request() :: %{
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t()()),
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "publicAccessCidrs" => list(String.t()),
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -1598,7 +1598,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_clusters_response() :: %{
-        "clusters" => list(String.t()()),
+        "clusters" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -1621,7 +1621,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_fargate_profiles_response() :: %{
-        "fargateProfileNames" => list(String.t()()),
+        "fargateProfileNames" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -1699,7 +1699,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_clusters_request() :: %{
-        optional("include") => list(String.t()()),
+        optional("include") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1840,8 +1840,8 @@ defmodule AWS.EKS do
 
       create_fargate_profile_request() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("selectors") => list(fargate_profile_selector()()),
-        optional("subnets") => list(String.t()()),
+        optional("selectors") => list(fargate_profile_selector()),
+        optional("subnets") => list(String.t()),
         optional("tags") => map(),
         required("fargateProfileName") => String.t(),
         required("podExecutionRoleArn") => String.t()
@@ -1869,7 +1869,7 @@ defmodule AWS.EKS do
       error_detail() :: %{
         "errorCode" => list(any()),
         "errorMessage" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
 
   """
@@ -1909,10 +1909,10 @@ defmodule AWS.EKS do
         "effectiveDate" => non_neg_integer(),
         "expirationDate" => non_neg_integer(),
         "id" => String.t(),
-        "licenseArns" => list(String.t()()),
+        "licenseArns" => list(String.t()),
         "licenseQuantity" => integer(),
         "licenseType" => list(any()),
-        "licenses" => list(license()()),
+        "licenses" => list(license()),
         "status" => String.t(),
         "tags" => map(),
         "term" => eks_anywhere_subscription_term()
@@ -1962,7 +1962,7 @@ defmodule AWS.EKS do
   ## Example:
 
       cluster_health() :: %{
-        "issues" => list(cluster_issue()())
+        "issues" => list(cluster_issue())
       }
 
   """
@@ -1983,7 +1983,7 @@ defmodule AWS.EKS do
 
       remote_access_config() :: %{
         "ec2SshKey" => String.t(),
-        "sourceSecurityGroups" => list(String.t()())
+        "sourceSecurityGroups" => list(String.t())
       }
 
   """
@@ -1994,7 +1994,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_identity_provider_configs_response() :: %{
-        "identityProviderConfigs" => list(identity_provider_config()()),
+        "identityProviderConfigs" => list(identity_provider_config()),
         "nextToken" => String.t()
       }
 
@@ -2037,7 +2037,7 @@ defmodule AWS.EKS do
 
       create_access_entry_request() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("kubernetesGroups") => list(String.t()()),
+        optional("kubernetesGroups") => list(String.t()),
         optional("tags") => map(),
         optional("type") => String.t(),
         optional("username") => String.t(),
@@ -2085,7 +2085,7 @@ defmodule AWS.EKS do
   ## Example:
 
       addon_health() :: %{
-        "issues" => list(addon_issue()())
+        "issues" => list(addon_issue())
       }
 
   """
@@ -2130,7 +2130,7 @@ defmodule AWS.EKS do
   ## Example:
 
       nodegroup_health() :: %{
-        "issues" => list(issue()())
+        "issues" => list(issue())
       }
 
   """
@@ -2239,7 +2239,7 @@ defmodule AWS.EKS do
   ## Example:
 
       nodegroup_resources() :: %{
-        "autoScalingGroups" => list(auto_scaling_group()()),
+        "autoScalingGroups" => list(auto_scaling_group()),
         "remoteAccessSecurityGroup" => String.t()
       }
 
@@ -2297,9 +2297,9 @@ defmodule AWS.EKS do
         "fargateProfileName" => String.t(),
         "health" => fargate_profile_health(),
         "podExecutionRoleArn" => String.t(),
-        "selectors" => list(fargate_profile_selector()()),
+        "selectors" => list(fargate_profile_selector()),
         "status" => list(any()),
-        "subnets" => list(String.t()()),
+        "subnets" => list(String.t()),
         "tags" => map()
       }
 
@@ -2323,7 +2323,7 @@ defmodule AWS.EKS do
 
       addon_info() :: %{
         "addonName" => String.t(),
-        "addonVersions" => list(addon_version_info()()),
+        "addonVersions" => list(addon_version_info()),
         "marketplaceInformation" => marketplace_information(),
         "owner" => String.t(),
         "publisher" => String.t(),
@@ -2339,7 +2339,7 @@ defmodule AWS.EKS do
 
       list_eks_anywhere_subscriptions_response() :: %{
         "nextToken" => String.t(),
-        "subscriptions" => list(eks_anywhere_subscription()())
+        "subscriptions" => list(eks_anywhere_subscription())
       }
 
   """
@@ -2364,7 +2364,7 @@ defmodule AWS.EKS do
   ## Example:
 
       remote_node_network() :: %{
-        "cidrs" => list(String.t()())
+        "cidrs" => list(String.t())
       }
 
   """
@@ -2425,9 +2425,9 @@ defmodule AWS.EKS do
         "clusterSecurityGroupId" => String.t(),
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
-        "publicAccessCidrs" => list(String.t()()),
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "publicAccessCidrs" => list(String.t()),
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -2491,7 +2491,7 @@ defmodule AWS.EKS do
         "lastTransitionTime" => non_neg_integer(),
         "name" => String.t(),
         "recommendation" => String.t(),
-        "resources" => list(insight_resource_detail()())
+        "resources" => list(insight_resource_detail())
       }
 
   """
@@ -2522,7 +2522,7 @@ defmodule AWS.EKS do
   ## Example:
 
       remote_pod_network() :: %{
-        "cidrs" => list(String.t()())
+        "cidrs" => list(String.t())
       }
 
   """
@@ -2535,7 +2535,7 @@ defmodule AWS.EKS do
       cluster_issue() :: %{
         "code" => list(any()),
         "message" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
 
   """
@@ -2555,7 +2555,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_addons_response() :: %{
-        "addons" => list(String.t()()),
+        "addons" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -2567,8 +2567,8 @@ defmodule AWS.EKS do
   ## Example:
 
       insight_category_specific_summary() :: %{
-        "addonCompatibilityDetails" => list(addon_compatibility_detail()()),
-        "deprecationDetails" => list(deprecation_detail()())
+        "addonCompatibilityDetails" => list(addon_compatibility_detail()),
+        "deprecationDetails" => list(deprecation_detail())
       }
 
   """
@@ -2624,7 +2624,7 @@ defmodule AWS.EKS do
   ## Example:
 
       list_access_entries_response() :: %{
-        "accessEntries" => list(String.t()()),
+        "accessEntries" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -2700,7 +2700,7 @@ defmodule AWS.EKS do
   ## Example:
 
       logging() :: %{
-        "clusterLogging" => list(log_setup()())
+        "clusterLogging" => list(log_setup())
       }
 
   """
@@ -2808,9 +2808,9 @@ defmodule AWS.EKS do
 
       addon_version_info() :: %{
         "addonVersion" => String.t(),
-        "architecture" => list(String.t()()),
-        "compatibilities" => list(compatibility()()),
-        "computeTypes" => list(String.t()()),
+        "architecture" => list(String.t()),
+        "compatibilities" => list(compatibility()),
+        "computeTypes" => list(String.t()),
         "requiresConfiguration" => boolean(),
         "requiresIamPermissions" => boolean()
       }

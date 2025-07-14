@@ -36,7 +36,7 @@ defmodule AWS.KinesisVideo do
       create_signaling_channel_input() :: %{
         optional("ChannelType") => list(any()),
         optional("SingleMasterConfiguration") => single_master_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ChannelName") => String.t()
       }
 
@@ -174,7 +174,7 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       list_signaling_channels_output() :: %{
-        "ChannelInfoList" => list(channel_info()()),
+        "ChannelInfoList" => list(channel_info()),
         "NextToken" => String.t()
       }
 
@@ -245,7 +245,7 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       get_signaling_channel_endpoint_output() :: %{
-        "ResourceEndpointList" => list(resource_endpoint_list_item()())
+        "ResourceEndpointList" => list(resource_endpoint_list_item())
       }
 
   """
@@ -306,7 +306,7 @@ defmodule AWS.KinesisVideo do
 
       list_streams_output() :: %{
         "NextToken" => String.t(),
-        "StreamInfoList" => list(stream_info()())
+        "StreamInfoList" => list(stream_info())
       }
 
   """
@@ -398,7 +398,7 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       describe_mapped_resource_configuration_output() :: %{
-        "MappedResourceConfigurationList" => list(mapped_resource_configuration_list_item()()),
+        "MappedResourceConfigurationList" => list(mapped_resource_configuration_list_item()),
         "NextToken" => String.t()
       }
 
@@ -571,7 +571,7 @@ defmodule AWS.KinesisVideo do
 
       tag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -625,7 +625,7 @@ defmodule AWS.KinesisVideo do
   ## Example:
 
       list_edge_agent_configurations_output() :: %{
-        "EdgeConfigs" => list(list_edge_agent_configurations_edge_config()()),
+        "EdgeConfigs" => list(list_edge_agent_configurations_edge_config()),
         "NextToken" => String.t()
       }
 
@@ -824,7 +824,7 @@ defmodule AWS.KinesisVideo do
 
       untag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeyList") => list(String.t()())
+        required("TagKeyList") => list(String.t())
       }
 
   """
@@ -1178,7 +1178,7 @@ defmodule AWS.KinesisVideo do
       untag_stream_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
-        required("TagKeyList") => list(String.t()())
+        required("TagKeyList") => list(String.t())
       }
 
   """

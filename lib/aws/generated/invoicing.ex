@@ -38,7 +38,7 @@ defmodule AWS.Invoicing do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("ResourceTags") => list(resource_tag()())
+        required("ResourceTags") => list(resource_tag())
       }
       
   """
@@ -152,7 +152,7 @@ defmodule AWS.Invoicing do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("ResourceTagKeys") => list(String.t()())
+        required("ResourceTagKeys") => list(String.t())
       }
       
   """
@@ -193,7 +193,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       list_invoice_units_response() :: %{
-        "InvoiceUnits" => list(invoice_unit()()),
+        "InvoiceUnits" => list(invoice_unit()),
         "NextToken" => String.t()
       }
       
@@ -274,7 +274,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag()())
+        "ResourceTags" => list(resource_tag())
       }
       
   """
@@ -298,7 +298,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       batch_get_invoice_profile_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
       
   """
@@ -336,7 +336,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       discounts_breakdown() :: %{
-        "Breakdown" => list(discounts_breakdown_amount()()),
+        "Breakdown" => list(discounts_breakdown_amount()),
         "TotalAmount" => String.t()
       }
       
@@ -432,7 +432,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       invoice_unit_rule() :: %{
-        "LinkedAccounts" => list(String.t()())
+        "LinkedAccounts" => list(String.t())
       }
       
   """
@@ -443,7 +443,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       batch_get_invoice_profile_response() :: %{
-        "Profiles" => list(invoice_profile()())
+        "Profiles" => list(invoice_profile())
       }
       
   """
@@ -466,7 +466,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any()),
         "resourceName" => String.t()
@@ -492,7 +492,7 @@ defmodule AWS.Invoicing do
       
       create_invoice_unit_request() :: %{
         optional("Description") => String.t(),
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ResourceTags") => list(resource_tag()),
         optional("TaxInheritanceDisabled") => boolean(),
         required("InvoiceReceiver") => String.t(),
         required("Name") => String.t(),
@@ -546,9 +546,9 @@ defmodule AWS.Invoicing do
   ## Example:
       
       filters() :: %{
-        "Accounts" => list(String.t()()),
-        "InvoiceReceivers" => list(String.t()()),
-        "Names" => list(String.t()())
+        "Accounts" => list(String.t()),
+        "InvoiceReceivers" => list(String.t()),
+        "Names" => list(String.t())
       }
       
   """
@@ -559,7 +559,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       list_invoice_summaries_response() :: %{
-        "InvoiceSummaries" => list(invoice_summary()()),
+        "InvoiceSummaries" => list(invoice_summary()),
         "NextToken" => String.t()
       }
       
@@ -582,7 +582,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       fees_breakdown() :: %{
-        "Breakdown" => list(fees_breakdown_amount()()),
+        "Breakdown" => list(fees_breakdown_amount()),
         "TotalAmount" => String.t()
       }
       
@@ -637,7 +637,7 @@ defmodule AWS.Invoicing do
   ## Example:
       
       taxes_breakdown() :: %{
-        "Breakdown" => list(taxes_breakdown_amount()()),
+        "Breakdown" => list(taxes_breakdown_amount()),
         "TotalAmount" => String.t()
       }
       
@@ -741,7 +741,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, batch_get_invoice_profile_errors()}
   def batch_get_invoice_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetInvoiceProfile", input, options)
   end
@@ -755,7 +756,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, create_invoice_unit_errors()}
   def create_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInvoiceUnit", input, options)
   end
@@ -769,7 +771,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, delete_invoice_unit_errors()}
   def delete_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInvoiceUnit", input, options)
   end
@@ -783,7 +786,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, get_invoice_unit_errors()}
   def get_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInvoiceUnit", input, options)
   end
@@ -797,7 +801,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_summaries_errors()}
   def list_invoice_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInvoiceSummaries", input, options)
   end
@@ -812,7 +817,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_units_errors()}
   def list_invoice_units(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInvoiceUnits", input, options)
   end
@@ -826,7 +832,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -840,7 +847,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -854,7 +862,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -869,7 +878,8 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, update_invoice_unit_errors()}
   def update_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInvoiceUnit", input, options)
   end

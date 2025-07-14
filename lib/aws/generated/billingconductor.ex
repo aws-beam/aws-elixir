@@ -62,7 +62,7 @@ defmodule AWS.Billingconductor do
       list_pricing_rules_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
-        optional("PricingRules") => list(pricing_rule_list_element()())
+        optional("PricingRules") => list(pricing_rule_list_element())
       }
 
   """
@@ -114,7 +114,7 @@ defmodule AWS.Billingconductor do
 
       update_custom_line_item_charge_details() :: %{
         "Flat" => update_custom_line_item_flat_charge_details(),
-        "LineItemFilters" => list(line_item_filter()()),
+        "LineItemFilters" => list(line_item_filter()),
         "Percentage" => update_custom_line_item_percentage_charge_details()
       }
 
@@ -127,7 +127,7 @@ defmodule AWS.Billingconductor do
 
       disassociate_pricing_rules_input() :: %{
         required("Arn") => String.t(),
-        required("PricingRuleArns") => list(String.t()())
+        required("PricingRuleArns") => list(String.t())
       }
 
   """
@@ -178,7 +178,7 @@ defmodule AWS.Billingconductor do
       list_pricing_plans_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
-        optional("PricingPlans") => list(pricing_plan_list_element()())
+        optional("PricingPlans") => list(pricing_plan_list_element())
       }
 
   """
@@ -192,7 +192,7 @@ defmodule AWS.Billingconductor do
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
         optional("PricingPlanArn") => String.t(),
-        optional("PricingRuleArns") => list(String.t()())
+        optional("PricingRuleArns") => list(String.t())
       }
 
   """
@@ -241,7 +241,7 @@ defmodule AWS.Billingconductor do
 
       get_billing_group_cost_report_input() :: %{
         optional("BillingPeriodRange") => billing_period_range(),
-        optional("GroupBy") => list(String.t()()),
+        optional("GroupBy") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Arn") => String.t()
@@ -256,7 +256,7 @@ defmodule AWS.Billingconductor do
 
       list_custom_line_item_charge_details() :: %{
         "Flat" => list_custom_line_item_flat_charge_details(),
-        "LineItemFilters" => list(line_item_filter()()),
+        "LineItemFilters" => list(line_item_filter()),
         "Percentage" => list_custom_line_item_percentage_charge_details(),
         "Type" => String.t()
       }
@@ -387,7 +387,7 @@ defmodule AWS.Billingconductor do
 
       custom_line_item_charge_details() :: %{
         "Flat" => custom_line_item_flat_charge_details(),
-        "LineItemFilters" => list(line_item_filter()()),
+        "LineItemFilters" => list(line_item_filter()),
         "Percentage" => custom_line_item_percentage_charge_details(),
         "Type" => String.t()
       }
@@ -401,7 +401,7 @@ defmodule AWS.Billingconductor do
 
       batch_associate_resources_to_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
-        required("ResourceArns") => list(String.t()()),
+        required("ResourceArns") => list(String.t()),
         required("TargetArn") => String.t()
       }
 
@@ -413,7 +413,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       untag_resource_request() :: %{
-        "TagKeys" => list(String.t()())
+        "TagKeys" => list(String.t())
       }
 
   """
@@ -438,7 +438,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_custom_line_item_versions_output() :: %{
-        optional("CustomLineItemVersions") => list(custom_line_item_version_list_element()()),
+        optional("CustomLineItemVersions") => list(custom_line_item_version_list_element()),
         optional("NextToken") => String.t()
       }
 
@@ -451,7 +451,7 @@ defmodule AWS.Billingconductor do
 
       associate_pricing_rules_input() :: %{
         required("Arn") => String.t(),
-        required("PricingRuleArns") => list(String.t()())
+        required("PricingRuleArns") => list(String.t())
       }
 
   """
@@ -474,7 +474,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_custom_line_items_output() :: %{
-        optional("CustomLineItems") => list(custom_line_item_list_element()()),
+        optional("CustomLineItems") => list(custom_line_item_list_element()),
         optional("NextToken") => String.t()
       }
 
@@ -521,8 +521,8 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       batch_disassociate_resources_from_custom_line_item_output() :: %{
-        optional("FailedDisassociatedResources") => list(disassociate_resource_response_element()()),
-        optional("SuccessfullyDisassociatedResources") => list(disassociate_resource_response_element()())
+        optional("FailedDisassociatedResources") => list(disassociate_resource_response_element()),
+        optional("SuccessfullyDisassociatedResources") => list(disassociate_resource_response_element())
       }
 
   """
@@ -636,7 +636,7 @@ defmodule AWS.Billingconductor do
       list_pricing_plans_associated_with_pricing_rule_output() :: %{
         optional("BillingPeriod") => String.t(),
         optional("NextToken") => String.t(),
-        optional("PricingPlanArns") => list(String.t()()),
+        optional("PricingPlanArns") => list(String.t()),
         optional("PricingRuleArn") => String.t()
       }
 
@@ -659,7 +659,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_billing_groups_output() :: %{
-        optional("BillingGroups") => list(billing_group_list_element()()),
+        optional("BillingGroups") => list(billing_group_list_element()),
         optional("NextToken") => String.t()
       }
 
@@ -722,7 +722,7 @@ defmodule AWS.Billingconductor do
       billing_group_cost_report_result_element() :: %{
         "AWSCost" => String.t(),
         "Arn" => String.t(),
-        "Attributes" => list(attribute()()),
+        "Attributes" => list(attribute()),
         "Currency" => String.t(),
         "Margin" => String.t(),
         "MarginPercentage" => String.t(),
@@ -752,7 +752,7 @@ defmodule AWS.Billingconductor do
 
       account_grouping() :: %{
         "AutoAssociate" => [boolean()],
-        "LinkedAccountIds" => list(String.t()())
+        "LinkedAccountIds" => list(String.t())
       }
 
   """
@@ -776,7 +776,7 @@ defmodule AWS.Billingconductor do
       create_pricing_plan_input() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("PricingRuleArns") => list(String.t()()),
+        optional("PricingRuleArns") => list(String.t()),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
@@ -789,7 +789,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_pricing_plans_filter() :: %{
-        "Arns" => list(String.t()())
+        "Arns" => list(String.t())
       }
 
   """
@@ -835,7 +835,7 @@ defmodule AWS.Billingconductor do
 
       list_resources_associated_to_custom_line_item_output() :: %{
         optional("Arn") => String.t(),
-        optional("AssociatedResources") => list(list_resources_associated_to_custom_line_item_response_element()()),
+        optional("AssociatedResources") => list(list_resources_associated_to_custom_line_item_response_element()),
         optional("NextToken") => String.t()
       }
 
@@ -847,7 +847,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_account_associations_output() :: %{
-        optional("LinkedAccounts") => list(account_associations_list_element()()),
+        optional("LinkedAccounts") => list(account_associations_list_element()),
         optional("NextToken") => String.t()
       }
 
@@ -887,7 +887,7 @@ defmodule AWS.Billingconductor do
 
       list_account_associations_filter() :: %{
         "AccountId" => String.t(),
-        "AccountIds" => list(String.t()()),
+        "AccountIds" => list(String.t()),
         "Association" => String.t()
       }
 
@@ -899,7 +899,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_billing_group_cost_reports_filter() :: %{
-        "BillingGroupArns" => list(String.t()())
+        "BillingGroupArns" => list(String.t())
       }
 
   """
@@ -910,7 +910,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_pricing_rules_filter() :: %{
-        "Arns" => list(String.t()())
+        "Arns" => list(String.t())
       }
 
   """
@@ -981,7 +981,7 @@ defmodule AWS.Billingconductor do
       line_item_filter() :: %{
         "Attribute" => String.t(),
         "MatchOption" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1004,7 +1004,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       custom_line_item_percentage_charge_details() :: %{
-        "AssociatedValues" => list(String.t()()),
+        "AssociatedValues" => list(String.t()),
         "PercentageValue" => float()
       }
 
@@ -1016,10 +1016,10 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_billing_groups_filter() :: %{
-        "Arns" => list(String.t()()),
+        "Arns" => list(String.t()),
         "AutoAssociate" => [boolean()],
         "PricingPlan" => String.t(),
-        "Statuses" => list(String.t()())
+        "Statuses" => list(String.t())
       }
 
   """
@@ -1030,7 +1030,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       disassociate_accounts_input() :: %{
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("Arn") => String.t()
       }
 
@@ -1064,7 +1064,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       get_billing_group_cost_report_output() :: %{
-        "BillingGroupCostReportResults" => list(billing_group_cost_report_result_element()()),
+        "BillingGroupCostReportResults" => list(billing_group_cost_report_result_element()),
         "NextToken" => String.t()
       }
 
@@ -1085,10 +1085,10 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_custom_line_items_filter() :: %{
-        "AccountIds" => list(String.t()()),
-        "Arns" => list(String.t()()),
-        "BillingGroups" => list(String.t()()),
-        "Names" => list(String.t()())
+        "AccountIds" => list(String.t()),
+        "Arns" => list(String.t()),
+        "BillingGroups" => list(String.t()),
+        "Names" => list(String.t())
       }
 
   """
@@ -1133,7 +1133,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => String.t()
       }
@@ -1156,7 +1156,7 @@ defmodule AWS.Billingconductor do
 
       batch_disassociate_resources_from_custom_line_item_input() :: %{
         optional("BillingPeriodRange") => custom_line_item_billing_period_range(),
-        required("ResourceArns") => list(String.t()()),
+        required("ResourceArns") => list(String.t()),
         required("TargetArn") => String.t()
       }
 
@@ -1349,7 +1349,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       associate_accounts_input() :: %{
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("Arn") => String.t()
       }
 
@@ -1468,7 +1468,7 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       list_billing_group_cost_reports_output() :: %{
-        optional("BillingGroupCostReports") => list(billing_group_cost_report_element()()),
+        optional("BillingGroupCostReports") => list(billing_group_cost_report_element()),
         optional("NextToken") => String.t()
       }
 
@@ -1480,8 +1480,8 @@ defmodule AWS.Billingconductor do
   ## Example:
 
       batch_associate_resources_to_custom_line_item_output() :: %{
-        optional("FailedAssociatedResources") => list(associate_resource_response_element()()),
-        optional("SuccessfullyAssociatedResources") => list(associate_resource_response_element()())
+        optional("FailedAssociatedResources") => list(associate_resource_response_element()),
+        optional("SuccessfullyAssociatedResources") => list(associate_resource_response_element())
       }
 
   """

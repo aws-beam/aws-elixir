@@ -125,7 +125,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       traffic_route() :: %{
-        "listenerArns" => list(String.t()())
+        "listenerArns" => list(String.t())
       }
       
   """
@@ -215,7 +215,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_deployments_input() :: %{
-        required("deploymentIds") => list(String.t()())
+        required("deploymentIds") => list(String.t())
       }
       
   """
@@ -237,7 +237,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       delete_deployment_group_output() :: %{
-        "hooksNotCleanedUp" => list(auto_scaling_group()())
+        "hooksNotCleanedUp" => list(auto_scaling_group())
       }
       
   """
@@ -307,7 +307,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       list_deployment_instances_output() :: %{
-        "instancesList" => list(String.t()()),
+        "instancesList" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -320,7 +320,7 @@ defmodule AWS.CodeDeploy do
       
       batch_get_application_revisions_input() :: %{
         required("applicationName") => String.t(),
-        required("revisions") => list(revision_location()())
+        required("revisions") => list(revision_location())
       }
       
   """
@@ -402,7 +402,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t()())
+        required("instanceNames") => list(String.t())
       }
       
   """
@@ -509,7 +509,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_deployment_groups_output() :: %{
-        "deploymentGroupsInfo" => list(deployment_group_info()()),
+        "deploymentGroupsInfo" => list(deployment_group_info()),
         "errorMessage" => String.t()
       }
       
@@ -523,11 +523,11 @@ defmodule AWS.CodeDeploy do
       e_c_s_target() :: %{
         "deploymentId" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lifecycleEvents" => list(lifecycle_event()()),
+        "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
         "targetArn" => String.t(),
         "targetId" => String.t(),
-        "taskSetsInfo" => list(e_c_s_task_set()())
+        "taskSetsInfo" => list(e_c_s_task_set())
       }
       
   """
@@ -538,7 +538,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_deployment_targets_output() :: %{
-        "deploymentTargets" => list(deployment_target()())
+        "deploymentTargets" => list(deployment_target())
       }
       
   """
@@ -550,7 +550,7 @@ defmodule AWS.CodeDeploy do
       
       batch_get_deployment_instances_input() :: %{
         required("deploymentId") => String.t(),
-        required("instanceIds") => list(String.t()())
+        required("instanceIds") => list(String.t())
       }
       
   """
@@ -572,7 +572,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       update_deployment_group_output() :: %{
-        "hooksNotCleanedUp" => list(auto_scaling_group()())
+        "hooksNotCleanedUp" => list(auto_scaling_group())
       }
       
   """
@@ -584,7 +584,7 @@ defmodule AWS.CodeDeploy do
       
       list_application_revisions_output() :: %{
         "nextToken" => String.t(),
-        "revisions" => list(revision_location()())
+        "revisions" => list(revision_location())
       }
       
   """
@@ -833,7 +833,7 @@ defmodule AWS.CodeDeploy do
       
       batch_get_deployment_targets_input() :: %{
         required("deploymentId") => String.t(),
-        required("targetIds") => list(String.t()())
+        required("targetIds") => list(String.t())
       }
       
   """
@@ -856,7 +856,7 @@ defmodule AWS.CodeDeploy do
       
       list_tags_for_resource_output() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -914,7 +914,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       list_deployment_configs_output() :: %{
-        "deploymentConfigsList" => list(String.t()()),
+        "deploymentConfigsList" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -938,7 +938,7 @@ defmodule AWS.CodeDeploy do
         "deploymentGroupName" => String.t(),
         "deploymentId" => String.t(),
         "deploymentOverview" => deployment_overview(),
-        "deploymentStatusMessages" => list(String.t()()),
+        "deploymentStatusMessages" => list(String.t()),
         "deploymentStyle" => deployment_style(),
         "description" => String.t(),
         "errorInformation" => error_information(),
@@ -1001,7 +1001,7 @@ defmodule AWS.CodeDeploy do
       
       target_group_pair_info() :: %{
         "prodTrafficRoute" => traffic_route(),
-        "targetGroups" => list(target_group_info()()),
+        "targetGroups" => list(target_group_info()),
         "testTrafficRoute" => traffic_route()
       }
       
@@ -1013,7 +1013,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       list_on_premises_instances_output() :: %{
-        "instanceNames" => list(String.t()()),
+        "instanceNames" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1036,7 +1036,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_deployments_output() :: %{
-        "deploymentsInfo" => list(deployment_info()())
+        "deploymentsInfo" => list(deployment_info())
       }
       
   """
@@ -1137,7 +1137,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       list_applications_output() :: %{
-        "applications" => list(String.t()()),
+        "applications" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1172,7 +1172,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_applications_input() :: %{
-        required("applicationNames") => list(String.t()())
+        required("applicationNames") => list(String.t())
       }
       
   """
@@ -1195,7 +1195,7 @@ defmodule AWS.CodeDeploy do
       
       list_deployment_groups_output() :: %{
         "applicationName" => String.t(),
-        "deploymentGroups" => list(String.t()()),
+        "deploymentGroups" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1304,26 +1304,26 @@ defmodule AWS.CodeDeploy do
         "alarmConfiguration" => alarm_configuration(),
         "applicationName" => String.t(),
         "autoRollbackConfiguration" => auto_rollback_configuration(),
-        "autoScalingGroups" => list(auto_scaling_group()()),
+        "autoScalingGroups" => list(auto_scaling_group()),
         "blueGreenDeploymentConfiguration" => blue_green_deployment_configuration(),
         "computePlatform" => list(any()),
         "deploymentConfigName" => String.t(),
         "deploymentGroupId" => String.t(),
         "deploymentGroupName" => String.t(),
         "deploymentStyle" => deployment_style(),
-        "ec2TagFilters" => list(ec2_tag_filter()()),
+        "ec2TagFilters" => list(ec2_tag_filter()),
         "ec2TagSet" => ec2_tag_set(),
-        "ecsServices" => list(e_c_s_service()()),
+        "ecsServices" => list(e_c_s_service()),
         "lastAttemptedDeployment" => last_deployment_info(),
         "lastSuccessfulDeployment" => last_deployment_info(),
         "loadBalancerInfo" => load_balancer_info(),
-        "onPremisesInstanceTagFilters" => list(tag_filter()()),
+        "onPremisesInstanceTagFilters" => list(tag_filter()),
         "onPremisesTagSet" => on_premises_tag_set(),
         "outdatedInstancesStrategy" => list(any()),
         "serviceRoleArn" => String.t(),
         "targetRevision" => revision_location(),
         "terminationHookEnabled" => boolean(),
-        "triggerConfigurations" => list(trigger_config()())
+        "triggerConfigurations" => list(trigger_config())
       }
       
   """
@@ -1345,7 +1345,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       on_premises_tag_set() :: %{
-        "onPremisesTagSetList" => list(list(tag_filter()())())
+        "onPremisesTagSetList" => list(list(tag_filter())())
       }
       
   """
@@ -1425,7 +1425,7 @@ defmodule AWS.CodeDeploy do
       
       create_application_input() :: %{
         optional("computePlatform") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("applicationName") => String.t()
       }
       
@@ -1475,21 +1475,21 @@ defmodule AWS.CodeDeploy do
       update_deployment_group_input() :: %{
         optional("alarmConfiguration") => alarm_configuration(),
         optional("autoRollbackConfiguration") => auto_rollback_configuration(),
-        optional("autoScalingGroups") => list(String.t()()),
+        optional("autoScalingGroups") => list(String.t()),
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
         optional("deploymentConfigName") => String.t(),
         optional("deploymentStyle") => deployment_style(),
-        optional("ec2TagFilters") => list(ec2_tag_filter()()),
+        optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
-        optional("ecsServices") => list(e_c_s_service()()),
+        optional("ecsServices") => list(e_c_s_service()),
         optional("loadBalancerInfo") => load_balancer_info(),
         optional("newDeploymentGroupName") => String.t(),
-        optional("onPremisesInstanceTagFilters") => list(tag_filter()()),
+        optional("onPremisesInstanceTagFilters") => list(tag_filter()),
         optional("onPremisesTagSet") => on_premises_tag_set(),
         optional("outdatedInstancesStrategy") => list(any()),
         optional("serviceRoleArn") => String.t(),
         optional("terminationHookEnabled") => boolean(),
-        optional("triggerConfigurations") => list(trigger_config()()),
+        optional("triggerConfigurations") => list(trigger_config()),
         required("applicationName") => String.t(),
         required("currentDeploymentGroupName") => String.t()
       }
@@ -1573,7 +1573,7 @@ defmodule AWS.CodeDeploy do
       
       list_deployment_targets_output() :: %{
         "nextToken" => String.t(),
-        "targetIds" => list(String.t()())
+        "targetIds" => list(String.t())
       }
       
   """
@@ -1620,7 +1620,7 @@ defmodule AWS.CodeDeploy do
       list_on_premises_instances_input() :: %{
         optional("nextToken") => String.t(),
         optional("registrationStatus") => list(any()),
-        optional("tagFilters") => list(tag_filter()())
+        optional("tagFilters") => list(tag_filter())
       }
       
   """
@@ -1657,7 +1657,7 @@ defmodule AWS.CodeDeploy do
         "deploymentId" => String.t(),
         "instanceLabel" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
-        "lifecycleEvents" => list(lifecycle_event()()),
+        "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
         "targetArn" => String.t(),
         "targetId" => String.t()
@@ -1704,9 +1704,9 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       target_instances() :: %{
-        "autoScalingGroups" => list(String.t()()),
+        "autoScalingGroups" => list(String.t()),
         "ec2TagSet" => ec2_tag_set(),
-        "tagFilters" => list(ec2_tag_filter()())
+        "tagFilters" => list(ec2_tag_filter())
       }
       
   """
@@ -1746,7 +1746,7 @@ defmodule AWS.CodeDeploy do
       
       tag_resource_input() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1770,7 +1770,7 @@ defmodule AWS.CodeDeploy do
       
       batch_get_deployment_groups_input() :: %{
         required("applicationName") => String.t(),
-        required("deploymentGroupNames") => list(String.t()())
+        required("deploymentGroupNames") => list(String.t())
       }
       
   """
@@ -1912,7 +1912,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_on_premises_instances_output() :: %{
-        "instanceInfos" => list(instance_info()())
+        "instanceInfos" => list(instance_info())
       }
       
   """
@@ -1962,7 +1962,7 @@ defmodule AWS.CodeDeploy do
       cloud_formation_target() :: %{
         "deploymentId" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lifecycleEvents" => list(lifecycle_event()()),
+        "lifecycleEvents" => list(lifecycle_event()),
         "resourceType" => String.t(),
         "status" => list(any()),
         "targetId" => String.t(),
@@ -2034,20 +2034,20 @@ defmodule AWS.CodeDeploy do
       create_deployment_group_input() :: %{
         optional("alarmConfiguration") => alarm_configuration(),
         optional("autoRollbackConfiguration") => auto_rollback_configuration(),
-        optional("autoScalingGroups") => list(String.t()()),
+        optional("autoScalingGroups") => list(String.t()),
         optional("blueGreenDeploymentConfiguration") => blue_green_deployment_configuration(),
         optional("deploymentConfigName") => String.t(),
         optional("deploymentStyle") => deployment_style(),
-        optional("ec2TagFilters") => list(ec2_tag_filter()()),
+        optional("ec2TagFilters") => list(ec2_tag_filter()),
         optional("ec2TagSet") => ec2_tag_set(),
-        optional("ecsServices") => list(e_c_s_service()()),
+        optional("ecsServices") => list(e_c_s_service()),
         optional("loadBalancerInfo") => load_balancer_info(),
-        optional("onPremisesInstanceTagFilters") => list(tag_filter()()),
+        optional("onPremisesInstanceTagFilters") => list(tag_filter()),
         optional("onPremisesTagSet") => on_premises_tag_set(),
         optional("outdatedInstancesStrategy") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("terminationHookEnabled") => boolean(),
-        optional("triggerConfigurations") => list(trigger_config()()),
+        optional("triggerConfigurations") => list(trigger_config()),
         required("applicationName") => String.t(),
         required("deploymentGroupName") => String.t(),
         required("serviceRoleArn") => String.t()
@@ -2073,7 +2073,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       related_deployments() :: %{
-        "autoUpdateOutdatedInstancesDeploymentIds" => list(String.t()()),
+        "autoUpdateOutdatedInstancesDeploymentIds" => list(String.t()),
         "autoUpdateOutdatedInstancesRootDeploymentId" => String.t()
       }
       
@@ -2146,7 +2146,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       ec2_tag_set() :: %{
-        "ec2TagSetList" => list(list(ec2_tag_filter()())())
+        "ec2TagSetList" => list(list(ec2_tag_filter())())
       }
       
   """
@@ -2192,7 +2192,7 @@ defmodule AWS.CodeDeploy do
       
       untag_resource_input() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -2216,7 +2216,7 @@ defmodule AWS.CodeDeploy do
       batch_get_application_revisions_output() :: %{
         "applicationName" => String.t(),
         "errorMessage" => String.t(),
-        "revisions" => list(revision_info()())
+        "revisions" => list(revision_info())
       }
       
   """
@@ -2250,7 +2250,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       batch_get_applications_output() :: %{
-        "applicationsInfo" => list(application_info()())
+        "applicationsInfo" => list(application_info())
       }
       
   """
@@ -2297,7 +2297,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       generic_revision_info() :: %{
-        "deploymentGroups" => list(String.t()()),
+        "deploymentGroups" => list(String.t()),
         "description" => String.t(),
         "firstUsedTime" => non_neg_integer(),
         "lastUsedTime" => non_neg_integer(),
@@ -2313,7 +2313,7 @@ defmodule AWS.CodeDeploy do
       
       batch_get_deployment_instances_output() :: %{
         "errorMessage" => String.t(),
-        "instancesSummary" => list(instance_summary()())
+        "instancesSummary" => list(instance_summary())
       }
       
   """
@@ -2349,8 +2349,8 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       add_tags_to_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t()()),
-        required("tags") => list(tag()())
+        required("instanceNames") => list(String.t()),
+        required("tags") => list(tag())
       }
       
   """
@@ -2414,9 +2414,9 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       load_balancer_info() :: %{
-        "elbInfoList" => list(e_lb_info()()),
-        "targetGroupInfoList" => list(target_group_info()()),
-        "targetGroupPairInfoList" => list(target_group_pair_info()())
+        "elbInfoList" => list(e_lb_info()),
+        "targetGroupInfoList" => list(target_group_info()),
+        "targetGroupPairInfoList" => list(target_group_pair_info())
       }
       
   """
@@ -2464,7 +2464,7 @@ defmodule AWS.CodeDeploy do
         "instanceId" => String.t(),
         "instanceType" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
-        "lifecycleEvents" => list(lifecycle_event()()),
+        "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any())
       }
       
@@ -2632,7 +2632,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       list_deployments_output() :: %{
-        "deployments" => list(String.t()()),
+        "deployments" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2736,7 +2736,7 @@ defmodule AWS.CodeDeploy do
         "instanceArn" => String.t(),
         "instanceName" => String.t(),
         "registerTime" => non_neg_integer(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -2761,7 +2761,7 @@ defmodule AWS.CodeDeploy do
         "deploymentId" => String.t(),
         "lambdaFunctionInfo" => lambda_function_info(),
         "lastUpdatedAt" => non_neg_integer(),
-        "lifecycleEvents" => list(lifecycle_event()()),
+        "lifecycleEvents" => list(lifecycle_event()),
         "status" => list(any()),
         "targetArn" => String.t(),
         "targetId" => String.t()
@@ -2878,8 +2878,8 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       remove_tags_from_on_premises_instances_input() :: %{
-        required("instanceNames") => list(String.t()()),
-        required("tags") => list(tag()())
+        required("instanceNames") => list(String.t()),
+        required("tags") => list(tag())
       }
       
   """
@@ -2979,7 +2979,7 @@ defmodule AWS.CodeDeploy do
       
       list_git_hub_account_token_names_output() :: %{
         "nextToken" => String.t(),
-        "tokenNameList" => list(String.t()())
+        "tokenNameList" => list(String.t())
       }
       
   """
@@ -3049,7 +3049,7 @@ defmodule AWS.CodeDeploy do
   ## Example:
       
       alarm_configuration() :: %{
-        "alarms" => list(alarm()()),
+        "alarms" => list(alarm()),
         "enabled" => boolean(),
         "ignorePollAlarmFailure" => boolean()
       }
@@ -3598,7 +3598,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, add_tags_to_on_premises_instances_errors()}
   def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToOnPremisesInstances", input, options)
   end
@@ -3615,7 +3616,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_application_revisions_errors()}
   def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplicationRevisions", input, options)
   end
@@ -3632,7 +3634,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_applications_errors()}
   def batch_get_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetApplications", input, options)
   end
@@ -3646,7 +3649,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_groups_errors()}
   def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentGroups", input, options)
   end
@@ -3670,7 +3674,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_instances_errors()}
   def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentInstances", input, options)
   end
@@ -3711,7 +3716,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_targets_errors()}
   def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentTargets", input, options)
   end
@@ -3728,7 +3734,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployments_errors()}
   def batch_get_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDeployments", input, options)
   end
@@ -3745,7 +3752,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_on_premises_instances_errors()}
   def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetOnPremisesInstances", input, options)
   end
@@ -3768,7 +3776,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, continue_deployment_errors()}
   def continue_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ContinueDeployment", input, options)
   end
@@ -3782,7 +3791,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3796,7 +3806,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -3810,7 +3821,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_config_errors()}
   def create_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentConfig", input, options)
   end
@@ -3824,7 +3836,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_group_errors()}
   def create_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeploymentGroup", input, options)
   end
@@ -3838,7 +3851,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3856,7 +3870,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_config_errors()}
   def delete_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentConfig", input, options)
   end
@@ -3870,7 +3885,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_group_errors()}
   def delete_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentGroup", input, options)
   end
@@ -3884,7 +3900,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_git_hub_account_token_errors()}
   def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGitHubAccountToken", input, options)
   end
@@ -3906,7 +3923,8 @@ defmodule AWS.CodeDeploy do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcesByExternalId", input, options)
   end
@@ -3920,7 +3938,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, deregister_on_premises_instance_errors()}
   def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterOnPremisesInstance", input, options)
   end
@@ -3934,7 +3953,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplication", input, options)
   end
@@ -3948,7 +3968,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_revision_errors()}
   def get_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApplicationRevision", input, options)
   end
@@ -3967,7 +3988,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -3981,7 +4003,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_config_errors()}
   def get_deployment_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentConfig", input, options)
   end
@@ -3995,7 +4018,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_group_errors()}
   def get_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentGroup", input, options)
   end
@@ -4009,7 +4033,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_instance_errors()}
   def get_deployment_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentInstance", input, options)
   end
@@ -4023,7 +4048,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_target_errors()}
   def get_deployment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeploymentTarget", input, options)
   end
@@ -4037,7 +4063,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_on_premises_instance_errors()}
   def get_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOnPremisesInstance", input, options)
   end
@@ -4051,7 +4078,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_application_revisions_errors()}
   def list_application_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationRevisions", input, options)
   end
@@ -4065,7 +4093,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -4080,7 +4109,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_configs_errors()}
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentConfigs", input, options)
   end
@@ -4096,7 +4126,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_groups_errors()}
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentGroups", input, options)
   end
@@ -4119,7 +4150,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_instances_errors()}
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentInstances", input, options)
   end
@@ -4133,7 +4165,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_targets_errors()}
   def list_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeploymentTargets", input, options)
   end
@@ -4149,7 +4182,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -4163,7 +4197,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_git_hub_account_token_names_errors()}
   def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGitHubAccountTokenNames", input, options)
   end
@@ -4183,7 +4218,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_on_premises_instances_errors()}
   def list_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOnPremisesInstances", input, options)
   end
@@ -4201,7 +4237,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4232,7 +4269,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
   def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecycleEventHookExecutionStatus", input, options)
   end
@@ -4246,7 +4284,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_application_revision_errors()}
   def register_application_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterApplicationRevision", input, options)
   end
@@ -4263,7 +4302,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_on_premises_instance_errors()}
   def register_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterOnPremisesInstance", input, options)
   end
@@ -4281,7 +4321,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, remove_tags_from_on_premises_instances_errors()}
   def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromOnPremisesInstances", input, options)
   end
@@ -4301,7 +4342,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, skip_wait_time_for_instance_termination_errors()}
   def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SkipWaitTimeForInstanceTermination", input, options)
   end
@@ -4315,7 +4357,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, stop_deployment_errors()}
   def stop_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDeployment", input, options)
   end
@@ -4330,7 +4373,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4348,7 +4392,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4362,7 +4407,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4376,7 +4422,8 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_deployment_group_errors()}
   def update_deployment_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeploymentGroup", input, options)
   end

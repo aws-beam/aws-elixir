@@ -41,7 +41,7 @@ defmodule AWS.CloudFormation do
       
       describe_stack_resource_drifts_output() :: %{
         "NextToken" => String.t(),
-        "StackResourceDrifts" => list(stack_resource_drift()())
+        "StackResourceDrifts" => list(stack_resource_drift())
       }
       
   """
@@ -87,7 +87,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_resources_output() :: %{
         "NextToken" => String.t(),
-        "StackResourceSummaries" => list(stack_resource_summary()())
+        "StackResourceSummaries" => list(stack_resource_summary())
       }
       
   """
@@ -216,10 +216,10 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       update_generated_template_input() :: %{
-        optional("AddResources") => list(resource_definition()()),
+        optional("AddResources") => list(resource_definition()),
         optional("NewGeneratedTemplateName") => String.t(),
         optional("RefreshAllResources") => boolean(),
-        optional("RemoveResources") => list(String.t()()),
+        optional("RemoveResources") => list(String.t()),
         optional("TemplateConfiguration") => template_configuration(),
         required("GeneratedTemplateName") => String.t()
       }
@@ -332,12 +332,12 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       delete_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t()()),
+        optional("Accounts") => list(String.t()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
         optional("OperationId") => String.t(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        required("Regions") => list(String.t()()),
+        required("Regions") => list(String.t()),
         required("RetainStacks") => boolean(),
         required("StackSetName") => String.t()
       }
@@ -351,7 +351,7 @@ defmodule AWS.CloudFormation do
       
       list_stacks_output() :: %{
         "NextToken" => String.t(),
-        "StackSummaries" => list(stack_summary()())
+        "StackSummaries" => list(stack_summary())
       }
       
   """
@@ -385,7 +385,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       update_stack_set_input() :: %{
-        optional("Accounts") => list(String.t()()),
+        optional("Accounts") => list(String.t()),
         optional("AdministrationRoleARN") => String.t(),
         optional("AutoDeployment") => auto_deployment(),
         optional("CallAs") => list(any()),
@@ -396,10 +396,10 @@ defmodule AWS.CloudFormation do
         optional("ManagedExecution") => managed_execution(),
         optional("OperationId") => String.t(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("PermissionModel") => list(any()),
-        optional("Regions") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("Regions") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t(),
         optional("UsePreviousTemplate") => boolean(),
@@ -432,7 +432,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       parameter_constraints() :: %{
-        "AllowedValues" => list(String.t()())
+        "AllowedValues" => list(String.t())
       }
       
   """
@@ -516,8 +516,8 @@ defmodule AWS.CloudFormation do
       create_stack_refactor_input() :: %{
         optional("Description") => String.t(),
         optional("EnableStackCreation") => boolean(),
-        optional("ResourceMappings") => list(resource_mapping()()),
-        required("StackDefinitions") => list(stack_definition()())
+        optional("ResourceMappings") => list(resource_mapping()),
+        required("StackDefinitions") => list(stack_definition())
       }
       
   """
@@ -667,7 +667,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       warnings() :: %{
-        "UnrecognizedResourceTypes" => list(String.t()())
+        "UnrecognizedResourceTypes" => list(String.t())
       }
       
   """
@@ -713,7 +713,7 @@ defmodule AWS.CloudFormation do
       describe_change_set_hooks_output() :: %{
         "ChangeSetId" => String.t(),
         "ChangeSetName" => String.t(),
-        "Hooks" => list(change_set_hook()()),
+        "Hooks" => list(change_set_hook()),
         "NextToken" => String.t(),
         "StackId" => String.t(),
         "StackName" => String.t(),
@@ -742,7 +742,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_hook_results_output() :: %{
-        "HookResults" => list(hook_result_summary()()),
+        "HookResults" => list(hook_result_summary()),
         "NextToken" => String.t(),
         "TargetId" => String.t(),
         "TargetType" => list(any())
@@ -812,7 +812,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_set_operation_results_input() :: %{
         optional("CallAs") => list(any()),
-        optional("Filters") => list(operation_result_filter()()),
+        optional("Filters") => list(operation_result_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OperationId") => String.t(),
@@ -880,8 +880,8 @@ defmodule AWS.CloudFormation do
         "PhysicalResourceId" => String.t(),
         "ResourceIdentifier" => String.t(),
         "ResourceMapping" => resource_mapping(),
-        "TagResources" => list(tag()()),
-        "UntagResources" => list(String.t()())
+        "TagResources" => list(tag()),
+        "UntagResources" => list(String.t())
       }
       
   """
@@ -1048,10 +1048,10 @@ defmodule AWS.CloudFormation do
         "EndTime" => non_neg_integer(),
         "PercentageCompleted" => float(),
         "ResourceScanId" => String.t(),
-        "ResourceTypes" => list(String.t()()),
+        "ResourceTypes" => list(String.t()),
         "ResourcesRead" => integer(),
         "ResourcesScanned" => integer(),
-        "ScanFilters" => list(scan_filter()()),
+        "ScanFilters" => list(scan_filter()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusReason" => String.t()
@@ -1109,7 +1109,7 @@ defmodule AWS.CloudFormation do
         "LastDriftCheckTimestamp" => non_neg_integer(),
         "LastOperationId" => String.t(),
         "OrganizationalUnitId" => String.t(),
-        "ParameterOverrides" => list(parameter()()),
+        "ParameterOverrides" => list(parameter()),
         "Region" => String.t(),
         "StackId" => String.t(),
         "StackInstanceStatus" => stack_instance_comprehensive_status(),
@@ -1127,7 +1127,7 @@ defmodule AWS.CloudFormation do
       
       list_type_versions_output() :: %{
         "NextToken" => String.t(),
-        "TypeVersionSummaries" => list(type_version_summary()())
+        "TypeVersionSummaries" => list(type_version_summary())
       }
       
   """
@@ -1139,7 +1139,7 @@ defmodule AWS.CloudFormation do
       
       describe_stack_events_output() :: %{
         "NextToken" => String.t(),
-        "StackEvents" => list(stack_event()())
+        "StackEvents" => list(stack_event())
       }
       
   """
@@ -1176,8 +1176,8 @@ defmodule AWS.CloudFormation do
         optional("CallAs") => list(any()),
         optional("OperationId") => String.t(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        optional("OrganizationalUnitIds") => list(String.t()()),
-        optional("StackIds") => list(String.t()()),
+        optional("OrganizationalUnitIds") => list(String.t()),
+        optional("StackIds") => list(String.t()),
         optional("StackIdsUrl") => String.t(),
         required("StackSetName") => String.t()
       }
@@ -1333,9 +1333,9 @@ defmodule AWS.CloudFormation do
         "DriftInformation" => stack_drift_information(),
         "EnableTerminationProtection" => boolean(),
         "LastUpdatedTime" => non_neg_integer(),
-        "NotificationARNs" => list(String.t()()),
-        "Outputs" => list(output()()),
-        "Parameters" => list(parameter()()),
+        "NotificationARNs" => list(String.t()),
+        "Outputs" => list(output()),
+        "Parameters" => list(parameter()),
         "ParentId" => String.t(),
         "RetainExceptOnCreate" => boolean(),
         "RoleARN" => String.t(),
@@ -1345,7 +1345,7 @@ defmodule AWS.CloudFormation do
         "StackName" => String.t(),
         "StackStatus" => list(any()),
         "StackStatusReason" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TimeoutInMinutes" => integer()
       }
       
@@ -1358,7 +1358,7 @@ defmodule AWS.CloudFormation do
       
       stack_set_auto_deployment_target_summary() :: %{
         "OrganizationalUnitId" => String.t(),
-        "Regions" => list(String.t()())
+        "Regions" => list(String.t())
       }
       
   """
@@ -1388,7 +1388,7 @@ defmodule AWS.CloudFormation do
         "GeneratedTemplateName" => String.t(),
         "LastUpdatedTime" => non_neg_integer(),
         "Progress" => template_progress(),
-        "Resources" => list(resource_detail()()),
+        "Resources" => list(resource_detail()),
         "StackId" => String.t(),
         "Status" => list(any()),
         "StatusReason" => String.t(),
@@ -1405,7 +1405,7 @@ defmodule AWS.CloudFormation do
       
       list_resource_scan_related_resources_output() :: %{
         "NextToken" => String.t(),
-        "RelatedResources" => list(scanned_resource()())
+        "RelatedResources" => list(scanned_resource())
       }
       
   """
@@ -1416,9 +1416,9 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       batch_describe_type_configurations_output() :: %{
-        "Errors" => list(batch_describe_type_configurations_error()()),
-        "TypeConfigurations" => list(type_configuration_details()()),
-        "UnprocessedTypeConfigurations" => list(type_configuration_identifier()())
+        "Errors" => list(batch_describe_type_configurations_error()),
+        "TypeConfigurations" => list(type_configuration_details()),
+        "UnprocessedTypeConfigurations" => list(type_configuration_identifier())
       }
       
   """
@@ -1481,7 +1481,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       scan_filter() :: %{
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
       
   """
@@ -1530,7 +1530,7 @@ defmodule AWS.CloudFormation do
       
       list_type_registrations_output() :: %{
         "NextToken" => String.t(),
-        "RegistrationTokenList" => list(String.t()())
+        "RegistrationTokenList" => list(String.t())
       }
       
   """
@@ -1663,7 +1663,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       create_generated_template_input() :: %{
-        optional("Resources") => list(resource_definition()()),
+        optional("Resources") => list(resource_definition()),
         optional("StackName") => String.t(),
         optional("TemplateConfiguration") => template_configuration(),
         required("GeneratedTemplateName") => String.t()
@@ -1704,7 +1704,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_refactors_output() :: %{
         "NextToken" => String.t(),
-        "StackRefactorSummaries" => list(stack_refactor_summary()())
+        "StackRefactorSummaries" => list(stack_refactor_summary())
       }
       
   """
@@ -1787,14 +1787,14 @@ defmodule AWS.CloudFormation do
         optional("Description") => String.t(),
         optional("ImportExistingResources") => boolean(),
         optional("IncludeNestedStacks") => boolean(),
-        optional("NotificationARNs") => list(String.t()()),
+        optional("NotificationARNs") => list(String.t()),
         optional("OnStackFailure") => list(any()),
-        optional("Parameters") => list(parameter()()),
-        optional("ResourceTypes") => list(String.t()()),
-        optional("ResourcesToImport") => list(resource_to_import()()),
+        optional("Parameters") => list(parameter()),
+        optional("ResourceTypes") => list(String.t()),
+        optional("ResourcesToImport") => list(resource_to_import()),
         optional("RoleARN") => String.t(),
         optional("RollbackConfiguration") => rollback_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t(),
         optional("UsePreviousTemplate") => boolean(),
@@ -1810,13 +1810,13 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       create_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t()()),
+        optional("Accounts") => list(String.t()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
         optional("OperationId") => String.t(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        optional("ParameterOverrides") => list(parameter()()),
-        required("Regions") => list(String.t()()),
+        optional("ParameterOverrides") => list(parameter()),
+        required("Regions") => list(String.t()),
         required("StackSetName") => String.t()
       }
       
@@ -1850,8 +1850,8 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       resource_identifier_summary() :: %{
-        "LogicalResourceIds" => list(String.t()()),
-        "ResourceIdentifiers" => list(String.t()()),
+        "LogicalResourceIds" => list(String.t()),
+        "ResourceIdentifiers" => list(String.t()),
         "ResourceType" => String.t()
       }
       
@@ -1928,7 +1928,7 @@ defmodule AWS.CloudFormation do
         "MaxConcurrentCount" => integer(),
         "MaxConcurrentPercentage" => integer(),
         "RegionConcurrencyType" => list(any()),
-        "RegionOrder" => list(String.t()())
+        "RegionOrder" => list(String.t())
       }
       
   """
@@ -1952,8 +1952,8 @@ defmodule AWS.CloudFormation do
       stack_instance_resource_drifts_summary() :: %{
         "LogicalResourceId" => String.t(),
         "PhysicalResourceId" => String.t(),
-        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
-        "PropertyDifferences" => list(property_difference()()),
+        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()),
+        "PropertyDifferences" => list(property_difference()),
         "ResourceType" => String.t(),
         "StackId" => String.t(),
         "StackResourceDriftStatus" => list(any()),
@@ -2050,9 +2050,9 @@ defmodule AWS.CloudFormation do
       validate_template_output() :: %{
         "Capabilities" => list(list(any())()),
         "CapabilitiesReason" => String.t(),
-        "DeclaredTransforms" => list(String.t()()),
+        "DeclaredTransforms" => list(String.t()),
         "Description" => String.t(),
-        "Parameters" => list(template_parameter()())
+        "Parameters" => list(template_parameter())
       }
       
   """
@@ -2077,9 +2077,9 @@ defmodule AWS.CloudFormation do
         optional("Capabilities") => list(list(any())()),
         optional("ClientRequestToken") => String.t(),
         optional("DisableRollback") => boolean(),
-        optional("NotificationARNs") => list(String.t()()),
-        optional("Parameters") => list(parameter()()),
-        optional("ResourceTypes") => list(String.t()()),
+        optional("NotificationARNs") => list(String.t()),
+        optional("Parameters") => list(parameter()),
+        optional("ResourceTypes") => list(String.t()),
         optional("RetainExceptOnCreate") => boolean(),
         optional("RoleARN") => String.t(),
         optional("RollbackConfiguration") => rollback_configuration(),
@@ -2087,7 +2087,7 @@ defmodule AWS.CloudFormation do
         optional("StackPolicyDuringUpdateBody") => String.t(),
         optional("StackPolicyDuringUpdateURL") => String.t(),
         optional("StackPolicyURL") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t(),
         optional("UsePreviousTemplate") => boolean(),
@@ -2114,7 +2114,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_set_operations_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_set_operation_summary()())
+        "Summaries" => list(stack_set_operation_summary())
       }
       
   """
@@ -2125,7 +2125,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       estimate_template_cost_input() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t()
       }
@@ -2182,16 +2182,16 @@ defmodule AWS.CloudFormation do
         "Capabilities" => list(list(any())()),
         "ChangeSetId" => String.t(),
         "ChangeSetName" => String.t(),
-        "Changes" => list(change()()),
+        "Changes" => list(change()),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
         "ExecutionStatus" => list(any()),
         "ImportExistingResources" => boolean(),
         "IncludeNestedStacks" => boolean(),
         "NextToken" => String.t(),
-        "NotificationARNs" => list(String.t()()),
+        "NotificationARNs" => list(String.t()),
         "OnStackFailure" => list(any()),
-        "Parameters" => list(parameter()()),
+        "Parameters" => list(parameter()),
         "ParentChangeSetId" => String.t(),
         "RollbackConfiguration" => rollback_configuration(),
         "RootChangeSetId" => String.t(),
@@ -2199,7 +2199,7 @@ defmodule AWS.CloudFormation do
         "StackName" => String.t(),
         "Status" => list(any()),
         "StatusReason" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2224,7 +2224,7 @@ defmodule AWS.CloudFormation do
       required_activated_type() :: %{
         "OriginalTypeName" => String.t(),
         "PublisherId" => String.t(),
-        "SupportedMajorVersions" => list(integer()()),
+        "SupportedMajorVersions" => list(integer()),
         "TypeNameAlias" => String.t()
       }
       
@@ -2265,7 +2265,7 @@ defmodule AWS.CloudFormation do
         "ProvisioningType" => list(any()),
         "PublicVersionNumber" => String.t(),
         "PublisherId" => String.t(),
-        "RequiredActivatedTypes" => list(required_activated_type()()),
+        "RequiredActivatedTypes" => list(required_activated_type()),
         "Schema" => String.t(),
         "SourceUrl" => String.t(),
         "TimeCreated" => non_neg_integer(),
@@ -2327,7 +2327,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       describe_account_limits_output() :: %{
-        "AccountLimits" => list(account_limit()()),
+        "AccountLimits" => list(account_limit()),
         "NextToken" => String.t()
       }
       
@@ -2342,7 +2342,7 @@ defmodule AWS.CloudFormation do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ResourceScanId") => String.t(),
-        required("Resources") => list(scanned_resource_identifier()())
+        required("Resources") => list(scanned_resource_identifier())
       }
       
   """
@@ -2431,7 +2431,7 @@ defmodule AWS.CloudFormation do
       
       list_generated_templates_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(template_summary()())
+        "Summaries" => list(template_summary())
       }
       
   """
@@ -2482,7 +2482,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_sets_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_set_summary()())
+        "Summaries" => list(stack_set_summary())
       }
       
   """
@@ -2544,7 +2544,7 @@ defmodule AWS.CloudFormation do
       
       list_resource_scan_resources_output() :: %{
         "NextToken" => String.t(),
-        "Resources" => list(scanned_resource()())
+        "Resources" => list(scanned_resource())
       }
       
   """
@@ -2555,7 +2555,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_exports_output() :: %{
-        "Exports" => list(export()()),
+        "Exports" => list(export()),
         "NextToken" => String.t()
       }
       
@@ -2592,7 +2592,7 @@ defmodule AWS.CloudFormation do
       
       list_change_sets_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(change_set_summary()())
+        "Summaries" => list(change_set_summary())
       }
       
   """
@@ -2633,7 +2633,7 @@ defmodule AWS.CloudFormation do
       
       list_resource_scans_output() :: %{
         "NextToken" => String.t(),
-        "ResourceScanSummaries" => list(resource_scan_summary()())
+        "ResourceScanSummaries" => list(resource_scan_summary())
       }
       
   """
@@ -2741,7 +2741,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       warning_detail() :: %{
-        "Properties" => list(warning_property()()),
+        "Properties" => list(warning_property()),
         "Type" => list(any())
       }
       
@@ -2753,7 +2753,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       describe_stack_resources_output() :: %{
-        "StackResources" => list(stack_resource()())
+        "StackResources" => list(stack_resource())
       }
       
   """
@@ -2784,8 +2784,8 @@ defmodule AWS.CloudFormation do
         "LogicalResourceId" => String.t(),
         "ModuleInfo" => module_info(),
         "PhysicalResourceId" => String.t(),
-        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()()),
-        "PropertyDifferences" => list(property_difference()()),
+        "PhysicalResourceIdContext" => list(physical_resource_id_context_key_value_pair()),
+        "PropertyDifferences" => list(property_difference()),
         "ResourceType" => String.t(),
         "StackId" => String.t(),
         "StackResourceDriftStatus" => list(any()),
@@ -2815,16 +2815,16 @@ defmodule AWS.CloudFormation do
         optional("ClientRequestToken") => String.t(),
         optional("DisableRollback") => boolean(),
         optional("EnableTerminationProtection") => boolean(),
-        optional("NotificationARNs") => list(String.t()()),
+        optional("NotificationARNs") => list(String.t()),
         optional("OnFailure") => list(any()),
-        optional("Parameters") => list(parameter()()),
-        optional("ResourceTypes") => list(String.t()()),
+        optional("Parameters") => list(parameter()),
+        optional("ResourceTypes") => list(String.t()),
         optional("RetainExceptOnCreate") => boolean(),
         optional("RoleARN") => String.t(),
         optional("RollbackConfiguration") => rollback_configuration(),
         optional("StackPolicyBody") => String.t(),
         optional("StackPolicyURL") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t(),
         optional("TimeoutInMinutes") => integer(),
@@ -2938,7 +2938,7 @@ defmodule AWS.CloudFormation do
       
       start_resource_scan_input() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("ScanFilters") => list(scan_filter()())
+        optional("ScanFilters") => list(scan_filter())
       }
       
   """
@@ -3047,16 +3047,16 @@ defmodule AWS.CloudFormation do
         "Description" => String.t(),
         "ExecutionRoleName" => String.t(),
         "ManagedExecution" => managed_execution(),
-        "OrganizationalUnitIds" => list(String.t()()),
-        "Parameters" => list(parameter()()),
+        "OrganizationalUnitIds" => list(String.t()),
+        "Parameters" => list(parameter()),
         "PermissionModel" => list(any()),
-        "Regions" => list(String.t()()),
+        "Regions" => list(String.t()),
         "StackSetARN" => String.t(),
         "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
         "StackSetId" => String.t(),
         "StackSetName" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TemplateBody" => String.t()
       }
       
@@ -3077,13 +3077,13 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       update_stack_instances_input() :: %{
-        optional("Accounts") => list(String.t()()),
+        optional("Accounts") => list(String.t()),
         optional("CallAs") => list(any()),
         optional("DeploymentTargets") => deployment_targets(),
         optional("OperationId") => String.t(),
         optional("OperationPreferences") => stack_set_operation_preferences(),
-        optional("ParameterOverrides") => list(parameter()()),
-        required("Regions") => list(String.t()()),
+        optional("ParameterOverrides") => list(parameter()),
+        required("Regions") => list(String.t()),
         required("StackSetName") => String.t()
       }
       
@@ -3142,7 +3142,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_instances_input() :: %{
         optional("CallAs") => list(any()),
-        optional("Filters") => list(stack_instance_filter()()),
+        optional("Filters") => list(stack_instance_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StackInstanceAccount") => String.t(),
@@ -3204,7 +3204,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_refactor_actions_output() :: %{
         "NextToken" => String.t(),
-        "StackRefactorActions" => list(stack_refactor_action()())
+        "StackRefactorActions" => list(stack_refactor_action())
       }
       
   """
@@ -3237,7 +3237,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       batch_describe_type_configurations_input() :: %{
-        required("TypeConfigurationIdentifiers") => list(type_configuration_identifier()())
+        required("TypeConfigurationIdentifiers") => list(type_configuration_identifier())
       }
       
   """
@@ -3249,7 +3249,7 @@ defmodule AWS.CloudFormation do
       
       list_types_output() :: %{
         "NextToken" => String.t(),
-        "TypeSummaries" => list(type_summary()())
+        "TypeSummaries" => list(type_summary())
       }
       
   """
@@ -3287,12 +3287,12 @@ defmodule AWS.CloudFormation do
       get_template_summary_output() :: %{
         "Capabilities" => list(list(any())()),
         "CapabilitiesReason" => String.t(),
-        "DeclaredTransforms" => list(String.t()()),
+        "DeclaredTransforms" => list(String.t()),
         "Description" => String.t(),
         "Metadata" => String.t(),
-        "Parameters" => list(parameter_declaration()()),
-        "ResourceIdentifierSummaries" => list(resource_identifier_summary()()),
-        "ResourceTypes" => list(String.t()()),
+        "Parameters" => list(parameter_declaration()),
+        "ResourceIdentifierSummaries" => list(resource_identifier_summary()),
+        "ResourceTypes" => list(String.t()),
         "Version" => String.t(),
         "Warnings" => warnings()
       }
@@ -3337,7 +3337,7 @@ defmodule AWS.CloudFormation do
       
       continue_update_rollback_input() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("ResourcesToSkip") => list(String.t()()),
+        optional("ResourcesToSkip") => list(String.t()),
         optional("RoleARN") => String.t(),
         required("StackName") => String.t()
       }
@@ -3385,7 +3385,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_instance_resource_drifts_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_instance_resource_drifts_summary()())
+        "Summaries" => list(stack_instance_resource_drifts_summary())
       }
       
   """
@@ -3397,7 +3397,7 @@ defmodule AWS.CloudFormation do
       
       rollback_configuration() :: %{
         "MonitoringTimeInMinutes" => integer(),
-        "RollbackTriggers" => list(rollback_trigger()())
+        "RollbackTriggers" => list(rollback_trigger())
       }
       
   """
@@ -3433,7 +3433,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_instances_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_instance_summary()())
+        "Summaries" => list(stack_instance_summary())
       }
       
   """
@@ -3459,7 +3459,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_set_operation_results_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_set_operation_result_summary()())
+        "Summaries" => list(stack_set_operation_result_summary())
       }
       
   """
@@ -3490,10 +3490,10 @@ defmodule AWS.CloudFormation do
         optional("Description") => String.t(),
         optional("ExecutionRoleName") => String.t(),
         optional("ManagedExecution") => managed_execution(),
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("PermissionModel") => list(any()),
         optional("StackId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t(),
         optional("TemplateURL") => String.t(),
         required("StackSetName") => String.t()
@@ -3533,7 +3533,7 @@ defmodule AWS.CloudFormation do
         "Description" => String.t(),
         "ExecutionStatus" => list(any()),
         "ExecutionStatusReason" => String.t(),
-        "StackIds" => list(String.t()()),
+        "StackIds" => list(String.t()),
         "StackRefactorId" => String.t(),
         "Status" => list(any()),
         "StatusReason" => String.t()
@@ -3584,7 +3584,7 @@ defmodule AWS.CloudFormation do
         "AfterContext" => String.t(),
         "BeforeContext" => String.t(),
         "ChangeSetId" => String.t(),
-        "Details" => list(resource_change_detail()()),
+        "Details" => list(resource_change_detail()),
         "LogicalResourceId" => String.t(),
         "ModuleInfo" => module_info(),
         "PhysicalResourceId" => String.t(),
@@ -3603,9 +3603,9 @@ defmodule AWS.CloudFormation do
       
       deployment_targets() :: %{
         "AccountFilterType" => list(any()),
-        "Accounts" => list(String.t()()),
+        "Accounts" => list(String.t()),
         "AccountsUrl" => String.t(),
-        "OrganizationalUnitIds" => list(String.t()())
+        "OrganizationalUnitIds" => list(String.t())
       }
       
   """
@@ -3616,7 +3616,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       detect_stack_drift_input() :: %{
-        optional("LogicalResourceIds") => list(String.t()()),
+        optional("LogicalResourceIds") => list(String.t()),
         required("StackName") => String.t()
       }
       
@@ -3721,7 +3721,7 @@ defmodule AWS.CloudFormation do
       
       list_stack_set_auto_deployment_targets_output() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(stack_set_auto_deployment_target_summary()())
+        "Summaries" => list(stack_set_auto_deployment_target_summary())
       }
       
   """
@@ -3758,7 +3758,7 @@ defmodule AWS.CloudFormation do
       
       describe_stacks_output() :: %{
         "NextToken" => String.t(),
-        "Stacks" => list(stack()())
+        "Stacks" => list(stack())
       }
       
   """
@@ -3771,7 +3771,7 @@ defmodule AWS.CloudFormation do
       delete_stack_input() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("DeletionMode") => list(any()),
-        optional("RetainResources") => list(String.t()()),
+        optional("RetainResources") => list(String.t()),
         optional("RoleARN") => String.t(),
         required("StackName") => String.t()
       }
@@ -3789,7 +3789,7 @@ defmodule AWS.CloudFormation do
         "ResourceStatus" => list(any()),
         "ResourceStatusReason" => String.t(),
         "ResourceType" => String.t(),
-        "Warnings" => list(warning_detail()())
+        "Warnings" => list(warning_detail())
       }
       
   """
@@ -3811,7 +3811,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       list_imports_output() :: %{
-        "Imports" => list(String.t()()),
+        "Imports" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -4085,7 +4085,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, activate_organizations_access_errors()}
   def activate_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateOrganizationsAccess", input, options)
   end
@@ -4107,7 +4108,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, activate_type_errors()}
   def activate_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateType", input, options)
   end
@@ -4132,7 +4134,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, batch_describe_type_configurations_errors()}
   def batch_describe_type_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDescribeTypeConfigurations", input, options)
   end
@@ -4151,7 +4154,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, cancel_update_stack_errors()}
   def cancel_update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelUpdateStack", input, options)
   end
@@ -4183,7 +4187,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, continue_update_rollback_errors()}
   def continue_update_rollback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ContinueUpdateRollback", input, options)
   end
@@ -4231,7 +4236,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_change_set_errors()}
   def create_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateChangeSet", input, options)
   end
@@ -4249,7 +4255,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_generated_template_errors()}
   def create_generated_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGeneratedTemplate", input, options)
   end
@@ -4273,7 +4280,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -4310,7 +4318,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_instances_errors()}
   def create_stack_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStackInstances", input, options)
   end
@@ -4325,7 +4334,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStackRefactor", input, options)
   end
@@ -4339,7 +4349,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, create_stack_set_errors()}
   def create_stack_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStackSet", input, options)
   end
@@ -4357,7 +4368,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deactivate_organizations_access_errors()}
   def deactivate_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivateOrganizationsAccess", input, options)
   end
@@ -4380,7 +4392,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deactivate_type_errors()}
   def deactivate_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivateType", input, options)
   end
@@ -4407,7 +4420,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_change_set_errors()}
   def delete_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteChangeSet", input, options)
   end
@@ -4421,7 +4435,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_generated_template_errors()}
   def delete_generated_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGeneratedTemplate", input, options)
   end
@@ -4443,7 +4458,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -4474,7 +4490,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_instances_errors()}
   def delete_stack_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStackInstances", input, options)
   end
@@ -4492,7 +4509,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, delete_stack_set_errors()}
   def delete_stack_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStackSet", input, options)
   end
@@ -4527,7 +4545,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, deregister_type_errors()}
   def deregister_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterType", input, options)
   end
@@ -4545,7 +4564,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -4566,7 +4586,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_change_set_errors()}
   def describe_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeChangeSet", input, options)
   end
@@ -4582,7 +4603,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_change_set_hooks_errors()}
   def describe_change_set_hooks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeChangeSetHooks", input, options)
   end
@@ -4603,7 +4625,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_generated_template_errors()}
   def describe_generated_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGeneratedTemplate", input, options)
   end
@@ -4623,7 +4646,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_organizations_access_errors()}
   def describe_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationsAccess", input, options)
   end
@@ -4655,7 +4679,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_publisher_errors()}
   def describe_publisher(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePublisher", input, options)
   end
@@ -4669,7 +4694,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_resource_scan_errors()}
   def describe_resource_scan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourceScan", input, options)
   end
@@ -4704,7 +4730,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_drift_detection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackDriftDetectionStatus", input, options)
   end
@@ -4728,7 +4755,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackEvents", input, options)
   end
@@ -4747,7 +4775,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_instance_errors()}
   def describe_stack_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackInstance", input, options)
   end
@@ -4761,7 +4790,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_refactor_errors()}
   def describe_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackRefactor", input, options)
   end
@@ -4778,7 +4808,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackResource", input, options)
   end
@@ -4809,7 +4840,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resource_drifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackResourceDrifts", input, options)
   end
@@ -4845,7 +4877,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stack_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackResources", input, options)
   end
@@ -4862,7 +4895,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_set_errors()}
   def describe_stack_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackSet", input, options)
   end
@@ -4879,7 +4913,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_stack_set_operation_errors()}
   def describe_stack_set_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackSetOperation", input, options)
   end
@@ -4901,7 +4936,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -4920,7 +4956,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_type_errors()}
   def describe_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeType", input, options)
   end
@@ -4943,7 +4980,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, describe_type_registration_errors()}
   def describe_type_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTypeRegistration", input, options)
   end
@@ -4989,7 +5027,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detect_stack_drift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectStackDrift", input, options)
   end
@@ -5022,7 +5061,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detect_stack_resource_drift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectStackResourceDrift", input, options)
   end
@@ -5075,7 +5115,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, detect_stack_set_drift_errors()}
   def detect_stack_set_drift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectStackSetDrift", input, options)
   end
@@ -5093,7 +5134,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def estimate_template_cost(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EstimateTemplateCost", input, options)
   end
@@ -5124,7 +5166,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, execute_change_set_errors()}
   def execute_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteChangeSet", input, options)
   end
@@ -5137,7 +5180,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def execute_stack_refactor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteStackRefactor", input, options)
   end
@@ -5156,7 +5200,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_generated_template_errors()}
   def get_generated_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGeneratedTemplate", input, options)
   end
@@ -5172,7 +5217,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_stack_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStackPolicy", input, options)
   end
@@ -5194,7 +5240,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTemplate", input, options)
   end
@@ -5220,7 +5267,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, get_template_summary_errors()}
   def get_template_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTemplateSummary", input, options)
   end
@@ -5241,7 +5289,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, import_stacks_to_stack_set_errors()}
   def import_stacks_to_stack_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportStacksToStackSet", input, options)
   end
@@ -5258,7 +5307,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_change_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListChangeSets", input, options)
   end
@@ -5281,7 +5331,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExports", input, options)
   end
@@ -5294,7 +5345,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_generated_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGeneratedTemplates", input, options)
   end
@@ -5310,7 +5362,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_hook_results_errors()}
   def list_hook_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHookResults", input, options)
   end
@@ -5332,7 +5385,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_imports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
   end
@@ -5353,7 +5407,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_resource_scan_related_resources_errors()}
   def list_resource_scan_related_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceScanRelatedResources", input, options)
   end
@@ -5374,7 +5429,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_resource_scan_resources_errors()}
   def list_resource_scan_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceScanResources", input, options)
   end
@@ -5390,7 +5446,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_scans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceScans", input, options)
   end
@@ -5413,7 +5470,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_instance_resource_drifts_errors()}
   def list_stack_instance_resource_drifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackInstanceResourceDrifts", input, options)
   end
@@ -5432,7 +5490,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_instances_errors()}
   def list_stack_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackInstances", input, options)
   end
@@ -5446,7 +5505,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_refactor_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackRefactorActions", input, options)
   end
@@ -5459,7 +5519,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_refactors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackRefactors", input, options)
   end
@@ -5476,7 +5537,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackResources", input, options)
   end
@@ -5494,7 +5556,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_auto_deployment_targets_errors()}
   def list_stack_set_auto_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackSetAutoDeploymentTargets", input, options)
   end
@@ -5511,7 +5574,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_operation_results_errors()}
   def list_stack_set_operation_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackSetOperationResults", input, options)
   end
@@ -5528,7 +5592,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_stack_set_operations_errors()}
   def list_stack_set_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackSetOperations", input, options)
   end
@@ -5559,7 +5624,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stack_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackSets", input, options)
   end
@@ -5579,7 +5645,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStacks", input, options)
   end
@@ -5593,7 +5660,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_type_registrations_errors()}
   def list_type_registrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTypeRegistrations", input, options)
   end
@@ -5607,7 +5675,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_type_versions_errors()}
   def list_type_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTypeVersions", input, options)
   end
@@ -5622,7 +5691,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTypes", input, options)
   end
@@ -5650,7 +5720,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, publish_type_errors()}
   def publish_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PublishType", input, options)
   end
@@ -5667,7 +5738,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, record_handler_progress_errors()}
   def record_handler_progress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RecordHandlerProgress", input, options)
   end
@@ -5692,7 +5764,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, register_publisher_errors()}
   def register_publisher(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterPublisher", input, options)
   end
@@ -5742,7 +5815,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, register_type_errors()}
   def register_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterType", input, options)
   end
@@ -5788,7 +5862,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, rollback_stack_errors()}
   def rollback_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackStack", input, options)
   end
@@ -5801,7 +5876,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_stack_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetStackPolicy", input, options)
   end
@@ -5834,7 +5910,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, set_type_configuration_errors()}
   def set_type_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTypeConfiguration", input, options)
   end
@@ -5851,7 +5928,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, set_type_default_version_errors()}
   def set_type_default_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTypeDefaultVersion", input, options)
   end
@@ -5874,7 +5952,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def signal_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SignalResource", input, options)
   end
@@ -5891,7 +5970,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, start_resource_scan_errors()}
   def start_resource_scan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartResourceScan", input, options)
   end
@@ -5911,7 +5991,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, stop_stack_set_operation_errors()}
   def stop_stack_set_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStackSetOperation", input, options)
   end
@@ -5958,7 +6039,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, test_type_errors()}
   def test_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestType", input, options)
   end
@@ -5977,7 +6059,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_generated_template_errors()}
   def update_generated_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGeneratedTemplate", input, options)
   end
@@ -6005,7 +6088,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -6060,7 +6144,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_instances_errors()}
   def update_stack_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStackInstances", input, options)
   end
@@ -6099,7 +6184,8 @@ defmodule AWS.CloudFormation do
           | {:error, term()}
           | {:error, update_stack_set_errors()}
   def update_stack_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStackSet", input, options)
   end
@@ -6124,7 +6210,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_termination_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTerminationProtection", input, options)
   end
@@ -6142,7 +6229,8 @@ defmodule AWS.CloudFormation do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def validate_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateTemplate", input, options)
   end

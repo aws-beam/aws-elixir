@@ -34,7 +34,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       environment_descriptions_message() :: %{
-        "Environments" => list(environment_description()()),
+        "Environments" => list(environment_description()),
         "NextToken" => String.t()
       }
       
@@ -47,8 +47,8 @@ defmodule AWS.ElasticBeanstalk do
       
       create_platform_version_request() :: %{
         optional("EnvironmentName") => String.t(),
-        optional("OptionSettings") => list(configuration_option_setting()()),
-        optional("Tags") => list(tag()()),
+        optional("OptionSettings") => list(configuration_option_setting()),
+        optional("Tags") => list(tag()),
         required("PlatformDefinitionBundle") => s3_location(),
         required("PlatformName") => String.t(),
         required("PlatformVersion") => String.t()
@@ -105,8 +105,8 @@ defmodule AWS.ElasticBeanstalk do
       
       update_configuration_template_message() :: %{
         optional("Description") => String.t(),
-        optional("OptionSettings") => list(configuration_option_setting()()),
-        optional("OptionsToRemove") => list(option_specification()()),
+        optional("OptionSettings") => list(configuration_option_setting()),
+        optional("OptionsToRemove") => list(option_specification()),
         required("ApplicationName") => String.t(),
         required("TemplateName") => String.t()
       }
@@ -121,7 +121,7 @@ defmodule AWS.ElasticBeanstalk do
       compose_environments_message() :: %{
         optional("ApplicationName") => String.t(),
         optional("GroupName") => String.t(),
-        optional("VersionLabels") => list(String.t()())
+        optional("VersionLabels") => list(String.t())
       }
       
   """
@@ -194,7 +194,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       solution_stack_description() :: %{
-        "PermittedFileTypes" => list(String.t()()),
+        "PermittedFileTypes" => list(String.t()),
         "SolutionStackName" => String.t()
       }
       
@@ -231,7 +231,7 @@ defmodule AWS.ElasticBeanstalk do
       single_instance_health() :: %{
         "ApplicationMetrics" => application_metrics(),
         "AvailabilityZone" => String.t(),
-        "Causes" => list(String.t()()),
+        "Causes" => list(String.t()),
         "Color" => String.t(),
         "Deployment" => deployment(),
         "HealthStatus" => String.t(),
@@ -250,8 +250,8 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_environments_message() :: %{
         optional("ApplicationName") => String.t(),
-        optional("EnvironmentIds") => list(String.t()()),
-        optional("EnvironmentNames") => list(String.t()()),
+        optional("EnvironmentIds") => list(String.t()),
+        optional("EnvironmentNames") => list(String.t()),
         optional("IncludeDeleted") => boolean(),
         optional("IncludedDeletedBackTo") => non_neg_integer(),
         optional("MaxRecords") => integer(),
@@ -312,7 +312,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       list_platform_versions_request() :: %{
-        optional("Filters") => list(platform_filter()()),
+        optional("Filters") => list(platform_filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -374,7 +374,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       describe_environment_managed_action_history_result() :: %{
-        "ManagedActionHistoryItems" => list(managed_action_history_item()()),
+        "ManagedActionHistoryItems" => list(managed_action_history_item()),
         "NextToken" => String.t()
       }
       
@@ -398,7 +398,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       describe_instances_health_result() :: %{
-        "InstanceHealthList" => list(single_instance_health()()),
+        "InstanceHealthList" => list(single_instance_health()),
         "NextToken" => String.t(),
         "RefreshedAt" => non_neg_integer()
       }
@@ -481,7 +481,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       event_descriptions_message() :: %{
-        "Events" => list(event_description()()),
+        "Events" => list(event_description()),
         "NextToken" => String.t()
       }
       
@@ -545,7 +545,7 @@ defmodule AWS.ElasticBeanstalk do
         "Namespace" => String.t(),
         "Regex" => option_restriction_regex(),
         "UserDefined" => boolean(),
-        "ValueOptions" => list(String.t()()),
+        "ValueOptions" => list(String.t()),
         "ValueType" => list(any())
       }
       
@@ -558,7 +558,7 @@ defmodule AWS.ElasticBeanstalk do
       
       load_balancer_description() :: %{
         "Domain" => String.t(),
-        "Listeners" => list(listener()()),
+        "Listeners" => list(listener()),
         "LoadBalancerName" => String.t()
       }
       
@@ -607,7 +607,7 @@ defmodule AWS.ElasticBeanstalk do
       
       list_platform_branches_result() :: %{
         "NextToken" => String.t(),
-        "PlatformBranchSummaryList" => list(platform_branch_summary()())
+        "PlatformBranchSummaryList" => list(platform_branch_summary())
       }
       
   """
@@ -691,11 +691,11 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       platform_description() :: %{
-        "CustomAmiList" => list(custom_ami()()),
+        "CustomAmiList" => list(custom_ami()),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
         "Description" => String.t(),
-        "Frameworks" => list(platform_framework()()),
+        "Frameworks" => list(platform_framework()),
         "Maintainer" => String.t(),
         "OperatingSystemName" => String.t(),
         "OperatingSystemVersion" => String.t(),
@@ -708,10 +708,10 @@ defmodule AWS.ElasticBeanstalk do
         "PlatformOwner" => String.t(),
         "PlatformStatus" => list(any()),
         "PlatformVersion" => String.t(),
-        "ProgrammingLanguages" => list(platform_programming_language()()),
+        "ProgrammingLanguages" => list(platform_programming_language()),
         "SolutionStackName" => String.t(),
-        "SupportedAddonList" => list(String.t()()),
-        "SupportedTierList" => list(String.t()())
+        "SupportedAddonList" => list(String.t()),
+        "SupportedTierList" => list(String.t())
       }
       
   """
@@ -757,14 +757,14 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       environment_resource_description() :: %{
-        "AutoScalingGroups" => list(auto_scaling_group()()),
+        "AutoScalingGroups" => list(auto_scaling_group()),
         "EnvironmentName" => String.t(),
-        "Instances" => list(instance()()),
-        "LaunchConfigurations" => list(launch_configuration()()),
-        "LaunchTemplates" => list(launch_template()()),
-        "LoadBalancers" => list(load_balancer()()),
-        "Queues" => list(queue()()),
-        "Triggers" => list(trigger()())
+        "Instances" => list(instance()),
+        "LaunchConfigurations" => list(launch_configuration()),
+        "LaunchTemplates" => list(launch_template()),
+        "LoadBalancers" => list(load_balancer()),
+        "Queues" => list(queue()),
+        "Triggers" => list(trigger())
       }
       
   """
@@ -829,7 +829,7 @@ defmodule AWS.ElasticBeanstalk do
         "DeploymentStatus" => list(any()),
         "Description" => String.t(),
         "EnvironmentName" => String.t(),
-        "OptionSettings" => list(configuration_option_setting()()),
+        "OptionSettings" => list(configuration_option_setting()),
         "PlatformArn" => String.t(),
         "SolutionStackName" => String.t(),
         "TemplateName" => String.t()
@@ -854,7 +854,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       configuration_settings_validation_messages() :: %{
-        "Messages" => list(validation_message()())
+        "Messages" => list(validation_message())
       }
       
   """
@@ -867,7 +867,7 @@ defmodule AWS.ElasticBeanstalk do
       search_filter() :: %{
         "Attribute" => String.t(),
         "Operator" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -880,7 +880,7 @@ defmodule AWS.ElasticBeanstalk do
       platform_filter() :: %{
         "Operator" => String.t(),
         "Type" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -907,7 +907,7 @@ defmodule AWS.ElasticBeanstalk do
       describe_configuration_options_message() :: %{
         optional("ApplicationName") => String.t(),
         optional("EnvironmentName") => String.t(),
-        optional("Options") => list(option_specification()()),
+        optional("Options") => list(option_specification()),
         optional("PlatformArn") => String.t(),
         optional("SolutionStackName") => String.t(),
         optional("TemplateName") => String.t()
@@ -962,8 +962,8 @@ defmodule AWS.ElasticBeanstalk do
         optional("EnvironmentId") => String.t(),
         optional("EnvironmentName") => String.t(),
         optional("GroupName") => String.t(),
-        optional("OptionSettings") => list(configuration_option_setting()()),
-        optional("OptionsToRemove") => list(option_specification()()),
+        optional("OptionSettings") => list(configuration_option_setting()),
+        optional("OptionsToRemove") => list(option_specification()),
         optional("PlatformArn") => String.t(),
         optional("SolutionStackName") => String.t(),
         optional("TemplateName") => String.t(),
@@ -1037,7 +1037,7 @@ defmodule AWS.ElasticBeanstalk do
       
       describe_environment_health_result() :: %{
         "ApplicationMetrics" => application_metrics(),
-        "Causes" => list(String.t()()),
+        "Causes" => list(String.t()),
         "Color" => String.t(),
         "EnvironmentName" => String.t(),
         "HealthStatus" => String.t(),
@@ -1072,7 +1072,7 @@ defmodule AWS.ElasticBeanstalk do
         optional("Process") => boolean(),
         optional("SourceBuildInformation") => source_build_information(),
         optional("SourceBundle") => s3_location(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t(),
         required("VersionLabel") => String.t()
       }
@@ -1114,7 +1114,7 @@ defmodule AWS.ElasticBeanstalk do
         "BranchOrder" => integer(),
         "LifecycleState" => String.t(),
         "PlatformName" => String.t(),
-        "SupportedTierList" => list(String.t()())
+        "SupportedTierList" => list(String.t())
       }
       
   """
@@ -1125,8 +1125,8 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       list_available_solution_stacks_result_message() :: %{
-        "SolutionStackDetails" => list(solution_stack_description()()),
-        "SolutionStacks" => list(String.t()())
+        "SolutionStackDetails" => list(solution_stack_description()),
+        "SolutionStacks" => list(String.t())
       }
       
   """
@@ -1175,7 +1175,7 @@ defmodule AWS.ElasticBeanstalk do
       
       system_status() :: %{
         "CPUUtilization" => c_p_u_utilization(),
-        "LoadAverage" => list(float()())
+        "LoadAverage" => list(float())
       }
       
   """
@@ -1207,7 +1207,7 @@ defmodule AWS.ElasticBeanstalk do
         optional("ApplicationName") => String.t(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t(),
-        optional("VersionLabels") => list(String.t()())
+        optional("VersionLabels") => list(String.t())
       }
       
   """
@@ -1228,8 +1228,8 @@ defmodule AWS.ElasticBeanstalk do
         "PlatformOwner" => String.t(),
         "PlatformStatus" => list(any()),
         "PlatformVersion" => String.t(),
-        "SupportedAddonList" => list(String.t()()),
-        "SupportedTierList" => list(String.t()())
+        "SupportedAddonList" => list(String.t()),
+        "SupportedTierList" => list(String.t())
       }
       
   """
@@ -1253,7 +1253,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       retrieve_environment_info_result_message() :: %{
-        "EnvironmentInfo" => list(environment_info_description()())
+        "EnvironmentInfo" => list(environment_info_description())
       }
       
   """
@@ -1284,7 +1284,7 @@ defmodule AWS.ElasticBeanstalk do
         "EndpointURL" => String.t(),
         "EnvironmentArn" => String.t(),
         "EnvironmentId" => String.t(),
-        "EnvironmentLinks" => list(environment_link()()),
+        "EnvironmentLinks" => list(environment_link()),
         "EnvironmentName" => String.t(),
         "Health" => list(any()),
         "HealthStatus" => list(any()),
@@ -1383,7 +1383,7 @@ defmodule AWS.ElasticBeanstalk do
         optional("EnvironmentName") => String.t(),
         optional("TemplateName") => String.t(),
         required("ApplicationName") => String.t(),
-        required("OptionSettings") => list(configuration_option_setting()())
+        required("OptionSettings") => list(configuration_option_setting())
       }
       
   """
@@ -1428,7 +1428,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       configuration_options_description() :: %{
-        "Options" => list(configuration_option_description()()),
+        "Options" => list(configuration_option_description()),
         "PlatformArn" => String.t(),
         "SolutionStackName" => String.t()
       }
@@ -1441,7 +1441,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       application_descriptions_message() :: %{
-        "Applications" => list(application_description()())
+        "Applications" => list(application_description())
       }
       
   """
@@ -1546,7 +1546,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       describe_environment_managed_actions_result() :: %{
-        "ManagedActions" => list(managed_action()())
+        "ManagedActions" => list(managed_action())
       }
       
   """
@@ -1558,7 +1558,7 @@ defmodule AWS.ElasticBeanstalk do
       
       resource_tags_description_message() :: %{
         "ResourceArn" => String.t(),
-        "ResourceTags" => list(tag()())
+        "ResourceTags" => list(tag())
       }
       
   """
@@ -1580,7 +1580,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       configuration_settings_descriptions() :: %{
-        "ConfigurationSettings" => list(configuration_settings_description()())
+        "ConfigurationSettings" => list(configuration_settings_description())
       }
       
   """
@@ -1616,12 +1616,12 @@ defmodule AWS.ElasticBeanstalk do
       application_description() :: %{
         "ApplicationArn" => String.t(),
         "ApplicationName" => String.t(),
-        "ConfigurationTemplates" => list(String.t()()),
+        "ConfigurationTemplates" => list(String.t()),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
         "Description" => String.t(),
         "ResourceLifecycleConfig" => application_resource_lifecycle_config(),
-        "Versions" => list(String.t()())
+        "Versions" => list(String.t())
       }
       
   """
@@ -1632,7 +1632,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       list_platform_branches_request() :: %{
-        optional("Filters") => list(search_filter()()),
+        optional("Filters") => list(search_filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1656,7 +1656,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       describe_applications_message() :: %{
-        optional("ApplicationNames") => list(String.t()())
+        optional("ApplicationNames") => list(String.t())
       }
       
   """
@@ -1678,7 +1678,7 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       application_version_descriptions_message() :: %{
-        "ApplicationVersions" => list(application_version_description()()),
+        "ApplicationVersions" => list(application_version_description()),
         "NextToken" => String.t()
       }
       
@@ -1738,11 +1738,11 @@ defmodule AWS.ElasticBeanstalk do
       create_configuration_template_message() :: %{
         optional("Description") => String.t(),
         optional("EnvironmentId") => String.t(),
-        optional("OptionSettings") => list(configuration_option_setting()()),
+        optional("OptionSettings") => list(configuration_option_setting()),
         optional("PlatformArn") => String.t(),
         optional("SolutionStackName") => String.t(),
         optional("SourceConfiguration") => source_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t(),
         required("TemplateName") => String.t()
       }
@@ -1852,7 +1852,7 @@ defmodule AWS.ElasticBeanstalk do
       
       list_platform_versions_result() :: %{
         "NextToken" => String.t(),
-        "PlatformSummaryList" => list(platform_summary()())
+        "PlatformSummaryList" => list(platform_summary())
       }
       
   """
@@ -1897,8 +1897,8 @@ defmodule AWS.ElasticBeanstalk do
   ## Example:
       
       update_tags_for_resource_message() :: %{
-        optional("TagsToAdd") => list(tag()()),
-        optional("TagsToRemove") => list(String.t()()),
+        optional("TagsToAdd") => list(tag()),
+        optional("TagsToRemove") => list(String.t()),
         required("ResourceArn") => String.t()
       }
       
@@ -1935,7 +1935,7 @@ defmodule AWS.ElasticBeanstalk do
       create_application_message() :: %{
         optional("Description") => String.t(),
         optional("ResourceLifecycleConfig") => application_resource_lifecycle_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t()
       }
       
@@ -1964,11 +1964,11 @@ defmodule AWS.ElasticBeanstalk do
         optional("EnvironmentName") => String.t(),
         optional("GroupName") => String.t(),
         optional("OperationsRole") => String.t(),
-        optional("OptionSettings") => list(configuration_option_setting()()),
-        optional("OptionsToRemove") => list(option_specification()()),
+        optional("OptionSettings") => list(configuration_option_setting()),
+        optional("OptionsToRemove") => list(option_specification()),
         optional("PlatformArn") => String.t(),
         optional("SolutionStackName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateName") => String.t(),
         optional("Tier") => environment_tier(),
         optional("VersionLabel") => String.t(),
@@ -2111,7 +2111,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, abort_environment_update_errors()}
   def abort_environment_update(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AbortEnvironmentUpdate", input, options)
   end
@@ -2133,7 +2134,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, apply_environment_managed_action_errors()}
   def apply_environment_managed_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyEnvironmentManagedAction", input, options)
   end
@@ -2158,7 +2160,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, associate_environment_operations_role_errors()}
   def associate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEnvironmentOperationsRole", input, options)
   end
@@ -2171,7 +2174,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def check_dns_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckDNSAvailability", input, options)
   end
@@ -2195,7 +2199,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, compose_environments_errors()}
   def compose_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ComposeEnvironments", input, options)
   end
@@ -2210,7 +2215,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -2248,7 +2254,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_version_errors()}
   def create_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationVersion", input, options)
   end
@@ -2286,7 +2293,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_configuration_template_errors()}
   def create_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationTemplate", input, options)
   end
@@ -2302,7 +2310,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -2316,7 +2325,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_platform_version_errors()}
   def create_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformVersion", input, options)
   end
@@ -2338,7 +2348,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_storage_location_errors()}
   def create_storage_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStorageLocation", input, options)
   end
@@ -2358,7 +2369,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -2375,7 +2387,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_version_errors()}
   def delete_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVersion", input, options)
   end
@@ -2395,7 +2408,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_configuration_template_errors()}
   def delete_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationTemplate", input, options)
   end
@@ -2420,7 +2434,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_environment_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentConfiguration", input, options)
   end
@@ -2434,7 +2449,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_platform_version_errors()}
   def delete_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlatformVersion", input, options)
   end
@@ -2452,7 +2468,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -2465,7 +2482,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_application_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersions", input, options)
   end
@@ -2478,7 +2496,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -2498,7 +2517,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_options_errors()}
   def describe_configuration_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationOptions", input, options)
   end
@@ -2529,7 +2549,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_settings_errors()}
   def describe_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationSettings", input, options)
   end
@@ -2547,7 +2568,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_health_errors()}
   def describe_environment_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentHealth", input, options)
   end
@@ -2565,7 +2587,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_action_history_errors()}
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActionHistory", input, options)
   end
@@ -2583,7 +2606,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_actions_errors()}
   def describe_environment_managed_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActions", input, options)
   end
@@ -2597,7 +2621,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_resources_errors()}
   def describe_environment_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentResources", input, options)
   end
@@ -2610,7 +2635,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -2626,7 +2652,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -2643,7 +2670,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_instances_health_errors()}
   def describe_instances_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstancesHealth", input, options)
   end
@@ -2665,7 +2693,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_platform_version_errors()}
   def describe_platform_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePlatformVersion", input, options)
   end
@@ -2690,7 +2719,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, disassociate_environment_operations_role_errors()}
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEnvironmentOperationsRole", input, options)
   end
@@ -2705,7 +2735,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_available_solution_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableSolutionStacks", input, options)
   end
@@ -2725,7 +2756,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_platform_branches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformBranches", input, options)
   end
@@ -2748,7 +2780,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_platform_versions_errors()}
   def list_platform_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformVersions", input, options)
   end
@@ -2768,7 +2801,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2784,7 +2818,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, rebuild_environment_errors()}
   def rebuild_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebuildEnvironment", input, options)
   end
@@ -2815,7 +2850,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_environment_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestEnvironmentInfo", input, options)
   end
@@ -2830,7 +2866,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restart_app_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestartAppServer", input, options)
   end
@@ -2850,7 +2887,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def retrieve_environment_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetrieveEnvironmentInfo", input, options)
   end
@@ -2863,7 +2901,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def swap_environment_cnames(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwapEnvironmentCNAMEs", input, options)
   end
@@ -2877,7 +2916,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, terminate_environment_errors()}
   def terminate_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateEnvironment", input, options)
   end
@@ -2893,7 +2933,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -2911,7 +2952,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_application_resource_lifecycle_errors()}
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationResourceLifecycle", input, options)
   end
@@ -2927,7 +2969,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationVersion", input, options)
   end
@@ -2951,7 +2994,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_configuration_template_errors()}
   def update_configuration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationTemplate", input, options)
   end
@@ -2979,7 +3023,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -3021,7 +3066,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_tags_for_resource_errors()}
   def update_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTagsForResource", input, options)
   end
@@ -3040,7 +3086,8 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, validate_configuration_settings_errors()}
   def validate_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateConfigurationSettings", input, options)
   end

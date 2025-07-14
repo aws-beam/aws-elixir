@@ -97,7 +97,7 @@ defmodule AWS.Bedrock do
         "creationTime" => non_neg_integer(),
         "customerEncryptionKeyId" => String.t(),
         "evaluationConfig" => list(),
-        "failureMessages" => list(String.t()()),
+        "failureMessages" => list(String.t()),
         "inferenceConfig" => list(),
         "jobArn" => String.t(),
         "jobDescription" => String.t(),
@@ -137,7 +137,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_marketplace_model_endpoints_response() :: %{
-        "marketplaceModelEndpoints" => list(marketplace_model_endpoint_summary()()),
+        "marketplaceModelEndpoints" => list(marketplace_model_endpoint_summary()),
         "nextToken" => String.t()
       }
 
@@ -174,7 +174,7 @@ defmodule AWS.Bedrock do
 
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -345,14 +345,14 @@ defmodule AWS.Bedrock do
         "createdAt" => non_neg_integer(),
         "crossRegionDetails" => guardrail_cross_region_details(),
         "description" => String.t(),
-        "failureRecommendations" => list(String.t()()),
+        "failureRecommendations" => list(String.t()),
         "guardrailArn" => String.t(),
         "guardrailId" => String.t(),
         "kmsKeyArn" => String.t(),
         "name" => String.t(),
         "sensitiveInformationPolicy" => guardrail_sensitive_information_policy(),
         "status" => list(any()),
-        "statusReasons" => list(String.t()()),
+        "statusReasons" => list(String.t()),
         "topicPolicy" => guardrail_topic_policy(),
         "updatedAt" => non_neg_integer(),
         "version" => String.t(),
@@ -388,7 +388,7 @@ defmodule AWS.Bedrock do
 
       guardrail_topic_policy_config() :: %{
         "tierConfig" => guardrail_topics_tier_config(),
-        "topicsConfig" => list(guardrail_topic_config()())
+        "topicsConfig" => list(guardrail_topic_config())
       }
 
   """
@@ -424,7 +424,7 @@ defmodule AWS.Bedrock do
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
         optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("topicPolicyConfig") => guardrail_topic_policy_config(),
         optional("wordPolicyConfig") => guardrail_word_policy_config(),
         required("blockedInputMessaging") => String.t(),
@@ -495,8 +495,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_word_policy() :: %{
-        "managedWordLists" => list(guardrail_managed_words()()),
-        "words" => list(guardrail_word()())
+        "managedWordLists" => list(guardrail_managed_words()),
+        "words" => list(guardrail_word())
       }
 
   """
@@ -552,7 +552,7 @@ defmodule AWS.Bedrock do
 
       automated_evaluation_config() :: %{
         "customMetricConfig" => automated_evaluation_custom_metric_config(),
-        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
         "evaluatorModelConfig" => list()
       }
 
@@ -565,7 +565,7 @@ defmodule AWS.Bedrock do
 
       guardrail_topic_config() :: %{
         "definition" => String.t(),
-        "examples" => list(String.t()()),
+        "examples" => list(String.t()),
         "inputAction" => list(any()),
         "inputEnabled" => [boolean()],
         "name" => String.t(),
@@ -587,7 +587,7 @@ defmodule AWS.Bedrock do
         "inferenceProfileArn" => String.t(),
         "inferenceProfileId" => String.t(),
         "inferenceProfileName" => String.t(),
-        "models" => list(inference_profile_model()()),
+        "models" => list(inference_profile_model()),
         "status" => list(any()),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -624,7 +624,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_policy() :: %{
-        "filters" => list(guardrail_content_filter()()),
+        "filters" => list(guardrail_content_filter()),
         "tier" => guardrail_content_filters_tier()
       }
 
@@ -729,7 +729,7 @@ defmodule AWS.Bedrock do
 
       list_foundation_model_agreement_offers_response() :: %{
         "modelId" => String.t(),
-        "offers" => list(offer()())
+        "offers" => list(offer())
       }
 
   """
@@ -759,7 +759,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       pricing_term() :: %{
-        "rateCard" => list(dimensional_price_rate()())
+        "rateCard" => list(dimensional_price_rate())
       }
 
   """
@@ -812,7 +812,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       automated_evaluation_custom_metric_config() :: %{
-        "customMetrics" => list(list()()),
+        "customMetrics" => list(list()),
         "evaluatorModelConfig" => custom_metric_evaluator_model_config()
       }
 
@@ -824,8 +824,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       evaluation_model_config_summary() :: %{
-        "bedrockModelIdentifiers" => list(String.t()()),
-        "precomputedInferenceSourceIdentifiers" => list(String.t()())
+        "bedrockModelIdentifiers" => list(String.t()),
+        "precomputedInferenceSourceIdentifiers" => list(String.t())
       }
 
   """
@@ -881,7 +881,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_inference_profiles_response() :: %{
-        "inferenceProfileSummaries" => list(inference_profile_summary()()),
+        "inferenceProfileSummaries" => list(inference_profile_summary()),
         "nextToken" => String.t()
       }
 
@@ -952,7 +952,7 @@ defmodule AWS.Bedrock do
 
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -989,7 +989,7 @@ defmodule AWS.Bedrock do
       create_inference_profile_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("inferenceProfileName") => String.t(),
         required("modelSource") => list()
       }
@@ -1003,7 +1003,7 @@ defmodule AWS.Bedrock do
 
       list_provisioned_model_throughputs_response() :: %{
         "nextToken" => String.t(),
-        "provisionedModelSummaries" => list(provisioned_model_summary()())
+        "provisionedModelSummaries" => list(provisioned_model_summary())
       }
 
   """
@@ -1051,7 +1051,7 @@ defmodule AWS.Bedrock do
       create_model_copy_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("modelKmsKeyId") => String.t(),
-        optional("targetModelTags") => list(tag()()),
+        optional("targetModelTags") => list(tag()),
         required("sourceModelArn") => String.t(),
         required("targetModelName") => String.t()
       }
@@ -1067,7 +1067,7 @@ defmodule AWS.Bedrock do
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "fallbackModel" => prompt_router_target_model(),
-        "models" => list(prompt_router_target_model()()),
+        "models" => list(prompt_router_target_model()),
         "promptRouterArn" => String.t(),
         "promptRouterName" => String.t(),
         "routingCriteria" => routing_criteria(),
@@ -1148,7 +1148,7 @@ defmodule AWS.Bedrock do
         "inferenceProfileArn" => String.t(),
         "inferenceProfileId" => String.t(),
         "inferenceProfileName" => String.t(),
-        "models" => list(inference_profile_model()()),
+        "models" => list(inference_profile_model()),
         "status" => list(any()),
         "type" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -1163,7 +1163,7 @@ defmodule AWS.Bedrock do
 
       create_model_invocation_job_request() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("timeoutDurationInHours") => integer(),
         optional("vpcConfig") => vpc_config(),
         required("inputDataConfig") => list(),
@@ -1391,7 +1391,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_guardrails_response() :: %{
-        "guardrails" => list(guardrail_summary()()),
+        "guardrails" => list(guardrail_summary()),
         "nextToken" => String.t()
       }
 
@@ -1405,7 +1405,7 @@ defmodule AWS.Bedrock do
       custom_metric_definition() :: %{
         "instructions" => String.t(),
         "name" => String.t(),
-        "ratingScale" => list(rating_scale_item()())
+        "ratingScale" => list(rating_scale_item())
       }
 
   """
@@ -1461,7 +1461,7 @@ defmodule AWS.Bedrock do
       create_marketplace_model_endpoint_request() :: %{
         optional("acceptEula") => boolean(),
         optional("clientRequestToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("endpointConfig") => list(),
         required("endpointName") => String.t(),
         required("modelSourceIdentifier") => String.t()
@@ -1485,7 +1485,7 @@ defmodule AWS.Bedrock do
 
       evaluation_dataset_metric_config() :: %{
         "dataset" => evaluation_dataset(),
-        "metricNames" => list(String.t()()),
+        "metricNames" => list(String.t()),
         "taskType" => list(any())
       }
 
@@ -1561,7 +1561,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_model_invocation_jobs_response() :: %{
-        "invocationJobSummaries" => list(model_invocation_job_summary()()),
+        "invocationJobSummaries" => list(model_invocation_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1589,7 +1589,7 @@ defmodule AWS.Bedrock do
         "trainingDataConfig" => training_data_config(),
         "trainingMetrics" => training_metrics(),
         "validationDataConfig" => validation_data_config(),
-        "validationMetrics" => list(validator_metric()())
+        "validationMetrics" => list(validator_metric())
       }
 
   """
@@ -1610,7 +1610,7 @@ defmodule AWS.Bedrock do
         "targetModelArn" => String.t(),
         "targetModelKmsKeyArn" => String.t(),
         "targetModelName" => String.t(),
-        "targetModelTags" => list(tag()())
+        "targetModelTags" => list(tag())
       }
 
   """
@@ -1662,7 +1662,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_content_policy_config() :: %{
-        "filtersConfig" => list(guardrail_content_filter_config()()),
+        "filtersConfig" => list(guardrail_content_filter_config()),
         "tierConfig" => guardrail_content_filters_tier_config()
       }
 
@@ -1710,7 +1710,7 @@ defmodule AWS.Bedrock do
       create_provisioned_model_throughput_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("commitmentDuration") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("modelId") => String.t(),
         required("modelUnits") => integer(),
         required("provisionedModelName") => String.t()
@@ -1769,8 +1769,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       vpc_config() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -1795,7 +1795,7 @@ defmodule AWS.Bedrock do
       external_sources_retrieve_and_generate_configuration() :: %{
         "generationConfiguration" => external_sources_generation_configuration(),
         "modelArn" => String.t(),
-        "sources" => list(external_source()())
+        "sources" => list(external_source())
       }
 
   """
@@ -1815,8 +1815,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       batch_delete_evaluation_job_response() :: %{
-        "errors" => list(batch_delete_evaluation_job_error()()),
-        "evaluationJobs" => list(batch_delete_evaluation_job_item()())
+        "errors" => list(batch_delete_evaluation_job_error()),
+        "evaluationJobs" => list(batch_delete_evaluation_job_item())
       }
 
   """
@@ -1830,7 +1830,7 @@ defmodule AWS.Bedrock do
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "fallbackModel" => prompt_router_target_model(),
-        "models" => list(prompt_router_target_model()()),
+        "models" => list(prompt_router_target_model()),
         "promptRouterArn" => String.t(),
         "promptRouterName" => String.t(),
         "routingCriteria" => routing_criteria(),
@@ -1885,7 +1885,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -2053,7 +2053,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_imported_models_response() :: %{
-        "modelSummaries" => list(imported_model_summary()()),
+        "modelSummaries" => list(imported_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -2114,9 +2114,9 @@ defmodule AWS.Bedrock do
       create_prompt_router_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("fallbackModel") => prompt_router_target_model(),
-        required("models") => list(prompt_router_target_model()()),
+        required("models") => list(prompt_router_target_model()),
         required("promptRouterName") => String.t(),
         required("routingCriteria") => routing_criteria()
       }
@@ -2212,8 +2212,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_sensitive_information_policy() :: %{
-        "piiEntities" => list(guardrail_pii_entity()()),
-        "regexes" => list(guardrail_regex()())
+        "piiEntities" => list(guardrail_pii_entity()),
+        "regexes" => list(guardrail_regex())
       }
 
   """
@@ -2224,7 +2224,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       implicit_filter_configuration() :: %{
-        "metadataAttributes" => list(metadata_attribute_schema()()),
+        "metadataAttributes" => list(metadata_attribute_schema()),
         "modelArn" => String.t()
       }
 
@@ -2258,7 +2258,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_contextual_grounding_policy_config() :: %{
-        "filtersConfig" => list(guardrail_contextual_grounding_filter_config()())
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
       }
 
   """
@@ -2280,8 +2280,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       evaluation_rag_config_summary() :: %{
-        "bedrockKnowledgeBaseIdentifiers" => list(String.t()()),
-        "precomputedRagSourceIdentifiers" => list(String.t()())
+        "bedrockKnowledgeBaseIdentifiers" => list(String.t()),
+        "precomputedRagSourceIdentifiers" => list(String.t())
       }
 
   """
@@ -2347,7 +2347,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_model_copy_jobs_response() :: %{
-        "modelCopyJobSummaries" => list(model_copy_job_summary()()),
+        "modelCopyJobSummaries" => list(model_copy_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2368,7 +2368,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       validation_data_config() :: %{
-        "validators" => list(validator()())
+        "validators" => list(validator())
       }
 
   """
@@ -2451,7 +2451,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       custom_metric_evaluator_model_config() :: %{
-        "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model()())
+        "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model())
       }
 
   """
@@ -2474,7 +2474,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_model_customization_jobs_response() :: %{
-        "modelCustomizationJobSummaries" => list(model_customization_job_summary()()),
+        "modelCustomizationJobSummaries" => list(model_customization_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2486,7 +2486,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_foundation_models_response() :: %{
-        "modelSummaries" => list(foundation_model_summary()())
+        "modelSummaries" => list(foundation_model_summary())
       }
 
   """
@@ -2576,11 +2576,11 @@ defmodule AWS.Bedrock do
       create_model_customization_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("customModelKmsKeyId") => String.t(),
-        optional("customModelTags") => list(tag()()),
+        optional("customModelTags") => list(tag()),
         optional("customizationConfig") => list(),
         optional("customizationType") => list(any()),
         optional("hyperParameters") => map(),
-        optional("jobTags") => list(tag()()),
+        optional("jobTags") => list(tag()),
         optional("validationDataConfig") => validation_data_config(),
         optional("vpcConfig") => vpc_config(),
         required("baseModelIdentifier") => String.t(),
@@ -2646,7 +2646,7 @@ defmodule AWS.Bedrock do
         optional("clientRequestToken") => String.t(),
         optional("customerEncryptionKeyId") => String.t(),
         optional("jobDescription") => String.t(),
-        optional("jobTags") => list(tag()()),
+        optional("jobTags") => list(tag()),
         required("evaluationConfig") => list(),
         required("inferenceConfig") => list(),
         required("jobName") => String.t(),
@@ -2675,7 +2675,7 @@ defmodule AWS.Bedrock do
       create_custom_model_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("modelKmsKeyArn") => String.t(),
-        optional("modelTags") => list(tag()()),
+        optional("modelTags") => list(tag()),
         optional("roleArn") => String.t(),
         required("modelName") => String.t(),
         required("modelSourceConfig") => list()
@@ -2702,8 +2702,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_word_policy_config() :: %{
-        "managedWordListsConfig" => list(guardrail_managed_words_config()()),
-        "wordsConfig" => list(guardrail_word_config()())
+        "managedWordListsConfig" => list(guardrail_managed_words_config()),
+        "wordsConfig" => list(guardrail_word_config())
       }
 
   """
@@ -2725,7 +2725,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_evaluation_jobs_response() :: %{
-        "jobSummaries" => list(evaluation_summary()()),
+        "jobSummaries" => list(evaluation_summary()),
         "nextToken" => String.t()
       }
 
@@ -2737,8 +2737,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_sensitive_information_policy_config() :: %{
-        "piiEntitiesConfig" => list(guardrail_pii_entity_config()()),
-        "regexesConfig" => list(guardrail_regex_config()())
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
+        "regexesConfig" => list(guardrail_regex_config())
       }
 
   """
@@ -2896,7 +2896,7 @@ defmodule AWS.Bedrock do
         "trainingDataConfig" => training_data_config(),
         "trainingMetrics" => training_metrics(),
         "validationDataConfig" => validation_data_config(),
-        "validationMetrics" => list(validator_metric()()),
+        "validationMetrics" => list(validator_metric()),
         "vpcConfig" => vpc_config()
       }
 
@@ -2918,7 +2918,7 @@ defmodule AWS.Bedrock do
         "targetModelArn" => String.t(),
         "targetModelKmsKeyArn" => String.t(),
         "targetModelName" => String.t(),
-        "targetModelTags" => list(tag()())
+        "targetModelTags" => list(tag())
       }
 
   """
@@ -2941,7 +2941,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_custom_models_response() :: %{
-        "modelSummaries" => list(custom_model_summary()()),
+        "modelSummaries" => list(custom_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -2954,7 +2954,7 @@ defmodule AWS.Bedrock do
 
       list_prompt_routers_response() :: %{
         "nextToken" => String.t(),
-        "promptRouterSummaries" => list(prompt_router_summary()())
+        "promptRouterSummaries" => list(prompt_router_summary())
       }
 
   """
@@ -2978,7 +2978,7 @@ defmodule AWS.Bedrock do
 
       guardrail_topic_policy() :: %{
         "tier" => guardrail_topics_tier(),
-        "topics" => list(guardrail_topic()())
+        "topics" => list(guardrail_topic())
       }
 
   """
@@ -3013,8 +3013,8 @@ defmodule AWS.Bedrock do
       create_model_import_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("importedModelKmsKeyId") => String.t(),
-        optional("importedModelTags") => list(tag()()),
-        optional("jobTags") => list(tag()()),
+        optional("importedModelTags") => list(tag()),
+        optional("jobTags") => list(tag()),
         optional("vpcConfig") => vpc_config(),
         required("importedModelName") => String.t(),
         required("jobName") => String.t(),
@@ -3208,7 +3208,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       batch_delete_evaluation_job_request() :: %{
-        required("jobIdentifiers") => list(String.t()())
+        required("jobIdentifiers") => list(String.t())
       }
 
   """
@@ -3314,15 +3314,15 @@ defmodule AWS.Bedrock do
       evaluation_summary() :: %{
         "applicationType" => list(any()),
         "creationTime" => non_neg_integer(),
-        "customMetricsEvaluatorModelIdentifiers" => list(String.t()()),
+        "customMetricsEvaluatorModelIdentifiers" => list(String.t()),
         "evaluationTaskTypes" => list(list(any())()),
-        "evaluatorModelIdentifiers" => list(String.t()()),
+        "evaluatorModelIdentifiers" => list(String.t()),
         "inferenceConfigSummary" => evaluation_inference_config_summary(),
         "jobArn" => String.t(),
         "jobName" => String.t(),
         "jobType" => list(any()),
-        "modelIdentifiers" => list(String.t()()),
-        "ragIdentifiers" => list(String.t()()),
+        "modelIdentifiers" => list(String.t()),
+        "ragIdentifiers" => list(String.t()),
         "status" => list(any())
       }
 
@@ -3432,7 +3432,7 @@ defmodule AWS.Bedrock do
 
       guardrail_topic() :: %{
         "definition" => String.t(),
-        "examples" => list(String.t()()),
+        "examples" => list(String.t()),
         "inputAction" => list(any()),
         "inputEnabled" => [boolean()],
         "name" => String.t(),
@@ -3449,7 +3449,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       guardrail_contextual_grounding_policy() :: %{
-        "filters" => list(guardrail_contextual_grounding_filter()())
+        "filters" => list(guardrail_contextual_grounding_filter())
       }
 
   """
@@ -3460,8 +3460,8 @@ defmodule AWS.Bedrock do
   ## Example:
 
       human_evaluation_config() :: %{
-        "customMetrics" => list(human_evaluation_custom_metric()()),
-        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()()),
+        "customMetrics" => list(human_evaluation_custom_metric()),
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
         "humanWorkflowConfig" => human_workflow_config()
       }
 
@@ -3527,7 +3527,7 @@ defmodule AWS.Bedrock do
   ## Example:
 
       list_model_import_jobs_response() :: %{
-        "modelImportJobSummaries" => list(model_import_job_summary()()),
+        "modelImportJobSummaries" => list(model_import_job_summary()),
         "nextToken" => String.t()
       }
 

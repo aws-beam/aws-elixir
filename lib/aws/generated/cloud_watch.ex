@@ -35,7 +35,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       enable_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t()())
+        required("RuleNames") => list(String.t())
       }
       
   """
@@ -55,7 +55,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric_stream_filter() :: %{
-        "MetricNames" => list(String.t()()),
+        "MetricNames" => list(String.t()),
         "Namespace" => String.t()
       }
       
@@ -91,7 +91,7 @@ defmodule AWS.CloudWatch do
       
       managed_rule() :: %{
         "ResourceARN" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TemplateName" => String.t()
       }
       
@@ -103,7 +103,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       start_metric_streams_input() :: %{
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -138,7 +138,7 @@ defmodule AWS.CloudWatch do
       put_insight_rule_input() :: %{
         optional("ApplyOnTransformedLogs") => boolean(),
         optional("RuleState") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("RuleDefinition") => String.t(),
         required("RuleName") => String.t()
       }
@@ -155,11 +155,11 @@ defmodule AWS.CloudWatch do
         optional("ActionsSuppressor") => String.t(),
         optional("ActionsSuppressorExtensionPeriod") => integer(),
         optional("ActionsSuppressorWaitPeriod") => integer(),
-        optional("AlarmActions") => list(String.t()()),
+        optional("AlarmActions") => list(String.t()),
         optional("AlarmDescription") => String.t(),
-        optional("InsufficientDataActions") => list(String.t()()),
-        optional("OKActions") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("InsufficientDataActions") => list(String.t()),
+        optional("OKActions") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("AlarmName") => String.t(),
         required("AlarmRule") => String.t()
       }
@@ -172,7 +172,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       delete_anomaly_detector_input() :: %{
-        optional("Dimensions") => list(dimension()()),
+        optional("Dimensions") => list(dimension()),
         optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
         optional("MetricName") => String.t(),
         optional("Namespace") => String.t(),
@@ -191,9 +191,9 @@ defmodule AWS.CloudWatch do
         "AggregateValue" => float(),
         "AggregationStatistic" => String.t(),
         "ApproximateUniqueCount" => float(),
-        "Contributors" => list(insight_rule_contributor()()),
-        "KeyLabels" => list(String.t()()),
-        "MetricDatapoints" => list(insight_rule_metric_datapoint()())
+        "Contributors" => list(insight_rule_contributor()),
+        "KeyLabels" => list(String.t()),
+        "MetricDatapoints" => list(insight_rule_metric_datapoint())
       }
       
   """
@@ -232,7 +232,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       delete_dashboards_input() :: %{
-        required("DashboardNames") => list(String.t()())
+        required("DashboardNames") => list(String.t())
       }
       
   """
@@ -243,7 +243,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       enable_insight_rules_output() :: %{
-        "Failures" => list(partial_failure()())
+        "Failures" => list(partial_failure())
       }
       
   """
@@ -255,7 +255,7 @@ defmodule AWS.CloudWatch do
       
       get_insight_rule_report_input() :: %{
         optional("MaxContributorCount") => integer(),
-        optional("Metrics") => list(String.t()()),
+        optional("Metrics") => list(String.t()),
         optional("OrderBy") => String.t(),
         required("EndTime") => non_neg_integer(),
         required("Period") => integer(),
@@ -271,7 +271,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric() :: %{
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
@@ -284,7 +284,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       anomaly_detector_configuration() :: %{
-        "ExcludedTimeRanges" => list(range()()),
+        "ExcludedTimeRanges" => list(range()),
         "MetricTimezone" => String.t()
       }
       
@@ -329,7 +329,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       disable_alarm_actions_input() :: %{
-        required("AlarmNames") => list(String.t()())
+        required("AlarmNames") => list(String.t())
       }
       
   """
@@ -351,7 +351,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_managed_insight_rules_output() :: %{
-        "ManagedRules" => list(managed_rule_description()()),
+        "ManagedRules" => list(managed_rule_description()),
         "NextToken" => String.t()
       }
       
@@ -363,7 +363,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_metrics_input() :: %{
-        optional("Dimensions") => list(dimension_filter()()),
+        optional("Dimensions") => list(dimension_filter()),
         optional("IncludeLinkedAccounts") => boolean(),
         optional("MetricName") => String.t(),
         optional("Namespace") => String.t(),
@@ -432,8 +432,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric_stream_statistics_configuration() :: %{
-        "AdditionalStatistics" => list(String.t()()),
-        "IncludeMetrics" => list(metric_stream_statistics_metric()())
+        "AdditionalStatistics" => list(String.t()),
+        "IncludeMetrics" => list(metric_stream_statistics_metric())
       }
       
   """
@@ -444,7 +444,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_managed_insight_rules_input() :: %{
-        required("ManagedRules") => list(managed_rule()())
+        required("ManagedRules") => list(managed_rule())
       }
       
   """
@@ -455,7 +455,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_managed_insight_rules_output() :: %{
-        "Failures" => list(partial_failure()())
+        "Failures" => list(partial_failure())
       }
       
   """
@@ -478,7 +478,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -491,7 +491,7 @@ defmodule AWS.CloudWatch do
       describe_alarms_input() :: %{
         optional("ActionPrefix") => String.t(),
         optional("AlarmNamePrefix") => String.t(),
-        optional("AlarmNames") => list(String.t()()),
+        optional("AlarmNames") => list(String.t()),
         optional("AlarmTypes") => list(list(any())()),
         optional("ChildrenOfAlarmName") => String.t(),
         optional("MaxRecords") => integer(),
@@ -508,8 +508,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_alarms_output() :: %{
-        "CompositeAlarms" => list(composite_alarm()()),
-        "MetricAlarms" => list(metric_alarm()()),
+        "CompositeAlarms" => list(composite_alarm()),
+        "MetricAlarms" => list(metric_alarm()),
         "NextToken" => String.t()
       }
       
@@ -560,7 +560,7 @@ defmodule AWS.CloudWatch do
       
       put_anomaly_detector_input() :: %{
         optional("Configuration") => anomaly_detector_configuration(),
-        optional("Dimensions") => list(dimension()()),
+        optional("Dimensions") => list(dimension()),
         optional("MetricCharacteristics") => metric_characteristics(),
         optional("MetricMathAnomalyDetector") => metric_math_anomaly_detector(),
         optional("MetricName") => String.t(),
@@ -577,7 +577,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       disable_insight_rules_output() :: %{
-        "Failures" => list(partial_failure()())
+        "Failures" => list(partial_failure())
       }
       
   """
@@ -621,7 +621,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       dashboard_invalid_input_error() :: %{
-        "dashboardValidationMessages" => list(dashboard_validation_message()()),
+        "dashboardValidationMessages" => list(dashboard_validation_message()),
         "message" => String.t()
       }
       
@@ -647,7 +647,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       disable_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t()())
+        required("RuleNames") => list(String.t())
       }
       
   """
@@ -658,15 +658,15 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric_datum() :: %{
-        "Counts" => list(float()()),
-        "Dimensions" => list(dimension()()),
+        "Counts" => list(float()),
+        "Dimensions" => list(dimension()),
         "MetricName" => String.t(),
         "StatisticValues" => statistic_set(),
         "StorageResolution" => integer(),
         "Timestamp" => non_neg_integer(),
         "Unit" => list(any()),
         "Value" => float(),
-        "Values" => list(float()())
+        "Values" => list(float())
       }
       
   """
@@ -702,20 +702,20 @@ defmodule AWS.CloudWatch do
       
       put_metric_alarm_input() :: %{
         optional("ActionsEnabled") => boolean(),
-        optional("AlarmActions") => list(String.t()()),
+        optional("AlarmActions") => list(String.t()),
         optional("AlarmDescription") => String.t(),
         optional("DatapointsToAlarm") => integer(),
-        optional("Dimensions") => list(dimension()()),
+        optional("Dimensions") => list(dimension()),
         optional("EvaluateLowSampleCountPercentile") => String.t(),
         optional("ExtendedStatistic") => String.t(),
-        optional("InsufficientDataActions") => list(String.t()()),
+        optional("InsufficientDataActions") => list(String.t()),
         optional("MetricName") => String.t(),
-        optional("Metrics") => list(metric_data_query()()),
+        optional("Metrics") => list(metric_data_query()),
         optional("Namespace") => String.t(),
-        optional("OKActions") => list(String.t()()),
+        optional("OKActions") => list(String.t()),
         optional("Period") => integer(),
         optional("Statistic") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Threshold") => float(),
         optional("ThresholdMetricId") => String.t(),
         optional("TreatMissingData") => String.t(),
@@ -824,7 +824,7 @@ defmodule AWS.CloudWatch do
       
       single_metric_anomaly_detector() :: %{
         "AccountId" => String.t(),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
         "Stat" => String.t()
@@ -849,7 +849,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_anomaly_detectors_output() :: %{
-        "AnomalyDetectors" => list(anomaly_detector()()),
+        "AnomalyDetectors" => list(anomaly_detector()),
         "NextToken" => String.t()
       }
       
@@ -874,7 +874,7 @@ defmodule AWS.CloudWatch do
       
       describe_anomaly_detectors_input() :: %{
         optional("AnomalyDetectorTypes") => list(list(any())()),
-        optional("Dimensions") => list(dimension()()),
+        optional("Dimensions") => list(dimension()),
         optional("MaxResults") => integer(),
         optional("MetricName") => String.t(),
         optional("Namespace") => String.t(),
@@ -889,7 +889,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       enable_alarm_actions_input() :: %{
-        required("AlarmNames") => list(String.t()())
+        required("AlarmNames") => list(String.t())
       }
       
   """
@@ -912,8 +912,8 @@ defmodule AWS.CloudWatch do
       
       insight_rule_contributor() :: %{
         "ApproximateAggregateValue" => float(),
-        "Datapoints" => list(insight_rule_contributor_datapoint()()),
-        "Keys" => list(String.t()())
+        "Datapoints" => list(insight_rule_contributor_datapoint()),
+        "Keys" => list(String.t())
       }
       
   """
@@ -924,7 +924,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       metric_math_anomaly_detector() :: %{
-        "MetricDataQueries" => list(metric_data_query()())
+        "MetricDataQueries" => list(metric_data_query())
       }
       
   """
@@ -935,8 +935,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       get_metric_data_output() :: %{
-        "Messages" => list(message_data()()),
-        "MetricDataResults" => list(metric_data_result()()),
+        "Messages" => list(message_data()),
+        "MetricDataResults" => list(metric_data_result()),
         "NextToken" => String.t()
       }
       
@@ -949,7 +949,7 @@ defmodule AWS.CloudWatch do
       
       tag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -960,9 +960,9 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_metrics_output() :: %{
-        "Metrics" => list(metric()()),
+        "Metrics" => list(metric()),
         "NextToken" => String.t(),
-        "OwningAccounts" => list(String.t()())
+        "OwningAccounts" => list(String.t())
       }
       
   """
@@ -973,8 +973,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_metric_data_input() :: %{
-        optional("EntityMetricData") => list(entity_metric_data()()),
-        optional("MetricData") => list(metric_datum()()),
+        optional("EntityMetricData") => list(entity_metric_data()),
+        optional("MetricData") => list(metric_datum()),
         optional("StrictEntityValidation") => boolean(),
         required("Namespace") => String.t()
       }
@@ -1007,7 +1007,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_metric_streams_output() :: %{
-        "Entries" => list(metric_stream_entry()()),
+        "Entries" => list(metric_stream_entry()),
         "NextToken" => String.t()
       }
       
@@ -1021,16 +1021,16 @@ defmodule AWS.CloudWatch do
       get_metric_stream_output() :: %{
         "Arn" => String.t(),
         "CreationDate" => non_neg_integer(),
-        "ExcludeFilters" => list(metric_stream_filter()()),
+        "ExcludeFilters" => list(metric_stream_filter()),
         "FirehoseArn" => String.t(),
-        "IncludeFilters" => list(metric_stream_filter()()),
+        "IncludeFilters" => list(metric_stream_filter()),
         "IncludeLinkedAccountsMetrics" => boolean(),
         "LastUpdateDate" => non_neg_integer(),
         "Name" => String.t(),
         "OutputFormat" => list(any()),
         "RoleArn" => String.t(),
         "State" => String.t(),
-        "StatisticsConfigurations" => list(metric_stream_statistics_configuration()())
+        "StatisticsConfigurations" => list(metric_stream_statistics_configuration())
       }
       
   """
@@ -1041,7 +1041,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_alarms_for_metric_input() :: %{
-        optional("Dimensions") => list(dimension()()),
+        optional("Dimensions") => list(dimension()),
         optional("ExtendedStatistic") => String.t(),
         optional("Period") => integer(),
         optional("Statistic") => list(any()),
@@ -1058,7 +1058,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       delete_alarms_input() :: %{
-        required("AlarmNames") => list(String.t()())
+        required("AlarmNames") => list(String.t())
       }
       
   """
@@ -1069,11 +1069,11 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_metric_stream_input() :: %{
-        optional("ExcludeFilters") => list(metric_stream_filter()()),
-        optional("IncludeFilters") => list(metric_stream_filter()()),
+        optional("ExcludeFilters") => list(metric_stream_filter()),
+        optional("IncludeFilters") => list(metric_stream_filter()),
         optional("IncludeLinkedAccountsMetrics") => boolean(),
-        optional("StatisticsConfigurations") => list(metric_stream_statistics_configuration()()),
-        optional("Tags") => list(tag()()),
+        optional("StatisticsConfigurations") => list(metric_stream_statistics_configuration()),
+        optional("Tags") => list(tag()),
         required("FirehoseArn") => String.t(),
         required("Name") => String.t(),
         required("OutputFormat") => list(any()),
@@ -1088,7 +1088,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       put_dashboard_output() :: %{
-        "DashboardValidationMessages" => list(dashboard_validation_message()())
+        "DashboardValidationMessages" => list(dashboard_validation_message())
       }
       
   """
@@ -1142,7 +1142,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       get_metric_statistics_output() :: %{
-        "Datapoints" => list(datapoint()()),
+        "Datapoints" => list(datapoint()),
         "Label" => String.t()
       }
       
@@ -1166,7 +1166,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       delete_insight_rules_input() :: %{
-        required("RuleNames") => list(String.t()())
+        required("RuleNames") => list(String.t())
       }
       
   """
@@ -1201,7 +1201,7 @@ defmodule AWS.CloudWatch do
       
       untag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1228,7 +1228,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       list_dashboards_output() :: %{
-        "DashboardEntries" => list(dashboard_entry()()),
+        "DashboardEntries" => list(dashboard_entry()),
         "NextToken" => String.t()
       }
       
@@ -1276,7 +1276,7 @@ defmodule AWS.CloudWatch do
         optional("NextToken") => String.t(),
         optional("ScanBy") => list(any()),
         required("EndTime") => non_neg_integer(),
-        required("MetricDataQueries") => list(metric_data_query()()),
+        required("MetricDataQueries") => list(metric_data_query()),
         required("StartTime") => non_neg_integer()
       }
       
@@ -1288,7 +1288,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_alarm_history_output() :: %{
-        "AlarmHistoryItems" => list(alarm_history_item()()),
+        "AlarmHistoryItems" => list(alarm_history_item()),
         "NextToken" => String.t()
       }
       
@@ -1306,14 +1306,14 @@ defmodule AWS.CloudWatch do
         "ActionsSuppressor" => String.t(),
         "ActionsSuppressorExtensionPeriod" => integer(),
         "ActionsSuppressorWaitPeriod" => integer(),
-        "AlarmActions" => list(String.t()()),
+        "AlarmActions" => list(String.t()),
         "AlarmArn" => String.t(),
         "AlarmConfigurationUpdatedTimestamp" => non_neg_integer(),
         "AlarmDescription" => String.t(),
         "AlarmName" => String.t(),
         "AlarmRule" => String.t(),
-        "InsufficientDataActions" => list(String.t()()),
-        "OKActions" => list(String.t()()),
+        "InsufficientDataActions" => list(String.t()),
+        "OKActions" => list(String.t()),
         "StateReason" => String.t(),
         "StateReasonData" => String.t(),
         "StateTransitionedTimestamp" => non_neg_integer(),
@@ -1343,23 +1343,23 @@ defmodule AWS.CloudWatch do
       
       metric_alarm() :: %{
         "ActionsEnabled" => boolean(),
-        "AlarmActions" => list(String.t()()),
+        "AlarmActions" => list(String.t()),
         "AlarmArn" => String.t(),
         "AlarmConfigurationUpdatedTimestamp" => non_neg_integer(),
         "AlarmDescription" => String.t(),
         "AlarmName" => String.t(),
         "ComparisonOperator" => list(any()),
         "DatapointsToAlarm" => integer(),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "EvaluateLowSampleCountPercentile" => String.t(),
         "EvaluationPeriods" => integer(),
         "EvaluationState" => list(any()),
         "ExtendedStatistic" => String.t(),
-        "InsufficientDataActions" => list(String.t()()),
+        "InsufficientDataActions" => list(String.t()),
         "MetricName" => String.t(),
-        "Metrics" => list(metric_data_query()()),
+        "Metrics" => list(metric_data_query()),
         "Namespace" => String.t(),
-        "OKActions" => list(String.t()()),
+        "OKActions" => list(String.t()),
         "Period" => integer(),
         "StateReason" => String.t(),
         "StateReasonData" => String.t(),
@@ -1416,7 +1416,7 @@ defmodule AWS.CloudWatch do
       
       anomaly_detector() :: %{
         "Configuration" => anomaly_detector_configuration(),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricCharacteristics" => metric_characteristics(),
         "MetricMathAnomalyDetector" => metric_math_anomaly_detector(),
         "MetricName" => String.t(),
@@ -1443,7 +1443,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_alarms_for_metric_output() :: %{
-        "MetricAlarms" => list(metric_alarm()())
+        "MetricAlarms" => list(metric_alarm())
       }
       
   """
@@ -1491,7 +1491,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       describe_insight_rules_output() :: %{
-        "InsightRules" => list(insight_rule()()),
+        "InsightRules" => list(insight_rule()),
         "NextToken" => String.t()
       }
       
@@ -1503,7 +1503,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       stop_metric_streams_input() :: %{
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -1527,10 +1527,10 @@ defmodule AWS.CloudWatch do
       metric_data_result() :: %{
         "Id" => String.t(),
         "Label" => String.t(),
-        "Messages" => list(message_data()()),
+        "Messages" => list(message_data()),
         "StatusCode" => list(any()),
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
@@ -1568,7 +1568,7 @@ defmodule AWS.CloudWatch do
       
       entity_metric_data() :: %{
         "Entity" => entity(),
-        "MetricData" => list(metric_datum()())
+        "MetricData" => list(metric_datum())
       }
       
   """
@@ -1604,8 +1604,8 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       get_metric_statistics_input() :: %{
-        optional("Dimensions") => list(dimension()()),
-        optional("ExtendedStatistics") => list(String.t()()),
+        optional("Dimensions") => list(dimension()),
+        optional("ExtendedStatistics") => list(String.t()),
         optional("Statistics") => list(list(any())()),
         optional("Unit") => list(any()),
         required("EndTime") => non_neg_integer(),
@@ -1623,7 +1623,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       delete_insight_rules_output() :: %{
-        "Failures" => list(partial_failure()())
+        "Failures" => list(partial_failure())
       }
       
   """
@@ -1833,7 +1833,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_alarms_errors()}
   def delete_alarms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlarms", input, options)
   end
@@ -1853,7 +1854,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_anomaly_detector_errors()}
   def delete_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyDetector", input, options)
   end
@@ -1870,7 +1872,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_dashboards_errors()}
   def delete_dashboards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDashboards", input, options)
   end
@@ -1888,7 +1891,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_insight_rules_errors()}
   def delete_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInsightRules", input, options)
   end
@@ -1902,7 +1906,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, delete_metric_stream_errors()}
   def delete_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMetricStream", input, options)
   end
@@ -1929,7 +1934,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarm_history_errors()}
   def describe_alarm_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarmHistory", input, options)
   end
@@ -1951,7 +1957,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_alarms_errors()}
   def describe_alarms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarms", input, options)
   end
@@ -1972,7 +1979,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_alarms_for_metric(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlarmsForMetric", input, options)
   end
@@ -1995,7 +2003,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_anomaly_detectors_errors()}
   def describe_anomaly_detectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAnomalyDetectors", input, options)
   end
@@ -2012,7 +2021,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, describe_insight_rules_errors()}
   def describe_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInsightRules", input, options)
   end
@@ -2028,7 +2038,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAlarmActions", input, options)
   end
@@ -2045,7 +2056,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, disable_insight_rules_errors()}
   def disable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableInsightRules", input, options)
   end
@@ -2058,7 +2070,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_alarm_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAlarmActions", input, options)
   end
@@ -2075,7 +2088,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, enable_insight_rules_errors()}
   def enable_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableInsightRules", input, options)
   end
@@ -2093,7 +2107,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDashboard", input, options)
   end
@@ -2155,7 +2170,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_insight_rule_report_errors()}
   def get_insight_rule_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInsightRuleReport", input, options)
   end
@@ -2257,7 +2273,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_data_errors()}
   def get_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricData", input, options)
   end
@@ -2345,7 +2362,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_statistics_errors()}
   def get_metric_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricStatistics", input, options)
   end
@@ -2359,7 +2377,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, get_metric_stream_errors()}
   def get_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricStream", input, options)
   end
@@ -2393,7 +2412,8 @@ defmodule AWS.CloudWatch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_metric_widget_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricWidgetImage", input, options)
   end
@@ -2416,7 +2436,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDashboards", input, options)
   end
@@ -2432,7 +2453,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_managed_insight_rules_errors()}
   def list_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListManagedInsightRules", input, options)
   end
@@ -2446,7 +2468,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metric_streams_errors()}
   def list_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricStreams", input, options)
   end
@@ -2484,7 +2507,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_metrics_errors()}
   def list_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetrics", input, options)
   end
@@ -2501,7 +2525,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2526,7 +2551,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_anomaly_detector_errors()}
   def put_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAnomalyDetector", input, options)
   end
@@ -2613,7 +2639,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_composite_alarm_errors()}
   def put_composite_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutCompositeAlarm", input, options)
   end
@@ -2652,7 +2679,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_dashboard_errors()}
   def put_dashboard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDashboard", input, options)
   end
@@ -2676,7 +2704,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_insight_rule_errors()}
   def put_insight_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutInsightRule", input, options)
   end
@@ -2700,7 +2729,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_managed_insight_rules_errors()}
   def put_managed_insight_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutManagedInsightRules", input, options)
   end
@@ -2776,7 +2806,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_alarm_errors()}
   def put_metric_alarm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricAlarm", input, options)
   end
@@ -2866,7 +2897,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_data_errors()}
   def put_metric_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricData", input, options)
   end
@@ -2922,7 +2954,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, put_metric_stream_errors()}
   def put_metric_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricStream", input, options)
   end
@@ -2963,7 +2996,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, set_alarm_state_errors()}
   def set_alarm_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetAlarmState", input, options)
   end
@@ -2977,7 +3011,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, start_metric_streams_errors()}
   def start_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetricStreams", input, options)
   end
@@ -2991,7 +3026,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, stop_metric_streams_errors()}
   def stop_metric_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMetricStreams", input, options)
   end
@@ -3028,7 +3064,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3042,7 +3079,8 @@ defmodule AWS.CloudWatch do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

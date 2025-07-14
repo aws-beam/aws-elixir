@@ -145,7 +145,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Example:
 
       list_keys_response() :: %{
-        "Items" => list(list_keys_response_list_item()()),
+        "Items" => list(list_keys_response_list_item()),
         "NextToken" => [String.t()]
       }
 
@@ -228,8 +228,8 @@ defmodule AWS.CloudFrontKeyValueStore do
   ## Example:
 
       update_keys_request() :: %{
-        optional("Deletes") => list(delete_key_request_list_item()()),
-        optional("Puts") => list(put_key_request_list_item()()),
+        optional("Deletes") => list(delete_key_request_list_item()),
+        optional("Puts") => list(put_key_request_list_item()),
         required("IfMatch") => String.t()
       }
 

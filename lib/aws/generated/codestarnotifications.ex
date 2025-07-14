@@ -125,7 +125,7 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       list_notification_rules_request() :: %{
-        optional("Filters") => list(list_notification_rules_filter()()),
+        optional("Filters") => list(list_notification_rules_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -183,7 +183,7 @@ defmodule AWS.Codestarnotifications do
 
       list_targets_result() :: %{
         "NextToken" => String.t(),
-        "Targets" => list(target_summary()())
+        "Targets" => list(target_summary())
       }
 
   """
@@ -205,7 +205,7 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -321,7 +321,7 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       list_event_types_result() :: %{
-        "EventTypes" => list(event_type_summary()()),
+        "EventTypes" => list(event_type_summary()),
         "NextToken" => String.t()
       }
 
@@ -337,10 +337,10 @@ defmodule AWS.Codestarnotifications do
         optional("Status") => list(any()),
         optional("Tags") => map(),
         required("DetailType") => list(any()),
-        required("EventTypeIds") => list(String.t()()),
+        required("EventTypeIds") => list(String.t()),
         required("Name") => String.t(),
         required("Resource") => String.t(),
-        required("Targets") => list(target()())
+        required("Targets") => list(target())
       }
 
   """
@@ -363,10 +363,10 @@ defmodule AWS.Codestarnotifications do
 
       update_notification_rule_request() :: %{
         optional("DetailType") => list(any()),
-        optional("EventTypeIds") => list(String.t()()),
+        optional("EventTypeIds") => list(String.t()),
         optional("Name") => String.t(),
         optional("Status") => list(any()),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         required("Arn") => String.t()
       }
 
@@ -389,7 +389,7 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       list_targets_request() :: %{
-        optional("Filters") => list(list_targets_filter()()),
+        optional("Filters") => list(list_targets_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -493,7 +493,7 @@ defmodule AWS.Codestarnotifications do
 
       list_notification_rules_result() :: %{
         "NextToken" => String.t(),
-        "NotificationRules" => list(notification_rule_summary()())
+        "NotificationRules" => list(notification_rule_summary())
       }
 
   """
@@ -530,13 +530,13 @@ defmodule AWS.Codestarnotifications do
         "CreatedBy" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
         "DetailType" => list(any()),
-        "EventTypes" => list(event_type_summary()()),
+        "EventTypes" => list(event_type_summary()),
         "LastModifiedTimestamp" => non_neg_integer(),
         "Name" => String.t(),
         "Resource" => String.t(),
         "Status" => list(any()),
         "Tags" => map(),
-        "Targets" => list(target_summary()())
+        "Targets" => list(target_summary())
       }
 
   """
@@ -559,7 +559,7 @@ defmodule AWS.Codestarnotifications do
   ## Example:
 
       list_event_types_request() :: %{
-        optional("Filters") => list(list_event_types_filter()()),
+        optional("Filters") => list(list_event_types_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }

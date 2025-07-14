@@ -180,7 +180,7 @@ defmodule AWS.Ivschat do
 
       list_rooms_response() :: %{
         optional("nextToken") => String.t(),
-        required("rooms") => list(room_summary()())
+        required("rooms") => list(room_summary())
       }
 
   """
@@ -210,7 +210,7 @@ defmodule AWS.Ivschat do
 
       create_chat_token_request() :: %{
         optional("attributes") => map(),
-        optional("capabilities") => list(String.t()()),
+        optional("capabilities") => list(String.t()),
         optional("sessionDurationInMinutes") => integer(),
         required("roomIdentifier") => String.t(),
         required("userId") => String.t()
@@ -266,7 +266,7 @@ defmodule AWS.Ivschat do
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
         optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("loggingConfigurationIdentifiers") => list(String.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
@@ -296,7 +296,7 @@ defmodule AWS.Ivschat do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -488,7 +488,7 @@ defmodule AWS.Ivschat do
 
       list_logging_configurations_response() :: %{
         optional("nextToken") => String.t(),
-        required("loggingConfigurations") => list(logging_configuration_summary()())
+        required("loggingConfigurations") => list(logging_configuration_summary())
       }
 
   """
@@ -513,7 +513,7 @@ defmodule AWS.Ivschat do
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
         optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("loggingConfigurationIdentifiers") => list(String.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
@@ -539,7 +539,7 @@ defmodule AWS.Ivschat do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -561,7 +561,7 @@ defmodule AWS.Ivschat do
   ## Example:
 
       create_room_request() :: %{
-        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("loggingConfigurationIdentifiers") => list(String.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
@@ -654,7 +654,7 @@ defmodule AWS.Ivschat do
         "arn" => String.t(),
         "createTime" => non_neg_integer(),
         "id" => String.t(),
-        "loggingConfigurationIdentifiers" => list(String.t()()),
+        "loggingConfigurationIdentifiers" => list(String.t()),
         "messageReviewHandler" => message_review_handler(),
         "name" => String.t(),
         "tags" => map(),
@@ -705,7 +705,7 @@ defmodule AWS.Ivschat do
   ## Example:
 
       update_room_request() :: %{
-        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("loggingConfigurationIdentifiers") => list(String.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),
@@ -724,7 +724,7 @@ defmodule AWS.Ivschat do
         optional("arn") => String.t(),
         optional("createTime") => non_neg_integer(),
         optional("id") => String.t(),
-        optional("loggingConfigurationIdentifiers") => list(String.t()()),
+        optional("loggingConfigurationIdentifiers") => list(String.t()),
         optional("maximumMessageLength") => integer(),
         optional("maximumMessageRatePerSecond") => integer(),
         optional("messageReviewHandler") => message_review_handler(),

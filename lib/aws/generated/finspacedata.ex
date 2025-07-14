@@ -14,7 +14,7 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       permission_group_params() :: %{
-        "datasetPermissions" => list(resource_permission()()),
+        "datasetPermissions" => list(resource_permission()),
         "permissionGroupId" => String.t()
       }
 
@@ -50,7 +50,7 @@ defmodule AWS.Finspacedata do
 
       list_users_by_permission_group_response() :: %{
         "nextToken" => String.t(),
-        "users" => list(user_by_permission_group()())
+        "users" => list(user_by_permission_group())
       }
 
   """
@@ -117,8 +117,8 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       schema_definition() :: %{
-        "columns" => list(column_definition()()),
-        "primaryKeyColumns" => list(String.t()())
+        "columns" => list(column_definition()),
+        "primaryKeyColumns" => list(String.t())
       }
 
   """
@@ -235,8 +235,8 @@ defmodule AWS.Finspacedata do
         optional("asOfTimestamp") => float(),
         optional("autoUpdate") => boolean(),
         optional("clientToken") => String.t(),
-        optional("partitionColumns") => list(String.t()()),
-        optional("sortColumns") => list(String.t()()),
+        optional("partitionColumns") => list(String.t()),
+        optional("sortColumns") => list(String.t()),
         required("destinationTypeParams") => data_view_destination_type_params()
       }
 
@@ -304,7 +304,7 @@ defmodule AWS.Finspacedata do
 
       list_permission_groups_by_user_response() :: %{
         "nextToken" => String.t(),
-        "permissionGroups" => list(permission_group_by_user()())
+        "permissionGroups" => list(permission_group_by_user())
       }
 
   """
@@ -435,8 +435,8 @@ defmodule AWS.Finspacedata do
         "destinationTypeParams" => data_view_destination_type_params(),
         "errorInfo" => data_view_error_info(),
         "lastModifiedTime" => float(),
-        "partitionColumns" => list(String.t()()),
-        "sortColumns" => list(String.t()()),
+        "partitionColumns" => list(String.t()),
+        "sortColumns" => list(String.t()),
         "status" => list(any())
       }
 
@@ -485,7 +485,7 @@ defmodule AWS.Finspacedata do
 
       list_users_response() :: %{
         "nextToken" => String.t(),
-        "users" => list(user()())
+        "users" => list(user())
       }
 
   """
@@ -704,7 +704,7 @@ defmodule AWS.Finspacedata do
 
       list_permission_groups_response() :: %{
         "nextToken" => String.t(),
-        "permissionGroups" => list(permission_group()())
+        "permissionGroups" => list(permission_group())
       }
 
   """
@@ -991,7 +991,7 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       list_datasets_response() :: %{
-        "datasets" => list(dataset()()),
+        "datasets" => list(dataset()),
         "nextToken" => String.t()
       }
 
@@ -1044,7 +1044,7 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       list_changesets_response() :: %{
-        "changesets" => list(changeset_summary()()),
+        "changesets" => list(changeset_summary()),
         "nextToken" => String.t()
       }
 
@@ -1065,8 +1065,8 @@ defmodule AWS.Finspacedata do
         "destinationTypeProperties" => data_view_destination_type_params(),
         "errorInfo" => data_view_error_info(),
         "lastModifiedTime" => float(),
-        "partitionColumns" => list(String.t()()),
-        "sortColumns" => list(String.t()()),
+        "partitionColumns" => list(String.t()),
+        "sortColumns" => list(String.t()),
         "status" => list(any())
       }
 
@@ -1124,7 +1124,7 @@ defmodule AWS.Finspacedata do
   ## Example:
 
       list_data_views_response() :: %{
-        "dataViews" => list(data_view_summary()()),
+        "dataViews" => list(data_view_summary()),
         "nextToken" => String.t()
       }
 

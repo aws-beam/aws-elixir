@@ -70,7 +70,7 @@ defmodule AWS.IoTAnalytics do
 
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -115,7 +115,7 @@ defmodule AWS.IoTAnalytics do
 
       list_pipelines_response() :: %{
         "nextToken" => String.t(),
-        "pipelineSummaries" => list(pipeline_summary()())
+        "pipelineSummaries" => list(pipeline_summary())
       }
 
   """
@@ -137,7 +137,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       sample_channel_data_response() :: %{
-        "payloads" => list(binary()())
+        "payloads" => list(binary())
       }
 
   """
@@ -236,7 +236,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       schema_definition() :: %{
-        "columns" => list(column()())
+        "columns" => list(column())
       }
 
   """
@@ -402,12 +402,12 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       pipeline() :: %{
-        "activities" => list(pipeline_activity()()),
+        "activities" => list(pipeline_activity()),
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
         "name" => String.t(),
-        "reprocessingSummaries" => list(reprocessing_summary()())
+        "reprocessingSummaries" => list(reprocessing_summary())
       }
 
   """
@@ -430,7 +430,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       datastore_partitions() :: %{
-        "partitions" => list(datastore_partition()())
+        "partitions" => list(datastore_partition())
       }
 
   """
@@ -454,7 +454,7 @@ defmodule AWS.IoTAnalytics do
 
       run_pipeline_activity_response() :: %{
         "logResult" => String.t(),
-        "payloads" => list(binary()())
+        "payloads" => list(binary())
       }
 
   """
@@ -538,7 +538,7 @@ defmodule AWS.IoTAnalytics do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -561,7 +561,7 @@ defmodule AWS.IoTAnalytics do
 
       batch_put_message_request() :: %{
         required("channelName") => String.t(),
-        required("messages") => list(message()())
+        required("messages") => list(message())
       }
 
   """
@@ -585,7 +585,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       run_pipeline_activity_request() :: %{
-        required("payloads") => list(binary()()),
+        required("payloads") => list(binary()),
         required("pipelineActivity") => pipeline_activity()
       }
 
@@ -609,16 +609,16 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       dataset() :: %{
-        "actions" => list(dataset_action()()),
+        "actions" => list(dataset_action()),
         "arn" => String.t(),
-        "contentDeliveryRules" => list(dataset_content_delivery_rule()()),
+        "contentDeliveryRules" => list(dataset_content_delivery_rule()),
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
-        "lateDataRules" => list(late_data_rule()()),
+        "lateDataRules" => list(late_data_rule()),
         "name" => String.t(),
         "retentionPeriod" => retention_period(),
         "status" => list(any()),
-        "triggers" => list(dataset_trigger()()),
+        "triggers" => list(dataset_trigger()),
         "versioningConfiguration" => versioning_configuration()
       }
 
@@ -750,12 +750,12 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       dataset_summary() :: %{
-        "actions" => list(dataset_action_summary()()),
+        "actions" => list(dataset_action_summary()),
         "creationTime" => non_neg_integer(),
         "datasetName" => String.t(),
         "lastUpdateTime" => non_neg_integer(),
         "status" => list(any()),
-        "triggers" => list(dataset_trigger()())
+        "triggers" => list(dataset_trigger())
       }
 
   """
@@ -781,7 +781,7 @@ defmodule AWS.IoTAnalytics do
         "executionRoleArn" => String.t(),
         "image" => String.t(),
         "resourceConfiguration" => resource_configuration(),
-        "variables" => list(variable()())
+        "variables" => list(variable())
       }
 
   """
@@ -803,8 +803,8 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       create_pipeline_request() :: %{
-        optional("tags") => list(tag()()),
-        required("pipelineActivities") => list(pipeline_activity()()),
+        optional("tags") => list(tag()),
+        required("pipelineActivities") => list(pipeline_activity()),
         required("pipelineName") => String.t()
       }
 
@@ -816,7 +816,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       update_pipeline_request() :: %{
-        required("pipelineActivities") => list(pipeline_activity()())
+        required("pipelineActivities") => list(pipeline_activity())
       }
 
   """
@@ -827,7 +827,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       list_dataset_contents_response() :: %{
-        "datasetContentSummaries" => list(dataset_content_summary()()),
+        "datasetContentSummaries" => list(dataset_content_summary()),
         "nextToken" => String.t()
       }
 
@@ -915,7 +915,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       list_datastores_response() :: %{
-        "datastoreSummaries" => list(datastore_summary()()),
+        "datastoreSummaries" => list(datastore_summary()),
         "nextToken" => String.t()
       }
 
@@ -927,7 +927,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       get_dataset_content_response() :: %{
-        "entries" => list(dataset_entry()()),
+        "entries" => list(dataset_entry()),
         "status" => dataset_content_status(),
         "timestamp" => non_neg_integer()
       }
@@ -942,7 +942,7 @@ defmodule AWS.IoTAnalytics do
       create_channel_request() :: %{
         optional("channelStorage") => channel_storage(),
         optional("retentionPeriod") => retention_period(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("channelName") => String.t()
       }
 
@@ -957,7 +957,7 @@ defmodule AWS.IoTAnalytics do
         "creationTime" => non_neg_integer(),
         "lastUpdateTime" => non_neg_integer(),
         "pipelineName" => String.t(),
-        "reprocessingSummaries" => list(reprocessing_summary()())
+        "reprocessingSummaries" => list(reprocessing_summary())
       }
 
   """
@@ -979,7 +979,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1066,12 +1066,12 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       update_dataset_request() :: %{
-        optional("contentDeliveryRules") => list(dataset_content_delivery_rule()()),
-        optional("lateDataRules") => list(late_data_rule()()),
+        optional("contentDeliveryRules") => list(dataset_content_delivery_rule()),
+        optional("lateDataRules") => list(late_data_rule()),
         optional("retentionPeriod") => retention_period(),
-        optional("triggers") => list(dataset_trigger()()),
+        optional("triggers") => list(dataset_trigger()),
         optional("versioningConfiguration") => versioning_configuration(),
-        required("actions") => list(dataset_action()())
+        required("actions") => list(dataset_action())
       }
 
   """
@@ -1082,7 +1082,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       list_channels_response() :: %{
-        "channelSummaries" => list(channel_summary()()),
+        "channelSummaries" => list(channel_summary()),
         "nextToken" => String.t()
       }
 
@@ -1164,7 +1164,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       sql_query_dataset_action() :: %{
-        "filters" => list(query_filter()()),
+        "filters" => list(query_filter()),
         "sqlQuery" => String.t()
       }
 
@@ -1190,7 +1190,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       remove_attributes_activity() :: %{
-        "attributes" => list(String.t()()),
+        "attributes" => list(String.t()),
         "name" => String.t(),
         "next" => String.t()
       }
@@ -1433,13 +1433,13 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       create_dataset_request() :: %{
-        optional("contentDeliveryRules") => list(dataset_content_delivery_rule()()),
-        optional("lateDataRules") => list(late_data_rule()()),
+        optional("contentDeliveryRules") => list(dataset_content_delivery_rule()),
+        optional("lateDataRules") => list(late_data_rule()),
         optional("retentionPeriod") => retention_period(),
-        optional("tags") => list(tag()()),
-        optional("triggers") => list(dataset_trigger()()),
+        optional("tags") => list(tag()),
+        optional("triggers") => list(dataset_trigger()),
         optional("versioningConfiguration") => versioning_configuration(),
-        required("actions") => list(dataset_action()()),
+        required("actions") => list(dataset_action()),
         required("datasetName") => String.t()
       }
 
@@ -1463,7 +1463,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       select_attributes_activity() :: %{
-        "attributes" => list(String.t()()),
+        "attributes" => list(String.t()),
         "name" => String.t(),
         "next" => String.t()
       }
@@ -1509,7 +1509,7 @@ defmodule AWS.IoTAnalytics do
         optional("datastoreStorage") => list(),
         optional("fileFormatConfiguration") => file_format_configuration(),
         optional("retentionPeriod") => retention_period(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datastoreName") => String.t()
       }
 
@@ -1582,7 +1582,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       channel_messages() :: %{
-        "s3Paths" => list(String.t()())
+        "s3Paths" => list(String.t())
       }
 
   """
@@ -1624,7 +1624,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       list_datasets_response() :: %{
-        "datasetSummaries" => list(dataset_summary()()),
+        "datasetSummaries" => list(dataset_summary()),
         "nextToken" => String.t()
       }
 
@@ -1703,7 +1703,7 @@ defmodule AWS.IoTAnalytics do
   ## Example:
 
       batch_put_message_response() :: %{
-        "batchPutMessageErrorEntries" => list(batch_put_message_error_entry()())
+        "batchPutMessageErrorEntries" => list(batch_put_message_error_entry())
       }
 
   """

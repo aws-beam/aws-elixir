@@ -161,7 +161,7 @@ defmodule AWS.Route53RecoveryCluster do
       
       list_routing_controls_response() :: %{
         "NextToken" => String.t(),
-        "RoutingControls" => list(routing_control()())
+        "RoutingControls" => list(routing_control())
       }
       
   """
@@ -240,7 +240,7 @@ defmodule AWS.Route53RecoveryCluster do
   ## Example:
       
       update_routing_control_state_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t()()),
+        optional("SafetyRulesToOverride") => list(String.t()),
         required("RoutingControlArn") => String.t(),
         required("RoutingControlState") => list(any())
       }
@@ -262,8 +262,8 @@ defmodule AWS.Route53RecoveryCluster do
   ## Example:
       
       update_routing_control_states_request() :: %{
-        optional("SafetyRulesToOverride") => list(String.t()()),
-        required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry()())
+        optional("SafetyRulesToOverride") => list(String.t()),
+        required("UpdateRoutingControlStateEntries") => list(update_routing_control_state_entry())
       }
       
   """
@@ -283,7 +283,7 @@ defmodule AWS.Route53RecoveryCluster do
   ## Example:
       
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -400,7 +400,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, get_routing_control_state_errors()}
   def get_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRoutingControlState", input, options)
   end
@@ -453,7 +454,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, list_routing_controls_errors()}
   def list_routing_controls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoutingControls", input, options)
   end
@@ -512,7 +514,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, update_routing_control_state_errors()}
   def update_routing_control_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlState", input, options)
   end
@@ -570,7 +573,8 @@ defmodule AWS.Route53RecoveryCluster do
           | {:error, term()}
           | {:error, update_routing_control_states_errors()}
   def update_routing_control_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRoutingControlStates", input, options)
   end

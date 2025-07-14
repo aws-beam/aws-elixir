@@ -36,7 +36,7 @@ defmodule AWS.Batch do
   ## Example:
 
       ecs_properties_override() :: %{
-        "taskProperties" => list(task_properties_override()())
+        "taskProperties" => list(task_properties_override())
       }
 
   """
@@ -47,7 +47,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_compute_environments_response() :: %{
-        "computeEnvironments" => list(compute_environment_detail()()),
+        "computeEnvironments" => list(compute_environment_detail()),
         "nextToken" => String.t()
       }
 
@@ -96,7 +96,7 @@ defmodule AWS.Batch do
   ## Example:
 
       task_properties_override() :: %{
-        "containers" => list(task_container_overrides()())
+        "containers" => list(task_container_overrides())
       }
 
   """
@@ -161,7 +161,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_job_definitions_response() :: %{
-        "jobDefinitions" => list(job_definition()()),
+        "jobDefinitions" => list(job_definition()),
         "nextToken" => String.t()
       }
 
@@ -173,9 +173,9 @@ defmodule AWS.Batch do
   ## Example:
 
       container_properties() :: %{
-        "command" => list(String.t()()),
+        "command" => list(String.t()),
         "enableExecuteCommand" => boolean(),
-        "environment" => list(key_value_pair()()),
+        "environment" => list(key_value_pair()),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "fargatePlatformConfiguration" => fargate_platform_configuration(),
@@ -185,18 +185,18 @@ defmodule AWS.Batch do
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
         "memory" => integer(),
-        "mountPoints" => list(mount_point()()),
+        "mountPoints" => list(mount_point()),
         "networkConfiguration" => network_configuration(),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
         "repositoryCredentials" => repository_credentials(),
-        "resourceRequirements" => list(resource_requirement()()),
+        "resourceRequirements" => list(resource_requirement()),
         "runtimePlatform" => runtime_platform(),
-        "secrets" => list(secret()()),
-        "ulimits" => list(ulimit()()),
+        "secrets" => list(secret()),
+        "ulimits" => list(ulimit()),
         "user" => String.t(),
         "vcpus" => integer(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
 
   """
@@ -305,7 +305,7 @@ defmodule AWS.Batch do
 
       list_jobs_request() :: %{
         optional("arrayJobId") => String.t(),
-        optional("filters") => list(key_values_pair()()),
+        optional("filters") => list(key_values_pair()),
         optional("jobQueue") => String.t(),
         optional("jobStatus") => list(any()),
         optional("maxResults") => integer(),
@@ -382,7 +382,7 @@ defmodule AWS.Batch do
         "containerOverrides" => container_overrides(),
         "ecsPropertiesOverride" => ecs_properties_override(),
         "eksPropertiesOverride" => eks_properties_override(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "targetNodes" => String.t()
       }
 
@@ -407,9 +407,9 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_container_override() :: %{
-        "args" => list(String.t()()),
-        "command" => list(String.t()()),
-        "env" => list(eks_container_environment_variable()()),
+        "args" => list(String.t()),
+        "command" => list(String.t()),
+        "env" => list(eks_container_environment_variable()),
         "image" => String.t(),
         "name" => String.t(),
         "resources" => eks_container_resource_requirements()
@@ -423,7 +423,7 @@ defmodule AWS.Batch do
   ## Example:
 
       list_jobs_response() :: %{
-        "jobSummaryList" => list(job_summary()()),
+        "jobSummaryList" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -438,7 +438,7 @@ defmodule AWS.Batch do
         "exitCode" => integer(),
         "logStreamName" => String.t(),
         "name" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "reason" => String.t()
       }
 
@@ -450,7 +450,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_scheduling_policies_response() :: %{
-        "schedulingPolicies" => list(scheduling_policy_detail()())
+        "schedulingPolicies" => list(scheduling_policy_detail())
       }
 
   """
@@ -473,10 +473,10 @@ defmodule AWS.Batch do
   ## Example:
 
       job_queue_detail() :: %{
-        "computeEnvironmentOrder" => list(compute_environment_order()()),
+        "computeEnvironmentOrder" => list(compute_environment_order()),
         "jobQueueArn" => String.t(),
         "jobQueueName" => String.t(),
-        "jobStateTimeLimitActions" => list(job_state_time_limit_action()()),
+        "jobStateTimeLimitActions" => list(job_state_time_limit_action()),
         "priority" => integer(),
         "schedulingPolicyArn" => String.t(),
         "state" => list(any()),
@@ -507,7 +507,7 @@ defmodule AWS.Batch do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -527,7 +527,7 @@ defmodule AWS.Batch do
   ## Example:
 
       ecs_properties() :: %{
-        "taskProperties" => list(ecs_task_properties()())
+        "taskProperties" => list(ecs_task_properties())
       }
 
   """
@@ -552,7 +552,7 @@ defmodule AWS.Batch do
 
       describe_job_definitions_request() :: %{
         optional("jobDefinitionName") => String.t(),
-        optional("jobDefinitions") => list(String.t()()),
+        optional("jobDefinitions") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => String.t()
@@ -599,7 +599,7 @@ defmodule AWS.Batch do
 
       attempt_ecs_task_details() :: %{
         "containerInstanceArn" => String.t(),
-        "containers" => list(attempt_task_container_details()()),
+        "containers" => list(attempt_task_container_details()),
         "taskArn" => String.t()
       }
 
@@ -611,10 +611,10 @@ defmodule AWS.Batch do
   ## Example:
 
       task_container_overrides() :: %{
-        "command" => list(String.t()()),
-        "environment" => list(key_value_pair()()),
+        "command" => list(String.t()),
+        "environment" => list(key_value_pair()),
         "name" => String.t(),
-        "resourceRequirements" => list(resource_requirement()())
+        "resourceRequirements" => list(resource_requirement())
       }
 
   """
@@ -625,9 +625,9 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_container_detail() :: %{
-        "args" => list(String.t()()),
-        "command" => list(String.t()()),
-        "env" => list(eks_container_environment_variable()()),
+        "args" => list(String.t()),
+        "command" => list(String.t()),
+        "env" => list(eks_container_environment_variable()),
         "exitCode" => integer(),
         "image" => String.t(),
         "imagePullPolicy" => String.t(),
@@ -635,7 +635,7 @@ defmodule AWS.Batch do
         "reason" => String.t(),
         "resources" => eks_container_resource_requirements(),
         "securityContext" => eks_container_security_context(),
-        "volumeMounts" => list(eks_container_volume_mount()())
+        "volumeMounts" => list(eks_container_volume_mount())
       }
 
   """
@@ -669,7 +669,7 @@ defmodule AWS.Batch do
   ## Example:
 
       list_jobs_by_consumable_resource_request() :: %{
-        optional("filters") => list(key_values_pair()()),
+        optional("filters") => list(key_values_pair()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("consumableResource") => String.t()
@@ -706,7 +706,7 @@ defmodule AWS.Batch do
 
       list_scheduling_policies_response() :: %{
         "nextToken" => String.t(),
-        "schedulingPolicies" => list(scheduling_policy_listing_detail()())
+        "schedulingPolicies" => list(scheduling_policy_listing_detail())
       }
 
   """
@@ -728,7 +728,7 @@ defmodule AWS.Batch do
   ## Example:
 
       ecs_task_properties() :: %{
-        "containers" => list(task_container_properties()()),
+        "containers" => list(task_container_properties()),
         "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
@@ -738,7 +738,7 @@ defmodule AWS.Batch do
         "platformVersion" => String.t(),
         "runtimePlatform" => runtime_platform(),
         "taskRoleArn" => String.t(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
 
   """
@@ -749,9 +749,9 @@ defmodule AWS.Batch do
   ## Example:
 
       task_container_details() :: %{
-        "command" => list(String.t()()),
-        "dependsOn" => list(task_container_dependency()()),
-        "environment" => list(key_value_pair()()),
+        "command" => list(String.t()),
+        "dependsOn" => list(task_container_dependency()),
+        "environment" => list(key_value_pair()),
         "essential" => boolean(),
         "exitCode" => integer(),
         "firelensConfiguration" => firelens_configuration(),
@@ -759,16 +759,16 @@ defmodule AWS.Batch do
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
         "logStreamName" => String.t(),
-        "mountPoints" => list(mount_point()()),
+        "mountPoints" => list(mount_point()),
         "name" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
         "reason" => String.t(),
         "repositoryCredentials" => repository_credentials(),
-        "resourceRequirements" => list(resource_requirement()()),
-        "secrets" => list(secret()()),
-        "ulimits" => list(ulimit()()),
+        "resourceRequirements" => list(resource_requirement()),
+        "secrets" => list(secret()),
+        "ulimits" => list(ulimit()),
         "user" => String.t()
       }
 
@@ -834,7 +834,7 @@ defmodule AWS.Batch do
         "startedAt" => float(),
         "statusReason" => String.t(),
         "stoppedAt" => float(),
-        "taskProperties" => list(attempt_ecs_task_details()())
+        "taskProperties" => list(attempt_ecs_task_details())
       }
 
   """
@@ -881,7 +881,7 @@ defmodule AWS.Batch do
         optional("arrayProperties") => array_properties(),
         optional("consumableResourcePropertiesOverride") => consumable_resource_properties(),
         optional("containerOverrides") => container_overrides(),
-        optional("dependsOn") => list(job_dependency()()),
+        optional("dependsOn") => list(job_dependency()),
         optional("ecsPropertiesOverride") => ecs_properties_override(),
         optional("eksPropertiesOverride") => eks_properties_override(),
         optional("nodeOverrides") => node_overrides(),
@@ -906,7 +906,7 @@ defmodule AWS.Batch do
 
       key_values_pair() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -920,7 +920,7 @@ defmodule AWS.Batch do
         "containerInstanceArn" => String.t(),
         "exitCode" => integer(),
         "logStreamName" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "reason" => String.t(),
         "taskArn" => String.t()
       }
@@ -933,7 +933,7 @@ defmodule AWS.Batch do
   ## Example:
 
       list_consumable_resources_response() :: %{
-        "consumableResources" => list(consumable_resource_summary()()),
+        "consumableResources" => list(consumable_resource_summary()),
         "nextToken" => String.t()
       }
 
@@ -945,8 +945,8 @@ defmodule AWS.Batch do
   ## Example:
 
       update_job_queue_request() :: %{
-        optional("computeEnvironmentOrder") => list(compute_environment_order()()),
-        optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()()),
+        optional("computeEnvironmentOrder") => list(compute_environment_order()),
+        optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
         optional("priority") => integer(),
         optional("schedulingPolicyArn") => String.t(),
         optional("state") => list(any()),
@@ -962,7 +962,7 @@ defmodule AWS.Batch do
 
       ecs_task_details() :: %{
         "containerInstanceArn" => String.t(),
-        "containers" => list(task_container_details()()),
+        "containers" => list(task_container_details()),
         "enableExecuteCommand" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
@@ -973,7 +973,7 @@ defmodule AWS.Batch do
         "runtimePlatform" => runtime_platform(),
         "taskArn" => String.t(),
         "taskRoleArn" => String.t(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
 
   """
@@ -984,7 +984,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_job_queues_response() :: %{
-        "jobQueues" => list(job_queue_detail()()),
+        "jobQueues" => list(job_queue_detail()),
         "nextToken" => String.t()
       }
 
@@ -1034,7 +1034,7 @@ defmodule AWS.Batch do
       fairshare_policy() :: %{
         "computeReservation" => integer(),
         "shareDecaySeconds" => integer(),
-        "shareDistribution" => list(share_attributes()())
+        "shareDistribution" => list(share_attributes())
       }
 
   """
@@ -1181,9 +1181,9 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_attempt_detail() :: %{
-        "containers" => list(eks_attempt_container_detail()()),
+        "containers" => list(eks_attempt_container_detail()),
         "eksClusterArn" => String.t(),
-        "initContainers" => list(eks_attempt_container_detail()()),
+        "initContainers" => list(eks_attempt_container_detail()),
         "nodeName" => String.t(),
         "podName" => String.t(),
         "podNamespace" => String.t(),
@@ -1261,17 +1261,17 @@ defmodule AWS.Batch do
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
         "desiredvCpus" => integer(),
-        "ec2Configuration" => list(ec2_configuration()()),
+        "ec2Configuration" => list(ec2_configuration()),
         "ec2KeyPair" => String.t(),
         "imageId" => String.t(),
         "instanceRole" => String.t(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "launchTemplate" => launch_template_specification(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t(),
-        "securityGroupIds" => list(String.t()()),
-        "subnets" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
+        "subnets" => list(String.t()),
         "tags" => map(),
         "type" => list(any()),
         "updateToLatestImageVersion" => boolean()
@@ -1326,11 +1326,11 @@ defmodule AWS.Batch do
   ## Example:
 
       container_overrides() :: %{
-        "command" => list(String.t()()),
-        "environment" => list(key_value_pair()()),
+        "command" => list(String.t()),
+        "environment" => list(key_value_pair()),
         "instanceType" => String.t(),
         "memory" => integer(),
-        "resourceRequirements" => list(resource_requirement()()),
+        "resourceRequirements" => list(resource_requirement()),
         "vcpus" => integer()
       }
 
@@ -1342,7 +1342,7 @@ defmodule AWS.Batch do
   ## Example:
 
       front_of_queue_detail() :: %{
-        "jobs" => list(front_of_queue_job_summary()()),
+        "jobs" => list(front_of_queue_job_summary()),
         "lastUpdatedAt" => float()
       }
 
@@ -1369,10 +1369,10 @@ defmodule AWS.Batch do
   ## Example:
 
       container_detail() :: %{
-        "command" => list(String.t()()),
+        "command" => list(String.t()),
         "containerInstanceArn" => String.t(),
         "enableExecuteCommand" => boolean(),
-        "environment" => list(key_value_pair()()),
+        "environment" => list(key_value_pair()),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "exitCode" => integer(),
@@ -1384,21 +1384,21 @@ defmodule AWS.Batch do
         "logConfiguration" => log_configuration(),
         "logStreamName" => String.t(),
         "memory" => integer(),
-        "mountPoints" => list(mount_point()()),
+        "mountPoints" => list(mount_point()),
         "networkConfiguration" => network_configuration(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
         "reason" => String.t(),
         "repositoryCredentials" => repository_credentials(),
-        "resourceRequirements" => list(resource_requirement()()),
+        "resourceRequirements" => list(resource_requirement()),
         "runtimePlatform" => runtime_platform(),
-        "secrets" => list(secret()()),
+        "secrets" => list(secret()),
         "taskArn" => String.t(),
-        "ulimits" => list(ulimit()()),
+        "ulimits" => list(ulimit()),
         "user" => String.t(),
         "vcpus" => integer(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
 
   """
@@ -1454,7 +1454,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_compute_environments_request() :: %{
-        optional("computeEnvironments") => list(String.t()()),
+        optional("computeEnvironments") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1479,7 +1479,7 @@ defmodule AWS.Batch do
   ## Example:
 
       node_overrides() :: %{
-        "nodePropertyOverrides" => list(node_property_override()()),
+        "nodePropertyOverrides" => list(node_property_override()),
         "numNodes" => integer()
       }
 
@@ -1558,7 +1558,7 @@ defmodule AWS.Batch do
         "container" => container_properties(),
         "ecsProperties" => ecs_properties(),
         "eksProperties" => eks_properties(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "targetNodes" => String.t()
       }
 
@@ -1596,7 +1596,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_jobs_response() :: %{
-        "jobs" => list(job_detail()())
+        "jobs" => list(job_detail())
       }
 
   """
@@ -1630,7 +1630,7 @@ defmodule AWS.Batch do
       launch_template_specification_override() :: %{
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
-        "targetInstanceTypes" => list(String.t()()),
+        "targetInstanceTypes" => list(String.t()),
         "userdataType" => list(any()),
         "version" => String.t()
       }
@@ -1687,12 +1687,12 @@ defmodule AWS.Batch do
   ## Example:
 
       linux_parameters() :: %{
-        "devices" => list(device()()),
+        "devices" => list(device()),
         "initProcessEnabled" => boolean(),
         "maxSwap" => integer(),
         "sharedMemorySize" => integer(),
         "swappiness" => integer(),
-        "tmpfs" => list(tmpfs()())
+        "tmpfs" => list(tmpfs())
       }
 
   """
@@ -1753,7 +1753,7 @@ defmodule AWS.Batch do
   ## Example:
 
       list_jobs_by_consumable_resource_response() :: %{
-        "jobs" => list(list_jobs_by_consumable_resource_summary()()),
+        "jobs" => list(list_jobs_by_consumable_resource_summary()),
         "nextToken" => String.t()
       }
 
@@ -1765,15 +1765,15 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_pod_properties() :: %{
-        "containers" => list(eks_container()()),
+        "containers" => list(eks_container()),
         "dnsPolicy" => String.t(),
         "hostNetwork" => boolean(),
-        "imagePullSecrets" => list(image_pull_secret()()),
-        "initContainers" => list(eks_container()()),
+        "imagePullSecrets" => list(image_pull_secret()),
+        "initContainers" => list(eks_container()),
         "metadata" => eks_metadata(),
         "serviceAccountName" => String.t(),
         "shareProcessNamespace" => boolean(),
-        "volumes" => list(eks_volume()())
+        "volumes" => list(eks_volume())
       }
 
   """
@@ -1808,7 +1808,7 @@ defmodule AWS.Batch do
 
       retry_strategy() :: %{
         "attempts" => integer(),
-        "evaluateOnExit" => list(evaluate_on_exit()())
+        "evaluateOnExit" => list(evaluate_on_exit())
       }
 
   """
@@ -1819,7 +1819,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_jobs_request() :: %{
-        required("jobs") => list(String.t()())
+        required("jobs") => list(String.t())
       }
 
   """
@@ -1832,7 +1832,7 @@ defmodule AWS.Batch do
       launch_template_specification() :: %{
         "launchTemplateId" => String.t(),
         "launchTemplateName" => String.t(),
-        "overrides" => list(launch_template_specification_override()()),
+        "overrides" => list(launch_template_specification_override()),
         "userdataType" => list(any()),
         "version" => String.t()
       }
@@ -1858,7 +1858,7 @@ defmodule AWS.Batch do
   ## Example:
 
       list_consumable_resources_request() :: %{
-        optional("filters") => list(key_values_pair()()),
+        optional("filters") => list(key_values_pair()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1921,7 +1921,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_job_queues_request() :: %{
-        optional("jobQueues") => list(String.t()()),
+        optional("jobQueues") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1934,15 +1934,15 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_container() :: %{
-        "args" => list(String.t()()),
-        "command" => list(String.t()()),
-        "env" => list(eks_container_environment_variable()()),
+        "args" => list(String.t()),
+        "command" => list(String.t()),
+        "env" => list(eks_container_environment_variable()),
         "image" => String.t(),
         "imagePullPolicy" => String.t(),
         "name" => String.t(),
         "resources" => eks_container_resource_requirements(),
         "securityContext" => eks_container_security_context(),
-        "volumeMounts" => list(eks_container_volume_mount()())
+        "volumeMounts" => list(eks_container_volume_mount())
       }
 
   """
@@ -1954,13 +1954,13 @@ defmodule AWS.Batch do
 
       job_detail() :: %{
         "arrayProperties" => array_properties_detail(),
-        "attempts" => list(attempt_detail()()),
+        "attempts" => list(attempt_detail()),
         "consumableResourceProperties" => consumable_resource_properties(),
         "container" => container_detail(),
         "createdAt" => float(),
-        "dependsOn" => list(job_dependency()()),
+        "dependsOn" => list(job_dependency()),
         "ecsProperties" => ecs_properties_detail(),
-        "eksAttempts" => list(eks_attempt_detail()()),
+        "eksAttempts" => list(eks_attempt_detail()),
         "eksProperties" => eks_properties_detail(),
         "isCancelled" => boolean(),
         "isTerminated" => boolean(),
@@ -2006,7 +2006,7 @@ defmodule AWS.Batch do
   ## Example:
 
       describe_scheduling_policies_request() :: %{
-        required("arns") => list(String.t()())
+        required("arns") => list(String.t())
       }
 
   """
@@ -2029,7 +2029,7 @@ defmodule AWS.Batch do
   ## Example:
 
       ecs_properties_detail() :: %{
-        "taskProperties" => list(ecs_task_details()())
+        "taskProperties" => list(ecs_task_details())
       }
 
   """
@@ -2055,11 +2055,11 @@ defmodule AWS.Batch do
   ## Example:
 
       create_job_queue_request() :: %{
-        optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()()),
+        optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
         optional("schedulingPolicyArn") => String.t(),
         optional("state") => list(any()),
         optional("tags") => map(),
-        required("computeEnvironmentOrder") => list(compute_environment_order()()),
+        required("computeEnvironmentOrder") => list(compute_environment_order()),
         required("jobQueueName") => String.t(),
         required("priority") => integer()
       }
@@ -2074,7 +2074,7 @@ defmodule AWS.Batch do
       log_configuration() :: %{
         "logDriver" => list(any()),
         "options" => map(),
-        "secretOptions" => list(secret()())
+        "secretOptions" => list(secret())
       }
 
   """
@@ -2155,18 +2155,18 @@ defmodule AWS.Batch do
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
         "desiredvCpus" => integer(),
-        "ec2Configuration" => list(ec2_configuration()()),
+        "ec2Configuration" => list(ec2_configuration()),
         "ec2KeyPair" => String.t(),
         "imageId" => String.t(),
         "instanceRole" => String.t(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "launchTemplate" => launch_template_specification(),
         "maxvCpus" => integer(),
         "minvCpus" => integer(),
         "placementGroup" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "spotIamFleetRole" => String.t(),
-        "subnets" => list(String.t()()),
+        "subnets" => list(String.t()),
         "tags" => map(),
         "type" => list(any())
       }
@@ -2180,7 +2180,7 @@ defmodule AWS.Batch do
 
       node_properties() :: %{
         "mainNode" => integer(),
-        "nodeRangeProperties" => list(node_range_property()()),
+        "nodeRangeProperties" => list(node_range_property()),
         "numNodes" => integer()
       }
 
@@ -2216,8 +2216,8 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_pod_properties_override() :: %{
-        "containers" => list(eks_container_override()()),
-        "initContainers" => list(eks_container_override()()),
+        "containers" => list(eks_container_override()),
+        "initContainers" => list(eks_container_override()),
         "metadata" => eks_metadata()
       }
 
@@ -2229,7 +2229,7 @@ defmodule AWS.Batch do
   ## Example:
 
       consumable_resource_properties() :: %{
-        "consumableResourceList" => list(consumable_resource_requirement()())
+        "consumableResourceList" => list(consumable_resource_requirement())
       }
 
   """
@@ -2251,17 +2251,17 @@ defmodule AWS.Batch do
   ## Example:
 
       eks_pod_properties_detail() :: %{
-        "containers" => list(eks_container_detail()()),
+        "containers" => list(eks_container_detail()),
         "dnsPolicy" => String.t(),
         "hostNetwork" => boolean(),
-        "imagePullSecrets" => list(image_pull_secret()()),
-        "initContainers" => list(eks_container_detail()()),
+        "imagePullSecrets" => list(image_pull_secret()),
+        "initContainers" => list(eks_container_detail()),
         "metadata" => eks_metadata(),
         "nodeName" => String.t(),
         "podName" => String.t(),
         "serviceAccountName" => String.t(),
         "shareProcessNamespace" => boolean(),
-        "volumes" => list(eks_volume()())
+        "volumes" => list(eks_volume())
       }
 
   """
@@ -2273,7 +2273,7 @@ defmodule AWS.Batch do
 
       tmpfs() :: %{
         "containerPath" => String.t(),
-        "mountOptions" => list(String.t()()),
+        "mountOptions" => list(String.t()),
         "size" => integer()
       }
 
@@ -2294,22 +2294,22 @@ defmodule AWS.Batch do
   ## Example:
 
       task_container_properties() :: %{
-        "command" => list(String.t()()),
-        "dependsOn" => list(task_container_dependency()()),
-        "environment" => list(key_value_pair()()),
+        "command" => list(String.t()),
+        "dependsOn" => list(task_container_dependency()),
+        "environment" => list(key_value_pair()),
         "essential" => boolean(),
         "firelensConfiguration" => firelens_configuration(),
         "image" => String.t(),
         "linuxParameters" => linux_parameters(),
         "logConfiguration" => log_configuration(),
-        "mountPoints" => list(mount_point()()),
+        "mountPoints" => list(mount_point()),
         "name" => String.t(),
         "privileged" => boolean(),
         "readonlyRootFilesystem" => boolean(),
         "repositoryCredentials" => repository_credentials(),
-        "resourceRequirements" => list(resource_requirement()()),
-        "secrets" => list(secret()()),
-        "ulimits" => list(ulimit()()),
+        "resourceRequirements" => list(resource_requirement()),
+        "secrets" => list(secret()),
+        "ulimits" => list(ulimit()),
         "user" => String.t()
       }
 

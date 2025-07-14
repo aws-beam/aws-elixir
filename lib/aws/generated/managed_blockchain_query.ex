@@ -38,7 +38,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       list_asset_contracts_output() :: %{
-        "contracts" => list(asset_contract()()),
+        "contracts" => list(asset_contract()),
         "nextToken" => String.t()
       }
 
@@ -239,8 +239,8 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       batch_get_token_balance_output() :: %{
-        "errors" => list(batch_get_token_balance_error_item()()),
-        "tokenBalances" => list(batch_get_token_balance_output_item()())
+        "errors" => list(batch_get_token_balance_error_item()),
+        "tokenBalances" => list(batch_get_token_balance_output_item())
       }
 
   """
@@ -396,7 +396,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       batch_get_token_balance_input() :: %{
-        optional("getTokenBalanceInputs") => list(batch_get_token_balance_input_item()())
+        optional("getTokenBalanceInputs") => list(batch_get_token_balance_input_item())
       }
 
   """
@@ -422,7 +422,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -447,7 +447,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       confirmation_status_filter() :: %{
-        "include" => list(String.t()())
+        "include" => list(String.t())
       }
 
   """
@@ -523,7 +523,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       list_filtered_transaction_events_output() :: %{
-        "events" => list(transaction_event()()),
+        "events" => list(transaction_event()),
         "nextToken" => String.t()
       }
 
@@ -549,7 +549,7 @@ defmodule AWS.ManagedBlockchainQuery do
 
       list_token_balances_output() :: %{
         "nextToken" => String.t(),
-        "tokenBalances" => list(token_balance()())
+        "tokenBalances" => list(token_balance())
       }
 
   """
@@ -560,7 +560,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       list_transaction_events_output() :: %{
-        "events" => list(transaction_event()()),
+        "events" => list(transaction_event()),
         "nextToken" => String.t()
       }
 
@@ -598,7 +598,7 @@ defmodule AWS.ManagedBlockchainQuery do
   ## Example:
 
       address_identifier_filter() :: %{
-        "transactionEventToAddress" => list(String.t()())
+        "transactionEventToAddress" => list(String.t())
       }
 
   """
@@ -640,7 +640,7 @@ defmodule AWS.ManagedBlockchainQuery do
 
       list_transactions_output() :: %{
         "nextToken" => String.t(),
-        "transactions" => list(transaction_output_item()())
+        "transactions" => list(transaction_output_item())
       }
 
   """

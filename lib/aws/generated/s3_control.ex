@@ -54,8 +54,8 @@ defmodule AWS.S3Control do
   ## Example:
 
       storage_lens_group_level_selection_criteria() :: %{
-        "Exclude" => list(String.t()()),
-        "Include" => list(String.t()())
+        "Exclude" => list(String.t()),
+        "Include" => list(String.t())
       }
 
   """
@@ -78,7 +78,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_storage_lens_configuration_tagging_result() :: %{
-        "Tags" => list(storage_lens_tag()())
+        "Tags" => list(storage_lens_tag())
       }
 
   """
@@ -114,7 +114,7 @@ defmodule AWS.S3Control do
 
       tag_resource_request() :: %{
         required("AccountId") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -283,7 +283,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_jobs_result() :: %{
-        "Jobs" => list(job_list_descriptor()()),
+        "Jobs" => list(job_list_descriptor()),
         "NextToken" => String.t()
       }
 
@@ -337,7 +337,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       s3_access_control_list() :: %{
-        "Grants" => list(s3_grant()()),
+        "Grants" => list(s3_grant()),
         "Owner" => s3_object_owner()
       }
 
@@ -365,9 +365,9 @@ defmodule AWS.S3Control do
         "Filter" => lifecycle_rule_filter(),
         "ID" => String.t(),
         "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
-        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
+        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
         "Status" => list(any()),
-        "Transitions" => list(transition()())
+        "Transitions" => list(transition())
       }
 
   """
@@ -414,7 +414,7 @@ defmodule AWS.S3Control do
         "AllowedFeatures" => list(list(any())()),
         "CloudWatchMetricsEnabled" => boolean(),
         "SupportingAccessPoint" => String.t(),
-        "TransformationConfigurations" => list(object_lambda_transformation_configuration()())
+        "TransformationConfigurations" => list(object_lambda_transformation_configuration())
       }
 
   """
@@ -463,7 +463,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       create_storage_lens_group_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccountId") => String.t(),
         required("StorageLensGroup") => storage_lens_group()
       }
@@ -476,7 +476,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_access_grants_result() :: %{
-        "AccessGrantsList" => list(list_access_grant_entry()()),
+        "AccessGrantsList" => list(list_access_grant_entry()),
         "NextToken" => String.t()
       }
 
@@ -527,7 +527,7 @@ defmodule AWS.S3Control do
 
       create_access_grants_instance_request() :: %{
         optional("IdentityCenterArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccountId") => String.t()
       }
 
@@ -552,7 +552,7 @@ defmodule AWS.S3Control do
 
       put_job_tagging_request() :: %{
         required("AccountId") => String.t(),
-        required("Tags") => list(s3_tag()())
+        required("Tags") => list(s3_tag())
       }
 
   """
@@ -563,7 +563,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       lifecycle_configuration() :: %{
-        "Rules" => list(lifecycle_rule()())
+        "Rules" => list(lifecycle_rule())
       }
 
   """
@@ -727,7 +727,7 @@ defmodule AWS.S3Control do
 
       list_storage_lens_configurations_result() :: %{
         "NextToken" => String.t(),
-        "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry()())
+        "StorageLensConfigurationList" => list(list_storage_lens_configuration_entry())
       }
 
   """
@@ -784,7 +784,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_job_tagging_result() :: %{
-        "Tags" => list(s3_tag()())
+        "Tags" => list(s3_tag())
       }
 
   """
@@ -795,7 +795,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       create_access_grants_location_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccountId") => String.t(),
         required("IAMRoleArn") => String.t(),
         required("LocationScope") => String.t()
@@ -863,7 +863,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_caller_access_grants_result() :: %{
-        "CallerAccessGrantsList" => list(list_caller_access_grants_entry()()),
+        "CallerAccessGrantsList" => list(list_caller_access_grants_entry()),
         "NextToken" => String.t()
       }
 
@@ -941,7 +941,7 @@ defmodule AWS.S3Control do
         optional("Description") => String.t(),
         optional("Manifest") => job_manifest(),
         optional("ManifestGenerator") => list(),
-        optional("Tags") => list(s3_tag()()),
+        optional("Tags") => list(s3_tag()),
         required("AccountId") => String.t(),
         required("ClientRequestToken") => String.t(),
         required("Operation") => job_operation(),
@@ -1001,9 +1001,9 @@ defmodule AWS.S3Control do
 
       storage_lens_group_filter() :: %{
         "And" => storage_lens_group_and_operator(),
-        "MatchAnyPrefix" => list(String.t()()),
-        "MatchAnySuffix" => list(String.t()()),
-        "MatchAnyTag" => list(s3_tag()()),
+        "MatchAnyPrefix" => list(String.t()),
+        "MatchAnySuffix" => list(String.t()),
+        "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size(),
         "Or" => storage_lens_group_or_operator()
@@ -1017,9 +1017,9 @@ defmodule AWS.S3Control do
   ## Example:
 
       storage_lens_group_or_operator() :: %{
-        "MatchAnyPrefix" => list(String.t()()),
-        "MatchAnySuffix" => list(String.t()()),
-        "MatchAnyTag" => list(s3_tag()()),
+        "MatchAnyPrefix" => list(String.t()),
+        "MatchAnySuffix" => list(String.t()),
+        "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
@@ -1043,8 +1043,8 @@ defmodule AWS.S3Control do
   ## Example:
 
       include() :: %{
-        "Buckets" => list(String.t()()),
-        "Regions" => list(String.t()())
+        "Buckets" => list(String.t()),
+        "Regions" => list(String.t())
       }
 
   """
@@ -1117,7 +1117,7 @@ defmodule AWS.S3Control do
 
       untag_resource_request() :: %{
         required("AccountId") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1187,7 +1187,7 @@ defmodule AWS.S3Control do
 
       list_access_points_for_object_lambda_result() :: %{
         "NextToken" => String.t(),
-        "ObjectLambdaAccessPointList" => list(object_lambda_access_point()())
+        "ObjectLambdaAccessPointList" => list(object_lambda_access_point())
       }
 
   """
@@ -1198,7 +1198,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       put_storage_lens_configuration_request() :: %{
-        optional("Tags") => list(storage_lens_tag()()),
+        optional("Tags") => list(storage_lens_tag()),
         required("AccountId") => String.t(),
         required("StorageLensConfiguration") => storage_lens_configuration()
       }
@@ -1238,7 +1238,7 @@ defmodule AWS.S3Control do
 
       list_regional_buckets_result() :: %{
         "NextToken" => String.t(),
-        "RegionalBucketList" => list(regional_bucket()())
+        "RegionalBucketList" => list(regional_bucket())
       }
 
   """
@@ -1449,7 +1449,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       multi_region_access_points_async_response() :: %{
-        "Regions" => list(multi_region_access_point_regional_response()())
+        "Regions" => list(multi_region_access_point_regional_response())
       }
 
   """
@@ -1460,7 +1460,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_multi_region_access_points_result() :: %{
-        "AccessPoints" => list(multi_region_access_point_report()()),
+        "AccessPoints" => list(multi_region_access_point_report()),
         "NextToken" => String.t()
       }
 
@@ -1472,7 +1472,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_access_points_for_directory_buckets_result() :: %{
-        "AccessPointList" => list(access_point()()),
+        "AccessPointList" => list(access_point()),
         "NextToken" => String.t()
       }
 
@@ -1534,7 +1534,7 @@ defmodule AWS.S3Control do
 
       submit_multi_region_access_point_routes_request() :: %{
         required("AccountId") => String.t(),
-        required("RouteUpdates") => list(multi_region_access_point_route()())
+        required("RouteUpdates") => list(multi_region_access_point_route())
       }
 
   """
@@ -1647,8 +1647,8 @@ defmodule AWS.S3Control do
   ## Example:
 
       exclude() :: %{
-        "Buckets" => list(String.t()()),
-        "Regions" => list(String.t()())
+        "Buckets" => list(String.t()),
+        "Regions" => list(String.t())
       }
 
   """
@@ -1694,7 +1694,7 @@ defmodule AWS.S3Control do
 
       replication_configuration() :: %{
         "Role" => String.t(),
-        "Rules" => list(replication_rule()())
+        "Rules" => list(replication_rule())
       }
 
   """
@@ -2037,7 +2037,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       tagging() :: %{
-        "TagSet" => list(s3_tag()())
+        "TagSet" => list(s3_tag())
       }
 
   """
@@ -2108,9 +2108,9 @@ defmodule AWS.S3Control do
   ## Example:
 
       storage_lens_group_and_operator() :: %{
-        "MatchAnyPrefix" => list(String.t()()),
-        "MatchAnySuffix" => list(String.t()()),
-        "MatchAnyTag" => list(s3_tag()()),
+        "MatchAnyPrefix" => list(String.t()),
+        "MatchAnySuffix" => list(String.t()),
+        "MatchAnyTag" => list(s3_tag()),
         "MatchObjectAge" => match_object_age(),
         "MatchObjectSize" => match_object_size()
       }
@@ -2138,7 +2138,7 @@ defmodule AWS.S3Control do
         "ConfirmationRequired" => boolean(),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
-        "FailureReasons" => list(job_failure()()),
+        "FailureReasons" => list(job_failure()),
         "GeneratedManifestDescriptor" => s3_generated_manifest_descriptor(),
         "JobArn" => String.t(),
         "JobId" => String.t(),
@@ -2219,7 +2219,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_access_grants_instances_result() :: %{
-        "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()()),
+        "AccessGrantsInstancesList" => list(list_access_grants_instance_entry()),
         "NextToken" => String.t()
       }
 
@@ -2279,7 +2279,7 @@ defmodule AWS.S3Control do
       create_multi_region_access_point_input() :: %{
         "Name" => String.t(),
         "PublicAccessBlock" => public_access_block_configuration(),
-        "Regions" => list(region()())
+        "Regions" => list(region())
       }
 
   """
@@ -2425,7 +2425,7 @@ defmodule AWS.S3Control do
 
       scope() :: %{
         "Permissions" => list(list(any())()),
-        "Prefixes" => list(String.t()())
+        "Prefixes" => list(String.t())
       }
 
   """
@@ -2447,7 +2447,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_tags_for_resource_result() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2512,14 +2512,14 @@ defmodule AWS.S3Control do
   ## Example:
 
       s3_copy_object_operation() :: %{
-        "AccessControlGrants" => list(s3_grant()()),
+        "AccessControlGrants" => list(s3_grant()),
         "BucketKeyEnabled" => boolean(),
         "CannedAccessControlList" => list(any()),
         "ChecksumAlgorithm" => list(any()),
         "MetadataDirective" => list(any()),
         "ModifiedSinceConstraint" => non_neg_integer(),
         "NewObjectMetadata" => s3_object_metadata(),
-        "NewObjectTagging" => list(s3_tag()()),
+        "NewObjectTagging" => list(s3_tag()),
         "ObjectLockLegalHoldStatus" => list(any()),
         "ObjectLockMode" => list(any()),
         "ObjectLockRetainUntilDate" => non_neg_integer(),
@@ -2585,7 +2585,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_bucket_tagging_result() :: %{
-        "TagSet" => list(s3_tag()())
+        "TagSet" => list(s3_tag())
       }
 
   """
@@ -2626,9 +2626,9 @@ defmodule AWS.S3Control do
   ## Example:
 
       key_name_constraint() :: %{
-        "MatchAnyPrefix" => list(String.t()()),
-        "MatchAnySubstring" => list(String.t()()),
-        "MatchAnySuffix" => list(String.t()())
+        "MatchAnyPrefix" => list(String.t()),
+        "MatchAnySubstring" => list(String.t()),
+        "MatchAnySuffix" => list(String.t())
       }
 
   """
@@ -2777,7 +2777,7 @@ defmodule AWS.S3Control do
         "CreatedAt" => non_neg_integer(),
         "Name" => String.t(),
         "PublicAccessBlock" => public_access_block_configuration(),
-        "Regions" => list(region_report()()),
+        "Regions" => list(region_report()),
         "Status" => list(any())
       }
 
@@ -2809,7 +2809,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_access_grants_locations_result() :: %{
-        "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()()),
+        "AccessGrantsLocationsList" => list(list_access_grants_locations_entry()),
         "NextToken" => String.t()
       }
 
@@ -3182,7 +3182,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_access_points_result() :: %{
-        "AccessPointList" => list(access_point()()),
+        "AccessPointList" => list(access_point()),
         "NextToken" => String.t()
       }
 
@@ -3215,7 +3215,7 @@ defmodule AWS.S3Control do
 
       replication_rule_and_operator() :: %{
         "Prefix" => String.t(),
-        "Tags" => list(s3_tag()())
+        "Tags" => list(s3_tag())
       }
 
   """
@@ -3249,7 +3249,7 @@ defmodule AWS.S3Control do
 
       get_multi_region_access_point_routes_result() :: %{
         "Mrap" => String.t(),
-        "Routes" => list(multi_region_access_point_route()())
+        "Routes" => list(multi_region_access_point_route())
       }
 
   """
@@ -3386,7 +3386,7 @@ defmodule AWS.S3Control do
 
       put_storage_lens_configuration_tagging_request() :: %{
         required("AccountId") => String.t(),
-        required("Tags") => list(storage_lens_tag()())
+        required("Tags") => list(storage_lens_tag())
       }
 
   """
@@ -3437,7 +3437,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       s3_set_object_tagging_operation() :: %{
-        "TagSet" => list(s3_tag()())
+        "TagSet" => list(s3_tag())
       }
 
   """
@@ -3509,7 +3509,7 @@ defmodule AWS.S3Control do
         optional("AccessGrantsLocationConfiguration") => access_grants_location_configuration(),
         optional("ApplicationArn") => String.t(),
         optional("S3PrefixType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccessGrantsLocationId") => String.t(),
         required("AccountId") => String.t(),
         required("Grantee") => grantee(),
@@ -3524,7 +3524,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       get_bucket_lifecycle_configuration_result() :: %{
-        "Rules" => list(lifecycle_rule()())
+        "Rules" => list(lifecycle_rule())
       }
 
   """
@@ -3616,7 +3616,7 @@ defmodule AWS.S3Control do
 
       list_storage_lens_groups_result() :: %{
         "NextToken" => String.t(),
-        "StorageLensGroupList" => list(list_storage_lens_group_entry()())
+        "StorageLensGroupList" => list(list_storage_lens_group_entry())
       }
 
   """
@@ -3756,7 +3756,7 @@ defmodule AWS.S3Control do
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
         "Prefix" => String.t(),
-        "Tags" => list(s3_tag()())
+        "Tags" => list(s3_tag())
       }
 
   """

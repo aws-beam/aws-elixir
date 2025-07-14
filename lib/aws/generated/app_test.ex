@@ -103,7 +103,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       batch_step_output() :: %{
-        "dataSetDetails" => list(data_set()()),
+        "dataSetDetails" => list(data_set()),
         "dataSetExportLocation" => String.t(),
         "dmsOutputLocation" => String.t()
       }
@@ -138,7 +138,7 @@ defmodule AWS.AppTest do
 
       list_test_run_test_cases_response() :: %{
         "nextToken" => String.t(),
-        "testRunTestCases" => list(test_case_run_summary()())
+        "testRunTestCases" => list(test_case_run_summary())
       }
 
   """
@@ -244,8 +244,8 @@ defmodule AWS.AppTest do
   ## Example:
 
       create_test_suite_request() :: %{
-        optional("afterSteps") => list(step()()),
-        optional("beforeSteps") => list(step()()),
+        optional("afterSteps") => list(step()),
+        optional("beforeSteps") => list(step()),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
@@ -263,7 +263,7 @@ defmodule AWS.AppTest do
       list_test_suites_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("testSuiteIds") => list(String.t()())
+        optional("testSuiteIds") => list(String.t())
       }
 
   """
@@ -330,7 +330,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -409,7 +409,7 @@ defmodule AWS.AppTest do
 
       list_test_cases_response() :: %{
         "nextToken" => String.t(),
-        "testCases" => list(test_case_summary()())
+        "testCases" => list(test_case_summary())
       }
 
   """
@@ -424,7 +424,7 @@ defmodule AWS.AppTest do
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("steps") => list(step()())
+        required("steps") => list(step())
       }
 
   """
@@ -498,7 +498,7 @@ defmodule AWS.AppTest do
       list_test_configurations_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("testConfigurationIds") => list(String.t()())
+        optional("testConfigurationIds") => list(String.t())
       }
 
   """
@@ -675,7 +675,7 @@ defmodule AWS.AppTest do
 
       list_test_suites_response() :: %{
         "nextToken" => String.t(),
-        "testSuites" => list(test_suite_summary()())
+        "testSuites" => list(test_suite_summary())
       }
 
   """
@@ -784,8 +784,8 @@ defmodule AWS.AppTest do
   ## Example:
 
       update_test_suite_request() :: %{
-        optional("afterSteps") => list(step()()),
-        optional("beforeSteps") => list(step()()),
+        optional("afterSteps") => list(step()),
+        optional("beforeSteps") => list(step()),
         optional("description") => String.t(),
         optional("testCases") => list()
       }
@@ -872,7 +872,7 @@ defmodule AWS.AppTest do
       batch_step_input() :: %{
         "batchJobName" => String.t(),
         "batchJobParameters" => map(),
-        "exportDataSetNames" => list(String.t()()),
+        "exportDataSetNames" => list(String.t()),
         "properties" => mainframe_action_properties(),
         "resource" => list()
       }
@@ -897,7 +897,7 @@ defmodule AWS.AppTest do
 
       update_test_case_request() :: %{
         optional("description") => String.t(),
-        optional("steps") => list(step()())
+        optional("steps") => list(step())
       }
 
   """
@@ -910,7 +910,7 @@ defmodule AWS.AppTest do
       list_test_cases_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("testCaseIds") => list(String.t()())
+        optional("testCaseIds") => list(String.t())
       }
 
   """
@@ -990,7 +990,7 @@ defmodule AWS.AppTest do
 
       list_test_run_steps_response() :: %{
         "nextToken" => String.t(),
-        "testRunSteps" => list(test_run_step_summary()())
+        "testRunSteps" => list(test_run_step_summary())
       }
 
   """
@@ -1007,7 +1007,7 @@ defmodule AWS.AppTest do
         "latestVersion" => test_configuration_latest_version(),
         "name" => String.t(),
         "properties" => map(),
-        "resources" => list(resource()()),
+        "resources" => list(resource()),
         "serviceSettings" => service_settings(),
         "status" => list(any()),
         "statusReason" => [String.t()],
@@ -1027,7 +1027,7 @@ defmodule AWS.AppTest do
       batch() :: %{
         "batchJobName" => String.t(),
         "batchJobParameters" => map(),
-        "exportDataSetNames" => list(String.t()())
+        "exportDataSetNames" => list(String.t())
       }
 
   """
@@ -1038,7 +1038,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -1096,8 +1096,8 @@ defmodule AWS.AppTest do
   ## Example:
 
       get_test_suite_response() :: %{
-        "afterSteps" => list(step()()),
-        "beforeSteps" => list(step()()),
+        "afterSteps" => list(step()),
+        "beforeSteps" => list(step()),
         "creationTime" => [non_neg_integer()],
         "description" => String.t(),
         "lastUpdateTime" => [non_neg_integer()],
@@ -1146,7 +1146,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       t_n3270() :: %{
-        "exportDataSetNames" => list(String.t()()),
+        "exportDataSetNames" => list(String.t()),
         "script" => script()
       }
 
@@ -1170,9 +1170,9 @@ defmodule AWS.AppTest do
   ## Example:
 
       compare_data_sets_step_input() :: %{
-        "sourceDataSets" => list(data_set()()),
+        "sourceDataSets" => list(data_set()),
         "sourceLocation" => String.t(),
-        "targetDataSets" => list(data_set()()),
+        "targetDataSets" => list(data_set()),
         "targetLocation" => String.t()
       }
 
@@ -1199,7 +1199,7 @@ defmodule AWS.AppTest do
 
       list_test_runs_response() :: %{
         "nextToken" => String.t(),
-        "testRuns" => list(test_run_summary()())
+        "testRuns" => list(test_run_summary())
       }
 
   """
@@ -1279,7 +1279,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       t_n3270_step_output() :: %{
-        "dataSetDetails" => list(data_set()()),
+        "dataSetDetails" => list(data_set()),
         "dataSetExportLocation" => String.t(),
         "dmsOutputLocation" => String.t(),
         "scriptOutputLocation" => String.t()
@@ -1318,7 +1318,7 @@ defmodule AWS.AppTest do
   ## Example:
 
       t_n3270_step_input() :: %{
-        "exportDataSetNames" => list(String.t()()),
+        "exportDataSetNames" => list(String.t()),
         "properties" => mainframe_action_properties(),
         "resource" => list(),
         "script" => script_summary()
@@ -1345,7 +1345,7 @@ defmodule AWS.AppTest do
 
       list_test_configurations_response() :: %{
         "nextToken" => String.t(),
-        "testConfigurations" => list(test_configuration_summary()())
+        "testConfigurations" => list(test_configuration_summary())
       }
 
   """
@@ -1414,7 +1414,7 @@ defmodule AWS.AppTest do
         optional("serviceSettings") => service_settings(),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("resources") => list(resource()())
+        required("resources") => list(resource())
       }
 
   """
@@ -1432,7 +1432,7 @@ defmodule AWS.AppTest do
         "name" => String.t(),
         "status" => list(any()),
         "statusReason" => [String.t()],
-        "steps" => list(step()()),
+        "steps" => list(step()),
         "tags" => map(),
         "testCaseArn" => String.t(),
         "testCaseId" => String.t(),
@@ -1449,7 +1449,7 @@ defmodule AWS.AppTest do
       list_test_runs_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("testRunIds") => list(String.t()()),
+        optional("testRunIds") => list(String.t()),
         optional("testSuiteId") => String.t()
       }
 
@@ -1463,7 +1463,7 @@ defmodule AWS.AppTest do
       update_test_configuration_request() :: %{
         optional("description") => String.t(),
         optional("properties") => map(),
-        optional("resources") => list(resource()()),
+        optional("resources") => list(resource()),
         optional("serviceSettings") => service_settings()
       }
 

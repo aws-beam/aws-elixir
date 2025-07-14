@@ -70,7 +70,7 @@ defmodule AWS.PI do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Identifier") => String.t(),
-        required("Metrics") => list(String.t()()),
+        required("Metrics") => list(String.t()),
         required("ServiceType") => list(any())
       }
       
@@ -99,7 +99,7 @@ defmodule AWS.PI do
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("ServiceType") => list(any()),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -122,7 +122,7 @@ defmodule AWS.PI do
   ## Example:
       
       list_available_resource_metrics_response() :: %{
-        "Metrics" => list(response_resource_metric()()),
+        "Metrics" => list(response_resource_metric()),
         "NextToken" => String.t()
       }
       
@@ -134,7 +134,7 @@ defmodule AWS.PI do
   ## Example:
       
       get_dimension_key_details_response() :: %{
-        "Dimensions" => list(dimension_key_detail()())
+        "Dimensions" => list(dimension_key_detail())
       }
       
   """
@@ -160,7 +160,7 @@ defmodule AWS.PI do
   ## Example:
       
       metric_key_data_points() :: %{
-        "DataPoints" => list(data_point()()),
+        "DataPoints" => list(data_point()),
         "Key" => response_resource_metric_key()
       }
       
@@ -228,7 +228,7 @@ defmodule AWS.PI do
   ## Example:
       
       list_available_resource_dimensions_response() :: %{
-        "MetricDimensions" => list(metric_dimension_groups()()),
+        "MetricDimensions" => list(metric_dimension_groups()),
         "NextToken" => String.t()
       }
       
@@ -246,7 +246,7 @@ defmodule AWS.PI do
         optional("PeriodInSeconds") => integer(),
         required("EndTime") => non_neg_integer(),
         required("Identifier") => String.t(),
-        required("MetricQueries") => list(metric_query()()),
+        required("MetricQueries") => list(metric_query()),
         required("ServiceType") => list(any()),
         required("StartTime") => non_neg_integer()
       }
@@ -261,7 +261,7 @@ defmodule AWS.PI do
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
         required("ServiceType") => list(any()),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -275,7 +275,7 @@ defmodule AWS.PI do
         "AlignedEndTime" => non_neg_integer(),
         "AlignedStartTime" => non_neg_integer(),
         "Identifier" => String.t(),
-        "MetricList" => list(metric_key_data_points()()),
+        "MetricList" => list(metric_key_data_points()),
         "NextToken" => String.t()
       }
       
@@ -287,7 +287,7 @@ defmodule AWS.PI do
   ## Example:
       
       create_performance_analysis_report_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EndTime") => non_neg_integer(),
         required("Identifier") => String.t(),
         required("ServiceType") => list(any()),
@@ -366,7 +366,7 @@ defmodule AWS.PI do
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
         "Identifier" => String.t(),
-        "Insights" => list(insight()()),
+        "Insights" => list(insight()),
         "ServiceType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any())
@@ -385,7 +385,7 @@ defmodule AWS.PI do
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -396,7 +396,7 @@ defmodule AWS.PI do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -410,7 +410,7 @@ defmodule AWS.PI do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Identifier") => String.t(),
-        required("MetricTypes") => list(String.t()()),
+        required("MetricTypes") => list(String.t()),
         required("ServiceType") => list(any())
       }
       
@@ -422,7 +422,7 @@ defmodule AWS.PI do
   ## Example:
       
       dimension_group() :: %{
-        "Dimensions" => list(String.t()()),
+        "Dimensions" => list(String.t()),
         "Group" => String.t(),
         "Limit" => integer()
       }
@@ -461,7 +461,7 @@ defmodule AWS.PI do
       dimension_key_description() :: %{
         "AdditionalMetrics" => map(),
         "Dimensions" => map(),
-        "Partitions" => list(float()()),
+        "Partitions" => list(float()),
         "Total" => float()
       }
       
@@ -473,7 +473,7 @@ defmodule AWS.PI do
   ## Example:
       
       get_dimension_key_details_request() :: %{
-        optional("RequestedDimensions") => list(String.t()()),
+        optional("RequestedDimensions") => list(String.t()),
         required("Group") => String.t(),
         required("GroupIdentifier") => String.t(),
         required("Identifier") => String.t(),
@@ -577,7 +577,7 @@ defmodule AWS.PI do
   ## Example:
       
       describe_dimension_keys_request() :: %{
-        optional("AdditionalMetrics") => list(String.t()()),
+        optional("AdditionalMetrics") => list(String.t()),
         optional("Filter") => map(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -599,7 +599,7 @@ defmodule AWS.PI do
   ## Example:
       
       dimension_group_detail() :: %{
-        "Dimensions" => list(dimension_detail()()),
+        "Dimensions" => list(dimension_detail()),
         "Group" => String.t()
       }
       
@@ -613,9 +613,9 @@ defmodule AWS.PI do
       describe_dimension_keys_response() :: %{
         "AlignedEndTime" => non_neg_integer(),
         "AlignedStartTime" => non_neg_integer(),
-        "Keys" => list(dimension_key_description()()),
+        "Keys" => list(dimension_key_description()),
         "NextToken" => String.t(),
-        "PartitionKeys" => list(response_partition_key()())
+        "PartitionKeys" => list(response_partition_key())
       }
       
   """
@@ -637,17 +637,17 @@ defmodule AWS.PI do
   ## Example:
       
       insight() :: %{
-        "BaselineData" => list(data()()),
+        "BaselineData" => list(data()),
         "Context" => list(any()),
         "Description" => String.t(),
         "EndTime" => non_neg_integer(),
-        "InsightData" => list(data()()),
+        "InsightData" => list(data()),
         "InsightId" => String.t(),
         "InsightType" => String.t(),
-        "Recommendations" => list(recommendation()()),
+        "Recommendations" => list(recommendation()),
         "Severity" => list(any()),
         "StartTime" => non_neg_integer(),
-        "SupportingInsights" => list(insight()())
+        "SupportingInsights" => list(insight())
       }
       
   """
@@ -658,7 +658,7 @@ defmodule AWS.PI do
   ## Example:
       
       list_performance_analysis_reports_response() :: %{
-        "AnalysisReports" => list(analysis_report_summary()()),
+        "AnalysisReports" => list(analysis_report_summary()),
         "NextToken" => String.t()
       }
       
@@ -670,7 +670,7 @@ defmodule AWS.PI do
   ## Example:
       
       metric_dimension_groups() :: %{
-        "Groups" => list(dimension_group_detail()()),
+        "Groups" => list(dimension_group_detail()),
         "Metric" => String.t()
       }
       
@@ -758,7 +758,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, create_performance_analysis_report_errors()}
   def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePerformanceAnalysisReport", input, options)
   end
@@ -776,7 +777,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, delete_performance_analysis_report_errors()}
   def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePerformanceAnalysisReport", input, options)
   end
@@ -794,7 +796,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, describe_dimension_keys_errors()}
   def describe_dimension_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDimensionKeys", input, options)
   end
@@ -816,7 +819,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_dimension_key_details_errors()}
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDimensionKeyDetails", input, options)
   end
@@ -836,7 +840,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_performance_analysis_report_errors()}
   def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPerformanceAnalysisReport", input, options)
   end
@@ -853,7 +858,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_resource_metadata_errors()}
   def get_resource_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceMetadata", input, options)
   end
@@ -877,7 +883,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_resource_metrics_errors()}
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceMetrics", input, options)
   end
@@ -896,7 +903,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_available_resource_dimensions_errors()}
   def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceDimensions", input, options)
   end
@@ -911,7 +919,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_available_resource_metrics_errors()}
   def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
   end
@@ -931,7 +940,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_performance_analysis_reports_errors()}
   def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPerformanceAnalysisReports", input, options)
   end
@@ -946,7 +956,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -960,7 +971,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -974,7 +986,8 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

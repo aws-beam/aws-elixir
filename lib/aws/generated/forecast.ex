@@ -14,7 +14,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_forecast_export_jobs_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -40,7 +40,7 @@ defmodule AWS.Forecast do
       
       list_what_if_forecasts_response() :: %{
         "NextToken" => String.t(),
-        "WhatIfForecasts" => list(what_if_forecast_summary()())
+        "WhatIfForecasts" => list(what_if_forecast_summary())
       }
       
   """
@@ -63,7 +63,7 @@ defmodule AWS.Forecast do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -78,12 +78,12 @@ defmodule AWS.Forecast do
         optional("AutoMLOverrideStrategy") => list(any()),
         optional("EncryptionConfig") => encryption_config(),
         optional("EvaluationParameters") => evaluation_parameters(),
-        optional("ForecastTypes") => list(String.t()()),
+        optional("ForecastTypes") => list(String.t()),
         optional("HPOConfig") => hyper_parameter_tuning_job_config(),
         optional("OptimizationMetric") => list(any()),
         optional("PerformAutoML") => boolean(),
         optional("PerformHPO") => boolean(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrainingParameters") => map(),
         required("FeaturizationConfig") => featurization_config(),
         required("ForecastHorizon") => integer(),
@@ -167,7 +167,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_monitors_response() :: %{
-        "Monitors" => list(monitor_summary()()),
+        "Monitors" => list(monitor_summary()),
         "NextToken" => String.t()
       }
       
@@ -180,7 +180,7 @@ defmodule AWS.Forecast do
       
       list_monitor_evaluations_response() :: %{
         "NextToken" => String.t(),
-        "PredictorMonitorEvaluations" => list(predictor_monitor_evaluation()())
+        "PredictorMonitorEvaluations" => list(predictor_monitor_evaluation())
       }
       
   """
@@ -216,7 +216,7 @@ defmodule AWS.Forecast do
         "AutoMLOverrideStrategy" => list(any()),
         "IsAutoPredictor" => boolean(),
         "OptimizationMetric" => list(any()),
-        "PredictorEvaluationResults" => list(evaluation_result()())
+        "PredictorEvaluationResults" => list(evaluation_result())
       }
       
   """
@@ -230,7 +230,7 @@ defmodule AWS.Forecast do
         "EvaluationState" => String.t(),
         "EvaluationTime" => non_neg_integer(),
         "Message" => String.t(),
-        "MetricResults" => list(metric_result()()),
+        "MetricResults" => list(metric_result()),
         "MonitorArn" => String.t(),
         "MonitorDataSource" => monitor_data_source(),
         "NumItemsEvaluated" => float(),
@@ -249,7 +249,7 @@ defmodule AWS.Forecast do
       
       input_data_config() :: %{
         "DatasetGroupArn" => String.t(),
-        "SupplementaryFeatures" => list(supplementary_feature()())
+        "SupplementaryFeatures" => list(supplementary_feature())
       }
       
   """
@@ -282,14 +282,14 @@ defmodule AWS.Forecast do
       describe_auto_predictor_response() :: %{
         "CreationTime" => non_neg_integer(),
         "DataConfig" => data_config(),
-        "DatasetImportJobArns" => list(String.t()()),
+        "DatasetImportJobArns" => list(String.t()),
         "EncryptionConfig" => encryption_config(),
         "EstimatedTimeRemainingInMinutes" => float(),
         "ExplainabilityInfo" => explainability_info(),
-        "ForecastDimensions" => list(String.t()()),
+        "ForecastDimensions" => list(String.t()),
         "ForecastFrequency" => String.t(),
         "ForecastHorizon" => integer(),
-        "ForecastTypes" => list(String.t()()),
+        "ForecastTypes" => list(String.t()),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t(),
         "MonitorInfo" => monitor_info(),
@@ -360,7 +360,7 @@ defmodule AWS.Forecast do
       
       list_what_if_analyses_response() :: %{
         "NextToken" => String.t(),
-        "WhatIfAnalyses" => list(what_if_analysis_summary()())
+        "WhatIfAnalyses" => list(what_if_analysis_summary())
       }
       
   """
@@ -383,9 +383,9 @@ defmodule AWS.Forecast do
   ## Example:
       
       parameter_ranges() :: %{
-        "CategoricalParameterRanges" => list(categorical_parameter_range()()),
-        "ContinuousParameterRanges" => list(continuous_parameter_range()()),
-        "IntegerParameterRanges" => list(integer_parameter_range()())
+        "CategoricalParameterRanges" => list(categorical_parameter_range()),
+        "ContinuousParameterRanges" => list(continuous_parameter_range()),
+        "IntegerParameterRanges" => list(integer_parameter_range())
       }
       
   """
@@ -407,7 +407,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_forecast_export_jobs_response() :: %{
-        "ForecastExportJobs" => list(forecast_export_job_summary()()),
+        "ForecastExportJobs" => list(forecast_export_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -420,7 +420,7 @@ defmodule AWS.Forecast do
       
       create_explainability_export_request() :: %{
         optional("Format") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
         required("ExplainabilityArn") => String.t(),
         required("ExplainabilityExportName") => String.t()
@@ -456,7 +456,7 @@ defmodule AWS.Forecast do
       
       list_what_if_forecast_exports_response() :: %{
         "NextToken" => String.t(),
-        "WhatIfForecastExports" => list(what_if_forecast_export_summary()())
+        "WhatIfForecastExports" => list(what_if_forecast_export_summary())
       }
       
   """
@@ -479,8 +479,8 @@ defmodule AWS.Forecast do
   ## Example:
       
       featurization_config() :: %{
-        "Featurizations" => list(featurization()()),
-        "ForecastDimensions" => list(String.t()()),
+        "Featurizations" => list(featurization()),
+        "ForecastDimensions" => list(String.t()),
         "ForecastFrequency" => String.t()
       }
       
@@ -492,7 +492,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_monitors_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -506,7 +506,7 @@ defmodule AWS.Forecast do
       
       list_predictors_response() :: %{
         "NextToken" => String.t(),
-        "Predictors" => list(predictor_summary()())
+        "Predictors" => list(predictor_summary())
       }
       
   """
@@ -529,7 +529,7 @@ defmodule AWS.Forecast do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -563,7 +563,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_what_if_forecasts_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -594,8 +594,8 @@ defmodule AWS.Forecast do
   ## Example:
       
       create_dataset_group_request() :: %{
-        optional("DatasetArns") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("DatasetArns") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("DatasetGroupName") => String.t(),
         required("Domain") => list(any())
       }
@@ -613,7 +613,7 @@ defmodule AWS.Forecast do
         "EstimatedTimeRemainingInMinutes" => float(),
         "ForecastArn" => String.t(),
         "ForecastName" => String.t(),
-        "ForecastTypes" => list(String.t()()),
+        "ForecastTypes" => list(String.t()),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t(),
         "PredictorArn" => String.t(),
@@ -662,7 +662,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       predictor_execution_details() :: %{
-        "PredictorExecutions" => list(predictor_execution()())
+        "PredictorExecutions" => list(predictor_execution())
       }
       
   """
@@ -693,16 +693,16 @@ defmodule AWS.Forecast do
       
       describe_predictor_response() :: %{
         "AlgorithmArn" => String.t(),
-        "AutoMLAlgorithmArns" => list(String.t()()),
+        "AutoMLAlgorithmArns" => list(String.t()),
         "AutoMLOverrideStrategy" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DatasetImportJobArns" => list(String.t()()),
+        "DatasetImportJobArns" => list(String.t()),
         "EncryptionConfig" => encryption_config(),
         "EstimatedTimeRemainingInMinutes" => float(),
         "EvaluationParameters" => evaluation_parameters(),
         "FeaturizationConfig" => featurization_config(),
         "ForecastHorizon" => integer(),
-        "ForecastTypes" => list(String.t()()),
+        "ForecastTypes" => list(String.t()),
         "HPOConfig" => hyper_parameter_tuning_job_config(),
         "InputDataConfig" => input_data_config(),
         "IsAutoPredictor" => boolean(),
@@ -731,7 +731,7 @@ defmodule AWS.Forecast do
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t(),
         "Status" => String.t(),
-        "WhatIfForecastArns" => list(String.t()()),
+        "WhatIfForecastArns" => list(String.t()),
         "WhatIfForecastExportArn" => String.t(),
         "WhatIfForecastExportName" => String.t()
       }
@@ -769,7 +769,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_explainability_exports_response() :: %{
-        "ExplainabilityExports" => list(explainability_export_summary()()),
+        "ExplainabilityExports" => list(explainability_export_summary()),
         "NextToken" => String.t()
       }
       
@@ -804,9 +804,9 @@ defmodule AWS.Forecast do
       
       metrics() :: %{
         "AverageWeightedQuantileLoss" => float(),
-        "ErrorMetrics" => list(error_metric()()),
+        "ErrorMetrics" => list(error_metric()),
         "RMSE" => float(),
-        "WeightedQuantileLosses" => list(weighted_quantile_loss()())
+        "WeightedQuantileLosses" => list(weighted_quantile_loss())
       }
       
   """
@@ -836,12 +836,12 @@ defmodule AWS.Forecast do
       describe_what_if_forecast_response() :: %{
         "CreationTime" => non_neg_integer(),
         "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastTypes" => list(String.t()()),
+        "ForecastTypes" => list(String.t()),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t(),
         "Status" => String.t(),
         "TimeSeriesReplacementsDataSource" => time_series_replacements_data_source(),
-        "TimeSeriesTransformations" => list(time_series_transformation()()),
+        "TimeSeriesTransformations" => list(time_series_transformation()),
         "WhatIfAnalysisArn" => String.t(),
         "WhatIfForecastArn" => String.t(),
         "WhatIfForecastName" => String.t()
@@ -878,7 +878,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_dataset_import_jobs_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1052,7 +1052,7 @@ defmodule AWS.Forecast do
       
       time_series_transformation() :: %{
         "Action" => action(),
-        "TimeSeriesConditions" => list(time_series_condition()())
+        "TimeSeriesConditions" => list(time_series_condition())
       }
       
   """
@@ -1063,8 +1063,8 @@ defmodule AWS.Forecast do
   ## Example:
       
       data_config() :: %{
-        "AdditionalDatasets" => list(additional_dataset()()),
-        "AttributeConfigs" => list(attribute_config()()),
+        "AdditionalDatasets" => list(additional_dataset()),
+        "AttributeConfigs" => list(attribute_config()),
         "DatasetGroupArn" => String.t()
       }
       
@@ -1098,9 +1098,9 @@ defmodule AWS.Forecast do
   ## Example:
       
       create_what_if_forecast_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeSeriesReplacementsDataSource") => time_series_replacements_data_source(),
-        optional("TimeSeriesTransformations") => list(time_series_transformation()()),
+        optional("TimeSeriesTransformations") => list(time_series_transformation()),
         required("WhatIfAnalysisArn") => String.t(),
         required("WhatIfForecastName") => String.t()
       }
@@ -1116,14 +1116,14 @@ defmodule AWS.Forecast do
         optional("DataConfig") => data_config(),
         optional("EncryptionConfig") => encryption_config(),
         optional("ExplainPredictor") => boolean(),
-        optional("ForecastDimensions") => list(String.t()()),
+        optional("ForecastDimensions") => list(String.t()),
         optional("ForecastFrequency") => String.t(),
         optional("ForecastHorizon") => integer(),
-        optional("ForecastTypes") => list(String.t()()),
+        optional("ForecastTypes") => list(String.t()),
         optional("MonitorConfig") => monitor_config(),
         optional("OptimizationMetric") => list(any()),
         optional("ReferencePredictorArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeAlignmentBoundary") => time_alignment_boundary(),
         required("PredictorName") => String.t()
       }
@@ -1136,7 +1136,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_dataset_groups_response() :: %{
-        "DatasetGroups" => list(dataset_group_summary()()),
+        "DatasetGroups" => list(dataset_group_summary()),
         "NextToken" => String.t()
       }
       
@@ -1159,7 +1159,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_what_if_analyses_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1172,7 +1172,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_predictors_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1204,7 +1204,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       schema() :: %{
-        "Attributes" => list(schema_attribute()())
+        "Attributes" => list(schema_attribute())
       }
       
   """
@@ -1227,7 +1227,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_forecasts_response() :: %{
-        "Forecasts" => list(forecast_summary()()),
+        "Forecasts" => list(forecast_summary()),
         "NextToken" => String.t()
       }
       
@@ -1261,7 +1261,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1273,7 +1273,7 @@ defmodule AWS.Forecast do
       
       list_predictor_backtest_export_jobs_response() :: %{
         "NextToken" => String.t(),
-        "PredictorBacktestExportJobs" => list(predictor_backtest_export_job_summary()())
+        "PredictorBacktestExportJobs" => list(predictor_backtest_export_job_summary())
       }
       
   """
@@ -1284,7 +1284,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       create_what_if_analysis_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeSeriesSelector") => time_series_selector(),
         required("ForecastArn") => String.t(),
         required("WhatIfAnalysisName") => String.t()
@@ -1322,7 +1322,7 @@ defmodule AWS.Forecast do
       
       categorical_parameter_range() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1365,7 +1365,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_explainabilities_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1396,7 +1396,7 @@ defmodule AWS.Forecast do
         optional("EndDateTime") => String.t(),
         optional("Schema") => schema(),
         optional("StartDateTime") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ExplainabilityConfig") => explainability_config(),
         required("ExplainabilityName") => String.t(),
         required("ResourceArn") => String.t()
@@ -1457,7 +1457,7 @@ defmodule AWS.Forecast do
       
       predictor_execution() :: %{
         "AlgorithmArn" => String.t(),
-        "TestWindows" => list(test_window_summary()())
+        "TestWindows" => list(test_window_summary())
       }
       
   """
@@ -1557,7 +1557,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_dataset_import_jobs_response() :: %{
-        "DatasetImportJobs" => list(dataset_import_job_summary()()),
+        "DatasetImportJobs" => list(dataset_import_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -1614,7 +1614,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       update_dataset_group_request() :: %{
-        required("DatasetArns") => list(String.t()()),
+        required("DatasetArns") => list(String.t()),
         required("DatasetGroupArn") => String.t()
       }
       
@@ -1646,7 +1646,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_what_if_forecast_exports_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1660,7 +1660,7 @@ defmodule AWS.Forecast do
       
       create_forecast_export_job_request() :: %{
         optional("Format") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
         required("ForecastArn") => String.t(),
         required("ForecastExportJobName") => String.t()
@@ -1675,7 +1675,7 @@ defmodule AWS.Forecast do
       
       create_predictor_backtest_export_job_request() :: %{
         optional("Format") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
         required("PredictorArn") => String.t(),
         required("PredictorBacktestExportJobName") => String.t()
@@ -1777,7 +1777,7 @@ defmodule AWS.Forecast do
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t(),
         "Status" => String.t(),
-        "WhatIfForecastArns" => list(String.t()()),
+        "WhatIfForecastArns" => list(String.t()),
         "WhatIfForecastExportArn" => String.t(),
         "WhatIfForecastExportName" => String.t()
       }
@@ -1825,7 +1825,7 @@ defmodule AWS.Forecast do
       create_dataset_request() :: %{
         optional("DataFrequency") => String.t(),
         optional("EncryptionConfig") => encryption_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DatasetName") => String.t(),
         required("DatasetType") => list(any()),
         required("Domain") => list(any()),
@@ -1879,7 +1879,7 @@ defmodule AWS.Forecast do
         optional("Format") => String.t(),
         optional("GeolocationFormat") => String.t(),
         optional("ImportMode") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeZone") => String.t(),
         optional("TimestampFormat") => String.t(),
         optional("UseGeolocationForTimeZone") => boolean(),
@@ -2015,9 +2015,9 @@ defmodule AWS.Forecast do
       
       create_what_if_forecast_export_request() :: %{
         optional("Format") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Destination") => data_destination(),
-        required("WhatIfForecastArns") => list(String.t()()),
+        required("WhatIfForecastArns") => list(String.t()),
         required("WhatIfForecastExportName") => String.t()
       }
       
@@ -2046,7 +2046,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_monitor_evaluations_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("MonitorArn") => String.t()
@@ -2061,7 +2061,7 @@ defmodule AWS.Forecast do
       
       describe_dataset_group_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "DatasetArns" => list(String.t()()),
+        "DatasetArns" => list(String.t()),
         "DatasetGroupArn" => String.t(),
         "DatasetGroupName" => String.t(),
         "Domain" => list(any()),
@@ -2078,7 +2078,7 @@ defmodule AWS.Forecast do
       
       evaluation_result() :: %{
         "AlgorithmArn" => String.t(),
-        "TestWindows" => list(window_summary()())
+        "TestWindows" => list(window_summary())
       }
       
   """
@@ -2089,7 +2089,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_forecasts_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2124,7 +2124,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_datasets_response() :: %{
-        "Datasets" => list(dataset_summary()()),
+        "Datasets" => list(dataset_summary()),
         "NextToken" => String.t()
       }
       
@@ -2153,8 +2153,8 @@ defmodule AWS.Forecast do
   ## Example:
       
       create_forecast_request() :: %{
-        optional("ForecastTypes") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("ForecastTypes") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("TimeSeriesSelector") => time_series_selector(),
         required("ForecastName") => String.t(),
         required("PredictorArn") => String.t()
@@ -2202,7 +2202,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       create_monitor_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("MonitorName") => String.t(),
         required("ResourceArn") => String.t()
       }
@@ -2215,7 +2215,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_explainability_exports_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2265,7 +2265,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_explainabilities_response() :: %{
-        "Explainabilities" => list(explainability_summary()()),
+        "Explainabilities" => list(explainability_summary()),
         "NextToken" => String.t()
       }
       
@@ -2277,7 +2277,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       predictor_baseline() :: %{
-        "BaselineMetrics" => list(baseline_metric()())
+        "BaselineMetrics" => list(baseline_metric())
       }
       
   """
@@ -2366,7 +2366,7 @@ defmodule AWS.Forecast do
       
       featurization() :: %{
         "AttributeName" => String.t(),
-        "FeaturizationPipeline" => list(featurization_method()())
+        "FeaturizationPipeline" => list(featurization_method())
       }
       
   """
@@ -2377,7 +2377,7 @@ defmodule AWS.Forecast do
   ## Example:
       
       list_predictor_backtest_export_jobs_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2735,7 +2735,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_auto_predictor_errors()}
   def create_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoPredictor", input, options)
   end
@@ -2801,7 +2802,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -2833,7 +2835,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
@@ -2882,7 +2885,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
@@ -3015,7 +3019,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_errors()}
   def create_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExplainability", input, options)
   end
@@ -3042,7 +3047,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_export_errors()}
   def create_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExplainabilityExport", input, options)
   end
@@ -3086,7 +3092,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_errors()}
   def create_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateForecast", input, options)
   end
@@ -3123,7 +3130,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_export_job_errors()}
   def create_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateForecastExportJob", input, options)
   end
@@ -3141,7 +3149,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMonitor", input, options)
   end
@@ -3229,7 +3238,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_errors()}
   def create_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePredictor", input, options)
   end
@@ -3268,7 +3278,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_backtest_export_job_errors()}
   def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePredictorBacktestExportJob", input, options)
   end
@@ -3313,7 +3324,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_analysis_errors()}
   def create_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfAnalysis", input, options)
   end
@@ -3332,7 +3344,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_errors()}
   def create_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecast", input, options)
   end
@@ -3370,7 +3383,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_export_errors()}
   def create_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecastExport", input, options)
   end
@@ -3398,7 +3412,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -3420,7 +3435,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
@@ -3440,7 +3456,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_import_job_errors()}
   def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetImportJob", input, options)
   end
@@ -3457,7 +3474,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_errors()}
   def delete_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExplainability", input, options)
   end
@@ -3471,7 +3489,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_export_errors()}
   def delete_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExplainabilityExport", input, options)
   end
@@ -3493,7 +3512,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_errors()}
   def delete_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteForecast", input, options)
   end
@@ -3512,7 +3532,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_export_job_errors()}
   def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteForecastExportJob", input, options)
   end
@@ -3529,7 +3550,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMonitor", input, options)
   end
@@ -3548,7 +3570,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_errors()}
   def delete_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePredictor", input, options)
   end
@@ -3566,7 +3589,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_backtest_export_job_errors()}
   def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePredictorBacktestExportJob", input, options)
   end
@@ -3613,7 +3637,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_resource_tree_errors()}
   def delete_resource_tree(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceTree", input, options)
   end
@@ -3634,7 +3659,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_analysis_errors()}
   def delete_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfAnalysis", input, options)
   end
@@ -3655,7 +3681,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_errors()}
   def delete_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecast", input, options)
   end
@@ -3674,7 +3701,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_export_errors()}
   def delete_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecastExport", input, options)
   end
@@ -3688,7 +3716,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_auto_predictor_errors()}
   def describe_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoPredictor", input, options)
   end
@@ -3719,7 +3748,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -3754,7 +3784,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
@@ -3797,7 +3828,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
@@ -3812,7 +3844,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_errors()}
   def describe_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExplainability", input, options)
   end
@@ -3827,7 +3860,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_export_errors()}
   def describe_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExplainabilityExport", input, options)
   end
@@ -3865,7 +3899,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_errors()}
   def describe_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeForecast", input, options)
   end
@@ -3900,7 +3935,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_export_job_errors()}
   def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeForecastExportJob", input, options)
   end
@@ -3945,7 +3981,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_monitor_errors()}
   def describe_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMonitor", input, options)
   end
@@ -3995,7 +4032,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_errors()}
   def describe_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePredictor", input, options)
   end
@@ -4034,7 +4072,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_backtest_export_job_errors()}
   def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePredictorBacktestExportJob", input, options)
   end
@@ -4068,7 +4107,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_analysis_errors()}
   def describe_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfAnalysis", input, options)
   end
@@ -4102,7 +4142,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_errors()}
   def describe_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecast", input, options)
   end
@@ -4141,7 +4182,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_export_errors()}
   def describe_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecastExport", input, options)
   end
@@ -4178,7 +4220,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, get_accuracy_metrics_errors()}
   def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccuracyMetrics", input, options)
   end
@@ -4201,7 +4244,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
@@ -4226,7 +4270,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
@@ -4248,7 +4293,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -4271,7 +4317,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainabilities_errors()}
   def list_explainabilities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExplainabilities", input, options)
   end
@@ -4294,7 +4341,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainability_exports_errors()}
   def list_explainability_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExplainabilityExports", input, options)
   end
@@ -4315,7 +4363,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecast_export_jobs_errors()}
   def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListForecastExportJobs", input, options)
   end
@@ -4336,7 +4385,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecasts_errors()}
   def list_forecasts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListForecasts", input, options)
   end
@@ -4355,7 +4405,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitor_evaluations_errors()}
   def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitorEvaluations", input, options)
   end
@@ -4375,7 +4426,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitors", input, options)
   end
@@ -4402,7 +4454,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictor_backtest_export_jobs_errors()}
   def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPredictorBacktestExportJobs", input, options)
   end
@@ -4424,7 +4477,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictors_errors()}
   def list_predictors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPredictors", input, options)
   end
@@ -4438,7 +4492,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4458,7 +4513,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_analyses_errors()}
   def list_what_if_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfAnalyses", input, options)
   end
@@ -4478,7 +4534,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecast_exports_errors()}
   def list_what_if_forecast_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecastExports", input, options)
   end
@@ -4498,7 +4555,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecasts_errors()}
   def list_what_if_forecasts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecasts", input, options)
   end
@@ -4512,7 +4570,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, resume_resource_errors()}
   def resume_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeResource", input, options)
   end
@@ -4555,7 +4614,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, stop_resource_errors()}
   def stop_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopResource", input, options)
   end
@@ -4575,7 +4635,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4589,7 +4650,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4608,7 +4670,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, update_dataset_group_errors()}
   def update_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatasetGroup", input, options)
   end

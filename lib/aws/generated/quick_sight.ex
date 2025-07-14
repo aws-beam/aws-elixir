@@ -23,9 +23,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       box_plot_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => box_plot_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -189,7 +189,7 @@ defmodule AWS.QuickSight do
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
         "LinkSharingConfiguration" => link_sharing_configuration(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -203,7 +203,7 @@ defmodule AWS.QuickSight do
 
       field_based_tooltip() :: %{
         "AggregationVisibility" => list(any()),
-        "TooltipFields" => list(tooltip_item()()),
+        "TooltipFields" => list(tooltip_item()),
         "TooltipTitleType" => list(any())
       }
 
@@ -239,7 +239,7 @@ defmodule AWS.QuickSight do
 
       date_time_parameter() :: %{
         "Name" => String.t(),
-        "Values" => list(non_neg_integer()())
+        "Values" => list(non_neg_integer())
       }
 
   """
@@ -312,7 +312,7 @@ defmodule AWS.QuickSight do
       dashboard_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
-        "ViolatedEntities" => list(entity()())
+        "ViolatedEntities" => list(entity())
       }
 
   """
@@ -361,7 +361,7 @@ defmodule AWS.QuickSight do
       describe_analysis_definition_response() :: %{
         "AnalysisId" => String.t(),
         "Definition" => analysis_definition(),
-        "Errors" => list(analysis_error()()),
+        "Errors" => list(analysis_error()),
         "Name" => String.t(),
         "RequestId" => String.t(),
         "ResourceStatus" => list(any()),
@@ -458,10 +458,10 @@ defmodule AWS.QuickSight do
 
       template_version() :: %{
         "CreatedTime" => non_neg_integer(),
-        "DataSetConfigurations" => list(data_set_configuration()()),
+        "DataSetConfigurations" => list(data_set_configuration()),
         "Description" => String.t(),
-        "Errors" => list(template_error()()),
-        "Sheets" => list(sheet()()),
+        "Errors" => list(template_error()),
+        "Sheets" => list(sheet()),
         "SourceEntityArn" => String.t(),
         "Status" => list(any()),
         "ThemeArn" => String.t(),
@@ -487,9 +487,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       radar_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => radar_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -594,7 +594,7 @@ defmodule AWS.QuickSight do
 
       string_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
-        "StaticValues" => list(String.t()())
+        "StaticValues" => list(String.t())
       }
 
   """
@@ -699,7 +699,7 @@ defmodule AWS.QuickSight do
 
       create_custom_permissions_request() :: %{
         optional("Capabilities") => capabilities(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CustomPermissionsName") => String.t()
       }
 
@@ -724,10 +724,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       line_chart_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Colors" => list(dimension_field()()),
-        "SmallMultiples" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "Colors" => list(dimension_field()),
+        "SmallMultiples" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -788,9 +788,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       bar_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => bar_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -830,8 +830,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       column_level_permission_rule() :: %{
-        "ColumnNames" => list(String.t()()),
-        "Principals" => list(String.t()())
+        "ColumnNames" => list(String.t()),
+        "Principals" => list(String.t())
       }
 
   """
@@ -854,7 +854,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -867,7 +867,7 @@ defmodule AWS.QuickSight do
       snapshot_file_sheet_selection() :: %{
         "SelectionScope" => list(any()),
         "SheetId" => String.t(),
-        "VisualIds" => list(String.t()())
+        "VisualIds" => list(String.t())
       }
 
   """
@@ -900,9 +900,9 @@ defmodule AWS.QuickSight do
 
       plugin_visual_field_well() :: %{
         "AxisName" => list(any()),
-        "Dimensions" => list(dimension_field()()),
-        "Measures" => list(measure_field()()),
-        "Unaggregated" => list(unaggregated_field()())
+        "Dimensions" => list(dimension_field()),
+        "Measures" => list(measure_field()),
+        "Unaggregated" => list(unaggregated_field())
       }
 
   """
@@ -913,7 +913,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_columns_operation() :: %{
-        "Columns" => list(calculated_column()())
+        "Columns" => list(calculated_column())
       }
 
   """
@@ -927,7 +927,7 @@ defmodule AWS.QuickSight do
         "DashboardId" => String.t(),
         "DashboardPublishOptions" => dashboard_publish_options(),
         "Definition" => dashboard_version_definition(),
-        "Errors" => list(dashboard_error()()),
+        "Errors" => list(dashboard_error()),
         "Name" => String.t(),
         "RequestId" => String.t(),
         "ResourceStatus" => list(any()),
@@ -970,7 +970,7 @@ defmodule AWS.QuickSight do
         "DefaultOpacity" => float(),
         "NullDataSettings" => geospatial_null_data_settings(),
         "NullDataVisibility" => list(any()),
-        "StepColors" => list(geospatial_gradient_step_color()())
+        "StepColors" => list(geospatial_gradient_step_color())
       }
 
   """
@@ -1079,7 +1079,7 @@ defmodule AWS.QuickSight do
 
       string_parameter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1105,7 +1105,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       get_dashboard_embed_url_request() :: %{
-        optional("AdditionalDashboardIds") => list(String.t()()),
+        optional("AdditionalDashboardIds") => list(String.t()),
         optional("Namespace") => String.t(),
         optional("ResetDisabled") => boolean(),
         optional("SessionLifetimeInMinutes") => float(),
@@ -1140,7 +1140,7 @@ defmodule AWS.QuickSight do
 
       cell_value_synonym() :: %{
         "CellValue" => String.t(),
-        "Synonyms" => list(String.t()())
+        "Synonyms" => list(String.t())
       }
 
   """
@@ -1153,7 +1153,7 @@ defmodule AWS.QuickSight do
       topic_visual() :: %{
         "Ir" => topic_i_r(),
         "Role" => list(any()),
-        "SupportingVisuals" => list(topic_visual()()),
+        "SupportingVisuals" => list(topic_visual()),
         "VisualId" => String.t()
       }
 
@@ -1175,7 +1175,7 @@ defmodule AWS.QuickSight do
 
       snapshot_configuration() :: %{
         "DestinationConfiguration" => snapshot_destination_configuration(),
-        "FileGroups" => list(snapshot_file_group()()),
+        "FileGroups" => list(snapshot_file_group()),
         "Parameters" => parameters()
       }
 
@@ -1265,7 +1265,7 @@ defmodule AWS.QuickSight do
 
       logical_table() :: %{
         "Alias" => String.t(),
-        "DataTransforms" => list(list()()),
+        "DataTransforms" => list(list()),
         "Source" => logical_table_source()
       }
 
@@ -1372,7 +1372,7 @@ defmodule AWS.QuickSight do
 
       s3_source() :: %{
         "DataSourceArn" => String.t(),
-        "InputColumns" => list(input_column()()),
+        "InputColumns" => list(input_column()),
         "UploadSettings" => upload_settings()
       }
 
@@ -1384,7 +1384,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_data_sets_response() :: %{
-        "DataSetSummaries" => list(data_set_summary()()),
+        "DataSetSummaries" => list(data_set_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -1426,9 +1426,9 @@ defmodule AWS.QuickSight do
 
       combo_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "ColorItemsLimit" => items_limit_configuration(),
-        "ColorSort" => list(field_sort_options()())
+        "ColorSort" => list(field_sort_options())
       }
 
   """
@@ -1474,7 +1474,7 @@ defmodule AWS.QuickSight do
 
       integer_parameter() :: %{
         "Name" => String.t(),
-        "Values" => list(float()())
+        "Values" => list(float())
       }
 
   """
@@ -1497,7 +1497,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       insight_configuration() :: %{
-        "Computations" => list(computation()()),
+        "Computations" => list(computation()),
         "CustomNarrative" => custom_narrative_options(),
         "Interactions" => visual_interaction_options()
       }
@@ -1530,7 +1530,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_custom_permissions_response() :: %{
-        "CustomPermissionsList" => list(custom_permissions()()),
+        "CustomPermissionsList" => list(custom_permissions()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -1621,7 +1621,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "VPCConnectionSummaries" => list(vpc_connection_summary()())
+        "VPCConnectionSummaries" => list(vpc_connection_summary())
       }
 
   """
@@ -1646,8 +1646,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       predefined_hierarchy() :: %{
-        "Columns" => list(column_identifier()()),
-        "DrillDownFilters" => list(drill_down_filter()()),
+        "Columns" => list(column_identifier()),
+        "DrillDownFilters" => list(drill_down_filter()),
         "HierarchyId" => String.t()
       }
 
@@ -1659,7 +1659,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_ingestions_response() :: %{
-        "Ingestions" => list(ingestion()()),
+        "Ingestions" => list(ingestion()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -1715,7 +1715,7 @@ defmodule AWS.QuickSight do
 
       analysis_source_template() :: %{
         "Arn" => String.t(),
-        "DataSetReferences" => list(data_set_reference()())
+        "DataSetReferences" => list(data_set_reference())
       }
 
   """
@@ -1780,14 +1780,14 @@ defmodule AWS.QuickSight do
 
       dashboard_version_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
-        "CalculatedFields" => list(calculated_field()()),
-        "ColumnConfigurations" => list(column_configuration()()),
-        "DataSetIdentifierDeclarations" => list(data_set_identifier_declaration()()),
-        "FilterGroups" => list(filter_group()()),
+        "CalculatedFields" => list(calculated_field()),
+        "ColumnConfigurations" => list(column_configuration()),
+        "DataSetIdentifierDeclarations" => list(data_set_identifier_declaration()),
+        "FilterGroups" => list(filter_group()),
         "Options" => asset_options(),
-        "ParameterDeclarations" => list(parameter_declaration()()),
-        "Sheets" => list(sheet_definition()()),
-        "StaticFiles" => list(static_file()())
+        "ParameterDeclarations" => list(parameter_declaration()),
+        "Sheets" => list(sheet_definition()),
+        "StaticFiles" => list(static_file())
       }
 
   """
@@ -1813,10 +1813,10 @@ defmodule AWS.QuickSight do
       create_data_source_request() :: %{
         optional("Credentials") => data_source_credentials(),
         optional("DataSourceParameters") => list(),
-        optional("FolderArns") => list(String.t()()),
-        optional("Permissions") => list(resource_permission()()),
+        optional("FolderArns") => list(String.t()),
+        optional("Permissions") => list(resource_permission()),
         optional("SslProperties") => ssl_properties(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConnectionProperties") => vpc_connection_properties(),
         required("DataSourceId") => String.t(),
         required("Name") => String.t(),
@@ -1831,7 +1831,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_topic_refresh_schedules_response() :: %{
-        "RefreshSchedules" => list(topic_refresh_schedule_summary()()),
+        "RefreshSchedules" => list(topic_refresh_schedule_summary()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicArn" => String.t(),
@@ -1846,8 +1846,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_resource_permissions() :: %{
-        "Actions" => list(String.t()()),
-        "Principals" => list(String.t()())
+        "Actions" => list(String.t()),
+        "Principals" => list(String.t())
       }
 
   """
@@ -1880,7 +1880,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_folders_response() :: %{
-        "FolderSummaryList" => list(folder_summary()()),
+        "FolderSummaryList" => list(folder_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -1894,7 +1894,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       unique_key() :: %{
-        "ColumnNames" => list(String.t()())
+        "ColumnNames" => list(String.t())
       }
 
   """
@@ -1936,7 +1936,7 @@ defmodule AWS.QuickSight do
       describe_data_source_permissions_response() :: %{
         "DataSourceArn" => String.t(),
         "DataSourceId" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -2013,7 +2013,7 @@ defmodule AWS.QuickSight do
       relational_table() :: %{
         "Catalog" => String.t(),
         "DataSourceArn" => String.t(),
-        "InputColumns" => list(input_column()()),
+        "InputColumns" => list(input_column()),
         "Name" => String.t(),
         "Schema" => String.t()
       }
@@ -2026,10 +2026,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_field_options() :: %{
-        "Order" => list(String.t()()),
+        "Order" => list(String.t()),
         "PinnedFieldOptions" => table_pinned_field_options(),
-        "SelectedFieldOptions" => list(table_field_option()()),
-        "TransposedTableOptions" => list(transposed_table_option()())
+        "SelectedFieldOptions" => list(table_field_option()),
+        "TransposedTableOptions" => list(transposed_table_option())
       }
 
   """
@@ -2202,9 +2202,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       k_p_i_field_wells() :: %{
-        "TargetValues" => list(measure_field()()),
-        "TrendGroups" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "TargetValues" => list(measure_field()),
+        "TrendGroups" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -2313,9 +2313,9 @@ defmodule AWS.QuickSight do
 
       pie_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
-        "SmallMultiplesSort" => list(field_sort_options()())
+        "SmallMultiplesSort" => list(field_sort_options())
       }
 
   """
@@ -2365,10 +2365,10 @@ defmodule AWS.QuickSight do
 
       line_chart_sort_configuration() :: %{
         "CategoryItemsLimitConfiguration" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "ColorItemsLimitConfiguration" => items_limit_configuration(),
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
-        "SmallMultiplesSort" => list(field_sort_options()())
+        "SmallMultiplesSort" => list(field_sort_options())
       }
 
   """
@@ -2379,7 +2379,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_template_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateArn" => String.t(),
@@ -2408,19 +2408,19 @@ defmodule AWS.QuickSight do
 
       data_set() :: %{
         "Arn" => String.t(),
-        "ColumnGroups" => list(column_group()()),
-        "ColumnLevelPermissionRules" => list(column_level_permission_rule()()),
+        "ColumnGroups" => list(column_group()),
+        "ColumnLevelPermissionRules" => list(column_level_permission_rule()),
         "ConsumedSpiceCapacityInBytes" => float(),
         "CreatedTime" => non_neg_integer(),
         "DataSetId" => String.t(),
         "DataSetUsageConfiguration" => data_set_usage_configuration(),
-        "DatasetParameters" => list(dataset_parameter()()),
+        "DatasetParameters" => list(dataset_parameter()),
         "FieldFolders" => map(),
         "ImportMode" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
         "LogicalTableMap" => map(),
         "Name" => String.t(),
-        "OutputColumns" => list(output_column()()),
+        "OutputColumns" => list(output_column()),
         "PerformanceConfiguration" => performance_configuration(),
         "PhysicalTableMap" => map(),
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
@@ -2437,9 +2437,9 @@ defmodule AWS.QuickSight do
 
       radar_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "ColorItemsLimit" => items_limit_configuration(),
-        "ColorSort" => list(field_sort_options()())
+        "ColorSort" => list(field_sort_options())
       }
 
   """
@@ -2521,7 +2521,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       sheet_image() :: %{
-        "Actions" => list(image_custom_action()()),
+        "Actions" => list(image_custom_action()),
         "ImageContentAltText" => String.t(),
         "Interactions" => image_interaction_options(),
         "Scaling" => sheet_image_scaling_configuration(),
@@ -2562,7 +2562,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_sort_configuration() :: %{
-        "FieldSortOptions" => list(pivot_field_sort_options()())
+        "FieldSortOptions" => list(pivot_field_sort_options())
       }
 
   """
@@ -2573,7 +2573,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_user_groups_response() :: %{
-        "GroupList" => list(group()()),
+        "GroupList" => list(group()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -2587,7 +2587,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       authorized_targets_by_service() :: %{
-        "AuthorizedTargets" => list(String.t()()),
+        "AuthorizedTargets" => list(String.t()),
         "Service" => list(any())
       }
 
@@ -2644,7 +2644,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_file_group() :: %{
-        "Files" => list(snapshot_file()())
+        "Files" => list(snapshot_file())
       }
 
   """
@@ -2657,7 +2657,7 @@ defmodule AWS.QuickSight do
       search_folders_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(folder_search_filter()())
+        required("Filters") => list(folder_search_filter())
       }
 
   """
@@ -2705,7 +2705,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "TemplateAliasList" => list(template_alias()())
+        "TemplateAliasList" => list(template_alias())
       }
 
   """
@@ -2757,7 +2757,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       field_folder() :: %{
-        "columns" => list(String.t()()),
+        "columns" => list(String.t()),
         "description" => String.t()
       }
 
@@ -2769,8 +2769,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_vpc_connection_override_tags() :: %{
-        "Tags" => list(tag()()),
-        "VPCConnectionIds" => list(String.t()())
+        "Tags" => list(tag()),
+        "VPCConnectionIds" => list(String.t())
       }
 
   """
@@ -2781,7 +2781,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_iam_policy_assignments_response() :: %{
-        "IAMPolicyAssignments" => list(iam_policy_assignment_summary()()),
+        "IAMPolicyAssignments" => list(iam_policy_assignment_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -2826,7 +2826,7 @@ defmodule AWS.QuickSight do
 
       funnel_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()())
+        "CategorySort" => list(field_sort_options())
       }
 
   """
@@ -2865,7 +2865,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       gauge_chart_conditional_formatting() :: %{
-        "ConditionalFormattingOptions" => list(gauge_chart_conditional_formatting_option()())
+        "ConditionalFormattingOptions" => list(gauge_chart_conditional_formatting_option())
       }
 
   """
@@ -2952,7 +2952,7 @@ defmodule AWS.QuickSight do
         "CloudFormationOverridePropertyConfiguration" => asset_bundle_cloud_formation_override_property_configuration(),
         "CreatedTime" => non_neg_integer(),
         "DownloadUrl" => String.t(),
-        "Errors" => list(asset_bundle_export_job_error()()),
+        "Errors" => list(asset_bundle_export_job_error()),
         "ExportFormat" => list(any()),
         "IncludeAllDependencies" => boolean(),
         "IncludeFolderMembers" => list(any()),
@@ -2961,10 +2961,10 @@ defmodule AWS.QuickSight do
         "IncludeTags" => boolean(),
         "JobStatus" => list(any()),
         "RequestId" => String.t(),
-        "ResourceArns" => list(String.t()()),
+        "ResourceArns" => list(String.t()),
         "Status" => integer(),
         "ValidationStrategy" => asset_bundle_export_job_validation_strategy(),
-        "Warnings" => list(asset_bundle_export_job_warning()())
+        "Warnings" => list(asset_bundle_export_job_warning())
       }
 
   """
@@ -2998,7 +2998,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       free_form_section_layout_configuration() :: %{
-        "Elements" => list(free_form_layout_element()())
+        "Elements" => list(free_form_layout_element())
       }
 
   """
@@ -3078,7 +3078,7 @@ defmodule AWS.QuickSight do
       geospatial_layer_map_configuration() :: %{
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
-        "MapLayers" => list(geospatial_layer_item()()),
+        "MapLayers" => list(geospatial_layer_item()),
         "MapState" => geospatial_map_state(),
         "MapStyle" => geospatial_map_style()
       }
@@ -3128,7 +3128,7 @@ defmodule AWS.QuickSight do
 
       asset_bundle_import_job_theme_override_permissions() :: %{
         "Permissions" => asset_bundle_resource_permissions(),
-        "ThemeIds" => list(String.t()())
+        "ThemeIds" => list(String.t())
       }
 
   """
@@ -3217,7 +3217,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "TopicSummaryList" => list(topic_summary()())
+        "TopicSummaryList" => list(topic_summary())
       }
 
   """
@@ -3291,7 +3291,7 @@ defmodule AWS.QuickSight do
 
       describe_template_definition_response() :: %{
         "Definition" => template_version_definition(),
-        "Errors" => list(template_error()()),
+        "Errors" => list(template_error()),
         "Name" => String.t(),
         "RequestId" => String.t(),
         "ResourceStatus" => list(any()),
@@ -3465,10 +3465,10 @@ defmodule AWS.QuickSight do
       dashboard_version() :: %{
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetArns" => list(String.t()()),
+        "DataSetArns" => list(String.t()),
         "Description" => String.t(),
-        "Errors" => list(dashboard_error()()),
-        "Sheets" => list(sheet()()),
+        "Errors" => list(dashboard_error()),
+        "Sheets" => list(sheet()),
         "SourceEntityArn" => String.t(),
         "Status" => list(any()),
         "ThemeArn" => String.t(),
@@ -3483,7 +3483,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_unaggregated_field_wells() :: %{
-        "Values" => list(unaggregated_field()())
+        "Values" => list(unaggregated_field())
       }
 
   """
@@ -3511,7 +3511,7 @@ defmodule AWS.QuickSight do
 
       integer_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
-        "StaticValues" => list(float()())
+        "StaticValues" => list(float())
       }
 
   """
@@ -3522,8 +3522,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_analysis_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -3556,7 +3556,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_folder_override_permissions() :: %{
-        "FolderIds" => list(String.t()()),
+        "FolderIds" => list(String.t()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
@@ -3570,9 +3570,9 @@ defmodule AWS.QuickSight do
       create_template_request() :: %{
         optional("Definition") => template_version_definition(),
         optional("Name") => String.t(),
-        optional("Permissions") => list(resource_permission()()),
+        optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => template_source_entity(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ValidationStrategy") => validation_strategy(),
         optional("VersionDescription") => String.t()
       }
@@ -3636,7 +3636,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       generate_embed_url_for_registered_user_request() :: %{
-        optional("AllowedDomains") => list(String.t()()),
+        optional("AllowedDomains") => list(String.t()),
         optional("SessionLifetimeInMinutes") => float(),
         required("ExperienceConfiguration") => registered_user_embedding_experience_configuration(),
         required("UserArn") => String.t()
@@ -3652,7 +3652,7 @@ defmodule AWS.QuickSight do
       search_data_sources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(data_source_search_filter()())
+        required("Filters") => list(data_source_search_filter())
       }
 
   """
@@ -3786,7 +3786,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_dashboard_links_request() :: %{
-        required("LinkEntities") => list(String.t()())
+        required("LinkEntities") => list(String.t())
       }
 
   """
@@ -3797,7 +3797,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geo_spatial_column_group() :: %{
-        "Columns" => list(String.t()()),
+        "Columns" => list(String.t()),
         "CountryCode" => list(any()),
         "Name" => String.t()
       }
@@ -3810,8 +3810,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_topic_request() :: %{
-        optional("FolderArns") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("FolderArns") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("Topic") => topic_details(),
         required("TopicId") => String.t()
       }
@@ -3939,7 +3939,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_data_sources_response() :: %{
-        "DataSourceSummaries" => list(data_source_summary()()),
+        "DataSourceSummaries" => list(data_source_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -3955,7 +3955,7 @@ defmodule AWS.QuickSight do
       search_topics_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(topic_search_filter()())
+        required("Filters") => list(topic_search_filter())
       }
 
   """
@@ -4043,7 +4043,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_key_registration_request() :: %{
-        required("KeyRegistration") => list(registered_customer_managed_key()())
+        required("KeyRegistration") => list(registered_customer_managed_key())
       }
 
   """
@@ -4079,7 +4079,7 @@ defmodule AWS.QuickSight do
       filter_group() :: %{
         "CrossDataset" => list(any()),
         "FilterGroupId" => String.t(),
-        "Filters" => list(filter()()),
+        "Filters" => list(filter()),
         "ScopeConfiguration" => filter_scope_configuration(),
         "Status" => list(any())
       }
@@ -4189,7 +4189,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       custom_filter_list_configuration() :: %{
-        "CategoryValues" => list(String.t()()),
+        "CategoryValues" => list(String.t()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
@@ -4226,11 +4226,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       scatter_plot_categorically_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Label" => list(dimension_field()()),
-        "Size" => list(measure_field()()),
-        "XAxis" => list(measure_field()()),
-        "YAxis" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "Label" => list(dimension_field()),
+        "Size" => list(measure_field()),
+        "XAxis" => list(measure_field()),
+        "YAxis" => list(measure_field())
       }
 
   """
@@ -4302,7 +4302,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       top_bottom_filter() :: %{
-        "AggregationSortConfigurations" => list(aggregation_sort_configuration()()),
+        "AggregationSortConfigurations" => list(aggregation_sort_configuration()),
         "Column" => column_identifier(),
         "DefaultFilterControlConfiguration" => default_filter_control_configuration(),
         "FilterId" => String.t(),
@@ -4392,7 +4392,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -4406,12 +4406,12 @@ defmodule AWS.QuickSight do
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
         "CreatedTime" => non_neg_integer(),
-        "DnsResolvers" => list(String.t()()),
+        "DnsResolvers" => list(String.t()),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t(),
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "Status" => list(any()),
         "VPCConnectionId" => String.t(),
         "VPCId" => String.t()
@@ -4425,12 +4425,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_vpc_connection_request() :: %{
-        optional("DnsResolvers") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("DnsResolvers") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
-        required("SecurityGroupIds") => list(String.t()()),
-        required("SubnetIds") => list(String.t()()),
+        required("SecurityGroupIds") => list(String.t()),
+        required("SubnetIds") => list(String.t()),
         required("VPCConnectionId") => String.t()
       }
 
@@ -4469,7 +4469,7 @@ defmodule AWS.QuickSight do
 
       line_series_axis_display_options() :: %{
         "AxisOptions" => axis_display_options(),
-        "MissingDataConfigurations" => list(missing_data_configuration()())
+        "MissingDataConfigurations" => list(missing_data_configuration())
       }
 
   """
@@ -4482,7 +4482,7 @@ defmodule AWS.QuickSight do
       sheet_visual_scoping_configuration() :: %{
         "Scope" => list(any()),
         "SheetId" => String.t(),
-        "VisualIds" => list(String.t()())
+        "VisualIds" => list(String.t())
       }
 
   """
@@ -4520,7 +4520,7 @@ defmodule AWS.QuickSight do
       pivot_table_cell_conditional_formatting() :: %{
         "FieldId" => String.t(),
         "Scope" => pivot_table_conditional_formatting_scope(),
-        "Scopes" => list(pivot_table_conditional_formatting_scope()()),
+        "Scopes" => list(pivot_table_conditional_formatting_scope()),
         "TextFormat" => text_conditional_format()
       }
 
@@ -4532,7 +4532,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_analyses_response() :: %{
-        "AnalysisSummaryList" => list(analysis_summary()()),
+        "AnalysisSummaryList" => list(analysis_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -4546,10 +4546,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       parameters() :: %{
-        "DateTimeParameters" => list(date_time_parameter()()),
-        "DecimalParameters" => list(decimal_parameter()()),
-        "IntegerParameters" => list(integer_parameter()()),
-        "StringParameters" => list(string_parameter()())
+        "DateTimeParameters" => list(date_time_parameter()),
+        "DecimalParameters" => list(decimal_parameter()),
+        "IntegerParameters" => list(integer_parameter()),
+        "StringParameters" => list(string_parameter())
       }
 
   """
@@ -4561,7 +4561,7 @@ defmodule AWS.QuickSight do
 
       grid_layout_configuration() :: %{
         "CanvasSizeOptions" => grid_layout_canvas_size_options(),
-        "Elements" => list(grid_layout_element()())
+        "Elements" => list(grid_layout_element())
       }
 
   """
@@ -4584,15 +4584,15 @@ defmodule AWS.QuickSight do
 
       template_version_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
-        "CalculatedFields" => list(calculated_field()()),
-        "ColumnConfigurations" => list(column_configuration()()),
-        "DataSetConfigurations" => list(data_set_configuration()()),
-        "FilterGroups" => list(filter_group()()),
+        "CalculatedFields" => list(calculated_field()),
+        "ColumnConfigurations" => list(column_configuration()),
+        "DataSetConfigurations" => list(data_set_configuration()),
+        "FilterGroups" => list(filter_group()),
         "Options" => asset_options(),
-        "ParameterDeclarations" => list(parameter_declaration()()),
+        "ParameterDeclarations" => list(parameter_declaration()),
         "QueryExecutionOptions" => query_execution_options(),
-        "Sheets" => list(sheet_definition()()),
-        "StaticFiles" => list(static_file()())
+        "Sheets" => list(sheet_definition()),
+        "StaticFiles" => list(static_file())
       }
 
   """
@@ -4662,16 +4662,16 @@ defmodule AWS.QuickSight do
         "ContentType" => list(any()),
         "CustomActionDefaults" => visual_custom_action_defaults(),
         "Description" => String.t(),
-        "FilterControls" => list(filter_control()()),
-        "Images" => list(sheet_image()()),
-        "Layouts" => list(layout()()),
+        "FilterControls" => list(filter_control()),
+        "Images" => list(sheet_image()),
+        "Layouts" => list(layout()),
         "Name" => String.t(),
-        "ParameterControls" => list(parameter_control()()),
-        "SheetControlLayouts" => list(sheet_control_layout()()),
+        "ParameterControls" => list(parameter_control()),
+        "SheetControlLayouts" => list(sheet_control_layout()),
         "SheetId" => String.t(),
-        "TextBoxes" => list(sheet_text_box()()),
+        "TextBoxes" => list(sheet_text_box()),
         "Title" => String.t(),
-        "Visuals" => list(visual()())
+        "Visuals" => list(visual())
       }
 
   """
@@ -4767,7 +4767,7 @@ defmodule AWS.QuickSight do
         "Maximum" => String.t(),
         "Minimum" => String.t(),
         "Value" => String.t(),
-        "ValueList" => list(collective_constant_entry()())
+        "ValueList" => list(collective_constant_entry())
       }
 
   """
@@ -4908,7 +4908,7 @@ defmodule AWS.QuickSight do
 
       describe_key_registration_response() :: %{
         "AwsAccountId" => String.t(),
-        "KeyRegistration" => list(registered_customer_managed_key()()),
+        "KeyRegistration" => list(registered_customer_managed_key()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -4992,7 +4992,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       custom_sql() :: %{
-        "Columns" => list(input_column()()),
+        "Columns" => list(input_column()),
         "DataSourceArn" => String.t(),
         "Name" => String.t(),
         "SqlQuery" => String.t()
@@ -5006,7 +5006,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_selectable_values() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -5055,7 +5055,7 @@ defmodule AWS.QuickSight do
       search_analyses_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(analysis_search_filter()())
+        required("Filters") => list(analysis_search_filter())
       }
 
   """
@@ -5066,7 +5066,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_categorical_color() :: %{
-        "CategoryDataColors" => list(geospatial_categorical_data_color()()),
+        "CategoryDataColors" => list(geospatial_categorical_data_color()),
         "DefaultOpacity" => float(),
         "NullDataSettings" => geospatial_null_data_settings(),
         "NullDataVisibility" => list(any())
@@ -5080,7 +5080,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_theme_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeArn" => String.t(),
@@ -5096,7 +5096,7 @@ defmodule AWS.QuickSight do
 
       integer_parameter_declaration() :: %{
         "DefaultValues" => integer_default_values(),
-        "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
+        "MappedDataSetParameters" => list(mapped_data_set_parameter()),
         "Name" => String.t(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => integer_value_when_unset_configuration()
@@ -5148,7 +5148,7 @@ defmodule AWS.QuickSight do
       update_folder_permissions_response() :: %{
         "Arn" => String.t(),
         "FolderId" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -5195,7 +5195,7 @@ defmodule AWS.QuickSight do
 
       data_path_sort() :: %{
         "Direction" => list(any()),
-        "SortPaths" => list(data_path_value()())
+        "SortPaths" => list(data_path_value())
       }
 
   """
@@ -5241,7 +5241,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_identity_propagation_config_request() :: %{
-        optional("AuthorizedTargets") => list(String.t()())
+        optional("AuthorizedTargets") => list(String.t())
       }
 
   """
@@ -5252,7 +5252,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_topic_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicArn" => String.t(),
@@ -5294,7 +5294,7 @@ defmodule AWS.QuickSight do
       template_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
-        "ViolatedEntities" => list(entity()())
+        "ViolatedEntities" => list(entity())
       }
 
   """
@@ -5385,7 +5385,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_folders_for_resource_response() :: %{
-        "Folders" => list(String.t()()),
+        "Folders" => list(String.t()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -5474,15 +5474,15 @@ defmodule AWS.QuickSight do
 
       analysis_definition() :: %{
         "AnalysisDefaults" => analysis_defaults(),
-        "CalculatedFields" => list(calculated_field()()),
-        "ColumnConfigurations" => list(column_configuration()()),
-        "DataSetIdentifierDeclarations" => list(data_set_identifier_declaration()()),
-        "FilterGroups" => list(filter_group()()),
+        "CalculatedFields" => list(calculated_field()),
+        "ColumnConfigurations" => list(column_configuration()),
+        "DataSetIdentifierDeclarations" => list(data_set_identifier_declaration()),
+        "FilterGroups" => list(filter_group()),
         "Options" => asset_options(),
-        "ParameterDeclarations" => list(parameter_declaration()()),
+        "ParameterDeclarations" => list(parameter_declaration()),
         "QueryExecutionOptions" => query_execution_options(),
-        "Sheets" => list(sheet_definition()()),
-        "StaticFiles" => list(static_file()())
+        "Sheets" => list(sheet_definition()),
+        "StaticFiles" => list(static_file())
       }
 
   """
@@ -5553,7 +5553,7 @@ defmodule AWS.QuickSight do
         "MetricHeaderCellStyle" => table_cell_style(),
         "Placement" => list(any()),
         "ScrollStatus" => list(any()),
-        "TotalAggregationOptions" => list(total_aggregation_option()()),
+        "TotalAggregationOptions" => list(total_aggregation_option()),
         "TotalCellStyle" => table_cell_style(),
         "TotalsVisibility" => list(any()),
         "ValueCellStyle" => table_cell_style()
@@ -5602,7 +5602,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_job_result() :: %{
-        "AnonymousUsers" => list(anonymous_user_snapshot_job_result()())
+        "AnonymousUsers" => list(anonymous_user_snapshot_job_result())
       }
 
   """
@@ -5665,7 +5665,7 @@ defmodule AWS.QuickSight do
       describe_analysis_permissions_response() :: %{
         "AnalysisArn" => String.t(),
         "AnalysisId" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -5753,19 +5753,19 @@ defmodule AWS.QuickSight do
   ## Example:
 
       line_chart_configuration() :: %{
-        "ContributionAnalysisDefaults" => list(contribution_analysis_default()()),
+        "ContributionAnalysisDefaults" => list(contribution_analysis_default()),
         "DataLabels" => data_label_options(),
         "DefaultSeriesSettings" => line_chart_default_series_settings(),
         "FieldWells" => line_chart_field_wells(),
-        "ForecastConfigurations" => list(forecast_configuration()()),
+        "ForecastConfigurations" => list(forecast_configuration()),
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
         "PrimaryYAxisDisplayOptions" => line_series_axis_display_options(),
         "PrimaryYAxisLabelOptions" => chart_axis_label_options(),
-        "ReferenceLines" => list(reference_line()()),
+        "ReferenceLines" => list(reference_line()),
         "SecondaryYAxisDisplayOptions" => line_series_axis_display_options(),
         "SecondaryYAxisLabelOptions" => chart_axis_label_options(),
-        "Series" => list(series_item()()),
+        "Series" => list(series_item()),
         "SingleAxisOptions" => single_axis_options(),
         "SmallMultiplesOptions" => small_multiples_options(),
         "SortConfiguration" => line_chart_sort_configuration(),
@@ -5795,10 +5795,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_named_entity() :: %{
-        "Definition" => list(named_entity_definition()()),
+        "Definition" => list(named_entity_definition()),
         "EntityDescription" => String.t(),
         "EntityName" => String.t(),
-        "EntitySynonyms" => list(String.t()()),
+        "EntitySynonyms" => list(String.t()),
         "SemanticEntityType" => semantic_entity_type()
       }
 
@@ -5841,10 +5841,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       bar_chart_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Colors" => list(dimension_field()()),
-        "SmallMultiples" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "Colors" => list(dimension_field()),
+        "SmallMultiples" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -5879,15 +5879,15 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_i_r_metric() :: %{
-        "CalculatedFieldReferences" => list(quicksight_identifier()()),
+        "CalculatedFieldReferences" => list(identifier()),
         "ComparisonMethod" => topic_i_r_comparison_method(),
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
         "Expression" => String.t(),
         "Function" => agg_function(),
-        "MetricId" => quicksight_identifier(),
+        "MetricId" => identifier(),
         "NamedEntity" => named_entity_ref(),
-        "Operands" => list(quicksight_identifier()())
+        "Operands" => list(identifier())
       }
 
   """
@@ -5933,7 +5933,7 @@ defmodule AWS.QuickSight do
       body_section_dynamic_numeric_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
-        "SortByMetrics" => list(column_sort()())
+        "SortByMetrics" => list(column_sort())
       }
 
   """
@@ -5944,7 +5944,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       link_sharing_configuration() :: %{
-        "Permissions" => list(resource_permission()())
+        "Permissions" => list(resource_permission())
       }
 
   """
@@ -6107,8 +6107,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_analysis_override_tags() :: %{
-        "AnalysisIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "AnalysisIds" => list(String.t()),
+        "Tags" => list(tag())
       }
 
   """
@@ -6119,7 +6119,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_namespace_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IdentityStore") => list(any()),
         required("Namespace") => String.t()
       }
@@ -6145,7 +6145,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       data_set_configuration() :: %{
-        "ColumnGroupSchemaList" => list(column_group_schema()()),
+        "ColumnGroupSchemaList" => list(column_group_schema()),
         "DataSetSchema" => data_set_schema(),
         "Placeholder" => String.t()
       }
@@ -6171,9 +6171,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       heat_map_aggregated_field_wells() :: %{
-        "Columns" => list(dimension_field()()),
-        "Rows" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Columns" => list(dimension_field()),
+        "Rows" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -6207,7 +6207,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_iam_policy_assignments_for_user_response() :: %{
-        "ActiveAssignments" => list(active_iam_policy_assignment()()),
+        "ActiveAssignments" => list(active_iam_policy_assignment()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -6247,7 +6247,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_topic_reviewed_answers_response() :: %{
-        "Answers" => list(topic_reviewed_answer()()),
+        "Answers" => list(topic_reviewed_answer()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicArn" => String.t(),
@@ -6384,10 +6384,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_i_r_filter_option() :: %{
-        "AggMetrics" => list(filter_agg_metrics()()),
+        "AggMetrics" => list(filter_agg_metrics()),
         "Aggregation" => list(any()),
         "AggregationFunctionParameters" => map(),
-        "AggregationPartitionBy" => list(aggregation_partition_by()()),
+        "AggregationPartitionBy" => list(aggregation_partition_by()),
         "Anchor" => anchor(),
         "Constant" => topic_constant_value(),
         "FilterClass" => list(any()),
@@ -6397,7 +6397,7 @@ defmodule AWS.QuickSight do
         "Inverse" => boolean(),
         "LastNextOffset" => topic_constant_value(),
         "NullFilter" => list(any()),
-        "OperandField" => quicksight_identifier(),
+        "OperandField" => identifier(),
         "Range" => topic_constant_value(),
         "SortDirection" => list(any()),
         "TimeGranularity" => list(any()),
@@ -6515,7 +6515,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_data_sets_response() :: %{
-        "DataSetSummaries" => list(data_set_summary()()),
+        "DataSetSummaries" => list(data_set_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -6531,7 +6531,7 @@ defmodule AWS.QuickSight do
       list_identity_propagation_configs_response() :: %{
         "NextToken" => String.t(),
         "RequestId" => String.t(),
-        "Services" => list(authorized_targets_by_service()()),
+        "Services" => list(authorized_targets_by_service()),
         "Status" => integer()
       }
 
@@ -6670,7 +6670,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       string_dataset_parameter_default_values() :: %{
-        "StaticValues" => list(String.t()())
+        "StaticValues" => list(String.t())
       }
 
   """
@@ -6704,7 +6704,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       plugin_visual_configuration() :: %{
-        "FieldWells" => list(plugin_visual_field_well()()),
+        "FieldWells" => list(plugin_visual_field_well()),
         "SortConfiguration" => plugin_visual_sort_configuration(),
         "VisualOptions" => plugin_visual_options()
       }
@@ -6773,7 +6773,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       colors_configuration() :: %{
-        "CustomColors" => list(custom_color()())
+        "CustomColors" => list(custom_color())
       }
 
   """
@@ -6808,7 +6808,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => pivot_table_configuration(),
         "ConditionalFormatting" => pivot_table_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
@@ -6901,7 +6901,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       describe_template_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TemplateArn" => String.t(),
@@ -6950,9 +6950,9 @@ defmodule AWS.QuickSight do
       subtotal_options() :: %{
         "CustomLabel" => String.t(),
         "FieldLevel" => list(any()),
-        "FieldLevelOptions" => list(pivot_table_field_subtotal_options()()),
+        "FieldLevelOptions" => list(pivot_table_field_subtotal_options()),
         "MetricHeaderCellStyle" => table_cell_style(),
-        "StyleTargets" => list(table_style_target()()),
+        "StyleTargets" => list(table_style_target()),
         "TotalCellStyle" => table_cell_style(),
         "TotalsVisibility" => list(any()),
         "ValueCellStyle" => table_cell_style()
@@ -7003,7 +7003,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_field_collapse_state_target() :: %{
-        "FieldDataPathValues" => list(data_path_value()()),
+        "FieldDataPathValues" => list(data_path_value()),
         "FieldId" => String.t()
       }
 
@@ -7027,18 +7027,18 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_data_set_request() :: %{
-        optional("ColumnGroups") => list(column_group()()),
-        optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()()),
+        optional("ColumnGroups") => list(column_group()),
+        optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()),
         optional("DataSetUsageConfiguration") => data_set_usage_configuration(),
-        optional("DatasetParameters") => list(dataset_parameter()()),
+        optional("DatasetParameters") => list(dataset_parameter()),
         optional("FieldFolders") => map(),
-        optional("FolderArns") => list(String.t()()),
+        optional("FolderArns") => list(String.t()),
         optional("LogicalTableMap") => map(),
         optional("PerformanceConfiguration") => performance_configuration(),
-        optional("Permissions") => list(resource_permission()()),
+        optional("Permissions") => list(resource_permission()),
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UseAs") => list(any()),
         required("DataSetId") => String.t(),
         required("ImportMode") => list(any()),
@@ -7112,7 +7112,7 @@ defmodule AWS.QuickSight do
       search_data_sets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(data_set_search_filter()())
+        required("Filters") => list(data_set_search_filter())
       }
 
   """
@@ -7124,7 +7124,7 @@ defmodule AWS.QuickSight do
 
       visual_palette() :: %{
         "ChartColor" => String.t(),
-        "ColorMap" => list(data_path_color()())
+        "ColorMap" => list(data_path_color())
       }
 
   """
@@ -7171,11 +7171,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       scatter_plot_unaggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Label" => list(dimension_field()()),
-        "Size" => list(measure_field()()),
-        "XAxis" => list(dimension_field()()),
-        "YAxis" => list(dimension_field()())
+        "Category" => list(dimension_field()),
+        "Label" => list(dimension_field()),
+        "Size" => list(measure_field()),
+        "XAxis" => list(dimension_field()),
+        "YAxis" => list(dimension_field())
       }
 
   """
@@ -7217,7 +7217,7 @@ defmodule AWS.QuickSight do
         "Arn" => String.t(),
         "FolderId" => String.t(),
         "NextToken" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -7255,7 +7255,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filled_map_sort_configuration() :: %{
-        "CategorySort" => list(field_sort_options()())
+        "CategorySort" => list(field_sort_options())
       }
 
   """
@@ -7283,7 +7283,7 @@ defmodule AWS.QuickSight do
 
       template_source_analysis() :: %{
         "Arn" => String.t(),
-        "DataSetReferences" => list(data_set_reference()())
+        "DataSetReferences" => list(data_set_reference())
       }
 
   """
@@ -7331,8 +7331,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_layer_color_field() :: %{
-        "ColorDimensionsFields" => list(dimension_field()()),
-        "ColorValuesFields" => list(measure_field()())
+        "ColorDimensionsFields" => list(dimension_field()),
+        "ColorValuesFields" => list(measure_field())
       }
 
   """
@@ -7352,7 +7352,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       layer_custom_action() :: %{
-        "ActionOperations" => list(layer_custom_action_operation()()),
+        "ActionOperations" => list(layer_custom_action_operation()),
         "CustomActionId" => String.t(),
         "Name" => String.t(),
         "Status" => list(any()),
@@ -7380,7 +7380,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_asset_bundle_export_jobs_response() :: %{
-        "AssetBundleExportJobSummaryList" => list(asset_bundle_export_job_summary()()),
+        "AssetBundleExportJobSummaryList" => list(asset_bundle_export_job_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -7394,9 +7394,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       k_p_i_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => k_p_i_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "ConditionalFormatting" => k_p_i_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
@@ -7417,7 +7417,7 @@ defmodule AWS.QuickSight do
         "DashboardId" => String.t(),
         "LastPublishedTime" => non_neg_integer(),
         "LastUpdatedTime" => non_neg_integer(),
-        "LinkEntities" => list(String.t()()),
+        "LinkEntities" => list(String.t()),
         "Name" => String.t(),
         "Version" => dashboard_version()
       }
@@ -7506,8 +7506,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_source_override_tags() :: %{
-        "DataSourceIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "DataSourceIds" => list(String.t()),
+        "Tags" => list(tag())
       }
 
   """
@@ -7531,10 +7531,10 @@ defmodule AWS.QuickSight do
 
       semantic_type() :: %{
         "FalseyCellValue" => String.t(),
-        "FalseyCellValueSynonyms" => list(String.t()()),
+        "FalseyCellValueSynonyms" => list(String.t()),
         "SubTypeName" => String.t(),
         "TruthyCellValue" => String.t(),
-        "TruthyCellValueSynonyms" => list(String.t()()),
+        "TruthyCellValueSynonyms" => list(String.t()),
         "TypeName" => String.t(),
         "TypeParameters" => map()
       }
@@ -7547,7 +7547,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => table_configuration(),
         "ConditionalFormatting" => table_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
@@ -7586,7 +7586,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_template() :: %{
-        "Slots" => list(slot()()),
+        "Slots" => list(slot()),
         "TemplateType" => String.t()
       }
 
@@ -7666,7 +7666,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_anonymous_user_redacted() :: %{
-        "RowLevelPermissionTagKeys" => list(String.t()())
+        "RowLevelPermissionTagKeys" => list(String.t())
       }
 
   """
@@ -7795,7 +7795,7 @@ defmodule AWS.QuickSight do
 
       filter_agg_metrics() :: %{
         "Function" => list(any()),
-        "MetricOperand" => quicksight_identifier(),
+        "MetricOperand" => identifier(),
         "SortDirection" => list(any())
       }
 
@@ -7862,7 +7862,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "UserList" => list(user()())
+        "UserList" => list(user())
       }
 
   """
@@ -7899,7 +7899,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       project_operation() :: %{
-        "ProjectedColumns" => list(String.t()())
+        "ProjectedColumns" => list(String.t())
       }
 
   """
@@ -7935,8 +7935,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_theme_request() :: %{
-        optional("Permissions") => list(resource_permission()()),
-        optional("Tags") => list(tag()()),
+        optional("Permissions") => list(resource_permission()),
+        optional("Tags") => list(tag()),
         optional("VersionDescription") => String.t(),
         required("BaseThemeId") => String.t(),
         required("Configuration") => theme_configuration(),
@@ -7962,7 +7962,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       plugin_visual_options() :: %{
-        "VisualProperties" => list(plugin_visual_property()())
+        "VisualProperties" => list(plugin_visual_property())
       }
 
   """
@@ -7985,8 +7985,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       body_section_repeat_configuration() :: %{
-        "DimensionConfigurations" => list(body_section_repeat_dimension_configuration()()),
-        "NonRepeatingVisuals" => list(String.t()()),
+        "DimensionConfigurations" => list(body_section_repeat_dimension_configuration()),
+        "NonRepeatingVisuals" => list(String.t()),
         "PageBreakConfiguration" => body_section_repeat_page_break_configuration()
       }
 
@@ -8000,7 +8000,7 @@ defmodule AWS.QuickSight do
       search_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(group_search_filter()())
+        required("Filters") => list(group_search_filter())
       }
 
   """
@@ -8072,7 +8072,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       sankey_diagram_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => sankey_diagram_chart_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
@@ -8091,7 +8091,7 @@ defmodule AWS.QuickSight do
         "DashboardArn" => String.t(),
         "DashboardId" => String.t(),
         "LinkSharingConfiguration" => link_sharing_configuration(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -8169,7 +8169,7 @@ defmodule AWS.QuickSight do
         "Configuration" => theme_configuration(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t(),
-        "Errors" => list(theme_error()()),
+        "Errors" => list(theme_error()),
         "Status" => list(any()),
         "VersionNumber" => float()
       }
@@ -8232,10 +8232,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       combo_chart_aggregated_field_wells() :: %{
-        "BarValues" => list(measure_field()()),
-        "Category" => list(dimension_field()()),
-        "Colors" => list(dimension_field()()),
-        "LineValues" => list(measure_field()())
+        "BarValues" => list(measure_field()),
+        "Category" => list(dimension_field()),
+        "Colors" => list(dimension_field()),
+        "LineValues" => list(measure_field())
       }
 
   """
@@ -8249,7 +8249,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "TemplateVersionSummaryList" => list(template_version_summary()())
+        "TemplateVersionSummaryList" => list(template_version_summary())
       }
 
   """
@@ -8271,7 +8271,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       image_custom_action() :: %{
-        "ActionOperations" => list(image_custom_action_operation()()),
+        "ActionOperations" => list(image_custom_action_operation()),
         "CustomActionId" => String.t(),
         "Name" => String.t(),
         "Status" => list(any()),
@@ -8341,7 +8341,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_data_sources_response() :: %{
-        "DataSources" => list(data_source()()),
+        "DataSources" => list(data_source()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -8379,7 +8379,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "ThemeAliasList" => list(theme_alias()())
+        "ThemeAliasList" => list(theme_alias())
       }
 
   """
@@ -8474,7 +8474,7 @@ defmodule AWS.QuickSight do
 
       create_brand_request() :: %{
         optional("BrandDefinition") => brand_definition(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -8536,9 +8536,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       tree_map_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => tree_map_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -8553,7 +8553,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       empty_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "DataSetIdentifier" => String.t(),
         "VisualId" => String.t()
       }
@@ -8566,8 +8566,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_set_override_tags() :: %{
-        "DataSetIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "DataSetIds" => list(String.t()),
+        "Tags" => list(tag())
       }
 
   """
@@ -8611,7 +8611,7 @@ defmodule AWS.QuickSight do
         optional("ValidationStrategy") => asset_bundle_export_job_validation_strategy(),
         required("AssetBundleExportJobId") => String.t(),
         required("ExportFormat") => list(any()),
-        required("ResourceArns") => list(String.t()())
+        required("ResourceArns") => list(String.t())
       }
 
   """
@@ -8634,9 +8634,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_field_options() :: %{
-        "CollapseStateOptions" => list(pivot_table_field_collapse_state_option()()),
-        "DataPathOptions" => list(pivot_table_data_path_option()()),
-        "SelectedFieldOptions" => list(pivot_table_field_option()())
+        "CollapseStateOptions" => list(pivot_table_field_collapse_state_option()),
+        "DataPathOptions" => list(pivot_table_data_path_option()),
+        "SelectedFieldOptions" => list(pivot_table_field_option())
       }
 
   """
@@ -8680,7 +8680,7 @@ defmodule AWS.QuickSight do
 
       tree_map_sort_configuration() :: %{
         "TreeMapGroupItemsLimitConfiguration" => items_limit_configuration(),
-        "TreeMapSort" => list(field_sort_options()())
+        "TreeMapSort" => list(field_sort_options())
       }
 
   """
@@ -8785,10 +8785,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_dashboard_permissions_request() :: %{
-        optional("GrantLinkPermissions") => list(resource_permission()()),
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokeLinkPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantLinkPermissions") => list(resource_permission()),
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokeLinkPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -8840,7 +8840,7 @@ defmodule AWS.QuickSight do
       list_tags_for_resource_response() :: %{
         "RequestId" => String.t(),
         "Status" => integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -8906,7 +8906,7 @@ defmodule AWS.QuickSight do
 
       free_form_layout_configuration() :: %{
         "CanvasSizeOptions" => free_form_layout_canvas_size_options(),
-        "Elements" => list(free_form_layout_element()())
+        "Elements" => list(free_form_layout_element())
       }
 
   """
@@ -8917,8 +8917,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       funnel_chart_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -8930,7 +8930,7 @@ defmodule AWS.QuickSight do
 
       date_time_parameter_declaration() :: %{
         "DefaultValues" => date_time_default_values(),
-        "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
+        "MappedDataSetParameters" => list(mapped_data_set_parameter()),
         "Name" => String.t(),
         "TimeGranularity" => list(any()),
         "ValueWhenUnset" => date_time_value_when_unset_configuration()
@@ -8989,7 +8989,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "TopicsSummaries" => list(topic_summary()())
+        "TopicsSummaries" => list(topic_summary())
       }
 
   """
@@ -9028,7 +9028,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       batch_delete_topic_reviewed_answer_request() :: %{
-        optional("AnswerIds") => list(String.t()())
+        optional("AnswerIds") => list(String.t())
       }
 
   """
@@ -9063,7 +9063,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_analysis_override_permissions() :: %{
-        "AnalysisIds" => list(String.t()()),
+        "AnalysisIds" => list(String.t()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
@@ -9075,9 +9075,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       radar_chart_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "Color" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "Color" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -9141,7 +9141,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_layer_item() :: %{
-        "Actions" => list(layer_custom_action()()),
+        "Actions" => list(layer_custom_action()),
         "DataSource" => geospatial_data_source_item(),
         "JoinDefinition" => geospatial_layer_join_definition(),
         "Label" => String.t(),
@@ -9160,9 +9160,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pie_chart_aggregated_field_wells() :: %{
-        "Category" => list(dimension_field()()),
-        "SmallMultiples" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Category" => list(dimension_field()),
+        "SmallMultiples" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -9219,8 +9219,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_template_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -9265,7 +9265,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       generate_embed_url_for_registered_user_with_identity_request() :: %{
-        optional("AllowedDomains") => list(String.t()()),
+        optional("AllowedDomains") => list(String.t()),
         optional("SessionLifetimeInMinutes") => float(),
         required("ExperienceConfiguration") => registered_user_embedding_experience_configuration()
       }
@@ -9302,7 +9302,7 @@ defmodule AWS.QuickSight do
       analysis_error() :: %{
         "Message" => String.t(),
         "Type" => list(any()),
-        "ViolatedEntities" => list(entity()())
+        "ViolatedEntities" => list(entity())
       }
 
   """
@@ -9339,13 +9339,13 @@ defmodule AWS.QuickSight do
         "CategoryAxis" => axis_display_options(),
         "CategoryLabelOptions" => chart_axis_label_options(),
         "ColorLabelOptions" => chart_axis_label_options(),
-        "ContributionAnalysisDefaults" => list(contribution_analysis_default()()),
+        "ContributionAnalysisDefaults" => list(contribution_analysis_default()),
         "DataLabels" => data_label_options(),
         "FieldWells" => bar_chart_field_wells(),
         "Interactions" => visual_interaction_options(),
         "Legend" => legend_options(),
         "Orientation" => list(any()),
-        "ReferenceLines" => list(reference_line()()),
+        "ReferenceLines" => list(reference_line()),
         "SmallMultiplesOptions" => small_multiples_options(),
         "SortConfiguration" => bar_chart_sort_configuration(),
         "Tooltip" => tooltip_options(),
@@ -9411,10 +9411,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       generate_embed_url_for_anonymous_user_request() :: %{
-        optional("AllowedDomains") => list(String.t()()),
+        optional("AllowedDomains") => list(String.t()),
         optional("SessionLifetimeInMinutes") => float(),
-        optional("SessionTags") => list(session_tag()()),
-        required("AuthorizedResourceArns") => list(String.t()()),
+        optional("SessionTags") => list(session_tag()),
+        required("AuthorizedResourceArns") => list(String.t()),
         required("ExperienceConfiguration") => anonymous_user_embedding_experience_configuration(),
         required("Namespace") => String.t()
       }
@@ -9427,7 +9427,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       date_time_dataset_parameter_default_values() :: %{
-        "StaticValues" => list(non_neg_integer()())
+        "StaticValues" => list(non_neg_integer())
       }
 
   """
@@ -9459,8 +9459,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_dashboard_override_tags() :: %{
-        "DashboardIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "DashboardIds" => list(String.t()),
+        "Tags" => list(tag())
       }
 
   """
@@ -9496,10 +9496,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       batch_create_topic_reviewed_answer_response() :: %{
-        "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
+        "InvalidAnswers" => list(invalid_topic_reviewed_answer()),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()()),
+        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()),
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
@@ -9549,9 +9549,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_key_registration_response() :: %{
-        "FailedKeyRegistration" => list(failed_key_registration_entry()()),
+        "FailedKeyRegistration" => list(failed_key_registration_entry()),
         "RequestId" => String.t(),
-        "SuccessfulKeyRegistration" => list(successful_key_registration_entry()())
+        "SuccessfulKeyRegistration" => list(successful_key_registration_entry())
       }
 
   """
@@ -9610,7 +9610,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_asset_bundle_import_jobs_response() :: %{
-        "AssetBundleImportJobSummaryList" => list(asset_bundle_import_job_summary()()),
+        "AssetBundleImportJobSummaryList" => list(asset_bundle_import_job_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -9636,7 +9636,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       category_drill_down_filter() :: %{
-        "CategoryValues" => list(String.t()()),
+        "CategoryValues" => list(String.t()),
         "Column" => column_identifier()
       }
 
@@ -9847,9 +9847,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_operation_selected_fields_configuration() :: %{
-        "SelectedColumns" => list(column_identifier()()),
+        "SelectedColumns" => list(column_identifier()),
         "SelectedFieldOptions" => list(any()),
-        "SelectedFields" => list(String.t()())
+        "SelectedFields" => list(String.t())
       }
 
   """
@@ -9937,7 +9937,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_topic_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "TopicArn" => String.t(),
@@ -9974,7 +9974,7 @@ defmodule AWS.QuickSight do
 
       topic_i_r_contribution_analysis() :: %{
         "Direction" => list(any()),
-        "Factors" => list(contribution_analysis_factor()()),
+        "Factors" => list(contribution_analysis_factor()),
         "SortType" => list(any()),
         "TimeRanges" => contribution_analysis_time_ranges()
       }
@@ -10045,7 +10045,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_brands_response() :: %{
-        "Brands" => list(brand_summary()()),
+        "Brands" => list(brand_summary()),
         "NextToken" => String.t()
       }
 
@@ -10266,8 +10266,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       gauge_chart_field_wells() :: %{
-        "TargetValues" => list(measure_field()()),
-        "Values" => list(measure_field()())
+        "TargetValues" => list(measure_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -10279,7 +10279,7 @@ defmodule AWS.QuickSight do
 
       topic_details() :: %{
         "ConfigOptions" => topic_config_options(),
-        "DataSets" => list(dataset_metadata()()),
+        "DataSets" => list(dataset_metadata()),
         "Description" => String.t(),
         "Name" => String.t(),
         "UserExperienceVersion" => list(any())
@@ -10360,10 +10360,10 @@ defmodule AWS.QuickSight do
 
       create_account_subscription_request() :: %{
         optional("ActiveDirectoryName") => String.t(),
-        optional("AdminGroup") => list(String.t()()),
-        optional("AdminProGroup") => list(String.t()()),
-        optional("AuthorGroup") => list(String.t()()),
-        optional("AuthorProGroup") => list(String.t()()),
+        optional("AdminGroup") => list(String.t()),
+        optional("AdminProGroup") => list(String.t()),
+        optional("AuthorGroup") => list(String.t()),
+        optional("AuthorProGroup") => list(String.t()),
         optional("ContactNumber") => String.t(),
         optional("DirectoryId") => String.t(),
         optional("Edition") => list(any()),
@@ -10371,8 +10371,8 @@ defmodule AWS.QuickSight do
         optional("FirstName") => String.t(),
         optional("IAMIdentityCenterInstanceArn") => String.t(),
         optional("LastName") => String.t(),
-        optional("ReaderGroup") => list(String.t()()),
-        optional("ReaderProGroup") => list(String.t()()),
+        optional("ReaderGroup") => list(String.t()),
+        optional("ReaderProGroup") => list(String.t()),
         optional("Realm") => String.t(),
         required("AccountName") => String.t(),
         required("AuthenticationMethod") => list(any()),
@@ -10388,7 +10388,7 @@ defmodule AWS.QuickSight do
 
       tag_column_operation() :: %{
         "ColumnName" => String.t(),
-        "Tags" => list(column_tag()())
+        "Tags" => list(column_tag())
       }
 
   """
@@ -10413,11 +10413,11 @@ defmodule AWS.QuickSight do
 
       bar_chart_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "ColorItemsLimit" => items_limit_configuration(),
-        "ColorSort" => list(field_sort_options()()),
+        "ColorSort" => list(field_sort_options()),
         "SmallMultiplesLimitConfiguration" => items_limit_configuration(),
-        "SmallMultiplesSort" => list(field_sort_options()())
+        "SmallMultiplesSort" => list(field_sort_options())
       }
 
   """
@@ -10446,9 +10446,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pie_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => pie_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -10478,7 +10478,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_folders_response() :: %{
-        "FolderSummaryList" => list(folder_summary()()),
+        "FolderSummaryList" => list(folder_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -10492,8 +10492,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_aggregated_field_wells() :: %{
-        "GroupBy" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "GroupBy" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -10671,7 +10671,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filter_list_configuration() :: %{
-        "CategoryValues" => list(String.t()()),
+        "CategoryValues" => list(String.t()),
         "MatchOperator" => list(any()),
         "NullOption" => list(any()),
         "SelectAllOptions" => list(any())
@@ -10722,7 +10722,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       custom_content_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => custom_content_configuration(),
         "DataSetIdentifier" => String.t(),
         "Subtitle" => visual_subtitle_label_options(),
@@ -10739,9 +10739,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       waterfall_chart_aggregated_field_wells() :: %{
-        "Breakdowns" => list(dimension_field()()),
-        "Categories" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Breakdowns" => list(dimension_field()),
+        "Categories" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -10841,7 +10841,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_destination_configuration() :: %{
-        "S3Destinations" => list(snapshot_s3_destination_configuration()())
+        "S3Destinations" => list(snapshot_s3_destination_configuration())
       }
 
   """
@@ -10867,11 +10867,11 @@ defmodule AWS.QuickSight do
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
-        "DataSetArns" => list(String.t()()),
-        "Errors" => list(analysis_error()()),
+        "DataSetArns" => list(String.t()),
+        "Errors" => list(analysis_error()),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t(),
-        "Sheets" => list(sheet()()),
+        "Sheets" => list(sheet()),
         "Status" => list(any()),
         "ThemeArn" => String.t()
       }
@@ -10895,10 +10895,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       new_default_values() :: %{
-        "DateTimeStaticValues" => list(non_neg_integer()()),
-        "DecimalStaticValues" => list(float()()),
-        "IntegerStaticValues" => list(float()()),
-        "StringStaticValues" => list(String.t()())
+        "DateTimeStaticValues" => list(non_neg_integer()),
+        "DecimalStaticValues" => list(float()),
+        "IntegerStaticValues" => list(float()),
+        "StringStaticValues" => list(String.t())
       }
 
   """
@@ -10909,7 +10909,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       k_p_i_sort_configuration() :: %{
-        "TrendGroupSort" => list(field_sort_options()())
+        "TrendGroupSort" => list(field_sort_options())
       }
 
   """
@@ -10932,7 +10932,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_heatmap_color_scale() :: %{
-        "Colors" => list(geospatial_heatmap_data_color()())
+        "Colors" => list(geospatial_heatmap_data_color())
       }
 
   """
@@ -10985,7 +10985,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       topic_sort_clause() :: %{
-        "Operand" => quicksight_identifier(),
+        "Operand" => identifier(),
         "SortDirection" => list(any())
       }
 
@@ -11022,7 +11022,7 @@ defmodule AWS.QuickSight do
         "LineDataLabels" => data_label_options(),
         "PrimaryYAxisDisplayOptions" => axis_display_options(),
         "PrimaryYAxisLabelOptions" => chart_axis_label_options(),
-        "ReferenceLines" => list(reference_line()()),
+        "ReferenceLines" => list(reference_line()),
         "SecondaryYAxisDisplayOptions" => axis_display_options(),
         "SecondaryYAxisLabelOptions" => chart_axis_label_options(),
         "SingleAxisOptions" => single_axis_options(),
@@ -11070,7 +11070,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_role_memberships_response() :: %{
-        "MembersList" => list(String.t()()),
+        "MembersList" => list(String.t()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -11096,9 +11096,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       funnel_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => funnel_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -11129,7 +11129,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_analyses_response() :: %{
-        "AnalysisSummaryList" => list(analysis_summary()()),
+        "AnalysisSummaryList" => list(analysis_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -11224,9 +11224,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       line_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => line_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -11266,7 +11266,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       row_alternate_color_options() :: %{
-        "RowAlternateColors" => list(String.t()()),
+        "RowAlternateColors" => list(String.t()),
         "Status" => list(any()),
         "UsePrimaryBackgroundColor" => list(any())
       }
@@ -11292,7 +11292,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       integer_dataset_parameter_default_values() :: %{
-        "StaticValues" => list(float()())
+        "StaticValues" => list(float())
       }
 
   """
@@ -11415,7 +11415,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       anonymous_user_snapshot_job_result() :: %{
-        "FileGroups" => list(snapshot_job_result_file_group()())
+        "FileGroups" => list(snapshot_job_result_file_group())
       }
 
   """
@@ -11473,7 +11473,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       selected_sheets_filter_scope_configuration() :: %{
-        "SheetVisualScopingConfigurations" => list(sheet_visual_scoping_configuration()())
+        "SheetVisualScopingConfigurations" => list(sheet_visual_scoping_configuration())
       }
 
   """
@@ -11495,7 +11495,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       batch_create_topic_reviewed_answer_request() :: %{
-        required("Answers") => list(create_topic_reviewed_answer()())
+        required("Answers") => list(create_topic_reviewed_answer())
       }
 
   """
@@ -11521,7 +11521,7 @@ defmodule AWS.QuickSight do
       describe_data_set_permissions_response() :: %{
         "DataSetArn" => String.t(),
         "DataSetId" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -11594,9 +11594,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_map_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => geospatial_map_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -11628,9 +11628,9 @@ defmodule AWS.QuickSight do
 
       topic_i_r() :: %{
         "ContributionAnalysis" => topic_i_r_contribution_analysis(),
-        "Filters" => list(list(topic_i_r_filter_option()())()),
-        "GroupByList" => list(topic_i_r_group_by()()),
-        "Metrics" => list(topic_i_r_metric()()),
+        "Filters" => list(list(topic_i_r_filter_option())()),
+        "GroupByList" => list(topic_i_r_group_by()),
+        "Metrics" => list(topic_i_r_metric()),
         "Sort" => topic_sort_clause(),
         "Visual" => visual_options()
       }
@@ -11643,8 +11643,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_job_result_file_group() :: %{
-        "Files" => list(snapshot_file()()),
-        "S3Results" => list(snapshot_job_s3_result()())
+        "Files" => list(snapshot_file()),
+        "S3Results" => list(snapshot_job_s3_result())
       }
 
   """
@@ -11670,7 +11670,7 @@ defmodule AWS.QuickSight do
 
       update_dashboard_links_response() :: %{
         "DashboardArn" => String.t(),
-        "LinkEntities" => list(String.t()()),
+        "LinkEntities" => list(String.t()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -11770,7 +11770,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_user_configuration() :: %{
-        "AnonymousUsers" => list(snapshot_anonymous_user()())
+        "AnonymousUsers" => list(snapshot_anonymous_user())
       }
 
   """
@@ -11781,8 +11781,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_theme_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -11827,7 +11827,7 @@ defmodule AWS.QuickSight do
 
       data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
-        "DataLabelTypes" => list(data_label_type()()),
+        "DataLabelTypes" => list(data_label_type()),
         "LabelColor" => String.t(),
         "LabelContent" => list(any()),
         "LabelFontConfiguration" => font_configuration(),
@@ -11872,8 +11872,8 @@ defmodule AWS.QuickSight do
 
       row_level_permission_tag_configuration() :: %{
         "Status" => list(any()),
-        "TagRuleConfigurations" => list(list(String.t()())()),
-        "TagRules" => list(row_level_permission_tag_rule()())
+        "TagRuleConfigurations" => list(list(String.t())()),
+        "TagRules" => list(row_level_permission_tag_rule())
       }
 
   """
@@ -12018,8 +12018,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       explicit_hierarchy() :: %{
-        "Columns" => list(column_identifier()()),
-        "DrillDownFilters" => list(drill_down_filter()()),
+        "Columns" => list(column_identifier()),
+        "DrillDownFilters" => list(drill_down_filter()),
         "HierarchyId" => String.t()
       }
 
@@ -12148,7 +12148,7 @@ defmodule AWS.QuickSight do
         "BrandId" => String.t(),
         "BrandStatus" => list(any()),
         "CreatedTime" => [non_neg_integer()],
-        "Errors" => list(String.t()()),
+        "Errors" => list(String.t()),
         "LastUpdatedTime" => [non_neg_integer()],
         "Logo" => logo(),
         "VersionId" => String.t(),
@@ -12163,7 +12163,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_pinned_field_options() :: %{
-        "PinnedLeftFields" => list(String.t()())
+        "PinnedLeftFields" => list(String.t())
       }
 
   """
@@ -12175,7 +12175,7 @@ defmodule AWS.QuickSight do
 
       parameter_selectable_values() :: %{
         "LinkToDataSetColumn" => column_identifier(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -12284,7 +12284,7 @@ defmodule AWS.QuickSight do
         "AssetBundleImportSource" => asset_bundle_import_source_description(),
         "AwsAccountId" => String.t(),
         "CreatedTime" => non_neg_integer(),
-        "Errors" => list(asset_bundle_import_job_error()()),
+        "Errors" => list(asset_bundle_import_job_error()),
         "FailureAction" => list(any()),
         "JobStatus" => list(any()),
         "OverrideParameters" => asset_bundle_import_job_override_parameters(),
@@ -12292,9 +12292,9 @@ defmodule AWS.QuickSight do
         "OverrideTags" => asset_bundle_import_job_override_tags(),
         "OverrideValidationStrategy" => asset_bundle_import_job_override_validation_strategy(),
         "RequestId" => String.t(),
-        "RollbackErrors" => list(asset_bundle_import_job_error()()),
+        "RollbackErrors" => list(asset_bundle_import_job_error()),
         "Status" => integer(),
-        "Warnings" => list(asset_bundle_import_job_warning()())
+        "Warnings" => list(asset_bundle_import_job_warning())
       }
 
   """
@@ -12316,9 +12316,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filled_map_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => filled_map_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "ConditionalFormatting" => filled_map_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
@@ -12339,7 +12339,7 @@ defmodule AWS.QuickSight do
         "Interactions" => visual_interaction_options(),
         "PaginatedReportOptions" => table_paginated_report_options(),
         "SortConfiguration" => table_sort_configuration(),
-        "TableInlineVisualizations" => list(table_inline_visualization()()),
+        "TableInlineVisualizations" => list(table_inline_visualization()),
         "TableOptions" => table_options(),
         "TotalOptions" => total_options()
       }
@@ -12352,7 +12352,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       contribution_analysis_default() :: %{
-        "ContributorDimensions" => list(column_identifier()()),
+        "ContributorDimensions" => list(column_identifier()),
         "MeasureFieldId" => String.t()
       }
 
@@ -12375,7 +12375,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       gauge_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => gauge_chart_configuration(),
         "ConditionalFormatting" => gauge_chart_conditional_formatting(),
         "Subtitle" => visual_subtitle_label_options(),
@@ -12393,7 +12393,7 @@ defmodule AWS.QuickSight do
 
       plugin_visual_table_query_sort() :: %{
         "ItemsLimitConfiguration" => plugin_visual_items_limit_configuration(),
-        "RowSort" => list(field_sort_options()())
+        "RowSort" => list(field_sort_options())
       }
 
   """
@@ -12428,11 +12428,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_vpc_connection_override_parameters() :: %{
-        "DnsResolvers" => list(String.t()()),
+        "DnsResolvers" => list(String.t()),
         "Name" => String.t(),
         "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VPCConnectionId" => String.t()
       }
 
@@ -12444,7 +12444,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       histogram_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => histogram_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
@@ -12505,7 +12505,7 @@ defmodule AWS.QuickSight do
         "Legend" => legend_options(),
         "PrimaryYAxisDisplayOptions" => axis_display_options(),
         "PrimaryYAxisLabelOptions" => chart_axis_label_options(),
-        "ReferenceLines" => list(reference_line()()),
+        "ReferenceLines" => list(reference_line()),
         "SortConfiguration" => box_plot_sort_configuration(),
         "Tooltip" => tooltip_options(),
         "VisualPalette" => visual_palette()
@@ -12576,9 +12576,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       tree_map_aggregated_field_wells() :: %{
-        "Colors" => list(measure_field()()),
-        "Groups" => list(dimension_field()()),
-        "Sizes" => list(measure_field()())
+        "Colors" => list(measure_field()),
+        "Groups" => list(dimension_field()),
+        "Sizes" => list(measure_field())
       }
 
   """
@@ -12707,12 +12707,12 @@ defmodule AWS.QuickSight do
       topic_column() :: %{
         "Aggregation" => list(any()),
         "AllowedAggregations" => list(list(any())()),
-        "CellValueSynonyms" => list(cell_value_synonym()()),
+        "CellValueSynonyms" => list(cell_value_synonym()),
         "ColumnDataRole" => list(any()),
         "ColumnDescription" => String.t(),
         "ColumnFriendlyName" => String.t(),
         "ColumnName" => String.t(),
-        "ColumnSynonyms" => list(String.t()()),
+        "ColumnSynonyms" => list(String.t()),
         "ComparativeOrder" => comparative_order(),
         "DefaultFormatting" => default_formatting(),
         "DisableIndexing" => boolean(),
@@ -12733,7 +12733,7 @@ defmodule AWS.QuickSight do
 
       asset_options() :: %{
         "CustomActionDefaults" => visual_custom_action_defaults(),
-        "ExcludedDataSetArns" => list(String.t()()),
+        "ExcludedDataSetArns" => list(String.t()),
         "QBusinessInsightsStatus" => list(any()),
         "Timezone" => String.t(),
         "WeekStart" => list(any())
@@ -12796,7 +12796,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       chart_axis_label_options() :: %{
-        "AxisLabelOptions" => list(axis_label_options()()),
+        "AxisLabelOptions" => list(axis_label_options()),
         "SortIconVisibility" => list(any()),
         "Visibility" => list(any())
       }
@@ -12834,8 +12834,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_topic_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -12846,9 +12846,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       waterfall_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => waterfall_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -13033,7 +13033,7 @@ defmodule AWS.QuickSight do
       topic_i_r_group_by() :: %{
         "DisplayFormat" => list(any()),
         "DisplayFormatOptions" => display_format_options(),
-        "FieldName" => quicksight_identifier(),
+        "FieldName" => identifier(),
         "NamedEntity" => named_entity_ref(),
         "Sort" => topic_sort_clause(),
         "TimeGranularity" => list(any())
@@ -13074,7 +13074,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "TemplateSummaryList" => list(template_summary()())
+        "TemplateSummaryList" => list(template_summary())
       }
 
   """
@@ -13127,7 +13127,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       credential_pair() :: %{
-        "AlternateDataSourceParameters" => list(list()()),
+        "AlternateDataSourceParameters" => list(list()),
         "Password" => String.t(),
         "Username" => String.t()
       }
@@ -13140,7 +13140,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       column_group_schema() :: %{
-        "ColumnGroupColumnSchemaList" => list(column_group_column_schema()()),
+        "ColumnGroupColumnSchemaList" => list(column_group_column_schema()),
         "Name" => String.t()
       }
 
@@ -13163,7 +13163,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       sheet() :: %{
-        "Images" => list(sheet_image()()),
+        "Images" => list(sheet_image()),
         "Name" => String.t(),
         "SheetId" => String.t()
       }
@@ -13255,7 +13255,7 @@ defmodule AWS.QuickSight do
 
       decimal_parameter() :: %{
         "Name" => String.t(),
-        "Values" => list(float()())
+        "Values" => list(float())
       }
 
   """
@@ -13280,7 +13280,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       gradient_color() :: %{
-        "Stops" => list(gradient_stop()())
+        "Stops" => list(gradient_stop())
       }
 
   """
@@ -13332,7 +13332,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_user_configuration_redacted() :: %{
-        "AnonymousUsers" => list(snapshot_anonymous_user_redacted()())
+        "AnonymousUsers" => list(snapshot_anonymous_user_redacted())
       }
 
   """
@@ -13387,9 +13387,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       sankey_diagram_aggregated_field_wells() :: %{
-        "Destination" => list(dimension_field()()),
-        "Source" => list(dimension_field()()),
-        "Weight" => list(measure_field()())
+        "Destination" => list(dimension_field()),
+        "Source" => list(dimension_field()),
+        "Weight" => list(measure_field())
       }
 
   """
@@ -13409,7 +13409,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_data_path_option() :: %{
-        "DataPathList" => list(data_path_value()()),
+        "DataPathList" => list(data_path_value()),
         "Width" => String.t()
       }
 
@@ -13507,7 +13507,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       collective_constant() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -13529,7 +13529,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       k_p_i_conditional_formatting() :: %{
-        "ConditionalFormattingOptions" => list(k_p_i_conditional_formatting_option()())
+        "ConditionalFormattingOptions" => list(k_p_i_conditional_formatting_option())
       }
 
   """
@@ -13676,8 +13676,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_folder_override_tags() :: %{
-        "FolderIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "FolderIds" => list(String.t()),
+        "Tags" => list(tag())
       }
 
   """
@@ -13718,7 +13718,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_namespaces_response() :: %{
-        "Namespaces" => list(namespace_info_v2()()),
+        "Namespaces" => list(namespace_info_v2()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -13796,7 +13796,7 @@ defmodule AWS.QuickSight do
 
       dashboard_source_template() :: %{
         "Arn" => String.t(),
-        "DataSetReferences" => list(data_set_reference()())
+        "DataSetReferences" => list(data_set_reference())
       }
 
   """
@@ -13807,7 +13807,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_folder_members_response() :: %{
-        "FolderMemberList" => list(member_id_arn_pair()()),
+        "FolderMemberList" => list(member_id_arn_pair()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -13822,7 +13822,7 @@ defmodule AWS.QuickSight do
 
       word_cloud_sort_configuration() :: %{
         "CategoryItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()())
+        "CategorySort" => list(field_sort_options())
       }
 
   """
@@ -13950,7 +13950,7 @@ defmodule AWS.QuickSight do
       sankey_diagram_sort_configuration() :: %{
         "DestinationItemsLimit" => items_limit_configuration(),
         "SourceItemsLimit" => items_limit_configuration(),
-        "WeightSort" => list(field_sort_options()())
+        "WeightSort" => list(field_sort_options())
       }
 
   """
@@ -14005,7 +14005,7 @@ defmodule AWS.QuickSight do
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "FolderId" => String.t(),
-        "FolderPath" => list(String.t()()),
+        "FolderPath" => list(String.t()),
         "FolderType" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t(),
@@ -14041,9 +14041,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       geospatial_map_aggregated_field_wells() :: %{
-        "Colors" => list(dimension_field()()),
-        "Geospatial" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Colors" => list(dimension_field()),
+        "Geospatial" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -14056,13 +14056,13 @@ defmodule AWS.QuickSight do
       create_dashboard_request() :: %{
         optional("DashboardPublishOptions") => dashboard_publish_options(),
         optional("Definition") => dashboard_version_definition(),
-        optional("FolderArns") => list(String.t()()),
-        optional("LinkEntities") => list(String.t()()),
+        optional("FolderArns") => list(String.t()),
+        optional("LinkEntities") => list(String.t()),
         optional("LinkSharingConfiguration") => link_sharing_configuration(),
         optional("Parameters") => parameters(),
-        optional("Permissions") => list(resource_permission()()),
+        optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => dashboard_source_entity(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ThemeArn") => String.t(),
         optional("ValidationStrategy") => validation_strategy(),
         optional("VersionDescription") => String.t(),
@@ -14098,7 +14098,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       visual_custom_action() :: %{
-        "ActionOperations" => list(visual_custom_action_operation()()),
+        "ActionOperations" => list(visual_custom_action_operation()),
         "CustomActionId" => String.t(),
         "Name" => String.t(),
         "Status" => list(any()),
@@ -14142,7 +14142,7 @@ defmodule AWS.QuickSight do
 
       decimal_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
-        "StaticValues" => list(float()())
+        "StaticValues" => list(float())
       }
 
   """
@@ -14153,7 +14153,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_refresh_schedules_response() :: %{
-        "RefreshSchedules" => list(refresh_schedule()()),
+        "RefreshSchedules" => list(refresh_schedule()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -14203,7 +14203,7 @@ defmodule AWS.QuickSight do
         "AnalysisId" => String.t(),
         "Arn" => String.t(),
         "RequestId" => String.t(),
-        "RestorationFailedFolderArns" => list(String.t()()),
+        "RestorationFailedFolderArns" => list(String.t()),
         "Status" => integer()
       }
 
@@ -14239,7 +14239,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_dashboard_override_permissions() :: %{
-        "DashboardIds" => list(String.t()()),
+        "DashboardIds" => list(String.t()),
         "LinkSharingConfiguration" => asset_bundle_resource_link_sharing_configuration(),
         "Permissions" => asset_bundle_resource_permissions()
       }
@@ -14253,9 +14253,9 @@ defmodule AWS.QuickSight do
 
       heat_map_sort_configuration() :: %{
         "HeatMapColumnItemsLimitConfiguration" => items_limit_configuration(),
-        "HeatMapColumnSort" => list(field_sort_options()()),
+        "HeatMapColumnSort" => list(field_sort_options()),
         "HeatMapRowItemsLimitConfiguration" => items_limit_configuration(),
-        "HeatMapRowSort" => list(field_sort_options()())
+        "HeatMapRowSort" => list(field_sort_options())
       }
 
   """
@@ -14321,7 +14321,7 @@ defmodule AWS.QuickSight do
       update_analysis_permissions_response() :: %{
         "AnalysisArn" => String.t(),
         "AnalysisId" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -14416,7 +14416,7 @@ defmodule AWS.QuickSight do
 
       pie_chart_configuration() :: %{
         "CategoryLabelOptions" => chart_axis_label_options(),
-        "ContributionAnalysisDefaults" => list(contribution_analysis_default()()),
+        "ContributionAnalysisDefaults" => list(contribution_analysis_default()),
         "DataLabels" => data_label_options(),
         "DonutOptions" => donut_options(),
         "FieldWells" => pie_chart_field_wells(),
@@ -14463,8 +14463,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_theme_override_tags() :: %{
-        "Tags" => list(tag()()),
-        "ThemeIds" => list(String.t()())
+        "Tags" => list(tag()),
+        "ThemeIds" => list(String.t())
       }
 
   """
@@ -14477,7 +14477,7 @@ defmodule AWS.QuickSight do
       search_dashboards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Filters") => list(dashboard_search_filter()())
+        required("Filters") => list(dashboard_search_filter())
       }
 
   """
@@ -14497,7 +14497,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_set_override_permissions() :: %{
-        "DataSetIds" => list(String.t()()),
+        "DataSetIds" => list(String.t()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
@@ -14575,11 +14575,11 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_vpc_connection_request() :: %{
-        optional("DnsResolvers") => list(String.t()()),
+        optional("DnsResolvers") => list(String.t()),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
-        required("SecurityGroupIds") => list(String.t()()),
-        required("SubnetIds") => list(String.t()())
+        required("SecurityGroupIds") => list(String.t()),
+        required("SubnetIds") => list(String.t())
       }
 
   """
@@ -14611,7 +14611,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       table_conditional_formatting() :: %{
-        "ConditionalFormattingOptions" => list(table_conditional_formatting_option()())
+        "ConditionalFormattingOptions" => list(table_conditional_formatting_option())
       }
 
   """
@@ -14636,7 +14636,7 @@ defmodule AWS.QuickSight do
 
       create_account_customization_request() :: %{
         optional("Namespace") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccountCustomization") => account_customization()
       }
 
@@ -14696,12 +14696,12 @@ defmodule AWS.QuickSight do
         "Arn" => String.t(),
         "AvailabilityStatus" => list(any()),
         "CreatedTime" => non_neg_integer(),
-        "DnsResolvers" => list(String.t()()),
+        "DnsResolvers" => list(String.t()),
         "LastUpdatedTime" => non_neg_integer(),
         "Name" => String.t(),
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "RoleArn" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "Status" => list(any()),
         "VPCConnectionId" => String.t(),
         "VPCId" => String.t()
@@ -14715,9 +14715,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_aggregated_field_wells() :: %{
-        "Columns" => list(dimension_field()()),
-        "Rows" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Columns" => list(dimension_field()),
+        "Rows" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -14924,7 +14924,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_theme_permissions_response() :: %{
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer(),
         "ThemeArn" => String.t(),
@@ -14940,7 +14940,7 @@ defmodule AWS.QuickSight do
 
       waterfall_chart_sort_configuration() :: %{
         "BreakdownItemsLimit" => items_limit_configuration(),
-        "CategorySort" => list(field_sort_options()())
+        "CategorySort" => list(field_sort_options())
       }
 
   """
@@ -14953,7 +14953,7 @@ defmodule AWS.QuickSight do
       date_time_default_values() :: %{
         "DynamicValue" => dynamic_default_value(),
         "RollingDate" => rolling_date_configuration(),
-        "StaticValues" => list(non_neg_integer()())
+        "StaticValues" => list(non_neg_integer())
       }
 
   """
@@ -14964,7 +14964,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       data_set_schema() :: %{
-        "ColumnSchemaList" => list(column_schema()())
+        "ColumnSchemaList" => list(column_schema())
       }
 
   """
@@ -15000,8 +15000,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_data_set_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -15054,7 +15054,7 @@ defmodule AWS.QuickSight do
         "CustomLabel" => String.t(),
         "Placement" => list(any()),
         "ScrollStatus" => list(any()),
-        "TotalAggregationOptions" => list(total_aggregation_option()()),
+        "TotalAggregationOptions" => list(total_aggregation_option()),
         "TotalCellStyle" => table_cell_style(),
         "TotalsVisibility" => list(any())
       }
@@ -15067,7 +15067,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_dashboards_response() :: %{
-        "DashboardSummaryList" => list(dashboard_summary()()),
+        "DashboardSummaryList" => list(dashboard_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -15200,7 +15200,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       resource_permission() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "Principal" => String.t()
       }
 
@@ -15253,7 +15253,7 @@ defmodule AWS.QuickSight do
 
       redshift_iam_parameters() :: %{
         "AutoCreateDatabaseUser" => boolean(),
-        "DatabaseGroups" => list(String.t()()),
+        "DatabaseGroups" => list(String.t()),
         "DatabaseUser" => String.t(),
         "RoleArn" => String.t()
       }
@@ -15278,8 +15278,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_folder_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -15290,7 +15290,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       typography() :: %{
-        "FontFamilies" => list(font()())
+        "FontFamilies" => list(font())
       }
 
   """
@@ -15317,8 +15317,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filled_map_aggregated_field_wells() :: %{
-        "Geospatial" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "Geospatial" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -15414,12 +15414,12 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_override_permissions() :: %{
-        "Analyses" => list(asset_bundle_import_job_analysis_override_permissions()()),
-        "Dashboards" => list(asset_bundle_import_job_dashboard_override_permissions()()),
-        "DataSets" => list(asset_bundle_import_job_data_set_override_permissions()()),
-        "DataSources" => list(asset_bundle_import_job_data_source_override_permissions()()),
-        "Folders" => list(asset_bundle_import_job_folder_override_permissions()()),
-        "Themes" => list(asset_bundle_import_job_theme_override_permissions()())
+        "Analyses" => list(asset_bundle_import_job_analysis_override_permissions()),
+        "Dashboards" => list(asset_bundle_import_job_dashboard_override_permissions()),
+        "DataSets" => list(asset_bundle_import_job_data_set_override_permissions()),
+        "DataSources" => list(asset_bundle_import_job_data_source_override_permissions()),
+        "Folders" => list(asset_bundle_import_job_folder_override_permissions()),
+        "Themes" => list(asset_bundle_import_job_theme_override_permissions())
       }
 
   """
@@ -15501,7 +15501,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       decimal_dataset_parameter_default_values() :: %{
-        "StaticValues" => list(float()())
+        "StaticValues" => list(float())
       }
 
   """
@@ -15559,7 +15559,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       data_source() :: %{
-        "AlternateDataSourceParameters" => list(list()()),
+        "AlternateDataSourceParameters" => list(list()),
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "DataSourceId" => String.t(),
@@ -15582,7 +15582,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       search_groups_response() :: %{
-        "GroupList" => list(group()()),
+        "GroupList" => list(group()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -15636,7 +15636,7 @@ defmodule AWS.QuickSight do
 
       string_parameter_declaration() :: %{
         "DefaultValues" => string_default_values(),
-        "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
+        "MappedDataSetParameters" => list(mapped_data_set_parameter()),
         "Name" => String.t(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => string_value_when_unset_configuration()
@@ -15662,7 +15662,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_group_memberships_response() :: %{
-        "GroupMemberList" => list(group_member()()),
+        "GroupMemberList" => list(group_member()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -15676,9 +15676,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       combo_chart_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => combo_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -15755,7 +15755,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_groups_response() :: %{
-        "GroupList" => list(group()()),
+        "GroupList" => list(group()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -15836,7 +15836,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_anonymous_user() :: %{
-        "RowLevelPermissionTags" => list(session_tag()())
+        "RowLevelPermissionTags" => list(session_tag())
       }
 
   """
@@ -15954,7 +15954,7 @@ defmodule AWS.QuickSight do
 
       snapshot_file() :: %{
         "FormatType" => list(any()),
-        "SheetSelections" => list(snapshot_file_sheet_selection()())
+        "SheetSelections" => list(snapshot_file_sheet_selection())
       }
 
   """
@@ -15966,7 +15966,7 @@ defmodule AWS.QuickSight do
 
       color_scale() :: %{
         "ColorFillType" => list(any()),
-        "Colors" => list(data_color()()),
+        "Colors" => list(data_color()),
         "NullValueColor" => data_color()
       }
 
@@ -15991,7 +15991,7 @@ defmodule AWS.QuickSight do
 
       same_sheet_target_visual_configuration() :: %{
         "TargetVisualOptions" => list(any()),
-        "TargetVisuals" => list(String.t()())
+        "TargetVisuals" => list(String.t())
       }
 
   """
@@ -16014,7 +16014,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       pivot_table_conditional_formatting() :: %{
-        "ConditionalFormattingOptions" => list(pivot_table_conditional_formatting_option()())
+        "ConditionalFormattingOptions" => list(pivot_table_conditional_formatting_option())
       }
 
   """
@@ -16089,9 +16089,9 @@ defmodule AWS.QuickSight do
         optional("FolderType") => list(any()),
         optional("Name") => String.t(),
         optional("ParentFolderArn") => String.t(),
-        optional("Permissions") => list(resource_permission()()),
+        optional("Permissions") => list(resource_permission()),
         optional("SharingModel") => list(any()),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -16105,7 +16105,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "ThemeSummaryList" => list(theme_summary()())
+        "ThemeSummaryList" => list(theme_summary())
       }
 
   """
@@ -16119,7 +16119,7 @@ defmodule AWS.QuickSight do
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "ThemeVersionSummaryList" => list(theme_version_summary()())
+        "ThemeVersionSummaryList" => list(theme_version_summary())
       }
 
   """
@@ -16130,7 +16130,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       date_time_hierarchy() :: %{
-        "DrillDownFilters" => list(drill_down_filter()()),
+        "DrillDownFilters" => list(drill_down_filter()),
         "HierarchyId" => String.t()
       }
 
@@ -16168,7 +16168,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_dashboards_response() :: %{
-        "DashboardSummaryList" => list(dashboard_summary()()),
+        "DashboardSummaryList" => list(dashboard_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -16284,7 +16284,7 @@ defmodule AWS.QuickSight do
         "Arn" => String.t(),
         "FolderId" => String.t(),
         "NextToken" => String.t(),
-        "Permissions" => list(resource_permission()()),
+        "Permissions" => list(resource_permission()),
         "RequestId" => String.t(),
         "Status" => integer()
       }
@@ -16313,7 +16313,7 @@ defmodule AWS.QuickSight do
       body_section_dynamic_category_dimension_configuration() :: %{
         "Column" => column_identifier(),
         "Limit" => integer(),
-        "SortByMetrics" => list(column_sort()())
+        "SortByMetrics" => list(column_sort())
       }
 
   """
@@ -16335,7 +16335,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       snapshot_job_s3_result() :: %{
-        "ErrorInfo" => list(snapshot_job_result_error_info()()),
+        "ErrorInfo" => list(snapshot_job_result_error_info()),
         "S3DestinationConfiguration" => snapshot_s3_destination_configuration(),
         "S3Uri" => String.t()
       }
@@ -16410,10 +16410,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       batch_delete_topic_reviewed_answer_response() :: %{
-        "InvalidAnswers" => list(invalid_topic_reviewed_answer()()),
+        "InvalidAnswers" => list(invalid_topic_reviewed_answer()),
         "RequestId" => String.t(),
         "Status" => integer(),
-        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()()),
+        "SucceededAnswers" => list(succeeded_topic_reviewed_answer()),
         "TopicArn" => String.t(),
         "TopicId" => String.t()
       }
@@ -16465,7 +16465,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       insight_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "DataSetIdentifier" => String.t(),
         "InsightConfiguration" => insight_configuration(),
         "Subtitle" => visual_subtitle_label_options(),
@@ -16518,7 +16518,7 @@ defmodule AWS.QuickSight do
         optional("ExternalLoginId") => String.t(),
         optional("IamArn") => String.t(),
         optional("SessionName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UserName") => String.t(),
         required("Email") => String.t(),
         required("IdentityType") => list(any()),
@@ -16544,15 +16544,15 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_override_parameters() :: %{
-        "Analyses" => list(asset_bundle_import_job_analysis_override_parameters()()),
-        "Dashboards" => list(asset_bundle_import_job_dashboard_override_parameters()()),
-        "DataSets" => list(asset_bundle_import_job_data_set_override_parameters()()),
-        "DataSources" => list(asset_bundle_import_job_data_source_override_parameters()()),
-        "Folders" => list(asset_bundle_import_job_folder_override_parameters()()),
-        "RefreshSchedules" => list(asset_bundle_import_job_refresh_schedule_override_parameters()()),
+        "Analyses" => list(asset_bundle_import_job_analysis_override_parameters()),
+        "Dashboards" => list(asset_bundle_import_job_dashboard_override_parameters()),
+        "DataSets" => list(asset_bundle_import_job_data_set_override_parameters()),
+        "DataSources" => list(asset_bundle_import_job_data_source_override_parameters()),
+        "Folders" => list(asset_bundle_import_job_folder_override_parameters()),
+        "RefreshSchedules" => list(asset_bundle_import_job_refresh_schedule_override_parameters()),
         "ResourceIdOverrideConfiguration" => asset_bundle_import_job_resource_id_override_configuration(),
-        "Themes" => list(asset_bundle_import_job_theme_override_parameters()()),
-        "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_parameters()())
+        "Themes" => list(asset_bundle_import_job_theme_override_parameters()),
+        "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_parameters())
       }
 
   """
@@ -16575,7 +16575,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       custom_action_set_parameters_operation() :: %{
-        "ParameterValueConfigurations" => list(set_parameter_value_configuration()())
+        "ParameterValueConfigurations" => list(set_parameter_value_configuration())
       }
 
   """
@@ -16600,7 +16600,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       comparative_order() :: %{
-        "SpecifedOrder" => list(String.t()()),
+        "SpecifedOrder" => list(String.t()),
         "TreatUndefinedSpecifiedValues" => list(any()),
         "UseOrdering" => list(any())
       }
@@ -16613,9 +16613,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       scatter_plot_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => scatter_plot_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -16639,9 +16639,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       heat_map_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => heat_map_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -16657,7 +16657,7 @@ defmodule AWS.QuickSight do
 
       decimal_parameter_declaration() :: %{
         "DefaultValues" => decimal_default_values(),
-        "MappedDataSetParameters" => list(mapped_data_set_parameter()()),
+        "MappedDataSetParameters" => list(mapped_data_set_parameter()),
         "Name" => String.t(),
         "ParameterValueType" => list(any()),
         "ValueWhenUnset" => decimal_value_when_unset_configuration()
@@ -16672,11 +16672,11 @@ defmodule AWS.QuickSight do
 
       create_analysis_request() :: %{
         optional("Definition") => analysis_definition(),
-        optional("FolderArns") => list(String.t()()),
+        optional("FolderArns") => list(String.t()),
         optional("Parameters") => parameters(),
-        optional("Permissions") => list(resource_permission()()),
+        optional("Permissions") => list(resource_permission()),
         optional("SourceEntity") => analysis_source_entity(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ThemeArn") => String.t(),
         optional("ValidationStrategy") => validation_strategy(),
         required("Name") => String.t()
@@ -16734,7 +16734,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       cascading_control_configuration() :: %{
-        "SourceControls" => list(cascading_control_source()())
+        "SourceControls" => list(cascading_control_source())
       }
 
   """
@@ -16745,9 +16745,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       data_color_palette() :: %{
-        "Colors" => list(String.t()()),
+        "Colors" => list(String.t()),
         "EmptyFillColor" => String.t(),
-        "MinMaxGradient" => list(String.t()())
+        "MinMaxGradient" => list(String.t())
       }
 
   """
@@ -16758,10 +16758,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       custom_parameter_values() :: %{
-        "DateTimeValues" => list(non_neg_integer()()),
-        "DecimalValues" => list(float()()),
-        "IntegerValues" => list(float()()),
-        "StringValues" => list(String.t()())
+        "DateTimeValues" => list(non_neg_integer()),
+        "DecimalValues" => list(float()),
+        "IntegerValues" => list(float()),
+        "StringValues" => list(String.t())
       }
 
   """
@@ -16825,7 +16825,7 @@ defmodule AWS.QuickSight do
         "ElementType" => list(any()),
         "Height" => String.t(),
         "LoadingAnimation" => loading_animation(),
-        "RenderingRules" => list(sheet_element_rendering_rule()()),
+        "RenderingRules" => list(sheet_element_rendering_rule()),
         "SelectedBorderStyle" => free_form_layout_element_border_style(),
         "Visibility" => list(any()),
         "Width" => String.t(),
@@ -16841,7 +16841,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       filled_map_conditional_formatting() :: %{
-        "ConditionalFormattingOptions" => list(filled_map_conditional_formatting_option()())
+        "ConditionalFormattingOptions" => list(filled_map_conditional_formatting_option())
       }
 
   """
@@ -16852,13 +16852,13 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_override_tags() :: %{
-        "Analyses" => list(asset_bundle_import_job_analysis_override_tags()()),
-        "Dashboards" => list(asset_bundle_import_job_dashboard_override_tags()()),
-        "DataSets" => list(asset_bundle_import_job_data_set_override_tags()()),
-        "DataSources" => list(asset_bundle_import_job_data_source_override_tags()()),
-        "Folders" => list(asset_bundle_import_job_folder_override_tags()()),
-        "Themes" => list(asset_bundle_import_job_theme_override_tags()()),
-        "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_tags()())
+        "Analyses" => list(asset_bundle_import_job_analysis_override_tags()),
+        "Dashboards" => list(asset_bundle_import_job_dashboard_override_tags()),
+        "DataSets" => list(asset_bundle_import_job_data_set_override_tags()),
+        "DataSources" => list(asset_bundle_import_job_data_source_override_tags()),
+        "Folders" => list(asset_bundle_import_job_folder_override_tags()),
+        "Themes" => list(asset_bundle_import_job_theme_override_tags()),
+        "VPCConnections" => list(asset_bundle_import_job_vpc_connection_override_tags())
       }
 
   """
@@ -16869,14 +16869,14 @@ defmodule AWS.QuickSight do
   ## Example:
 
       dataset_metadata() :: %{
-        "CalculatedFields" => list(topic_calculated_field()()),
-        "Columns" => list(topic_column()()),
+        "CalculatedFields" => list(topic_calculated_field()),
+        "Columns" => list(topic_column()),
         "DataAggregation" => data_aggregation(),
         "DatasetArn" => String.t(),
         "DatasetDescription" => String.t(),
         "DatasetName" => String.t(),
-        "Filters" => list(topic_filter()()),
-        "NamedEntities" => list(topic_named_entity()())
+        "Filters" => list(topic_filter()),
+        "NamedEntities" => list(topic_named_entity())
       }
 
   """
@@ -16887,8 +16887,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       word_cloud_aggregated_field_wells() :: %{
-        "GroupBy" => list(dimension_field()()),
-        "Size" => list(measure_field()())
+        "GroupBy" => list(dimension_field()),
+        "Size" => list(measure_field())
       }
 
   """
@@ -16995,8 +16995,8 @@ defmodule AWS.QuickSight do
         "AllowedAggregations" => list(list(any())()),
         "CalculatedFieldDescription" => String.t(),
         "CalculatedFieldName" => String.t(),
-        "CalculatedFieldSynonyms" => list(String.t()()),
-        "CellValueSynonyms" => list(cell_value_synonym()()),
+        "CalculatedFieldSynonyms" => list(String.t()),
+        "CellValueSynonyms" => list(cell_value_synonym()),
         "ColumnDataRole" => list(any()),
         "ComparativeOrder" => comparative_order(),
         "DefaultFormatting" => default_formatting(),
@@ -17120,10 +17120,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_data_set_request() :: %{
-        optional("ColumnGroups") => list(column_group()()),
-        optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()()),
+        optional("ColumnGroups") => list(column_group()),
+        optional("ColumnLevelPermissionRules") => list(column_level_permission_rule()),
         optional("DataSetUsageConfiguration") => data_set_usage_configuration(),
-        optional("DatasetParameters") => list(dataset_parameter()()),
+        optional("DatasetParameters") => list(dataset_parameter()),
         optional("FieldFolders") => map(),
         optional("LogicalTableMap") => map(),
         optional("PerformanceConfiguration") => performance_configuration(),
@@ -17242,7 +17242,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       box_plot_sort_configuration() :: %{
-        "CategorySort" => list(field_sort_options()()),
+        "CategorySort" => list(field_sort_options()),
         "PaginationConfiguration" => pagination_configuration()
       }
 
@@ -17266,15 +17266,15 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_cloud_formation_override_property_configuration() :: %{
-        "Analyses" => list(asset_bundle_export_job_analysis_override_properties()()),
-        "Dashboards" => list(asset_bundle_export_job_dashboard_override_properties()()),
-        "DataSets" => list(asset_bundle_export_job_data_set_override_properties()()),
-        "DataSources" => list(asset_bundle_export_job_data_source_override_properties()()),
-        "Folders" => list(asset_bundle_export_job_folder_override_properties()()),
-        "RefreshSchedules" => list(asset_bundle_export_job_refresh_schedule_override_properties()()),
+        "Analyses" => list(asset_bundle_export_job_analysis_override_properties()),
+        "Dashboards" => list(asset_bundle_export_job_dashboard_override_properties()),
+        "DataSets" => list(asset_bundle_export_job_data_set_override_properties()),
+        "DataSources" => list(asset_bundle_export_job_data_source_override_properties()),
+        "Folders" => list(asset_bundle_export_job_folder_override_properties()),
+        "RefreshSchedules" => list(asset_bundle_export_job_refresh_schedule_override_properties()),
         "ResourceIdOverrideConfiguration" => asset_bundle_export_job_resource_id_override_configuration(),
-        "Themes" => list(asset_bundle_export_job_theme_override_properties()()),
-        "VPCConnections" => list(asset_bundle_export_job_vpc_connection_override_properties()())
+        "Themes" => list(asset_bundle_export_job_theme_override_properties()),
+        "VPCConnections" => list(asset_bundle_export_job_vpc_connection_override_properties())
       }
 
   """
@@ -17285,8 +17285,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       box_plot_aggregated_field_wells() :: %{
-        "GroupBy" => list(dimension_field()()),
-        "Values" => list(measure_field()())
+        "GroupBy" => list(dimension_field()),
+        "Values" => list(measure_field())
       }
 
   """
@@ -17405,7 +17405,7 @@ defmodule AWS.QuickSight do
         "FilterClass" => list(any()),
         "FilterDescription" => String.t(),
         "FilterName" => String.t(),
-        "FilterSynonyms" => list(String.t()()),
+        "FilterSynonyms" => list(String.t()),
         "FilterType" => list(any()),
         "NumericEqualityFilter" => topic_numeric_equality_filter(),
         "NumericRangeFilter" => topic_numeric_range_filter(),
@@ -17437,7 +17437,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       histogram_aggregated_field_wells() :: %{
-        "Values" => list(measure_field()())
+        "Values" => list(measure_field())
       }
 
   """
@@ -17448,7 +17448,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       predict_q_a_results_response() :: %{
-        "AdditionalResults" => list(q_a_result()()),
+        "AdditionalResults" => list(q_a_result()),
         "PrimaryResult" => q_a_result(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -17487,7 +17487,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       performance_configuration() :: %{
-        "UniqueKeys" => list(unique_key()())
+        "UniqueKeys" => list(unique_key())
       }
 
   """
@@ -17510,8 +17510,8 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_data_source_permissions_request() :: %{
-        optional("GrantPermissions") => list(resource_permission()()),
-        optional("RevokePermissions") => list(resource_permission()())
+        optional("GrantPermissions") => list(resource_permission()),
+        optional("RevokePermissions") => list(resource_permission())
       }
 
   """
@@ -17583,7 +17583,7 @@ defmodule AWS.QuickSight do
 
       table_sort_configuration() :: %{
         "PaginationConfiguration" => pagination_configuration(),
-        "RowSort" => list(field_sort_options()())
+        "RowSort" => list(field_sort_options())
       }
 
   """
@@ -17619,7 +17619,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       asset_bundle_import_job_data_source_override_permissions() :: %{
-        "DataSourceIds" => list(String.t()()),
+        "DataSourceIds" => list(String.t()),
         "Permissions" => asset_bundle_resource_permissions()
       }
 
@@ -17706,9 +17706,9 @@ defmodule AWS.QuickSight do
   ## Example:
 
       word_cloud_visual() :: %{
-        "Actions" => list(visual_custom_action()()),
+        "Actions" => list(visual_custom_action()),
         "ChartConfiguration" => word_cloud_chart_configuration(),
-        "ColumnHierarchies" => list(column_hierarchy()()),
+        "ColumnHierarchies" => list(column_hierarchy()),
         "Subtitle" => visual_subtitle_label_options(),
         "Title" => visual_title_label_options(),
         "VisualContentAltText" => String.t(),
@@ -17747,7 +17747,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       list_dashboard_versions_response() :: %{
-        "DashboardVersionSummaryList" => list(dashboard_version_summary()()),
+        "DashboardVersionSummaryList" => list(dashboard_version_summary()),
         "NextToken" => String.t(),
         "RequestId" => String.t(),
         "Status" => integer()
@@ -17779,10 +17779,10 @@ defmodule AWS.QuickSight do
   ## Example:
 
       section_based_layout_configuration() :: %{
-        "BodySections" => list(body_section_configuration()()),
+        "BodySections" => list(body_section_configuration()),
         "CanvasSizeOptions" => section_based_layout_canvas_size_options(),
-        "FooterSections" => list(header_footer_section_configuration()()),
-        "HeaderSections" => list(header_footer_section_configuration()())
+        "FooterSections" => list(header_footer_section_configuration()),
+        "HeaderSections" => list(header_footer_section_configuration())
       }
 
   """

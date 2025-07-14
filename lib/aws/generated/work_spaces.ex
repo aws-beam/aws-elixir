@@ -61,7 +61,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_account_modifications_result() :: %{
-        "AccountModifications" => list(account_modification()()),
+        "AccountModifications" => list(account_modification()),
         "NextToken" => String.t()
       }
       
@@ -91,7 +91,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       start_workspaces_result() :: %{
-        "FailedRequests" => list(failed_workspace_change_request()())
+        "FailedRequests" => list(failed_workspace_change_request())
       }
       
   """
@@ -102,7 +102,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       start_workspaces_request() :: %{
-        required("StartWorkspaceRequests") => list(start_request()())
+        required("StartWorkspaceRequests") => list(start_request())
       }
       
   """
@@ -182,7 +182,7 @@ defmodule AWS.WorkSpaces do
       
       delete_tags_request() :: %{
         required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -198,7 +198,7 @@ defmodule AWS.WorkSpaces do
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("UserName") => String.t(),
-        optional("WorkspaceIds") => list(String.t()()),
+        optional("WorkspaceIds") => list(String.t()),
         optional("WorkspaceName") => String.t()
       }
       
@@ -280,7 +280,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_directories_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -294,7 +294,7 @@ defmodule AWS.WorkSpaces do
         "Created" => non_neg_integer(),
         "Description" => String.t(),
         "ErrorCode" => String.t(),
-        "ErrorDetails" => list(error_details()()),
+        "ErrorDetails" => list(error_details()),
         "ErrorMessage" => String.t(),
         "ImageId" => String.t(),
         "Name" => String.t(),
@@ -424,7 +424,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       rebuild_workspaces_request() :: %{
-        required("RebuildWorkspaceRequests") => list(rebuild_request()())
+        required("RebuildWorkspaceRequests") => list(rebuild_request())
       }
       
   """
@@ -470,7 +470,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_images_request() :: %{
-        optional("ImageIds") => list(String.t()()),
+        optional("ImageIds") => list(String.t()),
         optional("ImageType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -485,7 +485,7 @@ defmodule AWS.WorkSpaces do
       
       copy_workspace_image_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("SourceImageId") => String.t(),
         required("SourceRegion") => String.t()
@@ -500,7 +500,7 @@ defmodule AWS.WorkSpaces do
       
       revoke_ip_rules_request() :: %{
         required("GroupId") => String.t(),
-        required("UserRules") => list(String.t()())
+        required("UserRules") => list(String.t())
       }
       
   """
@@ -522,7 +522,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       reboot_workspaces_request() :: %{
-        required("RebootWorkspaceRequests") => list(reboot_request()())
+        required("RebootWorkspaceRequests") => list(reboot_request())
       }
       
   """
@@ -546,7 +546,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_connection_aliases_result() :: %{
-        "ConnectionAliases" => list(connection_alias()()),
+        "ConnectionAliases" => list(connection_alias()),
         "NextToken" => String.t()
       }
       
@@ -558,7 +558,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       access_endpoint_config() :: %{
-        "AccessEndpoints" => list(access_endpoint()()),
+        "AccessEndpoints" => list(access_endpoint()),
         "InternetFallbackProtocols" => list(list(any())())
       }
       
@@ -571,7 +571,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspace_image_permissions_result() :: %{
         "ImageId" => String.t(),
-        "ImagePermissions" => list(image_permission()()),
+        "ImagePermissions" => list(image_permission()),
         "NextToken" => String.t()
       }
       
@@ -663,7 +663,7 @@ defmodule AWS.WorkSpaces do
       
       create_workspace_bundle_request() :: %{
         optional("RootStorage") => root_storage(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("BundleDescription") => String.t(),
         required("BundleName") => String.t(),
         required("ComputeType") => compute_type(),
@@ -858,7 +858,7 @@ defmodule AWS.WorkSpaces do
       
       associate_ip_groups_request() :: %{
         required("DirectoryId") => String.t(),
-        required("GroupIds") => list(String.t()())
+        required("GroupIds") => list(String.t())
       }
       
   """
@@ -912,7 +912,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       rebuild_workspaces_result() :: %{
-        "FailedRequests" => list(failed_workspace_change_request()())
+        "FailedRequests" => list(failed_workspace_change_request())
       }
       
   """
@@ -971,7 +971,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       list_available_management_cidr_ranges_result() :: %{
-        "ManagementCidrRanges" => list(String.t()()),
+        "ManagementCidrRanges" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -993,7 +993,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_pool_sessions_result() :: %{
         "NextToken" => String.t(),
-        "Sessions" => list(workspaces_pool_session()())
+        "Sessions" => list(workspaces_pool_session())
       }
       
   """
@@ -1014,7 +1014,7 @@ defmodule AWS.WorkSpaces do
       
       create_tags_request() :: %{
         required("ResourceId") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1025,7 +1025,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       terminate_workspaces_result() :: %{
-        "FailedRequests" => list(failed_workspace_change_request()())
+        "FailedRequests" => list(failed_workspace_change_request())
       }
       
   """
@@ -1036,7 +1036,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_workspaces_request() :: %{
-        required("Workspaces") => list(workspace_request()())
+        required("Workspaces") => list(workspace_request())
       }
       
   """
@@ -1084,7 +1084,7 @@ defmodule AWS.WorkSpaces do
       
       create_standby_workspaces_request() :: %{
         required("PrimaryRegion") => String.t(),
-        required("StandbyWorkspaces") => list(standby_workspace()())
+        required("StandbyWorkspaces") => list(standby_workspace())
       }
       
   """
@@ -1140,7 +1140,7 @@ defmodule AWS.WorkSpaces do
         "groupDesc" => String.t(),
         "groupId" => String.t(),
         "groupName" => String.t(),
-        "userRules" => list(ip_rule_item()())
+        "userRules" => list(ip_rule_item())
       }
       
   """
@@ -1348,7 +1348,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       terminate_workspaces_request() :: %{
-        required("TerminateWorkspaceRequests") => list(terminate_request()())
+        required("TerminateWorkspaceRequests") => list(terminate_request())
       }
       
   """
@@ -1360,7 +1360,7 @@ defmodule AWS.WorkSpaces do
       
       update_rules_of_ip_group_request() :: %{
         required("GroupId") => String.t(),
-        required("UserRules") => list(ip_rule_item()())
+        required("UserRules") => list(ip_rule_item())
       }
       
   """
@@ -1392,7 +1392,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_bundles_request() :: %{
-        optional("BundleIds") => list(String.t()()),
+        optional("BundleIds") => list(String.t()),
         optional("NextToken") => String.t(),
         optional("Owner") => String.t()
       }
@@ -1428,7 +1428,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_connection_aliases_request() :: %{
-        optional("AliasIds") => list(String.t()()),
+        optional("AliasIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceId") => String.t()
@@ -1489,7 +1489,7 @@ defmodule AWS.WorkSpaces do
       
       authorize_ip_rules_request() :: %{
         required("GroupId") => String.t(),
-        required("UserRules") => list(ip_rule_item()())
+        required("UserRules") => list(ip_rule_item())
       }
       
   """
@@ -1501,7 +1501,7 @@ defmodule AWS.WorkSpaces do
       
       describe_connection_alias_permissions_result() :: %{
         "AliasId" => String.t(),
-        "ConnectionAliasPermissions" => list(connection_alias_permission()()),
+        "ConnectionAliasPermissions" => list(connection_alias_permission()),
         "NextToken" => String.t()
       }
       
@@ -1558,7 +1558,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_associations_result() :: %{
-        "Associations" => list(workspace_resource_association()())
+        "Associations" => list(workspace_resource_association())
       }
       
   """
@@ -1644,7 +1644,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_applications_request() :: %{
-        optional("ApplicationIds") => list(String.t()()),
+        optional("ApplicationIds") => list(String.t()),
         optional("ComputeTypeNames") => list(list(any())()),
         optional("LicenseType") => list(any()),
         optional("MaxResults") => integer(),
@@ -1681,7 +1681,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_application_associations_result() :: %{
-        "Associations" => list(application_resource_association()()),
+        "Associations" => list(application_resource_association()),
         "NextToken" => String.t()
       }
       
@@ -1693,7 +1693,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_updated_workspace_image_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Description") => String.t(),
         required("Name") => String.t(),
         required("SourceImageId") => String.t()
@@ -1762,7 +1762,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       list_account_links_result() :: %{
-        "AccountLinks" => list(account_link()()),
+        "AccountLinks" => list(account_link()),
         "NextToken" => String.t()
       }
       
@@ -1774,11 +1774,11 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_directories_request() :: %{
-        optional("DirectoryIds") => list(String.t()()),
-        optional("Filters") => list(describe_workspace_directories_filter()()),
+        optional("DirectoryIds") => list(String.t()),
+        optional("Filters") => list(describe_workspace_directories_filter()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("WorkspaceDirectoryNames") => list(String.t()())
+        optional("WorkspaceDirectoryNames") => list(String.t())
       }
       
   """
@@ -1798,7 +1798,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_image_associations_result() :: %{
-        "Associations" => list(image_resource_association()())
+        "Associations" => list(image_resource_association())
       }
       
   """
@@ -1810,7 +1810,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_connection_status_result() :: %{
         "NextToken" => String.t(),
-        "WorkspacesConnectionStatus" => list(workspace_connection_status()())
+        "WorkspacesConnectionStatus" => list(workspace_connection_status())
       }
       
   """
@@ -1912,7 +1912,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_images_result() :: %{
-        "Images" => list(workspace_image()()),
+        "Images" => list(workspace_image()),
         "NextToken" => String.t()
       }
       
@@ -2055,7 +2055,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_result() :: %{
         "NextToken" => String.t(),
-        "Workspaces" => list(workspace()())
+        "Workspaces" => list(workspace())
       }
       
   """
@@ -2066,8 +2066,8 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_workspaces_result() :: %{
-        "FailedRequests" => list(failed_create_workspace_request()()),
-        "PendingRequests" => list(workspace()())
+        "FailedRequests" => list(failed_create_workspace_request()),
+        "PendingRequests" => list(workspace())
       }
       
   """
@@ -2168,10 +2168,10 @@ defmodule AWS.WorkSpaces do
         "ErrorCode" => String.t(),
         "ErrorMessage" => String.t(),
         "IpAddress" => String.t(),
-        "ModificationStates" => list(modification_state()()),
-        "RelatedWorkspaces" => list(related_workspace_properties()()),
+        "ModificationStates" => list(modification_state()),
+        "RelatedWorkspaces" => list(related_workspace_properties()),
         "RootVolumeEncryptionEnabled" => boolean(),
-        "StandbyWorkspacesProperties" => list(standby_workspaces_properties()()),
+        "StandbyWorkspacesProperties" => list(standby_workspaces_properties()),
         "State" => list(any()),
         "SubnetId" => String.t(),
         "UserName" => String.t(),
@@ -2216,7 +2216,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_client_properties_result() :: %{
-        "ClientPropertiesList" => list(client_properties_result()())
+        "ClientPropertiesList" => list(client_properties_result())
       }
       
   """
@@ -2250,8 +2250,8 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_snapshots_result() :: %{
-        "RebuildSnapshots" => list(snapshot()()),
-        "RestoreSnapshots" => list(snapshot()())
+        "RebuildSnapshots" => list(snapshot()),
+        "RestoreSnapshots" => list(snapshot())
       }
       
   """
@@ -2263,7 +2263,7 @@ defmodule AWS.WorkSpaces do
       
       describe_ip_groups_result() :: %{
         "NextToken" => String.t(),
-        "Result" => list(workspaces_ip_group()())
+        "Result" => list(workspaces_ip_group())
       }
       
   """
@@ -2275,7 +2275,7 @@ defmodule AWS.WorkSpaces do
       
       import_workspace_image_request() :: %{
         optional("Applications") => list(list(any())()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Ec2ImageId") => String.t(),
         required("ImageDescription") => String.t(),
         required("ImageName") => String.t(),
@@ -2290,7 +2290,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_connection_alias_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConnectionString") => String.t()
       }
       
@@ -2324,7 +2324,7 @@ defmodule AWS.WorkSpaces do
       describe_workspaces_pools_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2352,8 +2352,8 @@ defmodule AWS.WorkSpaces do
       
       create_ip_group_request() :: %{
         optional("GroupDesc") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("UserRules") => list(ip_rule_item()()),
+        optional("Tags") => list(tag()),
+        optional("UserRules") => list(ip_rule_item()),
         required("GroupName") => String.t()
       }
       
@@ -2393,8 +2393,8 @@ defmodule AWS.WorkSpaces do
         optional("EnableSelfService") => boolean(),
         optional("IdcInstanceArn") => String.t(),
         optional("MicrosoftEntraConfig") => microsoft_entra_config(),
-        optional("SubnetIds") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SubnetIds") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("Tenancy") => list(any()),
         optional("UserIdentityType") => list(any()),
         optional("WorkspaceDirectoryDescription") => String.t(),
@@ -2454,7 +2454,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_workspace_image_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Description") => String.t(),
         required("Name") => String.t(),
         required("WorkspaceId") => String.t()
@@ -2625,7 +2625,7 @@ defmodule AWS.WorkSpaces do
         "DirectoryId" => String.t(),
         "DirectoryName" => String.t(),
         "DirectoryType" => list(any()),
-        "DnsIpAddresses" => list(String.t()()),
+        "DnsIpAddresses" => list(String.t()),
         "EndpointEncryptionMode" => list(any()),
         "ErrorMessage" => String.t(),
         "IDCConfig" => id_c_config(),
@@ -2636,7 +2636,7 @@ defmodule AWS.WorkSpaces do
         "SelfservicePermissions" => selfservice_permissions(),
         "State" => list(any()),
         "StreamingProperties" => streaming_properties(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "Tenancy" => list(any()),
         "UserIdentityType" => list(any()),
         "WorkspaceAccessProperties" => workspace_access_properties(),
@@ -2645,7 +2645,7 @@ defmodule AWS.WorkSpaces do
         "WorkspaceDirectoryName" => String.t(),
         "WorkspaceSecurityGroupId" => String.t(),
         "WorkspaceType" => list(any()),
-        "ipGroupIds" => list(String.t()())
+        "ipGroupIds" => list(String.t())
       }
       
   """
@@ -2668,7 +2668,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       stop_workspaces_result() :: %{
-        "FailedRequests" => list(failed_workspace_change_request()())
+        "FailedRequests" => list(failed_workspace_change_request())
       }
       
   """
@@ -2691,7 +2691,7 @@ defmodule AWS.WorkSpaces do
         "DataReplication" => list(any()),
         "DirectoryId" => String.t(),
         "PrimaryWorkspaceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeEncryptionKey" => String.t()
       }
       
@@ -2703,8 +2703,8 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       create_standby_workspaces_result() :: %{
-        "FailedStandbyRequests" => list(failed_create_standby_workspaces_request()()),
-        "PendingStandbyRequests" => list(pending_create_standby_workspaces_request()())
+        "FailedStandbyRequests" => list(failed_create_standby_workspaces_request()),
+        "PendingStandbyRequests" => list(pending_create_standby_workspaces_request())
       }
       
   """
@@ -2782,7 +2782,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_bundle_associations_result() :: %{
-        "Associations" => list(bundle_resource_association()())
+        "Associations" => list(bundle_resource_association())
       }
       
   """
@@ -2813,7 +2813,7 @@ defmodule AWS.WorkSpaces do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DirectoryId" => String.t(),
-        "Errors" => list(workspaces_pool_error()()),
+        "Errors" => list(workspaces_pool_error()),
         "PoolArn" => String.t(),
         "PoolId" => String.t(),
         "PoolName" => String.t(),
@@ -2831,9 +2831,9 @@ defmodule AWS.WorkSpaces do
       
       streaming_properties() :: %{
         "GlobalAccelerator" => global_accelerator_for_directory(),
-        "StorageConnectors" => list(storage_connector()()),
+        "StorageConnectors" => list(storage_connector()),
         "StreamingExperiencePreferredProtocol" => list(any()),
-        "UserSettings" => list(user_setting()())
+        "UserSettings" => list(user_setting())
       }
       
   """
@@ -2866,7 +2866,7 @@ defmodule AWS.WorkSpaces do
       create_workspaces_pool_request() :: %{
         optional("ApplicationSettings") => application_settings_request(),
         optional("RunningMode") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeoutSettings") => timeout_settings(),
         required("BundleId") => String.t(),
         required("Capacity") => capacity(),
@@ -2903,7 +2903,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_client_properties_request() :: %{
-        required("ResourceIds") => list(String.t()())
+        required("ResourceIds") => list(String.t())
       }
       
   """
@@ -2943,7 +2943,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_tags_result() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -2975,7 +2975,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_bundles_result() :: %{
-        "Bundles" => list(workspace_bundle()()),
+        "Bundles" => list(workspace_bundle()),
         "NextToken" => String.t()
       }
       
@@ -2998,7 +2998,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_ip_groups_request() :: %{
-        optional("GroupIds") => list(String.t()()),
+        optional("GroupIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3020,7 +3020,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       work_space_application_deployment() :: %{
-        "Associations" => list(workspace_resource_association()())
+        "Associations" => list(workspace_resource_association())
       }
       
   """
@@ -3090,7 +3090,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       reboot_workspaces_result() :: %{
-        "FailedRequests" => list(failed_workspace_change_request()())
+        "FailedRequests" => list(failed_workspace_change_request())
       }
       
   """
@@ -3125,7 +3125,7 @@ defmodule AWS.WorkSpaces do
       
       disassociate_ip_groups_request() :: %{
         required("DirectoryId") => String.t(),
-        required("GroupIds") => list(String.t()())
+        required("GroupIds") => list(String.t())
       }
       
   """
@@ -3198,7 +3198,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_pools_result() :: %{
         "NextToken" => String.t(),
-        "WorkspacesPools" => list(workspaces_pool()())
+        "WorkspacesPools" => list(workspaces_pool())
       }
       
   """
@@ -3210,7 +3210,7 @@ defmodule AWS.WorkSpaces do
       
       connection_alias() :: %{
         "AliasId" => String.t(),
-        "Associations" => list(connection_alias_association()()),
+        "Associations" => list(connection_alias_association()),
         "ConnectionString" => String.t(),
         "OwnerAccountId" => String.t(),
         "State" => list(any())
@@ -3238,7 +3238,7 @@ defmodule AWS.WorkSpaces do
         "BundleId" => String.t(),
         "DirectoryId" => String.t(),
         "RootVolumeEncryptionEnabled" => boolean(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UserName" => String.t(),
         "UserVolumeEncryptionEnabled" => boolean(),
         "VolumeEncryptionKey" => String.t(),
@@ -3255,7 +3255,7 @@ defmodule AWS.WorkSpaces do
       
       describe_workspaces_connection_status_request() :: %{
         optional("NextToken") => String.t(),
-        optional("WorkspaceIds") => list(String.t()())
+        optional("WorkspaceIds") => list(String.t())
       }
       
   """
@@ -3288,7 +3288,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_connect_client_add_ins_result() :: %{
-        "AddIns" => list(connect_client_add_in()()),
+        "AddIns" => list(connect_client_add_in()),
         "NextToken" => String.t()
       }
       
@@ -3313,7 +3313,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspace_directories_result() :: %{
-        "Directories" => list(workspace_directory()()),
+        "Directories" => list(workspace_directory()),
         "NextToken" => String.t()
       }
       
@@ -3359,7 +3359,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_applications_result() :: %{
-        "Applications" => list(work_space_application()()),
+        "Applications" => list(work_space_application()),
         "NextToken" => String.t()
       }
       
@@ -3391,7 +3391,7 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       stop_workspaces_request() :: %{
-        required("StopWorkspaceRequests") => list(stop_request()())
+        required("StopWorkspaceRequests") => list(stop_request())
       }
       
   """
@@ -3415,10 +3415,10 @@ defmodule AWS.WorkSpaces do
   ## Example:
       
       describe_workspaces_pools_request() :: %{
-        optional("Filters") => list(describe_workspaces_pools_filter()()),
+        optional("Filters") => list(describe_workspaces_pools_filter()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("PoolIds") => list(String.t()())
+        optional("PoolIds") => list(String.t())
       }
       
   """
@@ -4021,7 +4021,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, accept_account_link_invitation_errors()}
   def accept_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAccountLinkInvitation", input, options)
   end
@@ -4044,7 +4045,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, associate_connection_alias_errors()}
   def associate_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConnectionAlias", input, options)
   end
@@ -4058,7 +4060,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, associate_ip_groups_errors()}
   def associate_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateIpGroups", input, options)
   end
@@ -4072,7 +4075,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, associate_workspace_application_errors()}
   def associate_workspace_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateWorkspaceApplication", input, options)
   end
@@ -4090,7 +4094,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, authorize_ip_rules_errors()}
   def authorize_ip_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeIpRules", input, options)
   end
@@ -4121,7 +4126,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, copy_workspace_image_errors()}
   def copy_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyWorkspaceImage", input, options)
   end
@@ -4135,7 +4141,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_account_link_invitation_errors()}
   def create_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccountLinkInvitation", input, options)
   end
@@ -4155,7 +4162,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_connect_client_add_in_errors()}
   def create_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnectClientAddIn", input, options)
   end
@@ -4173,7 +4181,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_connection_alias_errors()}
   def create_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnectionAlias", input, options)
   end
@@ -4205,7 +4214,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_ip_group_errors()}
   def create_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpGroup", input, options)
   end
@@ -4219,7 +4229,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_standby_workspaces_errors()}
   def create_standby_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStandbyWorkspaces", input, options)
   end
@@ -4233,7 +4244,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -4268,7 +4280,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_updated_workspace_image_errors()}
   def create_updated_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUpdatedWorkspaceImage", input, options)
   end
@@ -4287,7 +4300,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_workspace_bundle_errors()}
   def create_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceBundle", input, options)
   end
@@ -4301,7 +4315,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_workspace_image_errors()}
   def create_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceImage", input, options)
   end
@@ -4338,7 +4353,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_workspaces_errors()}
   def create_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaces", input, options)
   end
@@ -4352,7 +4368,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, create_workspaces_pool_errors()}
   def create_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspacesPool", input, options)
   end
@@ -4366,7 +4383,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_account_link_invitation_errors()}
   def delete_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccountLinkInvitation", input, options)
   end
@@ -4391,7 +4409,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_client_branding_errors()}
   def delete_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClientBranding", input, options)
   end
@@ -4406,7 +4425,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_connect_client_add_in_errors()}
   def delete_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnectClientAddIn", input, options)
   end
@@ -4437,7 +4457,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_connection_alias_errors()}
   def delete_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnectionAlias", input, options)
   end
@@ -4454,7 +4475,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_ip_group_errors()}
   def delete_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpGroup", input, options)
   end
@@ -4468,7 +4490,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -4487,7 +4510,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_workspace_bundle_errors()}
   def delete_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceBundle", input, options)
   end
@@ -4506,7 +4530,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, delete_workspace_image_errors()}
   def delete_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceImage", input, options)
   end
@@ -4520,7 +4545,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, deploy_workspace_applications_errors()}
   def deploy_workspace_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeployWorkspaceApplications", input, options)
   end
@@ -4554,7 +4580,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, deregister_workspace_directory_errors()}
   def deregister_workspace_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterWorkspaceDirectory", input, options)
   end
@@ -4570,7 +4597,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_account_errors()}
   def describe_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccount", input, options)
   end
@@ -4586,7 +4614,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_account_modifications_errors()}
   def describe_account_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountModifications", input, options)
   end
@@ -4605,7 +4634,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_application_associations_errors()}
   def describe_application_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationAssociations", input, options)
   end
@@ -4620,7 +4650,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_applications_errors()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -4634,7 +4665,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_bundle_associations_errors()}
   def describe_bundle_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBundleAssociations", input, options)
   end
@@ -4658,7 +4690,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_client_branding_errors()}
   def describe_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientBranding", input, options)
   end
@@ -4672,7 +4705,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_client_properties_errors()}
   def describe_client_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientProperties", input, options)
   end
@@ -4686,7 +4720,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_connect_client_add_ins_errors()}
   def describe_connect_client_add_ins(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectClientAddIns", input, options)
   end
@@ -4710,7 +4745,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_connection_alias_permissions_errors()}
   def describe_connection_alias_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionAliasPermissions", input, options)
   end
@@ -4728,7 +4764,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_connection_aliases_errors()}
   def describe_connection_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionAliases", input, options)
   end
@@ -4742,7 +4779,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_image_associations_errors()}
   def describe_image_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageAssociations", input, options)
   end
@@ -4756,7 +4794,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_ip_groups_errors()}
   def describe_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpGroups", input, options)
   end
@@ -4770,7 +4809,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -4784,7 +4824,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_associations_errors()}
   def describe_workspace_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceAssociations", input, options)
   end
@@ -4800,7 +4841,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_bundles_errors()}
   def describe_workspace_bundles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceBundles", input, options)
   end
@@ -4814,7 +4856,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_directories_errors()}
   def describe_workspace_directories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceDirectories", input, options)
   end
@@ -4833,7 +4876,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_image_permissions_errors()}
   def describe_workspace_image_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceImagePermissions", input, options)
   end
@@ -4851,7 +4895,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_images_errors()}
   def describe_workspace_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceImages", input, options)
   end
@@ -4865,7 +4910,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspace_snapshots_errors()}
   def describe_workspace_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaceSnapshots", input, options)
   end
@@ -4883,7 +4929,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspaces_errors()}
   def describe_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspaces", input, options)
   end
@@ -4901,7 +4948,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspaces_connection_status_errors()}
   def describe_workspaces_connection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesConnectionStatus", input, options)
   end
@@ -4919,7 +4967,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspaces_pool_sessions_errors()}
   def describe_workspaces_pool_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesPoolSessions", input, options)
   end
@@ -4933,7 +4982,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, describe_workspaces_pools_errors()}
   def describe_workspaces_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkspacesPools", input, options)
   end
@@ -4958,7 +5008,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, disassociate_connection_alias_errors()}
   def disassociate_connection_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnectionAlias", input, options)
   end
@@ -4973,7 +5024,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, disassociate_ip_groups_errors()}
   def disassociate_ip_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateIpGroups", input, options)
   end
@@ -4991,7 +5043,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, disassociate_workspace_application_errors()}
   def disassociate_workspace_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateWorkspaceApplication", input, options)
   end
@@ -5005,7 +5058,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, get_account_link_errors()}
   def get_account_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountLink", input, options)
   end
@@ -5048,7 +5102,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, import_client_branding_errors()}
   def import_client_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportClientBranding", input, options)
   end
@@ -5069,7 +5124,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, import_workspace_image_errors()}
   def import_workspace_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportWorkspaceImage", input, options)
   end
@@ -5083,7 +5139,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, list_account_links_errors()}
   def list_account_links(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountLinks", input, options)
   end
@@ -5115,7 +5172,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, list_available_management_cidr_ranges_errors()}
   def list_available_management_cidr_ranges(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagementCidrRanges", input, options)
   end
@@ -5143,7 +5201,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, migrate_workspace_errors()}
   def migrate_workspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MigrateWorkspace", input, options)
   end
@@ -5158,7 +5217,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_account_errors()}
   def modify_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAccount", input, options)
   end
@@ -5177,7 +5237,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_certificate_based_auth_properties_errors()}
   def modify_certificate_based_auth_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCertificateBasedAuthProperties", input, options)
   end
@@ -5191,7 +5252,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_client_properties_errors()}
   def modify_client_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClientProperties", input, options)
   end
@@ -5206,7 +5268,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_endpoint_encryption_mode_errors()}
   def modify_endpoint_encryption_mode(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEndpointEncryptionMode", input, options)
   end
@@ -5224,7 +5287,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_saml_properties_errors()}
   def modify_saml_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySamlProperties", input, options)
   end
@@ -5241,7 +5305,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_selfservice_permissions_errors()}
   def modify_selfservice_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySelfservicePermissions", input, options)
   end
@@ -5255,7 +5320,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_streaming_properties_errors()}
   def modify_streaming_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyStreamingProperties", input, options)
   end
@@ -5278,7 +5344,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_workspace_access_properties_errors()}
   def modify_workspace_access_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceAccessProperties", input, options)
   end
@@ -5296,7 +5363,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_workspace_creation_properties_errors()}
   def modify_workspace_creation_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceCreationProperties", input, options)
   end
@@ -5317,7 +5385,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_workspace_properties_errors()}
   def modify_workspace_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceProperties", input, options)
   end
@@ -5338,7 +5407,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, modify_workspace_state_errors()}
   def modify_workspace_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyWorkspaceState", input, options)
   end
@@ -5359,7 +5429,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, reboot_workspaces_errors()}
   def reboot_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootWorkspaces", input, options)
   end
@@ -5385,7 +5456,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, rebuild_workspaces_errors()}
   def rebuild_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebuildWorkspaces", input, options)
   end
@@ -5408,7 +5480,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, register_workspace_directory_errors()}
   def register_workspace_directory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterWorkspaceDirectory", input, options)
   end
@@ -5422,7 +5495,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, reject_account_link_invitation_errors()}
   def reject_account_link_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAccountLinkInvitation", input, options)
   end
@@ -5446,7 +5520,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, restore_workspace_errors()}
   def restore_workspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreWorkspace", input, options)
   end
@@ -5460,7 +5535,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, revoke_ip_rules_errors()}
   def revoke_ip_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeIpRules", input, options)
   end
@@ -5476,7 +5552,8 @@ defmodule AWS.WorkSpaces do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkspaces", input, options)
   end
@@ -5493,7 +5570,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, start_workspaces_pool_errors()}
   def start_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkspacesPool", input, options)
   end
@@ -5510,7 +5588,8 @@ defmodule AWS.WorkSpaces do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkspaces", input, options)
   end
@@ -5527,7 +5606,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, stop_workspaces_pool_errors()}
   def stop_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkspacesPool", input, options)
   end
@@ -5575,7 +5655,8 @@ defmodule AWS.WorkSpaces do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def terminate_workspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspaces", input, options)
   end
@@ -5589,7 +5670,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, terminate_workspaces_pool_errors()}
   def terminate_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspacesPool", input, options)
   end
@@ -5607,7 +5689,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, terminate_workspaces_pool_session_errors()}
   def terminate_workspaces_pool_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkspacesPoolSession", input, options)
   end
@@ -5624,7 +5707,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_connect_client_add_in_errors()}
   def update_connect_client_add_in(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnectClientAddIn", input, options)
   end
@@ -5666,7 +5750,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_connection_alias_permission_errors()}
   def update_connection_alias_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnectionAliasPermission", input, options)
   end
@@ -5682,7 +5767,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_rules_of_ip_group_errors()}
   def update_rules_of_ip_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRulesOfIpGroup", input, options)
   end
@@ -5707,7 +5793,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_workspace_bundle_errors()}
   def update_workspace_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspaceBundle", input, options)
   end
@@ -5755,7 +5842,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_workspace_image_permission_errors()}
   def update_workspace_image_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspaceImagePermission", input, options)
   end
@@ -5769,7 +5857,8 @@ defmodule AWS.WorkSpaces do
           | {:error, term()}
           | {:error, update_workspaces_pool_errors()}
   def update_workspaces_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkspacesPool", input, options)
   end

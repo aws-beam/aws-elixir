@@ -58,7 +58,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_destinations_response() :: %{
-        "DestinationList" => list(destinations()()),
+        "DestinationList" => list(destinations()),
         "NextToken" => String.t()
       }
 
@@ -116,7 +116,7 @@ defmodule AWS.IoTWireless do
       start_single_wireless_device_import_task_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("DeviceName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DestinationName") => String.t(),
         required("Sidewalk") => sidewalk_single_start_import_info()
       }
@@ -130,7 +130,7 @@ defmodule AWS.IoTWireless do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -142,7 +142,7 @@ defmodule AWS.IoTWireless do
 
       list_position_configurations_response() :: %{
         "NextToken" => String.t(),
-        "PositionConfigurationList" => list(position_configuration_item()())
+        "PositionConfigurationList" => list(position_configuration_item())
       }
 
   """
@@ -250,7 +250,7 @@ defmodule AWS.IoTWireless do
 
       summary_metric_query() :: %{
         "AggregationPeriod" => list(any()),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "EndTimestamp" => non_neg_integer(),
         "MetricName" => list(any()),
         "QueryId" => String.t(),
@@ -321,7 +321,7 @@ defmodule AWS.IoTWireless do
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("LoRaWAN") => lo_ra_w_a_n_gateway()
       }
 
@@ -335,7 +335,7 @@ defmodule AWS.IoTWireless do
       create_destination_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Expression") => String.t(),
         required("ExpressionType") => list(any()),
         required("Name") => String.t(),
@@ -508,11 +508,11 @@ defmodule AWS.IoTWireless do
       get_network_analyzer_configuration_response() :: %{
         "Arn" => String.t(),
         "Description" => String.t(),
-        "MulticastGroups" => list(String.t()()),
+        "MulticastGroups" => list(String.t()),
         "Name" => String.t(),
         "TraceContent" => trace_content(),
-        "WirelessDevices" => list(String.t()()),
-        "WirelessGateways" => list(String.t()())
+        "WirelessDevices" => list(String.t()),
+        "WirelessGateways" => list(String.t())
       }
 
   """
@@ -689,11 +689,11 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       cell_towers() :: %{
-        "Cdma" => list(cdma_obj()()),
-        "Gsm" => list(gsm_obj()()),
-        "Lte" => list(lte_obj()()),
-        "Tdscdma" => list(tdscdma_obj()()),
-        "Wcdma" => list(wcdma_obj()())
+        "Cdma" => list(cdma_obj()),
+        "Gsm" => list(gsm_obj()),
+        "Lte" => list(lte_obj()),
+        "Tdscdma" => list(tdscdma_obj()),
+        "Wcdma" => list(wcdma_obj())
       }
 
   """
@@ -920,7 +920,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       participating_gateways_multicast() :: %{
-        "GatewayList" => list(String.t()()),
+        "GatewayList" => list(String.t()),
         "TransmissionInterval" => integer()
       }
 
@@ -1065,7 +1065,7 @@ defmodule AWS.IoTWireless do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1153,11 +1153,11 @@ defmodule AWS.IoTWireless do
       create_network_analyzer_configuration_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
-        optional("MulticastGroups") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("MulticastGroups") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("TraceContent") => trace_content(),
-        optional("WirelessDevices") => list(String.t()()),
-        optional("WirelessGateways") => list(String.t()()),
+        optional("WirelessDevices") => list(String.t()),
+        optional("WirelessGateways") => list(String.t()),
         required("Name") => String.t()
       }
 
@@ -1376,7 +1376,7 @@ defmodule AWS.IoTWireless do
 
       list_wireless_device_import_tasks_response() :: %{
         "NextToken" => String.t(),
-        "WirelessDeviceImportTaskList" => list(wireless_device_import_task()())
+        "WirelessDeviceImportTaskList" => list(wireless_device_import_task())
       }
 
   """
@@ -1425,7 +1425,7 @@ defmodule AWS.IoTWireless do
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("LoRaWAN") => lo_ra_w_a_n_multicast()
       }
 
@@ -1462,7 +1462,7 @@ defmodule AWS.IoTWireless do
 
       list_wireless_gateways_response() :: %{
         "NextToken" => String.t(),
-        "WirelessGatewayList" => list(wireless_gateway_statistics()())
+        "WirelessGatewayList" => list(wireless_gateway_statistics())
       }
 
   """
@@ -1474,7 +1474,7 @@ defmodule AWS.IoTWireless do
 
       list_wireless_devices_response() :: %{
         "NextToken" => String.t(),
-        "WirelessDeviceList" => list(wireless_device_statistics()())
+        "WirelessDeviceList" => list(wireless_device_statistics())
       }
 
   """
@@ -1487,11 +1487,11 @@ defmodule AWS.IoTWireless do
       lo_ra_w_a_n_gateway() :: %{
         "Beaconing" => beaconing(),
         "GatewayEui" => String.t(),
-        "JoinEuiFilters" => list(list(String.t()())()),
+        "JoinEuiFilters" => list(list(String.t())()),
         "MaxEirp" => float(),
-        "NetIdFilters" => list(String.t()()),
+        "NetIdFilters" => list(String.t()),
         "RfRegion" => String.t(),
-        "SubBands" => list(integer()())
+        "SubBands" => list(integer())
       }
 
   """
@@ -1503,7 +1503,7 @@ defmodule AWS.IoTWireless do
 
       associate_aws_account_with_partner_account_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Sidewalk") => sidewalk_account_info()
       }
 
@@ -1516,7 +1516,7 @@ defmodule AWS.IoTWireless do
 
       get_position_response() :: %{
         "Accuracy" => accuracy(),
-        "Position" => list(float()()),
+        "Position" => list(float()),
         "SolverProvider" => list(any()),
         "SolverType" => list(any()),
         "SolverVersion" => String.t(),
@@ -1571,7 +1571,7 @@ defmodule AWS.IoTWireless do
       lo_ra_w_a_n_device_profile() :: %{
         "ClassBTimeout" => integer(),
         "ClassCTimeout" => integer(),
-        "FactoryPresetFreqsList" => list(integer()()),
+        "FactoryPresetFreqsList" => list(integer()),
         "MacVersion" => String.t(),
         "MaxDutyCycle" => integer(),
         "MaxEirp" => integer(),
@@ -1775,7 +1775,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_metrics_request() :: %{
-        optional("SummaryMetricQueries") => list(summary_metric_query()())
+        optional("SummaryMetricQueries") => list(summary_metric_query())
       }
 
   """
@@ -1913,7 +1913,7 @@ defmodule AWS.IoTWireless do
 
       gnss() :: %{
         "AssistAltitude" => float(),
-        "AssistPosition" => list(float()()),
+        "AssistPosition" => list(float()),
         "CaptureTime" => float(),
         "CaptureTimeAccuracy" => float(),
         "Payload" => String.t(),
@@ -2010,7 +2010,7 @@ defmodule AWS.IoTWireless do
         optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
         optional("Name") => String.t(),
         optional("RedundancyPercent") => integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FirmwareUpdateImage") => String.t(),
         required("FirmwareUpdateRole") => String.t()
       }
@@ -2077,7 +2077,7 @@ defmodule AWS.IoTWireless do
         "PathLoss" => integer(),
         "Rscp" => integer(),
         "TdscdmaLocalId" => tdscdma_local_id(),
-        "TdscdmaNmr" => list(tdscdma_nmr_obj()()),
+        "TdscdmaNmr" => list(tdscdma_nmr_obj()),
         "TdscdmaTimingAdvance" => integer(),
         "UtranCid" => integer()
       }
@@ -2094,8 +2094,8 @@ defmodule AWS.IoTWireless do
         "DevEui" => String.t(),
         "FPort" => integer(),
         "Frequency" => integer(),
-        "Gateways" => list(lo_ra_w_a_n_gateway_metadata()()),
-        "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()()),
+        "Gateways" => list(lo_ra_w_a_n_gateway_metadata()),
+        "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()),
         "Timestamp" => String.t()
       }
 
@@ -2150,7 +2150,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2395,7 +2395,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_multicast_groups_by_fuota_task_response() :: %{
-        "MulticastGroupList" => list(multicast_group_by_fuota_task()()),
+        "MulticastGroupList" => list(multicast_group_by_fuota_task()),
         "NextToken" => String.t()
       }
 
@@ -2428,7 +2428,7 @@ defmodule AWS.IoTWireless do
 
       list_service_profiles_response() :: %{
         "NextToken" => String.t(),
-        "ServiceProfileList" => list(service_profile()())
+        "ServiceProfileList" => list(service_profile())
       }
 
   """
@@ -2445,7 +2445,7 @@ defmodule AWS.IoTWireless do
         optional("Name") => String.t(),
         optional("Positioning") => list(any()),
         optional("Sidewalk") => sidewalk_create_wireless_device(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DestinationName") => String.t(),
         required("Type") => list(any())
       }
@@ -2491,7 +2491,7 @@ defmodule AWS.IoTWireless do
 
       list_devices_for_wireless_device_import_task_response() :: %{
         "DestinationName" => String.t(),
-        "ImportedWirelessDeviceList" => list(imported_wireless_device()()),
+        "ImportedWirelessDeviceList" => list(imported_wireless_device()),
         "NextToken" => String.t()
       }
 
@@ -2555,7 +2555,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_event_configurations_response() :: %{
-        "EventConfigurationsList" => list(event_configuration_item()()),
+        "EventConfigurationsList" => list(event_configuration_item()),
         "NextToken" => String.t()
       }
 
@@ -2579,7 +2579,7 @@ defmodule AWS.IoTWireless do
         optional("ClientRequestToken") => String.t(),
         optional("LoRaWAN") => lo_ra_w_a_n_service_profile(),
         optional("Name") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -2590,7 +2590,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       fuota_task_log_option() :: %{
-        "Events" => list(fuota_task_event_log_option()()),
+        "Events" => list(fuota_task_event_log_option()),
         "LogLevel" => list(any()),
         "Type" => list(any())
       }
@@ -2603,7 +2603,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       wireless_gateway_log_option() :: %{
-        "Events" => list(wireless_gateway_event_log_option()()),
+        "Events" => list(wireless_gateway_event_log_option()),
         "LogLevel" => list(any()),
         "Type" => list(any())
       }
@@ -2691,7 +2691,7 @@ defmodule AWS.IoTWireless do
 
       list_wireless_gateway_task_definitions_response() :: %{
         "NextToken" => String.t(),
-        "TaskDefinitions" => list(update_wireless_gateway_task_entry()())
+        "TaskDefinitions" => list(update_wireless_gateway_task_entry())
       }
 
   """
@@ -2702,7 +2702,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       get_metrics_response() :: %{
-        "SummaryMetricQueryResults" => list(summary_metric_query_result()())
+        "SummaryMetricQueryResults" => list(summary_metric_query_result())
       }
 
   """
@@ -2855,9 +2855,9 @@ defmodule AWS.IoTWireless do
 
       update_log_levels_by_resource_types_request() :: %{
         optional("DefaultLogLevel") => list(any()),
-        optional("FuotaTaskLogOptions") => list(fuota_task_log_option()()),
-        optional("WirelessDeviceLogOptions") => list(wireless_device_log_option()()),
-        optional("WirelessGatewayLogOptions") => list(wireless_gateway_log_option()())
+        optional("FuotaTaskLogOptions") => list(fuota_task_log_option()),
+        optional("WirelessDeviceLogOptions") => list(wireless_device_log_option()),
+        optional("WirelessGatewayLogOptions") => list(wireless_gateway_log_option())
       }
 
   """
@@ -2877,7 +2877,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       update_position_request() :: %{
-        required("Position") => list(float()()),
+        required("Position") => list(float()),
         required("ResourceType") => list(any())
       }
 
@@ -2951,7 +2951,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_network_analyzer_configurations_response() :: %{
-        "NetworkAnalyzerConfigurationList" => list(network_analyzer_configurations()()),
+        "NetworkAnalyzerConfigurationList" => list(network_analyzer_configurations()),
         "NextToken" => String.t()
       }
 
@@ -2987,13 +2987,13 @@ defmodule AWS.IoTWireless do
 
       update_network_analyzer_configuration_request() :: %{
         optional("Description") => String.t(),
-        optional("MulticastGroupsToAdd") => list(String.t()()),
-        optional("MulticastGroupsToRemove") => list(String.t()()),
+        optional("MulticastGroupsToAdd") => list(String.t()),
+        optional("MulticastGroupsToRemove") => list(String.t()),
         optional("TraceContent") => trace_content(),
-        optional("WirelessDevicesToAdd") => list(String.t()()),
-        optional("WirelessDevicesToRemove") => list(String.t()()),
-        optional("WirelessGatewaysToAdd") => list(String.t()()),
-        optional("WirelessGatewaysToRemove") => list(String.t()())
+        optional("WirelessDevicesToAdd") => list(String.t()),
+        optional("WirelessDevicesToRemove") => list(String.t()),
+        optional("WirelessGatewaysToAdd") => list(String.t()),
+        optional("WirelessGatewaysToRemove") => list(String.t())
       }
 
   """
@@ -3029,7 +3029,7 @@ defmodule AWS.IoTWireless do
       gsm_obj() :: %{
         "GeranCid" => integer(),
         "GsmLocalId" => gsm_local_id(),
-        "GsmNmr" => list(gsm_nmr_obj()()),
+        "GsmNmr" => list(gsm_nmr_obj()),
         "GsmTimingAdvance" => integer(),
         "Lac" => integer(),
         "Mcc" => integer(),
@@ -3055,7 +3055,7 @@ defmodule AWS.IoTWireless do
 
       beaconing() :: %{
         "DataRate" => integer(),
-        "Frequencies" => list(integer()())
+        "Frequencies" => list(integer())
       }
 
   """
@@ -3103,7 +3103,7 @@ defmodule AWS.IoTWireless do
         optional("Gnss") => gnss(),
         optional("Ip") => ip(),
         optional("Timestamp") => non_neg_integer(),
-        optional("WiFiAccessPoints") => list(wi_fi_access_point()())
+        optional("WiFiAccessPoints") => list(wi_fi_access_point())
       }
 
   """
@@ -3115,7 +3115,7 @@ defmodule AWS.IoTWireless do
 
       participating_gateways() :: %{
         "DownlinkMode" => list(any()),
-        "GatewayList" => list(gateway_list_item()()),
+        "GatewayList" => list(gateway_list_item()),
         "TransmissionInterval" => integer()
       }
 
@@ -3291,7 +3291,7 @@ defmodule AWS.IoTWireless do
 
       list_partner_accounts_response() :: %{
         "NextToken" => String.t(),
-        "Sidewalk" => list(sidewalk_account_info_with_fingerprint()())
+        "Sidewalk" => list(sidewalk_account_info_with_fingerprint())
       }
 
   """
@@ -3357,7 +3357,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_queued_messages_response() :: %{
-        "DownlinkQueueMessagesList" => list(downlink_queue_message()()),
+        "DownlinkQueueMessagesList" => list(downlink_queue_message()),
         "NextToken" => String.t()
       }
 
@@ -3380,7 +3380,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       update_f_ports() :: %{
-        "Applications" => list(application_config()()),
+        "Applications" => list(application_config()),
         "Positioning" => positioning()
       }
 
@@ -3453,7 +3453,7 @@ defmodule AWS.IoTWireless do
         "Rscp" => integer(),
         "UtranCid" => integer(),
         "WcdmaLocalId" => wcdma_local_id(),
-        "WcdmaNmr" => list(wcdma_nmr_obj()())
+        "WcdmaNmr" => list(wcdma_nmr_obj())
       }
 
   """
@@ -3507,7 +3507,7 @@ defmodule AWS.IoTWireless do
 
       start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
         optional("QueryString") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -3561,9 +3561,9 @@ defmodule AWS.IoTWireless do
       sidewalk_device() :: %{
         "AmazonId" => String.t(),
         "CertificateId" => String.t(),
-        "DeviceCertificates" => list(certificate_list()()),
+        "DeviceCertificates" => list(certificate_list()),
         "DeviceProfileId" => String.t(),
-        "PrivateKeys" => list(certificate_list()()),
+        "PrivateKeys" => list(certificate_list()),
         "SidewalkId" => String.t(),
         "SidewalkManufacturingSn" => String.t(),
         "Status" => list(any())
@@ -3590,9 +3590,9 @@ defmodule AWS.IoTWireless do
 
       get_log_levels_by_resource_types_response() :: %{
         "DefaultLogLevel" => list(any()),
-        "FuotaTaskLogOptions" => list(fuota_task_log_option()()),
-        "WirelessDeviceLogOptions" => list(wireless_device_log_option()()),
-        "WirelessGatewayLogOptions" => list(wireless_gateway_log_option()())
+        "FuotaTaskLogOptions" => list(fuota_task_log_option()),
+        "WirelessDeviceLogOptions" => list(wireless_device_log_option()),
+        "WirelessGatewayLogOptions" => list(wireless_gateway_log_option())
       }
 
   """
@@ -3615,7 +3615,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_multicast_groups_response() :: %{
-        "MulticastGroupList" => list(multicast_group()()),
+        "MulticastGroupList" => list(multicast_group()),
         "NextToken" => String.t()
       }
 
@@ -3655,7 +3655,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       f_ports() :: %{
-        "Applications" => list(application_config()()),
+        "Applications" => list(application_config()),
         "ClockSync" => integer(),
         "Fuota" => integer(),
         "Multicast" => integer(),
@@ -3699,7 +3699,7 @@ defmodule AWS.IoTWireless do
 
       start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
         optional("QueryString") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -3724,10 +3724,10 @@ defmodule AWS.IoTWireless do
 
       update_wireless_gateway_request() :: %{
         optional("Description") => String.t(),
-        optional("JoinEuiFilters") => list(list(String.t()())()),
+        optional("JoinEuiFilters") => list(list(String.t())()),
         optional("MaxEirp") => float(),
         optional("Name") => String.t(),
-        optional("NetIdFilters") => list(String.t()())
+        optional("NetIdFilters") => list(String.t())
       }
 
   """
@@ -3740,7 +3740,7 @@ defmodule AWS.IoTWireless do
       create_wireless_gateway_task_definition_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Name") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Update") => update_wireless_gateway_task_create(),
         required("AutoCreateTasks") => boolean()
       }
@@ -3790,7 +3790,7 @@ defmodule AWS.IoTWireless do
         optional("LoRaWAN") => lo_ra_w_a_n_device_profile(),
         optional("Name") => String.t(),
         optional("Sidewalk") => sidewalk_create_device_profile(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -3822,7 +3822,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       wireless_device_log_option() :: %{
-        "Events" => list(wireless_device_event_log_option()()),
+        "Events" => list(wireless_device_event_log_option()),
         "LogLevel" => list(any()),
         "Type" => list(any())
       }
@@ -3836,16 +3836,16 @@ defmodule AWS.IoTWireless do
 
       summary_metric_query_result() :: %{
         "AggregationPeriod" => list(any()),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "EndTimestamp" => non_neg_integer(),
         "Error" => String.t(),
         "MetricName" => list(any()),
         "QueryId" => String.t(),
         "QueryStatus" => list(any()),
         "StartTimestamp" => non_neg_integer(),
-        "Timestamps" => list(non_neg_integer()()),
+        "Timestamps" => list(non_neg_integer()),
         "Unit" => String.t(),
-        "Values" => list(metric_query_value()())
+        "Values" => list(metric_query_value())
       }
 
   """
@@ -3857,7 +3857,7 @@ defmodule AWS.IoTWireless do
 
       start_wireless_device_import_task_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DestinationName") => String.t(),
         required("Sidewalk") => sidewalk_start_import_info()
       }
@@ -3891,7 +3891,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_fuota_tasks_response() :: %{
-        "FuotaTaskList" => list(fuota_task()()),
+        "FuotaTaskList" => list(fuota_task()),
         "NextToken" => String.t()
       }
 
@@ -4040,7 +4040,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       list_device_profiles_response() :: %{
-        "DeviceProfileList" => list(device_profile()()),
+        "DeviceProfileList" => list(device_profile()),
         "NextToken" => String.t()
       }
 
@@ -4105,7 +4105,7 @@ defmodule AWS.IoTWireless do
 
       sidewalk_get_device_profile() :: %{
         "ApplicationServerPublicKey" => String.t(),
-        "DakCertificateMetadata" => list(dak_certificate_metadata()()),
+        "DakCertificateMetadata" => list(dak_certificate_metadata()),
         "QualificationStatus" => boolean()
       }
 
@@ -4221,7 +4221,7 @@ defmodule AWS.IoTWireless do
 
       sidewalk_list_device() :: %{
         "AmazonId" => String.t(),
-        "DeviceCertificates" => list(certificate_list()()),
+        "DeviceCertificates" => list(certificate_list()),
         "DeviceProfileId" => String.t(),
         "SidewalkId" => String.t(),
         "SidewalkManufacturingSn" => String.t(),
@@ -4286,7 +4286,7 @@ defmodule AWS.IoTWireless do
       lte_obj() :: %{
         "EutranCid" => integer(),
         "LteLocalId" => lte_local_id(),
-        "LteNmr" => list(lte_nmr_obj()()),
+        "LteNmr" => list(lte_nmr_obj()),
         "LteTimingAdvance" => integer(),
         "Mcc" => integer(),
         "Mnc" => integer(),
@@ -4386,7 +4386,7 @@ defmodule AWS.IoTWireless do
   ## Example:
 
       sidewalk_get_start_import_info() :: %{
-        "DeviceCreationFileList" => list(String.t()()),
+        "DeviceCreationFileList" => list(String.t()),
         "Role" => String.t()
       }
 
@@ -4402,7 +4402,7 @@ defmodule AWS.IoTWireless do
         "BaseLng" => float(),
         "BaseStationId" => integer(),
         "CdmaLocalId" => cdma_local_id(),
-        "CdmaNmr" => list(cdma_nmr_obj()()),
+        "CdmaNmr" => list(cdma_nmr_obj()),
         "NetworkId" => integer(),
         "PilotPower" => integer(),
         "RegistrationZone" => integer(),

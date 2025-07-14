@@ -52,7 +52,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       get_agreement_terms_output() :: %{
-        "acceptedTerms" => list(list()()),
+        "acceptedTerms" => list(list()),
         "nextToken" => String.t()
       }
       
@@ -76,7 +76,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       configurable_upfront_pricing_term_configuration() :: %{
-        "dimensions" => list(dimension()()),
+        "dimensions" => list(dimension()),
         "selectorValue" => String.t()
       }
       
@@ -202,7 +202,7 @@ defmodule AWS.MarketplaceAgreement do
       
       usage_based_pricing_term() :: %{
         "currencyCode" => String.t(),
-        "rateCards" => list(usage_based_rate_card_item()()),
+        "rateCards" => list(usage_based_rate_card_item()),
         "type" => String.t()
       }
       
@@ -262,7 +262,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       legal_term() :: %{
-        "documents" => list(document_item()()),
+        "documents" => list(document_item()),
         "type" => String.t()
       }
       
@@ -287,7 +287,7 @@ defmodule AWS.MarketplaceAgreement do
       
       payment_schedule_term() :: %{
         "currencyCode" => String.t(),
-        "schedule" => list(schedule_item()()),
+        "schedule" => list(schedule_item()),
         "type" => String.t()
       }
       
@@ -299,7 +299,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       usage_based_rate_card_item() :: %{
-        "rateCard" => list(rate_card_item()())
+        "rateCard" => list(rate_card_item())
       }
       
   """
@@ -324,7 +324,7 @@ defmodule AWS.MarketplaceAgreement do
       
       filter() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -358,7 +358,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       search_agreements_output() :: %{
-        "agreementViewSummaries" => list(agreement_view_summary()()),
+        "agreementViewSummaries" => list(agreement_view_summary()),
         "nextToken" => String.t()
       }
       
@@ -384,7 +384,7 @@ defmodule AWS.MarketplaceAgreement do
       fixed_upfront_pricing_term() :: %{
         "currencyCode" => String.t(),
         "duration" => String.t(),
-        "grants" => list(grant_item()()),
+        "grants" => list(grant_item()),
         "price" => String.t(),
         "type" => String.t()
       }
@@ -398,7 +398,7 @@ defmodule AWS.MarketplaceAgreement do
       
       search_agreements_input() :: %{
         optional("catalog") => String.t(),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sort") => sort()
@@ -437,7 +437,7 @@ defmodule AWS.MarketplaceAgreement do
       
       configurable_upfront_rate_card_item() :: %{
         "constraints" => constraints(),
-        "rateCard" => list(rate_card_item()()),
+        "rateCard" => list(rate_card_item()),
         "selector" => selector()
       }
       
@@ -461,7 +461,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any()),
         "requestId" => String.t()
@@ -476,7 +476,7 @@ defmodule AWS.MarketplaceAgreement do
       
       proposal_summary() :: %{
         "offerId" => String.t(),
-        "resources" => list(resource()())
+        "resources" => list(resource())
       }
       
   """
@@ -500,7 +500,7 @@ defmodule AWS.MarketplaceAgreement do
       
       free_trial_pricing_term() :: %{
         "duration" => String.t(),
-        "grants" => list(grant_item()()),
+        "grants" => list(grant_item()),
         "type" => String.t()
       }
       
@@ -552,7 +552,7 @@ defmodule AWS.MarketplaceAgreement do
       configurable_upfront_pricing_term() :: %{
         "configuration" => configurable_upfront_pricing_term_configuration(),
         "currencyCode" => String.t(),
-        "rateCards" => list(configurable_upfront_rate_card_item()()),
+        "rateCards" => list(configurable_upfront_rate_card_item()),
         "type" => String.t()
       }
       
@@ -617,7 +617,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
@@ -659,7 +660,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_terms_errors()}
   def get_agreement_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementTerms", input, options)
   end
@@ -750,7 +752,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, search_agreements_errors()}
   def search_agreements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchAgreements", input, options)
   end

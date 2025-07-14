@@ -32,7 +32,7 @@ defmodule AWS.Braket do
 
       search_quantum_tasks_response() :: %{
         optional("nextToken") => [String.t()],
-        required("quantumTasks") => list(quantum_task_summary()())
+        required("quantumTasks") => list(quantum_task_summary())
       }
 
   """
@@ -73,7 +73,7 @@ defmodule AWS.Braket do
   ## Example:
 
       get_quantum_task_request() :: %{
-        optional("additionalAttributeNames") => list(String.t()())
+        optional("additionalAttributeNames") => list(String.t())
       }
 
   """
@@ -164,7 +164,7 @@ defmodule AWS.Braket do
 
       search_devices_filter() :: %{
         "name" => [String.t()],
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -186,10 +186,10 @@ defmodule AWS.Braket do
   ## Example:
 
       create_job_request() :: %{
-        optional("associations") => list(association()()),
+        optional("associations") => list(association()),
         optional("checkpointConfig") => job_checkpoint_config(),
         optional("hyperParameters") => map(),
-        optional("inputDataConfig") => list(input_file_config()()),
+        optional("inputDataConfig") => list(input_file_config()),
         optional("stoppingCondition") => job_stopping_condition(),
         optional("tags") => map(),
         required("algorithmSpecification") => algorithm_specification(),
@@ -209,7 +209,7 @@ defmodule AWS.Braket do
   ## Example:
 
       get_quantum_task_response() :: %{
-        optional("associations") => list(association()()),
+        optional("associations") => list(association()),
         optional("endedAt") => [non_neg_integer()],
         optional("failureReason") => [String.t()],
         optional("jobArn") => String.t(),
@@ -246,7 +246,7 @@ defmodule AWS.Braket do
       search_quantum_tasks_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
-        required("filters") => list(search_quantum_tasks_filter()())
+        required("filters") => list(search_quantum_tasks_filter())
       }
 
   """
@@ -347,7 +347,7 @@ defmodule AWS.Braket do
       search_jobs_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
-        required("filters") => list(search_jobs_filter()())
+        required("filters") => list(search_jobs_filter())
       }
 
   """
@@ -426,7 +426,7 @@ defmodule AWS.Braket do
 
       search_jobs_response() :: %{
         optional("nextToken") => [String.t()],
-        required("jobs") => list(job_summary()())
+        required("jobs") => list(job_summary())
       }
 
   """
@@ -439,7 +439,7 @@ defmodule AWS.Braket do
       search_quantum_tasks_filter() :: %{
         "name" => String.t(),
         "operator" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -452,7 +452,7 @@ defmodule AWS.Braket do
       search_jobs_filter() :: %{
         "name" => String.t(),
         "operator" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -477,7 +477,7 @@ defmodule AWS.Braket do
 
       search_devices_response() :: %{
         optional("nextToken") => [String.t()],
-        required("devices") => list(device_summary()())
+        required("devices") => list(device_summary())
       }
 
   """
@@ -536,7 +536,7 @@ defmodule AWS.Braket do
   ## Example:
 
       create_quantum_task_request() :: %{
-        optional("associations") => list(association()()),
+        optional("associations") => list(association()),
         optional("deviceParameters") => String.t(),
         optional("jobToken") => String.t(),
         optional("tags") => map(),
@@ -590,15 +590,15 @@ defmodule AWS.Braket do
   ## Example:
 
       get_job_response() :: %{
-        optional("associations") => list(association()()),
+        optional("associations") => list(association()),
         optional("billableDuration") => [integer()],
         optional("checkpointConfig") => job_checkpoint_config(),
         optional("deviceConfig") => device_config(),
         optional("endedAt") => [non_neg_integer()],
-        optional("events") => list(job_event_details()()),
+        optional("events") => list(job_event_details()),
         optional("failureReason") => String.t(),
         optional("hyperParameters") => map(),
-        optional("inputDataConfig") => list(input_file_config()()),
+        optional("inputDataConfig") => list(input_file_config()),
         optional("queueInfo") => hybrid_job_queue_info(),
         optional("startedAt") => [non_neg_integer()],
         optional("stoppingCondition") => job_stopping_condition(),
@@ -654,7 +654,7 @@ defmodule AWS.Braket do
   ## Example:
 
       get_job_request() :: %{
-        optional("additionalAttributeNames") => list(String.t()())
+        optional("additionalAttributeNames") => list(String.t())
       }
 
   """
@@ -714,7 +714,7 @@ defmodule AWS.Braket do
       search_devices_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
-        required("filters") => list(search_devices_filter()())
+        required("filters") => list(search_devices_filter())
       }
 
   """
@@ -725,7 +725,7 @@ defmodule AWS.Braket do
   ## Example:
 
       get_device_response() :: %{
-        optional("deviceQueueInfo") => list(device_queue_info()()),
+        optional("deviceQueueInfo") => list(device_queue_info()),
         required("deviceArn") => String.t(),
         required("deviceCapabilities") => String.t(),
         required("deviceName") => [String.t()],

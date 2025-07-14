@@ -48,7 +48,7 @@ defmodule AWS.OpenSearch do
         "DryRunId" => String.t(),
         "DryRunStatus" => String.t(),
         "UpdateDate" => String.t(),
-        "ValidationFailures" => list(validation_failure()())
+        "ValidationFailures" => list(validation_failure())
       }
 
   """
@@ -128,7 +128,7 @@ defmodule AWS.OpenSearch do
       update_package_scope_request() :: %{
         required("Operation") => list(any()),
         required("PackageID") => String.t(),
-        required("PackageUserList") => list(String.t()())
+        required("PackageUserList") => list(String.t())
       }
 
   """
@@ -150,7 +150,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_domain_auto_tunes_response() :: %{
-        "AutoTunes" => list(auto_tune()()),
+        "AutoTunes" => list(auto_tune()),
         "NextToken" => String.t()
       }
 
@@ -174,7 +174,7 @@ defmodule AWS.OpenSearch do
 
       list_vpc_endpoints_for_domain_response() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
@@ -209,7 +209,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_outbound_connections_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -223,7 +223,7 @@ defmodule AWS.OpenSearch do
 
       compatible_versions_map() :: %{
         "SourceVersion" => String.t(),
-        "TargetVersions" => list(String.t()())
+        "TargetVersions" => list(String.t())
       }
 
   """
@@ -236,7 +236,7 @@ defmodule AWS.OpenSearch do
       update_package_scope_response() :: %{
         "Operation" => list(any()),
         "PackageID" => String.t(),
-        "PackageUserList" => list(String.t()())
+        "PackageUserList" => list(String.t())
       }
 
   """
@@ -269,7 +269,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       dissociate_packages_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()())
+        "DomainPackageDetailsList" => list(domain_package_details())
       }
 
   """
@@ -280,7 +280,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_outbound_connections_response() :: %{
-        "Connections" => list(outbound_connection()()),
+        "Connections" => list(outbound_connection()),
         "NextToken" => String.t()
       }
 
@@ -307,8 +307,8 @@ defmodule AWS.OpenSearch do
         "DataSourceName" => String.t(),
         "DataSourceType" => list(),
         "Description" => String.t(),
-        "OpenSearchArns" => list(String.t()()),
-        "TagList" => list(tag()())
+        "OpenSearchArns" => list(String.t()),
+        "TagList" => list(tag())
       }
 
   """
@@ -319,7 +319,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       package_details() :: %{
-        "AllowListedUserList" => list(String.t()()),
+        "AllowListedUserList" => list(String.t()),
         "AvailablePackageConfiguration" => package_configuration(),
         "AvailablePackageVersion" => String.t(),
         "AvailablePluginProperties" => plugin_properties(),
@@ -453,7 +453,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_vpc_endpoints_request() :: %{
-        required("VpcEndpointIds") => list(String.t()())
+        required("VpcEndpointIds") => list(String.t())
       }
 
   """
@@ -538,7 +538,7 @@ defmodule AWS.OpenSearch do
 
       describe_reserved_instance_offerings_response() :: %{
         "NextToken" => String.t(),
-        "ReservedInstanceOfferings" => list(reserved_instance_offering()())
+        "ReservedInstanceOfferings" => list(reserved_instance_offering())
       }
 
   """
@@ -550,7 +550,7 @@ defmodule AWS.OpenSearch do
 
       list_vpc_endpoints_response() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
@@ -576,10 +576,10 @@ defmodule AWS.OpenSearch do
       instance_type_details() :: %{
         "AdvancedSecurityEnabled" => boolean(),
         "AppLogsEnabled" => boolean(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "CognitoEnabled" => boolean(),
         "EncryptionEnabled" => boolean(),
-        "InstanceRole" => list(String.t()()),
+        "InstanceRole" => list(String.t()),
         "InstanceType" => list(any()),
         "WarmEnabled" => boolean()
       }
@@ -603,7 +603,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_domains_request() :: %{
-        required("DomainNames") => list(String.t()())
+        required("DomainNames") => list(String.t())
       }
 
   """
@@ -614,9 +614,9 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       vpc_derived_info() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VPCId" => String.t()
       }
 
@@ -664,7 +664,7 @@ defmodule AWS.OpenSearch do
         "IPAddressType" => ip_address_type_status(),
         "IdentityCenterOptions" => identity_center_options_status(),
         "LogPublishingOptions" => log_publishing_options_status(),
-        "ModifyingProperties" => list(modifying_properties()()),
+        "ModifyingProperties" => list(modifying_properties()),
         "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
         "OffPeakWindowOptions" => off_peak_window_options_status(),
         "SnapshotOptions" => snapshot_options_status(),
@@ -707,7 +707,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_tags_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
 
   """
@@ -752,7 +752,7 @@ defmodule AWS.OpenSearch do
 
       storage_type_limit() :: %{
         "LimitName" => String.t(),
-        "LimitValues" => list(String.t()())
+        "LimitValues" => list(String.t())
       }
 
   """
@@ -763,7 +763,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_direct_query_data_sources_response() :: %{
-        "DirectQueryDataSources" => list(direct_query_data_source()()),
+        "DirectQueryDataSources" => list(direct_query_data_source()),
         "NextToken" => String.t()
       }
 
@@ -839,7 +839,7 @@ defmodule AWS.OpenSearch do
 
       storage_type() :: %{
         "StorageSubTypeName" => String.t(),
-        "StorageTypeLimits" => list(storage_type_limit()()),
+        "StorageTypeLimits" => list(storage_type_limit()),
         "StorageTypeName" => String.t()
       }
 
@@ -873,7 +873,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       associate_packages_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()())
+        "DomainPackageDetailsList" => list(domain_package_details())
       }
 
   """
@@ -885,7 +885,7 @@ defmodule AWS.OpenSearch do
 
       additional_limit() :: %{
         "LimitName" => String.t(),
-        "LimitValues" => list(String.t()())
+        "LimitValues" => list(String.t())
       }
 
   """
@@ -977,7 +977,7 @@ defmodule AWS.OpenSearch do
         "DataNodeCount" => String.t(),
         "DedicatedMaster" => boolean(),
         "DomainState" => list(any()),
-        "EnvironmentInformation" => list(environment_info()()),
+        "EnvironmentInformation" => list(environment_info()),
         "MasterEligibleNodeCount" => String.t(),
         "MasterNode" => list(any()),
         "StandByAvailabilityZoneCount" => String.t(),
@@ -1016,7 +1016,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_inbound_connections_response() :: %{
-        "Connections" => list(inbound_connection()()),
+        "Connections" => list(inbound_connection()),
         "NextToken" => String.t()
       }
 
@@ -1114,7 +1114,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_packages_for_domain_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "DomainPackageDetailsList" => list(domain_package_details()),
         "NextToken" => String.t()
       }
 
@@ -1158,12 +1158,12 @@ defmodule AWS.OpenSearch do
 
       change_progress_status_details() :: %{
         "ChangeId" => String.t(),
-        "ChangeProgressStages" => list(change_progress_stage()()),
-        "CompletedProperties" => list(String.t()()),
+        "ChangeProgressStages" => list(change_progress_stage()),
+        "CompletedProperties" => list(String.t()),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "PendingProperties" => list(String.t()()),
+        "PendingProperties" => list(String.t()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalNumberOfStages" => integer()
@@ -1203,7 +1203,7 @@ defmodule AWS.OpenSearch do
 
       add_tags_request() :: %{
         required("ARN") => String.t(),
-        required("TagList") => list(tag()())
+        required("TagList") => list(tag())
       }
 
   """
@@ -1240,7 +1240,7 @@ defmodule AWS.OpenSearch do
 
       upgrade_history() :: %{
         "StartTimestamp" => non_neg_integer(),
-        "StepsList" => list(upgrade_step_item()()),
+        "StepsList" => list(upgrade_step_item()),
         "UpgradeName" => String.t(),
         "UpgradeStatus" => list(any())
       }
@@ -1270,7 +1270,7 @@ defmodule AWS.OpenSearch do
         "DataSourceName" => String.t(),
         "DataSourceType" => list(),
         "Description" => String.t(),
-        "OpenSearchArns" => list(String.t()())
+        "OpenSearchArns" => list(String.t())
       }
 
   """
@@ -1343,7 +1343,7 @@ defmodule AWS.OpenSearch do
         optional("OffPeakWindowOptions") => off_peak_window_options(),
         optional("SnapshotOptions") => snapshot_options(),
         optional("SoftwareUpdateOptions") => software_update_options(),
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         optional("VPCOptions") => vpc_options(),
         required("DomainName") => String.t()
       }
@@ -1357,7 +1357,7 @@ defmodule AWS.OpenSearch do
 
       describe_packages_response() :: %{
         "NextToken" => String.t(),
-        "PackageDetailsList" => list(package_details()())
+        "PackageDetailsList" => list(package_details())
       }
 
   """
@@ -1460,8 +1460,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       cancel_domain_config_change_response() :: %{
-        "CancelledChangeIds" => list(String.t()()),
-        "CancelledChangeProperties" => list(cancelled_change_property()()),
+        "CancelledChangeIds" => list(String.t()),
+        "CancelledChangeProperties" => list(cancelled_change_property()),
         "DryRun" => boolean()
       }
 
@@ -1486,7 +1486,7 @@ defmodule AWS.OpenSearch do
 
       get_upgrade_history_response() :: %{
         "NextToken" => String.t(),
-        "UpgradeHistories" => list(upgrade_history()())
+        "UpgradeHistories" => list(upgrade_history())
       }
 
   """
@@ -1585,7 +1585,7 @@ defmodule AWS.OpenSearch do
 
       list_scheduled_actions_response() :: %{
         "NextToken" => String.t(),
-        "ScheduledActions" => list(scheduled_action()())
+        "ScheduledActions" => list(scheduled_action())
       }
 
   """
@@ -1653,8 +1653,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_vpc_endpoints_response() :: %{
-        "VpcEndpointErrors" => list(vpc_endpoint_error()()),
-        "VpcEndpoints" => list(vpc_endpoint()())
+        "VpcEndpointErrors" => list(vpc_endpoint_error()),
+        "VpcEndpoints" => list(vpc_endpoint())
       }
 
   """
@@ -1676,7 +1676,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_data_sources_response() :: %{
-        "DataSources" => list(data_source_details()())
+        "DataSources" => list(data_source_details())
       }
 
   """
@@ -1697,7 +1697,7 @@ defmodule AWS.OpenSearch do
 
       describe_packages_filter() :: %{
         "Name" => list(any()),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
 
   """
@@ -1785,7 +1785,7 @@ defmodule AWS.OpenSearch do
       get_package_version_history_response() :: %{
         "NextToken" => String.t(),
         "PackageID" => String.t(),
-        "PackageVersionHistoryList" => list(package_version_history()())
+        "PackageVersionHistoryList" => list(package_version_history())
       }
 
   """
@@ -1807,11 +1807,11 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       create_application_request() :: %{
-        optional("appConfigs") => list(app_config()()),
+        optional("appConfigs") => list(app_config()),
         optional("clientToken") => String.t(),
-        optional("dataSources") => list(data_source()()),
+        optional("dataSources") => list(data_source()),
         optional("iamIdentityCenterOptions") => iam_identity_center_options_input(),
-        optional("tagList") => list(tag()()),
+        optional("tagList") => list(tag()),
         required("name") => String.t()
       }
 
@@ -1864,7 +1864,7 @@ defmodule AWS.OpenSearch do
 
       describe_reserved_instances_response() :: %{
         "NextToken" => String.t(),
-        "ReservedInstances" => list(reserved_instance()())
+        "ReservedInstances" => list(reserved_instance())
       }
 
   """
@@ -1926,14 +1926,14 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       create_application_response() :: %{
-        "appConfigs" => list(app_config()()),
+        "appConfigs" => list(app_config()),
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
         "id" => String.t(),
         "name" => String.t(),
-        "tagList" => list(tag()())
+        "tagList" => list(tag())
       }
 
   """
@@ -1945,7 +1945,7 @@ defmodule AWS.OpenSearch do
 
       list_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(String.t()())
+        "Versions" => list(String.t())
       }
 
   """
@@ -1999,7 +1999,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_domain_names_response() :: %{
-        "DomainNames" => list(domain_info()())
+        "DomainNames" => list(domain_info())
       }
 
   """
@@ -2035,7 +2035,7 @@ defmodule AWS.OpenSearch do
 
       associate_package_request() :: %{
         optional("AssociationConfiguration") => package_association_configuration(),
-        optional("PrerequisitePackageIDList") => list(String.t()())
+        optional("PrerequisitePackageIDList") => list(String.t())
       }
 
   """
@@ -2047,7 +2047,7 @@ defmodule AWS.OpenSearch do
 
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -2146,8 +2146,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       update_application_request() :: %{
-        optional("appConfigs") => list(app_config()()),
-        optional("dataSources") => list(data_source()())
+        optional("appConfigs") => list(app_config()),
+        optional("dataSources") => list(data_source())
       }
 
   """
@@ -2158,10 +2158,10 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       update_application_response() :: %{
-        "appConfigs" => list(app_config()()),
+        "appConfigs" => list(app_config()),
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
@@ -2201,7 +2201,7 @@ defmodule AWS.OpenSearch do
         "IdentityCenterOptions" => identity_center_options(),
         "ARN" => String.t(),
         "DomainId" => String.t(),
-        "ModifyingProperties" => list(modifying_properties()()),
+        "ModifyingProperties" => list(modifying_properties()),
         "AdvancedOptions" => map(),
         "SnapshotOptions" => snapshot_options(),
         "Processing" => boolean(),
@@ -2287,7 +2287,7 @@ defmodule AWS.OpenSearch do
 
       auto_tune_options_input() :: %{
         "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
         "UseOffPeakWindow" => boolean()
       }
 
@@ -2312,10 +2312,10 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       get_application_response() :: %{
-        "appConfigs" => list(app_config()()),
+        "appConfigs" => list(app_config()),
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "endpoint" => String.t(),
         "iamIdentityCenterOptions" => iam_identity_center_options(),
         "id" => String.t(),
@@ -2370,7 +2370,7 @@ defmodule AWS.OpenSearch do
         "FixedPrice" => float(),
         "InstanceType" => list(any()),
         "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedInstanceOfferingId" => String.t(),
         "UsagePrice" => float()
       }
@@ -2558,7 +2558,7 @@ defmodule AWS.OpenSearch do
       package_details_for_association() :: %{
         "AssociationConfiguration" => package_association_configuration(),
         "PackageID" => String.t(),
-        "PrerequisitePackageIDList" => list(String.t()())
+        "PrerequisitePackageIDList" => list(String.t())
       }
 
   """
@@ -2714,7 +2714,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       slot_not_available_exception() :: %{
-        "SlotSuggestions" => list(float()()),
+        "SlotSuggestions" => list(float()),
         "message" => String.t()
       }
 
@@ -2836,7 +2836,7 @@ defmodule AWS.OpenSearch do
 
       auto_tune_options() :: %{
         "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
         "RollbackOnDisable" => list(any()),
         "UseOffPeakWindow" => boolean()
       }
@@ -2974,9 +2974,9 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       limits() :: %{
-        "AdditionalLimits" => list(additional_limit()()),
+        "AdditionalLimits" => list(additional_limit()),
         "InstanceLimits" => instance_limits(),
-        "StorageTypes" => list(storage_type()())
+        "StorageTypes" => list(storage_type())
       }
 
   """
@@ -3048,7 +3048,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       environment_info() :: %{
-        "AvailabilityZoneInformation" => list(availability_zone_info()())
+        "AvailabilityZoneInformation" => list(availability_zone_info())
       }
 
   """
@@ -3059,8 +3059,8 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -3071,7 +3071,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_domains_response() :: %{
-        "DomainStatusList" => list(domain_status()())
+        "DomainStatusList" => list(domain_status())
       }
 
   """
@@ -3111,7 +3111,7 @@ defmodule AWS.OpenSearch do
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "MultiAZWithStandbyEnabled" => boolean(),
-        "NodeOptions" => list(node_option()()),
+        "NodeOptions" => list(node_option()),
         "WarmCount" => integer(),
         "WarmEnabled" => boolean(),
         "WarmType" => list(any()),
@@ -3138,7 +3138,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()()),
+        "ApplicationSummaries" => list(application_summary()),
         "nextToken" => String.t()
       }
 
@@ -3163,10 +3163,10 @@ defmodule AWS.OpenSearch do
 
       add_direct_query_data_source_request() :: %{
         optional("Description") => String.t(),
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("DataSourceName") => String.t(),
         required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t()())
+        required("OpenSearchArns") => list(String.t())
       }
 
   """
@@ -3189,7 +3189,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_inbound_connections_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3204,7 +3204,7 @@ defmodule AWS.OpenSearch do
       update_direct_query_data_source_request() :: %{
         optional("Description") => String.t(),
         required("DataSourceType") => list(),
-        required("OpenSearchArns") => list(String.t()())
+        required("OpenSearchArns") => list(String.t())
       }
 
   """
@@ -3224,7 +3224,7 @@ defmodule AWS.OpenSearch do
         "PackageName" => String.t(),
         "PackageType" => list(any()),
         "PackageVersion" => String.t(),
-        "PrerequisitePackageIDList" => list(String.t()()),
+        "PrerequisitePackageIDList" => list(String.t()),
         "ReferencePath" => String.t()
       }
 
@@ -3267,7 +3267,7 @@ defmodule AWS.OpenSearch do
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservationName" => String.t(),
         "ReservedInstanceId" => String.t(),
         "ReservedInstanceOfferingId" => String.t(),
@@ -3344,7 +3344,7 @@ defmodule AWS.OpenSearch do
 
       remove_tags_request() :: %{
         required("ARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -3356,7 +3356,7 @@ defmodule AWS.OpenSearch do
 
       associate_packages_request() :: %{
         required("DomainName") => String.t(),
-        required("PackageList") => list(package_details_for_association()())
+        required("PackageList") => list(package_details_for_association())
       }
 
   """
@@ -3367,7 +3367,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_domain_maintenances_response() :: %{
-        "DomainMaintenances" => list(domain_maintenance_details()()),
+        "DomainMaintenances" => list(domain_maintenance_details()),
         "NextToken" => String.t()
       }
 
@@ -3426,7 +3426,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_packages_request() :: %{
-        optional("Filters") => list(describe_packages_filter()()),
+        optional("Filters") => list(describe_packages_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3450,7 +3450,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       upgrade_step_item() :: %{
-        "Issues" => list(String.t()()),
+        "Issues" => list(String.t()),
         "ProgressPercent" => float(),
         "UpgradeStep" => list(any()),
         "UpgradeStepStatus" => list(any())
@@ -3487,7 +3487,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_vpc_endpoint_access_response() :: %{
-        "AuthorizedPrincipalList" => list(authorized_principal()()),
+        "AuthorizedPrincipalList" => list(authorized_principal()),
         "NextToken" => String.t()
       }
 
@@ -3513,7 +3513,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_instance_type_details_response() :: %{
-        "InstanceTypeDetails" => list(instance_type_details()()),
+        "InstanceTypeDetails" => list(instance_type_details()),
         "NextToken" => String.t()
       }
 
@@ -3632,7 +3632,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       describe_domain_nodes_response() :: %{
-        "DomainNodesStatusList" => list(domain_nodes_status()())
+        "DomainNodesStatusList" => list(domain_nodes_status())
       }
 
   """
@@ -3684,7 +3684,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       list_domains_for_package_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "DomainPackageDetailsList" => list(domain_package_details()),
         "NextToken" => String.t()
       }
 
@@ -3707,7 +3707,7 @@ defmodule AWS.OpenSearch do
   ## Example:
 
       get_compatible_versions_response() :: %{
-        "CompatibleVersions" => list(compatible_versions_map()())
+        "CompatibleVersions" => list(compatible_versions_map())
       }
 
   """
@@ -3719,7 +3719,7 @@ defmodule AWS.OpenSearch do
 
       dissociate_packages_request() :: %{
         required("DomainName") => String.t(),
-        required("PackageList") => list(String.t()())
+        required("PackageList") => list(String.t())
       }
 
   """

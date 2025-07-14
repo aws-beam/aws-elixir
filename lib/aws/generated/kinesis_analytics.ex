@@ -54,7 +54,7 @@ defmodule AWS.KinesisAnalytics do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -71,12 +71,12 @@ defmodule AWS.KinesisAnalytics do
         "ApplicationName" => String.t(),
         "ApplicationStatus" => list(any()),
         "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
         "CreateTimestamp" => non_neg_integer(),
-        "InputDescriptions" => list(input_description()()),
+        "InputDescriptions" => list(input_description()),
         "LastUpdateTimestamp" => non_neg_integer(),
-        "OutputDescriptions" => list(output_description()()),
-        "ReferenceDataSourceDescriptions" => list(reference_data_source_description()())
+        "OutputDescriptions" => list(output_description()),
+        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
       }
       
   """
@@ -149,7 +149,7 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       input_schema_update() :: %{
-        "RecordColumnUpdates" => list(record_column()()),
+        "RecordColumnUpdates" => list(record_column()),
         "RecordEncodingUpdate" => String.t(),
         "RecordFormatUpdate" => record_format()
       }
@@ -163,9 +163,9 @@ defmodule AWS.KinesisAnalytics do
       
       discover_input_schema_response() :: %{
         "InputSchema" => source_schema(),
-        "ParsedInputRecords" => list(list(String.t()())()),
-        "ProcessedInputRecords" => list(String.t()()),
-        "RawInputRecords" => list(String.t()())
+        "ParsedInputRecords" => list(list(String.t())()),
+        "ProcessedInputRecords" => list(String.t()),
+        "RawInputRecords" => list(String.t())
       }
       
   """
@@ -318,7 +318,7 @@ defmodule AWS.KinesisAnalytics do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -366,8 +366,8 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       unable_to_detect_schema_exception() :: %{
-        "ProcessedInputRecords" => list(String.t()()),
-        "RawInputRecords" => list(String.t()()),
+        "ProcessedInputRecords" => list(String.t()),
+        "RawInputRecords" => list(String.t()),
         "message" => String.t()
       }
       
@@ -393,10 +393,10 @@ defmodule AWS.KinesisAnalytics do
       
       application_update() :: %{
         "ApplicationCodeUpdate" => String.t(),
-        "CloudWatchLoggingOptionUpdates" => list(cloud_watch_logging_option_update()()),
-        "InputUpdates" => list(input_update()()),
-        "OutputUpdates" => list(output_update()()),
-        "ReferenceDataSourceUpdates" => list(reference_data_source_update()())
+        "CloudWatchLoggingOptionUpdates" => list(cloud_watch_logging_option_update()),
+        "InputUpdates" => list(input_update()),
+        "OutputUpdates" => list(output_update()),
+        "ReferenceDataSourceUpdates" => list(reference_data_source_update())
       }
       
   """
@@ -580,7 +580,7 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -593,10 +593,10 @@ defmodule AWS.KinesisAnalytics do
       create_application_request() :: %{
         optional("ApplicationCode") => String.t(),
         optional("ApplicationDescription") => String.t(),
-        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()()),
-        optional("Inputs") => list(input()()),
-        optional("Outputs") => list(output()()),
-        optional("Tags") => list(tag()()),
+        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
+        optional("Inputs") => list(input()),
+        optional("Outputs") => list(output()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t()
       }
       
@@ -754,7 +754,7 @@ defmodule AWS.KinesisAnalytics do
       
       start_application_request() :: %{
         required("ApplicationName") => String.t(),
-        required("InputConfigurations") => list(input_configuration()())
+        required("InputConfigurations") => list(input_configuration())
       }
       
   """
@@ -948,7 +948,7 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       source_schema() :: %{
-        "RecordColumns" => list(record_column()()),
+        "RecordColumns" => list(record_column()),
         "RecordEncoding" => String.t(),
         "RecordFormat" => record_format()
       }
@@ -982,7 +982,7 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       input_description() :: %{
-        "InAppStreamNames" => list(String.t()()),
+        "InAppStreamNames" => list(String.t()),
         "InputId" => String.t(),
         "InputParallelism" => input_parallelism(),
         "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
@@ -1074,7 +1074,7 @@ defmodule AWS.KinesisAnalytics do
   ## Example:
       
       list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()()),
+        "ApplicationSummaries" => list(application_summary()),
         "HasMoreApplications" => boolean()
       }
       
@@ -1453,7 +1453,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, add_application_cloud_watch_logging_option_errors()}
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
@@ -1491,7 +1492,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, add_application_input_errors()}
   def add_application_input(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
@@ -1520,7 +1522,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, add_application_input_processing_configuration_errors()}
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1576,7 +1579,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, add_application_output_errors()}
   def add_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
@@ -1616,7 +1620,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, add_application_reference_data_source_errors()}
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
@@ -1668,7 +1673,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1694,7 +1700,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -1721,7 +1728,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
@@ -1748,7 +1756,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, delete_application_input_processing_configuration_errors()}
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1780,7 +1789,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, delete_application_output_errors()}
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
@@ -1816,7 +1826,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, delete_application_reference_data_source_errors()}
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
@@ -1848,7 +1859,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -1883,7 +1895,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, discover_input_schema_errors()}
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
@@ -1917,7 +1930,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -1933,7 +1947,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1970,7 +1985,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartApplication", input, options)
   end
@@ -2002,7 +2018,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopApplication", input, options)
   end
@@ -2020,7 +2037,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2036,7 +2054,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2065,7 +2084,8 @@ defmodule AWS.KinesisAnalytics do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end

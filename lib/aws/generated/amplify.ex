@@ -25,14 +25,14 @@ defmodule AWS.Amplify do
         "appArn" => String.t(),
         "appId" => String.t(),
         "autoBranchCreationConfig" => auto_branch_creation_config(),
-        "autoBranchCreationPatterns" => list(String.t()()),
+        "autoBranchCreationPatterns" => list(String.t()),
         "basicAuthCredentials" => String.t(),
         "buildSpec" => String.t(),
         "cacheConfig" => cache_config(),
         "computeRoleArn" => String.t(),
         "createTime" => non_neg_integer(),
         "customHeaders" => String.t(),
-        "customRules" => list(custom_rule()()),
+        "customRules" => list(custom_rule()),
         "defaultDomain" => String.t(),
         "description" => String.t(),
         "enableAutoBranchCreation" => boolean(),
@@ -62,7 +62,7 @@ defmodule AWS.Amplify do
 
       branch() :: %{
         "activeJobId" => String.t(),
-        "associatedResources" => list(String.t()()),
+        "associatedResources" => list(String.t()),
         "backend" => backend(),
         "backendEnvironmentArn" => String.t(),
         "basicAuthCredentials" => String.t(),
@@ -71,7 +71,7 @@ defmodule AWS.Amplify do
         "buildSpec" => String.t(),
         "computeRoleArn" => String.t(),
         "createTime" => non_neg_integer(),
-        "customDomains" => list(String.t()()),
+        "customDomains" => list(String.t()),
         "description" => String.t(),
         "destinationBranch" => String.t(),
         "displayName" => String.t(),
@@ -169,13 +169,13 @@ defmodule AWS.Amplify do
       create_app_request() :: %{
         optional("accessToken") => String.t(),
         optional("autoBranchCreationConfig") => auto_branch_creation_config(),
-        optional("autoBranchCreationPatterns") => list(String.t()()),
+        optional("autoBranchCreationPatterns") => list(String.t()),
         optional("basicAuthCredentials") => String.t(),
         optional("buildSpec") => String.t(),
         optional("cacheConfig") => cache_config(),
         optional("computeRoleArn") => String.t(),
         optional("customHeaders") => String.t(),
-        optional("customRules") => list(custom_rule()()),
+        optional("customRules") => list(custom_rule()),
         optional("description") => String.t(),
         optional("enableAutoBranchCreation") => boolean(),
         optional("enableBasicAuth") => boolean(),
@@ -240,7 +240,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_jobs_result() :: %{
-        "jobSummaries" => list(job_summary()()),
+        "jobSummaries" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -263,11 +263,11 @@ defmodule AWS.Amplify do
   ## Example:
 
       update_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t()()),
+        optional("autoSubDomainCreationPatterns") => list(String.t()),
         optional("autoSubDomainIAMRole") => String.t(),
         optional("certificateSettings") => certificate_settings(),
         optional("enableAutoSubDomain") => boolean(),
-        optional("subDomainSettings") => list(sub_domain_setting()())
+        optional("subDomainSettings") => list(sub_domain_setting())
       }
 
   """
@@ -278,12 +278,12 @@ defmodule AWS.Amplify do
   ## Example:
 
       create_domain_association_request() :: %{
-        optional("autoSubDomainCreationPatterns") => list(String.t()()),
+        optional("autoSubDomainCreationPatterns") => list(String.t()),
         optional("autoSubDomainIAMRole") => String.t(),
         optional("certificateSettings") => certificate_settings(),
         optional("enableAutoSubDomain") => boolean(),
         required("domainName") => String.t(),
-        required("subDomainSettings") => list(sub_domain_setting()())
+        required("subDomainSettings") => list(sub_domain_setting())
       }
 
   """
@@ -372,7 +372,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_branches_result() :: %{
-        "branches" => list(branch()()),
+        "branches" => list(branch()),
         "nextToken" => String.t()
       }
 
@@ -411,7 +411,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -422,7 +422,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_backend_environments_result() :: %{
-        "backendEnvironments" => list(backend_environment()()),
+        "backendEnvironments" => list(backend_environment()),
         "nextToken" => String.t()
       }
 
@@ -443,7 +443,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_apps_result() :: %{
-        "apps" => list(app()()),
+        "apps" => list(app()),
         "nextToken" => String.t()
       }
 
@@ -543,7 +543,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       domain_association() :: %{
-        "autoSubDomainCreationPatterns" => list(String.t()()),
+        "autoSubDomainCreationPatterns" => list(String.t()),
         "autoSubDomainIAMRole" => String.t(),
         "certificate" => certificate(),
         "certificateVerificationDNSRecord" => String.t(),
@@ -552,7 +552,7 @@ defmodule AWS.Amplify do
         "domainStatus" => list(any()),
         "enableAutoSubDomain" => boolean(),
         "statusReason" => String.t(),
-        "subDomains" => list(sub_domain()()),
+        "subDomains" => list(sub_domain()),
         "updateStatus" => list(any())
       }
 
@@ -660,7 +660,7 @@ defmodule AWS.Amplify do
 
       list_webhooks_result() :: %{
         "nextToken" => String.t(),
-        "webhooks" => list(webhook()())
+        "webhooks" => list(webhook())
       }
 
   """
@@ -979,7 +979,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       job() :: %{
-        "steps" => list(step()()),
+        "steps" => list(step()),
         "summary" => job_summary()
       }
 
@@ -1005,13 +1005,13 @@ defmodule AWS.Amplify do
       update_app_request() :: %{
         optional("accessToken") => String.t(),
         optional("autoBranchCreationConfig") => auto_branch_creation_config(),
-        optional("autoBranchCreationPatterns") => list(String.t()()),
+        optional("autoBranchCreationPatterns") => list(String.t()),
         optional("basicAuthCredentials") => String.t(),
         optional("buildSpec") => String.t(),
         optional("cacheConfig") => cache_config(),
         optional("computeRoleArn") => String.t(),
         optional("customHeaders") => String.t(),
-        optional("customRules") => list(custom_rule()()),
+        optional("customRules") => list(custom_rule()),
         optional("description") => String.t(),
         optional("enableAutoBranchCreation") => boolean(),
         optional("enableBasicAuth") => boolean(),
@@ -1123,7 +1123,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_artifacts_result() :: %{
-        "artifacts" => list(artifact()()),
+        "artifacts" => list(artifact()),
         "nextToken" => String.t()
       }
 
@@ -1265,7 +1265,7 @@ defmodule AWS.Amplify do
   ## Example:
 
       list_domain_associations_result() :: %{
-        "domainAssociations" => list(domain_association()()),
+        "domainAssociations" => list(domain_association()),
         "nextToken" => String.t()
       }
 

@@ -79,7 +79,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       pipe_target_sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter()())
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
       }
 
   """
@@ -92,7 +92,7 @@ defmodule AWS.Pipes do
       pipe_log_configuration() :: %{
         "CloudwatchLogsLogDestination" => cloudwatch_logs_log_destination(),
         "FirehoseLogDestination" => firehose_log_destination(),
-        "IncludeExecutionData" => list(String.t()()),
+        "IncludeExecutionData" => list(String.t()),
         "Level" => String.t(),
         "S3LogDestination" => s3_log_destination()
       }
@@ -199,7 +199,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       filter_criteria() :: %{
-        "Filters" => list(filter()())
+        "Filters" => list(filter())
       }
 
   """
@@ -292,7 +292,7 @@ defmodule AWS.Pipes do
       pipe_target_event_bridge_event_bus_parameters() :: %{
         "DetailType" => String.t(),
         "EndpointId" => String.t(),
-        "Resources" => list(String.t()()),
+        "Resources" => list(String.t()),
         "Source" => String.t(),
         "Time" => String.t()
       }
@@ -381,7 +381,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t()())
+        "tagKeys" => list(String.t())
       }
 
   """
@@ -524,7 +524,7 @@ defmodule AWS.Pipes do
       pipe_target_batch_job_parameters() :: %{
         "ArrayProperties" => batch_array_properties(),
         "ContainerOverrides" => batch_container_overrides(),
-        "DependsOn" => list(batch_job_dependency()()),
+        "DependsOn" => list(batch_job_dependency()),
         "JobDefinition" => [String.t()],
         "JobName" => [String.t()],
         "Parameters" => map(),
@@ -567,7 +567,7 @@ defmodule AWS.Pipes do
 
       pipe_target_http_parameters() :: %{
         "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t()()),
+        "PathParameterValues" => list(String.t()),
         "QueryStringParameters" => map()
       }
 
@@ -614,7 +614,7 @@ defmodule AWS.Pipes do
 
       list_pipes_response() :: %{
         "NextToken" => String.t(),
-        "Pipes" => list(pipe()())
+        "Pipes" => list(pipe())
       }
 
   """
@@ -684,7 +684,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       multi_measure_mapping() :: %{
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
         "MultiMeasureName" => String.t()
       }
 
@@ -719,14 +719,14 @@ defmodule AWS.Pipes do
   ## Example:
 
       ecs_container_override() :: %{
-        "Command" => list(String.t()()),
+        "Command" => list(String.t()),
         "Cpu" => [integer()],
-        "Environment" => list(ecs_environment_variable()()),
-        "EnvironmentFiles" => list(ecs_environment_file()()),
+        "Environment" => list(ecs_environment_variable()),
+        "EnvironmentFiles" => list(ecs_environment_file()),
         "Memory" => [integer()],
         "MemoryReservation" => [integer()],
         "Name" => String.t(),
-        "ResourceRequirements" => list(ecs_resource_requirement()())
+        "ResourceRequirements" => list(ecs_resource_requirement())
       }
 
   """
@@ -765,11 +765,11 @@ defmodule AWS.Pipes do
   ## Example:
 
       ecs_task_override() :: %{
-        "ContainerOverrides" => list(ecs_container_override()()),
+        "ContainerOverrides" => list(ecs_container_override()),
         "Cpu" => String.t(),
         "EphemeralStorage" => ecs_ephemeral_storage(),
         "ExecutionRoleArn" => String.t(),
-        "InferenceAcceleratorOverrides" => list(ecs_inference_accelerator_override()()),
+        "InferenceAcceleratorOverrides" => list(ecs_inference_accelerator_override()),
         "Memory" => String.t(),
         "TaskRoleArn" => String.t()
       }
@@ -849,19 +849,19 @@ defmodule AWS.Pipes do
   ## Example:
 
       pipe_target_ecs_task_parameters() :: %{
-        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "EnableECSManagedTags" => boolean(),
         "EnableExecuteCommand" => boolean(),
         "Group" => String.t(),
         "LaunchType" => String.t(),
         "NetworkConfiguration" => network_configuration(),
         "Overrides" => ecs_task_override(),
-        "PlacementConstraints" => list(placement_constraint()()),
-        "PlacementStrategy" => list(placement_strategy()()),
+        "PlacementConstraints" => list(placement_constraint()),
+        "PlacementStrategy" => list(placement_strategy()),
         "PlatformVersion" => String.t(),
         "PropagateTags" => String.t(),
         "ReferenceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskCount" => integer(),
         "TaskDefinitionArn" => String.t()
       }
@@ -908,10 +908,10 @@ defmodule AWS.Pipes do
   ## Example:
 
       pipe_target_timestream_parameters() :: %{
-        "DimensionMappings" => list(dimension_mapping()()),
+        "DimensionMappings" => list(dimension_mapping()),
         "EpochTimeUnit" => String.t(),
-        "MultiMeasureMappings" => list(multi_measure_mapping()()),
-        "SingleMeasureMappings" => list(single_measure_mapping()()),
+        "MultiMeasureMappings" => list(multi_measure_mapping()),
+        "SingleMeasureMappings" => list(single_measure_mapping()),
         "TimeFieldType" => String.t(),
         "TimeValue" => String.t(),
         "TimestampFormat" => String.t(),
@@ -937,7 +937,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t()
       }
 
@@ -986,7 +986,7 @@ defmodule AWS.Pipes do
         "Database" => String.t(),
         "DbUser" => String.t(),
         "SecretManagerArn" => String.t(),
-        "Sqls" => list(String.t()()),
+        "Sqls" => list(String.t()),
         "StatementName" => String.t(),
         "WithEvent" => boolean()
       }
@@ -1052,8 +1052,8 @@ defmodule AWS.Pipes do
 
       aws_vpc_configuration() :: %{
         "AssignPublicIp" => String.t(),
-        "SecurityGroups" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroups" => list(String.t()),
+        "Subnets" => list(String.t())
       }
 
   """
@@ -1066,7 +1066,7 @@ defmodule AWS.Pipes do
       pipe_log_configuration_parameters() :: %{
         "CloudwatchLogsLogDestination" => cloudwatch_logs_log_destination_parameters(),
         "FirehoseLogDestination" => firehose_log_destination_parameters(),
-        "IncludeExecutionData" => list(String.t()()),
+        "IncludeExecutionData" => list(String.t()),
         "Level" => String.t(),
         "S3LogDestination" => s3_log_destination_parameters()
       }
@@ -1119,7 +1119,7 @@ defmodule AWS.Pipes do
   ## Example:
 
       pipe_source_self_managed_kafka_parameters() :: %{
-        "AdditionalBootstrapServers" => list(String.t()()),
+        "AdditionalBootstrapServers" => list(String.t()),
         "BatchSize" => integer(),
         "ConsumerGroupID" => String.t(),
         "Credentials" => list(),
@@ -1138,10 +1138,10 @@ defmodule AWS.Pipes do
   ## Example:
 
       batch_container_overrides() :: %{
-        "Command" => list(String.t()()),
-        "Environment" => list(batch_environment_variable()()),
+        "Command" => list(String.t()),
+        "Environment" => list(batch_environment_variable()),
         "InstanceType" => [String.t()],
-        "ResourceRequirements" => list(batch_resource_requirement()())
+        "ResourceRequirements" => list(batch_resource_requirement())
       }
 
   """
@@ -1165,7 +1165,7 @@ defmodule AWS.Pipes do
 
       pipe_enrichment_http_parameters() :: %{
         "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t()()),
+        "PathParameterValues" => list(String.t()),
         "QueryStringParameters" => map()
       }
 
@@ -1243,8 +1243,8 @@ defmodule AWS.Pipes do
   ## Example:
 
       self_managed_kafka_access_configuration_vpc() :: %{
-        "SecurityGroup" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroup" => list(String.t()),
+        "Subnets" => list(String.t())
       }
 
   """

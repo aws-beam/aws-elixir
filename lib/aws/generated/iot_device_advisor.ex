@@ -32,7 +32,7 @@ defmodule AWS.IotDeviceAdvisor do
 
       list_suite_definitions_response() :: %{
         "nextToken" => String.t(),
-        "suiteDefinitionInformationList" => list(suite_definition_information()())
+        "suiteDefinitionInformationList" => list(suite_definition_information())
       }
 
   """
@@ -79,7 +79,7 @@ defmodule AWS.IotDeviceAdvisor do
       suite_run_configuration() :: %{
         "parallelRun" => boolean(),
         "primaryDevice" => device_under_test(),
-        "selectedTestList" => list(String.t()())
+        "selectedTestList" => list(String.t())
       }
 
   """
@@ -91,7 +91,7 @@ defmodule AWS.IotDeviceAdvisor do
 
       suite_definition_information() :: %{
         "createdAt" => non_neg_integer(),
-        "defaultDevices" => list(device_under_test()()),
+        "defaultDevices" => list(device_under_test()),
         "intendedForQualification" => boolean(),
         "isLongDurationTest" => boolean(),
         "protocol" => list(any()),
@@ -130,7 +130,7 @@ defmodule AWS.IotDeviceAdvisor do
   ## Example:
 
       test_result() :: %{
-        "groups" => list(group_result()())
+        "groups" => list(group_result())
       }
 
   """
@@ -174,7 +174,7 @@ defmodule AWS.IotDeviceAdvisor do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -359,7 +359,7 @@ defmodule AWS.IotDeviceAdvisor do
 
       suite_definition_configuration() :: %{
         "devicePermissionRoleArn" => String.t(),
-        "devices" => list(device_under_test()()),
+        "devices" => list(device_under_test()),
         "intendedForQualification" => boolean(),
         "isLongDurationTest" => boolean(),
         "protocol" => list(any()),
@@ -458,7 +458,7 @@ defmodule AWS.IotDeviceAdvisor do
 
       list_suite_runs_response() :: %{
         "nextToken" => String.t(),
-        "suiteRunsList" => list(suite_run_information()())
+        "suiteRunsList" => list(suite_run_information())
       }
 
   """
@@ -471,7 +471,7 @@ defmodule AWS.IotDeviceAdvisor do
       group_result() :: %{
         "groupId" => String.t(),
         "groupName" => String.t(),
-        "tests" => list(test_case_run()())
+        "tests" => list(test_case_run())
       }
 
   """
@@ -503,7 +503,7 @@ defmodule AWS.IotDeviceAdvisor do
         "testCaseDefinitionId" => String.t(),
         "testCaseDefinitionName" => String.t(),
         "testCaseRunId" => String.t(),
-        "testScenarios" => list(test_case_scenario()()),
+        "testScenarios" => list(test_case_scenario()),
         "warnings" => String.t()
       }
 

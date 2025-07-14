@@ -73,7 +73,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
 
       list_associated_resources_response() :: %{
         "nextToken" => String.t(),
-        "resources" => list(resource_info()())
+        "resources" => list(resource_info())
       }
 
   """
@@ -87,7 +87,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
         "applicationTagStatus" => list(any()),
         "errorMessage" => String.t(),
         "nextToken" => String.t(),
-        "resources" => list(resources_list_item()())
+        "resources" => list(resources_list_item())
       }
 
   """
@@ -98,7 +98,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -144,7 +144,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Example:
 
       list_associated_attribute_groups_response() :: %{
-        "attributeGroups" => list(String.t()()),
+        "attributeGroups" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -169,7 +169,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Example:
 
       list_attribute_groups_response() :: %{
-        "attributeGroups" => list(attribute_group_summary()()),
+        "attributeGroups" => list(attribute_group_summary()),
         "nextToken" => String.t()
       }
 
@@ -562,7 +562,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Example:
 
       list_attribute_groups_for_application_response() :: %{
-        "attributeGroupsDetails" => list(attribute_group_details()()),
+        "attributeGroupsDetails" => list(attribute_group_details()),
         "nextToken" => String.t()
       }
 
@@ -686,7 +686,7 @@ defmodule AWS.ServiceCatalogAppRegistry do
   ## Example:
 
       list_applications_response() :: %{
-        "applications" => list(application_summary()()),
+        "applications" => list(application_summary()),
         "nextToken" => String.t()
       }
 

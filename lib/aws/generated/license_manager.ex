@@ -17,7 +17,7 @@ defmodule AWS.LicenseManager do
       
       checkout_license_response() :: %{
         "CheckoutType" => list(any()),
-        "EntitlementsAllowed" => list(entitlement_data()()),
+        "EntitlementsAllowed" => list(entitlement_data()),
         "Expiration" => String.t(),
         "IssuedAt" => String.t(),
         "LicenseArn" => String.t(),
@@ -88,7 +88,7 @@ defmodule AWS.LicenseManager do
       
       license_configuration() :: %{
         "AutomatedDiscoveryInformation" => automated_discovery_information(),
-        "ConsumedLicenseSummaryList" => list(consumed_license_summary()()),
+        "ConsumedLicenseSummaryList" => list(consumed_license_summary()),
         "ConsumedLicenses" => float(),
         "Description" => String.t(),
         "DisassociateWhenNotFound" => boolean(),
@@ -97,11 +97,11 @@ defmodule AWS.LicenseManager do
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
-        "LicenseRules" => list(String.t()()),
-        "ManagedResourceSummaryList" => list(managed_resource_summary()()),
+        "LicenseRules" => list(String.t()),
+        "ManagedResourceSummaryList" => list(managed_resource_summary()),
         "Name" => String.t(),
         "OwnerAccountId" => String.t(),
-        "ProductInformationList" => list(product_information()()),
+        "ProductInformationList" => list(product_information()),
         "Status" => String.t()
       }
       
@@ -113,7 +113,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_grants_for_organization_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("LicenseArn") => String.t()
@@ -128,7 +128,7 @@ defmodule AWS.LicenseManager do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -139,7 +139,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_usage_for_license_configuration_response() :: %{
-        "LicenseConfigurationUsageList" => list(license_configuration_usage()()),
+        "LicenseConfigurationUsageList" => list(license_configuration_usage()),
         "NextToken" => String.t()
       }
       
@@ -201,7 +201,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_conversion_tasks_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -229,8 +229,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_configurations_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("LicenseConfigurationArns") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LicenseConfigurationArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -252,7 +252,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       license_usage() :: %{
-        "EntitlementUsages" => list(entitlement_usage()())
+        "EntitlementUsages" => list(entitlement_usage())
       }
       
   """
@@ -285,8 +285,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_licenses_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("LicenseArns") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LicenseArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -322,8 +322,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_licenses_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("LicenseArns") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LicenseArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -369,11 +369,11 @@ defmodule AWS.LicenseManager do
         "Beneficiary" => String.t(),
         "ConsumptionConfiguration" => consumption_configuration(),
         "CreateTime" => String.t(),
-        "Entitlements" => list(entitlement()()),
+        "Entitlements" => list(entitlement()),
         "HomeRegion" => String.t(),
         "Issuer" => issuer_details(),
         "LicenseArn" => String.t(),
-        "LicenseMetadata" => list(metadata()()),
+        "LicenseMetadata" => list(metadata()),
         "LicenseName" => String.t(),
         "ProductName" => String.t(),
         "ProductSKU" => String.t(),
@@ -436,7 +436,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_versions_response() :: %{
-        "Licenses" => list(license()()),
+        "Licenses" => list(license()),
         "NextToken" => String.t()
       }
       
@@ -448,7 +448,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_manager_report_generators_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -461,7 +461,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_licenses_for_organization_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -474,7 +474,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_licenses_response() :: %{
-        "Licenses" => list(license()()),
+        "Licenses" => list(license()),
         "NextToken" => String.t()
       }
       
@@ -486,11 +486,11 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_license_version_request() :: %{
-        optional("LicenseMetadata") => list(metadata()()),
+        optional("LicenseMetadata") => list(metadata()),
         optional("SourceVersion") => String.t(),
         required("ClientToken") => String.t(),
         required("ConsumptionConfiguration") => consumption_configuration(),
-        required("Entitlements") => list(entitlement()()),
+        required("Entitlements") => list(entitlement()),
         required("HomeRegion") => String.t(),
         required("Issuer") => issuer(),
         required("LicenseArn") => String.t(),
@@ -530,7 +530,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_distributed_grants_response() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "NextToken" => String.t()
       }
       
@@ -552,7 +552,7 @@ defmodule AWS.LicenseManager do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -620,7 +620,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_failures_for_license_configuration_operations_response() :: %{
-        "LicenseOperationFailureList" => list(license_operation_failure()()),
+        "LicenseOperationFailureList" => list(license_operation_failure()),
         "NextToken" => String.t()
       }
       
@@ -641,12 +641,12 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_license_request() :: %{
-        optional("LicenseMetadata") => list(metadata()()),
-        optional("Tags") => list(tag()()),
+        optional("LicenseMetadata") => list(metadata()),
+        optional("Tags") => list(tag()),
         required("Beneficiary") => String.t(),
         required("ClientToken") => String.t(),
         required("ConsumptionConfiguration") => consumption_configuration(),
-        required("Entitlements") => list(entitlement()()),
+        required("Entitlements") => list(entitlement()),
         required("HomeRegion") => String.t(),
         required("Issuer") => issuer(),
         required("LicenseName") => String.t(),
@@ -709,8 +709,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_distributed_grants_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("GrantArns") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("GrantArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -736,7 +736,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_grants_for_organization_response() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "NextToken" => String.t()
       }
       
@@ -759,7 +759,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_configurations_response() :: %{
-        "LicenseConfigurations" => list(license_configuration()()),
+        "LicenseConfigurations" => list(license_configuration()),
         "NextToken" => String.t()
       }
       
@@ -890,9 +890,9 @@ defmodule AWS.LicenseManager do
         optional("LicenseConfigurationStatus") => list(any()),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
-        optional("LicenseRules") => list(String.t()()),
+        optional("LicenseRules") => list(String.t()),
         optional("Name") => String.t(),
-        optional("ProductInformationList") => list(product_information()()),
+        optional("ProductInformationList") => list(product_information()),
         required("LicenseConfigurationArn") => String.t()
       }
       
@@ -904,13 +904,13 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_grant_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AllowedOperations") => list(list(any())()),
         required("ClientToken") => String.t(),
         required("GrantName") => String.t(),
         required("HomeRegion") => String.t(),
         required("LicenseArn") => String.t(),
-        required("Principals") => list(String.t()())
+        required("Principals") => list(String.t())
       }
       
   """
@@ -976,7 +976,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       product_information() :: %{
-        "ProductInformationFilterList" => list(product_information_filter()()),
+        "ProductInformationFilterList" => list(product_information_filter()),
         "ResourceType" => String.t()
       }
       
@@ -990,10 +990,10 @@ defmodule AWS.LicenseManager do
       token_data() :: %{
         "ExpirationTime" => String.t(),
         "LicenseArn" => String.t(),
-        "RoleArns" => list(String.t()()),
+        "RoleArns" => list(String.t()),
         "Status" => String.t(),
         "TokenId" => String.t(),
-        "TokenProperties" => list(String.t()()),
+        "TokenProperties" => list(String.t()),
         "TokenType" => String.t()
       }
       
@@ -1063,7 +1063,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1133,7 +1133,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       license_conversion_context() :: %{
-        "ProductCodes" => list(product_code_list_item()()),
+        "ProductCodes" => list(product_code_list_item()),
         "UsageOperation" => String.t()
       }
       
@@ -1156,7 +1156,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_resource_inventory_request() :: %{
-        optional("Filters") => list(inventory_filter()()),
+        optional("Filters") => list(inventory_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1170,7 +1170,7 @@ defmodule AWS.LicenseManager do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1194,7 +1194,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_conversion_tasks_response() :: %{
-        "LicenseConversionTasks" => list(license_conversion_task()()),
+        "LicenseConversionTasks" => list(license_conversion_task()),
         "NextToken" => String.t()
       }
       
@@ -1218,7 +1218,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_licenses_for_organization_response() :: %{
-        "Licenses" => list(granted_license()()),
+        "Licenses" => list(granted_license()),
         "NextToken" => String.t()
       }
       
@@ -1231,7 +1231,7 @@ defmodule AWS.LicenseManager do
       
       list_resource_inventory_response() :: %{
         "NextToken" => String.t(),
-        "ResourceInventoryList" => list(resource_inventory()())
+        "ResourceInventoryList" => list(resource_inventory())
       }
       
   """
@@ -1246,9 +1246,9 @@ defmodule AWS.LicenseManager do
         optional("DisassociateWhenNotFound") => boolean(),
         optional("LicenseCount") => float(),
         optional("LicenseCountHardLimit") => boolean(),
-        optional("LicenseRules") => list(String.t()()),
-        optional("ProductInformationList") => list(product_information()()),
-        optional("Tags") => list(tag()()),
+        optional("LicenseRules") => list(String.t()),
+        optional("ProductInformationList") => list(product_information()),
+        optional("Tags") => list(tag()),
         required("LicenseCountingType") => list(any()),
         required("Name") => String.t()
       }
@@ -1301,8 +1301,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       checkout_borrow_license_response() :: %{
-        "CheckoutMetadata" => list(metadata()()),
-        "EntitlementsAllowed" => list(entitlement_data()()),
+        "CheckoutMetadata" => list(metadata()),
+        "EntitlementsAllowed" => list(entitlement_data()),
         "Expiration" => String.t(),
         "IssuedAt" => String.t(),
         "LicenseArn" => String.t(),
@@ -1320,7 +1320,7 @@ defmodule AWS.LicenseManager do
       
       create_license_manager_report_generator_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientToken") => String.t(),
         required("ReportContext") => report_context(),
         required("ReportFrequency") => report_frequency(),
@@ -1349,7 +1349,7 @@ defmodule AWS.LicenseManager do
       
       get_license_configuration_response() :: %{
         "AutomatedDiscoveryInformation" => automated_discovery_information(),
-        "ConsumedLicenseSummaryList" => list(consumed_license_summary()()),
+        "ConsumedLicenseSummaryList" => list(consumed_license_summary()),
         "ConsumedLicenses" => float(),
         "Description" => String.t(),
         "DisassociateWhenNotFound" => boolean(),
@@ -1358,13 +1358,13 @@ defmodule AWS.LicenseManager do
         "LicenseCount" => float(),
         "LicenseCountHardLimit" => boolean(),
         "LicenseCountingType" => list(any()),
-        "LicenseRules" => list(String.t()()),
-        "ManagedResourceSummaryList" => list(managed_resource_summary()()),
+        "LicenseRules" => list(String.t()),
+        "ManagedResourceSummaryList" => list(managed_resource_summary()),
         "Name" => String.t(),
         "OwnerAccountId" => String.t(),
-        "ProductInformationList" => list(product_information()()),
+        "ProductInformationList" => list(product_information()),
         "Status" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1375,7 +1375,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_licenses_response() :: %{
-        "Licenses" => list(granted_license()()),
+        "Licenses" => list(granted_license()),
         "NextToken" => String.t()
       }
       
@@ -1464,7 +1464,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       report_context() :: %{
-        "licenseConfigurationArns" => list(String.t()())
+        "licenseConfigurationArns" => list(String.t())
       }
       
   """
@@ -1486,7 +1486,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_usage_for_license_configuration_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("LicenseConfigurationArn") => String.t()
@@ -1535,7 +1535,7 @@ defmodule AWS.LicenseManager do
         "ReportGeneratorName" => String.t(),
         "ReportType" => list(list(any())()),
         "S3Location" => s3_location(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1557,7 +1557,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_grants_response() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "NextToken" => String.t()
       }
       
@@ -1615,11 +1615,11 @@ defmodule AWS.LicenseManager do
         "Beneficiary" => String.t(),
         "ConsumptionConfiguration" => consumption_configuration(),
         "CreateTime" => String.t(),
-        "Entitlements" => list(entitlement()()),
+        "Entitlements" => list(entitlement()),
         "HomeRegion" => String.t(),
         "Issuer" => issuer_details(),
         "LicenseArn" => String.t(),
-        "LicenseMetadata" => list(metadata()()),
+        "LicenseMetadata" => list(metadata()),
         "LicenseName" => String.t(),
         "ProductName" => String.t(),
         "ProductSKU" => String.t(),
@@ -1650,8 +1650,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       update_license_specifications_for_resource_request() :: %{
-        optional("AddLicenseSpecifications") => list(license_specification()()),
-        optional("RemoveLicenseSpecifications") => list(license_specification()()),
+        optional("AddLicenseSpecifications") => list(license_specification()),
+        optional("RemoveLicenseSpecifications") => list(license_specification()),
         required("ResourceArn") => String.t()
       }
       
@@ -1665,7 +1665,7 @@ defmodule AWS.LicenseManager do
       license_operation_failure() :: %{
         "ErrorMessage" => String.t(),
         "FailureTime" => non_neg_integer(),
-        "MetadataList" => list(metadata()()),
+        "MetadataList" => list(metadata()),
         "OperationName" => String.t(),
         "OperationRequestedBy" => String.t(),
         "ResourceArn" => String.t(),
@@ -1696,7 +1696,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       get_access_token_request() :: %{
-        optional("TokenProperties") => list(String.t()()),
+        optional("TokenProperties") => list(String.t()),
         required("Token") => String.t()
       }
       
@@ -1708,8 +1708,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_received_grants_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("GrantArns") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("GrantArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1733,7 +1733,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_license_specifications_for_resource_response() :: %{
-        "LicenseSpecifications" => list(license_specification()()),
+        "LicenseSpecifications" => list(license_specification()),
         "NextToken" => String.t()
       }
       
@@ -1749,7 +1749,7 @@ defmodule AWS.LicenseManager do
         optional("NodeId") => String.t(),
         required("CheckoutType") => list(any()),
         required("ClientToken") => String.t(),
-        required("Entitlements") => list(entitlement_data()()),
+        required("Entitlements") => list(entitlement_data()),
         required("KeyFingerprint") => String.t(),
         required("ProductSKU") => String.t()
       }
@@ -1823,7 +1823,7 @@ defmodule AWS.LicenseManager do
       product_information_filter() :: %{
         "ProductInformationFilterComparator" => String.t(),
         "ProductInformationFilterName" => String.t(),
-        "ProductInformationFilterValue" => list(String.t()())
+        "ProductInformationFilterValue" => list(String.t())
       }
       
   """
@@ -1891,10 +1891,10 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_tokens_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TokenIds") => list(String.t()())
+        optional("TokenIds") => list(String.t())
       }
       
   """
@@ -1905,11 +1905,11 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       checkout_borrow_license_request() :: %{
-        optional("CheckoutMetadata") => list(metadata()()),
+        optional("CheckoutMetadata") => list(metadata()),
         optional("NodeId") => String.t(),
         required("ClientToken") => String.t(),
         required("DigitalSignatureMethod") => list(any()),
-        required("Entitlements") => list(entitlement_data()()),
+        required("Entitlements") => list(entitlement_data()),
         required("LicenseArn") => String.t()
       }
       
@@ -1922,8 +1922,8 @@ defmodule AWS.LicenseManager do
       
       create_token_request() :: %{
         optional("ExpirationInDays") => integer(),
-        optional("RoleArns") => list(String.t()()),
-        optional("TokenProperties") => list(String.t()()),
+        optional("RoleArns") => list(String.t()),
+        optional("TokenProperties") => list(String.t()),
         required("ClientToken") => String.t(),
         required("LicenseArn") => String.t()
       }
@@ -1937,7 +1937,7 @@ defmodule AWS.LicenseManager do
       
       list_license_manager_report_generators_response() :: %{
         "NextToken" => String.t(),
-        "ReportGenerators" => list(report_generator()())
+        "ReportGenerators" => list(report_generator())
       }
       
   """
@@ -2033,7 +2033,7 @@ defmodule AWS.LicenseManager do
       
       list_tokens_response() :: %{
         "NextToken" => String.t(),
-        "Tokens" => list(token_data()())
+        "Tokens" => list(token_data())
       }
       
   """
@@ -2044,7 +2044,7 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       list_associations_for_license_configuration_response() :: %{
-        "LicenseConfigurationAssociations" => list(license_configuration_association()()),
+        "LicenseConfigurationAssociations" => list(license_configuration_association()),
         "NextToken" => String.t()
       }
       
@@ -2506,7 +2506,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, accept_grant_errors()}
   def accept_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptGrant", input, options)
   end
@@ -2522,7 +2523,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, check_in_license_errors()}
   def check_in_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckInLicense", input, options)
   end
@@ -2536,7 +2538,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, checkout_borrow_license_errors()}
   def checkout_borrow_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckoutBorrowLicense", input, options)
   end
@@ -2554,7 +2557,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, checkout_license_errors()}
   def checkout_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckoutLicense", input, options)
   end
@@ -2573,7 +2577,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGrant", input, options)
   end
@@ -2591,7 +2596,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_grant_version_errors()}
   def create_grant_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGrantVersion", input, options)
   end
@@ -2605,7 +2611,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_errors()}
   def create_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicense", input, options)
   end
@@ -2630,7 +2637,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_configuration_errors()}
   def create_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseConfiguration", input, options)
   end
@@ -2648,7 +2656,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_conversion_task_for_resource_errors()}
   def create_license_conversion_task_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseConversionTaskForResource", input, options)
   end
@@ -2666,7 +2675,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_manager_report_generator_errors()}
   def create_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseManagerReportGenerator", input, options)
   end
@@ -2680,7 +2690,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_license_version_errors()}
   def create_license_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLicenseVersion", input, options)
   end
@@ -2700,7 +2711,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, create_token_errors()}
   def create_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateToken", input, options)
   end
@@ -2714,7 +2726,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_grant_errors()}
   def delete_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGrant", input, options)
   end
@@ -2728,7 +2741,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_errors()}
   def delete_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicense", input, options)
   end
@@ -2744,7 +2758,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_configuration_errors()}
   def delete_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicenseConfiguration", input, options)
   end
@@ -2767,7 +2782,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_license_manager_report_generator_errors()}
   def delete_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLicenseManagerReportGenerator", input, options)
   end
@@ -2783,7 +2799,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, delete_token_errors()}
   def delete_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteToken", input, options)
   end
@@ -2797,7 +2814,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, extend_license_consumption_errors()}
   def extend_license_consumption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExtendLicenseConsumption", input, options)
   end
@@ -2814,7 +2832,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessToken", input, options)
   end
@@ -2828,7 +2847,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_grant_errors()}
   def get_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGrant", input, options)
   end
@@ -2842,7 +2862,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_errors()}
   def get_license(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicense", input, options)
   end
@@ -2856,7 +2877,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_configuration_errors()}
   def get_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseConfiguration", input, options)
   end
@@ -2870,7 +2892,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_conversion_task_errors()}
   def get_license_conversion_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseConversionTask", input, options)
   end
@@ -2888,7 +2911,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_manager_report_generator_errors()}
   def get_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseManagerReportGenerator", input, options)
   end
@@ -2902,7 +2926,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_license_usage_errors()}
   def get_license_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseUsage", input, options)
   end
@@ -2916,7 +2941,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, get_service_settings_errors()}
   def get_service_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceSettings", input, options)
   end
@@ -2939,7 +2965,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_associations_for_license_configuration_errors()}
   def list_associations_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociationsForLicenseConfiguration", input, options)
   end
@@ -2953,7 +2980,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_distributed_grants_errors()}
   def list_distributed_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDistributedGrants", input, options)
   end
@@ -2971,7 +2999,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_failures_for_license_configuration_operations_errors()}
   def list_failures_for_license_configuration_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2991,7 +3020,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_configurations_errors()}
   def list_license_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseConfigurations", input, options)
   end
@@ -3005,7 +3035,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_conversion_tasks_errors()}
   def list_license_conversion_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseConversionTasks", input, options)
   end
@@ -3023,7 +3054,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_manager_report_generators_errors()}
   def list_license_manager_report_generators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseManagerReportGenerators", input, options)
   end
@@ -3041,7 +3073,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_specifications_for_resource_errors()}
   def list_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseSpecificationsForResource", input, options)
   end
@@ -3055,7 +3088,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_license_versions_errors()}
   def list_license_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenseVersions", input, options)
   end
@@ -3069,7 +3103,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_licenses_errors()}
   def list_licenses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLicenses", input, options)
   end
@@ -3088,7 +3123,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_grants_errors()}
   def list_received_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedGrants", input, options)
   end
@@ -3106,7 +3142,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_grants_for_organization_errors()}
   def list_received_grants_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedGrantsForOrganization", input, options)
   end
@@ -3120,7 +3157,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_licenses_errors()}
   def list_received_licenses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedLicenses", input, options)
   end
@@ -3138,7 +3176,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_received_licenses_for_organization_errors()}
   def list_received_licenses_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceivedLicensesForOrganization", input, options)
   end
@@ -3152,7 +3191,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_resource_inventory_errors()}
   def list_resource_inventory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceInventory", input, options)
   end
@@ -3171,7 +3211,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3185,7 +3226,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_tokens_errors()}
   def list_tokens(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTokens", input, options)
   end
@@ -3207,7 +3249,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, list_usage_for_license_configuration_errors()}
   def list_usage_for_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageForLicenseConfiguration", input, options)
   end
@@ -3221,7 +3264,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, reject_grant_errors()}
   def reject_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectGrant", input, options)
   end
@@ -3250,7 +3294,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3264,7 +3309,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3278,7 +3324,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_configuration_errors()}
   def update_license_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseConfiguration", input, options)
   end
@@ -3299,7 +3346,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_manager_report_generator_errors()}
   def update_license_manager_report_generator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseManagerReportGenerator", input, options)
   end
@@ -3323,7 +3371,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_license_specifications_for_resource_errors()}
   def update_license_specifications_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLicenseSpecificationsForResource", input, options)
   end
@@ -3337,7 +3386,8 @@ defmodule AWS.LicenseManager do
           | {:error, term()}
           | {:error, update_service_settings_errors()}
   def update_service_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceSettings", input, options)
   end

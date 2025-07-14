@@ -42,7 +42,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       custom_domain() :: %{
-        "CertificateValidationRecords" => list(certificate_validation_record()()),
+        "CertificateValidationRecords" => list(certificate_validation_record()),
         "DomainName" => String.t(),
         "EnableWWWSubdomain" => boolean(),
         "Status" => list(any())
@@ -68,7 +68,7 @@ defmodule AWS.AppRunner do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -91,7 +91,7 @@ defmodule AWS.AppRunner do
       
       list_observability_configurations_response() :: %{
         "NextToken" => String.t(),
-        "ObservabilityConfigurationSummaryList" => list(observability_configuration_summary()())
+        "ObservabilityConfigurationSummaryList" => list(observability_configuration_summary())
       }
       
   """
@@ -126,7 +126,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       create_observability_configuration_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TraceConfiguration") => trace_configuration(),
         required("ObservabilityConfigurationName") => String.t()
       }
@@ -263,7 +263,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       list_connections_response() :: %{
-        "ConnectionSummaryList" => list(connection_summary()()),
+        "ConnectionSummaryList" => list(connection_summary()),
         "NextToken" => String.t()
       }
       
@@ -324,9 +324,9 @@ defmodule AWS.AppRunner do
       vpc_connector() :: %{
         "CreatedAt" => non_neg_integer(),
         "DeletedAt" => non_neg_integer(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "Status" => list(any()),
-        "Subnets" => list(String.t()()),
+        "Subnets" => list(String.t()),
         "VpcConnectorArn" => String.t(),
         "VpcConnectorName" => String.t(),
         "VpcConnectorRevision" => integer()
@@ -377,7 +377,7 @@ defmodule AWS.AppRunner do
       
       list_vpc_connectors_response() :: %{
         "NextToken" => String.t(),
-        "VpcConnectors" => list(vpc_connector()())
+        "VpcConnectors" => list(vpc_connector())
       }
       
   """
@@ -428,7 +428,7 @@ defmodule AWS.AppRunner do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -499,7 +499,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       create_vpc_ingress_connection_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IngressVpcConfiguration") => ingress_vpc_configuration(),
         required("ServiceArn") => String.t(),
         required("VpcIngressConnectionName") => String.t()
@@ -562,7 +562,7 @@ defmodule AWS.AppRunner do
       
       list_services_for_auto_scaling_configuration_response() :: %{
         "NextToken" => String.t(),
-        "ServiceArnList" => list(String.t()())
+        "ServiceArnList" => list(String.t())
       }
       
   """
@@ -664,9 +664,9 @@ defmodule AWS.AppRunner do
   ## Example:
       
       create_vpc_connector_request() :: %{
-        optional("SecurityGroups") => list(String.t()()),
-        optional("Tags") => list(tag()()),
-        required("Subnets") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
+        optional("Tags") => list(tag()),
+        required("Subnets") => list(String.t()),
         required("VpcConnectorName") => String.t()
       }
       
@@ -752,7 +752,7 @@ defmodule AWS.AppRunner do
       
       list_services_response() :: %{
         "NextToken" => String.t(),
-        "ServiceSummaryList" => list(service_summary()())
+        "ServiceSummaryList" => list(service_summary())
       }
       
   """
@@ -808,7 +808,7 @@ defmodule AWS.AppRunner do
         optional("InstanceConfiguration") => instance_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("ObservabilityConfiguration") => service_observability_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ServiceName") => String.t(),
         required("SourceConfiguration") => source_configuration()
       }
@@ -877,7 +877,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1032,7 +1032,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       list_auto_scaling_configurations_response() :: %{
-        "AutoScalingConfigurationSummaryList" => list(auto_scaling_configuration_summary()()),
+        "AutoScalingConfigurationSummaryList" => list(auto_scaling_configuration_summary()),
         "NextToken" => String.t()
       }
       
@@ -1058,7 +1058,7 @@ defmodule AWS.AppRunner do
       
       list_operations_response() :: %{
         "NextToken" => String.t(),
-        "OperationSummaryList" => list(operation_summary()())
+        "OperationSummaryList" => list(operation_summary())
       }
       
   """
@@ -1190,7 +1190,7 @@ defmodule AWS.AppRunner do
         optional("MaxConcurrency") => integer(),
         optional("MaxSize") => integer(),
         optional("MinSize") => integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AutoScalingConfigurationName") => String.t()
       }
       
@@ -1332,7 +1332,7 @@ defmodule AWS.AppRunner do
       
       list_vpc_ingress_connections_response() :: %{
         "NextToken" => String.t(),
-        "VpcIngressConnectionSummaryList" => list(vpc_ingress_connection_summary()())
+        "VpcIngressConnectionSummaryList" => list(vpc_ingress_connection_summary())
       }
       
   """
@@ -1343,7 +1343,7 @@ defmodule AWS.AppRunner do
   ## Example:
       
       create_connection_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConnectionName") => String.t(),
         required("ProviderType") => list(any())
       }
@@ -1359,7 +1359,7 @@ defmodule AWS.AppRunner do
         "CustomDomain" => custom_domain(),
         "DNSTarget" => String.t(),
         "ServiceArn" => String.t(),
-        "VpcDNSTargets" => list(vpc_dns_target()())
+        "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
@@ -1420,7 +1420,7 @@ defmodule AWS.AppRunner do
         "CustomDomain" => custom_domain(),
         "DNSTarget" => String.t(),
         "ServiceArn" => String.t(),
-        "VpcDNSTargets" => list(vpc_dns_target()())
+        "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
@@ -1459,11 +1459,11 @@ defmodule AWS.AppRunner do
   ## Example:
       
       describe_custom_domains_response() :: %{
-        "CustomDomains" => list(custom_domain()()),
+        "CustomDomains" => list(custom_domain()),
         "DNSTarget" => String.t(),
         "NextToken" => String.t(),
         "ServiceArn" => String.t(),
-        "VpcDNSTargets" => list(vpc_dns_target()())
+        "VpcDNSTargets" => list(vpc_dns_target())
       }
       
   """
@@ -1687,7 +1687,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, associate_custom_domain_errors()}
   def associate_custom_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCustomDomain", input, options)
   end
@@ -1725,7 +1726,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_auto_scaling_configuration_errors()}
   def create_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoScalingConfiguration", input, options)
   end
@@ -1750,7 +1752,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -1787,7 +1790,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_observability_configuration_errors()}
   def create_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateObservabilityConfiguration", input, options)
   end
@@ -1808,7 +1812,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -1826,7 +1831,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_vpc_connector_errors()}
   def create_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcConnector", input, options)
   end
@@ -1843,7 +1849,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, create_vpc_ingress_connection_errors()}
   def create_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcIngressConnection", input, options)
   end
@@ -1867,7 +1874,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_auto_scaling_configuration_errors()}
   def delete_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutoScalingConfiguration", input, options)
   end
@@ -1885,7 +1893,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -1907,7 +1916,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_observability_configuration_errors()}
   def delete_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteObservabilityConfiguration", input, options)
   end
@@ -1928,7 +1938,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -1945,7 +1956,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_vpc_connector_errors()}
   def delete_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcConnector", input, options)
   end
@@ -1978,7 +1990,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, delete_vpc_ingress_connection_errors()}
   def delete_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcIngressConnection", input, options)
   end
@@ -1997,7 +2010,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_auto_scaling_configuration_errors()}
   def describe_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingConfiguration", input, options)
   end
@@ -2012,7 +2026,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_custom_domains_errors()}
   def describe_custom_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomDomains", input, options)
   end
@@ -2030,7 +2045,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_observability_configuration_errors()}
   def describe_observability_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObservabilityConfiguration", input, options)
   end
@@ -2044,7 +2060,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_service_errors()}
   def describe_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeService", input, options)
   end
@@ -2058,7 +2075,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_vpc_connector_errors()}
   def describe_vpc_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcConnector", input, options)
   end
@@ -2072,7 +2090,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, describe_vpc_ingress_connection_errors()}
   def describe_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcIngressConnection", input, options)
   end
@@ -2092,7 +2111,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, disassociate_custom_domain_errors()}
   def disassociate_custom_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateCustomDomain", input, options)
   end
@@ -2120,7 +2140,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_auto_scaling_configurations_errors()}
   def list_auto_scaling_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutoScalingConfigurations", input, options)
   end
@@ -2135,7 +2156,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -2163,7 +2185,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_observability_configurations_errors()}
   def list_observability_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListObservabilityConfigurations", input, options)
   end
@@ -2181,7 +2204,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
@@ -2196,7 +2220,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -2215,7 +2240,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_services_for_auto_scaling_configuration_errors()}
   def list_services_for_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServicesForAutoScalingConfiguration", input, options)
   end
@@ -2231,7 +2257,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2245,7 +2272,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_vpc_connectors_errors()}
   def list_vpc_connectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcConnectors", input, options)
   end
@@ -2260,7 +2288,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, list_vpc_ingress_connections_errors()}
   def list_vpc_ingress_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcIngressConnections", input, options)
   end
@@ -2282,7 +2311,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, pause_service_errors()}
   def pause_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PauseService", input, options)
   end
@@ -2302,7 +2332,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, resume_service_errors()}
   def resume_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeService", input, options)
   end
@@ -2328,7 +2359,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, start_deployment_errors()}
   def start_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDeployment", input, options)
   end
@@ -2344,7 +2376,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2358,7 +2391,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2379,7 +2413,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_default_auto_scaling_configuration_errors()}
   def update_default_auto_scaling_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDefaultAutoScalingConfiguration", input, options)
   end
@@ -2406,7 +2441,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -2434,7 +2470,8 @@ defmodule AWS.AppRunner do
           | {:error, term()}
           | {:error, update_vpc_ingress_connection_errors()}
   def update_vpc_ingress_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVpcIngressConnection", input, options)
   end

@@ -14,7 +14,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_resource_profile_artifacts_response() :: %{
-        "artifacts" => list(resource_profile_artifact()()),
+        "artifacts" => list(resource_profile_artifact()),
         "nextToken" => String.t()
       }
 
@@ -166,7 +166,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       get_usage_statistics_request() :: %{
-        optional("filterBy") => list(usage_statistics_filter()()),
+        optional("filterBy") => list(usage_statistics_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => usage_statistics_sort_by(),
@@ -204,10 +204,10 @@ defmodule AWS.Macie2 do
   ## Example:
 
       describe_classification_job_response() :: %{
-        "allowListIds" => list(String.t()()),
+        "allowListIds" => list(String.t()),
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
-        "customDataIdentifierIds" => list(String.t()()),
+        "customDataIdentifierIds" => list(String.t()),
         "description" => String.t(),
         "initialRun" => boolean(),
         "jobArn" => String.t(),
@@ -216,7 +216,7 @@ defmodule AWS.Macie2 do
         "jobType" => list(any()),
         "lastRunErrorStatus" => last_run_error_status(),
         "lastRunTime" => non_neg_integer(),
-        "managedDataIdentifierIds" => list(String.t()()),
+        "managedDataIdentifierIds" => list(String.t()),
         "managedDataIdentifierSelector" => list(any()),
         "name" => String.t(),
         "s3JobDefinition" => s3_job_definition(),
@@ -237,7 +237,7 @@ defmodule AWS.Macie2 do
       usage_statistics_filter() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -306,7 +306,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       decline_invitations_response() :: %{
-        "unprocessedAccounts" => list(unprocessed_account()())
+        "unprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -331,7 +331,7 @@ defmodule AWS.Macie2 do
 
       s3_bucket_definition_for_job() :: %{
         "accountId" => String.t(),
-        "buckets" => list(String.t()())
+        "buckets" => list(String.t())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.Macie2 do
       list_jobs_filter_term() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -466,7 +466,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       s3_classification_scope_exclusion() :: %{
-        "bucketNames" => list(String.t()())
+        "bucketNames" => list(String.t())
       }
 
   """
@@ -509,7 +509,7 @@ defmodule AWS.Macie2 do
         "additionalOccurrences" => boolean(),
         "customDataIdentifiers" => custom_data_identifiers(),
         "mimeType" => String.t(),
-        "sensitiveData" => list(sensitive_data_item()()),
+        "sensitiveData" => list(sensitive_data_item()),
         "sizeClassified" => float(),
         "status" => classification_result_status()
       }
@@ -610,12 +610,12 @@ defmodule AWS.Macie2 do
   ## Example:
 
       bucket_criteria_additional_properties() :: %{
-        "eq" => list(String.t()()),
+        "eq" => list(String.t()),
         "gt" => float(),
         "gte" => float(),
         "lt" => float(),
         "lte" => float(),
-        "neq" => list(String.t()()),
+        "neq" => list(String.t()),
         "prefix" => String.t()
       }
 
@@ -679,7 +679,7 @@ defmodule AWS.Macie2 do
         "sharedAccess" => list(any()),
         "sizeInBytes" => float(),
         "sizeInBytesCompressed" => float(),
-        "tags" => list(key_value_pair()()),
+        "tags" => list(key_value_pair()),
         "unclassifiableObjectCount" => object_level_statistics(),
         "unclassifiableObjectSizeInBytes" => object_level_statistics(),
         "versioning" => boolean()
@@ -693,7 +693,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       batch_get_custom_data_identifiers_request() :: %{
-        optional("ids") => list(String.t()())
+        optional("ids") => list(String.t())
       }
 
   """
@@ -706,7 +706,7 @@ defmodule AWS.Macie2 do
       tag_scope_term() :: %{
         "comparator" => list(any()),
         "key" => String.t(),
-        "tagValues" => list(tag_value_pair()()),
+        "tagValues" => list(tag_value_pair()),
         "target" => list(any())
       }
 
@@ -808,7 +808,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_custom_data_identifiers_response() :: %{
-        "items" => list(custom_data_identifier_summary()()),
+        "items" => list(custom_data_identifier_summary()),
         "nextToken" => String.t()
       }
 
@@ -832,7 +832,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       batch_update_automated_discovery_accounts_request() :: %{
-        optional("accounts") => list(automated_discovery_account_update()())
+        optional("accounts") => list(automated_discovery_account_update())
       }
 
   """
@@ -843,7 +843,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       sensitivity_inspection_template_excludes() :: %{
-        "managedDataIdentifierIds" => list(String.t()())
+        "managedDataIdentifierIds" => list(String.t())
       }
 
   """
@@ -864,7 +864,7 @@ defmodule AWS.Macie2 do
         "serverSideEncryption" => server_side_encryption(),
         "size" => float(),
         "storageClass" => list(any()),
-        "tags" => list(key_value_pair()()),
+        "tags" => list(key_value_pair()),
         "versionId" => String.t()
       }
 
@@ -876,7 +876,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_findings_response() :: %{
-        "findingIds" => list(String.t()()),
+        "findingIds" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -968,7 +968,7 @@ defmodule AWS.Macie2 do
 
       get_findings_request() :: %{
         optional("sortCriteria") => sort_criteria(),
-        required("findingIds") => list(String.t()())
+        required("findingIds") => list(String.t())
       }
 
   """
@@ -990,7 +990,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       criteria_block_for_job() :: %{
-        "and" => list(criteria_for_job()())
+        "and" => list(criteria_for_job())
       }
 
   """
@@ -1027,7 +1027,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1055,7 +1055,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_resource_profile_detections_response() :: %{
-        "detections" => list(detection()()),
+        "detections" => list(detection()),
         "nextToken" => String.t()
       }
 
@@ -1309,7 +1309,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       search_resources_response() :: %{
-        "matchingResources" => list(matching_resource()()),
+        "matchingResources" => list(matching_resource()),
         "nextToken" => String.t()
       }
 
@@ -1371,7 +1371,7 @@ defmodule AWS.Macie2 do
       simple_scope_term() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1382,8 +1382,8 @@ defmodule AWS.Macie2 do
   ## Example:
 
       test_custom_data_identifier_request() :: %{
-        optional("ignoreWords") => list(String.t()()),
-        optional("keywords") => list(String.t()()),
+        optional("ignoreWords") => list(String.t()),
+        optional("keywords") => list(String.t()),
         optional("maximumMatchDistance") => integer(),
         required("regex") => String.t(),
         required("sampleText") => String.t()
@@ -1397,7 +1397,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_automated_discovery_accounts_response() :: %{
-        "items" => list(automated_discovery_account()()),
+        "items" => list(automated_discovery_account()),
         "nextToken" => String.t()
       }
 
@@ -1428,7 +1428,7 @@ defmodule AWS.Macie2 do
 
       job_summary() :: %{
         "bucketCriteria" => s3_bucket_criteria_for_job(),
-        "bucketDefinitions" => list(s3_bucket_definition_for_job()()),
+        "bucketDefinitions" => list(s3_bucket_definition_for_job()),
         "createdAt" => non_neg_integer(),
         "jobId" => String.t(),
         "jobStatus" => list(any()),
@@ -1446,7 +1446,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_automated_discovery_accounts_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1470,10 +1470,10 @@ defmodule AWS.Macie2 do
       create_custom_data_identifier_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("ignoreWords") => list(String.t()()),
-        optional("keywords") => list(String.t()()),
+        optional("ignoreWords") => list(String.t()),
+        optional("keywords") => list(String.t()),
         optional("maximumMatchDistance") => integer(),
-        optional("severityLevels") => list(severity_level()()),
+        optional("severityLevels") => list(severity_level()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("regex") => String.t()
@@ -1487,11 +1487,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       occurrences() :: %{
-        "cells" => list(cell()()),
-        "lineRanges" => list(range()()),
-        "offsetRanges" => list(range()()),
-        "pages" => list(page()()),
-        "records" => list(record()())
+        "cells" => list(cell()),
+        "lineRanges" => list(range()),
+        "offsetRanges" => list(range()),
+        "pages" => list(page()),
+        "records" => list(record())
       }
 
   """
@@ -1555,7 +1555,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_findings_filters_response() :: %{
-        "findingsFilterListItems" => list(findings_filter_list_item()()),
+        "findingsFilterListItems" => list(findings_filter_list_item()),
         "nextToken" => String.t()
       }
 
@@ -1670,7 +1670,7 @@ defmodule AWS.Macie2 do
 
       search_resources_tag_criterion() :: %{
         "comparator" => list(any()),
-        "tagValues" => list(search_resources_tag_criterion_pair()())
+        "tagValues" => list(search_resources_tag_criterion_pair())
       }
 
   """
@@ -1697,7 +1697,7 @@ defmodule AWS.Macie2 do
         "name" => String.t(),
         "owner" => s3_bucket_owner(),
         "publicAccess" => bucket_public_access(),
-        "tags" => list(key_value_pair()())
+        "tags" => list(key_value_pair())
       }
 
   """
@@ -1814,7 +1814,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       update_resource_profile_detections_request() :: %{
-        optional("suppressDataIdentifiers") => list(suppress_data_identifier()()),
+        optional("suppressDataIdentifiers") => list(suppress_data_identifier()),
         required("resourceArn") => String.t()
       }
 
@@ -1826,7 +1826,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       get_findings_response() :: %{
-        "findings" => list(finding()())
+        "findings" => list(finding())
       }
 
   """
@@ -1912,8 +1912,8 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_jobs_filter_criteria() :: %{
-        "excludes" => list(list_jobs_filter_term()()),
-        "includes" => list(list_jobs_filter_term()())
+        "excludes" => list(list_jobs_filter_term()),
+        "includes" => list(list_jobs_filter_term())
       }
 
   """
@@ -1990,7 +1990,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_managed_data_identifiers_response() :: %{
-        "items" => list(managed_data_identifier_summary()()),
+        "items" => list(managed_data_identifier_summary()),
         "nextToken" => String.t()
       }
 
@@ -2176,7 +2176,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       describe_buckets_response() :: %{
-        "buckets" => list(bucket_metadata()()),
+        "buckets" => list(bucket_metadata()),
         "nextToken" => String.t()
       }
 
@@ -2262,7 +2262,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       get_finding_statistics_response() :: %{
-        "countsByGroup" => list(group_count()())
+        "countsByGroup" => list(group_count())
       }
 
   """
@@ -2300,7 +2300,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       s3_classification_scope_exclusion_update() :: %{
-        "bucketNames" => list(String.t()()),
+        "bucketNames" => list(String.t()),
         "operation" => list(any())
       }
 
@@ -2364,7 +2364,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       decline_invitations_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -2376,7 +2376,7 @@ defmodule AWS.Macie2 do
 
       sensitive_data_item() :: %{
         "category" => list(any()),
-        "detections" => list(default_detection()()),
+        "detections" => list(default_detection()),
         "totalCount" => float()
       }
 
@@ -2497,7 +2497,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       delete_invitations_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -2585,9 +2585,9 @@ defmodule AWS.Macie2 do
   ## Example:
 
       sensitivity_inspection_template_includes() :: %{
-        "allowListIds" => list(String.t()()),
-        "customDataIdentifierIds" => list(String.t()()),
-        "managedDataIdentifierIds" => list(String.t()())
+        "allowListIds" => list(String.t()),
+        "customDataIdentifierIds" => list(String.t()),
+        "managedDataIdentifierIds" => list(String.t())
       }
 
   """
@@ -2630,7 +2630,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       delete_invitations_response() :: %{
-        "unprocessedAccounts" => list(unprocessed_account()())
+        "unprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -2665,8 +2665,8 @@ defmodule AWS.Macie2 do
   ## Example:
 
       batch_get_custom_data_identifiers_response() :: %{
-        "customDataIdentifiers" => list(batch_get_custom_data_identifier_summary()()),
-        "notFoundIdentifierIds" => list(String.t()())
+        "customDataIdentifiers" => list(batch_get_custom_data_identifier_summary()),
+        "notFoundIdentifierIds" => list(String.t())
       }
 
   """
@@ -2835,7 +2835,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_members_response() :: %{
-        "members" => list(member()()),
+        "members" => list(member()),
         "nextToken" => String.t()
       }
 
@@ -2909,7 +2909,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       search_resources_criteria_block() :: %{
-        "and" => list(search_resources_criteria()())
+        "and" => list(search_resources_criteria())
       }
 
   """
@@ -2975,7 +2975,7 @@ defmodule AWS.Macie2 do
 
       s3_job_definition() :: %{
         "bucketCriteria" => s3_bucket_criteria_for_job(),
-        "bucketDefinitions" => list(s3_bucket_definition_for_job()()),
+        "bucketDefinitions" => list(s3_bucket_definition_for_job()),
         "scoping" => scoping()
       }
 
@@ -3113,7 +3113,7 @@ defmodule AWS.Macie2 do
       replication_details() :: %{
         "replicated" => boolean(),
         "replicatedExternally" => boolean(),
-        "replicationAccounts" => list(String.t()())
+        "replicationAccounts" => list(String.t())
       }
 
   """
@@ -3146,7 +3146,7 @@ defmodule AWS.Macie2 do
 
       get_usage_totals_response() :: %{
         "timeRange" => list(any()),
-        "usageTotals" => list(usage_total()())
+        "usageTotals" => list(usage_total())
       }
 
   """
@@ -3238,7 +3238,7 @@ defmodule AWS.Macie2 do
       search_resources_simple_criterion() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3250,7 +3250,7 @@ defmodule AWS.Macie2 do
 
       tag_criterion_for_job() :: %{
         "comparator" => list(any()),
-        "tagValues" => list(tag_criterion_pair_for_job()())
+        "tagValues" => list(tag_criterion_pair_for_job())
       }
 
   """
@@ -3272,13 +3272,13 @@ defmodule AWS.Macie2 do
   ## Example:
 
       criterion_additional_properties() :: %{
-        "eq" => list(String.t()()),
-        "eqExactMatch" => list(String.t()()),
+        "eq" => list(String.t()),
+        "eqExactMatch" => list(String.t()),
         "gt" => float(),
         "gte" => float(),
         "lt" => float(),
         "lte" => float(),
-        "neq" => list(String.t()())
+        "neq" => list(String.t())
       }
 
   """
@@ -3341,7 +3341,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       batch_update_automated_discovery_accounts_response() :: %{
-        "errors" => list(automated_discovery_account_update_error()())
+        "errors" => list(automated_discovery_account_update_error())
       }
 
   """
@@ -3352,7 +3352,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_classification_scopes_response() :: %{
-        "classificationScopes" => list(classification_scope_summary()()),
+        "classificationScopes" => list(classification_scope_summary()),
         "nextToken" => String.t()
       }
 
@@ -3389,7 +3389,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       create_invitations_response() :: %{
-        "unprocessedAccounts" => list(unprocessed_account()())
+        "unprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -3464,7 +3464,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_organization_admin_accounts_response() :: %{
-        "adminAccounts" => list(admin_account()()),
+        "adminAccounts" => list(admin_account()),
         "nextToken" => String.t()
       }
 
@@ -3476,7 +3476,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_allow_lists_response() :: %{
-        "allowLists" => list(allow_list_summary()()),
+        "allowLists" => list(allow_list_summary()),
         "nextToken" => String.t()
       }
 
@@ -3528,12 +3528,12 @@ defmodule AWS.Macie2 do
         "deleted" => boolean(),
         "description" => String.t(),
         "id" => String.t(),
-        "ignoreWords" => list(String.t()()),
-        "keywords" => list(String.t()()),
+        "ignoreWords" => list(String.t()),
+        "keywords" => list(String.t()),
         "maximumMatchDistance" => integer(),
         "name" => String.t(),
         "regex" => String.t(),
-        "severityLevels" => list(severity_level()()),
+        "severityLevels" => list(severity_level()),
         "tags" => map()
       }
 
@@ -3546,7 +3546,7 @@ defmodule AWS.Macie2 do
 
       list_sensitivity_inspection_templates_response() :: %{
         "nextToken" => String.t(),
-        "sensitivityInspectionTemplates" => list(sensitivity_inspection_templates_entry()())
+        "sensitivityInspectionTemplates" => list(sensitivity_inspection_templates_entry())
       }
 
   """
@@ -3557,7 +3557,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       custom_data_identifiers() :: %{
-        "detections" => list(custom_detection()()),
+        "detections" => list(custom_detection()),
         "totalCount" => float()
       }
 
@@ -3593,7 +3593,7 @@ defmodule AWS.Macie2 do
         "accountId" => String.t(),
         "automatedDiscoveryFreeTrialStartDate" => non_neg_integer(),
         "freeTrialStartDate" => non_neg_integer(),
-        "usage" => list(usage_by_account()())
+        "usage" => list(usage_by_account())
       }
 
   """
@@ -3624,7 +3624,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       job_scoping_block() :: %{
-        "and" => list(job_scope_term()())
+        "and" => list(job_scope_term())
       }
 
   """
@@ -3704,11 +3704,11 @@ defmodule AWS.Macie2 do
   ## Example:
 
       create_classification_job_request() :: %{
-        optional("allowListIds") => list(String.t()()),
-        optional("customDataIdentifierIds") => list(String.t()()),
+        optional("allowListIds") => list(String.t()),
+        optional("customDataIdentifierIds") => list(String.t()),
         optional("description") => String.t(),
         optional("initialRun") => boolean(),
-        optional("managedDataIdentifierIds") => list(String.t()()),
+        optional("managedDataIdentifierIds") => list(String.t()),
         optional("managedDataIdentifierSelector") => list(any()),
         optional("samplingPercentage") => integer(),
         optional("scheduleFrequency") => job_schedule_frequency(),
@@ -3743,7 +3743,7 @@ defmodule AWS.Macie2 do
       simple_criterion_for_job() :: %{
         "comparator" => list(any()),
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3789,7 +3789,7 @@ defmodule AWS.Macie2 do
 
       get_usage_statistics_response() :: %{
         "nextToken" => String.t(),
-        "records" => list(usage_record()()),
+        "records" => list(usage_record()),
         "timeRange" => list(any())
       }
 
@@ -3803,7 +3803,7 @@ defmodule AWS.Macie2 do
       create_invitations_request() :: %{
         optional("disableEmailNotification") => boolean(),
         optional("message") => String.t(),
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -3838,7 +3838,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_classification_jobs_response() :: %{
-        "items" => list(job_summary()()),
+        "items" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -3850,7 +3850,7 @@ defmodule AWS.Macie2 do
   ## Example:
 
       list_invitations_response() :: %{
-        "invitations" => list(invitation()()),
+        "invitations" => list(invitation()),
         "nextToken" => String.t()
       }
 

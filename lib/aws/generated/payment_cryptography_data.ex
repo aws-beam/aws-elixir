@@ -823,7 +823,7 @@ defmodule AWS.PaymentCryptographyData do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()]
       }
 

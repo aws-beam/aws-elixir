@@ -36,10 +36,10 @@ defmodule AWS.Chatbot do
 
       create_teams_channel_configuration_request() :: %{
         optional("ChannelName") => String.t(),
-        optional("GuardrailPolicyArns") => list(String.t()()),
+        optional("GuardrailPolicyArns") => list(String.t()),
         optional("LoggingLevel") => String.t(),
-        optional("SnsTopicArns") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SnsTopicArns") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("TeamName") => String.t(),
         optional("UserAuthorizationRequired") => boolean(),
         required("ChannelId") => String.t(),
@@ -93,7 +93,7 @@ defmodule AWS.Chatbot do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -149,7 +149,7 @@ defmodule AWS.Chatbot do
 
       update_custom_action_request() :: %{
         optional("AliasName") => String.t(),
-        optional("Attachments") => list(custom_action_attachment()()),
+        optional("Attachments") => list(custom_action_attachment()),
         required("CustomActionArn") => String.t(),
         required("Definition") => custom_action_definition()
       }
@@ -248,7 +248,7 @@ defmodule AWS.Chatbot do
   ## Example:
 
       list_microsoft_teams_configured_teams_result() :: %{
-        "ConfiguredTeams" => list(configured_team()()),
+        "ConfiguredTeams" => list(configured_team()),
         "NextToken" => String.t()
       }
 
@@ -272,11 +272,11 @@ defmodule AWS.Chatbot do
   ## Example:
 
       update_slack_channel_configuration_request() :: %{
-        optional("GuardrailPolicyArns") => list(String.t()()),
+        optional("GuardrailPolicyArns") => list(String.t()),
         optional("IamRoleArn") => String.t(),
         optional("LoggingLevel") => String.t(),
         optional("SlackChannelName") => String.t(),
-        optional("SnsTopicArns") => list(String.t()()),
+        optional("SnsTopicArns") => list(String.t()),
         optional("UserAuthorizationRequired") => boolean(),
         required("ChatConfigurationArn") => String.t(),
         required("SlackChannelId") => String.t()
@@ -322,7 +322,7 @@ defmodule AWS.Chatbot do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -344,7 +344,7 @@ defmodule AWS.Chatbot do
   ## Example:
 
       list_custom_actions_result() :: %{
-        "CustomActions" => list(String.t()()),
+        "CustomActions" => list(String.t()),
         "NextToken" => [String.t()]
       }
 
@@ -410,10 +410,10 @@ defmodule AWS.Chatbot do
 
       update_teams_channel_configuration_request() :: %{
         optional("ChannelName") => String.t(),
-        optional("GuardrailPolicyArns") => list(String.t()()),
+        optional("GuardrailPolicyArns") => list(String.t()),
         optional("IamRoleArn") => String.t(),
         optional("LoggingLevel") => String.t(),
-        optional("SnsTopicArns") => list(String.t()()),
+        optional("SnsTopicArns") => list(String.t()),
         optional("UserAuthorizationRequired") => boolean(),
         required("ChannelId") => String.t(),
         required("ChatConfigurationArn") => String.t()
@@ -439,7 +439,7 @@ defmodule AWS.Chatbot do
 
       describe_chime_webhook_configurations_result() :: %{
         "NextToken" => String.t(),
-        "WebhookConfigurations" => list(chime_webhook_configuration()())
+        "WebhookConfigurations" => list(chime_webhook_configuration())
       }
 
   """
@@ -600,7 +600,7 @@ defmodule AWS.Chatbot do
 
       custom_action_attachment() :: %{
         "ButtonText" => String.t(),
-        "Criteria" => list(custom_action_attachment_criteria()()),
+        "Criteria" => list(custom_action_attachment_criteria()),
         "NotificationType" => String.t(),
         "Variables" => map()
       }
@@ -614,7 +614,7 @@ defmodule AWS.Chatbot do
 
       describe_slack_workspaces_result() :: %{
         "NextToken" => String.t(),
-        "SlackWorkspaces" => list(slack_workspace()())
+        "SlackWorkspaces" => list(slack_workspace())
       }
 
   """
@@ -658,7 +658,7 @@ defmodule AWS.Chatbot do
   ## Example:
 
       list_associations_result() :: %{
-        "Associations" => list(association_listing()()),
+        "Associations" => list(association_listing()),
         "NextToken" => String.t()
       }
 
@@ -670,7 +670,7 @@ defmodule AWS.Chatbot do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -727,7 +727,7 @@ defmodule AWS.Chatbot do
 
       list_teams_channel_configurations_result() :: %{
         "NextToken" => String.t(),
-        "TeamChannelConfigurations" => list(teams_channel_configuration()())
+        "TeamChannelConfigurations" => list(teams_channel_configuration())
       }
 
   """
@@ -798,9 +798,9 @@ defmodule AWS.Chatbot do
 
       create_custom_action_request() :: %{
         optional("AliasName") => String.t(),
-        optional("Attachments") => list(custom_action_attachment()()),
+        optional("Attachments") => list(custom_action_attachment()),
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ActionName") => String.t(),
         required("Definition") => custom_action_definition()
       }
@@ -826,10 +826,10 @@ defmodule AWS.Chatbot do
 
       create_chime_webhook_configuration_request() :: %{
         optional("LoggingLevel") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConfigurationName") => String.t(),
         required("IamRoleArn") => String.t(),
-        required("SnsTopicArns") => list(String.t()()),
+        required("SnsTopicArns") => list(String.t()),
         required("WebhookDescription") => String.t(),
         required("WebhookUrl") => String.t()
       }
@@ -865,11 +865,11 @@ defmodule AWS.Chatbot do
   ## Example:
 
       create_slack_channel_configuration_request() :: %{
-        optional("GuardrailPolicyArns") => list(String.t()()),
+        optional("GuardrailPolicyArns") => list(String.t()),
         optional("LoggingLevel") => String.t(),
         optional("SlackChannelName") => String.t(),
-        optional("SnsTopicArns") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SnsTopicArns") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("UserAuthorizationRequired") => boolean(),
         required("ConfigurationName") => String.t(),
         required("IamRoleArn") => String.t(),
@@ -887,7 +887,7 @@ defmodule AWS.Chatbot do
       update_chime_webhook_configuration_request() :: %{
         optional("IamRoleArn") => String.t(),
         optional("LoggingLevel") => String.t(),
-        optional("SnsTopicArns") => list(String.t()()),
+        optional("SnsTopicArns") => list(String.t()),
         optional("WebhookDescription") => String.t(),
         optional("WebhookUrl") => String.t(),
         required("ChatConfigurationArn") => String.t()
@@ -942,7 +942,7 @@ defmodule AWS.Chatbot do
       custom_action() :: %{
         "ActionName" => String.t(),
         "AliasName" => String.t(),
-        "Attachments" => list(custom_action_attachment()()),
+        "Attachments" => list(custom_action_attachment()),
         "CustomActionArn" => String.t(),
         "Definition" => custom_action_definition()
       }
@@ -1089,17 +1089,17 @@ defmodule AWS.Chatbot do
       slack_channel_configuration() :: %{
         "ChatConfigurationArn" => String.t(),
         "ConfigurationName" => String.t(),
-        "GuardrailPolicyArns" => list(String.t()()),
+        "GuardrailPolicyArns" => list(String.t()),
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
         "SlackChannelId" => String.t(),
         "SlackChannelName" => String.t(),
         "SlackTeamId" => String.t(),
         "SlackTeamName" => String.t(),
-        "SnsTopicArns" => list(String.t()()),
+        "SnsTopicArns" => list(String.t()),
         "State" => String.t(),
         "StateReason" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UserAuthorizationRequired" => boolean()
       }
 
@@ -1123,7 +1123,7 @@ defmodule AWS.Chatbot do
 
       list_microsoft_teams_user_identities_result() :: %{
         "NextToken" => String.t(),
-        "TeamsUserIdentities" => list(teams_user_identity()())
+        "TeamsUserIdentities" => list(teams_user_identity())
       }
 
   """
@@ -1160,10 +1160,10 @@ defmodule AWS.Chatbot do
         "ConfigurationName" => String.t(),
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
-        "SnsTopicArns" => list(String.t()()),
+        "SnsTopicArns" => list(String.t()),
         "State" => String.t(),
         "StateReason" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "WebhookDescription" => String.t()
       }
 
@@ -1280,13 +1280,13 @@ defmodule AWS.Chatbot do
         "ChannelName" => String.t(),
         "ChatConfigurationArn" => String.t(),
         "ConfigurationName" => String.t(),
-        "GuardrailPolicyArns" => list(String.t()()),
+        "GuardrailPolicyArns" => list(String.t()),
         "IamRoleArn" => String.t(),
         "LoggingLevel" => String.t(),
-        "SnsTopicArns" => list(String.t()()),
+        "SnsTopicArns" => list(String.t()),
         "State" => String.t(),
         "StateReason" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TeamId" => String.t(),
         "TeamName" => String.t(),
         "TenantId" => String.t(),
@@ -1302,7 +1302,7 @@ defmodule AWS.Chatbot do
 
       describe_slack_user_identities_result() :: %{
         "NextToken" => String.t(),
-        "SlackUserIdentities" => list(slack_user_identity()())
+        "SlackUserIdentities" => list(slack_user_identity())
       }
 
   """
@@ -1391,7 +1391,7 @@ defmodule AWS.Chatbot do
 
       describe_slack_channel_configurations_result() :: %{
         "NextToken" => String.t(),
-        "SlackChannelConfigurations" => list(slack_channel_configuration()())
+        "SlackChannelConfigurations" => list(slack_channel_configuration())
       }
 
   """

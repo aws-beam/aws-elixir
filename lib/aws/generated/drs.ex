@@ -41,8 +41,8 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_recovery_instances_request_filters() :: %{
-        "recoveryInstanceIDs" => list(String.t()()),
-        "sourceServerIDs" => list(String.t()())
+        "recoveryInstanceIDs" => list(String.t()),
+        "sourceServerIDs" => list(String.t())
       }
 
   """
@@ -66,7 +66,7 @@ defmodule AWS.Drs do
   ## Example:
 
       list_staging_accounts_response() :: %{
-        optional("accounts") => list(account()()),
+        optional("accounts") => list(account()),
         optional("nextToken") => String.t()
       }
 
@@ -167,7 +167,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t()()),
+        optional("launchConfigurationTemplateIDs") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -200,7 +200,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_recovery_instances_response() :: %{
-        optional("items") => list(recovery_instance()()),
+        optional("items") => list(recovery_instance()),
         optional("nextToken") => String.t()
       }
 
@@ -221,9 +221,9 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t(),
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("tags") => map(),
@@ -239,11 +239,11 @@ defmodule AWS.Drs do
   ## Example:
 
       recovery_instance_properties() :: %{
-        "cpus" => list(c_p_u()()),
-        "disks" => list(recovery_instance_disk()()),
+        "cpus" => list(c_p_u()),
+        "disks" => list(recovery_instance_disk()),
         "identificationHints" => identification_hints(),
         "lastUpdatedDateTime" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float()
       }
@@ -278,9 +278,9 @@ defmodule AWS.Drs do
         optional("defaultLargeStagingDiskType") => String.t(),
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()()),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
@@ -377,7 +377,7 @@ defmodule AWS.Drs do
   ## Example:
 
       network_interface() :: %{
-        "ips" => list(String.t()()),
+        "ips" => list(String.t()),
         "isPrimary" => [boolean()],
         "macAddress" => String.t()
       }
@@ -390,7 +390,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_source_networks_response() :: %{
-        "items" => list(source_network()()),
+        "items" => list(source_network()),
         "nextToken" => String.t()
       }
 
@@ -411,9 +411,9 @@ defmodule AWS.Drs do
         required("dataPlaneRouting") => String.t(),
         required("defaultLargeStagingDiskType") => String.t(),
         required("ebsEncryption") => String.t(),
-        required("pitPolicy") => list(p_i_t_policy_rule()()),
+        required("pitPolicy") => list(p_i_t_policy_rule()),
         required("replicationServerInstanceType") => String.t(),
-        required("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        required("replicationServersSecurityGroupsIDs") => list(String.t()),
         required("stagingAreaSubnetId") => String.t(),
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
@@ -507,7 +507,7 @@ defmodule AWS.Drs do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -596,7 +596,7 @@ defmodule AWS.Drs do
   ## Example:
 
       launch_actions_request_filters() :: %{
-        "actionIds" => list(String.t()())
+        "actionIds" => list(String.t())
       }
 
   """
@@ -655,7 +655,7 @@ defmodule AWS.Drs do
       start_recovery_request() :: %{
         optional("isDrill") => [boolean()],
         optional("tags") => map(),
-        required("sourceServers") => list(start_recovery_request_source_server()())
+        required("sourceServers") => list(start_recovery_request_source_server())
       }
 
   """
@@ -701,11 +701,11 @@ defmodule AWS.Drs do
   ## Example:
 
       source_properties() :: %{
-        "cpus" => list(c_p_u()()),
-        "disks" => list(disk()()),
+        "cpus" => list(c_p_u()),
+        "disks" => list(disk()),
         "identificationHints" => identification_hints(),
         "lastUpdatedDateTime" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float(),
         "recommendedInstanceType" => String.t(),
@@ -720,7 +720,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_source_servers_response() :: %{
-        optional("items") => list(source_server()()),
+        optional("items") => list(source_server()),
         optional("nextToken") => String.t()
       }
 
@@ -743,7 +743,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_replication_configuration_templates_response() :: %{
-        optional("items") => list(replication_configuration_template()()),
+        optional("items") => list(replication_configuration_template()),
         optional("nextToken") => String.t()
       }
 
@@ -788,10 +788,10 @@ defmodule AWS.Drs do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("name") => String.t(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()()),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("sourceServerID") => String.t(),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
@@ -973,7 +973,7 @@ defmodule AWS.Drs do
 
       recovery_instance_data_replication_initiation() :: %{
         "startDateTime" => String.t(),
-        "steps" => list(recovery_instance_data_replication_initiation_step()())
+        "steps" => list(recovery_instance_data_replication_initiation_step())
       }
 
   """
@@ -1017,7 +1017,7 @@ defmodule AWS.Drs do
         "dataReplicationState" => String.t(),
         "etaDateTime" => String.t(),
         "lagDuration" => String.t(),
-        "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()()),
+        "replicatedDisks" => list(recovery_instance_data_replication_info_replicated_disk()),
         "stagingAvailabilityZone" => String.t(),
         "stagingOutpostArn" => String.t()
       }
@@ -1092,7 +1092,7 @@ defmodule AWS.Drs do
         "dataReplicationState" => String.t(),
         "etaDateTime" => String.t(),
         "lagDuration" => String.t(),
-        "replicatedDisks" => list(data_replication_info_replicated_disk()()),
+        "replicatedDisks" => list(data_replication_info_replicated_disk()),
         "stagingAvailabilityZone" => String.t(),
         "stagingOutpostArn" => String.t()
       }
@@ -1118,8 +1118,8 @@ defmodule AWS.Drs do
 
       describe_source_servers_request_filters() :: %{
         "hardwareId" => String.t(),
-        "sourceServerIDs" => list(String.t()()),
-        "stagingAccountIDs" => list(String.t()())
+        "sourceServerIDs" => list(String.t()),
+        "stagingAccountIDs" => list(String.t())
       }
 
   """
@@ -1141,7 +1141,7 @@ defmodule AWS.Drs do
   ## Example:
 
       terminate_recovery_instances_request() :: %{
-        required("recoveryInstanceIDs") => list(String.t()())
+        required("recoveryInstanceIDs") => list(String.t())
       }
 
   """
@@ -1188,7 +1188,7 @@ defmodule AWS.Drs do
   ## Example:
 
       launch_actions_status() :: %{
-        "runs" => list(launch_action_run()()),
+        "runs" => list(launch_action_run()),
         "ssmAgentDiscoveryDatetime" => String.t()
       }
 
@@ -1240,7 +1240,7 @@ defmodule AWS.Drs do
 
       describe_jobs_request_filters() :: %{
         "fromDate" => String.t(),
-        "jobIDs" => list(String.t()()),
+        "jobIDs" => list(String.t()),
         "toDate" => String.t()
       }
 
@@ -1254,7 +1254,7 @@ defmodule AWS.Drs do
       data_replication_initiation() :: %{
         "nextAttemptDateTime" => String.t(),
         "startDateTime" => String.t(),
-        "steps" => list(data_replication_initiation_step()())
+        "steps" => list(data_replication_initiation_step())
       }
 
   """
@@ -1265,7 +1265,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_launch_configuration_templates_response() :: %{
-        optional("items") => list(launch_configuration_template()()),
+        optional("items") => list(launch_configuration_template()),
         optional("nextToken") => String.t()
       }
 
@@ -1314,7 +1314,7 @@ defmodule AWS.Drs do
       describe_source_networks_request_filters() :: %{
         "originAccountID" => String.t(),
         "originRegion" => String.t(),
-        "sourceNetworkIDs" => list(String.t()())
+        "sourceNetworkIDs" => list(String.t())
       }
 
   """
@@ -1365,7 +1365,7 @@ defmodule AWS.Drs do
       start_source_network_recovery_request() :: %{
         optional("deployAsNew") => [boolean()],
         optional("tags") => map(),
-        required("sourceNetworks") => list(start_source_network_recovery_request_network_entry()())
+        required("sourceNetworks") => list(start_source_network_recovery_request_network_entry())
       }
 
   """
@@ -1438,7 +1438,7 @@ defmodule AWS.Drs do
   ## Example:
 
       list_launch_actions_response() :: %{
-        "items" => list(launch_action()()),
+        "items" => list(launch_action()),
         "nextToken" => String.t()
       }
 
@@ -1508,7 +1508,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_jobs_response() :: %{
-        optional("items") => list(job()()),
+        optional("items") => list(job()),
         optional("nextToken") => String.t()
       }
 
@@ -1552,7 +1552,7 @@ defmodule AWS.Drs do
 
       validation_exception() :: %{
         "code" => String.t(),
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -1590,8 +1590,8 @@ defmodule AWS.Drs do
         "endDateTime" => String.t(),
         "initiatedBy" => String.t(),
         "jobID" => String.t(),
-        "participatingResources" => list(participating_resource()()),
-        "participatingServers" => list(participating_server()()),
+        "participatingResources" => list(participating_resource()),
+        "participatingServers" => list(participating_server()),
         "status" => String.t(),
         "tags" => map(),
         "type" => String.t()
@@ -1668,7 +1668,7 @@ defmodule AWS.Drs do
 
       start_failback_launch_request() :: %{
         optional("tags") => map(),
-        required("recoveryInstanceIDs") => list(String.t()())
+        required("recoveryInstanceIDs") => list(String.t())
       }
 
   """
@@ -1751,7 +1751,7 @@ defmodule AWS.Drs do
   ## Example:
 
       list_extensible_source_servers_response() :: %{
-        optional("items") => list(staging_source_server()()),
+        optional("items") => list(staging_source_server()),
         optional("nextToken") => String.t()
       }
 
@@ -1763,7 +1763,7 @@ defmodule AWS.Drs do
   ## Example:
 
       recovery_snapshot() :: %{
-        "ebsSnapshots" => list(String.t()()),
+        "ebsSnapshots" => list(String.t()),
         "expectedTimestamp" => String.t(),
         "snapshotID" => String.t(),
         "sourceServerID" => String.t(),
@@ -1787,10 +1787,10 @@ defmodule AWS.Drs do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("name") => String.t(),
-        optional("pitPolicy") => list(p_i_t_policy_rule()()),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("pitPolicy") => list(p_i_t_policy_rule()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
@@ -1930,7 +1930,7 @@ defmodule AWS.Drs do
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t()())
+        optional("replicationConfigurationTemplateIDs") => list(String.t())
       }
 
   """
@@ -1963,7 +1963,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_job_log_items_response() :: %{
-        optional("items") => list(job_log()()),
+        optional("items") => list(job_log()),
         optional("nextToken") => String.t()
       }
 
@@ -2029,7 +2029,7 @@ defmodule AWS.Drs do
   ## Example:
 
       describe_recovery_snapshots_response() :: %{
-        optional("items") => list(recovery_snapshot()()),
+        optional("items") => list(recovery_snapshot()),
         optional("nextToken") => String.t()
       }
 

@@ -81,7 +81,7 @@ defmodule AWS.S3 do
       list_bucket_metrics_configurations_output() :: %{
         "ContinuationToken" => String.t(),
         "IsTruncated" => boolean(),
-        "MetricsConfigurationList" => list(metrics_configuration()()),
+        "MetricsConfigurationList" => list(metrics_configuration()),
         "NextContinuationToken" => String.t()
       }
 
@@ -123,7 +123,7 @@ defmodule AWS.S3 do
   ## Example:
 
       c_o_r_s_configuration() :: %{
-        "CORSRules" => list(c_o_r_s_rule()())
+        "CORSRules" => list(c_o_r_s_rule())
       }
 
   """
@@ -449,10 +449,10 @@ defmodule AWS.S3 do
         "Filter" => lifecycle_rule_filter(),
         "ID" => String.t(),
         "NoncurrentVersionExpiration" => noncurrent_version_expiration(),
-        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()()),
+        "NoncurrentVersionTransitions" => list(noncurrent_version_transition()),
         "Prefix" => String.t(),
         "Status" => list(any()),
-        "Transitions" => list(transition()())
+        "Transitions" => list(transition())
       }
 
   """
@@ -516,7 +516,7 @@ defmodule AWS.S3 do
   ## Example:
 
       delete() :: %{
-        "Objects" => list(object_identifier()()),
+        "Objects" => list(object_identifier()),
         "Quiet" => boolean()
       }
 
@@ -835,7 +835,7 @@ defmodule AWS.S3 do
 
       list_bucket_inventory_configurations_output() :: %{
         "ContinuationToken" => String.t(),
-        "InventoryConfigurationList" => list(inventory_configuration()()),
+        "InventoryConfigurationList" => list(inventory_configuration()),
         "IsTruncated" => boolean(),
         "NextContinuationToken" => String.t()
       }
@@ -1187,8 +1187,8 @@ defmodule AWS.S3 do
   ## Example:
 
       list_object_versions_output() :: %{
-        "CommonPrefixes" => list(common_prefix()()),
-        "DeleteMarkers" => list(delete_marker_entry()()),
+        "CommonPrefixes" => list(common_prefix()),
+        "DeleteMarkers" => list(delete_marker_entry()),
         "Delimiter" => String.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
@@ -1200,7 +1200,7 @@ defmodule AWS.S3 do
         "Prefix" => String.t(),
         "RequestCharged" => list(any()),
         "VersionIdMarker" => String.t(),
-        "Versions" => list(object_version()())
+        "Versions" => list(object_version())
       }
 
   """
@@ -1211,7 +1211,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_lifecycle_configuration_output() :: %{
-        "Rules" => list(lifecycle_rule()()),
+        "Rules" => list(lifecycle_rule()),
         "TransitionDefaultMinimumObjectSize" => list(any())
       }
 
@@ -1269,7 +1269,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_acl_output() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "Owner" => owner()
       }
 
@@ -1352,7 +1352,7 @@ defmodule AWS.S3 do
 
       logging_enabled() :: %{
         "TargetBucket" => String.t(),
-        "TargetGrants" => list(target_grant()()),
+        "TargetGrants" => list(target_grant()),
         "TargetObjectKeyFormat" => target_object_key_format(),
         "TargetPrefix" => String.t()
       }
@@ -1769,7 +1769,7 @@ defmodule AWS.S3 do
   ## Example:
 
       list_bucket_analytics_configurations_output() :: %{
-        "AnalyticsConfigurationList" => list(analytics_configuration()()),
+        "AnalyticsConfigurationList" => list(analytics_configuration()),
         "ContinuationToken" => String.t(),
         "IsTruncated" => boolean(),
         "NextContinuationToken" => String.t()
@@ -1784,7 +1784,7 @@ defmodule AWS.S3 do
 
       replication_configuration() :: %{
         "Role" => String.t(),
-        "Rules" => list(replication_rule()())
+        "Rules" => list(replication_rule())
       }
 
   """
@@ -1795,7 +1795,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_tagging_output() :: %{
-        "TagSet" => list(tag()())
+        "TagSet" => list(tag())
       }
 
   """
@@ -1822,7 +1822,7 @@ defmodule AWS.S3 do
 
       intelligent_tiering_and_operator() :: %{
         "Prefix" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1958,7 +1958,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_object_tagging_output() :: %{
-        "TagSet" => list(tag()()),
+        "TagSet" => list(tag()),
         "VersionId" => String.t()
       }
 
@@ -2000,7 +2000,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_bucket_cors_output() :: %{
-        "CORSRules" => list(c_o_r_s_rule()())
+        "CORSRules" => list(c_o_r_s_rule())
       }
 
   """
@@ -2176,7 +2176,7 @@ defmodule AWS.S3 do
   ## Example:
 
       list_buckets_output() :: %{
-        "Buckets" => list(bucket()()),
+        "Buckets" => list(bucket()),
         "ContinuationToken" => String.t(),
         "Owner" => owner(),
         "Prefix" => String.t()
@@ -2193,7 +2193,7 @@ defmodule AWS.S3 do
         "Bucket" => bucket_info(),
         "Location" => location_info(),
         "LocationConstraint" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2226,7 +2226,7 @@ defmodule AWS.S3 do
 
       list_bucket_intelligent_tiering_configurations_output() :: %{
         "ContinuationToken" => String.t(),
-        "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()()),
+        "IntelligentTieringConfigurationList" => list(intelligent_tiering_configuration()),
         "IsTruncated" => boolean(),
         "NextContinuationToken" => String.t()
       }
@@ -2335,7 +2335,7 @@ defmodule AWS.S3 do
   ## Example:
 
       s3_key_filter() :: %{
-        "FilterRules" => list(filter_rule()())
+        "FilterRules" => list(filter_rule())
       }
 
   """
@@ -2361,7 +2361,7 @@ defmodule AWS.S3 do
         "Filter" => intelligent_tiering_filter(),
         "Id" => String.t(),
         "Status" => list(any()),
-        "Tierings" => list(tiering()())
+        "Tierings" => list(tiering())
       }
 
   """
@@ -2384,7 +2384,7 @@ defmodule AWS.S3 do
   ## Example:
 
       tagging() :: %{
-        "TagSet" => list(tag()())
+        "TagSet" => list(tag())
       }
 
   """
@@ -2467,7 +2467,7 @@ defmodule AWS.S3 do
         "ErrorDocument" => error_document(),
         "IndexDocument" => index_document(),
         "RedirectAllRequestsTo" => redirect_all_requests_to(),
-        "RoutingRules" => list(routing_rule()())
+        "RoutingRules" => list(routing_rule())
       }
 
   """
@@ -2516,7 +2516,7 @@ defmodule AWS.S3 do
         "MaxParts" => integer(),
         "NextPartNumberMarker" => String.t(),
         "PartNumberMarker" => String.t(),
-        "Parts" => list(object_part()()),
+        "Parts" => list(object_part()),
         "TotalPartsCount" => integer()
       }
 
@@ -2528,8 +2528,8 @@ defmodule AWS.S3 do
   ## Example:
 
       list_objects_v2_output() :: %{
-        "CommonPrefixes" => list(common_prefix()()),
-        "Contents" => list(object()()),
+        "CommonPrefixes" => list(common_prefix()),
+        "Contents" => list(object()),
         "ContinuationToken" => String.t(),
         "Delimiter" => String.t(),
         "EncodingType" => list(any()),
@@ -2611,14 +2611,14 @@ defmodule AWS.S3 do
   ## Example:
 
       s3_location() :: %{
-        "AccessControlList" => list(grant()()),
+        "AccessControlList" => list(grant()),
         "BucketName" => String.t(),
         "CannedACL" => list(any()),
         "Encryption" => encryption(),
         "Prefix" => String.t(),
         "StorageClass" => list(any()),
         "Tagging" => tagging(),
-        "UserMetadata" => list(metadata_entry()())
+        "UserMetadata" => list(metadata_entry())
       }
 
   """
@@ -2696,7 +2696,7 @@ defmodule AWS.S3 do
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "Rules" => list(server_side_encryption_rule()())
+        "Rules" => list(server_side_encryption_rule())
       }
 
   """
@@ -2707,7 +2707,7 @@ defmodule AWS.S3 do
   ## Example:
 
       get_object_acl_output() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "Owner" => owner(),
         "RequestCharged" => list(any())
       }
@@ -2747,7 +2747,7 @@ defmodule AWS.S3 do
   ## Example:
 
       ownership_controls() :: %{
-        "Rules" => list(ownership_controls_rule()())
+        "Rules" => list(ownership_controls_rule())
       }
 
   """
@@ -2759,9 +2759,9 @@ defmodule AWS.S3 do
 
       notification_configuration() :: %{
         "EventBridgeConfiguration" => event_bridge_configuration(),
-        "LambdaFunctionConfigurations" => list(lambda_function_configuration()()),
-        "QueueConfigurations" => list(queue_configuration()()),
-        "TopicConfigurations" => list(topic_configuration()())
+        "LambdaFunctionConfigurations" => list(lambda_function_configuration()),
+        "QueueConfigurations" => list(queue_configuration()),
+        "TopicConfigurations" => list(topic_configuration())
       }
 
   """
@@ -2815,8 +2815,8 @@ defmodule AWS.S3 do
   ## Example:
 
       delete_objects_output() :: %{
-        "Deleted" => list(deleted_object()()),
-        "Errors" => list(error()()),
+        "Deleted" => list(deleted_object()),
+        "Errors" => list(error()),
         "RequestCharged" => list(any())
       }
 
@@ -2839,8 +2839,8 @@ defmodule AWS.S3 do
   ## Example:
 
       list_objects_output() :: %{
-        "CommonPrefixes" => list(common_prefix()()),
-        "Contents" => list(object()()),
+        "CommonPrefixes" => list(common_prefix()),
+        "Contents" => list(object()),
         "Delimiter" => String.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
@@ -3088,7 +3088,7 @@ defmodule AWS.S3 do
 
       analytics_and_operator() :: %{
         "Prefix" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -3180,10 +3180,10 @@ defmodule AWS.S3 do
   ## Example:
 
       c_o_r_s_rule() :: %{
-        "AllowedHeaders" => list(String.t()()),
-        "AllowedMethods" => list(String.t()()),
-        "AllowedOrigins" => list(String.t()()),
-        "ExposeHeaders" => list(String.t()()),
+        "AllowedHeaders" => list(String.t()),
+        "AllowedMethods" => list(String.t()),
+        "AllowedOrigins" => list(String.t()),
+        "ExposeHeaders" => list(String.t()),
         "ID" => String.t(),
         "MaxAgeSeconds" => integer()
       }
@@ -3535,7 +3535,7 @@ defmodule AWS.S3 do
   ## Example:
 
       access_control_policy() :: %{
-        "Grants" => list(grant()()),
+        "Grants" => list(grant()),
         "Owner" => owner()
       }
 
@@ -3668,7 +3668,7 @@ defmodule AWS.S3 do
 
       list_multipart_uploads_output() :: %{
         "Bucket" => String.t(),
-        "CommonPrefixes" => list(common_prefix()()),
+        "CommonPrefixes" => list(common_prefix()),
         "Delimiter" => String.t(),
         "EncodingType" => list(any()),
         "IsTruncated" => boolean(),
@@ -3679,7 +3679,7 @@ defmodule AWS.S3 do
         "Prefix" => String.t(),
         "RequestCharged" => list(any()),
         "UploadIdMarker" => String.t(),
-        "Uploads" => list(multipart_upload()())
+        "Uploads" => list(multipart_upload())
       }
 
   """
@@ -3739,7 +3739,7 @@ defmodule AWS.S3 do
   ## Example:
 
       completed_multipart_upload() :: %{
-        "Parts" => list(completed_part()())
+        "Parts" => list(completed_part())
       }
 
   """
@@ -3762,7 +3762,7 @@ defmodule AWS.S3 do
         "NextPartNumberMarker" => String.t(),
         "Owner" => owner(),
         "PartNumberMarker" => String.t(),
-        "Parts" => list(part()()),
+        "Parts" => list(part()),
         "RequestCharged" => list(any()),
         "StorageClass" => list(any()),
         "UploadId" => String.t()
@@ -3812,7 +3812,7 @@ defmodule AWS.S3 do
 
       replication_rule_and_operator() :: %{
         "Prefix" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -4007,7 +4007,7 @@ defmodule AWS.S3 do
   ## Example:
 
       list_directory_buckets_output() :: %{
-        "Buckets" => list(bucket()()),
+        "Buckets" => list(bucket()),
         "ContinuationToken" => String.t()
       }
 
@@ -4096,7 +4096,7 @@ defmodule AWS.S3 do
       metrics_and_operator() :: %{
         "AccessPointArn" => String.t(),
         "Prefix" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -4110,7 +4110,7 @@ defmodule AWS.S3 do
         "ErrorDocument" => error_document(),
         "IndexDocument" => index_document(),
         "RedirectAllRequestsTo" => redirect_all_requests_to(),
-        "RoutingRules" => list(routing_rule()())
+        "RoutingRules" => list(routing_rule())
       }
 
   """
@@ -4132,7 +4132,7 @@ defmodule AWS.S3 do
   ## Example:
 
       bucket_lifecycle_configuration() :: %{
-        "Rules" => list(lifecycle_rule()())
+        "Rules" => list(lifecycle_rule())
       }
 
   """
@@ -4410,7 +4410,7 @@ defmodule AWS.S3 do
         "ObjectSizeGreaterThan" => float(),
         "ObjectSizeLessThan" => float(),
         "Prefix" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """

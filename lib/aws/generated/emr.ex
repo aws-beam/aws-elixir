@@ -69,7 +69,7 @@ defmodule AWS.EMR do
       create_persistent_app_ui_input() :: %{
         optional("EMRContainersConfig") => emr_containers_config(),
         optional("ProfilerType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("XReferer") => String.t(),
         required("TargetResourceArn") => String.t()
       }
@@ -185,7 +185,7 @@ defmodule AWS.EMR do
   ## Example:
       
       list_instance_groups_output() :: %{
-        "InstanceGroups" => list(instance_group()()),
+        "InstanceGroups" => list(instance_group()),
         "Marker" => String.t()
       }
       
@@ -294,7 +294,7 @@ defmodule AWS.EMR do
   ## Example:
       
       set_visible_to_all_users_input() :: %{
-        required("JobFlowIds") => list(String.t()()),
+        required("JobFlowIds") => list(String.t()),
         required("VisibleToAllUsers") => boolean()
       }
       
@@ -329,7 +329,7 @@ defmodule AWS.EMR do
   ## Example:
       
       list_instance_fleets_output() :: %{
-        "InstanceFleets" => list(instance_fleet()()),
+        "InstanceFleets" => list(instance_fleet()),
         "Marker" => String.t()
       }
       
@@ -353,7 +353,7 @@ defmodule AWS.EMR do
   ## Example:
       
       script_bootstrap_action_config() :: %{
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Path" => String.t()
       }
       
@@ -366,7 +366,7 @@ defmodule AWS.EMR do
       
       add_instance_groups_output() :: %{
         "ClusterArn" => String.t(),
-        "InstanceGroupIds" => list(String.t()()),
+        "InstanceGroupIds" => list(String.t()),
         "JobFlowId" => String.t()
       }
       
@@ -408,7 +408,7 @@ defmodule AWS.EMR do
       
       list_steps_input() :: %{
         optional("Marker") => String.t(),
-        optional("StepIds") => list(String.t()()),
+        optional("StepIds") => list(String.t()),
         optional("StepStates") => list(list(any())()),
         required("ClusterId") => String.t()
       }
@@ -454,7 +454,7 @@ defmodule AWS.EMR do
       
       configuration() :: %{
         "Classification" => String.t(),
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "Properties" => map()
       }
       
@@ -479,7 +479,7 @@ defmodule AWS.EMR do
   ## Example:
       
       supported_product_config() :: %{
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -503,7 +503,7 @@ defmodule AWS.EMR do
       
       auto_scaling_policy() :: %{
         "Constraints" => scaling_constraints(),
-        "Rules" => list(scaling_rule()())
+        "Rules" => list(scaling_rule())
       }
       
   """
@@ -517,7 +517,7 @@ defmodule AWS.EMR do
         "Context" => String.t(),
         "Id" => String.t(),
         "InstanceFleetType" => list(any()),
-        "InstanceTypeSpecifications" => list(instance_type_specification()()),
+        "InstanceTypeSpecifications" => list(instance_type_specification()),
         "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
         "Name" => String.t(),
         "ProvisionedOnDemandCapacity" => integer(),
@@ -538,7 +538,7 @@ defmodule AWS.EMR do
       describe_job_flows_input() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
-        optional("JobFlowIds") => list(String.t()()),
+        optional("JobFlowIds") => list(String.t()),
         optional("JobFlowStates") => list(list(any())())
       }
       
@@ -563,7 +563,7 @@ defmodule AWS.EMR do
       
       add_tags_input() :: %{
         required("ResourceId") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -574,7 +574,7 @@ defmodule AWS.EMR do
   ## Example:
       
       hadoop_step_config() :: %{
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Jar" => String.t(),
         "MainClass" => String.t(),
         "Properties" => map()
@@ -600,8 +600,8 @@ defmodule AWS.EMR do
   ## Example:
       
       describe_release_label_output() :: %{
-        "Applications" => list(simplified_application()()),
-        "AvailableOSReleases" => list(o_s_release()()),
+        "Applications" => list(simplified_application()),
+        "AvailableOSReleases" => list(o_s_release()),
         "NextToken" => String.t(),
         "ReleaseLabel" => String.t()
       }
@@ -639,7 +639,7 @@ defmodule AWS.EMR do
       job_flow_detail() :: %{
         "AmiVersion" => String.t(),
         "AutoScalingRole" => String.t(),
-        "BootstrapActions" => list(bootstrap_action_detail()()),
+        "BootstrapActions" => list(bootstrap_action_detail()),
         "ExecutionStatusDetail" => job_flow_execution_status_detail(),
         "Instances" => job_flow_instances_detail(),
         "JobFlowId" => String.t(),
@@ -649,8 +649,8 @@ defmodule AWS.EMR do
         "Name" => String.t(),
         "ScaleDownBehavior" => list(any()),
         "ServiceRole" => String.t(),
-        "Steps" => list(step_detail()()),
-        "SupportedProducts" => list(String.t()()),
+        "Steps" => list(step_detail()),
+        "SupportedProducts" => list(String.t()),
         "VisibleToAllUsers" => boolean()
       }
       
@@ -673,7 +673,7 @@ defmodule AWS.EMR do
   ## Example:
       
       list_instances_output() :: %{
-        "Instances" => list(instance()()),
+        "Instances" => list(instance()),
         "Marker" => String.t()
       }
       
@@ -698,7 +698,7 @@ defmodule AWS.EMR do
   ## Example:
       
       list_clusters_output() :: %{
-        "Clusters" => list(cluster_summary()()),
+        "Clusters" => list(cluster_summary()),
         "Marker" => String.t()
       }
       
@@ -737,7 +737,7 @@ defmodule AWS.EMR do
         "OutputNotebookURI" => String.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -833,7 +833,7 @@ defmodule AWS.EMR do
       
       cloud_watch_alarm_definition() :: %{
         "ComparisonOperator" => list(any()),
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "EvaluationPeriods" => integer(),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
@@ -941,7 +941,7 @@ defmodule AWS.EMR do
   ## Example:
       
       set_keep_job_flow_alive_when_no_steps_input() :: %{
-        required("JobFlowIds") => list(String.t()()),
+        required("JobFlowIds") => list(String.t()),
         required("KeepJobFlowAliveWhenNoSteps") => boolean()
       }
       
@@ -965,7 +965,7 @@ defmodule AWS.EMR do
   ## Example:
       
       add_job_flow_steps_output() :: %{
-        "StepIds" => list(String.t()())
+        "StepIds" => list(String.t())
       }
       
   """
@@ -989,7 +989,7 @@ defmodule AWS.EMR do
       
       list_notebook_executions_output() :: %{
         "Marker" => String.t(),
-        "NotebookExecutions" => list(notebook_execution_summary()())
+        "NotebookExecutions" => list(notebook_execution_summary())
       }
       
   """
@@ -1027,7 +1027,7 @@ defmodule AWS.EMR do
   ## Example:
       
       add_instance_groups_input() :: %{
-        required("InstanceGroups") => list(instance_group_config()()),
+        required("InstanceGroups") => list(instance_group_config()),
         required("JobFlowId") => String.t()
       }
       
@@ -1129,12 +1129,12 @@ defmodule AWS.EMR do
         "AutoScalingRole" => String.t(),
         "TerminationProtected" => boolean(),
         "ClusterArn" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "ReleaseLabel" => String.t(),
         "CustomAmiId" => String.t(),
         "LogUri" => String.t(),
-        "Configurations" => list(configuration()()),
-        "Applications" => list(application()()),
+        "Configurations" => list(configuration()),
+        "Applications" => list(application()),
         "AutoTerminate" => boolean(),
         "StepConcurrencyLevel" => integer(),
         "MasterPublicDnsName" => String.t(),
@@ -1143,7 +1143,7 @@ defmodule AWS.EMR do
         "KerberosAttributes" => kerberos_attributes(),
         "EbsRootVolumeThroughput" => integer(),
         "ServiceRole" => String.t(),
-        "PlacementGroups" => list(placement_group_config()()),
+        "PlacementGroups" => list(placement_group_config()),
         "RequestedAmiVersion" => String.t(),
         "NormalizedInstanceHours" => integer(),
         "EbsRootVolumeIops" => integer(),
@@ -1181,7 +1181,7 @@ defmodule AWS.EMR do
       instance_group_config() :: %{
         "AutoScalingPolicy" => auto_scaling_policy(),
         "BidPrice" => String.t(),
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "CustomAmiId" => String.t(),
         "EbsConfiguration" => ebs_configuration(),
         "InstanceCount" => integer(),
@@ -1200,7 +1200,7 @@ defmodule AWS.EMR do
       
       list_security_configurations_output() :: %{
         "Marker" => String.t(),
-        "SecurityConfigurations" => list(security_configuration_summary()())
+        "SecurityConfigurations" => list(security_configuration_summary())
       }
       
   """
@@ -1212,7 +1212,7 @@ defmodule AWS.EMR do
       
       auto_scaling_policy_description() :: %{
         "Constraints" => scaling_constraints(),
-        "Rules" => list(scaling_rule()()),
+        "Rules" => list(scaling_rule()),
         "Status" => auto_scaling_policy_status()
       }
       
@@ -1311,7 +1311,7 @@ defmodule AWS.EMR do
       
       list_studio_session_mappings_output() :: %{
         "Marker" => String.t(),
-        "SessionMappings" => list(session_mapping_summary()())
+        "SessionMappings" => list(session_mapping_summary())
       }
       
   """
@@ -1356,7 +1356,7 @@ defmodule AWS.EMR do
       
       application() :: %{
         "AdditionalInfo" => map(),
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Name" => String.t(),
         "Version" => String.t()
       }
@@ -1390,7 +1390,7 @@ defmodule AWS.EMR do
       
       list_supported_instance_types_output() :: %{
         "Marker" => String.t(),
-        "SupportedInstanceTypes" => list(supported_instance_type()())
+        "SupportedInstanceTypes" => list(supported_instance_type())
       }
       
   """
@@ -1415,7 +1415,7 @@ defmodule AWS.EMR do
       instance_type_config() :: %{
         "BidPrice" => String.t(),
         "BidPriceAsPercentageOfOnDemandPrice" => float(),
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "CustomAmiId" => String.t(),
         "EbsConfiguration" => ebs_configuration(),
         "InstanceType" => String.t(),
@@ -1452,7 +1452,7 @@ defmodule AWS.EMR do
   ## Example:
       
       describe_job_flows_output() :: %{
-        "JobFlows" => list(job_flow_detail()())
+        "JobFlows" => list(job_flow_detail())
       }
       
   """
@@ -1502,7 +1502,7 @@ defmodule AWS.EMR do
   ## Example:
       
       list_bootstrap_actions_output() :: %{
-        "BootstrapActions" => list(command()()),
+        "BootstrapActions" => list(command()),
         "Marker" => String.t()
       }
       
@@ -1516,15 +1516,15 @@ defmodule AWS.EMR do
       instance_group() :: %{
         "AutoScalingPolicy" => auto_scaling_policy_description(),
         "BidPrice" => String.t(),
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "ConfigurationsVersion" => float(),
         "CustomAmiId" => String.t(),
-        "EbsBlockDevices" => list(ebs_block_device()()),
+        "EbsBlockDevices" => list(ebs_block_device()),
         "EbsOptimized" => boolean(),
         "Id" => String.t(),
         "InstanceGroupType" => list(any()),
         "InstanceType" => String.t(),
-        "LastSuccessfullyAppliedConfigurations" => list(configuration()()),
+        "LastSuccessfullyAppliedConfigurations" => list(configuration()),
         "LastSuccessfullyAppliedConfigurationsVersion" => float(),
         "Market" => list(any()),
         "Name" => String.t(),
@@ -1567,7 +1567,7 @@ defmodule AWS.EMR do
   ## Example:
       
       ebs_configuration() :: %{
-        "EbsBlockDeviceConfigs" => list(ebs_block_device_config()()),
+        "EbsBlockDeviceConfigs" => list(ebs_block_device_config()),
         "EbsOptimized" => boolean()
       }
       
@@ -1583,7 +1583,7 @@ defmodule AWS.EMR do
         optional("Description") => String.t(),
         optional("EncryptionKeyArn") => String.t(),
         optional("Name") => String.t(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         required("StudioId") => String.t()
       }
       
@@ -1596,8 +1596,8 @@ defmodule AWS.EMR do
       
       instance_resize_policy() :: %{
         "InstanceTerminationTimeout" => integer(),
-        "InstancesToProtect" => list(String.t()()),
-        "InstancesToTerminate" => list(String.t()())
+        "InstancesToProtect" => list(String.t()),
+        "InstancesToTerminate" => list(String.t())
       }
       
   """
@@ -1668,7 +1668,7 @@ defmodule AWS.EMR do
       
       list_studios_output() :: %{
         "Marker" => String.t(),
-        "Studios" => list(studio_summary()())
+        "Studios" => list(studio_summary())
       }
       
   """
@@ -1679,17 +1679,17 @@ defmodule AWS.EMR do
   ## Example:
       
       job_flow_instances_config() :: %{
-        "AdditionalMasterSecurityGroups" => list(String.t()()),
-        "AdditionalSlaveSecurityGroups" => list(String.t()()),
+        "AdditionalMasterSecurityGroups" => list(String.t()),
+        "AdditionalSlaveSecurityGroups" => list(String.t()),
         "Ec2KeyName" => String.t(),
         "Ec2SubnetId" => String.t(),
-        "Ec2SubnetIds" => list(String.t()()),
+        "Ec2SubnetIds" => list(String.t()),
         "EmrManagedMasterSecurityGroup" => String.t(),
         "EmrManagedSlaveSecurityGroup" => String.t(),
         "HadoopVersion" => String.t(),
         "InstanceCount" => integer(),
-        "InstanceFleets" => list(instance_fleet_config()()),
-        "InstanceGroups" => list(instance_group_config()()),
+        "InstanceFleets" => list(instance_fleet_config()),
+        "InstanceGroups" => list(instance_group_config()),
         "KeepJobFlowAliveWhenNoSteps" => boolean(),
         "MasterInstanceType" => String.t(),
         "Placement" => placement_type(),
@@ -1707,7 +1707,7 @@ defmodule AWS.EMR do
   ## Example:
       
       cancel_steps_output() :: %{
-        "CancelStepsInfoList" => list(cancel_steps_info()())
+        "CancelStepsInfoList" => list(cancel_steps_info())
       }
       
   """
@@ -1741,7 +1741,7 @@ defmodule AWS.EMR do
         optional("OutputNotebookFormat") => list(any()),
         optional("OutputNotebookS3Location") => output_notebook_s3_location_from_input(),
         optional("RelativePath") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ExecutionEngine") => execution_engine_config(),
         required("ServiceRole") => String.t()
       }
@@ -1804,8 +1804,8 @@ defmodule AWS.EMR do
       block_public_access_configuration() :: %{
         "BlockPublicSecurityGroupRules" => boolean(),
         "Classification" => String.t(),
-        "Configurations" => list(configuration()()),
-        "PermittedPublicSecurityGroupRuleRanges" => list(port_range()()),
+        "Configurations" => list(configuration()),
+        "PermittedPublicSecurityGroupRuleRanges" => list(port_range()),
         "Properties" => map()
       }
       
@@ -1817,8 +1817,8 @@ defmodule AWS.EMR do
   ## Example:
       
       instance_group_modify_config() :: %{
-        "Configurations" => list(configuration()()),
-        "EC2InstanceIdsToTerminate" => list(String.t()()),
+        "Configurations" => list(configuration()),
+        "EC2InstanceIdsToTerminate" => list(String.t()),
         "InstanceCount" => integer(),
         "InstanceGroupId" => String.t(),
         "ReconfigurationType" => list(any()),
@@ -1906,7 +1906,7 @@ defmodule AWS.EMR do
       
       error_detail() :: %{
         "ErrorCode" => String.t(),
-        "ErrorData" => list(map()()),
+        "ErrorData" => list(map()),
         "ErrorMessage" => String.t()
       }
       
@@ -1987,7 +1987,7 @@ defmodule AWS.EMR do
   ## Example:
       
       instance() :: %{
-        "EbsVolumes" => list(ebs_volume()()),
+        "EbsVolumes" => list(ebs_volume()),
         "Ec2InstanceId" => String.t(),
         "Id" => String.t(),
         "InstanceFleetId" => String.t(),
@@ -2067,7 +2067,7 @@ defmodule AWS.EMR do
       cancel_steps_input() :: %{
         optional("StepCancellationOption") => list(any()),
         required("ClusterId") => String.t(),
-        required("StepIds") => list(String.t()())
+        required("StepIds") => list(String.t())
       }
       
   """
@@ -2128,10 +2128,10 @@ defmodule AWS.EMR do
   ## Example:
       
       hadoop_jar_step_config() :: %{
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Jar" => String.t(),
         "MainClass" => String.t(),
-        "Properties" => list(key_value()())
+        "Properties" => list(key_value())
       }
       
   """
@@ -2159,7 +2159,7 @@ defmodule AWS.EMR do
       add_job_flow_steps_input() :: %{
         optional("ExecutionRoleArn") => String.t(),
         required("JobFlowId") => String.t(),
-        required("Steps") => list(step_config()())
+        required("Steps") => list(step_config())
       }
       
   """
@@ -2170,7 +2170,7 @@ defmodule AWS.EMR do
   ## Example:
       
       cluster_status() :: %{
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "State" => list(any()),
         "StateChangeReason" => cluster_state_change_reason(),
         "Timeline" => cluster_timeline()
@@ -2203,7 +2203,7 @@ defmodule AWS.EMR do
         "PersistentAppUIId" => String.t(),
         "PersistentAppUIStatus" => String.t(),
         "PersistentAppUITypeList" => list(list(any())()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2214,7 +2214,7 @@ defmodule AWS.EMR do
   ## Example:
       
       set_unhealthy_node_replacement_input() :: %{
-        required("JobFlowIds") => list(String.t()()),
+        required("JobFlowIds") => list(String.t()),
         required("UnhealthyNodeReplacement") => boolean()
       }
       
@@ -2227,7 +2227,7 @@ defmodule AWS.EMR do
       
       list_steps_output() :: %{
         "Marker" => String.t(),
-        "Steps" => list(step_summary()())
+        "Steps" => list(step_summary())
       }
       
   """
@@ -2238,7 +2238,7 @@ defmodule AWS.EMR do
   ## Example:
       
       terminate_job_flows_input() :: %{
-        required("JobFlowIds") => list(String.t()())
+        required("JobFlowIds") => list(String.t())
       }
       
   """
@@ -2249,16 +2249,16 @@ defmodule AWS.EMR do
   ## Example:
       
       ec2_instance_attributes() :: %{
-        "AdditionalMasterSecurityGroups" => list(String.t()()),
-        "AdditionalSlaveSecurityGroups" => list(String.t()()),
+        "AdditionalMasterSecurityGroups" => list(String.t()),
+        "AdditionalSlaveSecurityGroups" => list(String.t()),
         "Ec2AvailabilityZone" => String.t(),
         "Ec2KeyName" => String.t(),
         "Ec2SubnetId" => String.t(),
         "EmrManagedMasterSecurityGroup" => String.t(),
         "EmrManagedSlaveSecurityGroup" => String.t(),
         "IamInstanceProfile" => String.t(),
-        "RequestedEc2AvailabilityZones" => list(String.t()()),
-        "RequestedEc2SubnetIds" => list(String.t()()),
+        "RequestedEc2AvailabilityZones" => list(String.t()),
+        "RequestedEc2SubnetIds" => list(String.t()),
         "ServiceAccessSecurityGroup" => String.t()
       }
       
@@ -2289,7 +2289,7 @@ defmodule AWS.EMR do
         optional("IdcUserAssignment") => list(any()),
         optional("IdpAuthUrl") => String.t(),
         optional("IdpRelayStateParameterName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrustedIdentityPropagationEnabled") => boolean(),
         optional("UserRole") => String.t(),
         required("AuthMode") => list(any()),
@@ -2297,7 +2297,7 @@ defmodule AWS.EMR do
         required("EngineSecurityGroupId") => String.t(),
         required("Name") => String.t(),
         required("ServiceRole") => String.t(),
-        required("SubnetIds") => list(String.t()()),
+        required("SubnetIds") => list(String.t()),
         required("VpcId") => String.t(),
         required("WorkspaceSecurityGroupId") => String.t()
       }
@@ -2425,7 +2425,7 @@ defmodule AWS.EMR do
         "Ec2SubnetId" => String.t(),
         "HadoopVersion" => String.t(),
         "InstanceCount" => integer(),
-        "InstanceGroups" => list(instance_group_detail()()),
+        "InstanceGroups" => list(instance_group_detail()),
         "KeepJobFlowAliveWhenNoSteps" => boolean(),
         "MasterInstanceId" => String.t(),
         "MasterInstanceType" => String.t(),
@@ -2486,7 +2486,7 @@ defmodule AWS.EMR do
   ## Example:
       
       command() :: %{
-        "Args" => list(String.t()()),
+        "Args" => list(String.t()),
         "Name" => String.t(),
         "ScriptPath" => String.t()
       }
@@ -2501,7 +2501,7 @@ defmodule AWS.EMR do
       instance_fleet_config() :: %{
         "Context" => String.t(),
         "InstanceFleetType" => list(any()),
-        "InstanceTypeConfigs" => list(instance_type_config()()),
+        "InstanceTypeConfigs" => list(instance_type_config()),
         "LaunchSpecifications" => instance_fleet_provisioning_specifications(),
         "Name" => String.t(),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
@@ -2558,7 +2558,7 @@ defmodule AWS.EMR do
       instance_fleet_modify_config() :: %{
         "Context" => String.t(),
         "InstanceFleetId" => String.t(),
-        "InstanceTypeConfigs" => list(instance_type_config()()),
+        "InstanceTypeConfigs" => list(instance_type_config()),
         "ResizeSpecifications" => instance_fleet_resizing_specifications(),
         "TargetOnDemandCapacity" => integer(),
         "TargetSpotCapacity" => integer()
@@ -2586,7 +2586,7 @@ defmodule AWS.EMR do
       
       placement_type() :: %{
         "AvailabilityZone" => String.t(),
-        "AvailabilityZones" => list(String.t()())
+        "AvailabilityZones" => list(String.t())
       }
       
   """
@@ -2609,7 +2609,7 @@ defmodule AWS.EMR do
   ## Example:
       
       set_termination_protection_input() :: %{
-        required("JobFlowIds") => list(String.t()()),
+        required("JobFlowIds") => list(String.t()),
         required("TerminationProtected") => boolean()
       }
       
@@ -2634,7 +2634,7 @@ defmodule AWS.EMR do
       
       list_release_labels_output() :: %{
         "NextToken" => String.t(),
-        "ReleaseLabels" => list(String.t()())
+        "ReleaseLabels" => list(String.t())
       }
       
   """
@@ -2657,7 +2657,7 @@ defmodule AWS.EMR do
       
       remove_tags_input() :: %{
         required("ResourceId") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -2685,7 +2685,7 @@ defmodule AWS.EMR do
       
       modify_instance_groups_input() :: %{
         optional("ClusterId") => String.t(),
-        optional("InstanceGroups") => list(instance_group_modify_config()())
+        optional("InstanceGroups") => list(instance_group_modify_config())
       }
       
   """
@@ -2808,8 +2808,8 @@ defmodule AWS.EMR do
         "ServiceRole" => String.t(),
         "StudioArn" => String.t(),
         "StudioId" => String.t(),
-        "SubnetIds" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SubnetIds" => list(String.t()),
+        "Tags" => list(tag()),
         "TrustedIdentityPropagationEnabled" => boolean(),
         "Url" => String.t(),
         "UserRole" => String.t(),
@@ -2847,9 +2847,9 @@ defmodule AWS.EMR do
       instance_type_specification() :: %{
         "BidPrice" => String.t(),
         "BidPriceAsPercentageOfOnDemandPrice" => float(),
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "CustomAmiId" => String.t(),
-        "EbsBlockDevices" => list(ebs_block_device()()),
+        "EbsBlockDevices" => list(ebs_block_device()),
         "EbsOptimized" => boolean(),
         "InstanceType" => String.t(),
         "Priority" => float(),
@@ -2866,11 +2866,11 @@ defmodule AWS.EMR do
       run_job_flow_input() :: %{
         optional("AdditionalInfo") => String.t(),
         optional("AmiVersion") => String.t(),
-        optional("Applications") => list(application()()),
+        optional("Applications") => list(application()),
         optional("AutoScalingRole") => String.t(),
         optional("AutoTerminationPolicy") => auto_termination_policy(),
-        optional("BootstrapActions") => list(bootstrap_action_config()()),
-        optional("Configurations") => list(configuration()()),
+        optional("BootstrapActions") => list(bootstrap_action_config()),
+        optional("Configurations") => list(configuration()),
         optional("CustomAmiId") => String.t(),
         optional("EbsRootVolumeIops") => integer(),
         optional("EbsRootVolumeSize") => integer(),
@@ -2880,18 +2880,18 @@ defmodule AWS.EMR do
         optional("LogEncryptionKmsKeyId") => String.t(),
         optional("LogUri") => String.t(),
         optional("ManagedScalingPolicy") => managed_scaling_policy(),
-        optional("NewSupportedProducts") => list(supported_product_config()()),
+        optional("NewSupportedProducts") => list(supported_product_config()),
         optional("OSReleaseLabel") => String.t(),
-        optional("PlacementGroupConfigs") => list(placement_group_config()()),
+        optional("PlacementGroupConfigs") => list(placement_group_config()),
         optional("ReleaseLabel") => String.t(),
         optional("RepoUpgradeOnBoot") => list(any()),
         optional("ScaleDownBehavior") => list(any()),
         optional("SecurityConfiguration") => String.t(),
         optional("ServiceRole") => String.t(),
         optional("StepConcurrencyLevel") => integer(),
-        optional("Steps") => list(step_config()()),
-        optional("SupportedProducts") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("Steps") => list(step_config()),
+        optional("SupportedProducts") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("VisibleToAllUsers") => boolean(),
         required("Instances") => job_flow_instances_config(),
         required("Name") => String.t()
@@ -3080,7 +3080,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_instance_fleet_errors()}
   def add_instance_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddInstanceFleet", input, options)
   end
@@ -3094,7 +3095,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_instance_groups_errors()}
   def add_instance_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddInstanceGroups", input, options)
   end
@@ -3138,7 +3140,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_job_flow_steps_errors()}
   def add_job_flow_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddJobFlowSteps", input, options)
   end
@@ -3158,7 +3161,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -3182,7 +3186,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, cancel_steps_errors()}
   def cancel_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSteps", input, options)
   end
@@ -3196,7 +3201,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_persistent_app_ui_errors()}
   def create_persistent_app_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePersistentAppUI", input, options)
   end
@@ -3212,7 +3218,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -3226,7 +3233,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_studio_errors()}
   def create_studio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStudio", input, options)
   end
@@ -3247,7 +3255,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_studio_session_mapping_errors()}
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStudioSessionMapping", input, options)
   end
@@ -3261,7 +3270,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -3275,7 +3285,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_studio_errors()}
   def delete_studio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStudio", input, options)
   end
@@ -3289,7 +3300,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_studio_session_mapping_errors()}
   def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStudioSessionMapping", input, options)
   end
@@ -3305,7 +3317,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -3347,7 +3360,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_job_flows_errors()}
   def describe_job_flows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeJobFlows", input, options)
   end
@@ -3361,7 +3375,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_notebook_execution_errors()}
   def describe_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookExecution", input, options)
   end
@@ -3375,7 +3390,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_persistent_app_ui_errors()}
   def describe_persistent_app_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePersistentAppUI", input, options)
   end
@@ -3394,7 +3410,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_release_label_errors()}
   def describe_release_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReleaseLabel", input, options)
   end
@@ -3409,7 +3426,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_security_configuration_errors()}
   def describe_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecurityConfiguration", input, options)
   end
@@ -3423,7 +3441,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_step_errors()}
   def describe_step(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStep", input, options)
   end
@@ -3438,7 +3457,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_studio_errors()}
   def describe_studio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStudio", input, options)
   end
@@ -3451,7 +3471,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAutoTerminationPolicy", input, options)
   end
@@ -3475,7 +3496,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_block_public_access_configuration_errors()}
   def get_block_public_access_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlockPublicAccessConfiguration", input, options)
   end
@@ -3495,7 +3517,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_cluster_session_credentials_errors()}
   def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClusterSessionCredentials", input, options)
   end
@@ -3508,7 +3531,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetManagedScalingPolicy", input, options)
   end
@@ -3526,7 +3550,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_on_cluster_app_ui_presigned_url_errors()}
   def get_on_cluster_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOnClusterAppUIPresignedURL", input, options)
   end
@@ -3544,7 +3569,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_persistent_app_ui_presigned_url_errors()}
   def get_persistent_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPersistentAppUIPresignedURL", input, options)
   end
@@ -3559,7 +3585,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_studio_session_mapping_errors()}
   def get_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStudioSessionMapping", input, options)
   end
@@ -3573,7 +3600,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_bootstrap_actions_errors()}
   def list_bootstrap_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBootstrapActions", input, options)
   end
@@ -3596,7 +3624,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -3613,7 +3642,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instance_fleets_errors()}
   def list_instance_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstanceFleets", input, options)
   end
@@ -3627,7 +3657,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instance_groups_errors()}
   def list_instance_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstanceGroups", input, options)
   end
@@ -3647,7 +3678,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstances", input, options)
   end
@@ -3668,7 +3700,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_notebook_executions_errors()}
   def list_notebook_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookExecutions", input, options)
   end
@@ -3683,7 +3716,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_release_labels_errors()}
   def list_release_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReleaseLabels", input, options)
   end
@@ -3703,7 +3737,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_security_configurations_errors()}
   def list_security_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigurations", input, options)
   end
@@ -3725,7 +3760,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_steps_errors()}
   def list_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSteps", input, options)
   end
@@ -3740,7 +3776,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_studio_session_mappings_errors()}
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStudioSessionMappings", input, options)
   end
@@ -3758,7 +3795,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_studios_errors()}
   def list_studios(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStudios", input, options)
   end
@@ -3775,7 +3813,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_supported_instance_types_errors()}
   def list_supported_instance_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSupportedInstanceTypes", input, options)
   end
@@ -3791,7 +3830,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -3813,7 +3853,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_instance_fleet_errors()}
   def modify_instance_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceFleet", input, options)
   end
@@ -3832,7 +3873,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_instance_groups_errors()}
   def modify_instance_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceGroups", input, options)
   end
@@ -3851,7 +3893,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_auto_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAutoScalingPolicy", input, options)
   end
@@ -3876,7 +3919,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAutoTerminationPolicy", input, options)
   end
@@ -3900,7 +3944,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, put_block_public_access_configuration_errors()}
   def put_block_public_access_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutBlockPublicAccessConfiguration", input, options)
   end
@@ -3920,7 +3965,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutManagedScalingPolicy", input, options)
   end
@@ -3934,7 +3980,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_auto_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveAutoScalingPolicy", input, options)
   end
@@ -3947,7 +3994,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveAutoTerminationPolicy", input, options)
   end
@@ -3960,7 +4008,8 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveManagedScalingPolicy", input, options)
   end
@@ -3982,7 +4031,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -4030,7 +4080,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, run_job_flow_errors()}
   def run_job_flow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunJobFlow", input, options)
   end
@@ -4058,7 +4109,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_keep_job_flow_alive_when_no_steps_errors()}
   def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetKeepJobFlowAliveWhenNoSteps", input, options)
   end
@@ -4094,7 +4146,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_termination_protection_errors()}
   def set_termination_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTerminationProtection", input, options)
   end
@@ -4127,7 +4180,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_unhealthy_node_replacement_errors()}
   def set_unhealthy_node_replacement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUnhealthyNodeReplacement", input, options)
   end
@@ -4164,7 +4218,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_visible_to_all_users_errors()}
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetVisibleToAllUsers", input, options)
   end
@@ -4178,7 +4233,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, start_notebook_execution_errors()}
   def start_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNotebookExecution", input, options)
   end
@@ -4192,7 +4248,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, stop_notebook_execution_errors()}
   def stop_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopNotebookExecution", input, options)
   end
@@ -4219,7 +4276,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, terminate_job_flows_errors()}
   def terminate_job_flows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateJobFlows", input, options)
   end
@@ -4234,7 +4292,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, update_studio_errors()}
   def update_studio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStudio", input, options)
   end
@@ -4249,7 +4308,8 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, update_studio_session_mapping_errors()}
   def update_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStudioSessionMapping", input, options)
   end

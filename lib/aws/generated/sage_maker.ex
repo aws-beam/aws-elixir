@@ -21,7 +21,7 @@ defmodule AWS.SageMaker do
       
       docker_settings() :: %{
         "EnableDockerAccess" => list(any()),
-        "VpcOnlyTrustedAccounts" => list(String.t()())
+        "VpcOnlyTrustedAccounts" => list(String.t())
       }
       
   """
@@ -69,7 +69,7 @@ defmodule AWS.SageMaker do
       update_context_request() :: %{
         optional("Description") => String.t(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()()),
+        optional("PropertiesToRemove") => list(String.t()),
         required("ContextName") => String.t()
       }
       
@@ -99,7 +99,7 @@ defmodule AWS.SageMaker do
       
       list_aliases_response() :: %{
         "NextToken" => String.t(),
-        "SageMakerImageVersionAliases" => list(String.t()())
+        "SageMakerImageVersionAliases" => list(String.t())
       }
       
   """
@@ -122,7 +122,7 @@ defmodule AWS.SageMaker do
       
       create_edge_deployment_stage_request() :: %{
         required("EdgeDeploymentPlanName") => String.t(),
-        required("Stages") => list(deployment_stage()())
+        required("Stages") => list(deployment_stage())
       }
       
   """
@@ -133,7 +133,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_experiments_response() :: %{
-        "ExperimentSummaries" => list(experiment_summary()()),
+        "ExperimentSummaries" => list(experiment_summary()),
         "NextToken" => String.t()
       }
       
@@ -159,7 +159,7 @@ defmodule AWS.SageMaker do
       update_artifact_request() :: %{
         optional("ArtifactName") => String.t(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()()),
+        optional("PropertiesToRemove") => list(String.t()),
         required("ArtifactArn") => String.t()
       }
       
@@ -184,7 +184,7 @@ defmodule AWS.SageMaker do
       production_variant_capacity_reservation_summary() :: %{
         "AvailableInstanceCount" => integer(),
         "CapacityReservationPreference" => list(any()),
-        "Ec2CapacityReservations" => list(ec2_capacity_reservation()()),
+        "Ec2CapacityReservations" => list(ec2_capacity_reservation()),
         "MlReservationArn" => String.t(),
         "TotalInstanceCount" => integer(),
         "UsedByCurrentEndpoint" => integer()
@@ -338,7 +338,7 @@ defmodule AWS.SageMaker do
       update_hub_request() :: %{
         optional("HubDescription") => String.t(),
         optional("HubDisplayName") => String.t(),
-        optional("HubSearchKeywords") => list(String.t()()),
+        optional("HubSearchKeywords") => list(String.t()),
         required("HubName") => String.t()
       }
       
@@ -350,7 +350,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_apps_response() :: %{
-        "Apps" => list(app_details()()),
+        "Apps" => list(app_details()),
         "NextToken" => String.t()
       }
       
@@ -362,10 +362,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       inference_specification() :: %{
-        "Containers" => list(model_package_container_definition()()),
-        "SupportedContentTypes" => list(String.t()()),
+        "Containers" => list(model_package_container_definition()),
+        "SupportedContentTypes" => list(String.t()),
         "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-        "SupportedResponseMIMETypes" => list(String.t()()),
+        "SupportedResponseMIMETypes" => list(String.t()),
         "SupportedTransformInstanceTypes" => list(list(any())())
       }
       
@@ -382,8 +382,8 @@ defmodule AWS.SageMaker do
         "FeatureSpecificationS3Uri" => String.t(),
         "ForecastFrequency" => String.t(),
         "ForecastHorizon" => integer(),
-        "ForecastQuantiles" => list(String.t()()),
-        "HolidayConfig" => list(holiday_config_attributes()()),
+        "ForecastQuantiles" => list(String.t()),
+        "HolidayConfig" => list(holiday_config_attributes()),
         "TimeSeriesConfig" => time_series_config(),
         "Transformations" => time_series_transformations()
       }
@@ -409,7 +409,7 @@ defmodule AWS.SageMaker do
       
       create_inference_component_input() :: %{
         optional("RuntimeConfig") => inference_component_runtime_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VariantName") => String.t(),
         required("EndpointName") => String.t(),
         required("InferenceComponentName") => String.t(),
@@ -449,7 +449,7 @@ defmodule AWS.SageMaker do
       update_inference_experiment_request() :: %{
         optional("DataStorageConfig") => inference_experiment_data_storage_config(),
         optional("Description") => String.t(),
-        optional("ModelVariants") => list(model_variant_config()()),
+        optional("ModelVariants") => list(model_variant_config()),
         optional("Schedule") => inference_experiment_schedule(),
         optional("ShadowModeConfig") => shadow_mode_config(),
         required("Name") => String.t()
@@ -466,7 +466,7 @@ defmodule AWS.SageMaker do
         optional("HubContentDescription") => String.t(),
         optional("HubContentDisplayName") => String.t(),
         optional("HubContentMarkdown") => String.t(),
-        optional("HubContentSearchKeywords") => list(String.t()()),
+        optional("HubContentSearchKeywords") => list(String.t()),
         optional("SupportStatus") => list(any()),
         required("HubContentName") => String.t(),
         required("HubContentType") => list(any()),
@@ -551,7 +551,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       notebook_instance_summary() :: %{
-        "AdditionalCodeRepositories" => list(String.t()()),
+        "AdditionalCodeRepositories" => list(String.t()),
         "CreationTime" => non_neg_integer(),
         "DefaultCodeRepository" => String.t(),
         "InstanceType" => list(any()),
@@ -621,7 +621,7 @@ defmodule AWS.SageMaker do
         "EndpointMetadata" => endpoint_metadata(),
         "KmsKey" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelVariants" => list(model_variant_config_summary()()),
+        "ModelVariants" => list(model_variant_config_summary()),
         "Name" => String.t(),
         "RoleArn" => String.t(),
         "Schedule" => inference_experiment_schedule(),
@@ -689,8 +689,8 @@ defmodule AWS.SageMaker do
         "ExecutionRoleArn" => String.t(),
         "ExplainerConfig" => explainer_config(),
         "KmsKeyId" => String.t(),
-        "ProductionVariants" => list(production_variant()()),
-        "ShadowProductionVariants" => list(production_variant()()),
+        "ProductionVariants" => list(production_variant()),
+        "ShadowProductionVariants" => list(production_variant()),
         "VpcConfig" => vpc_config()
       }
       
@@ -707,7 +707,7 @@ defmodule AWS.SageMaker do
         optional("DefaultSpaceSettings") => default_space_settings(),
         optional("DefaultUserSettings") => user_settings(),
         optional("DomainSettingsForUpdate") => domain_settings_for_update(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         optional("TagPropagation") => list(any()),
         required("DomainId") => String.t()
       }
@@ -746,7 +746,7 @@ defmodule AWS.SageMaker do
       
       list_user_profiles_response() :: %{
         "NextToken" => String.t(),
-        "UserProfiles" => list(user_profile_details()())
+        "UserProfiles" => list(user_profile_details())
       }
       
   """
@@ -818,7 +818,7 @@ defmodule AWS.SageMaker do
         "MonitoringScheduleArn" => String.t(),
         "NetworkConfig" => network_config(),
         "ProcessingEndTime" => non_neg_integer(),
-        "ProcessingInputs" => list(processing_input()()),
+        "ProcessingInputs" => list(processing_input()),
         "ProcessingJobArn" => String.t(),
         "ProcessingJobName" => String.t(),
         "ProcessingJobStatus" => list(any()),
@@ -843,7 +843,7 @@ defmodule AWS.SageMaker do
         "HubDescription" => String.t(),
         "HubDisplayName" => String.t(),
         "HubName" => String.t(),
-        "HubSearchKeywords" => list(String.t()()),
+        "HubSearchKeywords" => list(String.t()),
         "HubStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer()
       }
@@ -880,9 +880,9 @@ defmodule AWS.SageMaker do
       describe_inference_recommendations_job_response() :: %{
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
-        "EndpointPerformances" => list(endpoint_performance()()),
+        "EndpointPerformances" => list(endpoint_performance()),
         "FailureReason" => String.t(),
-        "InferenceRecommendations" => list(inference_recommendation()()),
+        "InferenceRecommendations" => list(inference_recommendation()),
         "InputConfig" => recommendation_job_input_config(),
         "JobArn" => String.t(),
         "JobDescription" => String.t(),
@@ -1152,7 +1152,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       environment_parameter_ranges() :: %{
-        "CategoricalParameterRanges" => list(categorical_parameter()())
+        "CategoricalParameterRanges" => list(categorical_parameter())
       }
       
   """
@@ -1164,7 +1164,7 @@ defmodule AWS.SageMaker do
       
       list_pipelines_response() :: %{
         "NextToken" => String.t(),
-        "PipelineSummaries" => list(pipeline_summary()())
+        "PipelineSummaries" => list(pipeline_summary())
       }
       
   """
@@ -1187,7 +1187,7 @@ defmodule AWS.SageMaker do
       
       list_workforces_response() :: %{
         "NextToken" => String.t(),
-        "Workforces" => list(workforce()())
+        "Workforces" => list(workforce())
       }
       
   """
@@ -1209,7 +1209,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cfn_create_template_provider() :: %{
-        "Parameters" => list(cfn_stack_create_parameter()()),
+        "Parameters" => list(cfn_stack_create_parameter()),
         "RoleARN" => String.t(),
         "TemplateName" => String.t(),
         "TemplateURL" => String.t()
@@ -1254,7 +1254,7 @@ defmodule AWS.SageMaker do
         optional("RecoveryMode") => boolean(),
         optional("ResourceSpec") => resource_spec(),
         optional("SpaceName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UserProfileName") => String.t(),
         required("AppName") => String.t(),
         required("AppType") => list(any()),
@@ -1446,7 +1446,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       categorical_parameter_range_specification() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1462,13 +1462,13 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t(),
         "HubArn" => String.t(),
         "HubContentArn" => String.t(),
-        "HubContentDependencies" => list(hub_content_dependency()()),
+        "HubContentDependencies" => list(hub_content_dependency()),
         "HubContentDescription" => String.t(),
         "HubContentDisplayName" => String.t(),
         "HubContentDocument" => String.t(),
         "HubContentMarkdown" => String.t(),
         "HubContentName" => String.t(),
-        "HubContentSearchKeywords" => list(String.t()()),
+        "HubContentSearchKeywords" => list(String.t()),
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t(),
@@ -1584,7 +1584,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_human_task_ui_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("HumanTaskUiName") => String.t(),
         required("UiTemplate") => ui_template()
       }
@@ -1618,7 +1618,7 @@ defmodule AWS.SageMaker do
         optional("SearchExpression") => search_expression(),
         optional("SortBy") => String.t(),
         optional("SortOrder") => list(any()),
-        optional("VisibilityConditions") => list(visibility_conditions()()),
+        optional("VisibilityConditions") => list(visibility_conditions()),
         required("Resource") => list(any())
       }
       
@@ -1635,7 +1635,7 @@ defmodule AWS.SageMaker do
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
         "FailureMessage" => String.t(),
-        "InstanceGroups" => list(cluster_instance_group_details()()),
+        "InstanceGroups" => list(cluster_instance_group_details()),
         "NodeRecovery" => list(any()),
         "Orchestrator" => cluster_orchestrator(),
         "VpcConfig" => vpc_config()
@@ -1741,7 +1741,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_studio_lifecycle_config_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("StudioLifecycleConfigAppType") => list(any()),
         required("StudioLifecycleConfigContent") => String.t(),
         required("StudioLifecycleConfigName") => String.t()
@@ -1755,7 +1755,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       source_algorithm_specification() :: %{
-        "SourceAlgorithms" => list(source_algorithm()())
+        "SourceAlgorithms" => list(source_algorithm())
       }
       
   """
@@ -1822,7 +1822,7 @@ defmodule AWS.SageMaker do
       
       update_cluster_software_request() :: %{
         optional("DeploymentConfig") => deployment_configuration(),
-        optional("InstanceGroups") => list(update_cluster_software_instance_group_specification()()),
+        optional("InstanceGroups") => list(update_cluster_software_instance_group_specification()),
         required("ClusterName") => String.t()
       }
       
@@ -1884,8 +1884,8 @@ defmodule AWS.SageMaker do
       update_project_input() :: %{
         optional("ProjectDescription") => String.t(),
         optional("ServiceCatalogProvisioningUpdateDetails") => service_catalog_provisioning_update_details(),
-        optional("Tags") => list(tag()()),
-        optional("TemplateProvidersToUpdate") => list(update_template_provider()()),
+        optional("Tags") => list(tag()),
+        optional("TemplateProvidersToUpdate") => list(update_template_provider()),
         required("ProjectName") => String.t()
       }
       
@@ -1955,7 +1955,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       get_search_suggestions_response() :: %{
-        "PropertyNameSuggestions" => list(property_name_suggestion()())
+        "PropertyNameSuggestions" => list(property_name_suggestion())
       }
       
   """
@@ -1967,7 +1967,7 @@ defmodule AWS.SageMaker do
       
       list_partner_apps_response() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(partner_app_summary()())
+        "Summaries" => list(partner_app_summary())
       }
       
   """
@@ -1978,7 +1978,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       oidc_member_definition() :: %{
-        "Groups" => list(String.t()())
+        "Groups" => list(String.t())
       }
       
   """
@@ -1989,7 +1989,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       time_series_config() :: %{
-        "GroupingAttributeNames" => list(String.t()()),
+        "GroupingAttributeNames" => list(String.t()),
         "ItemIdentifierAttributeName" => String.t(),
         "TargetAttributeName" => String.t(),
         "TimestampAttributeName" => String.t()
@@ -2058,7 +2058,7 @@ defmodule AWS.SageMaker do
         optional("Parameters") => map(),
         optional("StartTime") => non_neg_integer(),
         optional("Status") => trial_component_status(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("TrialComponentName") => String.t()
       }
       
@@ -2070,7 +2070,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       stop_inference_experiment_request() :: %{
-        optional("DesiredModelVariants") => list(model_variant_config()()),
+        optional("DesiredModelVariants") => list(model_variant_config()),
         optional("DesiredState") => list(any()),
         optional("Reason") => String.t(),
         required("ModelVariantActions") => map(),
@@ -2118,7 +2118,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_cluster_scheduler_configs_response() :: %{
-        "ClusterSchedulerConfigSummaries" => list(cluster_scheduler_config_summary()()),
+        "ClusterSchedulerConfigSummaries" => list(cluster_scheduler_config_summary()),
         "NextToken" => String.t()
       }
       
@@ -2167,7 +2167,7 @@ defmodule AWS.SageMaker do
       
       hyper_parameter_tuning_resource_config() :: %{
         "AllocationStrategy" => list(any()),
-        "InstanceConfigs" => list(hyper_parameter_tuning_instance_config()()),
+        "InstanceConfigs" => list(hyper_parameter_tuning_instance_config()),
         "InstanceCount" => integer(),
         "InstanceType" => list(any()),
         "VolumeKmsKeyId" => String.t(),
@@ -2241,9 +2241,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       kernel_gateway_app_settings() :: %{
-        "CustomImages" => list(custom_image()()),
+        "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t()())
+        "LifecycleConfigArns" => list(String.t())
       }
       
   """
@@ -2347,7 +2347,7 @@ defmodule AWS.SageMaker do
       
       list_notebook_instances_output() :: %{
         "NextToken" => String.t(),
-        "NotebookInstances" => list(notebook_instance_summary()())
+        "NotebookInstances" => list(notebook_instance_summary())
       }
       
   """
@@ -2526,8 +2526,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       optimization_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -2670,7 +2670,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_monitoring_schedules_response() :: %{
-        "MonitoringScheduleSummaries" => list(monitoring_schedule_summary()()),
+        "MonitoringScheduleSummaries" => list(monitoring_schedule_summary()),
         "NextToken" => String.t()
       }
       
@@ -2699,7 +2699,7 @@ defmodule AWS.SageMaker do
         "HubContentDescription" => String.t(),
         "HubContentDisplayName" => String.t(),
         "HubContentName" => String.t(),
-        "HubContentSearchKeywords" => list(String.t()()),
+        "HubContentSearchKeywords" => list(String.t()),
         "HubContentStatus" => list(any()),
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t(),
@@ -2770,7 +2770,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       source_ip_config() :: %{
-        "Cidrs" => list(String.t()())
+        "Cidrs" => list(String.t())
       }
       
   """
@@ -2817,7 +2817,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       candidate_generation_config() :: %{
-        "AlgorithmsConfig" => list(auto_ml_algorithm_config()())
+        "AlgorithmsConfig" => list(auto_ml_algorithm_config())
       }
       
   """
@@ -2839,7 +2839,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       algorithm_validation_specification() :: %{
-        "ValidationProfiles" => list(algorithm_validation_profile()()),
+        "ValidationProfiles" => list(algorithm_validation_profile()),
         "ValidationRole" => String.t()
       }
       
@@ -2932,7 +2932,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_models_output() :: %{
-        "Models" => list(model_summary()()),
+        "Models" => list(model_summary()),
         "NextToken" => String.t()
       }
       
@@ -2980,7 +2980,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_card_versions_response() :: %{
-        "ModelCardVersionSummaryList" => list(model_card_version_summary()()),
+        "ModelCardVersionSummaryList" => list(model_card_version_summary()),
         "NextToken" => String.t()
       }
       
@@ -3001,16 +3001,16 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "LineageGroupArn" => String.t(),
         "MetadataProperties" => metadata_properties(),
-        "Metrics" => list(trial_component_metric_summary()()),
+        "Metrics" => list(trial_component_metric_summary()),
         "OutputArtifacts" => map(),
         "Parameters" => map(),
-        "Parents" => list(parent()()),
+        "Parents" => list(parent()),
         "RunName" => String.t(),
         "Source" => trial_component_source(),
         "SourceDetail" => trial_component_source_detail(),
         "StartTime" => non_neg_integer(),
         "Status" => trial_component_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrialComponentArn" => String.t(),
         "TrialComponentName" => String.t()
       }
@@ -3099,7 +3099,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_metadata_response() :: %{
-        "ModelMetadataSummaries" => list(model_metadata_summary()()),
+        "ModelMetadataSummaries" => list(model_metadata_summary()),
         "NextToken" => String.t()
       }
       
@@ -3181,7 +3181,7 @@ defmodule AWS.SageMaker do
         "PipelineExecutionDisplayName" => String.t(),
         "PipelineExecutionStatus" => list(any()),
         "PipelineExperimentConfig" => pipeline_experiment_config(),
-        "PipelineParameters" => list(parameter()()),
+        "PipelineParameters" => list(parameter()),
         "SelectiveExecutionConfig" => selective_execution_config()
       }
       
@@ -3233,7 +3233,7 @@ defmodule AWS.SageMaker do
         "PipelineName" => String.t(),
         "PipelineStatus" => list(any()),
         "RoleArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3260,7 +3260,7 @@ defmodule AWS.SageMaker do
       
       delete_tags_input() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -3271,10 +3271,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       parameter_ranges() :: %{
-        "AutoParameters" => list(auto_parameter()()),
-        "CategoricalParameterRanges" => list(categorical_parameter_range()()),
-        "ContinuousParameterRanges" => list(continuous_parameter_range()()),
-        "IntegerParameterRanges" => list(integer_parameter_range()())
+        "AutoParameters" => list(auto_parameter()),
+        "CategoricalParameterRanges" => list(categorical_parameter_range()),
+        "ContinuousParameterRanges" => list(continuous_parameter_range()),
+        "IntegerParameterRanges" => list(integer_parameter_range())
       }
       
   """
@@ -3303,7 +3303,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_inference_recommendations_jobs_response() :: %{
-        "InferenceRecommendationsJobs" => list(inference_recommendations_job()()),
+        "InferenceRecommendationsJobs" => list(inference_recommendations_job()),
         "NextToken" => String.t()
       }
       
@@ -3315,7 +3315,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       traffic_pattern() :: %{
-        "Phases" => list(phase()()),
+        "Phases" => list(phase()),
         "Stairs" => stairs(),
         "TrafficType" => list(any())
       }
@@ -3346,7 +3346,7 @@ defmodule AWS.SageMaker do
         "PublicWorkforceTaskPrice" => public_workforce_task_price(),
         "TaskAvailabilityLifetimeInSeconds" => integer(),
         "TaskDescription" => String.t(),
-        "TaskKeywords" => list(String.t()()),
+        "TaskKeywords" => list(String.t()),
         "TaskTimeLimitInSeconds" => integer(),
         "TaskTitle" => String.t(),
         "UiConfig" => ui_config(),
@@ -3411,7 +3411,7 @@ defmodule AWS.SageMaker do
       
       list_pipeline_execution_steps_response() :: %{
         "NextToken" => String.t(),
-        "PipelineExecutionSteps" => list(pipeline_execution_step()())
+        "PipelineExecutionSteps" => list(pipeline_execution_step())
       }
       
   """
@@ -3459,7 +3459,7 @@ defmodule AWS.SageMaker do
       
       update_endpoint_input() :: %{
         optional("DeploymentConfig") => deployment_config(),
-        optional("ExcludeRetainedVariantProperties") => list(variant_property()()),
+        optional("ExcludeRetainedVariantProperties") => list(variant_property()),
         optional("RetainAllVariantProperties") => boolean(),
         optional("RetainDeploymentConfig") => boolean(),
         required("EndpointConfigName") => String.t(),
@@ -3474,7 +3474,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       search_training_plan_offerings_response() :: %{
-        "TrainingPlanOfferings" => list(training_plan_offering()())
+        "TrainingPlanOfferings" => list(training_plan_offering())
       }
       
   """
@@ -3581,7 +3581,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_data_quality_job_definitions_response() :: %{
-        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
         "NextToken" => String.t()
       }
       
@@ -3617,12 +3617,12 @@ defmodule AWS.SageMaker do
       
       training_specification() :: %{
         "AdditionalS3DataSource" => additional_s3_data_source(),
-        "MetricDefinitions" => list(metric_definition()()),
-        "SupportedHyperParameters" => list(hyper_parameter_specification()()),
+        "MetricDefinitions" => list(metric_definition()),
+        "SupportedHyperParameters" => list(hyper_parameter_specification()),
         "SupportedTrainingInstanceTypes" => list(list(any())()),
-        "SupportedTuningJobObjectiveMetrics" => list(hyper_parameter_tuning_job_objective()()),
+        "SupportedTuningJobObjectiveMetrics" => list(hyper_parameter_tuning_job_objective()),
         "SupportsDistributedTraining" => boolean(),
-        "TrainingChannels" => list(channel_specification()()),
+        "TrainingChannels" => list(channel_specification()),
         "TrainingImage" => String.t(),
         "TrainingImageDigest" => String.t()
       }
@@ -3657,7 +3657,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       hyper_parameter_tuning_job_warm_start_config() :: %{
-        "ParentHyperParameterTuningJobs" => list(parent_hyper_parameter_tuning_job()()),
+        "ParentHyperParameterTuningJobs" => list(parent_hyper_parameter_tuning_job()),
         "WarmStartType" => list(any())
       }
       
@@ -3719,7 +3719,7 @@ defmodule AWS.SageMaker do
       
       create_endpoint_input() :: %{
         optional("DeploymentConfig") => deployment_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EndpointConfigName") => String.t(),
         required("EndpointName") => String.t()
       }
@@ -3760,7 +3760,7 @@ defmodule AWS.SageMaker do
         "FeatureName" => String.t(),
         "FeatureType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "Parameters" => list(feature_parameter()())
+        "Parameters" => list(feature_parameter())
       }
       
   """
@@ -3808,7 +3808,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       add_tags_output() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3830,7 +3830,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       batch_describe_model_package_input() :: %{
-        required("ModelPackageArnList") => list(String.t()())
+        required("ModelPackageArnList") => list(String.t())
       }
       
   """
@@ -3864,7 +3864,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_hub_contents_response() :: %{
-        "HubContentSummaries" => list(hub_content_info()()),
+        "HubContentSummaries" => list(hub_content_info()),
         "NextToken" => String.t()
       }
       
@@ -3900,7 +3900,7 @@ defmodule AWS.SageMaker do
       
       list_trial_components_response() :: %{
         "NextToken" => String.t(),
-        "TrialComponentSummaries" => list(trial_component_summary()())
+        "TrialComponentSummaries" => list(trial_component_summary())
       }
       
   """
@@ -3956,8 +3956,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       capture_content_type_header() :: %{
-        "CsvContentTypes" => list(String.t()()),
-        "JsonContentTypes" => list(String.t()())
+        "CsvContentTypes" => list(String.t()),
+        "JsonContentTypes" => list(String.t())
       }
       
   """
@@ -3974,11 +3974,11 @@ defmodule AWS.SageMaker do
         optional("ExecutionRoleArn") => String.t(),
         optional("ExplainerConfig") => explainer_config(),
         optional("KmsKeyId") => String.t(),
-        optional("ShadowProductionVariants") => list(production_variant()()),
-        optional("Tags") => list(tag()()),
+        optional("ShadowProductionVariants") => list(production_variant()),
+        optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
         required("EndpointConfigName") => String.t(),
-        required("ProductionVariants") => list(production_variant()())
+        required("ProductionVariants") => list(production_variant())
       }
       
   """
@@ -3995,7 +3995,7 @@ defmodule AWS.SageMaker do
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
         "InUseInstanceCount" => integer(),
-        "ReservedCapacitySummaries" => list(reserved_capacity_summary()()),
+        "ReservedCapacitySummaries" => list(reserved_capacity_summary()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
@@ -4015,7 +4015,7 @@ defmodule AWS.SageMaker do
       
       kernel_gateway_image_config() :: %{
         "FileSystemConfig" => file_system_config(),
-        "KernelSpecs" => list(kernel_spec()())
+        "KernelSpecs" => list(kernel_spec())
       }
       
   """
@@ -4069,7 +4069,7 @@ defmodule AWS.SageMaker do
         "ModelPackageGroupDescription" => String.t(),
         "ModelPackageGroupName" => String.t(),
         "ModelPackageGroupStatus" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -4165,7 +4165,7 @@ defmodule AWS.SageMaker do
       space_settings() :: %{
         "AppType" => list(any()),
         "CodeEditorAppSettings" => space_code_editor_app_settings(),
-        "CustomFileSystems" => list(list()()),
+        "CustomFileSystems" => list(list()),
         "JupyterLabAppSettings" => space_jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
@@ -4252,7 +4252,7 @@ defmodule AWS.SageMaker do
       
       list_resource_catalogs_response() :: %{
         "NextToken" => String.t(),
-        "ResourceCatalogs" => list(resource_catalog()())
+        "ResourceCatalogs" => list(resource_catalog())
       }
       
   """
@@ -4321,7 +4321,7 @@ defmodule AWS.SageMaker do
       
       deregister_devices_request() :: %{
         required("DeviceFleetName") => String.t(),
-        required("DeviceNames") => list(String.t()())
+        required("DeviceNames") => list(String.t())
       }
       
   """
@@ -4333,7 +4333,7 @@ defmodule AWS.SageMaker do
       
       training_job_definition() :: %{
         "HyperParameters" => map(),
-        "InputDataConfig" => list(channel()()),
+        "InputDataConfig" => list(channel()),
         "OutputDataConfig" => output_data_config(),
         "ResourceConfig" => resource_config(),
         "StoppingCondition" => stopping_condition(),
@@ -4364,8 +4364,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       workforce_vpc_config_response() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t()),
         "VpcEndpointId" => String.t(),
         "VpcId" => String.t()
       }
@@ -4410,7 +4410,7 @@ defmodule AWS.SageMaker do
         "FeatureName" => String.t(),
         "FeatureType" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "Parameters" => list(feature_parameter()())
+        "Parameters" => list(feature_parameter())
       }
       
   """
@@ -4421,8 +4421,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_quality_app_specification() :: %{
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "Environment" => map(),
         "ImageUri" => String.t(),
         "PostAnalyticsProcessorSourceUri" => String.t(),
@@ -4544,7 +4544,7 @@ defmodule AWS.SageMaker do
       
       add_tags_input() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -4589,7 +4589,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_hubs_response() :: %{
-        "HubSummaries" => list(hub_info()()),
+        "HubSummaries" => list(hub_info()),
         "NextToken" => String.t()
       }
       
@@ -4718,7 +4718,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_monitoring_alert_history_response() :: %{
-        "MonitoringAlertHistory" => list(monitoring_alert_history_summary()()),
+        "MonitoringAlertHistory" => list(monitoring_alert_history_summary()),
         "NextToken" => String.t()
       }
       
@@ -4787,7 +4787,7 @@ defmodule AWS.SageMaker do
         "Description" => String.t(),
         "EventTimeFeatureName" => String.t(),
         "FailureReason" => String.t(),
-        "FeatureDefinitions" => list(feature_definition()()),
+        "FeatureDefinitions" => list(feature_definition()),
         "FeatureGroupArn" => String.t(),
         "FeatureGroupName" => String.t(),
         "FeatureGroupStatus" => list(any()),
@@ -4824,7 +4824,7 @@ defmodule AWS.SageMaker do
       
       data_capture_config() :: %{
         "CaptureContentTypeHeader" => capture_content_type_header(),
-        "CaptureOptions" => list(capture_option()()),
+        "CaptureOptions" => list(capture_option()),
         "DestinationS3Uri" => String.t(),
         "EnableCapture" => boolean(),
         "InitialSamplingPercentage" => integer(),
@@ -4842,10 +4842,10 @@ defmodule AWS.SageMaker do
         optional("HubContentDescription") => String.t(),
         optional("HubContentDisplayName") => String.t(),
         optional("HubContentMarkdown") => String.t(),
-        optional("HubContentSearchKeywords") => list(String.t()()),
+        optional("HubContentSearchKeywords") => list(String.t()),
         optional("HubContentVersion") => String.t(),
         optional("SupportStatus") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DocumentSchemaVersion") => String.t(),
         required("HubContentDocument") => String.t(),
         required("HubContentName") => String.t(),
@@ -5004,7 +5004,7 @@ defmodule AWS.SageMaker do
       
       service_catalog_provisioning_update_details() :: %{
         "ProvisioningArtifactId" => String.t(),
-        "ProvisioningParameters" => list(provisioning_parameter()())
+        "ProvisioningParameters" => list(provisioning_parameter())
       }
       
   """
@@ -5038,8 +5038,8 @@ defmodule AWS.SageMaker do
         "LastDeploymentConfig" => deployment_config(),
         "LastModifiedTime" => non_neg_integer(),
         "PendingDeploymentSummary" => pending_deployment_summary(),
-        "ProductionVariants" => list(production_variant_summary()()),
-        "ShadowProductionVariants" => list(production_variant_summary()())
+        "ProductionVariants" => list(production_variant_summary()),
+        "ShadowProductionVariants" => list(production_variant_summary())
       }
       
   """
@@ -5065,7 +5065,7 @@ defmodule AWS.SageMaker do
       
       update_training_job_request() :: %{
         optional("ProfilerConfig") => profiler_config_for_update(),
-        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()),
         optional("RemoteDebugConfig") => remote_debug_config_for_update(),
         optional("ResourceConfig") => resource_config_for_update(),
         required("TrainingJobName") => String.t()
@@ -5125,7 +5125,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_training_plans_request() :: %{
-        optional("Filters") => list(training_plan_filter()()),
+        optional("Filters") => list(training_plan_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SortBy") => list(any()),
@@ -5157,7 +5157,7 @@ defmodule AWS.SageMaker do
       
       list_notebook_instance_lifecycle_configs_output() :: %{
         "NextToken" => String.t(),
-        "NotebookInstanceLifecycleConfigs" => list(notebook_instance_lifecycle_config_summary()())
+        "NotebookInstanceLifecycleConfigs" => list(notebook_instance_lifecycle_config_summary())
       }
       
   """
@@ -5248,8 +5248,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       recommendation_job_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -5283,8 +5283,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_request() :: %{
-        optional("InstanceGroups") => list(cluster_instance_group_specification()()),
-        optional("InstanceGroupsToDelete") => list(String.t()()),
+        optional("InstanceGroups") => list(cluster_instance_group_specification()),
+        optional("InstanceGroupsToDelete") => list(String.t()),
         optional("NodeRecovery") => list(any()),
         required("ClusterName") => String.t()
       }
@@ -5308,7 +5308,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_code_repositories_output() :: %{
-        "CodeRepositorySummaryList" => list(code_repository_summary()()),
+        "CodeRepositorySummaryList" => list(code_repository_summary()),
         "NextToken" => String.t()
       }
       
@@ -5375,7 +5375,7 @@ defmodule AWS.SageMaker do
       
       create_model_card_request() :: %{
         optional("SecurityConfig") => model_card_security_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Content") => String.t(),
         required("ModelCardName") => String.t(),
         required("ModelCardStatus") => list(any())
@@ -5390,10 +5390,10 @@ defmodule AWS.SageMaker do
       
       algorithm_specification() :: %{
         "AlgorithmName" => String.t(),
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "EnableSageMakerMetricsTimeSeries" => boolean(),
-        "MetricDefinitions" => list(metric_definition()()),
+        "MetricDefinitions" => list(metric_definition()),
         "TrainingImage" => String.t(),
         "TrainingImageConfig" => training_image_config(),
         "TrainingInputMode" => list(any())
@@ -5407,7 +5407,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_image_version_request() :: %{
-        optional("Aliases") => list(String.t()()),
+        optional("Aliases") => list(String.t()),
         optional("Horovod") => boolean(),
         optional("JobType") => list(any()),
         optional("MLFramework") => String.t(),
@@ -5432,14 +5432,14 @@ defmodule AWS.SageMaker do
         "CurrentInstanceCount" => integer(),
         "CurrentServerlessConfig" => production_variant_serverless_config(),
         "CurrentWeight" => float(),
-        "DeployedImages" => list(deployed_image()()),
+        "DeployedImages" => list(deployed_image()),
         "DesiredInstanceCount" => integer(),
         "DesiredServerlessConfig" => production_variant_serverless_config(),
         "DesiredWeight" => float(),
         "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
         "RoutingConfig" => production_variant_routing_config(),
         "VariantName" => String.t(),
-        "VariantStatus" => list(production_variant_status()())
+        "VariantStatus" => list(production_variant_status())
       }
       
   """
@@ -5490,7 +5490,7 @@ defmodule AWS.SageMaker do
         optional("ModelExplainabilityBaselineConfig") => model_explainability_baseline_config(),
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("JobDefinitionName") => String.t(),
         required("JobResources") => monitoring_resources(),
         required("ModelExplainabilityAppSpecification") => model_explainability_app_specification(),
@@ -5509,7 +5509,7 @@ defmodule AWS.SageMaker do
       update_action_request() :: %{
         optional("Description") => String.t(),
         optional("Properties") => map(),
-        optional("PropertiesToRemove") => list(String.t()()),
+        optional("PropertiesToRemove") => list(String.t()),
         optional("Status") => list(any()),
         required("ActionName") => String.t()
       }
@@ -5576,7 +5576,7 @@ defmodule AWS.SageMaker do
         "PathId" => String.t(),
         "ProductId" => String.t(),
         "ProvisioningArtifactId" => String.t(),
-        "ProvisioningParameters" => list(provisioning_parameter()())
+        "ProvisioningParameters" => list(provisioning_parameter())
       }
       
   """
@@ -5656,8 +5656,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       app_specification() :: %{
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "ImageUri" => String.t()
       }
       
@@ -5694,7 +5694,7 @@ defmodule AWS.SageMaker do
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
         "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
-        "TemplateProviderDetails" => list(template_provider_detail()())
+        "TemplateProviderDetails" => list(template_provider_detail())
       }
       
   """
@@ -5737,7 +5737,7 @@ defmodule AWS.SageMaker do
         optional("MaxDepth") => integer(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("StartArns") => list(String.t()())
+        optional("StartArns") => list(String.t())
       }
       
   """
@@ -5778,7 +5778,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_endpoint_configs_output() :: %{
-        "EndpointConfigs" => list(endpoint_config_summary()()),
+        "EndpointConfigs" => list(endpoint_config_summary()),
         "NextToken" => String.t()
       }
       
@@ -5790,8 +5790,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       algorithm_status_details() :: %{
-        "ImageScanStatuses" => list(algorithm_status_item()()),
-        "ValidationStatuses" => list(algorithm_status_item()())
+        "ImageScanStatuses" => list(algorithm_status_item()),
+        "ValidationStatuses" => list(algorithm_status_item())
       }
       
   """
@@ -5802,9 +5802,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       query_lineage_response() :: %{
-        "Edges" => list(edge()()),
+        "Edges" => list(edge()),
         "NextToken" => String.t(),
-        "Vertices" => list(vertex()())
+        "Vertices" => list(vertex())
       }
       
   """
@@ -5868,7 +5868,7 @@ defmodule AWS.SageMaker do
         "EndTime" => non_neg_integer(),
         "FailureReason" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()())
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason())
       }
       
   """
@@ -5892,7 +5892,7 @@ defmodule AWS.SageMaker do
       
       list_mlflow_tracking_servers_response() :: %{
         "NextToken" => String.t(),
-        "TrackingServerSummaries" => list(tracking_server_summary()())
+        "TrackingServerSummaries" => list(tracking_server_summary())
       }
       
   """
@@ -5936,7 +5936,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_labeling_jobs_response() :: %{
-        "LabelingJobSummaryList" => list(labeling_job_summary()()),
+        "LabelingJobSummaryList" => list(labeling_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -5959,7 +5959,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_package() :: %{
-        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
+        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()),
         "ApprovalDescription" => String.t(),
         "CertifyForMarketplace" => boolean(),
         "CreatedBy" => user_context(),
@@ -5987,7 +5987,7 @@ defmodule AWS.SageMaker do
         "SkipModelValidation" => list(any()),
         "SourceAlgorithmSpecification" => source_algorithm_specification(),
         "SourceUri" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Task" => String.t(),
         "ValidationSpecification" => model_package_validation_specification()
       }
@@ -6035,8 +6035,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       neo_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -6096,7 +6096,7 @@ defmodule AWS.SageMaker do
         optional("MaxConcurrentTransforms") => integer(),
         optional("MaxPayloadInMB") => integer(),
         optional("ModelClientConfig") => model_client_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ModelName") => String.t(),
         required("TransformInput") => transform_input(),
         required("TransformJobName") => String.t(),
@@ -6125,7 +6125,7 @@ defmodule AWS.SageMaker do
         "MaxPayloadInMB" => integer(),
         "ModelClientConfig" => model_client_config(),
         "ModelName" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransformEndTime" => non_neg_integer(),
         "TransformInput" => transform_input(),
         "TransformJobArn" => String.t(),
@@ -6166,7 +6166,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_human_task_uis_response() :: %{
-        "HumanTaskUiSummaries" => list(human_task_ui_summary()()),
+        "HumanTaskUiSummaries" => list(human_task_ui_summary()),
         "NextToken" => String.t()
       }
       
@@ -6216,7 +6216,7 @@ defmodule AWS.SageMaker do
         "ClusterName" => String.t(),
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "TrainingPlanArns" => list(String.t()())
+        "TrainingPlanArns" => list(String.t())
       }
       
   """
@@ -6334,12 +6334,12 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_model_input() :: %{
-        optional("Containers") => list(container_definition()()),
+        optional("Containers") => list(container_definition()),
         optional("EnableNetworkIsolation") => boolean(),
         optional("ExecutionRoleArn") => String.t(),
         optional("InferenceExecutionConfig") => inference_execution_config(),
         optional("PrimaryContainer") => container_definition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
         required("ModelName") => String.t()
       }
@@ -6483,7 +6483,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       deployment_configuration() :: %{
-        "AutoRollbackConfiguration" => list(alarm_details()()),
+        "AutoRollbackConfiguration" => list(alarm_details()),
         "RollingUpdatePolicy" => rolling_deployment_policy(),
         "WaitIntervalInSeconds" => integer()
       }
@@ -6543,7 +6543,7 @@ defmodule AWS.SageMaker do
       
       describe_notebook_instance_output() :: %{
         "AcceleratorTypes" => list(list(any())()),
-        "AdditionalCodeRepositories" => list(String.t()()),
+        "AdditionalCodeRepositories" => list(String.t()),
         "CreationTime" => non_neg_integer(),
         "DefaultCodeRepository" => String.t(),
         "DirectInternetAccess" => list(any()),
@@ -6560,7 +6560,7 @@ defmodule AWS.SageMaker do
         "PlatformIdentifier" => String.t(),
         "RoleArn" => String.t(),
         "RootAccess" => list(any()),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SubnetId" => String.t(),
         "Url" => String.t(),
         "VolumeSizeInGB" => integer()
@@ -6575,7 +6575,7 @@ defmodule AWS.SageMaker do
       
       recommendation_job_payload_config() :: %{
         "SamplePayloadUrl" => String.t(),
-        "SupportedContentTypes" => list(String.t()())
+        "SupportedContentTypes" => list(String.t())
       }
       
   """
@@ -6629,7 +6629,7 @@ defmodule AWS.SageMaker do
         "Environment" => map(),
         "HyperParameterRanges" => parameter_ranges(),
         "HyperParameterTuningResourceConfig" => hyper_parameter_tuning_resource_config(),
-        "InputDataConfig" => list(channel()()),
+        "InputDataConfig" => list(channel()),
         "OutputDataConfig" => output_data_config(),
         "ResourceConfig" => resource_config(),
         "RetryStrategy" => retry_strategy(),
@@ -6811,7 +6811,7 @@ defmodule AWS.SageMaker do
         optional("DataQualityBaselineConfig") => data_quality_baseline_config(),
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DataQualityAppSpecification") => data_quality_app_specification(),
         required("DataQualityJobInput") => data_quality_job_input(),
         required("DataQualityJobOutputConfig") => monitoring_output_config(),
@@ -6856,7 +6856,7 @@ defmodule AWS.SageMaker do
         optional("ModelQualityBaselineConfig") => model_quality_baseline_config(),
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("JobDefinitionName") => String.t(),
         required("JobResources") => monitoring_resources(),
         required("ModelQualityAppSpecification") => model_quality_app_specification(),
@@ -6938,10 +6938,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_cluster_request() :: %{
-        optional("InstanceGroups") => list(cluster_instance_group_specification()()),
+        optional("InstanceGroups") => list(cluster_instance_group_specification()),
         optional("NodeRecovery") => list(any()),
         optional("Orchestrator") => cluster_orchestrator(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConfig") => vpc_config(),
         required("ClusterName") => String.t()
       }
@@ -6968,9 +6968,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_notebook_instance_lifecycle_config_input() :: %{
-        optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
-        optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
-        optional("Tags") => list(tag()()),
+        optional("OnCreate") => list(notebook_instance_lifecycle_hook()),
+        optional("OnStart") => list(notebook_instance_lifecycle_hook()),
+        optional("Tags") => list(tag()),
         required("NotebookInstanceLifecycleConfigName") => String.t()
       }
       
@@ -6993,7 +6993,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       auto_ml_candidate_generation_config() :: %{
-        "AlgorithmsConfig" => list(auto_ml_algorithm_config()()),
+        "AlgorithmsConfig" => list(auto_ml_algorithm_config()),
         "FeatureSpecificationS3Uri" => String.t()
       }
       
@@ -7005,7 +7005,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       artifact_source() :: %{
-        "SourceTypes" => list(artifact_source_type()()),
+        "SourceTypes" => list(artifact_source_type()),
         "SourceUri" => String.t()
       }
       
@@ -7081,11 +7081,11 @@ defmodule AWS.SageMaker do
       
       create_optimization_job_request() :: %{
         optional("OptimizationEnvironment") => map(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConfig") => optimization_vpc_config(),
         required("DeploymentInstanceType") => list(any()),
         required("ModelSource") => optimization_job_model_source(),
-        required("OptimizationConfigs") => list(list()()),
+        required("OptimizationConfigs") => list(list()),
         required("OptimizationJobName") => String.t(),
         required("OutputConfig") => optimization_job_output_config(),
         required("RoleArn") => String.t(),
@@ -7101,8 +7101,8 @@ defmodule AWS.SageMaker do
       
       pending_deployment_summary() :: %{
         "EndpointConfigName" => String.t(),
-        "ProductionVariants" => list(pending_production_variant_summary()()),
-        "ShadowProductionVariants" => list(pending_production_variant_summary()()),
+        "ProductionVariants" => list(pending_production_variant_summary()),
+        "ShadowProductionVariants" => list(pending_production_variant_summary()),
         "StartTime" => non_neg_integer()
       }
       
@@ -7119,7 +7119,7 @@ defmodule AWS.SageMaker do
         "DurationMinutes" => float(),
         "RequestedEndTimeBefore" => non_neg_integer(),
         "RequestedStartTimeAfter" => non_neg_integer(),
-        "ReservedCapacityOfferings" => list(reserved_capacity_offering()()),
+        "ReservedCapacityOfferings" => list(reserved_capacity_offering()),
         "TargetResources" => list(list(any())()),
         "TrainingPlanOfferingId" => String.t(),
         "UpfrontFee" => String.t()
@@ -7199,7 +7199,7 @@ defmodule AWS.SageMaker do
       
       list_workteams_response() :: %{
         "NextToken" => String.t(),
-        "Workteams" => list(workteam()())
+        "Workteams" => list(workteam())
       }
       
   """
@@ -7211,7 +7211,7 @@ defmodule AWS.SageMaker do
       
       list_inference_recommendations_job_steps_response() :: %{
         "NextToken" => String.t(),
-        "Steps" => list(inference_recommendations_job_step()())
+        "Steps" => list(inference_recommendations_job_step())
       }
       
   """
@@ -7233,8 +7233,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       container_config() :: %{
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "ContainerEnvironmentVariables" => map()
       }
       
@@ -7307,7 +7307,7 @@ defmodule AWS.SageMaker do
       
       update_notebook_instance_input() :: %{
         optional("AcceleratorTypes") => list(list(any())()),
-        optional("AdditionalCodeRepositories") => list(String.t()()),
+        optional("AdditionalCodeRepositories") => list(String.t()),
         optional("DefaultCodeRepository") => String.t(),
         optional("DisassociateAcceleratorTypes") => boolean(),
         optional("DisassociateAdditionalCodeRepositories") => boolean(),
@@ -7330,7 +7330,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       container_definition() :: %{
-        "AdditionalModelDataSources" => list(additional_model_data_source()()),
+        "AdditionalModelDataSources" => list(additional_model_data_source()),
         "ContainerHostname" => String.t(),
         "Environment" => map(),
         "Image" => String.t(),
@@ -7365,13 +7365,13 @@ defmodule AWS.SageMaker do
         "CandidateName" => String.t(),
         "CandidateProperties" => candidate_properties(),
         "CandidateStatus" => list(any()),
-        "CandidateSteps" => list(auto_ml_candidate_step()()),
+        "CandidateSteps" => list(auto_ml_candidate_step()),
         "CreationTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
         "FailureReason" => String.t(),
         "FinalAutoMLJobObjectiveMetric" => final_auto_ml_job_objective_metric(),
         "InferenceContainerDefinitions" => map(),
-        "InferenceContainers" => list(auto_ml_container_definition()()),
+        "InferenceContainers" => list(auto_ml_container_definition()),
         "LastModifiedTime" => non_neg_integer(),
         "ObjectiveStatus" => list(any())
       }
@@ -7446,9 +7446,9 @@ defmodule AWS.SageMaker do
         optional("DomainSettings") => domain_settings(),
         optional("HomeEfsFileSystemKmsKeyId") => String.t(),
         optional("KmsKeyId") => String.t(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         optional("TagPropagation") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcId") => String.t(),
         required("AuthMode") => list(any()),
         required("DefaultUserSettings") => user_settings(),
@@ -7487,7 +7487,7 @@ defmodule AWS.SageMaker do
       
       categorical_parameter() :: %{
         "Name" => String.t(),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
       
   """
@@ -7498,7 +7498,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_monitoring_alerts_response() :: %{
-        "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
+        "MonitoringAlertSummaries" => list(monitoring_alert_summary()),
         "NextToken" => String.t()
       }
       
@@ -7741,8 +7741,8 @@ defmodule AWS.SageMaker do
         "ProjectStatus" => list(any()),
         "ServiceCatalogProvisionedProductDetails" => service_catalog_provisioned_product_details(),
         "ServiceCatalogProvisioningDetails" => service_catalog_provisioning_details(),
-        "Tags" => list(tag()()),
-        "TemplateProviderDetails" => list(template_provider_detail()())
+        "Tags" => list(tag()),
+        "TemplateProviderDetails" => list(template_provider_detail())
       }
       
   """
@@ -7791,10 +7791,10 @@ defmodule AWS.SageMaker do
         optional("OfflineStoreConfig") => offline_store_config(),
         optional("OnlineStoreConfig") => online_store_config(),
         optional("RoleArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ThroughputConfig") => throughput_config(),
         required("EventTimeFeatureName") => String.t(),
-        required("FeatureDefinitions") => list(feature_definition()()),
+        required("FeatureDefinitions") => list(feature_definition()),
         required("FeatureGroupName") => String.t(),
         required("RecordIdentifierFeatureName") => String.t()
       }
@@ -7833,7 +7833,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_explainability_job_definitions_response() :: %{
-        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
         "NextToken" => String.t()
       }
       
@@ -7849,7 +7849,7 @@ defmodule AWS.SageMaker do
         optional("SpaceDisplayName") => String.t(),
         optional("SpaceSettings") => space_settings(),
         optional("SpaceSharingSettings") => space_sharing_settings(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DomainId") => String.t(),
         required("SpaceName") => String.t()
       }
@@ -7908,9 +7908,9 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "ObjectiveStatusCounters" => objective_status_counters(),
         "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
-        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
+        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()),
         "TrainingJobStatusCounters" => training_job_status_counters(),
         "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
         "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
@@ -7955,7 +7955,7 @@ defmodule AWS.SageMaker do
       create_image_request() :: %{
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ImageName") => String.t(),
         required("RoleArn") => String.t()
       }
@@ -7973,7 +7973,7 @@ defmodule AWS.SageMaker do
         optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
         optional("PipelineDescription") => String.t(),
         optional("PipelineDisplayName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientRequestToken") => String.t(),
         required("PipelineName") => String.t(),
         required("RoleArn") => String.t()
@@ -8061,7 +8061,7 @@ defmodule AWS.SageMaker do
         optional("ArtifactName") => String.t(),
         optional("MetadataProperties") => metadata_properties(),
         optional("Properties") => map(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ArtifactType") => String.t(),
         required("Source") => artifact_source()
       }
@@ -8085,7 +8085,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_image_request() :: %{
-        optional("DeleteProperties") => list(String.t()()),
+        optional("DeleteProperties") => list(String.t()),
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
         optional("RoleArn") => String.t(),
@@ -8135,7 +8135,7 @@ defmodule AWS.SageMaker do
         "OutputConfig" => labeling_job_output_config(),
         "RoleArn" => String.t(),
         "StoppingConditions" => labeling_job_stopping_conditions(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -8173,7 +8173,7 @@ defmodule AWS.SageMaker do
       
       list_projects_output() :: %{
         "NextToken" => String.t(),
-        "ProjectSummaryList" => list(project_summary()())
+        "ProjectSummaryList" => list(project_summary())
       }
       
   """
@@ -8195,7 +8195,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_feature_groups_response() :: %{
-        "FeatureGroupSummaries" => list(feature_group_summary()()),
+        "FeatureGroupSummaries" => list(feature_group_summary()),
         "NextToken" => String.t()
       }
       
@@ -8313,7 +8313,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_auto_ml_jobs_response() :: %{
-        "AutoMLJobSummaries" => list(auto_ml_job_summary()()),
+        "AutoMLJobSummaries" => list(auto_ml_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -8367,11 +8367,11 @@ defmodule AWS.SageMaker do
         optional("DisplayName") => String.t(),
         optional("EndTime") => non_neg_integer(),
         optional("InputArtifacts") => map(),
-        optional("InputArtifactsToRemove") => list(String.t()()),
+        optional("InputArtifactsToRemove") => list(String.t()),
         optional("OutputArtifacts") => map(),
-        optional("OutputArtifactsToRemove") => list(String.t()()),
+        optional("OutputArtifactsToRemove") => list(String.t()),
         optional("Parameters") => map(),
-        optional("ParametersToRemove") => list(String.t()()),
+        optional("ParametersToRemove") => list(String.t()),
         optional("StartTime") => non_neg_integer(),
         optional("Status") => trial_component_status(),
         required("TrialComponentName") => String.t()
@@ -8386,8 +8386,8 @@ defmodule AWS.SageMaker do
       
       recommendation_job_input_config() :: %{
         "ContainerConfig" => recommendation_job_container_config(),
-        "EndpointConfigurations" => list(endpoint_input_configuration()()),
-        "Endpoints" => list(endpoint_info()()),
+        "EndpointConfigurations" => list(endpoint_input_configuration()),
+        "Endpoints" => list(endpoint_info()),
         "JobDurationInSeconds" => integer(),
         "ModelName" => String.t(),
         "ModelPackageVersionArn" => String.t(),
@@ -8409,7 +8409,7 @@ defmodule AWS.SageMaker do
         optional("MetadataProperties") => metadata_properties(),
         optional("Properties") => map(),
         optional("Status") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ActionName") => String.t(),
         required("ActionType") => String.t(),
         required("Source") => action_source()
@@ -8445,7 +8445,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_domains_response() :: %{
-        "Domains" => list(domain_details()()),
+        "Domains" => list(domain_details()),
         "NextToken" => String.t()
       }
       
@@ -8579,7 +8579,7 @@ defmodule AWS.SageMaker do
       
       update_workteam_request() :: %{
         optional("Description") => String.t(),
-        optional("MemberDefinitions") => list(member_definition()()),
+        optional("MemberDefinitions") => list(member_definition()),
         optional("NotificationConfiguration") => notification_configuration(),
         optional("WorkerAccessConfiguration") => worker_access_configuration(),
         required("WorkteamName") => String.t()
@@ -8594,7 +8594,7 @@ defmodule AWS.SageMaker do
       
       update_devices_request() :: %{
         required("DeviceFleetName") => String.t(),
-        required("Devices") => list(device()())
+        required("Devices") => list(device())
       }
       
   """
@@ -8622,9 +8622,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       jupyter_server_app_settings() :: %{
-        "CodeRepositories" => list(code_repository()()),
+        "CodeRepositories" => list(code_repository()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t()())
+        "LifecycleConfigArns" => list(String.t())
       }
       
   """
@@ -8635,8 +8635,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       data_quality_app_specification() :: %{
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "Environment" => map(),
         "ImageUri" => String.t(),
         "PostAnalyticsProcessorSourceUri" => String.t(),
@@ -8663,12 +8663,12 @@ defmodule AWS.SageMaker do
         "EndTime" => non_neg_integer(),
         "FailureReason" => String.t(),
         "GenerateCandidateDefinitionsOnly" => boolean(),
-        "InputDataConfig" => list(auto_ml_channel()()),
+        "InputDataConfig" => list(auto_ml_channel()),
         "LastModifiedTime" => non_neg_integer(),
         "ModelDeployConfig" => model_deploy_config(),
         "ModelDeployResult" => model_deploy_result(),
         "OutputDataConfig" => auto_ml_output_data_config(),
-        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()),
         "ProblemType" => list(any()),
         "ResolvedAttributes" => resolved_attributes(),
         "RoleArn" => String.t()
@@ -8763,7 +8763,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_associations_response() :: %{
-        "AssociationSummaries" => list(association_summary()()),
+        "AssociationSummaries" => list(association_summary()),
         "NextToken" => String.t()
       }
       
@@ -8941,9 +8941,9 @@ defmodule AWS.SageMaker do
         "EdgeDeploymentPlanName" => String.t(),
         "EdgeDeploymentSuccess" => integer(),
         "LastModifiedTime" => non_neg_integer(),
-        "ModelConfigs" => list(edge_deployment_model_config()()),
+        "ModelConfigs" => list(edge_deployment_model_config()),
         "NextToken" => String.t(),
-        "Stages" => list(deployment_stage_status_summary()())
+        "Stages" => list(deployment_stage_status_summary())
       }
       
   """
@@ -9095,7 +9095,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "ModelSource" => optimization_job_model_source(),
-        "OptimizationConfigs" => list(list()()),
+        "OptimizationConfigs" => list(list()),
         "OptimizationEndTime" => non_neg_integer(),
         "OptimizationEnvironment" => map(),
         "OptimizationJobArn" => String.t(),
@@ -9129,7 +9129,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_endpoints_output() :: %{
-        "Endpoints" => list(endpoint_summary()()),
+        "Endpoints" => list(endpoint_summary()),
         "NextToken" => String.t()
       }
       
@@ -9190,8 +9190,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -9246,8 +9246,8 @@ defmodule AWS.SageMaker do
         optional("DataSplitConfig") => auto_ml_data_split_config(),
         optional("ModelDeployConfig") => model_deploy_config(),
         optional("SecurityConfig") => auto_ml_security_config(),
-        optional("Tags") => list(tag()()),
-        required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()()),
+        optional("Tags") => list(tag()),
+        required("AutoMLJobInputDataConfig") => list(auto_ml_job_channel()),
         required("AutoMLJobName") => String.t(),
         required("AutoMLProblemTypeConfig") => list(),
         required("OutputDataConfig") => auto_ml_output_data_config(),
@@ -9371,7 +9371,7 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettingsForUpdate" => r_studio_server_pro_domain_settings_for_update(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       
@@ -9429,7 +9429,7 @@ defmodule AWS.SageMaker do
       
       list_training_jobs_response() :: %{
         "NextToken" => String.t(),
-        "TrainingJobSummaries" => list(training_job_summary()())
+        "TrainingJobSummaries" => list(training_job_summary())
       }
       
   """
@@ -9477,7 +9477,7 @@ defmodule AWS.SageMaker do
         "ModelPackageGroupName" => String.t(),
         "RiskRating" => String.t(),
         "SecurityConfig" => model_card_security_config(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -9523,9 +9523,9 @@ defmodule AWS.SageMaker do
         "CreateDate" => non_neg_integer(),
         "Description" => String.t(),
         "LastUpdatedDate" => non_neg_integer(),
-        "MemberDefinitions" => list(member_definition()()),
+        "MemberDefinitions" => list(member_definition()),
         "NotificationConfiguration" => notification_configuration(),
-        "ProductListingIds" => list(String.t()()),
+        "ProductListingIds" => list(String.t()),
         "SubDomain" => String.t(),
         "WorkerAccessConfiguration" => worker_access_configuration(),
         "WorkforceArn" => String.t(),
@@ -9597,7 +9597,7 @@ defmodule AWS.SageMaker do
         "SingleSignOnApplicationArn" => String.t(),
         "SingleSignOnManagedApplicationInstanceId" => String.t(),
         "Status" => list(any()),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "TagPropagation" => list(any()),
         "Url" => String.t(),
         "VpcId" => String.t()
@@ -9623,7 +9623,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_devices_response() :: %{
-        "DeviceSummaries" => list(device_summary()()),
+        "DeviceSummaries" => list(device_summary()),
         "NextToken" => String.t()
       }
       
@@ -9654,7 +9654,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_compilation_jobs_response() :: %{
-        "CompilationJobSummaries" => list(compilation_job_summary()()),
+        "CompilationJobSummaries" => list(compilation_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -9679,7 +9679,7 @@ defmodule AWS.SageMaker do
       
       candidate_properties() :: %{
         "CandidateArtifactLocations" => candidate_artifact_locations(),
-        "CandidateMetrics" => list(metric_datum()())
+        "CandidateMetrics" => list(metric_datum())
       }
       
   """
@@ -9761,7 +9761,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       selective_execution_config() :: %{
-        "SelectedSteps" => list(selected_step()()),
+        "SelectedSteps" => list(selected_step()),
         "SourcePipelineExecutionArn" => String.t()
       }
       
@@ -9804,7 +9804,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_image_versions_response() :: %{
-        "ImageVersions" => list(image_version()()),
+        "ImageVersions" => list(image_version()),
         "NextToken" => String.t()
       }
       
@@ -9880,7 +9880,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_actions_response() :: %{
-        "ActionSummaries" => list(action_summary()()),
+        "ActionSummaries" => list(action_summary()),
         "NextToken" => String.t()
       }
       
@@ -9917,7 +9917,7 @@ defmodule AWS.SageMaker do
       create_training_job_request() :: %{
         optional("CheckpointConfig") => checkpoint_config(),
         optional("DebugHookConfig") => debug_hook_config(),
-        optional("DebugRuleConfigurations") => list(debug_rule_configuration()()),
+        optional("DebugRuleConfigurations") => list(debug_rule_configuration()),
         optional("EnableInterContainerTrafficEncryption") => boolean(),
         optional("EnableManagedSpotTraining") => boolean(),
         optional("EnableNetworkIsolation") => boolean(),
@@ -9925,13 +9925,13 @@ defmodule AWS.SageMaker do
         optional("ExperimentConfig") => experiment_config(),
         optional("HyperParameters") => map(),
         optional("InfraCheckConfig") => infra_check_config(),
-        optional("InputDataConfig") => list(channel()()),
+        optional("InputDataConfig") => list(channel()),
         optional("ProfilerConfig") => profiler_config(),
-        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()()),
+        optional("ProfilerRuleConfigurations") => list(profiler_rule_configuration()),
         optional("RemoteDebugConfig") => remote_debug_config(),
         optional("RetryStrategy") => retry_strategy(),
         optional("SessionChainingConfig") => session_chaining_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TensorBoardOutputConfig") => tensor_board_output_config(),
         optional("VpcConfig") => vpc_config(),
         required("AlgorithmSpecification") => algorithm_specification(),
@@ -10101,7 +10101,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       partner_app_config() :: %{
-        "AdminUsers" => list(String.t()()),
+        "AdminUsers" => list(String.t()),
         "Arguments" => map()
       }
       
@@ -10192,8 +10192,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_package_status_details() :: %{
-        "ImageScanStatuses" => list(model_package_status_item()()),
-        "ValidationStatuses" => list(model_package_status_item()())
+        "ImageScanStatuses" => list(model_package_status_item()),
+        "ValidationStatuses" => list(model_package_status_item())
       }
       
   """
@@ -10204,7 +10204,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_clusters_response() :: %{
-        "ClusterSummaries" => list(cluster_summary()()),
+        "ClusterSummaries" => list(cluster_summary()),
         "NextToken" => String.t()
       }
       
@@ -10239,7 +10239,7 @@ defmodule AWS.SageMaker do
       
       categorical_parameter_range() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -10275,11 +10275,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_model_package_input() :: %{
-        optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()()),
+        optional("AdditionalInferenceSpecificationsToAdd") => list(additional_inference_specification_definition()),
         optional("ApprovalDescription") => String.t(),
         optional("ClientToken") => String.t(),
         optional("CustomerMetadataProperties") => map(),
-        optional("CustomerMetadataPropertiesToRemove") => list(String.t()()),
+        optional("CustomerMetadataPropertiesToRemove") => list(String.t()),
         optional("InferenceSpecification") => inference_specification(),
         optional("ModelApprovalStatus") => list(any()),
         optional("ModelCard") => model_package_model_card(),
@@ -10350,7 +10350,7 @@ defmodule AWS.SageMaker do
       
       model_configuration() :: %{
         "CompilationJobName" => String.t(),
-        "EnvironmentParameters" => list(environment_parameter()()),
+        "EnvironmentParameters" => list(environment_parameter()),
         "InferenceSpecificationName" => String.t()
       }
       
@@ -10362,10 +10362,10 @@ defmodule AWS.SageMaker do
   ## Example:
       
       search_expression() :: %{
-        "Filters" => list(filter()()),
-        "NestedFilters" => list(nested_filters()()),
+        "Filters" => list(filter()),
+        "NestedFilters" => list(nested_filters()),
         "Operator" => list(any()),
-        "SubExpressions" => list(search_expression()())
+        "SubExpressions" => list(search_expression())
       }
       
   """
@@ -10376,9 +10376,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       register_devices_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DeviceFleetName") => String.t(),
-        required("Devices") => list(device()())
+        required("Devices") => list(device())
       }
       
   """
@@ -10461,7 +10461,7 @@ defmodule AWS.SageMaker do
       
       lambda_step_metadata() :: %{
         "Arn" => String.t(),
-        "OutputParameters" => list(output_parameter()())
+        "OutputParameters" => list(output_parameter())
       }
       
   """
@@ -10522,7 +10522,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       compute_quota_config() :: %{
-        "ComputeQuotaResources" => list(compute_quota_resource_config()()),
+        "ComputeQuotaResources" => list(compute_quota_resource_config()),
         "PreemptTeamTasks" => list(any()),
         "ResourceSharingConfig" => resource_sharing_config()
       }
@@ -10596,7 +10596,7 @@ defmodule AWS.SageMaker do
       
       create_model_package_group_input() :: %{
         optional("ModelPackageGroupDescription") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ModelPackageGroupName") => String.t()
       }
       
@@ -10608,7 +10608,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_quality_job_definitions_response() :: %{
-        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
         "NextToken" => String.t()
       }
       
@@ -10680,7 +10680,7 @@ defmodule AWS.SageMaker do
         "DirectDeploySettings" => direct_deploy_settings(),
         "EmrServerlessSettings" => emr_serverless_settings(),
         "GenerativeAiSettings" => generative_ai_settings(),
-        "IdentityProviderOAuthSettings" => list(identity_provider_o_auth_setting()()),
+        "IdentityProviderOAuthSettings" => list(identity_provider_o_auth_setting()),
         "KendraSettings" => kendra_settings(),
         "ModelRegisterSettings" => model_register_settings(),
         "TimeSeriesForecastingSettings" => time_series_forecasting_settings(),
@@ -10695,7 +10695,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_images_response() :: %{
-        "Images" => list(image()()),
+        "Images" => list(image()),
         "NextToken" => String.t()
       }
       
@@ -10709,7 +10709,7 @@ defmodule AWS.SageMaker do
       create_experiment_request() :: %{
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ExperimentName") => String.t()
       }
       
@@ -10765,7 +10765,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_contexts_response() :: %{
-        "ContextSummaries" => list(context_summary()()),
+        "ContextSummaries" => list(context_summary()),
         "NextToken" => String.t()
       }
       
@@ -10777,7 +10777,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_app_image_configs_response() :: %{
-        "AppImageConfigs" => list(app_image_config_details()()),
+        "AppImageConfigs" => list(app_image_config_details()),
         "NextToken" => String.t()
       }
       
@@ -10802,7 +10802,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_model_package_input() :: %{
-        optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()()),
+        optional("AdditionalInferenceSpecifications") => list(additional_inference_specification_definition()),
         optional("CertifyForMarketplace") => boolean(),
         optional("ClientToken") => String.t(),
         optional("CustomerMetadataProperties") => map(),
@@ -10822,7 +10822,7 @@ defmodule AWS.SageMaker do
         optional("SkipModelValidation") => list(any()),
         optional("SourceAlgorithmSpecification") => source_algorithm_specification(),
         optional("SourceUri") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Task") => String.t(),
         optional("ValidationSpecification") => model_package_validation_specification()
       }
@@ -10842,8 +10842,8 @@ defmodule AWS.SageMaker do
         "NearestModelName" => String.t(),
         "PayloadConfig" => recommendation_job_payload_config(),
         "SupportedEndpointType" => list(any()),
-        "SupportedInstanceTypes" => list(String.t()()),
-        "SupportedResponseMIMETypes" => list(String.t()()),
+        "SupportedInstanceTypes" => list(String.t()),
+        "SupportedResponseMIMETypes" => list(String.t()),
         "Task" => String.t()
       }
       
@@ -10856,7 +10856,7 @@ defmodule AWS.SageMaker do
       
       list_training_jobs_for_hyper_parameter_tuning_job_response() :: %{
         "NextToken" => String.t(),
-        "TrainingJobSummaries" => list(hyper_parameter_training_job_summary()())
+        "TrainingJobSummaries" => list(hyper_parameter_training_job_summary())
       }
       
   """
@@ -10894,10 +10894,10 @@ defmodule AWS.SageMaker do
         optional("Environment") => map(),
         optional("ExperimentConfig") => experiment_config(),
         optional("NetworkConfig") => network_config(),
-        optional("ProcessingInputs") => list(processing_input()()),
+        optional("ProcessingInputs") => list(processing_input()),
         optional("ProcessingOutputConfig") => processing_output_config(),
         optional("StoppingCondition") => processing_stopping_condition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppSpecification") => app_specification(),
         required("ProcessingJobName") => String.t(),
         required("ProcessingResources") => processing_resources(),
@@ -10925,8 +10925,8 @@ defmodule AWS.SageMaker do
       create_project_input() :: %{
         optional("ProjectDescription") => String.t(),
         optional("ServiceCatalogProvisioningDetails") => service_catalog_provisioning_details(),
-        optional("Tags") => list(tag()()),
-        optional("TemplateProviders") => list(create_template_provider()()),
+        optional("Tags") => list(tag()),
+        optional("TemplateProviders") => list(create_template_provider()),
         required("ProjectName") => String.t()
       }
       
@@ -10983,10 +10983,10 @@ defmodule AWS.SageMaker do
         "EndpointStatus" => list(any()),
         "FailureReason" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "MonitoringSchedules" => list(monitoring_schedule()()),
-        "ProductionVariants" => list(production_variant_summary()()),
-        "ShadowProductionVariants" => list(production_variant_summary()()),
-        "Tags" => list(tag()())
+        "MonitoringSchedules" => list(monitoring_schedule()),
+        "ProductionVariants" => list(production_variant_summary()),
+        "ShadowProductionVariants" => list(production_variant_summary()),
+        "Tags" => list(tag())
       }
       
   """
@@ -11045,7 +11045,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_hub_content_versions_response() :: %{
-        "HubContentSummaries" => list(hub_content_info()()),
+        "HubContentSummaries" => list(hub_content_info()),
         "NextToken" => String.t()
       }
       
@@ -11106,7 +11106,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_metadata_search_expression() :: %{
-        "Filters" => list(model_metadata_filter()())
+        "Filters" => list(model_metadata_filter())
       }
       
   """
@@ -11135,7 +11135,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_hub_content_presigned_urls_response() :: %{
-        "AuthorizedUrlConfigs" => list(authorized_url()()),
+        "AuthorizedUrlConfigs" => list(authorized_url()),
         "NextToken" => String.t()
       }
       
@@ -11249,7 +11249,7 @@ defmodule AWS.SageMaker do
         "DockerSettings" => docker_settings(),
         "ExecutionRoleIdentityConfig" => list(any()),
         "RStudioServerProDomainSettings" => r_studio_server_pro_domain_settings(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "UnifiedStudioSettings" => unified_studio_settings()
       }
       
@@ -11268,7 +11268,7 @@ defmodule AWS.SageMaker do
         "DeviceName" => String.t(),
         "IotThingName" => String.t(),
         "LatestHeartbeat" => non_neg_integer(),
-        "Models" => list(edge_model_summary()()),
+        "Models" => list(edge_model_summary()),
         "RegistrationTime" => non_neg_integer()
       }
       
@@ -11304,7 +11304,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_monitoring_schedule_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("MonitoringScheduleConfig") => monitoring_schedule_config(),
         required("MonitoringScheduleName") => String.t()
       }
@@ -11431,7 +11431,7 @@ defmodule AWS.SageMaker do
         "VpcConfig" => vpc_config(),
         "LastModifiedTime" => non_neg_integer(),
         "CheckpointConfig" => checkpoint_config(),
-        "ProfilerRuleConfigurations" => list(profiler_rule_configuration()()),
+        "ProfilerRuleConfigurations" => list(profiler_rule_configuration()),
         "TrainingEndTime" => non_neg_integer(),
         "WarmPoolStatus" => warm_pool_status(),
         "BillableTimeInSeconds" => integer(),
@@ -11447,18 +11447,18 @@ defmodule AWS.SageMaker do
         "TrainingJobStatus" => list(any()),
         "ProfilerConfig" => profiler_config(),
         "TrainingJobName" => String.t(),
-        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
+        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()),
         "AutoMLJobArn" => String.t(),
-        "DebugRuleConfigurations" => list(debug_rule_configuration()()),
+        "DebugRuleConfigurations" => list(debug_rule_configuration()),
         "RetryStrategy" => retry_strategy(),
         "Environment" => map(),
         "AlgorithmSpecification" => algorithm_specification(),
-        "SecondaryStatusTransitions" => list(secondary_status_transition()()),
+        "SecondaryStatusTransitions" => list(secondary_status_transition()),
         "TuningJobArn" => String.t(),
-        "InputDataConfig" => list(channel()()),
+        "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
-        "FinalMetricDataList" => list(metric_data()()),
-        "ProfilerRuleEvaluationStatuses" => list(profiler_rule_evaluation_status()()),
+        "FinalMetricDataList" => list(metric_data()),
+        "ProfilerRuleEvaluationStatuses" => list(profiler_rule_evaluation_status()),
         "RoleArn" => String.t(),
         "FailureReason" => String.t(),
         "StoppingCondition" => stopping_condition(),
@@ -11515,7 +11515,7 @@ defmodule AWS.SageMaker do
         "ObjectiveStatusCounters" => objective_status_counters(),
         "OverallBestTrainingJob" => hyper_parameter_training_job_summary(),
         "TrainingJobDefinition" => hyper_parameter_training_job_definition(),
-        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()()),
+        "TrainingJobDefinitions" => list(hyper_parameter_training_job_definition()),
         "TrainingJobStatusCounters" => training_job_status_counters(),
         "TuningJobCompletionDetails" => hyper_parameter_tuning_job_completion_details(),
         "WarmStartConfig" => hyper_parameter_tuning_job_warm_start_config()
@@ -11529,12 +11529,12 @@ defmodule AWS.SageMaker do
   ## Example:
       
       additional_inference_specification_definition() :: %{
-        "Containers" => list(model_package_container_definition()()),
+        "Containers" => list(model_package_container_definition()),
         "Description" => String.t(),
         "Name" => String.t(),
-        "SupportedContentTypes" => list(String.t()()),
+        "SupportedContentTypes" => list(String.t()),
         "SupportedRealtimeInferenceInstanceTypes" => list(list(any())()),
-        "SupportedResponseMIMETypes" => list(String.t()()),
+        "SupportedResponseMIMETypes" => list(String.t()),
         "SupportedTransformInstanceTypes" => list(list(any())())
       }
       
@@ -11560,7 +11560,7 @@ defmodule AWS.SageMaker do
         optional("ModelBiasBaselineConfig") => model_bias_baseline_config(),
         optional("NetworkConfig") => monitoring_network_config(),
         optional("StoppingCondition") => monitoring_stopping_condition(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("JobDefinitionName") => String.t(),
         required("JobResources") => monitoring_resources(),
         required("ModelBiasAppSpecification") => model_bias_app_specification(),
@@ -11613,7 +11613,7 @@ defmodule AWS.SageMaker do
       
       create_notebook_instance_input() :: %{
         optional("AcceleratorTypes") => list(list(any())()),
-        optional("AdditionalCodeRepositories") => list(String.t()()),
+        optional("AdditionalCodeRepositories") => list(String.t()),
         optional("DefaultCodeRepository") => String.t(),
         optional("DirectInternetAccess") => list(any()),
         optional("InstanceMetadataServiceConfiguration") => instance_metadata_service_configuration(),
@@ -11621,9 +11621,9 @@ defmodule AWS.SageMaker do
         optional("LifecycleConfigName") => String.t(),
         optional("PlatformIdentifier") => String.t(),
         optional("RootAccess") => list(any()),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SubnetId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeSizeInGB") => integer(),
         required("InstanceType") => list(any()),
         required("NotebookInstanceName") => String.t(),
@@ -11652,11 +11652,11 @@ defmodule AWS.SageMaker do
       
       clarify_inference_config() :: %{
         "ContentTemplate" => String.t(),
-        "FeatureHeaders" => list(String.t()()),
+        "FeatureHeaders" => list(String.t()),
         "FeatureTypes" => list(list(any())()),
         "FeaturesAttribute" => String.t(),
         "LabelAttribute" => String.t(),
-        "LabelHeaders" => list(String.t()()),
+        "LabelHeaders" => list(String.t()),
         "LabelIndex" => integer(),
         "MaxPayloadInMB" => integer(),
         "MaxRecordCount" => integer(),
@@ -11676,7 +11676,7 @@ defmodule AWS.SageMaker do
         "CurrentInstanceCount" => integer(),
         "CurrentServerlessConfig" => production_variant_serverless_config(),
         "CurrentWeight" => float(),
-        "DeployedImages" => list(deployed_image()()),
+        "DeployedImages" => list(deployed_image()),
         "DesiredInstanceCount" => integer(),
         "DesiredServerlessConfig" => production_variant_serverless_config(),
         "DesiredWeight" => float(),
@@ -11684,7 +11684,7 @@ defmodule AWS.SageMaker do
         "ManagedInstanceScaling" => production_variant_managed_instance_scaling(),
         "RoutingConfig" => production_variant_routing_config(),
         "VariantName" => String.t(),
-        "VariantStatus" => list(production_variant_status()())
+        "VariantStatus" => list(production_variant_status())
       }
       
   """
@@ -11728,7 +11728,7 @@ defmodule AWS.SageMaker do
       
       list_pipeline_executions_response() :: %{
         "NextToken" => String.t(),
-        "PipelineExecutionSummaries" => list(pipeline_execution_summary()())
+        "PipelineExecutionSummaries" => list(pipeline_execution_summary())
       }
       
   """
@@ -11751,7 +11751,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_compute_quotas_response() :: %{
-        "ComputeQuotaSummaries" => list(compute_quota_summary()()),
+        "ComputeQuotaSummaries" => list(compute_quota_summary()),
         "NextToken" => String.t()
       }
       
@@ -11766,7 +11766,7 @@ defmodule AWS.SageMaker do
         optional("LabelCategoryConfigS3Uri") => String.t(),
         optional("LabelingJobAlgorithmsConfig") => labeling_job_algorithms_config(),
         optional("StoppingConditions") => labeling_job_stopping_conditions(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("HumanTaskConfig") => human_task_config(),
         required("InputConfig") => labeling_job_input_config(),
         required("LabelAttributeName") => String.t(),
@@ -11975,7 +11975,7 @@ defmodule AWS.SageMaker do
         "ModelId" => String.t(),
         "RiskRating" => String.t(),
         "SecurityConfig" => model_card_security_config(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -11988,7 +11988,7 @@ defmodule AWS.SageMaker do
       create_trial_request() :: %{
         optional("DisplayName") => String.t(),
         optional("MetadataProperties") => metadata_properties(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ExperimentName") => String.t(),
         required("TrialName") => String.t()
       }
@@ -12004,7 +12004,7 @@ defmodule AWS.SageMaker do
         optional("CodeEditorAppImageConfig") => code_editor_app_image_config(),
         optional("JupyterLabAppImageConfig") => jupyter_lab_app_image_config(),
         optional("KernelGatewayImageConfig") => kernel_gateway_image_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppImageConfigName") => String.t()
       }
       
@@ -12109,7 +12109,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cfn_update_template_provider() :: %{
-        "Parameters" => list(cfn_stack_update_parameter()()),
+        "Parameters" => list(cfn_stack_update_parameter()),
         "TemplateName" => String.t(),
         "TemplateURL" => String.t()
       }
@@ -12133,7 +12133,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       render_ui_template_response() :: %{
-        "Errors" => list(rendering_error()()),
+        "Errors" => list(rendering_error()),
         "RenderedContent" => String.t()
       }
       
@@ -12159,7 +12159,7 @@ defmodule AWS.SageMaker do
         "AutoMLComputeConfig" => auto_ml_compute_config(),
         "AutoMLJobArn" => String.t(),
         "AutoMLJobArtifacts" => auto_ml_job_artifacts(),
-        "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()()),
+        "AutoMLJobInputDataConfig" => list(auto_ml_job_channel()),
         "AutoMLJobName" => String.t(),
         "AutoMLJobObjective" => auto_ml_job_objective(),
         "AutoMLJobSecondaryStatus" => list(any()),
@@ -12175,7 +12175,7 @@ defmodule AWS.SageMaker do
         "ModelDeployConfig" => model_deploy_config(),
         "ModelDeployResult" => model_deploy_result(),
         "OutputDataConfig" => auto_ml_output_data_config(),
-        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()()),
+        "PartialFailureReasons" => list(auto_ml_partial_failure_reason()),
         "ResolvedAttributes" => auto_ml_resolved_attributes(),
         "RoleArn" => String.t(),
         "SecurityConfig" => auto_ml_security_config()
@@ -12265,7 +12265,7 @@ defmodule AWS.SageMaker do
       create_compilation_job_request() :: %{
         optional("InputConfig") => input_config(),
         optional("ModelPackageVersionArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConfig") => neo_vpc_config(),
         required("CompilationJobName") => String.t(),
         required("OutputConfig") => output_config(),
@@ -12416,7 +12416,7 @@ defmodule AWS.SageMaker do
       
       resource_config() :: %{
         "InstanceCount" => integer(),
-        "InstanceGroups" => list(instance_group()()),
+        "InstanceGroups" => list(instance_group()),
         "InstanceType" => list(any()),
         "KeepAlivePeriodInSeconds" => integer(),
         "TrainingPlanArn" => String.t(),
@@ -12588,7 +12588,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_artifacts_response() :: %{
-        "ArtifactSummaries" => list(artifact_summary()()),
+        "ArtifactSummaries" => list(artifact_summary()),
         "NextToken" => String.t()
       }
       
@@ -12606,7 +12606,7 @@ defmodule AWS.SageMaker do
         "HubDescription" => String.t(),
         "HubDisplayName" => String.t(),
         "HubName" => String.t(),
-        "HubSearchKeywords" => list(String.t()()),
+        "HubSearchKeywords" => list(String.t()),
         "HubStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "S3StorageConfig" => hub_s3_storage_config()
@@ -12683,7 +12683,7 @@ defmodule AWS.SageMaker do
       create_compute_quota_request() :: %{
         optional("ActivationState") => list(any()),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterArn") => String.t(),
         required("ComputeQuotaConfig") => compute_quota_config(),
         required("ComputeQuotaTarget") => compute_quota_target(),
@@ -12762,7 +12762,7 @@ defmodule AWS.SageMaker do
         optional("EnableIamSessionBasedIdentity") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AuthType") => list(any()),
         required("ExecutionRoleArn") => String.t(),
         required("Name") => String.t(),
@@ -12803,8 +12803,8 @@ defmodule AWS.SageMaker do
       
       update_feature_metadata_request() :: %{
         optional("Description") => String.t(),
-        optional("ParameterAdditions") => list(feature_parameter()()),
-        optional("ParameterRemovals") => list(String.t()()),
+        optional("ParameterAdditions") => list(feature_parameter()),
+        optional("ParameterRemovals") => list(String.t()),
         required("FeatureGroupName") => String.t(),
         required("FeatureName") => String.t()
       }
@@ -12818,7 +12818,7 @@ defmodule AWS.SageMaker do
       
       list_training_plans_response() :: %{
         "NextToken" => String.t(),
-        "TrainingPlanSummaries" => list(training_plan_summary()())
+        "TrainingPlanSummaries" => list(training_plan_summary())
       }
       
   """
@@ -12851,7 +12851,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_stage_devices_response() :: %{
-        "DeviceDeploymentSummaries" => list(device_deployment_summary()()),
+        "DeviceDeploymentSummaries" => list(device_deployment_summary()),
         "NextToken" => String.t()
       }
       
@@ -12915,7 +12915,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_training_plan_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("TrainingPlanName") => String.t(),
         required("TrainingPlanOfferingId") => String.t()
       }
@@ -12928,7 +12928,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_candidates_for_auto_ml_job_response() :: %{
-        "Candidates" => list(auto_ml_candidate()()),
+        "Candidates" => list(auto_ml_candidate()),
         "NextToken" => String.t()
       }
       
@@ -13095,7 +13095,7 @@ defmodule AWS.SageMaker do
       create_user_profile_request() :: %{
         optional("SingleSignOnUserIdentifier") => String.t(),
         optional("SingleSignOnUserValue") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UserSettings") => user_settings(),
         required("DomainId") => String.t(),
         required("UserProfileName") => String.t()
@@ -13123,7 +13123,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_feature_group_request() :: %{
-        optional("FeatureAdditions") => list(feature_definition()()),
+        optional("FeatureAdditions") => list(feature_definition()),
         optional("OnlineStoreConfig") => online_store_config_update(),
         optional("ThroughputConfig") => throughput_config_update(),
         required("FeatureGroupName") => String.t()
@@ -13148,7 +13148,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_edge_deployment_plans_response() :: %{
-        "EdgeDeploymentPlanSummaries" => list(edge_deployment_plan_summary()()),
+        "EdgeDeploymentPlanSummaries" => list(edge_deployment_plan_summary()),
         "NextToken" => String.t()
       }
       
@@ -13184,8 +13184,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       monitoring_app_specification() :: %{
-        "ContainerArguments" => list(String.t()()),
-        "ContainerEntrypoint" => list(String.t()()),
+        "ContainerArguments" => list(String.t()),
+        "ContainerEntrypoint" => list(String.t()),
         "ImageUri" => String.t(),
         "PostAnalyticsProcessorSourceUri" => String.t(),
         "RecordPreprocessorSourceUri" => String.t()
@@ -13247,7 +13247,7 @@ defmodule AWS.SageMaker do
       
       list_studio_lifecycle_configs_response() :: %{
         "NextToken" => String.t(),
-        "StudioLifecycleConfigs" => list(studio_lifecycle_config_details()())
+        "StudioLifecycleConfigs" => list(studio_lifecycle_config_details())
       }
       
   """
@@ -13282,7 +13282,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_bias_job_definitions_response() :: %{
-        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()()),
+        "JobDefinitionSummaries" => list(monitoring_job_definition_summary()),
         "NextToken" => String.t()
       }
       
@@ -13550,7 +13550,7 @@ defmodule AWS.SageMaker do
       
       hyper_parameter_algorithm_specification() :: %{
         "AlgorithmName" => String.t(),
-        "MetricDefinitions" => list(metric_definition()()),
+        "MetricDefinitions" => list(metric_definition()),
         "TrainingImage" => String.t(),
         "TrainingInputMode" => list(any())
       }
@@ -13599,9 +13599,9 @@ defmodule AWS.SageMaker do
         optional("Description") => String.t(),
         optional("KmsKey") => String.t(),
         optional("Schedule") => inference_experiment_schedule(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EndpointName") => String.t(),
-        required("ModelVariants") => list(model_variant_config()()),
+        required("ModelVariants") => list(model_variant_config()),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
         required("ShadowModeConfig") => shadow_mode_config(),
@@ -13618,7 +13618,7 @@ defmodule AWS.SageMaker do
       recommendation_job_stopping_conditions() :: %{
         "FlatInvocations" => list(any()),
         "MaxInvocations" => integer(),
-        "ModelLatencyThresholds" => list(model_latency_threshold()())
+        "ModelLatencyThresholds" => list(model_latency_threshold())
       }
       
   """
@@ -13766,7 +13766,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_inference_components_output() :: %{
-        "InferenceComponents" => list(inference_component_summary()()),
+        "InferenceComponents" => list(inference_component_summary()),
         "NextToken" => String.t()
       }
       
@@ -13855,7 +13855,7 @@ defmodule AWS.SageMaker do
         "VpcConfig" => vpc_config(),
         "LastModifiedTime" => non_neg_integer(),
         "CheckpointConfig" => checkpoint_config(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrainingEndTime" => non_neg_integer(),
         "BillableTimeInSeconds" => integer(),
         "LabelingJobArn" => String.t(),
@@ -13868,17 +13868,17 @@ defmodule AWS.SageMaker do
         "TrainingJobStatus" => list(any()),
         "ProfilerConfig" => profiler_config(),
         "TrainingJobName" => String.t(),
-        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()()),
+        "DebugRuleEvaluationStatuses" => list(debug_rule_evaluation_status()),
         "AutoMLJobArn" => String.t(),
-        "DebugRuleConfigurations" => list(debug_rule_configuration()()),
+        "DebugRuleConfigurations" => list(debug_rule_configuration()),
         "RetryStrategy" => retry_strategy(),
         "Environment" => map(),
         "AlgorithmSpecification" => algorithm_specification(),
-        "SecondaryStatusTransitions" => list(secondary_status_transition()()),
+        "SecondaryStatusTransitions" => list(secondary_status_transition()),
         "TuningJobArn" => String.t(),
-        "InputDataConfig" => list(channel()()),
+        "InputDataConfig" => list(channel()),
         "ModelArtifacts" => model_artifacts(),
-        "FinalMetricDataList" => list(metric_data()()),
+        "FinalMetricDataList" => list(metric_data()),
         "RoleArn" => String.t(),
         "FailureReason" => String.t(),
         "StoppingCondition" => stopping_condition(),
@@ -13896,11 +13896,11 @@ defmodule AWS.SageMaker do
       
       create_workteam_request() :: %{
         optional("NotificationConfiguration") => notification_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("WorkerAccessConfiguration") => worker_access_configuration(),
         optional("WorkforceName") => String.t(),
         required("Description") => String.t(),
-        required("MemberDefinitions") => list(member_definition()()),
+        required("MemberDefinitions") => list(member_definition()),
         required("WorkteamName") => String.t()
       }
       
@@ -13951,7 +13951,7 @@ defmodule AWS.SageMaker do
       create_mlflow_tracking_server_request() :: %{
         optional("AutomaticModelRegistration") => boolean(),
         optional("MlflowVersion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrackingServerSize") => list(any()),
         optional("WeeklyMaintenanceWindowStart") => String.t(),
         required("ArtifactStoreUri") => String.t(),
@@ -13970,7 +13970,7 @@ defmodule AWS.SageMaker do
         optional("ParallelismConfiguration") => parallelism_configuration(),
         optional("PipelineExecutionDescription") => String.t(),
         optional("PipelineExecutionDisplayName") => String.t(),
-        optional("PipelineParameters") => list(parameter()()),
+        optional("PipelineParameters") => list(parameter()),
         optional("SelectiveExecutionConfig") => selective_execution_config(),
         required("ClientRequestToken") => String.t(),
         required("PipelineName") => String.t()
@@ -13985,7 +13985,7 @@ defmodule AWS.SageMaker do
       
       list_spaces_response() :: %{
         "NextToken" => String.t(),
-        "Spaces" => list(space_details()())
+        "Spaces" => list(space_details())
       }
       
   """
@@ -14031,9 +14031,9 @@ defmodule AWS.SageMaker do
       
       create_hyper_parameter_tuning_job_request() :: %{
         optional("Autotune") => autotune(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrainingJobDefinition") => hyper_parameter_training_job_definition(),
-        optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()()),
+        optional("TrainingJobDefinitions") => list(hyper_parameter_training_job_definition()),
         optional("WarmStartConfig") => hyper_parameter_tuning_job_warm_start_config(),
         required("HyperParameterTuningJobConfig") => hyper_parameter_tuning_job_config(),
         required("HyperParameterTuningJobName") => String.t()
@@ -14098,7 +14098,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_lineage_groups_response() :: %{
-        "LineageGroupSummaries" => list(lineage_group_summary()()),
+        "LineageGroupSummaries" => list(lineage_group_summary()),
         "NextToken" => String.t()
       }
       
@@ -14153,11 +14153,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_edge_deployment_plan_request() :: %{
-        optional("Stages") => list(deployment_stage()()),
-        optional("Tags") => list(tag()()),
+        optional("Stages") => list(deployment_stage()),
+        optional("Tags") => list(tag()),
         required("DeviceFleetName") => String.t(),
         required("EdgeDeploymentPlanName") => String.t(),
-        required("ModelConfigs") => list(edge_deployment_model_config()())
+        required("ModelConfigs") => list(edge_deployment_model_config())
       }
       
   """
@@ -14212,7 +14212,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       r_session_app_settings() :: %{
-        "CustomImages" => list(custom_image()()),
+        "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec()
       }
       
@@ -14372,7 +14372,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       shadow_mode_config() :: %{
-        "ShadowModelVariants" => list(shadow_model_variant_config()()),
+        "ShadowModelVariants" => list(shadow_model_variant_config()),
         "SourceModelVariantName" => String.t()
       }
       
@@ -14420,7 +14420,7 @@ defmodule AWS.SageMaker do
         optional("CognitoConfig") => cognito_config(),
         optional("OidcConfig") => oidc_config(),
         optional("SourceIpConfig") => source_ip_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
         required("WorkforceName") => String.t()
       }
@@ -14535,7 +14535,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       create_code_repository_input() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CodeRepositoryName") => String.t(),
         required("GitConfig") => git_config()
       }
@@ -14548,7 +14548,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       deployment_recommendation() :: %{
-        "RealTimeInferenceRecommendations" => list(real_time_inference_recommendation()()),
+        "RealTimeInferenceRecommendations" => list(real_time_inference_recommendation()),
         "RecommendationStatus" => list(any())
       }
       
@@ -14572,7 +14572,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_endpoint_weights_and_capacities_input() :: %{
-        required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()()),
+        required("DesiredWeightsAndCapacities") => list(desired_weight_and_capacity()),
         required("EndpointName") => String.t()
       }
       
@@ -14602,7 +14602,7 @@ defmodule AWS.SageMaker do
       
       send_pipeline_execution_step_success_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("OutputParameters") => list(output_parameter()()),
+        optional("OutputParameters") => list(output_parameter()),
         required("CallbackToken") => String.t()
       }
       
@@ -14623,8 +14623,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_notebook_instance_lifecycle_config_input() :: %{
-        optional("OnCreate") => list(notebook_instance_lifecycle_hook()()),
-        optional("OnStart") => list(notebook_instance_lifecycle_hook()()),
+        optional("OnCreate") => list(notebook_instance_lifecycle_hook()),
+        optional("OnStart") => list(notebook_instance_lifecycle_hook()),
         required("NotebookInstanceLifecycleConfigName") => String.t()
       }
       
@@ -14669,8 +14669,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       batch_delete_cluster_nodes_response() :: %{
-        "Failed" => list(batch_delete_cluster_nodes_error()()),
-        "Successful" => list(String.t()())
+        "Failed" => list(batch_delete_cluster_nodes_error()),
+        "Successful" => list(String.t())
       }
       
   """
@@ -14706,7 +14706,7 @@ defmodule AWS.SageMaker do
       
       batch_delete_cluster_nodes_request() :: %{
         required("ClusterName") => String.t(),
-        required("NodeIds") => list(String.t()())
+        required("NodeIds") => list(String.t())
       }
       
   """
@@ -14800,9 +14800,9 @@ defmodule AWS.SageMaker do
       
       create_hub_request() :: %{
         optional("HubDisplayName") => String.t(),
-        optional("HubSearchKeywords") => list(String.t()()),
+        optional("HubSearchKeywords") => list(String.t()),
         optional("S3StorageConfig") => hub_s3_storage_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("HubDescription") => String.t(),
         required("HubName") => String.t()
       }
@@ -14909,7 +14909,7 @@ defmodule AWS.SageMaker do
       
       callback_step_metadata() :: %{
         "CallbackToken" => String.t(),
-        "OutputParameters" => list(output_parameter()()),
+        "OutputParameters" => list(output_parameter()),
         "SqsQueueUrl" => String.t()
       }
       
@@ -15005,7 +15005,7 @@ defmodule AWS.SageMaker do
       
       hidden_sage_maker_image() :: %{
         "SageMakerImageName" => list(any()),
-        "VersionAliases" => list(String.t()())
+        "VersionAliases" => list(String.t())
       }
       
   """
@@ -15030,7 +15030,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       debug_hook_config() :: %{
-        "CollectionConfigurations" => list(collection_configuration()()),
+        "CollectionConfigurations" => list(collection_configuration()),
         "HookParameters" => map(),
         "LocalPath" => String.t(),
         "S3OutputPath" => String.t()
@@ -15074,7 +15074,7 @@ defmodule AWS.SageMaker do
         "ModifiedAfter" => non_neg_integer(),
         "ModifiedBefore" => non_neg_integer(),
         "Properties" => map(),
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
       
   """
@@ -15140,7 +15140,7 @@ defmodule AWS.SageMaker do
       
       monitoring_output_config() :: %{
         "KmsKeyId" => String.t(),
-        "MonitoringOutputs" => list(monitoring_output()())
+        "MonitoringOutputs" => list(monitoring_output())
       }
       
   """
@@ -15174,7 +15174,7 @@ defmodule AWS.SageMaker do
         "Description" => String.t(),
         "EventTimeFeatureName" => String.t(),
         "FailureReason" => String.t(),
-        "FeatureDefinitions" => list(feature_definition()()),
+        "FeatureDefinitions" => list(feature_definition()),
         "FeatureGroupArn" => String.t(),
         "FeatureGroupName" => String.t(),
         "FeatureGroupStatus" => list(any()),
@@ -15185,7 +15185,7 @@ defmodule AWS.SageMaker do
         "OnlineStoreConfig" => online_store_config(),
         "RecordIdentifierFeatureName" => String.t(),
         "RoleArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -15221,7 +15221,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_model_output() :: %{
-        "Containers" => list(container_definition()()),
+        "Containers" => list(container_definition()),
         "CreationTime" => non_neg_integer(),
         "DeploymentRecommendation" => deployment_recommendation(),
         "EnableNetworkIsolation" => boolean(),
@@ -15244,7 +15244,7 @@ defmodule AWS.SageMaker do
         "ExecutionRole" => String.t(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t(),
-        "InstanceStorageConfigs" => list(list()()),
+        "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
@@ -15276,7 +15276,7 @@ defmodule AWS.SageMaker do
       create_hub_content_reference_request() :: %{
         optional("HubContentName") => String.t(),
         optional("MinVersion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("HubName") => String.t(),
         required("SageMakerPublicHubContentArn") => String.t()
       }
@@ -15344,7 +15344,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       nested_filters() :: %{
-        "Filters" => list(filter()()),
+        "Filters" => list(filter()),
         "NestedPropertyName" => String.t()
       }
       
@@ -15357,7 +15357,7 @@ defmodule AWS.SageMaker do
       
       search_response() :: %{
         "NextToken" => String.t(),
-        "Results" => list(search_record()()),
+        "Results" => list(search_record()),
         "TotalHits" => total_hits()
       }
       
@@ -15381,7 +15381,7 @@ defmodule AWS.SageMaker do
       
       device_selection_config() :: %{
         "DeviceNameContains" => String.t(),
-        "DeviceNames" => list(String.t()()),
+        "DeviceNames" => list(String.t()),
         "DeviceSubsetType" => list(any()),
         "Percentage" => integer()
       }
@@ -15396,7 +15396,7 @@ defmodule AWS.SageMaker do
       create_context_request() :: %{
         optional("Description") => String.t(),
         optional("Properties") => map(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ContextName") => String.t(),
         required("ContextType") => String.t(),
         required("Source") => context_source()
@@ -15424,7 +15424,7 @@ defmodule AWS.SageMaker do
         optional("AlgorithmDescription") => String.t(),
         optional("CertifyForMarketplace") => boolean(),
         optional("InferenceSpecification") => inference_specification(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ValidationSpecification") => algorithm_validation_specification(),
         required("AlgorithmName") => String.t(),
         required("TrainingSpecification") => training_specification()
@@ -15497,9 +15497,9 @@ defmodule AWS.SageMaker do
         optional("GenerateCandidateDefinitionsOnly") => boolean(),
         optional("ModelDeployConfig") => model_deploy_config(),
         optional("ProblemType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AutoMLJobName") => String.t(),
-        required("InputDataConfig") => list(auto_ml_channel()()),
+        required("InputDataConfig") => list(auto_ml_channel()),
         required("OutputDataConfig") => auto_ml_output_data_config(),
         required("RoleArn") => String.t()
       }
@@ -15526,7 +15526,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_card_export_jobs_response() :: %{
-        "ModelCardExportJobSummaries" => list(model_card_export_job_summary()()),
+        "ModelCardExportJobSummaries" => list(model_card_export_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -15608,8 +15608,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       emr_settings() :: %{
-        "AssumableRoleArns" => list(String.t()()),
-        "ExecutionRoleArns" => list(String.t()())
+        "AssumableRoleArns" => list(String.t()),
+        "ExecutionRoleArns" => list(String.t())
       }
       
   """
@@ -15620,7 +15620,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_cluster_nodes_response() :: %{
-        "ClusterNodeSummaries" => list(cluster_node_summary()()),
+        "ClusterNodeSummaries" => list(cluster_node_summary()),
         "NextToken" => String.t()
       }
       
@@ -15665,7 +15665,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_package_groups_output() :: %{
-        "ModelPackageGroupSummaryList" => list(model_package_group_summary()()),
+        "ModelPackageGroupSummaryList" => list(model_package_group_summary()),
         "NextToken" => String.t()
       }
       
@@ -15731,7 +15731,7 @@ defmodule AWS.SageMaker do
         "FailureReason" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "LastMonitoringExecutionSummary" => monitoring_execution_summary(),
-        "MonitoringAlertSummaries" => list(monitoring_alert_summary()()),
+        "MonitoringAlertSummaries" => list(monitoring_alert_summary()),
         "MonitoringScheduleArn" => String.t(),
         "MonitoringScheduleConfig" => monitoring_schedule_config(),
         "MonitoringScheduleName" => String.t(),
@@ -15788,12 +15788,12 @@ defmodule AWS.SageMaker do
   ## Example:
       
       get_device_fleet_report_response() :: %{
-        "AgentVersions" => list(agent_version()()),
+        "AgentVersions" => list(agent_version()),
         "Description" => String.t(),
         "DeviceFleetArn" => String.t(),
         "DeviceFleetName" => String.t(),
         "DeviceStats" => device_stats(),
-        "ModelStats" => list(edge_model_stat()()),
+        "ModelStats" => list(edge_model_stat()),
         "OutputConfig" => edge_output_config(),
         "ReportGenerated" => non_neg_integer()
       }
@@ -15851,7 +15851,7 @@ defmodule AWS.SageMaker do
         "BaselineConfig" => monitoring_baseline_config(),
         "Environment" => map(),
         "MonitoringAppSpecification" => monitoring_app_specification(),
-        "MonitoringInputs" => list(monitoring_input()()),
+        "MonitoringInputs" => list(monitoring_input()),
         "MonitoringOutputConfig" => monitoring_output_config(),
         "MonitoringResources" => monitoring_resources(),
         "NetworkConfig" => network_config(),
@@ -15881,7 +15881,7 @@ defmodule AWS.SageMaker do
         "AutoMountHomeEFS" => list(any()),
         "CanvasAppSettings" => canvas_app_settings(),
         "CodeEditorAppSettings" => code_editor_app_settings(),
-        "CustomFileSystemConfigs" => list(list()()),
+        "CustomFileSystemConfigs" => list(list()),
         "CustomPosixUserConfig" => custom_posix_user_config(),
         "DefaultLandingUri" => String.t(),
         "ExecutionRole" => String.t(),
@@ -15890,7 +15890,7 @@ defmodule AWS.SageMaker do
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
         "RSessionAppSettings" => r_session_app_settings(),
         "RStudioServerProAppSettings" => r_studio_server_pro_app_settings(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SharingSettings" => sharing_settings(),
         "SpaceStorageSettings" => default_space_storage_settings(),
         "StudioWebPortal" => list(any()),
@@ -15909,7 +15909,7 @@ defmodule AWS.SageMaker do
         "HiddenAppTypes" => list(list(any())()),
         "HiddenInstanceTypes" => list(list(any())()),
         "HiddenMlTools" => list(list(any())()),
-        "HiddenSageMakerImageVersionAliases" => list(hidden_sage_maker_image()())
+        "HiddenSageMakerImageVersionAliases" => list(hidden_sage_maker_image())
       }
       
   """
@@ -15931,7 +15931,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_package_validation_specification() :: %{
-        "ValidationProfiles" => list(model_package_validation_profile()()),
+        "ValidationProfiles" => list(model_package_validation_profile()),
         "ValidationRole" => String.t()
       }
       
@@ -15958,7 +15958,7 @@ defmodule AWS.SageMaker do
         "IsRequired" => boolean(),
         "Name" => String.t(),
         "SupportedCompressionTypes" => list(list(any())()),
-        "SupportedContentTypes" => list(String.t()()),
+        "SupportedContentTypes" => list(String.t()),
         "SupportedInputModes" => list(list(any())())
       }
       
@@ -16016,7 +16016,7 @@ defmodule AWS.SageMaker do
       
       scheduler_config() :: %{
         "FairShare" => list(any()),
-        "PriorityClasses" => list(priority_class()())
+        "PriorityClasses" => list(priority_class())
       }
       
   """
@@ -16057,7 +16057,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_edge_packaging_jobs_response() :: %{
-        "EdgePackagingJobSummaries" => list(edge_packaging_job_summary()()),
+        "EdgePackagingJobSummaries" => list(edge_packaging_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -16102,7 +16102,7 @@ defmodule AWS.SageMaker do
         optional("JobDescription") => String.t(),
         optional("OutputConfig") => recommendation_job_output_config(),
         optional("StoppingConditions") => recommendation_job_stopping_conditions(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("InputConfig") => recommendation_job_input_config(),
         required("JobName") => String.t(),
         required("JobType") => list(any()),
@@ -16149,7 +16149,7 @@ defmodule AWS.SageMaker do
         "MonitoringScheduleName" => String.t(),
         "MonitoringScheduleStatus" => list(any()),
         "MonitoringType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -16461,7 +16461,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_cards_response() :: %{
-        "ModelCardSummaries" => list(model_card_summary()()),
+        "ModelCardSummaries" => list(model_card_summary()),
         "NextToken" => String.t()
       }
       
@@ -16503,7 +16503,7 @@ defmodule AWS.SageMaker do
       
       list_trials_response() :: %{
         "NextToken" => String.t(),
-        "TrialSummaries" => list(trial_summary()())
+        "TrialSummaries" => list(trial_summary())
       }
       
   """
@@ -16526,7 +16526,7 @@ defmodule AWS.SageMaker do
       
       list_transform_jobs_response() :: %{
         "NextToken" => String.t(),
-        "TransformJobSummaries" => list(transform_job_summary()())
+        "TransformJobSummaries" => list(transform_job_summary())
       }
       
   """
@@ -16552,7 +16552,7 @@ defmodule AWS.SageMaker do
       
       space_jupyter_lab_app_settings() :: %{
         "AppLifecycleManagement" => space_app_lifecycle_management(),
-        "CodeRepositories" => list(code_repository()()),
+        "CodeRepositories" => list(code_repository()),
         "DefaultResourceSpec" => resource_spec()
       }
       
@@ -16576,7 +16576,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_flow_definitions_response() :: %{
-        "FlowDefinitionSummaries" => list(flow_definition_summary()()),
+        "FlowDefinitionSummaries" => list(flow_definition_summary()),
         "NextToken" => String.t()
       }
       
@@ -16644,7 +16644,7 @@ defmodule AWS.SageMaker do
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "Source" => experiment_source(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -16677,13 +16677,13 @@ defmodule AWS.SageMaker do
   ## Example:
       
       default_space_settings() :: %{
-        "CustomFileSystemConfigs" => list(list()()),
+        "CustomFileSystemConfigs" => list(list()),
         "CustomPosixUserConfig" => custom_posix_user_config(),
         "ExecutionRole" => String.t(),
         "JupyterLabAppSettings" => jupyter_lab_app_settings(),
         "JupyterServerAppSettings" => jupyter_server_app_settings(),
         "KernelGatewayAppSettings" => kernel_gateway_app_settings(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SpaceStorageSettings" => default_space_storage_settings()
       }
       
@@ -16795,11 +16795,11 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "LineageGroupArn" => String.t(),
         "MetadataProperties" => metadata_properties(),
-        "Metrics" => list(trial_component_metric_summary()()),
+        "Metrics" => list(trial_component_metric_summary()),
         "OutputArtifacts" => map(),
         "Parameters" => map(),
         "Source" => trial_component_source(),
-        "Sources" => list(trial_component_source()()),
+        "Sources" => list(trial_component_source()),
         "StartTime" => non_neg_integer(),
         "Status" => trial_component_status(),
         "TrialComponentArn" => String.t(),
@@ -16825,7 +16825,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_monitoring_executions_response() :: %{
-        "MonitoringExecutionSummaries" => list(monitoring_execution_summary()()),
+        "MonitoringExecutionSummaries" => list(monitoring_execution_summary()),
         "NextToken" => String.t()
       }
       
@@ -16894,7 +16894,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       auto_rollback_config() :: %{
-        "Alarms" => list(alarm()())
+        "Alarms" => list(alarm())
       }
       
   """
@@ -16960,7 +16960,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_hyper_parameter_tuning_jobs_response() :: %{
-        "HyperParameterTuningJobSummaries" => list(hyper_parameter_tuning_job_summary()()),
+        "HyperParameterTuningJobSummaries" => list(hyper_parameter_tuning_job_summary()),
         "NextToken" => String.t()
       }
       
@@ -17020,7 +17020,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_model_packages_output() :: %{
-        "ModelPackageSummaryList" => list(model_package_summary()()),
+        "ModelPackageSummaryList" => list(model_package_summary()),
         "NextToken" => String.t()
       }
       
@@ -17047,7 +17047,7 @@ defmodule AWS.SageMaker do
       
       processing_output_config() :: %{
         "KmsKeyId" => String.t(),
-        "Outputs" => list(processing_output()())
+        "Outputs" => list(processing_output())
       }
       
   """
@@ -17115,9 +17115,9 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "MetadataProperties" => metadata_properties(),
         "Source" => trial_source(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrialArn" => String.t(),
-        "TrialComponentSummaries" => list(trial_component_simple_summary()()),
+        "TrialComponentSummaries" => list(trial_component_simple_summary()),
         "TrialName" => String.t()
       }
       
@@ -17195,7 +17195,7 @@ defmodule AWS.SageMaker do
       
       create_cluster_scheduler_config_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterArn") => String.t(),
         required("Name") => String.t(),
         required("SchedulerConfig") => scheduler_config()
@@ -17222,11 +17222,11 @@ defmodule AWS.SageMaker do
       jupyter_lab_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
         "BuiltInLifecycleConfigArn" => String.t(),
-        "CodeRepositories" => list(code_repository()()),
-        "CustomImages" => list(custom_image()()),
+        "CodeRepositories" => list(code_repository()),
+        "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
         "EmrSettings" => emr_settings(),
-        "LifecycleConfigArns" => list(String.t()())
+        "LifecycleConfigArns" => list(String.t())
       }
       
   """
@@ -17248,7 +17248,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_algorithms_output() :: %{
-        "AlgorithmSummaryList" => list(algorithm_summary()()),
+        "AlgorithmSummaryList" => list(algorithm_summary()),
         "NextToken" => String.t()
       }
       
@@ -17276,7 +17276,7 @@ defmodule AWS.SageMaker do
         "TaskAvailabilityLifetimeInSeconds" => integer(),
         "TaskCount" => integer(),
         "TaskDescription" => String.t(),
-        "TaskKeywords" => list(String.t()()),
+        "TaskKeywords" => list(String.t()),
         "TaskTimeLimitInSeconds" => integer(),
         "TaskTitle" => String.t(),
         "WorkteamArn" => String.t()
@@ -17303,7 +17303,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model() :: %{
-        "Containers" => list(container_definition()()),
+        "Containers" => list(container_definition()),
         "CreationTime" => non_neg_integer(),
         "DeploymentRecommendation" => deployment_recommendation(),
         "EnableNetworkIsolation" => boolean(),
@@ -17312,7 +17312,7 @@ defmodule AWS.SageMaker do
         "ModelArn" => String.t(),
         "ModelName" => String.t(),
         "PrimaryContainer" => container_definition(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcConfig" => vpc_config()
       }
       
@@ -17358,7 +17358,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_model_package_output() :: %{
-        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()()),
+        "AdditionalInferenceSpecifications" => list(additional_inference_specification_definition()),
         "ApprovalDescription" => String.t(),
         "CertifyForMarketplace" => boolean(),
         "CreatedBy" => user_context(),
@@ -17399,7 +17399,7 @@ defmodule AWS.SageMaker do
       
       list_tags_output() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -17411,7 +17411,7 @@ defmodule AWS.SageMaker do
       
       list_pipeline_parameters_for_execution_response() :: %{
         "NextToken" => String.t(),
-        "PipelineParameters" => list(parameter()())
+        "PipelineParameters" => list(parameter())
       }
       
   """
@@ -17488,7 +17488,7 @@ defmodule AWS.SageMaker do
       
       list_processing_jobs_response() :: %{
         "NextToken" => String.t(),
-        "ProcessingJobSummaries" => list(processing_job_summary()())
+        "ProcessingJobSummaries" => list(processing_job_summary())
       }
       
   """
@@ -17503,8 +17503,8 @@ defmodule AWS.SageMaker do
         "LastModifiedTime" => non_neg_integer(),
         "NotebookInstanceLifecycleConfigArn" => String.t(),
         "NotebookInstanceLifecycleConfigName" => String.t(),
-        "OnCreate" => list(notebook_instance_lifecycle_hook()()),
-        "OnStart" => list(notebook_instance_lifecycle_hook()())
+        "OnCreate" => list(notebook_instance_lifecycle_hook()),
+        "OnStart" => list(notebook_instance_lifecycle_hook())
       }
       
   """
@@ -17596,7 +17596,7 @@ defmodule AWS.SageMaker do
         optional("Description") => String.t(),
         optional("EnableIotRoleAlias") => boolean(),
         optional("RoleArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DeviceFleetName") => String.t(),
         required("OutputConfig") => edge_output_config()
       }
@@ -17621,8 +17621,8 @@ defmodule AWS.SageMaker do
       
       update_image_version_request() :: %{
         optional("Alias") => String.t(),
-        optional("AliasesToAdd") => list(String.t()()),
-        optional("AliasesToDelete") => list(String.t()()),
+        optional("AliasesToAdd") => list(String.t()),
+        optional("AliasesToDelete") => list(String.t()),
         optional("Horovod") => boolean(),
         optional("JobType") => list(any()),
         optional("MLFramework") => String.t(),
@@ -17689,7 +17689,7 @@ defmodule AWS.SageMaker do
         "CurrentCount" => integer(),
         "ExecutionRole" => String.t(),
         "InstanceGroupName" => String.t(),
-        "InstanceStorageConfigs" => list(list()()),
+        "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LifeCycleConfig" => cluster_life_cycle_config(),
         "OnStartDeepHealthChecks" => list(list(any())()),
@@ -17746,9 +17746,9 @@ defmodule AWS.SageMaker do
       code_editor_app_settings() :: %{
         "AppLifecycleManagement" => app_lifecycle_management(),
         "BuiltInLifecycleConfigArn" => String.t(),
-        "CustomImages" => list(custom_image()()),
+        "CustomImages" => list(custom_image()),
         "DefaultResourceSpec" => resource_spec(),
-        "LifecycleConfigArns" => list(String.t()())
+        "LifecycleConfigArns" => list(String.t())
       }
       
   """
@@ -17772,11 +17772,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       model_dashboard_model() :: %{
-        "Endpoints" => list(model_dashboard_endpoint()()),
+        "Endpoints" => list(model_dashboard_endpoint()),
         "LastBatchTransformJob" => transform_job(),
         "Model" => model(),
         "ModelCard" => model_dashboard_model_card(),
-        "MonitoringSchedules" => list(model_dashboard_monitoring_schedule()())
+        "MonitoringSchedules" => list(model_dashboard_monitoring_schedule())
       }
       
   """
@@ -17787,8 +17787,8 @@ defmodule AWS.SageMaker do
   ## Example:
       
       workforce_vpc_config_request() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -17800,7 +17800,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cfn_template_provider_detail() :: %{
-        "Parameters" => list(cfn_stack_parameter()()),
+        "Parameters" => list(cfn_stack_parameter()),
         "RoleARN" => String.t(),
         "StackDetail" => cfn_stack_detail(),
         "TemplateName" => String.t(),
@@ -17886,7 +17886,7 @@ defmodule AWS.SageMaker do
         optional("ClientToken") => String.t(),
         optional("EnableIamSessionBasedIdentity") => boolean(),
         optional("MaintenanceConfig") => partner_app_maintenance_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Tier") => String.t(),
         required("Arn") => String.t()
       }
@@ -17900,7 +17900,7 @@ defmodule AWS.SageMaker do
       
       list_subscribed_workteams_response() :: %{
         "NextToken" => String.t(),
-        "SubscribedWorkteams" => list(subscribed_workteam()())
+        "SubscribedWorkteams" => list(subscribed_workteam())
       }
       
   """
@@ -17947,7 +17947,7 @@ defmodule AWS.SageMaker do
         "OptimizationJobName" => String.t(),
         "OptimizationJobStatus" => list(any()),
         "OptimizationStartTime" => non_neg_integer(),
-        "OptimizationTypes" => list(String.t()())
+        "OptimizationTypes" => list(String.t())
       }
       
   """
@@ -17964,7 +17964,7 @@ defmodule AWS.SageMaker do
         "DurationMinutes" => float(),
         "EndTime" => non_neg_integer(),
         "InUseInstanceCount" => integer(),
-        "ReservedCapacitySummaries" => list(reserved_capacity_summary()()),
+        "ReservedCapacitySummaries" => list(reserved_capacity_summary()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
@@ -17984,7 +17984,7 @@ defmodule AWS.SageMaker do
       
       create_edge_packaging_job_request() :: %{
         optional("ResourceKey") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CompilationJobName") => String.t(),
         required("EdgePackagingJobName") => String.t(),
         required("ModelName") => String.t(),
@@ -18103,7 +18103,7 @@ defmodule AWS.SageMaker do
         "InstanceGroupName" => String.t(),
         "InstanceId" => String.t(),
         "InstanceStatus" => cluster_instance_status_details(),
-        "InstanceStorageConfigs" => list(list()()),
+        "InstanceStorageConfigs" => list(list()),
         "InstanceType" => list(any()),
         "LastSoftwareUpdateTime" => non_neg_integer(),
         "LaunchTime" => non_neg_integer(),
@@ -18136,7 +18136,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_inference_experiments_response() :: %{
-        "InferenceExperiments" => list(inference_experiment_summary()()),
+        "InferenceExperiments" => list(inference_experiment_summary()),
         "NextToken" => String.t()
       }
       
@@ -18161,7 +18161,7 @@ defmodule AWS.SageMaker do
       
       list_optimization_jobs_response() :: %{
         "NextToken" => String.t(),
-        "OptimizationJobSummaries" => list(optimization_job_summary()())
+        "OptimizationJobSummaries" => list(optimization_job_summary())
       }
       
   """
@@ -18286,7 +18286,7 @@ defmodule AWS.SageMaker do
         "MinCapacity" => integer(),
         "ScaleInCooldown" => integer(),
         "ScaleOutCooldown" => integer(),
-        "ScalingPolicies" => list(list()())
+        "ScalingPolicies" => list(list())
       }
       
   """
@@ -18324,7 +18324,7 @@ defmodule AWS.SageMaker do
         "MonitoringScheduleArn" => String.t(),
         "NetworkConfig" => network_config(),
         "ProcessingEndTime" => non_neg_integer(),
-        "ProcessingInputs" => list(processing_input()()),
+        "ProcessingInputs" => list(processing_input()),
         "ProcessingJobArn" => String.t(),
         "ProcessingJobName" => String.t(),
         "ProcessingJobStatus" => list(any()),
@@ -18333,7 +18333,7 @@ defmodule AWS.SageMaker do
         "ProcessingStartTime" => non_neg_integer(),
         "RoleArn" => String.t(),
         "StoppingCondition" => processing_stopping_condition(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrainingJobArn" => String.t()
       }
       
@@ -18385,7 +18385,7 @@ defmodule AWS.SageMaker do
         optional("HumanLoopActivationConfig") => human_loop_activation_config(),
         optional("HumanLoopConfig") => human_loop_config(),
         optional("HumanLoopRequestSource") => human_loop_request_source(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FlowDefinitionName") => String.t(),
         required("OutputConfig") => flow_definition_output_config(),
         required("RoleArn") => String.t()
@@ -18410,7 +18410,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_device_fleets_response() :: %{
-        "DeviceFleetSummaries" => list(device_fleet_summary()()),
+        "DeviceFleetSummaries" => list(device_fleet_summary()),
         "NextToken" => String.t()
       }
       
@@ -18430,7 +18430,7 @@ defmodule AWS.SageMaker do
         "IotThingName" => String.t(),
         "LatestHeartbeat" => non_neg_integer(),
         "MaxModels" => integer(),
-        "Models" => list(edge_model()()),
+        "Models" => list(edge_model()),
         "NextToken" => String.t(),
         "RegistrationTime" => non_neg_integer()
       }
@@ -18454,9 +18454,9 @@ defmodule AWS.SageMaker do
   ## Example:
       
       s3_data_source() :: %{
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "HubAccessConfig" => hub_access_config(),
-        "InstanceGroupNames" => list(String.t()()),
+        "InstanceGroupNames" => list(String.t()),
         "ModelAccessConfig" => model_access_config(),
         "S3DataDistributionType" => list(any()),
         "S3DataType" => list(any()),
@@ -18471,7 +18471,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       list_labeling_jobs_for_workteam_response() :: %{
-        "LabelingJobSummaryList" => list(labeling_job_for_workteam_summary()()),
+        "LabelingJobSummaryList" => list(labeling_job_for_workteam_summary()),
         "NextToken" => String.t()
       }
       
@@ -19082,7 +19082,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, add_association_errors()}
   def add_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAssociation", input, options)
   end
@@ -19122,7 +19123,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -19141,7 +19143,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, associate_trial_component_errors()}
   def associate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTrialComponent", input, options)
   end
@@ -19167,7 +19170,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, batch_delete_cluster_nodes_errors()}
   def batch_delete_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteClusterNodes", input, options)
   end
@@ -19180,7 +19184,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def batch_describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDescribeModelPackage", input, options)
   end
@@ -19199,7 +19204,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_action_errors()}
   def create_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAction", input, options)
   end
@@ -19213,7 +19219,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlgorithm", input, options)
   end
@@ -19231,7 +19238,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -19248,7 +19256,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_app_image_config_errors()}
   def create_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAppImageConfig", input, options)
   end
@@ -19266,7 +19275,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_artifact_errors()}
   def create_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateArtifact", input, options)
   end
@@ -19314,7 +19324,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_auto_ml_job_errors()}
   def create_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJob", input, options)
   end
@@ -19370,7 +19381,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_auto_ml_job_v2_errors()}
   def create_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoMLJobV2", input, options)
   end
@@ -19390,7 +19402,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -19408,7 +19421,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_cluster_scheduler_config_errors()}
   def create_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterSchedulerConfig", input, options)
   end
@@ -19430,7 +19444,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCodeRepository", input, options)
   end
@@ -19475,7 +19490,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_compilation_job_errors()}
   def create_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCompilationJob", input, options)
   end
@@ -19493,7 +19509,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_compute_quota_errors()}
   def create_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputeQuota", input, options)
   end
@@ -19511,7 +19528,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_context_errors()}
   def create_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContext", input, options)
   end
@@ -19531,7 +19549,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_data_quality_job_definition_errors()}
   def create_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityJobDefinition", input, options)
   end
@@ -19545,7 +19564,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_device_fleet_errors()}
   def create_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeviceFleet", input, options)
   end
@@ -19601,7 +19621,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -19617,7 +19638,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_deployment_plan_errors()}
   def create_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentPlan", input, options)
   end
@@ -19631,7 +19653,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_deployment_stage_errors()}
   def create_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgeDeploymentStage", input, options)
   end
@@ -19649,7 +19672,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_edge_packaging_job_errors()}
   def create_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEdgePackagingJob", input, options)
   end
@@ -19734,7 +19758,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
@@ -19783,7 +19808,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_endpoint_config_errors()}
   def create_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointConfig", input, options)
   end
@@ -19830,7 +19856,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_experiment_errors()}
   def create_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperiment", input, options)
   end
@@ -19859,7 +19886,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_feature_group_errors()}
   def create_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeatureGroup", input, options)
   end
@@ -19873,7 +19901,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_flow_definition_errors()}
   def create_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlowDefinition", input, options)
   end
@@ -19887,7 +19916,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hub_errors()}
   def create_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHub", input, options)
   end
@@ -19908,7 +19938,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_hub_content_presigned_urls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHubContentPresignedUrls", input, options)
   end
@@ -19923,7 +19954,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hub_content_reference_errors()}
   def create_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHubContentReference", input, options)
   end
@@ -19940,7 +19972,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_human_task_ui_errors()}
   def create_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHumanTaskUi", input, options)
   end
@@ -19976,7 +20009,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_hyper_parameter_tuning_job_errors()}
   def create_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHyperParameterTuningJob", input, options)
   end
@@ -19994,7 +20028,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_image_errors()}
   def create_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImage", input, options)
   end
@@ -20010,7 +20045,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_image_version_errors()}
   def create_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImageVersion", input, options)
   end
@@ -20034,7 +20070,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_component_errors()}
   def create_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceComponent", input, options)
   end
@@ -20060,7 +20097,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_experiment_errors()}
   def create_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceExperiment", input, options)
   end
@@ -20080,7 +20118,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_inference_recommendations_job_errors()}
   def create_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInferenceRecommendationsJob", input, options)
   end
@@ -20132,7 +20171,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_labeling_job_errors()}
   def create_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLabelingJob", input, options)
   end
@@ -20149,7 +20189,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_mlflow_tracking_server_errors()}
   def create_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMlflowTrackingServer", input, options)
   end
@@ -20187,7 +20228,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -20205,7 +20247,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_bias_job_definition_errors()}
   def create_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelBiasJobDefinition", input, options)
   end
@@ -20221,7 +20264,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_card_errors()}
   def create_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCard", input, options)
   end
@@ -20235,7 +20279,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_card_export_job_errors()}
   def create_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelCardExportJob", input, options)
   end
@@ -20253,7 +20298,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_explainability_job_definition_errors()}
   def create_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelExplainabilityJobDefinition", input, options)
   end
@@ -20285,7 +20331,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_package_errors()}
   def create_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackage", input, options)
   end
@@ -20301,7 +20348,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_package_group_errors()}
   def create_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelPackageGroup", input, options)
   end
@@ -20321,7 +20369,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_model_quality_job_definition_errors()}
   def create_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelQualityJobDefinition", input, options)
   end
@@ -20336,7 +20385,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_monitoring_schedule_errors()}
   def create_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMonitoringSchedule", input, options)
   end
@@ -20389,7 +20439,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_notebook_instance_errors()}
   def create_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstance", input, options)
   end
@@ -20426,7 +20477,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_notebook_instance_lifecycle_config_errors()}
   def create_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotebookInstanceLifecycleConfig", input, options)
   end
@@ -20448,7 +20500,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_optimization_job_errors()}
   def create_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptimizationJob", input, options)
   end
@@ -20462,7 +20515,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_partner_app_errors()}
   def create_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnerApp", input, options)
   end
@@ -20480,7 +20534,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_partner_app_presigned_url_errors()}
   def create_partner_app_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnerAppPresignedUrl", input, options)
   end
@@ -20494,7 +20549,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -20531,7 +20587,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_presigned_domain_url_errors()}
   def create_presigned_domain_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedDomainUrl", input, options)
   end
@@ -20552,7 +20609,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_presigned_mlflow_tracking_server_url_errors()}
   def create_presigned_mlflow_tracking_server_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedMlflowTrackingServerUrl", input, options)
   end
@@ -20591,7 +20649,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_presigned_notebook_instance_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePresignedNotebookInstanceUrl", input, options)
   end
@@ -20605,7 +20664,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_processing_job_errors()}
   def create_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProcessingJob", input, options)
   end
@@ -20620,7 +20680,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -20634,7 +20695,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_space_errors()}
   def create_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSpace", input, options)
   end
@@ -20648,7 +20710,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_studio_lifecycle_config_errors()}
   def create_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStudioLifecycleConfig", input, options)
   end
@@ -20726,7 +20789,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_training_job_errors()}
   def create_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrainingJob", input, options)
   end
@@ -20786,7 +20850,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_training_plan_errors()}
   def create_training_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrainingPlan", input, options)
   end
@@ -20827,7 +20892,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_transform_job_errors()}
   def create_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransformJob", input, options)
   end
@@ -20859,7 +20925,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_trial_errors()}
   def create_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrial", input, options)
   end
@@ -20888,7 +20955,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_trial_component_errors()}
   def create_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrialComponent", input, options)
   end
@@ -20910,7 +20978,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
@@ -20943,7 +21012,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkforce", input, options)
   end
@@ -20962,7 +21032,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, create_workteam_errors()}
   def create_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkteam", input, options)
   end
@@ -20976,7 +21047,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_action_errors()}
   def delete_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAction", input, options)
   end
@@ -20990,7 +21062,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_algorithm_errors()}
   def delete_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlgorithm", input, options)
   end
@@ -21004,7 +21077,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -21018,7 +21092,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_app_image_config_errors()}
   def delete_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppImageConfig", input, options)
   end
@@ -21034,7 +21109,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_artifact_errors()}
   def delete_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteArtifact", input, options)
   end
@@ -21048,7 +21124,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
@@ -21062,7 +21139,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -21076,7 +21154,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_cluster_scheduler_config_errors()}
   def delete_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterSchedulerConfig", input, options)
   end
@@ -21089,7 +21168,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCodeRepository", input, options)
   end
@@ -21112,7 +21192,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_compilation_job_errors()}
   def delete_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCompilationJob", input, options)
   end
@@ -21126,7 +21207,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_compute_quota_errors()}
   def delete_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComputeQuota", input, options)
   end
@@ -21140,7 +21222,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_context_errors()}
   def delete_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContext", input, options)
   end
@@ -21158,7 +21241,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_data_quality_job_definition_errors()}
   def delete_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityJobDefinition", input, options)
   end
@@ -21172,7 +21256,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_device_fleet_errors()}
   def delete_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeviceFleet", input, options)
   end
@@ -21191,7 +21276,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -21206,7 +21292,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_edge_deployment_plan_errors()}
   def delete_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentPlan", input, options)
   end
@@ -21221,7 +21308,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_edge_deployment_stage_errors()}
   def delete_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEdgeDeploymentStage", input, options)
   end
@@ -21248,7 +21336,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -21271,7 +21360,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointConfig", input, options)
   end
@@ -21289,7 +21379,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_experiment_errors()}
   def delete_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperiment", input, options)
   end
@@ -21314,7 +21405,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_feature_group_errors()}
   def delete_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFeatureGroup", input, options)
   end
@@ -21328,7 +21420,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_flow_definition_errors()}
   def delete_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlowDefinition", input, options)
   end
@@ -21342,7 +21435,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_errors()}
   def delete_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHub", input, options)
   end
@@ -21356,7 +21450,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_content_errors()}
   def delete_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContent", input, options)
   end
@@ -21370,7 +21465,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_hub_content_reference_errors()}
   def delete_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHubContentReference", input, options)
   end
@@ -21390,7 +21486,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_human_task_ui_errors()}
   def delete_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHumanTaskUi", input, options)
   end
@@ -21412,7 +21509,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHyperParameterTuningJob", input, options)
   end
@@ -21428,7 +21526,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_image_errors()}
   def delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImage", input, options)
   end
@@ -21444,7 +21543,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_image_version_errors()}
   def delete_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteImageVersion", input, options)
   end
@@ -21457,7 +21557,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceComponent", input, options)
   end
@@ -21474,7 +21575,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_inference_experiment_errors()}
   def delete_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
   end
@@ -21490,7 +21592,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_mlflow_tracking_server_errors()}
   def delete_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMlflowTrackingServer", input, options)
   end
@@ -21507,7 +21610,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -21525,7 +21629,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_bias_job_definition_errors()}
   def delete_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelBiasJobDefinition", input, options)
   end
@@ -21539,7 +21644,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_card_errors()}
   def delete_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelCard", input, options)
   end
@@ -21557,7 +21663,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_explainability_job_definition_errors()}
   def delete_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelExplainabilityJobDefinition", input, options)
   end
@@ -21575,7 +21682,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_package_errors()}
   def delete_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackage", input, options)
   end
@@ -21589,7 +21697,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_package_group_errors()}
   def delete_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroup", input, options)
   end
@@ -21606,7 +21715,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelPackageGroupPolicy", input, options)
   end
@@ -21624,7 +21734,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_model_quality_job_definition_errors()}
   def delete_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelQualityJobDefinition", input, options)
   end
@@ -21641,7 +21752,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_monitoring_schedule_errors()}
   def delete_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMonitoringSchedule", input, options)
   end
@@ -21661,7 +21773,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstance", input, options)
   end
@@ -21678,7 +21791,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotebookInstanceLifecycleConfig", input, options)
   end
@@ -21692,7 +21806,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_optimization_job_errors()}
   def delete_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptimizationJob", input, options)
   end
@@ -21706,7 +21821,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_partner_app_errors()}
   def delete_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartnerApp", input, options)
   end
@@ -21724,7 +21840,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -21738,7 +21855,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -21752,7 +21870,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_space_errors()}
   def delete_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpace", input, options)
   end
@@ -21770,7 +21889,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_studio_lifecycle_config_errors()}
   def delete_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStudioLifecycleConfig", input, options)
   end
@@ -21793,7 +21913,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -21811,7 +21932,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_trial_errors()}
   def delete_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrial", input, options)
   end
@@ -21831,7 +21953,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_trial_component_errors()}
   def delete_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrialComponent", input, options)
   end
@@ -21848,7 +21971,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -21872,7 +21996,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkforce", input, options)
   end
@@ -21888,7 +22013,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, delete_workteam_errors()}
   def delete_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkteam", input, options)
   end
@@ -21903,7 +22029,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDevices", input, options)
   end
@@ -21917,7 +22044,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_action_errors()}
   def describe_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAction", input, options)
   end
@@ -21930,7 +22058,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
@@ -21944,7 +22073,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_app_errors()}
   def describe_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApp", input, options)
   end
@@ -21958,7 +22088,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_app_image_config_errors()}
   def describe_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAppImageConfig", input, options)
   end
@@ -21972,7 +22103,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_artifact_errors()}
   def describe_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeArtifact", input, options)
   end
@@ -21989,7 +22121,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_auto_ml_job_errors()}
   def describe_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJob", input, options)
   end
@@ -22005,7 +22138,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_auto_ml_job_v2_errors()}
   def describe_auto_ml_job_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoMLJobV2", input, options)
   end
@@ -22019,7 +22153,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -22034,7 +22169,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_node_errors()}
   def describe_cluster_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterNode", input, options)
   end
@@ -22056,7 +22192,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_cluster_scheduler_config_errors()}
   def describe_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterSchedulerConfig", input, options)
   end
@@ -22069,7 +22206,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeRepository", input, options)
   end
@@ -22087,7 +22225,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_compilation_job_errors()}
   def describe_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCompilationJob", input, options)
   end
@@ -22101,7 +22240,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_compute_quota_errors()}
   def describe_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComputeQuota", input, options)
   end
@@ -22115,7 +22255,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_context_errors()}
   def describe_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContext", input, options)
   end
@@ -22133,7 +22274,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_data_quality_job_definition_errors()}
   def describe_data_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataQualityJobDefinition", input, options)
   end
@@ -22147,7 +22289,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_device_errors()}
   def describe_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDevice", input, options)
   end
@@ -22161,7 +22304,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_device_fleet_errors()}
   def describe_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeviceFleet", input, options)
   end
@@ -22175,7 +22319,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -22189,7 +22334,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_edge_deployment_plan_errors()}
   def describe_edge_deployment_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgeDeploymentPlan", input, options)
   end
@@ -22203,7 +22349,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_edge_packaging_job_errors()}
   def describe_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEdgePackagingJob", input, options)
   end
@@ -22216,7 +22363,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoint", input, options)
   end
@@ -22230,7 +22378,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointConfig", input, options)
   end
@@ -22244,7 +22393,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_experiment_errors()}
   def describe_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperiment", input, options)
   end
@@ -22261,7 +22411,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_feature_group_errors()}
   def describe_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureGroup", input, options)
   end
@@ -22275,7 +22426,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_feature_metadata_errors()}
   def describe_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureMetadata", input, options)
   end
@@ -22289,7 +22441,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_flow_definition_errors()}
   def describe_flow_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowDefinition", input, options)
   end
@@ -22303,7 +22456,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hub_errors()}
   def describe_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHub", input, options)
   end
@@ -22317,7 +22471,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hub_content_errors()}
   def describe_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHubContent", input, options)
   end
@@ -22332,7 +22487,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_human_task_ui_errors()}
   def describe_human_task_ui(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHumanTaskUi", input, options)
   end
@@ -22354,7 +22510,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_hyper_parameter_tuning_job_errors()}
   def describe_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHyperParameterTuningJob", input, options)
   end
@@ -22368,7 +22525,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_image_errors()}
   def describe_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImage", input, options)
   end
@@ -22382,7 +22540,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_image_version_errors()}
   def describe_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageVersion", input, options)
   end
@@ -22395,7 +22554,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceComponent", input, options)
   end
@@ -22409,7 +22569,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_inference_experiment_errors()}
   def describe_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceExperiment", input, options)
   end
@@ -22429,7 +22590,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_inference_recommendations_job_errors()}
   def describe_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInferenceRecommendationsJob", input, options)
   end
@@ -22443,7 +22605,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_labeling_job_errors()}
   def describe_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLabelingJob", input, options)
   end
@@ -22461,7 +22624,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_lineage_group_errors()}
   def describe_lineage_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLineageGroup", input, options)
   end
@@ -22475,7 +22639,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_mlflow_tracking_server_errors()}
   def describe_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMlflowTrackingServer", input, options)
   end
@@ -22488,7 +22653,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
   end
@@ -22506,7 +22672,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_bias_job_definition_errors()}
   def describe_model_bias_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelBiasJobDefinition", input, options)
   end
@@ -22521,7 +22688,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_card_errors()}
   def describe_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCard", input, options)
   end
@@ -22535,7 +22703,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_card_export_job_errors()}
   def describe_model_card_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelCardExportJob", input, options)
   end
@@ -22553,7 +22722,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_explainability_job_definition_errors()}
   def describe_model_explainability_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelExplainabilityJobDefinition", input, options)
   end
@@ -22574,7 +22744,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackage", input, options)
   end
@@ -22587,7 +22758,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_model_package_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelPackageGroup", input, options)
   end
@@ -22605,7 +22777,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_model_quality_job_definition_errors()}
   def describe_model_quality_job_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelQualityJobDefinition", input, options)
   end
@@ -22619,7 +22792,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_monitoring_schedule_errors()}
   def describe_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMonitoringSchedule", input, options)
   end
@@ -22632,7 +22806,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstance", input, options)
   end
@@ -22652,7 +22827,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotebookInstanceLifecycleConfig", input, options)
   end
@@ -22666,7 +22842,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_optimization_job_errors()}
   def describe_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptimizationJob", input, options)
   end
@@ -22680,7 +22857,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_partner_app_errors()}
   def describe_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePartnerApp", input, options)
   end
@@ -22694,7 +22872,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_errors()}
   def describe_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipeline", input, options)
   end
@@ -22712,7 +22891,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_definition_for_execution_errors()}
   def describe_pipeline_definition_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineDefinitionForExecution", input, options)
   end
@@ -22726,7 +22906,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_pipeline_execution_errors()}
   def describe_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelineExecution", input, options)
   end
@@ -22740,7 +22921,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_processing_job_errors()}
   def describe_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProcessingJob", input, options)
   end
@@ -22753,7 +22935,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProject", input, options)
   end
@@ -22767,7 +22950,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_space_errors()}
   def describe_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpace", input, options)
   end
@@ -22785,7 +22969,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_studio_lifecycle_config_errors()}
   def describe_studio_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStudioLifecycleConfig", input, options)
   end
@@ -22801,7 +22986,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_subscribed_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscribedWorkteam", input, options)
   end
@@ -22821,7 +23007,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_training_job_errors()}
   def describe_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrainingJob", input, options)
   end
@@ -22835,7 +23022,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_training_plan_errors()}
   def describe_training_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrainingPlan", input, options)
   end
@@ -22849,7 +23037,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_transform_job_errors()}
   def describe_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransformJob", input, options)
   end
@@ -22863,7 +23052,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_trial_errors()}
   def describe_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrial", input, options)
   end
@@ -22877,7 +23067,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_trial_component_errors()}
   def describe_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrialComponent", input, options)
   end
@@ -22893,7 +23084,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, describe_user_profile_errors()}
   def describe_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfile", input, options)
   end
@@ -22913,7 +23105,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkforce", input, options)
   end
@@ -22929,7 +23122,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkteam", input, options)
   end
@@ -22948,7 +23142,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSagemakerServicecatalogPortfolio", input, options)
   end
@@ -22972,7 +23167,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, disassociate_trial_component_errors()}
   def disassociate_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTrialComponent", input, options)
   end
@@ -22991,7 +23187,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_sagemaker_servicecatalog_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSagemakerServicecatalogPortfolio", input, options)
   end
@@ -23004,7 +23201,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_device_fleet_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeviceFleetReport", input, options)
   end
@@ -23018,7 +23216,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, get_lineage_group_policy_errors()}
   def get_lineage_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLineageGroupPolicy", input, options)
   end
@@ -23035,7 +23234,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelPackageGroupPolicy", input, options)
   end
@@ -23054,7 +23254,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_sagemaker_servicecatalog_portfolio_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -23081,7 +23282,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, get_scaling_configuration_recommendation_errors()}
   def get_scaling_configuration_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScalingConfigurationRecommendation", input, options)
   end
@@ -23098,7 +23300,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_search_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSearchSuggestions", input, options)
   end
@@ -23112,7 +23315,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, import_hub_content_errors()}
   def import_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportHubContent", input, options)
   end
@@ -23126,7 +23330,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_actions_errors()}
   def list_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActions", input, options)
   end
@@ -23139,7 +23344,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_algorithms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAlgorithms", input, options)
   end
@@ -23153,7 +23359,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -23169,7 +23376,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_app_image_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAppImageConfigs", input, options)
   end
@@ -23182,7 +23390,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -23196,7 +23405,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArtifacts", input, options)
   end
@@ -23210,7 +23420,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociations", input, options)
   end
@@ -23223,7 +23434,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_auto_ml_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAutoMLJobs", input, options)
   end
@@ -23237,7 +23449,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_candidates_for_auto_ml_job_errors()}
   def list_candidates_for_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCandidatesForAutoMLJob", input, options)
   end
@@ -23252,7 +23465,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_cluster_nodes_errors()}
   def list_cluster_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterNodes", input, options)
   end
@@ -23265,7 +23479,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_cluster_scheduler_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterSchedulerConfigs", input, options)
   end
@@ -23278,7 +23493,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -23291,7 +23507,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_code_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCodeRepositories", input, options)
   end
@@ -23309,7 +23526,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_compilation_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompilationJobs", input, options)
   end
@@ -23322,7 +23540,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_compute_quotas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComputeQuotas", input, options)
   end
@@ -23336,7 +23555,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_contexts_errors()}
   def list_contexts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContexts", input, options)
   end
@@ -23353,7 +23573,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_data_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityJobDefinitions", input, options)
   end
@@ -23366,7 +23587,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_device_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeviceFleets", input, options)
   end
@@ -23379,7 +23601,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -23392,7 +23615,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -23405,7 +23629,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_edge_deployment_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgeDeploymentPlans", input, options)
   end
@@ -23418,7 +23643,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_edge_packaging_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEdgePackagingJobs", input, options)
   end
@@ -23431,7 +23657,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_endpoint_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointConfigs", input, options)
   end
@@ -23444,7 +23671,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpoints", input, options)
   end
@@ -23460,7 +23688,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiments", input, options)
   end
@@ -23473,7 +23702,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_feature_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeatureGroups", input, options)
   end
@@ -23486,7 +23716,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_flow_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowDefinitions", input, options)
   end
@@ -23500,7 +23731,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_hub_content_versions_errors()}
   def list_hub_content_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContentVersions", input, options)
   end
@@ -23514,7 +23746,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_hub_contents_errors()}
   def list_hub_contents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubContents", input, options)
   end
@@ -23527,7 +23760,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hubs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHubs", input, options)
   end
@@ -23540,7 +23774,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_human_task_uis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHumanTaskUis", input, options)
   end
@@ -23559,7 +23794,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hyper_parameter_tuning_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHyperParameterTuningJobs", input, options)
   end
@@ -23575,7 +23811,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_image_versions_errors()}
   def list_image_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImageVersions", input, options)
   end
@@ -23591,7 +23828,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
   end
@@ -23604,7 +23842,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceComponents", input, options)
   end
@@ -23617,7 +23856,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_experiments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceExperiments", input, options)
   end
@@ -23638,7 +23878,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_inference_recommendations_job_steps_errors()}
   def list_inference_recommendations_job_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobSteps", input, options)
   end
@@ -23655,7 +23896,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_inference_recommendations_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInferenceRecommendationsJobs", input, options)
   end
@@ -23668,7 +23910,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_labeling_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobs", input, options)
   end
@@ -23682,7 +23925,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_labeling_jobs_for_workteam_errors()}
   def list_labeling_jobs_for_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLabelingJobsForWorkteam", input, options)
   end
@@ -23699,7 +23943,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_lineage_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLineageGroups", input, options)
   end
@@ -23712,7 +23957,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_mlflow_tracking_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMlflowTrackingServers", input, options)
   end
@@ -23725,7 +23971,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_bias_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelBiasJobDefinitions", input, options)
   end
@@ -23738,7 +23985,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_card_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardExportJobs", input, options)
   end
@@ -23752,7 +24000,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_model_card_versions_errors()}
   def list_model_card_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCardVersions", input, options)
   end
@@ -23765,7 +24014,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_cards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelCards", input, options)
   end
@@ -23782,7 +24032,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_explainability_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelExplainabilityJobDefinitions", input, options)
   end
@@ -23796,7 +24047,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelMetadata", input, options)
   end
@@ -23809,7 +24061,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_package_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackageGroups", input, options)
   end
@@ -23822,7 +24075,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_packages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelPackages", input, options)
   end
@@ -23839,7 +24093,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_model_quality_job_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelQualityJobDefinitions", input, options)
   end
@@ -23852,7 +24107,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
   end
@@ -23866,7 +24122,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_monitoring_alert_history_errors()}
   def list_monitoring_alert_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlertHistory", input, options)
   end
@@ -23880,7 +24137,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_monitoring_alerts_errors()}
   def list_monitoring_alerts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringAlerts", input, options)
   end
@@ -23893,7 +24151,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_monitoring_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringExecutions", input, options)
   end
@@ -23906,7 +24165,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_monitoring_schedules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitoringSchedules", input, options)
   end
@@ -23925,7 +24185,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_notebook_instance_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstanceLifecycleConfigs", input, options)
   end
@@ -23939,7 +24200,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_notebook_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNotebookInstances", input, options)
   end
@@ -23952,7 +24214,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_optimization_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOptimizationJobs", input, options)
   end
@@ -23965,7 +24228,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_partner_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPartnerApps", input, options)
   end
@@ -23979,7 +24243,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_execution_steps_errors()}
   def list_pipeline_execution_steps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutionSteps", input, options)
   end
@@ -23993,7 +24258,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -24011,7 +24277,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_pipeline_parameters_for_execution_errors()}
   def list_pipeline_parameters_for_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineParametersForExecution", input, options)
   end
@@ -24024,7 +24291,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -24037,7 +24305,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_processing_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProcessingJobs", input, options)
   end
@@ -24050,7 +24319,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -24065,7 +24335,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceCatalogs", input, options)
   end
@@ -24078,7 +24349,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_spaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpaces", input, options)
   end
@@ -24092,7 +24364,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_stage_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStageDevices", input, options)
   end
@@ -24107,7 +24380,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_studio_lifecycle_configs_errors()}
   def list_studio_lifecycle_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStudioLifecycleConfigs", input, options)
   end
@@ -24124,7 +24398,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_subscribed_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscribedWorkteams", input, options)
   end
@@ -24137,7 +24412,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -24167,7 +24443,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_training_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrainingJobs", input, options)
   end
@@ -24188,7 +24465,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_training_jobs_for_hyper_parameter_tuning_job_errors()}
   def list_training_jobs_for_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -24207,7 +24485,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_training_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrainingPlans", input, options)
   end
@@ -24220,7 +24499,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_transform_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTransformJobs", input, options)
   end
@@ -24244,7 +24524,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_trial_components_errors()}
   def list_trial_components(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrialComponents", input, options)
   end
@@ -24264,7 +24545,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, list_trials_errors()}
   def list_trials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTrials", input, options)
   end
@@ -24277,7 +24559,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserProfiles", input, options)
   end
@@ -24294,7 +24577,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_workforces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkforces", input, options)
   end
@@ -24310,7 +24594,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_workteams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkteams", input, options)
   end
@@ -24328,7 +24613,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, put_model_package_group_policy_errors()}
   def put_model_package_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutModelPackageGroupPolicy", input, options)
   end
@@ -24346,7 +24632,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, query_lineage_errors()}
   def query_lineage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryLineage", input, options)
   end
@@ -24360,7 +24647,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, register_devices_errors()}
   def register_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDevices", input, options)
   end
@@ -24374,7 +24662,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, render_ui_template_errors()}
   def render_ui_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RenderUiTemplate", input, options)
   end
@@ -24388,7 +24677,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, retry_pipeline_execution_errors()}
   def retry_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryPipelineExecution", input, options)
   end
@@ -24412,7 +24702,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Search", input, options)
   end
@@ -24438,7 +24729,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, search_training_plan_offerings_errors()}
   def search_training_plan_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTrainingPlanOfferings", input, options)
   end
@@ -24461,7 +24753,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, send_pipeline_execution_step_failure_errors()}
   def send_pipeline_execution_step_failure(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepFailure", input, options)
   end
@@ -24484,7 +24777,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, send_pipeline_execution_step_success_errors()}
   def send_pipeline_execution_step_success(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendPipelineExecutionStepSuccess", input, options)
   end
@@ -24497,7 +24791,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEdgeDeploymentStage", input, options)
   end
@@ -24511,7 +24806,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_inference_experiment_errors()}
   def start_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInferenceExperiment", input, options)
   end
@@ -24525,7 +24821,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_mlflow_tracking_server_errors()}
   def start_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMlflowTrackingServer", input, options)
   end
@@ -24542,7 +24839,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_monitoring_schedule_errors()}
   def start_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMonitoringSchedule", input, options)
   end
@@ -24561,7 +24859,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_notebook_instance_errors()}
   def start_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNotebookInstance", input, options)
   end
@@ -24575,7 +24874,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -24590,7 +24890,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
   end
@@ -24604,7 +24905,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_auto_ml_job_errors()}
   def stop_auto_ml_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAutoMLJob", input, options)
   end
@@ -24626,7 +24928,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_compilation_job_errors()}
   def stop_compilation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCompilationJob", input, options)
   end
@@ -24639,7 +24942,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_edge_deployment_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgeDeploymentStage", input, options)
   end
@@ -24652,7 +24956,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_edge_packaging_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEdgePackagingJob", input, options)
   end
@@ -24672,7 +24977,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_hyper_parameter_tuning_job_errors()}
   def stop_hyper_parameter_tuning_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopHyperParameterTuningJob", input, options)
   end
@@ -24686,7 +24992,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_inference_experiment_errors()}
   def stop_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceExperiment", input, options)
   end
@@ -24704,7 +25011,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_inference_recommendations_job_errors()}
   def stop_inference_recommendations_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInferenceRecommendationsJob", input, options)
   end
@@ -24721,7 +25029,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_labeling_job_errors()}
   def stop_labeling_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopLabelingJob", input, options)
   end
@@ -24735,7 +25044,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_mlflow_tracking_server_errors()}
   def stop_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMlflowTrackingServer", input, options)
   end
@@ -24749,7 +25059,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_monitoring_schedule_errors()}
   def stop_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMonitoringSchedule", input, options)
   end
@@ -24771,7 +25082,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopNotebookInstance", input, options)
   end
@@ -24785,7 +25097,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_optimization_job_errors()}
   def stop_optimization_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopOptimizationJob", input, options)
   end
@@ -24825,7 +25138,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -24839,7 +25153,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_processing_job_errors()}
   def stop_processing_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopProcessingJob", input, options)
   end
@@ -24861,7 +25176,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_training_job_errors()}
   def stop_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrainingJob", input, options)
   end
@@ -24880,7 +25196,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, stop_transform_job_errors()}
   def stop_transform_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTransformJob", input, options)
   end
@@ -24894,7 +25211,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_action_errors()}
   def update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAction", input, options)
   end
@@ -24908,7 +25226,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_app_image_config_errors()}
   def update_app_image_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAppImageConfig", input, options)
   end
@@ -24922,7 +25241,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_artifact_errors()}
   def update_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateArtifact", input, options)
   end
@@ -24936,7 +25256,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -24950,7 +25271,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_scheduler_config_errors()}
   def update_cluster_scheduler_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSchedulerConfig", input, options)
   end
@@ -24972,7 +25294,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_cluster_software_errors()}
   def update_cluster_software(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSoftware", input, options)
   end
@@ -24986,7 +25309,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_code_repository_errors()}
   def update_code_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCodeRepository", input, options)
   end
@@ -25000,7 +25324,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_compute_quota_errors()}
   def update_compute_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComputeQuota", input, options)
   end
@@ -25014,7 +25339,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_context_errors()}
   def update_context(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContext", input, options)
   end
@@ -25028,7 +25354,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_device_fleet_errors()}
   def update_device_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceFleet", input, options)
   end
@@ -25041,7 +25368,8 @@ defmodule AWS.SageMaker do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevices", input, options)
   end
@@ -25055,7 +25383,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
@@ -25089,7 +25418,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
   end
@@ -25114,7 +25444,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_endpoint_weights_and_capacities_errors()}
   def update_endpoint_weights_and_capacities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointWeightsAndCapacities", input, options)
   end
@@ -25130,7 +25461,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_experiment_errors()}
   def update_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperiment", input, options)
   end
@@ -25160,7 +25492,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_feature_group_errors()}
   def update_feature_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureGroup", input, options)
   end
@@ -25174,7 +25507,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_feature_metadata_errors()}
   def update_feature_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeatureMetadata", input, options)
   end
@@ -25188,7 +25522,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_errors()}
   def update_hub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHub", input, options)
   end
@@ -25221,7 +25556,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_content_errors()}
   def update_hub_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHubContent", input, options)
   end
@@ -25249,7 +25585,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_hub_content_reference_errors()}
   def update_hub_content_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHubContentReference", input, options)
   end
@@ -25268,7 +25605,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_image_errors()}
   def update_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImage", input, options)
   end
@@ -25282,7 +25620,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_image_version_errors()}
   def update_image_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateImageVersion", input, options)
   end
@@ -25296,7 +25635,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_component_errors()}
   def update_inference_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponent", input, options)
   end
@@ -25314,7 +25654,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_component_runtime_config_errors()}
   def update_inference_component_runtime_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceComponentRuntimeConfig", input, options)
   end
@@ -25332,7 +25673,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_inference_experiment_errors()}
   def update_inference_experiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
   end
@@ -25346,7 +25688,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_mlflow_tracking_server_errors()}
   def update_mlflow_tracking_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMlflowTrackingServer", input, options)
   end
@@ -25363,7 +25706,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_model_card_errors()}
   def update_model_card(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelCard", input, options)
   end
@@ -25377,7 +25721,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_model_package_errors()}
   def update_model_package(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelPackage", input, options)
   end
@@ -25391,7 +25736,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_monitoring_alert_errors()}
   def update_monitoring_alert(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringAlert", input, options)
   end
@@ -25405,7 +25751,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_monitoring_schedule_errors()}
   def update_monitoring_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMonitoringSchedule", input, options)
   end
@@ -25423,7 +25770,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_notebook_instance_errors()}
   def update_notebook_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstance", input, options)
   end
@@ -25443,7 +25791,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_notebook_instance_lifecycle_config_errors()}
   def update_notebook_instance_lifecycle_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotebookInstanceLifecycleConfig", input, options)
   end
@@ -25457,7 +25806,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_partner_app_errors()}
   def update_partner_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartnerApp", input, options)
   end
@@ -25471,7 +25821,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end
@@ -25485,7 +25836,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_pipeline_execution_errors()}
   def update_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipelineExecution", input, options)
   end
@@ -25504,7 +25856,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -25520,7 +25873,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_space_errors()}
   def update_space(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSpace", input, options)
   end
@@ -25535,7 +25889,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_training_job_errors()}
   def update_training_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrainingJob", input, options)
   end
@@ -25549,7 +25904,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_trial_errors()}
   def update_trial(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrial", input, options)
   end
@@ -25563,7 +25919,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_trial_component_errors()}
   def update_trial_component(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrialComponent", input, options)
   end
@@ -25577,7 +25934,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
@@ -25626,7 +25984,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_workforce_errors()}
   def update_workforce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkforce", input, options)
   end
@@ -25640,7 +25999,8 @@ defmodule AWS.SageMaker do
           | {:error, term()}
           | {:error, update_workteam_errors()}
   def update_workteam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkteam", input, options)
   end

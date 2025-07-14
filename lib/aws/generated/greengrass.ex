@@ -22,7 +22,7 @@ defmodule AWS.Greengrass do
 
       function_definition_version() :: %{
         "DefaultConfig" => function_default_config(),
-        "Functions" => list(greengrass_function()())
+        "Functions" => list(function())
       }
 
   """
@@ -67,7 +67,7 @@ defmodule AWS.Greengrass do
 
       create_resource_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Resources") => list(resource()())
+        optional("Resources") => list(resource())
       }
 
   """
@@ -209,7 +209,7 @@ defmodule AWS.Greengrass do
 
       list_logger_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -270,7 +270,7 @@ defmodule AWS.Greengrass do
 
       secrets_manager_secret_resource_data() :: %{
         "ARN" => String.t(),
-        "AdditionalStagingLabelsToDownload" => list(String.t()())
+        "AdditionalStagingLabelsToDownload" => list(String.t())
       }
 
   """
@@ -312,7 +312,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_logger_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -407,7 +407,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_deployments_response() :: %{
-        "Deployments" => list(deployment()()),
+        "Deployments" => list(deployment()),
         "NextToken" => String.t()
       }
 
@@ -439,7 +439,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_connector_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -453,7 +453,7 @@ defmodule AWS.Greengrass do
       create_function_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
         optional("DefaultConfig") => function_default_config(),
-        optional("Functions") => list(greengrass_function()())
+        optional("Functions") => list(function())
       }
 
   """
@@ -487,7 +487,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       resource_definition_version() :: %{
-        "Resources" => list(resource()())
+        "Resources" => list(resource())
       }
 
   """
@@ -607,7 +607,7 @@ defmodule AWS.Greengrass do
 
       create_device_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Devices") => list(device()())
+        optional("Devices") => list(device())
       }
 
   """
@@ -650,7 +650,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_bulk_deployments_response() :: %{
-        "BulkDeployments" => list(bulk_deployment()()),
+        "BulkDeployments" => list(bulk_deployment()),
         "NextToken" => String.t()
       }
 
@@ -676,7 +676,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_resource_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -688,7 +688,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       subscription_definition_version() :: %{
-        "Subscriptions" => list(subscription()())
+        "Subscriptions" => list(subscription())
       }
 
   """
@@ -762,7 +762,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -773,7 +773,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       connector_definition_version() :: %{
-        "Connectors" => list(connector()())
+        "Connectors" => list(connector())
       }
 
   """
@@ -786,7 +786,7 @@ defmodule AWS.Greengrass do
       function_configuration_environment() :: %{
         "AccessSysfs" => boolean(),
         "Execution" => function_execution_config(),
-        "ResourceAccessPolicies" => list(resource_access_policy()()),
+        "ResourceAccessPolicies" => list(resource_access_policy()),
         "Variables" => map()
       }
 
@@ -860,7 +860,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       core_definition_version() :: %{
-        "Cores" => list(core()())
+        "Cores" => list(core())
       }
 
   """
@@ -892,7 +892,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       update_connectivity_info_request() :: %{
-        optional("ConnectivityInfo") => list(connectivity_info()())
+        optional("ConnectivityInfo") => list(connectivity_info())
       }
 
   """
@@ -1013,7 +1013,7 @@ defmodule AWS.Greengrass do
 
       list_core_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -1038,7 +1038,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_bulk_deployment_detailed_reports_response() :: %{
-        "Deployments" => list(bulk_deployment_result()()),
+        "Deployments" => list(bulk_deployment_result()),
         "NextToken" => String.t()
       }
 
@@ -1064,7 +1064,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       get_connectivity_info_response() :: %{
-        "ConnectivityInfo" => list(connectivity_info()()),
+        "ConnectivityInfo" => list(connectivity_info()),
         "Message" => String.t()
       }
 
@@ -1093,7 +1093,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       device_definition_version() :: %{
-        "Devices" => list(device()())
+        "Devices" => list(device())
       }
 
   """
@@ -1104,7 +1104,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_function_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -1126,7 +1126,7 @@ defmodule AWS.Greengrass do
 
       list_group_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -1152,7 +1152,7 @@ defmodule AWS.Greengrass do
 
       list_subscription_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -1267,7 +1267,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_group_certificate_authorities_response() :: %{
-        "GroupCertificateAuthorities" => list(group_certificate_authority_properties()())
+        "GroupCertificateAuthorities" => list(group_certificate_authority_properties())
       }
 
   """
@@ -1323,7 +1323,7 @@ defmodule AWS.Greengrass do
 
       list_resource_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -1336,7 +1336,7 @@ defmodule AWS.Greengrass do
       get_deployment_status_response() :: %{
         "DeploymentStatus" => String.t(),
         "DeploymentType" => list(any()),
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "ErrorMessage" => String.t(),
         "UpdatedAt" => String.t()
       }
@@ -1399,7 +1399,7 @@ defmodule AWS.Greengrass do
 
       create_logger_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Loggers") => list(logger()())
+        optional("Loggers") => list(logger())
       }
 
   """
@@ -1623,7 +1623,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_device_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -1636,7 +1636,7 @@ defmodule AWS.Greengrass do
 
       list_device_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -1767,7 +1767,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       logger_definition_version() :: %{
-        "Loggers" => list(logger()())
+        "Loggers" => list(logger())
       }
 
   """
@@ -1863,7 +1863,7 @@ defmodule AWS.Greengrass do
 
       create_core_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Cores") => list(core()())
+        optional("Cores") => list(core())
       }
 
   """
@@ -1884,7 +1884,7 @@ defmodule AWS.Greengrass do
 
       create_subscription_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Subscriptions") => list(subscription()())
+        optional("Subscriptions") => list(subscription())
       }
 
   """
@@ -1896,7 +1896,7 @@ defmodule AWS.Greengrass do
 
       list_connector_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -2019,7 +2019,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       internal_server_error_exception() :: %{
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "Message" => String.t()
       }
 
@@ -2197,7 +2197,7 @@ defmodule AWS.Greengrass do
         "DeploymentId" => String.t(),
         "DeploymentStatus" => String.t(),
         "DeploymentType" => list(any()),
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "ErrorMessage" => String.t(),
         "GroupArn" => String.t()
       }
@@ -2227,7 +2227,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_core_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -2263,7 +2263,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       bad_request_exception() :: %{
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "Message" => String.t()
       }
 
@@ -2284,7 +2284,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_subscription_definitions_response() :: %{
-        "Definitions" => list(definition_information()()),
+        "Definitions" => list(definition_information()),
         "NextToken" => String.t()
       }
 
@@ -2403,7 +2403,7 @@ defmodule AWS.Greengrass do
         optional("UpdateAgentLogLevel") => list(any()),
         required("S3UrlSignerRole") => String.t(),
         required("SoftwareToUpdate") => list(any()),
-        required("UpdateTargets") => list(String.t()()),
+        required("UpdateTargets") => list(String.t()),
         required("UpdateTargetsArchitecture") => list(any()),
         required("UpdateTargetsOperatingSystem") => list(any())
       }
@@ -2417,7 +2417,7 @@ defmodule AWS.Greengrass do
 
       create_connector_definition_version_request() :: %{
         optional("AmznClientToken") => String.t(),
-        optional("Connectors") => list(connector()())
+        optional("Connectors") => list(connector())
       }
 
   """
@@ -2428,7 +2428,7 @@ defmodule AWS.Greengrass do
   ## Example:
 
       list_groups_response() :: %{
-        "Groups" => list(group_information()()),
+        "Groups" => list(group_information()),
         "NextToken" => String.t()
       }
 
@@ -2540,7 +2540,7 @@ defmodule AWS.Greengrass do
 
       list_function_definition_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_information()())
+        "Versions" => list(version_information())
       }
 
   """
@@ -2572,7 +2572,7 @@ defmodule AWS.Greengrass do
         "BulkDeploymentMetrics" => bulk_deployment_metrics(),
         "BulkDeploymentStatus" => list(any()),
         "CreatedAt" => String.t(),
-        "ErrorDetails" => list(error_detail()()),
+        "ErrorDetails" => list(error_detail()),
         "ErrorMessage" => String.t(),
         "tags" => map()
       }

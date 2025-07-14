@@ -61,7 +61,7 @@ defmodule AWS.RUM do
 
       query_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -86,7 +86,7 @@ defmodule AWS.RUM do
         optional("Alias") => String.t(),
         required("AppMonitorDetails") => app_monitor_details(),
         required("BatchId") => [String.t()],
-        required("RumEvents") => list(rum_event()()),
+        required("RumEvents") => list(rum_event()),
         required("UserDetails") => user_details()
       }
 
@@ -173,7 +173,7 @@ defmodule AWS.RUM do
       batch_delete_rum_metric_definitions_request() :: %{
         optional("DestinationArn") => String.t(),
         required("Destination") => String.t(),
-        required("MetricDefinitionIds") => list(String.t()())
+        required("MetricDefinitionIds") => list(String.t())
       }
 
   """
@@ -186,13 +186,13 @@ defmodule AWS.RUM do
       app_monitor_configuration() :: %{
         "AllowCookies" => [boolean()],
         "EnableXRay" => [boolean()],
-        "ExcludedPages" => list(String.t()()),
+        "ExcludedPages" => list(String.t()),
         "FavoritePages" => list([String.t()]()),
         "GuestRoleArn" => String.t(),
         "IdentityPoolId" => String.t(),
-        "IncludedPages" => list(String.t()()),
+        "IncludedPages" => list(String.t()),
         "SessionSampleRate" => float(),
-        "Telemetries" => list(String.t()())
+        "Telemetries" => list(String.t())
       }
 
   """
@@ -232,7 +232,7 @@ defmodule AWS.RUM do
         optional("CwLogEnabled") => [boolean()],
         optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
         optional("Domain") => String.t(),
-        optional("DomainList") => list(String.t()())
+        optional("DomainList") => list(String.t())
       }
 
   """
@@ -243,7 +243,7 @@ defmodule AWS.RUM do
   ## Example:
 
       get_app_monitor_data_request() :: %{
-        optional("Filters") => list(query_filter()()),
+        optional("Filters") => list(query_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TimeRange") => time_range()
@@ -297,7 +297,7 @@ defmodule AWS.RUM do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -361,7 +361,7 @@ defmodule AWS.RUM do
         "DataStorage" => data_storage(),
         "DeobfuscationConfiguration" => deobfuscation_configuration(),
         "Domain" => String.t(),
-        "DomainList" => list(String.t()()),
+        "DomainList" => list(String.t()),
         "Id" => String.t(),
         "LastModified" => String.t(),
         "Name" => String.t(),
@@ -391,7 +391,7 @@ defmodule AWS.RUM do
         optional("CwLogEnabled") => [boolean()],
         optional("DeobfuscationConfiguration") => deobfuscation_configuration(),
         optional("Domain") => String.t(),
-        optional("DomainList") => list(String.t()()),
+        optional("DomainList") => list(String.t()),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
@@ -442,7 +442,7 @@ defmodule AWS.RUM do
       batch_create_rum_metric_definitions_request() :: %{
         optional("DestinationArn") => String.t(),
         required("Destination") => String.t(),
-        required("MetricDefinitions") => list(metric_definition_request()())
+        required("MetricDefinitions") => list(metric_definition_request())
       }
 
   """
@@ -504,8 +504,8 @@ defmodule AWS.RUM do
   ## Example:
 
       batch_delete_rum_metric_definitions_response() :: %{
-        optional("MetricDefinitionIds") => list(String.t()()),
-        required("Errors") => list(batch_delete_rum_metric_definitions_error()())
+        optional("MetricDefinitionIds") => list(String.t()),
+        required("Errors") => list(batch_delete_rum_metric_definitions_error())
       }
 
   """
@@ -551,7 +551,7 @@ defmodule AWS.RUM do
   ## Example:
 
       get_app_monitor_data_response() :: %{
-        optional("Events") => list(String.t()()),
+        optional("Events") => list(String.t()),
         optional("NextToken") => String.t()
       }
 
@@ -636,7 +636,7 @@ defmodule AWS.RUM do
   ## Example:
 
       batch_get_rum_metric_definitions_response() :: %{
-        optional("MetricDefinitions") => list(metric_definition()()),
+        optional("MetricDefinitions") => list(metric_definition()),
         optional("NextToken") => [String.t()]
       }
 
@@ -718,8 +718,8 @@ defmodule AWS.RUM do
   ## Example:
 
       batch_create_rum_metric_definitions_response() :: %{
-        optional("MetricDefinitions") => list(metric_definition()()),
-        required("Errors") => list(batch_create_rum_metric_definitions_error()())
+        optional("MetricDefinitions") => list(metric_definition()),
+        required("Errors") => list(batch_create_rum_metric_definitions_error())
       }
 
   """
@@ -832,7 +832,7 @@ defmodule AWS.RUM do
   ## Example:
 
       list_app_monitors_response() :: %{
-        optional("AppMonitorSummaries") => list(app_monitor_summary()()),
+        optional("AppMonitorSummaries") => list(app_monitor_summary()),
         optional("NextToken") => [String.t()]
       }
 
@@ -844,7 +844,7 @@ defmodule AWS.RUM do
   ## Example:
 
       list_rum_metrics_destinations_response() :: %{
-        optional("Destinations") => list(metric_destination_summary()()),
+        optional("Destinations") => list(metric_destination_summary()),
         optional("NextToken") => [String.t()]
       }
 

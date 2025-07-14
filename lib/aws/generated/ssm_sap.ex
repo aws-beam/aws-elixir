@@ -88,8 +88,8 @@ defmodule AWS.SsmSap do
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
         "ComponentId" => String.t(),
-        "ConnectedComponentArns" => list(String.t()()),
-        "Credentials" => list(application_credential()()),
+        "ConnectedComponentArns" => list(String.t()),
+        "Credentials" => list(application_credential()),
         "DatabaseId" => String.t(),
         "DatabaseName" => [String.t()],
         "DatabaseType" => list(any()),
@@ -151,7 +151,7 @@ defmodule AWS.SsmSap do
 
       list_operations_output() :: %{
         optional("NextToken") => String.t(),
-        optional("Operations") => list(operation()())
+        optional("Operations") => list(operation())
       }
 
   """
@@ -211,7 +211,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -223,7 +223,7 @@ defmodule AWS.SsmSap do
 
       list_operation_events_output() :: %{
         "NextToken" => String.t(),
-        "OperationEvents" => list(operation_event()())
+        "OperationEvents" => list(operation_event())
       }
 
   """
@@ -249,7 +249,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_components_output() :: %{
-        optional("Components") => list(component_summary()()),
+        optional("Components") => list(component_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -303,7 +303,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_operation_events_input() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OperationId") => String.t()
@@ -317,7 +317,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_applications_output() :: %{
-        optional("Applications") => list(application_summary()()),
+        optional("Applications") => list(application_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -375,7 +375,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_applications_input() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -434,7 +434,7 @@ defmodule AWS.SsmSap do
 
       update_application_settings_output() :: %{
         optional("Message") => [String.t()],
-        optional("OperationIds") => list(String.t()())
+        optional("OperationIds") => list(String.t())
       }
 
   """
@@ -445,7 +445,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_databases_output() :: %{
-        optional("Databases") => list(database_summary()()),
+        optional("Databases") => list(database_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -460,13 +460,13 @@ defmodule AWS.SsmSap do
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
         "AssociatedHost" => associated_host(),
-        "ChildComponents" => list(String.t()()),
+        "ChildComponents" => list(String.t()),
         "ComponentId" => String.t(),
         "ComponentType" => list(any()),
         "DatabaseConnection" => database_connection(),
-        "Databases" => list(String.t()()),
+        "Databases" => list(String.t()),
         "HdbVersion" => [String.t()],
-        "Hosts" => list(host()()),
+        "Hosts" => list(host()),
         "LastUpdated" => [non_neg_integer()],
         "ParentComponent" => String.t(),
         "PrimaryHost" => [String.t()],
@@ -502,8 +502,8 @@ defmodule AWS.SsmSap do
       application() :: %{
         "AppRegistryArn" => String.t(),
         "Arn" => String.t(),
-        "AssociatedApplicationArns" => list(String.t()()),
-        "Components" => list(String.t()()),
+        "AssociatedApplicationArns" => list(String.t()),
+        "Components" => list(String.t()),
         "DiscoveryStatus" => list(any()),
         "Id" => String.t(),
         "LastUpdated" => [non_neg_integer()],
@@ -659,7 +659,7 @@ defmodule AWS.SsmSap do
       associated_host() :: %{
         "Ec2InstanceId" => [String.t()],
         "Hostname" => [String.t()],
-        "IpAddresses" => list(ip_address_member()()),
+        "IpAddresses" => list(ip_address_member()),
         "OsVersion" => [String.t()]
       }
 
@@ -685,8 +685,8 @@ defmodule AWS.SsmSap do
 
       update_application_settings_input() :: %{
         optional("Backint") => backint_config(),
-        optional("CredentialsToAddOrUpdate") => list(application_credential()()),
-        optional("CredentialsToRemove") => list(application_credential()()),
+        optional("CredentialsToAddOrUpdate") => list(application_credential()),
+        optional("CredentialsToRemove") => list(application_credential()),
         optional("DatabaseArn") => String.t(),
         required("ApplicationId") => String.t()
       }
@@ -728,7 +728,7 @@ defmodule AWS.SsmSap do
   ## Example:
 
       list_operations_input() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ApplicationId") => String.t()
@@ -833,15 +833,15 @@ defmodule AWS.SsmSap do
   ## Example:
 
       register_application_input() :: %{
-        optional("ComponentsInfo") => list(component_info()()),
-        optional("Credentials") => list(application_credential()()),
+        optional("ComponentsInfo") => list(component_info()),
+        optional("Credentials") => list(application_credential()),
         optional("DatabaseArn") => String.t(),
         optional("SapInstanceNumber") => String.t(),
         optional("Sid") => String.t(),
         optional("Tags") => map(),
         required("ApplicationId") => String.t(),
         required("ApplicationType") => list(any()),
-        required("Instances") => list(String.t()())
+        required("Instances") => list(String.t())
       }
 
   """

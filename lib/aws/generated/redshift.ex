@@ -73,7 +73,7 @@ defmodule AWS.Redshift do
       describe_scheduled_actions_message() :: %{
         optional("Active") => boolean(),
         optional("EndTime") => non_neg_integer(),
-        optional("Filters") => list(scheduled_action_filter()()),
+        optional("Filters") => list(scheduled_action_filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ScheduledActionName") => String.t(),
@@ -100,7 +100,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       event_subscriptions_message() :: %{
-        "EventSubscriptionsList" => list(event_subscription()()),
+        "EventSubscriptionsList" => list(event_subscription()),
         "Marker" => String.t()
       }
       
@@ -230,7 +230,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       endpoint_access_list() :: %{
-        optional("EndpointAccessList") => list(endpoint_access()()),
+        optional("EndpointAccessList") => list(endpoint_access()),
         optional("Marker") => String.t()
       }
       
@@ -291,7 +291,7 @@ defmodule AWS.Redshift do
       
       list_recommendations_result() :: %{
         "Marker" => String.t(),
-        "Recommendations" => list(recommendation()())
+        "Recommendations" => list(recommendation())
       }
       
   """
@@ -302,7 +302,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       event_categories_map() :: %{
-        "Events" => list(event_info_map()()),
+        "Events" => list(event_info_map()),
         "SourceType" => String.t()
       }
       
@@ -318,8 +318,8 @@ defmodule AWS.Redshift do
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ScheduleIdentifier") => String.t(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -379,8 +379,8 @@ defmodule AWS.Redshift do
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ParameterGroupName") => String.t(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -403,7 +403,7 @@ defmodule AWS.Redshift do
       
       create_cluster_snapshot_message() :: %{
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterIdentifier") => String.t(),
         required("SnapshotIdentifier") => String.t()
       }
@@ -428,7 +428,7 @@ defmodule AWS.Redshift do
       
       get_reserved_node_exchange_offerings_output_message() :: %{
         "Marker" => String.t(),
-        "ReservedNodeOfferings" => list(reserved_node_offering()())
+        "ReservedNodeOfferings" => list(reserved_node_offering())
       }
       
   """
@@ -462,7 +462,7 @@ defmodule AWS.Redshift do
       
       inbound_integration() :: %{
         "CreateTime" => non_neg_integer(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
@@ -489,7 +489,7 @@ defmodule AWS.Redshift do
       
       availability_zone() :: %{
         "Name" => String.t(),
-        "SupportedPlatforms" => list(supported_platform()())
+        "SupportedPlatforms" => list(supported_platform())
       }
       
   """
@@ -558,8 +558,8 @@ defmodule AWS.Redshift do
         optional("ClusterSecurityGroupName") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -573,8 +573,8 @@ defmodule AWS.Redshift do
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SnapshotCopyGrantName") => String.t(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -587,10 +587,10 @@ defmodule AWS.Redshift do
       create_snapshot_schedule_message() :: %{
         optional("DryRun") => boolean(),
         optional("NextInvocations") => integer(),
-        optional("ScheduleDefinitions") => list(String.t()()),
+        optional("ScheduleDefinitions") => list(String.t()),
         optional("ScheduleDescription") => String.t(),
         optional("ScheduleIdentifier") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -652,13 +652,13 @@ defmodule AWS.Redshift do
         optional("AdditionalEncryptionContext") => map(),
         optional("CreateTime") => non_neg_integer(),
         optional("Description") => String.t(),
-        optional("Errors") => list(integration_error()()),
+        optional("Errors") => list(integration_error()),
         optional("IntegrationArn") => String.t(),
         optional("IntegrationName") => String.t(),
         optional("KMSKeyId") => String.t(),
         optional("SourceArn") => String.t(),
         optional("Status") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetArn") => String.t()
       }
       
@@ -671,7 +671,7 @@ defmodule AWS.Redshift do
       
       create_tags_message() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -683,7 +683,7 @@ defmodule AWS.Redshift do
       
       describe_integrations_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -695,10 +695,10 @@ defmodule AWS.Redshift do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("Severity") => String.t(),
         optional("SnsTopicArn") => String.t(),
-        optional("SourceIds") => list(String.t()()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -728,7 +728,7 @@ defmodule AWS.Redshift do
         "HsmConfigurationIdentifier" => String.t(),
         "HsmIpAddress" => String.t(),
         "HsmPartitionName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -751,7 +751,7 @@ defmodule AWS.Redshift do
       
       scheduled_action_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -784,11 +784,11 @@ defmodule AWS.Redshift do
   ## Example:
       
       modify_redshift_idc_application_message() :: %{
-        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
+        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
         optional("IamRoleArn") => String.t(),
         optional("IdcDisplayName") => String.t(),
         optional("IdentityNamespace") => String.t(),
-        optional("ServiceIntegrations") => list(list()()),
+        optional("ServiceIntegrations") => list(list()),
         required("RedshiftIdcApplicationArn") => String.t()
       }
       
@@ -869,9 +869,9 @@ defmodule AWS.Redshift do
         "ClusterSubnetGroupName" => String.t(),
         "Description" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(subnet()()),
-        "SupportedClusterIpAddressTypes" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "Subnets" => list(subnet()),
+        "SupportedClusterIpAddressTypes" => list(String.t()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -897,14 +897,14 @@ defmodule AWS.Redshift do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "Severity" => String.t(),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => non_neg_integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -918,7 +918,7 @@ defmodule AWS.Redshift do
         "EC2SecurityGroupName" => String.t(),
         "EC2SecurityGroupOwnerId" => String.t(),
         "Status" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1006,7 +1006,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       modify_endpoint_access_message() :: %{
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("EndpointName") => String.t()
       }
       
@@ -1095,7 +1095,7 @@ defmodule AWS.Redshift do
       
       delete_tags_message() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1163,9 +1163,9 @@ defmodule AWS.Redshift do
   ## Example:
       
       modify_cluster_iam_roles_message() :: %{
-        optional("AddIamRoles") => list(String.t()()),
+        optional("AddIamRoles") => list(String.t()),
         optional("DefaultIamRoleArn") => String.t(),
-        optional("RemoveIamRoles") => list(String.t()()),
+        optional("RemoveIamRoles") => list(String.t()),
         required("ClusterIdentifier") => String.t()
       }
       
@@ -1264,7 +1264,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Description") => String.t(),
         required("ParameterGroupFamily") => String.t(),
         required("ParameterGroupName") => String.t()
@@ -1312,7 +1312,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_data_shares_for_consumer_result() :: %{
-        "DataShares" => list(data_share()()),
+        "DataShares" => list(data_share()),
         "Marker" => String.t()
       }
       
@@ -1380,7 +1380,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_data_shares_result() :: %{
-        "DataShares" => list(data_share()()),
+        "DataShares" => list(data_share()),
         "Marker" => String.t()
       }
       
@@ -1404,7 +1404,7 @@ defmodule AWS.Redshift do
       
       endpoint_authorization() :: %{
         "AllowedAllVPCs" => boolean(),
-        "AllowedVPCs" => list(String.t()()),
+        "AllowedVPCs" => list(String.t()),
         "AuthorizeTime" => non_neg_integer(),
         "ClusterIdentifier" => String.t(),
         "ClusterStatus" => String.t(),
@@ -1530,7 +1530,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_cluster_security_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterSecurityGroupName") => String.t(),
         required("Description") => String.t()
       }
@@ -1557,8 +1557,8 @@ defmodule AWS.Redshift do
         optional("HsmConfigurationIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -1664,7 +1664,7 @@ defmodule AWS.Redshift do
       
       reserved_nodes_message() :: %{
         "Marker" => String.t(),
-        "ReservedNodes" => list(reserved_node()())
+        "ReservedNodes" => list(reserved_node())
       }
       
   """
@@ -1702,8 +1702,8 @@ defmodule AWS.Redshift do
         optional("ClusterSubnetGroupName") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -1719,7 +1719,7 @@ defmodule AWS.Redshift do
         "FixedPrice" => float(),
         "NodeType" => String.t(),
         "OfferingType" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedNodeOfferingId" => String.t(),
         "ReservedNodeOfferingType" => list(any()),
         "UsagePrice" => float()
@@ -1744,7 +1744,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       modify_snapshot_schedule_message() :: %{
-        required("ScheduleDefinitions") => list(String.t()()),
+        required("ScheduleDefinitions") => list(String.t()),
         required("ScheduleIdentifier") => String.t()
       }
       
@@ -1780,7 +1780,7 @@ defmodule AWS.Redshift do
       
       authorize_endpoint_access_message() :: %{
         optional("ClusterIdentifier") => String.t(),
-        optional("VpcIds") => list(String.t()()),
+        optional("VpcIds") => list(String.t()),
         required("Account") => String.t()
       }
       
@@ -1792,7 +1792,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_account_attributes_message() :: %{
-        optional("AttributeNames") => list(String.t()())
+        optional("AttributeNames") => list(String.t())
       }
       
   """
@@ -1947,11 +1947,11 @@ defmodule AWS.Redshift do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("Severity") => String.t(),
-        optional("SourceIds") => list(String.t()()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnsTopicArn") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -1978,7 +1978,7 @@ defmodule AWS.Redshift do
       
       create_snapshot_copy_grant_message() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnapshotCopyGrantName") => String.t()
       }
       
@@ -2004,7 +2004,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       endpoint_authorization_list() :: %{
-        optional("EndpointAuthorizationList") => list(endpoint_authorization()()),
+        optional("EndpointAuthorizationList") => list(endpoint_authorization()),
         optional("Marker") => String.t()
       }
       
@@ -2050,7 +2050,7 @@ defmodule AWS.Redshift do
       
       orderable_cluster_options_message() :: %{
         "Marker" => String.t(),
-        "OrderableClusterOptions" => list(orderable_cluster_option()())
+        "OrderableClusterOptions" => list(orderable_cluster_option())
       }
       
   """
@@ -2064,8 +2064,8 @@ defmodule AWS.Redshift do
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SubscriptionName") => String.t(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -2076,7 +2076,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       cluster_parameter_group_status() :: %{
-        "ClusterParameterStatusList" => list(cluster_parameter_status()()),
+        "ClusterParameterStatusList" => list(cluster_parameter_status()),
         "ParameterApplyStatus" => String.t(),
         "ParameterGroupName" => String.t()
       }
@@ -2111,7 +2111,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       register_namespace_input_message() :: %{
-        required("ConsumerIdentifiers") => list(String.t()()),
+        required("ConsumerIdentifiers") => list(String.t()),
         required("NamespaceIdentifier") => list()
       }
       
@@ -2160,7 +2160,7 @@ defmodule AWS.Redshift do
       
       snapshot_copy_grant_message() :: %{
         "Marker" => String.t(),
-        "SnapshotCopyGrants" => list(snapshot_copy_grant()())
+        "SnapshotCopyGrants" => list(snapshot_copy_grant())
       }
       
   """
@@ -2207,8 +2207,8 @@ defmodule AWS.Redshift do
         optional("MaxRecords") => integer(),
         optional("ResourceName") => String.t(),
         optional("ResourceType") => String.t(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -2288,7 +2288,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       orderable_cluster_option() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "ClusterType" => String.t(),
         "ClusterVersion" => String.t(),
         "NodeType" => String.t()
@@ -2313,7 +2313,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       event_info_map() :: %{
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "EventDescription" => String.t(),
         "EventId" => String.t(),
         "Severity" => String.t()
@@ -2327,8 +2327,8 @@ defmodule AWS.Redshift do
   ## Example:
       
       batch_modify_cluster_snapshots_output_message() :: %{
-        "Errors" => list(snapshot_error_message()()),
-        "Resources" => list(String.t()())
+        "Errors" => list(snapshot_error_message()),
+        "Resources" => list(String.t())
       }
       
   """
@@ -2339,7 +2339,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       cluster_db_revisions_message() :: %{
-        "ClusterDbRevisions" => list(cluster_db_revision()()),
+        "ClusterDbRevisions" => list(cluster_db_revision()),
         "Marker" => String.t()
       }
       
@@ -2381,7 +2381,7 @@ defmodule AWS.Redshift do
       modify_cluster_subnet_group_message() :: %{
         optional("Description") => String.t(),
         required("ClusterSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -2463,7 +2463,7 @@ defmodule AWS.Redshift do
       
       cluster_parameter_groups_message() :: %{
         "Marker" => String.t(),
-        "ParameterGroups" => list(cluster_parameter_group()())
+        "ParameterGroups" => list(cluster_parameter_group())
       }
       
   """
@@ -2486,7 +2486,7 @@ defmodule AWS.Redshift do
       
       modify_cluster_parameter_group_message() :: %{
         required("ParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -2511,10 +2511,10 @@ defmodule AWS.Redshift do
         "DBName" => String.t(),
         "AutomatedSnapshotRetentionPeriod" => integer(),
         "DefaultIamRoleArn" => String.t(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
-        "Tags" => list(tag()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
+        "Tags" => list(tag()),
         "Encrypted" => boolean(),
-        "PendingActions" => list(String.t()()),
+        "PendingActions" => list(String.t()),
         "CustomDomainName" => String.t(),
         "MultiAZ" => String.t(),
         "IpAddressType" => String.t(),
@@ -2527,7 +2527,7 @@ defmodule AWS.Redshift do
         "PendingModifiedValues" => pending_modified_values(),
         "KmsKeyId" => String.t(),
         "VpcId" => String.t(),
-        "ClusterSecurityGroups" => list(cluster_security_group_membership()()),
+        "ClusterSecurityGroups" => list(cluster_security_group_membership()),
         "AvailabilityZone" => String.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "CustomDomainCertificateExpiryDate" => non_neg_integer(),
@@ -2544,7 +2544,7 @@ defmodule AWS.Redshift do
         "HsmStatus" => hsm_status(),
         "MaintenanceTrackName" => String.t(),
         "ClusterSubnetGroupName" => String.t(),
-        "ClusterNodes" => list(cluster_node()()),
+        "ClusterNodes" => list(cluster_node()),
         "ClusterStatus" => String.t(),
         "MasterUsername" => String.t(),
         "MultiAZSecondary" => secondary_cluster_info(),
@@ -2554,7 +2554,7 @@ defmodule AWS.Redshift do
         "NumberOfNodes" => integer(),
         "DataTransferProgress" => data_transfer_progress(),
         "MasterPasswordSecretArn" => String.t(),
-        "IamRoles" => list(cluster_iam_role()()),
+        "IamRoles" => list(cluster_iam_role()),
         "NextMaintenanceWindowStartTime" => non_neg_integer(),
         "PubliclyAccessible" => boolean(),
         "MasterPasswordSecretKmsKeyId" => String.t(),
@@ -2564,8 +2564,8 @@ defmodule AWS.Redshift do
         "AvailabilityZoneRelocationStatus" => String.t(),
         "SnapshotScheduleIdentifier" => String.t(),
         "ElasticIpStatus" => elastic_ip_status(),
-        "DeferredMaintenanceWindows" => list(deferred_maintenance_window()()),
-        "ClusterParameterGroups" => list(cluster_parameter_group_status()()),
+        "DeferredMaintenanceWindows" => list(deferred_maintenance_window()),
+        "ClusterParameterGroups" => list(cluster_parameter_group_status()),
         "ExpectedNextSnapshotScheduleTime" => non_neg_integer(),
         "ReservedNodeExchangeStatus" => reserved_node_exchange_status()
       }
@@ -2578,7 +2578,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       reset_cluster_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("ParameterGroupName") => String.t()
       }
@@ -2603,7 +2603,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       inbound_integrations_message() :: %{
-        "InboundIntegrations" => list(inbound_integration()()),
+        "InboundIntegrations" => list(inbound_integration()),
         "Marker" => String.t()
       }
       
@@ -2646,8 +2646,8 @@ defmodule AWS.Redshift do
         "Observation" => String.t(),
         "RecommendationText" => String.t(),
         "RecommendationType" => String.t(),
-        "RecommendedActions" => list(recommended_action()()),
-        "ReferenceLinks" => list(reference_link()()),
+        "RecommendedActions" => list(recommended_action()),
+        "ReferenceLinks" => list(reference_link()),
         "Title" => String.t()
       }
       
@@ -2719,7 +2719,7 @@ defmodule AWS.Redshift do
       ip_range() :: %{
         "CIDRIP" => String.t(),
         "Status" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2732,7 +2732,7 @@ defmodule AWS.Redshift do
       scheduled_action() :: %{
         "EndTime" => non_neg_integer(),
         "IamRole" => String.t(),
-        "NextInvocations" => list(non_neg_integer()()),
+        "NextInvocations" => list(non_neg_integer()),
         "Schedule" => String.t(),
         "ScheduledActionDescription" => String.t(),
         "ScheduledActionName" => String.t(),
@@ -2749,7 +2749,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_authentication_profiles_result() :: %{
-        "AuthenticationProfiles" => list(authentication_profile()())
+        "AuthenticationProfiles" => list(authentication_profile())
       }
       
   """
@@ -2810,7 +2810,7 @@ defmodule AWS.Redshift do
       node_configuration_options_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2862,7 +2862,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       redshift_idc_application() :: %{
-        "AuthorizedTokenIssuerList" => list(authorized_token_issuer()()),
+        "AuthorizedTokenIssuerList" => list(authorized_token_issuer()),
         "IamRoleArn" => String.t(),
         "IdcDisplayName" => String.t(),
         "IdcInstanceArn" => String.t(),
@@ -2871,7 +2871,7 @@ defmodule AWS.Redshift do
         "IdentityNamespace" => String.t(),
         "RedshiftIdcApplicationArn" => String.t(),
         "RedshiftIdcApplicationName" => String.t(),
-        "ServiceIntegrations" => list(list()())
+        "ServiceIntegrations" => list(list())
       }
       
   """
@@ -2882,7 +2882,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       association() :: %{
-        "CertificateAssociations" => list(certificate_association()()),
+        "CertificateAssociations" => list(certificate_association()),
         "CustomDomainCertificateArn" => String.t(),
         "CustomDomainCertificateExpiryDate" => non_neg_integer()
       }
@@ -2924,7 +2924,7 @@ defmodule AWS.Redshift do
       
       scheduled_actions_message() :: %{
         "Marker" => String.t(),
-        "ScheduledActions" => list(scheduled_action()())
+        "ScheduledActions" => list(scheduled_action())
       }
       
   """
@@ -2972,7 +2972,7 @@ defmodule AWS.Redshift do
       hsm_client_certificate() :: %{
         "HsmClientCertificateIdentifier" => String.t(),
         "HsmClientCertificatePublicKey" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2983,7 +2983,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       batch_delete_cluster_snapshots_request() :: %{
-        required("Identifiers") => list(delete_cluster_snapshot_message()())
+        required("Identifiers") => list(delete_cluster_snapshot_message())
       }
       
   """
@@ -3022,7 +3022,7 @@ defmodule AWS.Redshift do
         "NodeCount" => integer(),
         "NodeType" => String.t(),
         "OfferingType" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedNodeId" => String.t(),
         "ReservedNodeOfferingId" => String.t(),
         "ReservedNodeOfferingType" => list(any()),
@@ -3052,7 +3052,7 @@ defmodule AWS.Redshift do
       snapshot_copy_grant() :: %{
         "KmsKeyId" => String.t(),
         "SnapshotCopyGrantName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3104,7 +3104,7 @@ defmodule AWS.Redshift do
       data_share() :: %{
         optional("AllowPubliclyAccessibleConsumers") => boolean(),
         optional("DataShareArn") => String.t(),
-        optional("DataShareAssociations") => list(data_share_association()()),
+        optional("DataShareAssociations") => list(data_share_association()),
         optional("DataShareType") => list(any()),
         optional("ManagedBy") => String.t(),
         optional("ProducerArn") => String.t()
@@ -3121,7 +3121,7 @@ defmodule AWS.Redshift do
         optional("Account") => String.t(),
         optional("ClusterIdentifier") => String.t(),
         optional("Force") => boolean(),
-        optional("VpcIds") => list(String.t()())
+        optional("VpcIds") => list(String.t())
       }
       
   """
@@ -3167,7 +3167,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       vpc_endpoint() :: %{
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "VpcEndpointId" => String.t(),
         "VpcId" => String.t()
       }
@@ -3213,7 +3213,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       deregister_namespace_input_message() :: %{
-        required("ConsumerIdentifiers") => list(String.t()()),
+        required("ConsumerIdentifiers") => list(String.t()),
         required("NamespaceIdentifier") => list()
       }
       
@@ -3226,7 +3226,7 @@ defmodule AWS.Redshift do
       
       reserved_node_offerings_message() :: %{
         "Marker" => String.t(),
-        "ReservedNodeOfferings" => list(reserved_node_offering()())
+        "ReservedNodeOfferings" => list(reserved_node_offering())
       }
       
   """
@@ -3360,7 +3360,7 @@ defmodule AWS.Redshift do
       
       usage_limit_list() :: %{
         optional("Marker") => String.t(),
-        optional("UsageLimits") => list(usage_limit()())
+        optional("UsageLimits") => list(usage_limit())
       }
       
   """
@@ -3383,7 +3383,7 @@ defmodule AWS.Redshift do
       
       cluster_parameter_group_details() :: %{
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -3399,7 +3399,7 @@ defmodule AWS.Redshift do
         "LastFailureTime" => non_neg_integer(),
         "LastSuccessfulDeliveryTime" => non_neg_integer(),
         "LogDestinationType" => list(any()),
-        "LogExports" => list(String.t()()),
+        "LogExports" => list(String.t()),
         "LoggingEnabled" => boolean(),
         "S3KeyPrefix" => String.t()
       }
@@ -3412,7 +3412,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       account_attribute_list() :: %{
-        optional("AccountAttributes") => list(account_attribute()())
+        optional("AccountAttributes") => list(account_attribute())
       }
       
   """
@@ -3434,7 +3434,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       cluster_versions_message() :: %{
-        "ClusterVersions" => list(cluster_version()()),
+        "ClusterVersions" => list(cluster_version()),
         "Marker" => String.t()
       }
       
@@ -3503,7 +3503,7 @@ defmodule AWS.Redshift do
       endpoint() :: %{
         "Address" => String.t(),
         "Port" => integer(),
-        "VpcEndpoints" => list(vpc_endpoint()())
+        "VpcEndpoints" => list(vpc_endpoint())
       }
       
   """
@@ -3527,7 +3527,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       events_message() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -3540,7 +3540,7 @@ defmodule AWS.Redshift do
       
       tagged_resource_list_message() :: %{
         "Marker" => String.t(),
-        "TaggedResources" => list(tagged_resource()())
+        "TaggedResources" => list(tagged_resource())
       }
       
   """
@@ -3717,9 +3717,9 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_redshift_idc_application_message() :: %{
-        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()()),
+        optional("AuthorizedTokenIssuerList") => list(authorized_token_issuer()),
         optional("IdentityNamespace") => String.t(),
-        optional("ServiceIntegrations") => list(list()()),
+        optional("ServiceIntegrations") => list(list()),
         required("IamRoleArn") => String.t(),
         required("IdcDisplayName") => String.t(),
         required("IdcInstanceArn") => String.t(),
@@ -3748,7 +3748,7 @@ defmodule AWS.Redshift do
         optional("AdditionalEncryptionContext") => map(),
         optional("Description") => String.t(),
         optional("KMSKeyId") => String.t(),
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("IntegrationName") => String.t(),
         required("SourceArn") => String.t(),
         required("TargetArn") => String.t()
@@ -3792,7 +3792,7 @@ defmodule AWS.Redshift do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "EventId" => String.t(),
         "Message" => String.t(),
         "Severity" => String.t(),
@@ -3819,7 +3819,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       clusters_message() :: %{
-        "Clusters" => list(cluster()()),
+        "Clusters" => list(cluster()),
         "Marker" => String.t()
       }
       
@@ -3887,7 +3887,7 @@ defmodule AWS.Redshift do
         "DBName" => String.t(),
         "BackupProgressInMegaBytes" => float(),
         "ManualSnapshotRemainingDays" => integer(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Encrypted" => boolean(),
         "OwnerAccount" => String.t(),
         "EnhancedVpcRouting" => boolean(),
@@ -3900,7 +3900,7 @@ defmodule AWS.Redshift do
         "AvailabilityZone" => String.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "EngineFullVersion" => String.t(),
-        "AccountsWithRestoreAccess" => list(account_with_restore_access()()),
+        "AccountsWithRestoreAccess" => list(account_with_restore_access()),
         "ClusterCreateTime" => non_neg_integer(),
         "Port" => integer(),
         "NodeType" => String.t(),
@@ -3918,7 +3918,7 @@ defmodule AWS.Redshift do
         "ActualIncrementalBackupSizeInMegaBytes" => float(),
         "MasterPasswordSecretKmsKeyId" => String.t(),
         "SnapshotIdentifier" => String.t(),
-        "RestorableNodeTypes" => list(String.t()())
+        "RestorableNodeTypes" => list(String.t())
       }
       
   """
@@ -3971,7 +3971,7 @@ defmodule AWS.Redshift do
       
       snapshot_message() :: %{
         "Marker" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -4070,7 +4070,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       hsm_client_certificate_message() :: %{
-        "HsmClientCertificates" => list(hsm_client_certificate()()),
+        "HsmClientCertificates" => list(hsm_client_certificate()),
         "Marker" => String.t()
       }
       
@@ -4108,7 +4108,7 @@ defmodule AWS.Redshift do
         "ClusterIdentifier" => String.t(),
         "CurrentDatabaseRevision" => String.t(),
         "DatabaseRevisionReleaseDate" => non_neg_integer(),
-        "RevisionTargets" => list(revision_target()())
+        "RevisionTargets" => list(revision_target())
       }
       
   """
@@ -4169,7 +4169,7 @@ defmodule AWS.Redshift do
       batch_modify_cluster_snapshots_message() :: %{
         optional("Force") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
-        required("SnapshotIdentifierList") => list(String.t()())
+        required("SnapshotIdentifierList") => list(String.t())
       }
       
   """
@@ -4209,7 +4209,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       event_categories_message() :: %{
-        "EventCategoriesMapList" => list(event_categories_map()())
+        "EventCategoriesMapList" => list(event_categories_map())
       }
       
   """
@@ -4340,10 +4340,10 @@ defmodule AWS.Redshift do
         optional("SnapshotArn") => String.t(),
         optional("SnapshotIdentifier") => String.t(),
         optional("SnapshotType") => String.t(),
-        optional("SortingEntities") => list(snapshot_sorting_entity()()),
+        optional("SortingEntities") => list(snapshot_sorting_entity()),
         optional("StartTime") => non_neg_integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -4365,7 +4365,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       cluster_subnet_group_message() :: %{
-        "ClusterSubnetGroups" => list(cluster_subnet_group()()),
+        "ClusterSubnetGroups" => list(cluster_subnet_group()),
         "Marker" => String.t()
       }
       
@@ -4377,7 +4377,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_cluster_message() :: %{
-        optional("IamRoles") => list(String.t()()),
+        optional("IamRoles") => list(String.t()),
         required("NodeType") => String.t(),
         optional("EnhancedVpcRouting") => boolean(),
         optional("MasterPasswordSecretKmsKeyId") => String.t(),
@@ -4400,7 +4400,7 @@ defmodule AWS.Redshift do
         optional("AdditionalInfo") => String.t(),
         optional("AquaConfigurationStatus") => list(any()),
         optional("AllowVersionUpgrade") => boolean(),
-        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("ClusterSecurityGroups") => list(String.t()),
         optional("PubliclyAccessible") => boolean(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
         optional("DefaultIamRoleArn") => String.t(),
@@ -4409,13 +4409,13 @@ defmodule AWS.Redshift do
         optional("Port") => integer(),
         optional("ElasticIp") => String.t(),
         optional("MultiAZ") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
         optional("KmsKeyId") => String.t(),
         optional("DBName") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("ClusterParameterGroupName") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -4457,7 +4457,7 @@ defmodule AWS.Redshift do
         "FeatureType" => list(any()),
         "LimitType" => list(any()),
         "Period" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UsageLimitId" => String.t()
       }
       
@@ -4504,7 +4504,7 @@ defmodule AWS.Redshift do
       enable_logging_message() :: %{
         optional("BucketName") => String.t(),
         optional("LogDestinationType") => list(any()),
-        optional("LogExports") => list(String.t()()),
+        optional("LogExports") => list(String.t()),
         optional("S3KeyPrefix") => String.t(),
         required("ClusterIdentifier") => String.t()
       }
@@ -4537,7 +4537,7 @@ defmodule AWS.Redshift do
       
       describe_redshift_idc_applications_result() :: %{
         "Marker" => String.t(),
-        "RedshiftIdcApplications" => list(redshift_idc_application()())
+        "RedshiftIdcApplications" => list(redshift_idc_application())
       }
       
   """
@@ -4572,7 +4572,7 @@ defmodule AWS.Redshift do
       create_endpoint_access_message() :: %{
         optional("ClusterIdentifier") => String.t(),
         optional("ResourceOwner") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("EndpointName") => String.t(),
         required("SubnetGroupName") => String.t()
       }
@@ -4611,7 +4611,7 @@ defmodule AWS.Redshift do
       
       describe_snapshot_schedules_output_message() :: %{
         "Marker" => String.t(),
-        "SnapshotSchedules" => list(snapshot_schedule()())
+        "SnapshotSchedules" => list(snapshot_schedule())
       }
       
   """
@@ -4635,7 +4635,7 @@ defmodule AWS.Redshift do
       update_target() :: %{
         "DatabaseVersion" => String.t(),
         "MaintenanceTrackName" => String.t(),
-        "SupportedOperations" => list(supported_operation()())
+        "SupportedOperations" => list(supported_operation())
       }
       
   """
@@ -4648,7 +4648,7 @@ defmodule AWS.Redshift do
       create_usage_limit_message() :: %{
         optional("BreachAction") => list(any()),
         optional("Period") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Amount") => float(),
         required("ClusterIdentifier") => String.t(),
         required("FeatureType") => list(any()),
@@ -4689,8 +4689,8 @@ defmodule AWS.Redshift do
         optional("ClusterIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -4727,9 +4727,9 @@ defmodule AWS.Redshift do
         "DataTransferProgressPercent" => float(),
         "ElapsedTimeInSeconds" => float(),
         "EstimatedTimeToCompletionInSeconds" => float(),
-        "ImportTablesCompleted" => list(String.t()()),
-        "ImportTablesInProgress" => list(String.t()()),
-        "ImportTablesNotStarted" => list(String.t()()),
+        "ImportTablesCompleted" => list(String.t()),
+        "ImportTablesInProgress" => list(String.t()),
+        "ImportTablesNotStarted" => list(String.t()),
         "Message" => String.t(),
         "ProgressInMegaBytes" => float(),
         "ResizeType" => String.t(),
@@ -4749,7 +4749,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_hsm_client_certificate_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("HsmClientCertificateIdentifier") => String.t()
       }
       
@@ -4773,7 +4773,7 @@ defmodule AWS.Redshift do
       
       account_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(attribute_value_target()())
+        "AttributeValues" => list(attribute_value_target())
       }
       
   """
@@ -4858,7 +4858,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       integrations_message() :: %{
-        "Integrations" => list(integration()()),
+        "Integrations" => list(integration()),
         "Marker" => String.t()
       }
       
@@ -4892,7 +4892,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_hsm_configuration_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Description") => String.t(),
         required("HsmConfigurationIdentifier") => String.t(),
         required("HsmIpAddress") => String.t(),
@@ -4934,7 +4934,7 @@ defmodule AWS.Redshift do
         optional("AutoCreate") => boolean(),
         optional("ClusterIdentifier") => String.t(),
         optional("CustomDomainName") => String.t(),
-        optional("DbGroups") => list(String.t()()),
+        optional("DbGroups") => list(String.t()),
         optional("DbName") => String.t(),
         optional("DurationSeconds") => integer(),
         required("DbUser") => String.t()
@@ -4951,8 +4951,8 @@ defmodule AWS.Redshift do
         optional("HsmClientCertificateIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()())
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t())
       }
       
   """
@@ -4974,7 +4974,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_integrations_message() :: %{
-        optional("Filters") => list(describe_integrations_filter()()),
+        optional("Filters") => list(describe_integrations_filter()),
         optional("IntegrationArn") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -5010,7 +5010,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       cluster_security_group_message() :: %{
-        "ClusterSecurityGroups" => list(cluster_security_group()()),
+        "ClusterSecurityGroups" => list(cluster_security_group()),
         "Marker" => String.t()
       }
       
@@ -5089,7 +5089,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_data_shares_for_producer_result() :: %{
-        "DataShares" => list(data_share()()),
+        "DataShares" => list(data_share()),
         "Marker" => String.t()
       }
       
@@ -5110,7 +5110,7 @@ defmodule AWS.Redshift do
         "ResourceOwner" => String.t(),
         "SubnetGroupName" => String.t(),
         "VpcEndpoint" => vpc_endpoint(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()())
+        "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
   """
@@ -5157,7 +5157,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       custom_domain_associations_message() :: %{
-        "Associations" => list(association()()),
+        "Associations" => list(association()),
         "Marker" => String.t()
       }
       
@@ -5196,7 +5196,7 @@ defmodule AWS.Redshift do
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneRelocation") => boolean(),
         optional("ClusterParameterGroupName") => String.t(),
-        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("ClusterSecurityGroups") => list(String.t()),
         optional("ClusterType") => String.t(),
         optional("ClusterVersion") => String.t(),
         optional("ElasticIp") => String.t(),
@@ -5218,7 +5218,7 @@ defmodule AWS.Redshift do
         optional("Port") => integer(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("PubliclyAccessible") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("ClusterIdentifier") => String.t()
       }
       
@@ -5265,9 +5265,9 @@ defmodule AWS.Redshift do
       cluster_security_group() :: %{
         "ClusterSecurityGroupName" => String.t(),
         "Description" => String.t(),
-        "EC2SecurityGroups" => list(ec2_security_group()()),
-        "IPRanges" => list(ip_range()()),
-        "Tags" => list(tag()())
+        "EC2SecurityGroups" => list(ec2_security_group()),
+        "IPRanges" => list(ip_range()),
+        "Tags" => list(tag())
       }
       
   """
@@ -5391,7 +5391,7 @@ defmodule AWS.Redshift do
       
       table_restore_status_message() :: %{
         "Marker" => String.t(),
-        "TableRestoreStatusDetails" => list(table_restore_status()())
+        "TableRestoreStatusDetails" => list(table_restore_status())
       }
       
   """
@@ -5429,8 +5429,8 @@ defmodule AWS.Redshift do
   ## Example:
       
       batch_delete_cluster_snapshots_result() :: %{
-        "Errors" => list(snapshot_error_message()()),
-        "Resources" => list(String.t()())
+        "Errors" => list(snapshot_error_message()),
+        "Resources" => list(String.t())
       }
       
   """
@@ -5441,7 +5441,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       describe_partners_output_message() :: %{
-        "PartnerIntegrationInfoList" => list(partner_integration_info()())
+        "PartnerIntegrationInfoList" => list(partner_integration_info())
       }
       
   """
@@ -5453,7 +5453,7 @@ defmodule AWS.Redshift do
       
       restore_from_cluster_snapshot_message() :: %{
         optional("OwnerAccount") => String.t(),
-        optional("IamRoles") => list(String.t()()),
+        optional("IamRoles") => list(String.t()),
         optional("SnapshotArn") => String.t(),
         optional("EnhancedVpcRouting") => boolean(),
         optional("MasterPasswordSecretKmsKeyId") => String.t(),
@@ -5471,7 +5471,7 @@ defmodule AWS.Redshift do
         optional("AdditionalInfo") => String.t(),
         optional("AquaConfigurationStatus") => list(any()),
         optional("AllowVersionUpgrade") => boolean(),
-        optional("ClusterSecurityGroups") => list(String.t()()),
+        optional("ClusterSecurityGroups") => list(String.t()),
         optional("PubliclyAccessible") => boolean(),
         optional("NodeType") => String.t(),
         optional("ManualSnapshotRetentionPeriod") => integer(),
@@ -5484,7 +5484,7 @@ defmodule AWS.Redshift do
         optional("ElasticIp") => String.t(),
         optional("MultiAZ") => boolean(),
         optional("ReservedNodeId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("AutomatedSnapshotRetentionPeriod") => integer(),
         optional("KmsKeyId") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
@@ -5523,7 +5523,7 @@ defmodule AWS.Redshift do
       default_cluster_parameters() :: %{
         "Marker" => String.t(),
         "ParameterGroupFamily" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -5534,7 +5534,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       hsm_configuration_message() :: %{
-        "HsmConfigurations" => list(hsm_configuration()()),
+        "HsmConfigurations" => list(hsm_configuration()),
         "Marker" => String.t()
       }
       
@@ -5560,7 +5560,7 @@ defmodule AWS.Redshift do
         "Description" => String.t(),
         "ParameterGroupFamily" => String.t(),
         "ParameterGroupName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -5643,7 +5643,7 @@ defmodule AWS.Redshift do
       
       describe_node_configuration_options_message() :: %{
         optional("ClusterIdentifier") => String.t(),
-        optional("Filters") => list(node_configuration_options_filter()()),
+        optional("Filters") => list(node_configuration_options_filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("OwnerAccount") => String.t(),
@@ -5709,7 +5709,7 @@ defmodule AWS.Redshift do
       
       node_configuration_options_message() :: %{
         "Marker" => String.t(),
-        "NodeConfigurationOptionList" => list(node_configuration_option()())
+        "NodeConfigurationOptionList" => list(node_configuration_option())
       }
       
   """
@@ -5745,7 +5745,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       authorized_token_issuer() :: %{
-        "AuthorizedAudiencesList" => list(String.t()()),
+        "AuthorizedAudiencesList" => list(String.t()),
         "TrustedTokenIssuerArn" => String.t()
       }
       
@@ -5794,7 +5794,7 @@ defmodule AWS.Redshift do
       
       secondary_cluster_info() :: %{
         "AvailabilityZone" => String.t(),
-        "ClusterNodes" => list(cluster_node()())
+        "ClusterNodes" => list(cluster_node())
       }
       
   """
@@ -5820,8 +5820,8 @@ defmodule AWS.Redshift do
         optional("FeatureType") => list(any()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("TagKeys") => list(String.t()()),
-        optional("TagValues") => list(String.t()()),
+        optional("TagKeys") => list(String.t()),
+        optional("TagValues") => list(String.t()),
         optional("UsageLimitId") => String.t()
       }
       
@@ -5833,10 +5833,10 @@ defmodule AWS.Redshift do
   ## Example:
       
       create_cluster_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterSubnetGroupName") => String.t(),
         required("Description") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -5900,7 +5900,7 @@ defmodule AWS.Redshift do
       maintenance_track() :: %{
         "DatabaseVersion" => String.t(),
         "MaintenanceTrackName" => String.t(),
-        "UpdateTargets" => list(update_target()())
+        "UpdateTargets" => list(update_target())
       }
       
   """
@@ -5923,7 +5923,7 @@ defmodule AWS.Redshift do
       
       get_reserved_node_exchange_configuration_options_output_message() :: %{
         "Marker" => String.t(),
-        "ReservedNodeConfigurationOptionList" => list(reserved_node_configuration_option()())
+        "ReservedNodeConfigurationOptionList" => list(reserved_node_configuration_option())
       }
       
   """
@@ -5955,7 +5955,7 @@ defmodule AWS.Redshift do
       
       describe_reserved_node_exchange_status_output_message() :: %{
         "Marker" => String.t(),
-        "ReservedNodeExchangeStatusDetails" => list(reserved_node_exchange_status()())
+        "ReservedNodeExchangeStatusDetails" => list(reserved_node_exchange_status())
       }
       
   """
@@ -5967,12 +5967,12 @@ defmodule AWS.Redshift do
       
       snapshot_schedule() :: %{
         "AssociatedClusterCount" => integer(),
-        "AssociatedClusters" => list(cluster_associated_to_schedule()()),
-        "NextInvocations" => list(non_neg_integer()()),
-        "ScheduleDefinitions" => list(String.t()()),
+        "AssociatedClusters" => list(cluster_associated_to_schedule()),
+        "NextInvocations" => list(non_neg_integer()),
+        "ScheduleDefinitions" => list(String.t()),
         "ScheduleDescription" => String.t(),
         "ScheduleIdentifier" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -5983,7 +5983,7 @@ defmodule AWS.Redshift do
   ## Example:
       
       track_list_message() :: %{
-        "MaintenanceTracks" => list(maintenance_track()()),
+        "MaintenanceTracks" => list(maintenance_track()),
         "Marker" => String.t()
       }
       
@@ -6846,7 +6846,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, accept_reserved_node_exchange_errors()}
   def accept_reserved_node_exchange(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptReservedNodeExchange", input, options)
   end
@@ -6865,7 +6866,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, add_partner_errors()}
   def add_partner(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddPartner", input, options)
   end
@@ -6883,7 +6885,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, associate_data_share_consumer_errors()}
   def associate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDataShareConsumer", input, options)
   end
@@ -6926,7 +6929,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_cluster_security_group_ingress_errors()}
   def authorize_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeClusterSecurityGroupIngress", input, options)
   end
@@ -6945,7 +6949,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_data_share_errors()}
   def authorize_data_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeDataShare", input, options)
   end
@@ -6959,7 +6964,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_endpoint_access_errors()}
   def authorize_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeEndpointAccess", input, options)
   end
@@ -6978,7 +6984,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, authorize_snapshot_access_errors()}
   def authorize_snapshot_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeSnapshotAccess", input, options)
   end
@@ -6992,7 +6999,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, batch_delete_cluster_snapshots_errors()}
   def batch_delete_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteClusterSnapshots", input, options)
   end
@@ -7006,7 +7014,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, batch_modify_cluster_snapshots_errors()}
   def batch_modify_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchModifyClusterSnapshots", input, options)
   end
@@ -7020,7 +7029,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, cancel_resize_errors()}
   def cancel_resize(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelResize", input, options)
   end
@@ -7052,7 +7062,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, copy_cluster_snapshot_errors()}
   def copy_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyClusterSnapshot", input, options)
   end
@@ -7066,7 +7077,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_authentication_profile_errors()}
   def create_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAuthenticationProfile", input, options)
   end
@@ -7113,7 +7125,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -7140,7 +7153,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_parameter_group_errors()}
   def create_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterParameterGroup", input, options)
   end
@@ -7162,7 +7176,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_security_group_errors()}
   def create_cluster_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterSecurityGroup", input, options)
   end
@@ -7183,7 +7198,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_snapshot_errors()}
   def create_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterSnapshot", input, options)
   end
@@ -7206,7 +7222,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_cluster_subnet_group_errors()}
   def create_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClusterSubnetGroup", input, options)
   end
@@ -7228,7 +7245,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_custom_domain_association_errors()}
   def create_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomDomainAssociation", input, options)
   end
@@ -7242,7 +7260,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_endpoint_access_errors()}
   def create_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointAccess", input, options)
   end
@@ -7290,7 +7309,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -7317,7 +7337,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_hsm_client_certificate_errors()}
   def create_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHsmClientCertificate", input, options)
   end
@@ -7342,7 +7363,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_hsm_configuration_errors()}
   def create_hsm_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHsmConfiguration", input, options)
   end
@@ -7356,7 +7378,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -7370,7 +7393,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_redshift_idc_application_errors()}
   def create_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRedshiftIdcApplication", input, options)
   end
@@ -7388,7 +7412,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_scheduled_action_errors()}
   def create_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScheduledAction", input, options)
   end
@@ -7409,7 +7434,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_snapshot_copy_grant_errors()}
   def create_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshotCopyGrant", input, options)
   end
@@ -7424,7 +7450,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_snapshot_schedule_errors()}
   def create_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshotSchedule", input, options)
   end
@@ -7445,7 +7472,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -7461,7 +7489,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, create_usage_limit_errors()}
   def create_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageLimit", input, options)
   end
@@ -7476,7 +7505,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, deauthorize_data_share_errors()}
   def deauthorize_data_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeauthorizeDataShare", input, options)
   end
@@ -7490,7 +7520,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_authentication_profile_errors()}
   def delete_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAuthenticationProfile", input, options)
   end
@@ -7526,7 +7557,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -7543,7 +7575,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_parameter_group_errors()}
   def delete_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterParameterGroup", input, options)
   end
@@ -7565,7 +7598,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_security_group_errors()}
   def delete_cluster_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterSecurityGroup", input, options)
   end
@@ -7591,7 +7625,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_snapshot_errors()}
   def delete_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterSnapshot", input, options)
   end
@@ -7605,7 +7640,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_cluster_subnet_group_errors()}
   def delete_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClusterSubnetGroup", input, options)
   end
@@ -7623,7 +7659,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_custom_domain_association_errors()}
   def delete_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomDomainAssociation", input, options)
   end
@@ -7637,7 +7674,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_endpoint_access_errors()}
   def delete_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointAccess", input, options)
   end
@@ -7651,7 +7689,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -7665,7 +7704,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_hsm_client_certificate_errors()}
   def delete_hsm_client_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHsmClientCertificate", input, options)
   end
@@ -7679,7 +7719,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_hsm_configuration_errors()}
   def delete_hsm_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHsmConfiguration", input, options)
   end
@@ -7693,7 +7734,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -7710,7 +7752,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_partner_errors()}
   def delete_partner(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartner", input, options)
   end
@@ -7724,7 +7767,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_redshift_idc_application_errors()}
   def delete_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRedshiftIdcApplication", input, options)
   end
@@ -7738,7 +7782,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -7752,7 +7797,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -7766,7 +7812,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_snapshot_copy_grant_errors()}
   def delete_snapshot_copy_grant(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotCopyGrant", input, options)
   end
@@ -7780,7 +7827,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
@@ -7797,7 +7845,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -7811,7 +7860,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, delete_usage_limit_errors()}
   def delete_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageLimit", input, options)
   end
@@ -7826,7 +7876,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, deregister_namespace_errors()}
   def deregister_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterNamespace", input, options)
   end
@@ -7839,7 +7890,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -7857,7 +7909,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_authentication_profiles_errors()}
   def describe_authentication_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAuthenticationProfiles", input, options)
   end
@@ -7871,7 +7924,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_db_revisions_errors()}
   def describe_cluster_db_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterDbRevisions", input, options)
   end
@@ -7912,7 +7966,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_parameter_groups_errors()}
   def describe_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterParameterGroups", input, options)
   end
@@ -7943,7 +7998,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_parameters_errors()}
   def describe_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterParameters", input, options)
   end
@@ -7983,7 +8039,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_security_groups_errors()}
   def describe_cluster_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterSecurityGroups", input, options)
   end
@@ -8018,7 +8075,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_snapshots_errors()}
   def describe_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterSnapshots", input, options)
   end
@@ -8049,7 +8107,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_subnet_groups_errors()}
   def describe_cluster_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterSubnetGroups", input, options)
   end
@@ -8063,7 +8122,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_cluster_tracks_errors()}
   def describe_cluster_tracks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterTracks", input, options)
   end
@@ -8084,7 +8144,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_cluster_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusterVersions", input, options)
   end
@@ -8117,7 +8178,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -8135,7 +8197,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_custom_domain_associations_errors()}
   def describe_custom_domain_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomDomainAssociations", input, options)
   end
@@ -8151,7 +8214,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_errors()}
   def describe_data_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataShares", input, options)
   end
@@ -8170,7 +8234,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_for_consumer_errors()}
   def describe_data_shares_for_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSharesForConsumer", input, options)
   end
@@ -8189,7 +8254,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_data_shares_for_producer_errors()}
   def describe_data_shares_for_producer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSharesForProducer", input, options)
   end
@@ -8211,7 +8277,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDefaultClusterParameters", input, options)
   end
@@ -8225,7 +8292,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_endpoint_access_errors()}
   def describe_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointAccess", input, options)
   end
@@ -8239,7 +8307,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_endpoint_authorization_errors()}
   def describe_endpoint_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointAuthorization", input, options)
   end
@@ -8257,7 +8326,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -8288,7 +8358,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -8307,7 +8378,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -8342,7 +8414,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_hsm_client_certificates_errors()}
   def describe_hsm_client_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHsmClientCertificates", input, options)
   end
@@ -8373,7 +8446,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_hsm_configurations_errors()}
   def describe_hsm_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHsmConfigurations", input, options)
   end
@@ -8387,7 +8461,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
   end
@@ -8401,7 +8476,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -8416,7 +8492,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_logging_status_errors()}
   def describe_logging_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoggingStatus", input, options)
   end
@@ -8436,7 +8513,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_node_configuration_options_errors()}
   def describe_node_configuration_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNodeConfigurationOptions", input, options)
   end
@@ -8467,7 +8545,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_cluster_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableClusterOptions", input, options)
   end
@@ -8481,7 +8560,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_partners_errors()}
   def describe_partners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePartners", input, options)
   end
@@ -8499,7 +8579,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_redshift_idc_applications_errors()}
   def describe_redshift_idc_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRedshiftIdcApplications", input, options)
   end
@@ -8520,7 +8601,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_node_exchange_status_errors()}
   def describe_reserved_node_exchange_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodeExchangeStatus", input, options)
   end
@@ -8552,7 +8634,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_node_offerings_errors()}
   def describe_reserved_node_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodeOfferings", input, options)
   end
@@ -8566,7 +8649,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
@@ -8594,7 +8678,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_resize_errors()}
   def describe_resize(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResize", input, options)
   end
@@ -8608,7 +8693,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -8628,7 +8714,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_snapshot_copy_grants_errors()}
   def describe_snapshot_copy_grants(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotCopyGrants", input, options)
   end
@@ -8641,7 +8728,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_schedules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotSchedules", input, options)
   end
@@ -8654,7 +8742,8 @@ defmodule AWS.Redshift do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStorage", input, options)
   end
@@ -8677,7 +8766,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_table_restore_status_errors()}
   def describe_table_restore_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTableRestoreStatus", input, options)
   end
@@ -8721,7 +8811,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -8757,7 +8848,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, describe_usage_limits_errors()}
   def describe_usage_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsageLimits", input, options)
   end
@@ -8772,7 +8864,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disable_logging_errors()}
   def disable_logging(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableLogging", input, options)
   end
@@ -8793,7 +8886,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disable_snapshot_copy_errors()}
   def disable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSnapshotCopy", input, options)
   end
@@ -8812,7 +8906,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, disassociate_data_share_consumer_errors()}
   def disassociate_data_share_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDataShareConsumer", input, options)
   end
@@ -8827,7 +8922,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, enable_logging_errors()}
   def enable_logging(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableLogging", input, options)
   end
@@ -8842,7 +8938,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, enable_snapshot_copy_errors()}
   def enable_snapshot_copy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSnapshotCopy", input, options)
   end
@@ -8857,7 +8954,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, failover_primary_compute_errors()}
   def failover_primary_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverPrimaryCompute", input, options)
   end
@@ -8904,7 +9002,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_cluster_credentials_errors()}
   def get_cluster_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClusterCredentials", input, options)
   end
@@ -8937,7 +9036,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_cluster_credentials_with_iam_errors()}
   def get_cluster_credentials_with_iam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClusterCredentialsWithIAM", input, options)
   end
@@ -8960,7 +9060,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_reserved_node_exchange_configuration_options_errors()}
   def get_reserved_node_exchange_configuration_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -8986,7 +9087,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_reserved_node_exchange_offerings_errors()}
   def get_reserved_node_exchange_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservedNodeExchangeOfferings", input, options)
   end
@@ -9000,7 +9102,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -9015,7 +9118,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendations", input, options)
   end
@@ -9032,7 +9136,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_aqua_configuration_errors()}
   def modify_aqua_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAquaConfiguration", input, options)
   end
@@ -9046,7 +9151,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_authentication_profile_errors()}
   def modify_authentication_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAuthenticationProfile", input, options)
   end
@@ -9099,7 +9205,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -9116,7 +9223,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_db_revision_errors()}
   def modify_cluster_db_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterDbRevision", input, options)
   end
@@ -9135,7 +9243,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_iam_roles_errors()}
   def modify_cluster_iam_roles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterIamRoles", input, options)
   end
@@ -9149,7 +9258,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_maintenance_errors()}
   def modify_cluster_maintenance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterMaintenance", input, options)
   end
@@ -9169,7 +9279,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_parameter_group_errors()}
   def modify_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterParameterGroup", input, options)
   end
@@ -9186,7 +9297,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_snapshot_errors()}
   def modify_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterSnapshot", input, options)
   end
@@ -9204,7 +9316,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_snapshot_schedule_errors()}
   def modify_cluster_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterSnapshotSchedule", input, options)
   end
@@ -9246,7 +9359,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_cluster_subnet_group_errors()}
   def modify_cluster_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClusterSubnetGroup", input, options)
   end
@@ -9264,7 +9378,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_custom_domain_association_errors()}
   def modify_custom_domain_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCustomDomainAssociation", input, options)
   end
@@ -9278,7 +9393,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_endpoint_access_errors()}
   def modify_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEndpointAccess", input, options)
   end
@@ -9292,7 +9408,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -9306,7 +9423,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -9320,7 +9438,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_redshift_idc_application_errors()}
   def modify_redshift_idc_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyRedshiftIdcApplication", input, options)
   end
@@ -9334,7 +9453,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_scheduled_action_errors()}
   def modify_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyScheduledAction", input, options)
   end
@@ -9365,7 +9485,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_snapshot_copy_retention_period_errors()}
   def modify_snapshot_copy_retention_period(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySnapshotCopyRetentionPeriod", input, options)
   end
@@ -9382,7 +9503,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_snapshot_schedule_errors()}
   def modify_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySnapshotSchedule", input, options)
   end
@@ -9398,7 +9520,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, modify_usage_limit_errors()}
   def modify_usage_limit(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyUsageLimit", input, options)
   end
@@ -9412,7 +9535,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, pause_cluster_errors()}
   def pause_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PauseCluster", input, options)
   end
@@ -9438,7 +9562,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, purchase_reserved_node_offering_errors()}
   def purchase_reserved_node_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodeOffering", input, options)
   end
@@ -9452,7 +9577,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -9475,7 +9601,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reboot_cluster_errors()}
   def reboot_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootCluster", input, options)
   end
@@ -9490,7 +9617,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, register_namespace_errors()}
   def register_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterNamespace", input, options)
   end
@@ -9504,7 +9632,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reject_data_share_errors()}
   def reject_data_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectDataShare", input, options)
   end
@@ -9523,7 +9652,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, reset_cluster_parameter_group_errors()}
   def reset_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetClusterParameterGroup", input, options)
   end
@@ -9571,7 +9701,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, resize_cluster_errors()}
   def resize_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResizeCluster", input, options)
   end
@@ -9629,7 +9760,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, restore_from_cluster_snapshot_errors()}
   def restore_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreFromClusterSnapshot", input, options)
   end
@@ -9668,7 +9800,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, restore_table_from_cluster_snapshot_errors()}
   def restore_table_from_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromClusterSnapshot", input, options)
   end
@@ -9682,7 +9815,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, resume_cluster_errors()}
   def resume_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeCluster", input, options)
   end
@@ -9708,7 +9842,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_cluster_security_group_ingress_errors()}
   def revoke_cluster_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeClusterSecurityGroupIngress", input, options)
   end
@@ -9722,7 +9857,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_endpoint_access_errors()}
   def revoke_endpoint_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeEndpointAccess", input, options)
   end
@@ -9745,7 +9881,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, revoke_snapshot_access_errors()}
   def revoke_snapshot_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeSnapshotAccess", input, options)
   end
@@ -9759,7 +9896,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, rotate_encryption_key_errors()}
   def rotate_encryption_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RotateEncryptionKey", input, options)
   end
@@ -9773,7 +9911,8 @@ defmodule AWS.Redshift do
           | {:error, term()}
           | {:error, update_partner_status_errors()}
   def update_partner_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartnerStatus", input, options)
   end

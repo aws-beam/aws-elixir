@@ -228,7 +228,7 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()()),
+        "propagatedSetLevelTags" => list(String.t()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
         "status" => String.t(),
@@ -287,7 +287,7 @@ defmodule AWS.Omics do
   ## Example:
 
       get_run_request() :: %{
-        optional("export") => list(String.t()())
+        optional("export") => list(String.t())
       }
 
   """
@@ -299,7 +299,7 @@ defmodule AWS.Omics do
 
       list_reference_stores_response() :: %{
         "nextToken" => String.t(),
-        "referenceStores" => list(reference_store_detail()())
+        "referenceStores" => list(reference_store_detail())
       }
 
   """
@@ -348,7 +348,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_runs_response() :: %{
-        "items" => list(run_list_item()()),
+        "items" => list(run_list_item()),
         "nextToken" => String.t()
       }
 
@@ -426,7 +426,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_read_set_activation_jobs_response() :: %{
-        "activationJobs" => list(activate_read_set_job_item()()),
+        "activationJobs" => list(activate_read_set_job_item()),
         "nextToken" => String.t()
       }
 
@@ -451,7 +451,7 @@ defmodule AWS.Omics do
       start_read_set_import_job_request() :: %{
         optional("clientToken") => String.t(),
         required("roleArn") => String.t(),
-        required("sources") => list(start_read_set_import_job_source_item()())
+        required("sources") => list(start_read_set_import_job_source_item())
       }
 
   """
@@ -558,7 +558,7 @@ defmodule AWS.Omics do
 
       list_annotation_stores_request() :: %{
         optional("filter") => list_annotation_stores_filter(),
-        optional("ids") => list(String.t()()),
+        optional("ids") => list(String.t()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()]
       }
@@ -620,7 +620,7 @@ defmodule AWS.Omics do
   ## Example:
 
       batch_delete_read_set_response() :: %{
-        "errors" => list(read_set_batch_error()())
+        "errors" => list(read_set_batch_error())
       }
 
   """
@@ -684,7 +684,7 @@ defmodule AWS.Omics do
 
       list_variant_import_jobs_response() :: %{
         "nextToken" => [String.t()],
-        "variantImportJobs" => list(variant_import_job_item()())
+        "variantImportJobs" => list(variant_import_job_item())
       }
 
   """
@@ -751,7 +751,7 @@ defmodule AWS.Omics do
   ## Example:
 
       delete_annotation_store_versions_response() :: %{
-        "errors" => list(version_delete_error()())
+        "errors" => list(version_delete_error())
       }
 
   """
@@ -791,7 +791,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_run_caches_response() :: %{
-        "items" => list(run_cache_list_item()()),
+        "items" => list(run_cache_list_item()),
         "nextToken" => String.t()
       }
 
@@ -888,7 +888,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_annotation_stores_response() :: %{
-        "annotationStores" => list(annotation_store_item()()),
+        "annotationStores" => list(annotation_store_item()),
         "nextToken" => [String.t()]
       }
 
@@ -959,7 +959,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_annotation_store_versions_response() :: %{
-        "annotationStoreVersions" => list(annotation_store_version_item()()),
+        "annotationStoreVersions" => list(annotation_store_version_item()),
         "nextToken" => [String.t()]
       }
 
@@ -1081,7 +1081,7 @@ defmodule AWS.Omics do
 
       list_variant_import_jobs_request() :: %{
         optional("filter") => list_variant_import_jobs_filter(),
-        optional("ids") => list(String.t()()),
+        optional("ids") => list(String.t()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()]
       }
@@ -1094,7 +1094,7 @@ defmodule AWS.Omics do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1145,7 +1145,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_read_set_import_jobs_response() :: %{
-        "importJobs" => list(import_read_set_job_item()()),
+        "importJobs" => list(import_read_set_job_item()),
         "nextToken" => String.t()
       }
 
@@ -1158,7 +1158,7 @@ defmodule AWS.Omics do
 
       start_read_set_activation_job_request() :: %{
         optional("clientToken") => String.t(),
-        required("sources") => list(start_read_set_activation_job_source_item()())
+        required("sources") => list(start_read_set_activation_job_source_item())
       }
 
   """
@@ -1247,7 +1247,7 @@ defmodule AWS.Omics do
   ## Example:
 
       get_workflow_request() :: %{
-        optional("export") => list(String.t()()),
+        optional("export") => list(String.t()),
         optional("type") => String.t(),
         optional("workflowOwnerId") => String.t()
       }
@@ -1261,7 +1261,7 @@ defmodule AWS.Omics do
 
       list_references_response() :: %{
         "nextToken" => String.t(),
-        "references" => list(reference_list_item()())
+        "references" => list(reference_list_item())
       }
 
   """
@@ -1273,7 +1273,7 @@ defmodule AWS.Omics do
 
       list_variant_stores_request() :: %{
         optional("filter") => list_variant_stores_filter(),
-        optional("ids") => list(String.t()()),
+        optional("ids") => list(String.t()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()]
       }
@@ -1317,7 +1317,7 @@ defmodule AWS.Omics do
         optional("description") => String.t(),
         optional("eTagAlgorithmFamily") => String.t(),
         optional("fallbackLocation") => String.t(),
-        optional("propagatedSetLevelTags") => list(String.t()()),
+        optional("propagatedSetLevelTags") => list(String.t()),
         optional("s3AccessConfig") => s3_access_config(),
         optional("sseConfig") => sse_config(),
         optional("tags") => map(),
@@ -1381,7 +1381,7 @@ defmodule AWS.Omics do
 
       list_shares_response() :: %{
         "nextToken" => [String.t()],
-        "shares" => list(share_details()())
+        "shares" => list(share_details())
       }
 
   """
@@ -1425,7 +1425,7 @@ defmodule AWS.Omics do
         "creationTime" => [non_neg_integer()],
         "id" => String.t(),
         "sequenceStoreId" => String.t(),
-        "sources" => list(activate_read_set_source_item()()),
+        "sources" => list(activate_read_set_source_item()),
         "status" => String.t(),
         "statusMessage" => String.t()
       }
@@ -1530,7 +1530,7 @@ defmodule AWS.Omics do
 
       list_sequence_stores_response() :: %{
         "nextToken" => String.t(),
-        "sequenceStores" => list(sequence_store_detail()())
+        "sequenceStores" => list(sequence_store_detail())
       }
 
   """
@@ -1619,7 +1619,7 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()()),
+        "propagatedSetLevelTags" => list(String.t()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
         "status" => String.t(),
@@ -1672,7 +1672,7 @@ defmodule AWS.Omics do
       start_reference_import_job_request() :: %{
         optional("clientToken") => String.t(),
         required("roleArn") => String.t(),
-        required("sources") => list(start_reference_import_job_source_item()())
+        required("sources") => list(start_reference_import_job_source_item())
       }
 
   """
@@ -1683,7 +1683,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_run_tasks_response() :: %{
-        "items" => list(task_list_item()()),
+        "items" => list(task_list_item()),
         "nextToken" => String.t()
       }
 
@@ -1862,7 +1862,7 @@ defmodule AWS.Omics do
 
       list_read_sets_response() :: %{
         "nextToken" => String.t(),
-        "readSets" => list(read_set_list_item()())
+        "readSets" => list(read_set_list_item())
       }
 
   """
@@ -1921,7 +1921,7 @@ defmodule AWS.Omics do
         optional("description") => String.t(),
         optional("fallbackLocation") => String.t(),
         optional("name") => String.t(),
-        optional("propagatedSetLevelTags") => list(String.t()()),
+        optional("propagatedSetLevelTags") => list(String.t()),
         optional("s3AccessConfig") => s3_access_config()
       }
 
@@ -2065,7 +2065,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_annotation_import_jobs_response() :: %{
-        "annotationImportJobs" => list(annotation_import_job_item()()),
+        "annotationImportJobs" => list(annotation_import_job_item()),
         "nextToken" => [String.t()]
       }
 
@@ -2094,7 +2094,7 @@ defmodule AWS.Omics do
         optional("runLeftNormalization") => boolean(),
         optional("versionName") => String.t(),
         required("destinationName") => String.t(),
-        required("items") => list(annotation_import_item_source()()),
+        required("items") => list(annotation_import_item_source()),
         required("roleArn") => String.t()
       }
 
@@ -2106,7 +2106,7 @@ defmodule AWS.Omics do
   ## Example:
 
       batch_delete_read_set_request() :: %{
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
 
   """
@@ -2132,7 +2132,7 @@ defmodule AWS.Omics do
   ## Example:
 
       get_workflow_version_request() :: %{
-        optional("export") => list(String.t()()),
+        optional("export") => list(String.t()),
         optional("type") => String.t(),
         optional("workflowOwnerId") => String.t()
       }
@@ -2167,7 +2167,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_run_groups_response() :: %{
-        "items" => list(run_group_list_item()()),
+        "items" => list(run_group_list_item()),
         "nextToken" => String.t()
       }
 
@@ -2205,8 +2205,8 @@ defmodule AWS.Omics do
 
       filter() :: %{
         "resourceArns" => list([String.t()]()),
-        "status" => list(String.t()()),
-        "type" => list(String.t()())
+        "status" => list(String.t()),
+        "type" => list(String.t())
       }
 
   """
@@ -2224,7 +2224,7 @@ defmodule AWS.Omics do
         "fallbackLocation" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "propagatedSetLevelTags" => list(String.t()()),
+        "propagatedSetLevelTags" => list(String.t()),
         "s3Access" => sequence_store_s3_access(),
         "sseConfig" => sse_config(),
         "status" => String.t(),
@@ -2294,7 +2294,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_workflow_versions_response() :: %{
-        "items" => list(workflow_version_list_item()()),
+        "items" => list(workflow_version_list_item()),
         "nextToken" => String.t()
       }
 
@@ -2375,7 +2375,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_read_set_export_jobs_response() :: %{
-        "exportJobs" => list(export_read_set_job_detail()()),
+        "exportJobs" => list(export_read_set_job_detail()),
         "nextToken" => String.t()
       }
 
@@ -2419,7 +2419,7 @@ defmodule AWS.Omics do
         "creationTime" => [non_neg_integer()],
         "destination" => String.t(),
         "id" => String.t(),
-        "readSets" => list(export_read_set_detail()()),
+        "readSets" => list(export_read_set_detail()),
         "sequenceStoreId" => String.t(),
         "status" => String.t(),
         "statusMessage" => String.t()
@@ -2471,7 +2471,7 @@ defmodule AWS.Omics do
 
       list_multipart_read_set_uploads_response() :: %{
         "nextToken" => String.t(),
-        "uploads" => list(multipart_read_set_upload_list_item()())
+        "uploads" => list(multipart_read_set_upload_list_item())
       }
 
   """
@@ -2518,7 +2518,7 @@ defmodule AWS.Omics do
         "creationTime" => non_neg_integer(),
         "destinationName" => String.t(),
         "id" => String.t(),
-        "items" => list(variant_import_item_detail()()),
+        "items" => list(variant_import_item_detail()),
         "roleArn" => String.t(),
         "runLeftNormalization" => boolean(),
         "status" => String.t(),
@@ -2665,7 +2665,7 @@ defmodule AWS.Omics do
         "id" => String.t(),
         "referenceStoreId" => String.t(),
         "roleArn" => String.t(),
-        "sources" => list(import_reference_source_item()()),
+        "sources" => list(import_reference_source_item()),
         "status" => String.t(),
         "statusMessage" => String.t()
       }
@@ -2683,7 +2683,7 @@ defmodule AWS.Omics do
         "id" => String.t(),
         "roleArn" => String.t(),
         "sequenceStoreId" => String.t(),
-        "sources" => list(import_read_set_source_item()()),
+        "sources" => list(import_read_set_source_item()),
         "status" => String.t(),
         "statusMessage" => String.t()
       }
@@ -2730,7 +2730,7 @@ defmodule AWS.Omics do
       tsv_version_options() :: %{
         "annotationType" => String.t(),
         "formatToHeader" => map(),
-        "schema" => list(map()())
+        "schema" => list(map())
       }
 
   """
@@ -2775,7 +2775,7 @@ defmodule AWS.Omics do
 
       list_annotation_import_jobs_request() :: %{
         optional("filter") => list_annotation_import_jobs_filter(),
-        optional("ids") => list(String.t()()),
+        optional("ids") => list(String.t()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()]
       }
@@ -2789,7 +2789,7 @@ defmodule AWS.Omics do
 
       list_variant_stores_response() :: %{
         "nextToken" => [String.t()],
-        "variantStores" => list(variant_store_item()())
+        "variantStores" => list(variant_store_item())
       }
 
   """
@@ -3065,7 +3065,7 @@ defmodule AWS.Omics do
 
       delete_annotation_store_versions_request() :: %{
         optional("force") => [boolean()],
-        required("versions") => list(String.t()())
+        required("versions") => list(String.t())
       }
 
   """
@@ -3147,7 +3147,7 @@ defmodule AWS.Omics do
 
       list_read_set_upload_parts_response() :: %{
         "nextToken" => String.t(),
-        "parts" => list(read_set_upload_part_list_item()())
+        "parts" => list(read_set_upload_part_list_item())
       }
 
   """
@@ -3192,7 +3192,7 @@ defmodule AWS.Omics do
         optional("annotationFields") => map(),
         optional("runLeftNormalization") => boolean(),
         required("destinationName") => String.t(),
-        required("items") => list(variant_import_item_source()()),
+        required("items") => list(variant_import_item_source()),
         required("roleArn") => String.t()
       }
 
@@ -3242,7 +3242,7 @@ defmodule AWS.Omics do
         optional("clientToken") => String.t(),
         required("destination") => String.t(),
         required("roleArn") => String.t(),
-        required("sources") => list(export_read_set()())
+        required("sources") => list(export_read_set())
       }
 
   """
@@ -3266,7 +3266,7 @@ defmodule AWS.Omics do
       tsv_store_options() :: %{
         "annotationType" => String.t(),
         "formatToHeader" => map(),
-        "schema" => list(map()())
+        "schema" => list(map())
       }
 
   """
@@ -3349,7 +3349,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_workflows_response() :: %{
-        "items" => list(workflow_list_item()()),
+        "items" => list(workflow_list_item()),
         "nextToken" => String.t()
       }
 
@@ -3383,7 +3383,7 @@ defmodule AWS.Omics do
   ## Example:
 
       complete_multipart_read_set_upload_request() :: %{
-        required("parts") => list(complete_read_set_upload_part_list_item()())
+        required("parts") => list(complete_read_set_upload_part_list_item())
       }
 
   """
@@ -3481,7 +3481,7 @@ defmodule AWS.Omics do
   ## Example:
 
       list_reference_import_jobs_response() :: %{
-        "importJobs" => list(import_reference_job_item()()),
+        "importJobs" => list(import_reference_job_item()),
         "nextToken" => String.t()
       }
 
@@ -3499,7 +3499,7 @@ defmodule AWS.Omics do
         "destinationName" => String.t(),
         "formatOptions" => list(),
         "id" => String.t(),
-        "items" => list(annotation_import_item_detail()()),
+        "items" => list(annotation_import_item_detail()),
         "roleArn" => String.t(),
         "runLeftNormalization" => boolean(),
         "status" => String.t(),

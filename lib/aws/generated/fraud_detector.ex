@@ -46,7 +46,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       batch_get_variable_request() :: %{
-        required("names") => list(String.t()())
+        required("names") => list(String.t())
       }
       
   """
@@ -77,11 +77,11 @@ defmodule AWS.FraudDetector do
       
       create_rule_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("detectorId") => String.t(),
         required("expression") => String.t(),
         required("language") => list(any()),
-        required("outcomes") => list(String.t()()),
+        required("outcomes") => list(String.t()),
         required("ruleId") => String.t()
       }
       
@@ -130,7 +130,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       a_t_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(a_t_i_metric_data_point()()),
+        "metricDataPoints" => list(a_t_i_metric_data_point()),
         "modelPerformance" => a_t_i_model_performance()
       }
       
@@ -157,7 +157,7 @@ defmodule AWS.FraudDetector do
       
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -187,8 +187,8 @@ defmodule AWS.FraudDetector do
       
       create_list_request() :: %{
         optional("description") => String.t(),
-        optional("elements") => list(String.t()()),
-        optional("tags") => list(tag()()),
+        optional("elements") => list(String.t()),
+        optional("tags") => list(tag()),
         optional("variableType") => String.t(),
         required("name") => String.t()
       }
@@ -203,7 +203,7 @@ defmodule AWS.FraudDetector do
       update_model_version_request() :: %{
         optional("externalEventsDetail") => external_events_detail(),
         optional("ingestedEventsDetail") => ingested_events_detail(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("majorVersionNumber") => String.t(),
         required("modelId") => String.t(),
         required("modelType") => list(any())
@@ -323,7 +323,7 @@ defmodule AWS.FraudDetector do
       
       create_batch_prediction_job_request() :: %{
         optional("detectorVersion") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("detectorName") => String.t(),
         required("eventTypeName") => String.t(),
         required("iamRoleArn") => String.t(),
@@ -340,7 +340,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_lists_metadata_result() :: %{
-        "lists" => list(allow_deny_list()()),
+        "lists" => list(allow_deny_list()),
         "nextToken" => String.t()
       }
       
@@ -387,7 +387,7 @@ defmodule AWS.FraudDetector do
       
       put_label_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t()
       }
       
@@ -412,10 +412,10 @@ defmodule AWS.FraudDetector do
       
       update_rule_version_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("expression") => String.t(),
         required("language") => list(any()),
-        required("outcomes") => list(String.t()()),
+        required("outcomes") => list(String.t()),
         required("rule") => rule()
       }
       
@@ -458,7 +458,7 @@ defmodule AWS.FraudDetector do
       
       create_variable_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("variableType") => String.t(),
         required("dataSource") => list(any()),
         required("dataType") => list(any()),
@@ -474,7 +474,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       o_f_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(o_f_i_metric_data_point()()),
+        "metricDataPoints" => list(o_f_i_metric_data_point()),
         "modelPerformance" => o_f_i_model_performance()
       }
       
@@ -577,7 +577,7 @@ defmodule AWS.FraudDetector do
       
       create_model_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("eventTypeName") => String.t(),
         required("modelId") => String.t(),
         required("modelType") => list(any())
@@ -615,7 +615,7 @@ defmodule AWS.FraudDetector do
       describe_detector_result() :: %{
         "arn" => String.t(),
         "detectorId" => String.t(),
-        "detectorVersionSummaries" => list(detector_version_summary()()),
+        "detectorVersionSummaries" => list(detector_version_summary()),
         "nextToken" => String.t()
       }
       
@@ -729,7 +729,7 @@ defmodule AWS.FraudDetector do
       
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -801,7 +801,7 @@ defmodule AWS.FraudDetector do
         "expression" => String.t(),
         "language" => list(any()),
         "lastUpdatedTime" => String.t(),
-        "outcomes" => list(String.t()()),
+        "outcomes" => list(String.t()),
         "ruleId" => String.t(),
         "ruleVersion" => String.t()
       }
@@ -852,7 +852,7 @@ defmodule AWS.FraudDetector do
       
       training_data_schema() :: %{
         "labelSchema" => label_schema(),
-        "modelVariables" => list(String.t()())
+        "modelVariables" => list(String.t())
       }
       
   """
@@ -890,7 +890,7 @@ defmodule AWS.FraudDetector do
       
       put_detector_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("detectorId") => String.t(),
         required("eventTypeName") => String.t()
       }
@@ -903,7 +903,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_event_types_result() :: %{
-        "eventTypes" => list(event_type()()),
+        "eventTypes" => list(event_type()),
         "nextToken" => String.t()
       }
       
@@ -917,7 +917,7 @@ defmodule AWS.FraudDetector do
       send_event_request() :: %{
         optional("assignedLabel") => String.t(),
         optional("labelTimestamp") => String.t(),
-        required("entities") => list(entity()()),
+        required("entities") => list(entity()),
         required("eventId") => String.t(),
         required("eventTimestamp") => String.t(),
         required("eventTypeName") => String.t(),
@@ -995,12 +995,12 @@ defmodule AWS.FraudDetector do
       
       update_detector_version_request() :: %{
         optional("description") => String.t(),
-        optional("modelVersions") => list(model_version()()),
+        optional("modelVersions") => list(model_version()),
         optional("ruleExecutionMode") => list(any()),
         required("detectorId") => String.t(),
         required("detectorVersionId") => String.t(),
-        required("externalModelEndpoints") => list(String.t()()),
-        required("rules") => list(rule()())
+        required("externalModelEndpoints") => list(String.t()),
+        required("rules") => list(rule())
       }
       
   """
@@ -1059,7 +1059,7 @@ defmodule AWS.FraudDetector do
       create_model_version_request() :: %{
         optional("externalEventsDetail") => external_events_detail(),
         optional("ingestedEventsDetail") => ingested_events_detail(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("modelId") => String.t(),
         required("modelType") => list(any()),
         required("trainingDataSchema") => training_data_schema(),
@@ -1083,7 +1083,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       create_batch_import_job_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("eventTypeName") => String.t(),
         required("iamRoleArn") => String.t(),
         required("inputPath") => String.t(),
@@ -1121,8 +1121,8 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       batch_get_variable_result() :: %{
-        "errors" => list(batch_get_variable_error()()),
-        "variables" => list(variable()())
+        "errors" => list(batch_get_variable_error()),
+        "variables" => list(variable())
       }
       
   """
@@ -1133,8 +1133,8 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       prediction_explanations() :: %{
-        "aggregatedVariablesImpactExplanations" => list(aggregated_variables_impact_explanation()()),
-        "variableImpactExplanations" => list(variable_impact_explanation()())
+        "aggregatedVariablesImpactExplanations" => list(aggregated_variables_impact_explanation()),
+        "variableImpactExplanations" => list(variable_impact_explanation())
       }
       
   """
@@ -1232,7 +1232,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       variable_importance_metrics() :: %{
-        "logOddsMetrics" => list(log_odds_metric()())
+        "logOddsMetrics" => list(log_odds_metric())
       }
       
   """
@@ -1341,8 +1341,8 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       data_validation_metrics() :: %{
-        "fieldLevelMessages" => list(field_validation_message()()),
-        "fileLevelMessages" => list(file_validation_message()())
+        "fieldLevelMessages" => list(field_validation_message()),
+        "fileLevelMessages" => list(file_validation_message())
       }
       
   """
@@ -1366,7 +1366,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       t_f_i_training_metrics_value() :: %{
-        "metricDataPoints" => list(t_f_i_metric_data_point()()),
+        "metricDataPoints" => list(t_f_i_metric_data_point()),
         "modelPerformance" => t_f_i_model_performance()
       }
       
@@ -1401,7 +1401,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_detectors_result() :: %{
-        "detectors" => list(detector()()),
+        "detectors" => list(detector()),
         "nextToken" => String.t()
       }
       
@@ -1413,7 +1413,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_list_elements_result() :: %{
-        "elements" => list(String.t()()),
+        "elements" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1451,7 +1451,7 @@ defmodule AWS.FraudDetector do
       
       put_entity_type_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t()
       }
       
@@ -1464,7 +1464,7 @@ defmodule AWS.FraudDetector do
       
       training_metrics() :: %{
         "auc" => float(),
-        "metricDataPoints" => list(metric_data_point()())
+        "metricDataPoints" => list(metric_data_point())
       }
       
   """
@@ -1475,7 +1475,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       batch_create_variable_result() :: %{
-        "errors" => list(batch_create_variable_error()())
+        "errors" => list(batch_create_variable_error())
       }
       
   """
@@ -1513,9 +1513,9 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_event_prediction_result() :: %{
-        "externalModelOutputs" => list(external_model_outputs()()),
-        "modelScores" => list(model_scores()()),
-        "ruleResults" => list(rule_result()())
+        "externalModelOutputs" => list(external_model_outputs()),
+        "modelScores" => list(model_scores()),
+        "ruleResults" => list(rule_result())
       }
       
   """
@@ -1526,7 +1526,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_labels_result() :: %{
-        "labels" => list(label()()),
+        "labels" => list(label()),
         "nextToken" => String.t()
       }
       
@@ -1550,7 +1550,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_entity_types_result() :: %{
-        "entityTypes" => list(entity_type()()),
+        "entityTypes" => list(entity_type()),
         "nextToken" => String.t()
       }
       
@@ -1620,7 +1620,7 @@ defmodule AWS.FraudDetector do
       
       put_outcome_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t()
       }
       
@@ -1749,7 +1749,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       aggregated_variables_importance_metrics() :: %{
-        "logOddsMetrics" => list(aggregated_log_odds_metric()())
+        "logOddsMetrics" => list(aggregated_log_odds_metric())
       }
       
   """
@@ -1760,7 +1760,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_models_result() :: %{
-        "models" => list(model()()),
+        "models" => list(model()),
         "nextToken" => String.t()
       }
       
@@ -1798,8 +1798,8 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       batch_create_variable_request() :: %{
-        optional("tags") => list(tag()()),
-        required("variableEntries") => list(variable_entry()())
+        optional("tags") => list(tag()),
+        required("variableEntries") => list(variable_entry())
       }
       
   """
@@ -1822,7 +1822,7 @@ defmodule AWS.FraudDetector do
       
       list_tags_for_resource_result() :: %{
         "nextToken" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1867,7 +1867,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       evaluated_model_version() :: %{
-        "evaluations" => list(model_version_evaluation()()),
+        "evaluations" => list(model_version_evaluation()),
         "modelId" => String.t(),
         "modelType" => String.t(),
         "modelVersion" => String.t()
@@ -1890,7 +1890,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       describe_model_versions_result() :: %{
-        "modelVersionDetails" => list(model_version_detail()()),
+        "modelVersionDetails" => list(model_version_detail()),
         "nextToken" => String.t()
       }
       
@@ -1903,7 +1903,7 @@ defmodule AWS.FraudDetector do
       
       event() :: %{
         "currentLabel" => String.t(),
-        "entities" => list(entity()()),
+        "entities" => list(entity()),
         "eventId" => String.t(),
         "eventTimestamp" => String.t(),
         "eventTypeName" => String.t(),
@@ -1957,12 +1957,12 @@ defmodule AWS.FraudDetector do
       
       create_detector_version_request() :: %{
         optional("description") => String.t(),
-        optional("externalModelEndpoints") => list(String.t()()),
-        optional("modelVersions") => list(model_version()()),
+        optional("externalModelEndpoints") => list(String.t()),
+        optional("modelVersions") => list(model_version()),
         optional("ruleExecutionMode") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("detectorId") => String.t(),
-        required("rules") => list(rule()())
+        required("rules") => list(rule())
       }
       
   """
@@ -1986,7 +1986,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_external_models_result() :: %{
-        "externalModels" => list(external_model()()),
+        "externalModels" => list(external_model()),
         "nextToken" => String.t()
       }
       
@@ -2030,16 +2030,16 @@ defmodule AWS.FraudDetector do
         "detectorVersionStatus" => String.t(),
         "entityId" => String.t(),
         "entityType" => String.t(),
-        "evaluatedExternalModels" => list(evaluated_external_model()()),
-        "evaluatedModelVersions" => list(evaluated_model_version()()),
+        "evaluatedExternalModels" => list(evaluated_external_model()),
+        "evaluatedModelVersions" => list(evaluated_model_version()),
         "eventId" => String.t(),
         "eventTimestamp" => String.t(),
         "eventTypeName" => String.t(),
-        "eventVariables" => list(event_variable_summary()()),
-        "outcomes" => list(String.t()()),
+        "eventVariables" => list(event_variable_summary()),
+        "outcomes" => list(String.t()),
         "predictionTimestamp" => String.t(),
         "ruleExecutionMode" => list(any()),
-        "rules" => list(evaluated_rule()())
+        "rules" => list(evaluated_rule())
       }
       
   """
@@ -2062,7 +2062,7 @@ defmodule AWS.FraudDetector do
       
       aggregated_log_odds_metric() :: %{
         "aggregatedVariablesImportance" => float(),
-        "variableNames" => list(String.t()())
+        "variableNames" => list(String.t())
       }
       
   """
@@ -2085,7 +2085,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       rule_result() :: %{
-        "outcomes" => list(String.t()()),
+        "outcomes" => list(String.t()),
         "ruleId" => String.t()
       }
       
@@ -2147,7 +2147,7 @@ defmodule AWS.FraudDetector do
       
       update_list_request() :: %{
         optional("description") => String.t(),
-        optional("elements") => list(String.t()()),
+        optional("elements") => list(String.t()),
         optional("updateMode") => list(any()),
         optional("variableType") => String.t(),
         required("name") => String.t()
@@ -2275,7 +2275,7 @@ defmodule AWS.FraudDetector do
         "expression" => String.t(),
         "expressionWithValues" => String.t(),
         "matched" => boolean(),
-        "outcomes" => list(String.t()()),
+        "outcomes" => list(String.t()),
         "ruleId" => String.t(),
         "ruleVersion" => String.t()
       }
@@ -2288,7 +2288,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_batch_prediction_jobs_result() :: %{
-        "batchPredictions" => list(batch_prediction()()),
+        "batchPredictions" => list(batch_prediction()),
         "nextToken" => String.t()
       }
       
@@ -2326,12 +2326,12 @@ defmodule AWS.FraudDetector do
         "arn" => String.t(),
         "createdTime" => String.t(),
         "description" => String.t(),
-        "entityTypes" => list(String.t()()),
+        "entityTypes" => list(String.t()),
         "eventIngestion" => list(any()),
         "eventOrchestration" => event_orchestration(),
-        "eventVariables" => list(String.t()()),
+        "eventVariables" => list(String.t()),
         "ingestedEventStatistics" => ingested_event_statistics(),
-        "labels" => list(String.t()()),
+        "labels" => list(String.t()),
         "lastUpdatedTime" => String.t(),
         "name" => String.t()
       }
@@ -2367,7 +2367,7 @@ defmodule AWS.FraudDetector do
       
       get_variables_result() :: %{
         "nextToken" => String.t(),
-        "variables" => list(variable()())
+        "variables" => list(variable())
       }
       
   """
@@ -2443,7 +2443,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       put_external_model_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("inputConfiguration") => model_input_configuration(),
         required("invokeModelEndpointRoleArn") => String.t(),
         required("modelEndpoint") => String.t(),
@@ -2460,7 +2460,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       aggregated_variables_impact_explanation() :: %{
-        "eventVariableNames" => list(String.t()()),
+        "eventVariableNames" => list(String.t()),
         "logOddsImpact" => float(),
         "relativeImpact" => String.t()
       }
@@ -2509,7 +2509,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       list_event_predictions_result() :: %{
-        "eventPredictionSummaries" => list(event_prediction_summary()()),
+        "eventPredictionSummaries" => list(event_prediction_summary()),
         "nextToken" => String.t()
       }
       
@@ -2575,7 +2575,7 @@ defmodule AWS.FraudDetector do
         optional("detectorVersionId") => String.t(),
         optional("externalModelEndpointDataBlobs") => map(),
         required("detectorId") => String.t(),
-        required("entities") => list(entity()()),
+        required("entities") => list(entity()),
         required("eventId") => String.t(),
         required("eventTimestamp") => String.t(),
         required("eventTypeName") => String.t(),
@@ -2664,7 +2664,7 @@ defmodule AWS.FraudDetector do
       
       get_outcomes_result() :: %{
         "nextToken" => String.t(),
-        "outcomes" => list(outcome()())
+        "outcomes" => list(outcome())
       }
       
   """
@@ -2686,7 +2686,7 @@ defmodule AWS.FraudDetector do
   ## Example:
       
       get_batch_import_jobs_result() :: %{
-        "batchImports" => list(batch_import()()),
+        "batchImports" => list(batch_import()),
         "nextToken" => String.t()
       }
       
@@ -2701,10 +2701,10 @@ defmodule AWS.FraudDetector do
         optional("description") => String.t(),
         optional("eventIngestion") => list(any()),
         optional("eventOrchestration") => event_orchestration(),
-        optional("labels") => list(String.t()()),
-        optional("tags") => list(tag()()),
-        required("entityTypes") => list(String.t()()),
-        required("eventVariables") => list(String.t()()),
+        optional("labels") => list(String.t()),
+        optional("tags") => list(tag()),
+        required("entityTypes") => list(String.t()),
+        required("eventVariables") => list(String.t()),
         required("name") => String.t()
       }
       
@@ -2788,7 +2788,7 @@ defmodule AWS.FraudDetector do
       
       get_rules_result() :: %{
         "nextToken" => String.t(),
-        "ruleDetails" => list(rule_detail()())
+        "ruleDetails" => list(rule_detail())
       }
       
   """
@@ -2826,11 +2826,11 @@ defmodule AWS.FraudDetector do
         "description" => String.t(),
         "detectorId" => String.t(),
         "detectorVersionId" => String.t(),
-        "externalModelEndpoints" => list(String.t()()),
+        "externalModelEndpoints" => list(String.t()),
         "lastUpdatedTime" => String.t(),
-        "modelVersions" => list(model_version()()),
+        "modelVersions" => list(model_version()),
         "ruleExecutionMode" => list(any()),
-        "rules" => list(rule()()),
+        "rules" => list(rule()),
         "status" => list(any())
       }
       
@@ -3374,7 +3374,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, batch_create_variable_errors()}
   def batch_create_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateVariable", input, options)
   end
@@ -3388,7 +3389,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, batch_get_variable_errors()}
   def batch_get_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetVariable", input, options)
   end
@@ -3402,7 +3404,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, cancel_batch_import_job_errors()}
   def cancel_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelBatchImportJob", input, options)
   end
@@ -3416,7 +3419,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, cancel_batch_prediction_job_errors()}
   def cancel_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelBatchPredictionJob", input, options)
   end
@@ -3430,7 +3434,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_batch_import_job_errors()}
   def create_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchImportJob", input, options)
   end
@@ -3444,7 +3449,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_batch_prediction_job_errors()}
   def create_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchPredictionJob", input, options)
   end
@@ -3460,7 +3466,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_detector_version_errors()}
   def create_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDetectorVersion", input, options)
   end
@@ -3480,7 +3487,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_list_errors()}
   def create_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateList", input, options)
   end
@@ -3494,7 +3502,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -3508,7 +3517,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_model_version_errors()}
   def create_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelVersion", input, options)
   end
@@ -3522,7 +3532,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3536,7 +3547,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, create_variable_errors()}
   def create_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVariable", input, options)
   end
@@ -3552,7 +3564,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_batch_import_job_errors()}
   def delete_batch_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchImportJob", input, options)
   end
@@ -3566,7 +3579,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_batch_prediction_job_errors()}
   def delete_batch_prediction_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchPredictionJob", input, options)
   end
@@ -3586,7 +3600,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_detector_errors()}
   def delete_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDetector", input, options)
   end
@@ -3605,7 +3620,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_detector_version_errors()}
   def delete_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDetectorVersion", input, options)
   end
@@ -3624,7 +3640,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_entity_type_errors()}
   def delete_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEntityType", input, options)
   end
@@ -3643,7 +3660,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_event_errors()}
   def delete_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvent", input, options)
   end
@@ -3662,7 +3680,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_event_type_errors()}
   def delete_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventType", input, options)
   end
@@ -3676,7 +3695,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_events_by_event_type_errors()}
   def delete_events_by_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventsByEventType", input, options)
   end
@@ -3694,7 +3714,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_external_model_errors()}
   def delete_external_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExternalModel", input, options)
   end
@@ -3717,7 +3738,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLabel", input, options)
   end
@@ -3735,7 +3757,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_list_errors()}
   def delete_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteList", input, options)
   end
@@ -3755,7 +3778,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -3775,7 +3799,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_model_version_errors()}
   def delete_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelVersion", input, options)
   end
@@ -3794,7 +3819,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_outcome_errors()}
   def delete_outcome(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOutcome", input, options)
   end
@@ -3814,7 +3840,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -3838,7 +3865,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, delete_variable_errors()}
   def delete_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVariable", input, options)
   end
@@ -3852,7 +3880,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, describe_detector_errors()}
   def describe_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDetector", input, options)
   end
@@ -3869,7 +3898,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, describe_model_versions_errors()}
   def describe_model_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeModelVersions", input, options)
   end
@@ -3890,7 +3920,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_batch_import_jobs_errors()}
   def get_batch_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchImportJobs", input, options)
   end
@@ -3910,7 +3941,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_batch_prediction_jobs_errors()}
   def get_batch_prediction_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchPredictionJobs", input, options)
   end
@@ -3928,7 +3960,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_delete_events_by_event_type_status_errors()}
   def get_delete_events_by_event_type_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeleteEventsByEventTypeStatus", input, options)
   end
@@ -3942,7 +3975,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_detector_version_errors()}
   def get_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDetectorVersion", input, options)
   end
@@ -3963,7 +3997,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_detectors_errors()}
   def get_detectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDetectors", input, options)
   end
@@ -3984,7 +4019,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_entity_types_errors()}
   def get_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntityTypes", input, options)
   end
@@ -4000,7 +4036,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_errors()}
   def get_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEvent", input, options)
   end
@@ -4016,7 +4053,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_prediction_errors()}
   def get_event_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventPrediction", input, options)
   end
@@ -4033,7 +4071,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_prediction_metadata_errors()}
   def get_event_prediction_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventPredictionMetadata", input, options)
   end
@@ -4054,7 +4093,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_event_types_errors()}
   def get_event_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEventTypes", input, options)
   end
@@ -4076,7 +4116,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_external_models_errors()}
   def get_external_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExternalModels", input, options)
   end
@@ -4091,7 +4132,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_kms_encryption_key_errors()}
   def get_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKMSEncryptionKey", input, options)
   end
@@ -4112,7 +4154,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_labels_errors()}
   def get_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLabels", input, options)
   end
@@ -4127,7 +4170,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_list_elements_errors()}
   def get_list_elements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetListElements", input, options)
   end
@@ -4143,7 +4187,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_lists_metadata_errors()}
   def get_lists_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetListsMetadata", input, options)
   end
@@ -4157,7 +4202,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_model_version_errors()}
   def get_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelVersion", input, options)
   end
@@ -4183,7 +4229,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_models_errors()}
   def get_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModels", input, options)
   end
@@ -4205,7 +4252,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_outcomes_errors()}
   def get_outcomes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOutcomes", input, options)
   end
@@ -4229,7 +4277,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_rules_errors()}
   def get_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRules", input, options)
   end
@@ -4250,7 +4299,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, get_variables_errors()}
   def get_variables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVariables", input, options)
   end
@@ -4285,7 +4335,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, list_event_predictions_errors()}
   def list_event_predictions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventPredictions", input, options)
   end
@@ -4304,7 +4355,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4318,7 +4370,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_detector_errors()}
   def put_detector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDetector", input, options)
   end
@@ -4337,7 +4390,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_entity_type_errors()}
   def put_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEntityType", input, options)
   end
@@ -4358,7 +4412,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_event_type_errors()}
   def put_event_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEventType", input, options)
   end
@@ -4375,7 +4430,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_external_model_errors()}
   def put_external_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutExternalModel", input, options)
   end
@@ -4389,7 +4445,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_kms_encryption_key_errors()}
   def put_kms_encryption_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutKMSEncryptionKey", input, options)
   end
@@ -4407,7 +4464,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_label_errors()}
   def put_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLabel", input, options)
   end
@@ -4421,7 +4479,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, put_outcome_errors()}
   def put_outcome(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOutcome", input, options)
   end
@@ -4439,7 +4498,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, send_event_errors()}
   def send_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendEvent", input, options)
   end
@@ -4453,7 +4513,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4467,7 +4528,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4485,7 +4547,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_errors()}
   def update_detector_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersion", input, options)
   end
@@ -4506,7 +4569,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_metadata_errors()}
   def update_detector_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersionMetadata", input, options)
   end
@@ -4524,7 +4588,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_detector_version_status_errors()}
   def update_detector_version_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDetectorVersionStatus", input, options)
   end
@@ -4538,7 +4603,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_event_label_errors()}
   def update_event_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEventLabel", input, options)
   end
@@ -4553,7 +4619,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_list_errors()}
   def update_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateList", input, options)
   end
@@ -4567,7 +4634,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModel", input, options)
   end
@@ -4587,7 +4655,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_version_errors()}
   def update_model_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelVersion", input, options)
   end
@@ -4612,7 +4681,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_model_version_status_errors()}
   def update_model_version_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelVersionStatus", input, options)
   end
@@ -4628,7 +4698,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_rule_metadata_errors()}
   def update_rule_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleMetadata", input, options)
   end
@@ -4644,7 +4715,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_rule_version_errors()}
   def update_rule_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleVersion", input, options)
   end
@@ -4658,7 +4730,8 @@ defmodule AWS.FraudDetector do
           | {:error, term()}
           | {:error, update_variable_errors()}
   def update_variable(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVariable", input, options)
   end

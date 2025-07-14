@@ -18,7 +18,7 @@ defmodule AWS.Inspector2 do
 
       update_ec2_deep_inspection_configuration_request() :: %{
         optional("activateDeepInspection") => [boolean()],
-        optional("packagePaths") => list(String.t()())
+        optional("packagePaths") => list(String.t())
       }
 
   """
@@ -29,7 +29,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_disassociate_code_security_scan_configuration_request() :: %{
-        required("disassociateConfigurationRequests") => list(disassociate_configuration_request()())
+        required("disassociateConfigurationRequests") => list(disassociate_configuration_request())
       }
 
   """
@@ -51,12 +51,12 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       code_vulnerability_details() :: %{
-        "cwes" => list(String.t()()),
+        "cwes" => list(String.t()),
         "detectorId" => String.t(),
         "detectorName" => String.t(),
-        "detectorTags" => list(String.t()()),
+        "detectorTags" => list(String.t()),
         "filePath" => code_file_path(),
-        "referenceUrls" => list(String.t()()),
+        "referenceUrls" => list(String.t()),
         "ruleId" => String.t(),
         "sourceLambdaLayerArn" => String.t()
       }
@@ -69,8 +69,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       disable_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("resourceTypes") => list(String.t()())
+        optional("accountIds") => list(String.t()),
+        optional("resourceTypes") => list(String.t())
       }
 
   """
@@ -107,7 +107,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       network_path() :: %{
-        "steps" => list(step()())
+        "steps" => list(step())
       }
 
   """
@@ -153,7 +153,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       repository_aggregation() :: %{
-        "repositories" => list(string_filter()()),
+        "repositories" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -166,8 +166,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       project_code_security_scan_configuration() :: %{
-        "continuousIntegrationScanConfigurations" => list(project_continuous_integration_scan_configuration()()),
-        "periodicScanConfigurations" => list(project_periodic_scan_configuration()())
+        "continuousIntegrationScanConfigurations" => list(project_continuous_integration_scan_configuration()),
+        "periodicScanConfigurations" => list(project_periodic_scan_configuration())
       }
 
   """
@@ -202,9 +202,9 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       enable_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("clientToken") => String.t(),
-        required("resourceTypes") => list(String.t()())
+        required("resourceTypes") => list(String.t())
       }
 
   """
@@ -219,14 +219,14 @@ defmodule AWS.Inspector2 do
         "cisaData" => cisa_data(),
         "cvss2" => cvss2(),
         "cvss3" => cvss3(),
-        "cwes" => list(String.t()()),
+        "cwes" => list(String.t()),
         "description" => String.t(),
-        "detectionPlatforms" => list(String.t()()),
+        "detectionPlatforms" => list(String.t()),
         "epss" => epss(),
         "exploitObserved" => exploit_observed(),
         "id" => String.t(),
-        "referenceUrls" => list(String.t()()),
-        "relatedVulnerabilities" => list(String.t()()),
+        "referenceUrls" => list(String.t()),
+        "relatedVulnerabilities" => list(String.t()),
         "source" => String.t(),
         "sourceUrl" => String.t(),
         "vendorCreatedAt" => non_neg_integer(),
@@ -300,7 +300,7 @@ defmodule AWS.Inspector2 do
 
       usage_total() :: %{
         "accountId" => String.t(),
-        "usage" => list(usage()())
+        "usage" => list(usage())
       }
 
   """
@@ -311,7 +311,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       cis_targets() :: %{
-        "accountIds" => list(String.t()()),
+        "accountIds" => list(String.t()),
         "targetResourceTags" => map()
       }
 
@@ -420,52 +420,52 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       filter_criteria() :: %{
-        "ecrImageLastInUseAt" => list(date_filter()()),
-        "severity" => list(string_filter()()),
-        "codeVulnerabilityFilePath" => list(string_filter()()),
-        "ecrImageHash" => list(string_filter()()),
-        "findingType" => list(string_filter()()),
-        "ec2InstanceVpcId" => list(string_filter()()),
-        "resourceId" => list(string_filter()()),
-        "lambdaFunctionExecutionRoleArn" => list(string_filter()()),
-        "networkProtocol" => list(string_filter()()),
-        "updatedAt" => list(date_filter()()),
-        "title" => list(string_filter()()),
-        "ec2InstanceImageId" => list(string_filter()()),
-        "findingStatus" => list(string_filter()()),
-        "inspectorScore" => list(number_filter()()),
-        "vendorSeverity" => list(string_filter()()),
-        "resourceTags" => list(map_filter()()),
-        "lambdaFunctionName" => list(string_filter()()),
-        "fixAvailable" => list(string_filter()()),
-        "ecrImageRepositoryName" => list(string_filter()()),
-        "awsAccountId" => list(string_filter()()),
-        "codeVulnerabilityDetectorName" => list(string_filter()()),
-        "epssScore" => list(number_filter()()),
-        "ecrImageRegistry" => list(string_filter()()),
-        "componentType" => list(string_filter()()),
-        "codeRepositoryProviderType" => list(string_filter()()),
-        "lastObservedAt" => list(date_filter()()),
-        "exploitAvailable" => list(string_filter()()),
-        "ecrImageTags" => list(string_filter()()),
-        "codeVulnerabilityDetectorTags" => list(string_filter()()),
-        "vulnerabilitySource" => list(string_filter()()),
-        "relatedVulnerabilities" => list(string_filter()()),
-        "lambdaFunctionRuntime" => list(string_filter()()),
-        "ecrImageInUseCount" => list(number_filter()()),
-        "ec2InstanceSubnetId" => list(string_filter()()),
-        "portRange" => list(port_range_filter()()),
-        "ecrImagePushedAt" => list(date_filter()()),
-        "codeRepositoryProjectName" => list(string_filter()()),
-        "lambdaFunctionLastModifiedAt" => list(date_filter()()),
-        "ecrImageArchitecture" => list(string_filter()()),
-        "vulnerabilityId" => list(string_filter()()),
-        "resourceType" => list(string_filter()()),
-        "findingArn" => list(string_filter()()),
-        "componentId" => list(string_filter()()),
-        "vulnerablePackages" => list(package_filter()()),
-        "firstObservedAt" => list(date_filter()()),
-        "lambdaFunctionLayers" => list(string_filter()())
+        "ecrImageLastInUseAt" => list(date_filter()),
+        "severity" => list(string_filter()),
+        "codeVulnerabilityFilePath" => list(string_filter()),
+        "ecrImageHash" => list(string_filter()),
+        "findingType" => list(string_filter()),
+        "ec2InstanceVpcId" => list(string_filter()),
+        "resourceId" => list(string_filter()),
+        "lambdaFunctionExecutionRoleArn" => list(string_filter()),
+        "networkProtocol" => list(string_filter()),
+        "updatedAt" => list(date_filter()),
+        "title" => list(string_filter()),
+        "ec2InstanceImageId" => list(string_filter()),
+        "findingStatus" => list(string_filter()),
+        "inspectorScore" => list(number_filter()),
+        "vendorSeverity" => list(string_filter()),
+        "resourceTags" => list(map_filter()),
+        "lambdaFunctionName" => list(string_filter()),
+        "fixAvailable" => list(string_filter()),
+        "ecrImageRepositoryName" => list(string_filter()),
+        "awsAccountId" => list(string_filter()),
+        "codeVulnerabilityDetectorName" => list(string_filter()),
+        "epssScore" => list(number_filter()),
+        "ecrImageRegistry" => list(string_filter()),
+        "componentType" => list(string_filter()),
+        "codeRepositoryProviderType" => list(string_filter()),
+        "lastObservedAt" => list(date_filter()),
+        "exploitAvailable" => list(string_filter()),
+        "ecrImageTags" => list(string_filter()),
+        "codeVulnerabilityDetectorTags" => list(string_filter()),
+        "vulnerabilitySource" => list(string_filter()),
+        "relatedVulnerabilities" => list(string_filter()),
+        "lambdaFunctionRuntime" => list(string_filter()),
+        "ecrImageInUseCount" => list(number_filter()),
+        "ec2InstanceSubnetId" => list(string_filter()),
+        "portRange" => list(port_range_filter()),
+        "ecrImagePushedAt" => list(date_filter()),
+        "codeRepositoryProjectName" => list(string_filter()),
+        "lambdaFunctionLastModifiedAt" => list(date_filter()),
+        "ecrImageArchitecture" => list(string_filter()),
+        "vulnerabilityId" => list(string_filter()),
+        "resourceType" => list(string_filter()),
+        "findingArn" => list(string_filter()),
+        "componentId" => list(string_filter()),
+        "vulnerablePackages" => list(package_filter()),
+        "firstObservedAt" => list(date_filter()),
+        "lambdaFunctionLayers" => list(string_filter())
       }
 
   """
@@ -560,7 +560,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       search_vulnerabilities_filter_criteria() :: %{
-        "vulnerabilityIds" => list(String.t()())
+        "vulnerabilityIds" => list(String.t())
       }
 
   """
@@ -583,8 +583,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_member_ec2_deep_inspection_status_response() :: %{
-        "accountIds" => list(member_account_ec2_deep_inspection_status_state()()),
-        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state()())
+        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
+        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
       }
 
   """
@@ -686,7 +686,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_usage_totals_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -724,7 +724,7 @@ defmodule AWS.Inspector2 do
 
       list_account_permissions_response() :: %{
         optional("nextToken") => String.t(),
-        required("permissions") => list(permission()())
+        required("permissions") => list(permission())
       }
 
   """
@@ -757,7 +757,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       update_cis_targets() :: %{
-        "accountIds" => list(String.t()()),
+        "accountIds" => list(String.t()),
         "targetResourceTags" => map()
       }
 
@@ -793,7 +793,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_findings_response() :: %{
-        optional("findings") => list(finding()()),
+        optional("findings") => list(finding()),
         optional("nextToken") => String.t()
       }
 
@@ -805,8 +805,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       disable_response() :: %{
-        optional("failedAccounts") => list(failed_account()()),
-        required("accounts") => list(account()())
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account())
       }
 
   """
@@ -882,15 +882,15 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       cis_scan_results_aggregated_by_target_resource_filter_criteria() :: %{
-        "accountIdFilters" => list(cis_string_filter()()),
-        "checkIdFilters" => list(cis_string_filter()()),
-        "failedChecksFilters" => list(cis_number_filter()()),
-        "platformFilters" => list(cis_string_filter()()),
-        "statusFilters" => list(cis_result_status_filter()()),
-        "targetResourceIdFilters" => list(cis_string_filter()()),
-        "targetResourceTagFilters" => list(tag_filter()()),
-        "targetStatusFilters" => list(cis_target_status_filter()()),
-        "targetStatusReasonFilters" => list(cis_target_status_reason_filter()())
+        "accountIdFilters" => list(cis_string_filter()),
+        "checkIdFilters" => list(cis_string_filter()),
+        "failedChecksFilters" => list(cis_number_filter()),
+        "platformFilters" => list(cis_string_filter()),
+        "statusFilters" => list(cis_result_status_filter()),
+        "targetResourceIdFilters" => list(cis_string_filter()),
+        "targetResourceTagFilters" => list(tag_filter()),
+        "targetStatusFilters" => list(cis_target_status_filter()),
+        "targetStatusReasonFilters" => list(cis_target_status_reason_filter())
       }
 
   """
@@ -1033,7 +1033,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1084,8 +1084,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_free_trial_info_response() :: %{
-        required("accounts") => list(free_trial_account_info()()),
-        required("failedAccounts") => list(free_trial_info_error()())
+        required("accounts") => list(free_trial_account_info()),
+        required("failedAccounts") => list(free_trial_info_error())
       }
 
   """
@@ -1109,8 +1109,8 @@ defmodule AWS.Inspector2 do
 
       update_ec2_deep_inspection_configuration_response() :: %{
         "errorMessage" => String.t(),
-        "orgPackagePaths" => list(String.t()()),
-        "packagePaths" => list(String.t()()),
+        "orgPackagePaths" => list(String.t()),
+        "packagePaths" => list(String.t()),
         "status" => String.t()
       }
 
@@ -1175,7 +1175,7 @@ defmodule AWS.Inspector2 do
 
       list_cis_scans_response() :: %{
         "nextToken" => String.t(),
-        "scans" => list(cis_scan()())
+        "scans" => list(cis_scan())
       }
 
   """
@@ -1253,10 +1253,10 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       ec2_instance_aggregation() :: %{
-        "amis" => list(string_filter()()),
-        "instanceIds" => list(string_filter()()),
-        "instanceTags" => list(map_filter()()),
-        "operatingSystems" => list(string_filter()()),
+        "amis" => list(string_filter()),
+        "instanceIds" => list(string_filter()),
+        "instanceTags" => list(map_filter()),
+        "operatingSystems" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -1280,11 +1280,11 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       code_snippet_result() :: %{
-        "codeSnippet" => list(code_line()()),
+        "codeSnippet" => list(code_line()),
         "endLine" => [integer()],
         "findingArn" => String.t(),
         "startLine" => [integer()],
-        "suggestedFixes" => list(suggested_fix()())
+        "suggestedFixes" => list(suggested_fix())
       }
 
   """
@@ -1306,7 +1306,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_code_security_scan_configuration_associations_response() :: %{
-        "associations" => list(code_security_scan_configuration_association_summary()()),
+        "associations" => list(code_security_scan_configuration_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -1318,7 +1318,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_cis_scan_results_aggregated_by_checks_response() :: %{
-        "checkAggregations" => list(cis_check_aggregation()()),
+        "checkAggregations" => list(cis_check_aggregation()),
         "nextToken" => String.t()
       }
 
@@ -1422,7 +1422,7 @@ defmodule AWS.Inspector2 do
 
       list_finding_aggregations_response() :: %{
         optional("nextToken") => String.t(),
-        optional("responses") => list(list()()),
+        optional("responses") => list(list()),
         required("aggregationType") => String.t()
       }
 
@@ -1435,7 +1435,7 @@ defmodule AWS.Inspector2 do
 
       list_cis_scan_results_aggregated_by_target_resource_response() :: %{
         "nextToken" => String.t(),
-        "targetResourceAggregations" => list(cis_target_resource_aggregation()())
+        "targetResourceAggregations" => list(cis_target_resource_aggregation())
       }
 
   """
@@ -1458,10 +1458,10 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       lambda_function_aggregation() :: %{
-        "functionNames" => list(string_filter()()),
-        "functionTags" => list(map_filter()()),
-        "resourceIds" => list(string_filter()()),
-        "runtimes" => list(string_filter()()),
+        "functionNames" => list(string_filter()),
+        "functionTags" => list(map_filter()),
+        "resourceIds" => list(string_filter()),
+        "runtimes" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -1526,7 +1526,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_code_security_scan_configurations_response() :: %{
-        "configurations" => list(code_security_scan_configuration_summary()()),
+        "configurations" => list(code_security_scan_configuration_summary()),
         "nextToken" => String.t()
       }
 
@@ -1604,7 +1604,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_delegated_admin_accounts_response() :: %{
-        optional("delegatedAdminAccounts") => list(delegated_admin_account()()),
+        optional("delegatedAdminAccounts") => list(delegated_admin_account()),
         optional("nextToken") => String.t()
       }
 
@@ -1639,14 +1639,14 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_filter_criteria() :: %{
-        "accountId" => list(resource_string_filter()()),
-        "ec2InstanceTags" => list(resource_map_filter()()),
-        "ecrImageTags" => list(resource_string_filter()()),
-        "ecrRepositoryName" => list(resource_string_filter()()),
-        "lambdaFunctionName" => list(resource_string_filter()()),
-        "lambdaFunctionTags" => list(resource_map_filter()()),
-        "resourceId" => list(resource_string_filter()()),
-        "resourceType" => list(resource_string_filter()())
+        "accountId" => list(resource_string_filter()),
+        "ec2InstanceTags" => list(resource_map_filter()),
+        "ecrImageTags" => list(resource_string_filter()),
+        "ecrRepositoryName" => list(resource_string_filter()),
+        "lambdaFunctionName" => list(resource_string_filter()),
+        "lambdaFunctionTags" => list(resource_map_filter()),
+        "resourceId" => list(resource_string_filter()),
+        "resourceType" => list(resource_string_filter())
       }
 
   """
@@ -1657,7 +1657,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       create_cis_targets() :: %{
-        "accountIds" => list(String.t()()),
+        "accountIds" => list(String.t()),
         "targetResourceTags" => map()
       }
 
@@ -1786,7 +1786,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_finding_details_request() :: %{
-        required("findingArns") => list(String.t()())
+        required("findingArns") => list(String.t())
       }
 
   """
@@ -1810,8 +1810,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       lambda_vpc_config() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -1838,8 +1838,8 @@ defmodule AWS.Inspector2 do
       atig_data() :: %{
         "firstSeen" => non_neg_integer(),
         "lastSeen" => non_neg_integer(),
-        "targets" => list(String.t()()),
-        "ttps" => list(String.t()())
+        "targets" => list(String.t()),
+        "ttps" => list(String.t())
       }
 
   """
@@ -1883,7 +1883,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       cvss_score_details() :: %{
-        "adjustments" => list(cvss_score_adjustment()()),
+        "adjustments" => list(cvss_score_adjustment()),
         "cvssSource" => String.t(),
         "score" => [float()],
         "scoreSource" => String.t(),
@@ -1947,7 +1947,7 @@ defmodule AWS.Inspector2 do
         "networkReachabilityDetails" => network_reachability_details(),
         "packageVulnerabilityDetails" => package_vulnerability_details(),
         "remediation" => remediation(),
-        "resources" => list(resource()()),
+        "resources" => list(resource()),
         "severity" => String.t(),
         "status" => String.t(),
         "title" => String.t(),
@@ -2092,7 +2092,7 @@ defmodule AWS.Inspector2 do
 
       list_usage_totals_response() :: %{
         optional("nextToken") => String.t(),
-        optional("totals") => list(usage_total()())
+        optional("totals") => list(usage_total())
       }
 
   """
@@ -2194,7 +2194,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_coverage_response() :: %{
-        optional("coveredResources") => list(covered_resource()()),
+        optional("coveredResources") => list(covered_resource()),
         optional("nextToken") => String.t()
       }
 
@@ -2240,9 +2240,9 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_cis_scan_configurations_filter_criteria() :: %{
-        "scanConfigurationArnFilters" => list(cis_string_filter()()),
-        "scanNameFilters" => list(cis_string_filter()()),
-        "targetResourceTagFilters" => list(tag_filter()())
+        "scanConfigurationArnFilters" => list(cis_string_filter()),
+        "scanNameFilters" => list(cis_string_filter()),
+        "targetResourceTagFilters" => list(tag_filter())
       }
 
   """
@@ -2305,7 +2305,7 @@ defmodule AWS.Inspector2 do
 
       cluster_information() :: %{
         "clusterArn" => [String.t()],
-        "clusterDetails" => list(cluster_details()())
+        "clusterDetails" => list(cluster_details())
       }
 
   """
@@ -2316,9 +2316,9 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       code_repository_aggregation() :: %{
-        "projectNames" => list(string_filter()()),
-        "providerTypes" => list(string_filter()()),
-        "resourceIds" => list(string_filter()()),
+        "projectNames" => list(string_filter()),
+        "providerTypes" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -2363,7 +2363,7 @@ defmodule AWS.Inspector2 do
 
       list_cis_scan_configurations_response() :: %{
         "nextToken" => String.t(),
-        "scanConfigurations" => list(cis_scan_configuration()())
+        "scanConfigurations" => list(cis_scan_configuration())
       }
 
   """
@@ -2375,15 +2375,15 @@ defmodule AWS.Inspector2 do
 
       finding_detail() :: %{
         "cisaData" => cisa_data(),
-        "cwes" => list(String.t()()),
+        "cwes" => list(String.t()),
         "epssScore" => [float()],
-        "evidences" => list(evidence()()),
+        "evidences" => list(evidence()),
         "exploitObserved" => exploit_observed(),
         "findingArn" => String.t(),
-        "referenceUrls" => list(String.t()()),
+        "referenceUrls" => list(String.t()),
         "riskScore" => integer(),
-        "tools" => list(String.t()()),
-        "ttps" => list(String.t()())
+        "tools" => list(String.t()),
+        "ttps" => list(String.t())
       }
 
   """
@@ -2591,7 +2591,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_code_security_integrations_response() :: %{
-        "integrations" => list(code_security_integration_summary()()),
+        "integrations" => list(code_security_integration_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -2612,8 +2612,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_account_status_response() :: %{
-        optional("failedAccounts") => list(failed_account()()),
-        required("accounts") => list(account_state()())
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account_state())
       }
 
   """
@@ -2624,7 +2624,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_free_trial_info_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -2680,8 +2680,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       enable_response() :: %{
-        optional("failedAccounts") => list(failed_account()()),
-        required("accounts") => list(account()())
+        optional("failedAccounts") => list(failed_account()),
+        required("accounts") => list(account())
       }
 
   """
@@ -2721,9 +2721,9 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       image_layer_aggregation() :: %{
-        "layerHashes" => list(string_filter()()),
-        "repositories" => list(string_filter()()),
-        "resourceIds" => list(string_filter()()),
+        "layerHashes" => list(string_filter()),
+        "repositories" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -2750,9 +2750,9 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       lambda_layer_aggregation() :: %{
-        "functionNames" => list(string_filter()()),
-        "layerArns" => list(string_filter()()),
-        "resourceIds" => list(string_filter()()),
+        "functionNames" => list(string_filter()),
+        "layerArns" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -2790,7 +2790,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_code_snippet_request() :: %{
-        required("findingArns") => list(String.t()())
+        required("findingArns") => list(String.t())
       }
 
   """
@@ -2885,16 +2885,16 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       package_vulnerability_details() :: %{
-        "cvss" => list(cvss_score()()),
-        "referenceUrls" => list(String.t()()),
-        "relatedVulnerabilities" => list(String.t()()),
+        "cvss" => list(cvss_score()),
+        "referenceUrls" => list(String.t()),
+        "relatedVulnerabilities" => list(String.t()),
         "source" => String.t(),
         "sourceUrl" => String.t(),
         "vendorCreatedAt" => non_neg_integer(),
         "vendorSeverity" => String.t(),
         "vendorUpdatedAt" => non_neg_integer(),
         "vulnerabilityId" => String.t(),
-        "vulnerablePackages" => list(vulnerable_package()())
+        "vulnerablePackages" => list(vulnerable_package())
       }
 
   """
@@ -2921,8 +2921,8 @@ defmodule AWS.Inspector2 do
       aws_ec2_instance_details() :: %{
         "iamInstanceProfileArn" => String.t(),
         "imageId" => String.t(),
-        "ipV4Addresses" => list(String.t()()),
-        "ipV6Addresses" => list(String.t()()),
+        "ipV4Addresses" => list(String.t()),
+        "ipV6Addresses" => list(String.t()),
         "keyName" => String.t(),
         "launchedAt" => non_neg_integer(),
         "platform" => String.t(),
@@ -2965,7 +2965,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_member_ec2_deep_inspection_status_request() :: %{
-        optional("accountIds") => list(String.t()())
+        optional("accountIds") => list(String.t())
       }
 
   """
@@ -3021,7 +3021,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_members_response() :: %{
-        optional("members") => list(member()()),
+        optional("members") => list(member()),
         optional("nextToken") => String.t()
       }
 
@@ -3034,8 +3034,8 @@ defmodule AWS.Inspector2 do
 
       get_ec2_deep_inspection_configuration_response() :: %{
         "errorMessage" => String.t(),
-        "orgPackagePaths" => list(String.t()()),
-        "packagePaths" => list(String.t()()),
+        "orgPackagePaths" => list(String.t()),
+        "packagePaths" => list(String.t()),
         "status" => String.t()
       }
 
@@ -3106,7 +3106,7 @@ defmodule AWS.Inspector2 do
 
       get_cis_scan_report_request() :: %{
         optional("reportFormat") => list(any()),
-        optional("targetAccounts") => list(String.t()()),
+        optional("targetAccounts") => list(String.t()),
         required("scanArn") => String.t()
       }
 
@@ -3140,7 +3140,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -3163,7 +3163,7 @@ defmodule AWS.Inspector2 do
 
       get_cis_scan_result_details_response() :: %{
         "nextToken" => String.t(),
-        "scanResultDetails" => list(cis_scan_result_details()())
+        "scanResultDetails" => list(cis_scan_result_details())
       }
 
   """
@@ -3212,7 +3212,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_coverage_statistics_response() :: %{
-        optional("countsByGroup") => list(counts()()),
+        optional("countsByGroup") => list(counts()),
         optional("nextToken") => String.t(),
         required("totalCounts") => [float()]
       }
@@ -3295,27 +3295,27 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       coverage_filter_criteria() :: %{
-        "accountId" => list(coverage_string_filter()()),
-        "codeRepositoryProjectName" => list(coverage_string_filter()()),
-        "codeRepositoryProviderType" => list(coverage_string_filter()()),
-        "codeRepositoryProviderTypeVisibility" => list(coverage_string_filter()()),
-        "ec2InstanceTags" => list(coverage_map_filter()()),
-        "ecrImageInUseCount" => list(coverage_number_filter()()),
-        "ecrImageLastInUseAt" => list(coverage_date_filter()()),
-        "ecrImageTags" => list(coverage_string_filter()()),
-        "ecrRepositoryName" => list(coverage_string_filter()()),
-        "imagePulledAt" => list(coverage_date_filter()()),
-        "lambdaFunctionName" => list(coverage_string_filter()()),
-        "lambdaFunctionRuntime" => list(coverage_string_filter()()),
-        "lambdaFunctionTags" => list(coverage_map_filter()()),
-        "lastScannedAt" => list(coverage_date_filter()()),
-        "lastScannedCommitId" => list(coverage_string_filter()()),
-        "resourceId" => list(coverage_string_filter()()),
-        "resourceType" => list(coverage_string_filter()()),
-        "scanMode" => list(coverage_string_filter()()),
-        "scanStatusCode" => list(coverage_string_filter()()),
-        "scanStatusReason" => list(coverage_string_filter()()),
-        "scanType" => list(coverage_string_filter()())
+        "accountId" => list(coverage_string_filter()),
+        "codeRepositoryProjectName" => list(coverage_string_filter()),
+        "codeRepositoryProviderType" => list(coverage_string_filter()),
+        "codeRepositoryProviderTypeVisibility" => list(coverage_string_filter()),
+        "ec2InstanceTags" => list(coverage_map_filter()),
+        "ecrImageInUseCount" => list(coverage_number_filter()),
+        "ecrImageLastInUseAt" => list(coverage_date_filter()),
+        "ecrImageTags" => list(coverage_string_filter()),
+        "ecrRepositoryName" => list(coverage_string_filter()),
+        "imagePulledAt" => list(coverage_date_filter()),
+        "lambdaFunctionName" => list(coverage_string_filter()),
+        "lambdaFunctionRuntime" => list(coverage_string_filter()),
+        "lambdaFunctionTags" => list(coverage_map_filter()),
+        "lastScannedAt" => list(coverage_date_filter()),
+        "lastScannedCommitId" => list(coverage_string_filter()),
+        "resourceId" => list(coverage_string_filter()),
+        "resourceType" => list(coverage_string_filter()),
+        "scanMode" => list(coverage_string_filter()),
+        "scanStatusCode" => list(coverage_string_filter()),
+        "scanStatusReason" => list(coverage_string_filter()),
+        "scanType" => list(coverage_string_filter())
       }
 
   """
@@ -3337,7 +3337,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_account_status_request() :: %{
-        optional("accountIds") => list(String.t()())
+        optional("accountIds") => list(String.t())
       }
 
   """
@@ -3348,7 +3348,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       get_clusters_for_image_response() :: %{
-        "cluster" => list(cluster_information()()),
+        "cluster" => list(cluster_information()),
         "nextToken" => String.t()
       }
 
@@ -3389,7 +3389,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       ami_aggregation() :: %{
-        "amis" => list(string_filter()()),
+        "amis" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -3485,7 +3485,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       package_aggregation() :: %{
-        "packageNames" => list(string_filter()()),
+        "packageNames" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -3511,12 +3511,12 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       cis_scan_results_aggregated_by_checks_filter_criteria() :: %{
-        "accountIdFilters" => list(cis_string_filter()()),
-        "checkIdFilters" => list(cis_string_filter()()),
-        "failedResourcesFilters" => list(cis_number_filter()()),
-        "platformFilters" => list(cis_string_filter()()),
-        "securityLevelFilters" => list(cis_security_level_filter()()),
-        "titleFilters" => list(cis_string_filter()())
+        "accountIdFilters" => list(cis_string_filter()),
+        "checkIdFilters" => list(cis_string_filter()),
+        "failedResourcesFilters" => list(cis_number_filter()),
+        "platformFilters" => list(cis_string_filter()),
+        "securityLevelFilters" => list(cis_security_level_filter()),
+        "titleFilters" => list(cis_string_filter())
       }
 
   """
@@ -3590,7 +3590,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_finding_aggregations_request() :: %{
-        optional("accountIds") => list(string_filter()()),
+        optional("accountIds") => list(string_filter()),
         optional("aggregationRequest") => list(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -3660,7 +3660,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_associate_code_security_scan_configuration_request() :: %{
-        required("associateConfigurationRequests") => list(associate_configuration_request()())
+        required("associateConfigurationRequests") => list(associate_configuration_request())
       }
 
   """
@@ -3687,8 +3687,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_disassociate_code_security_scan_configuration_response() :: %{
-        "failedAssociations" => list(failed_association_result()()),
-        "successfulAssociations" => list(successful_association_result()())
+        "failedAssociations" => list(failed_association_result()),
+        "successfulAssociations" => list(successful_association_result())
       }
 
   """
@@ -3699,13 +3699,13 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       aws_ecr_container_aggregation() :: %{
-        "architectures" => list(string_filter()()),
-        "imageShas" => list(string_filter()()),
-        "imageTags" => list(string_filter()()),
-        "inUseCount" => list(number_filter()()),
-        "lastInUseAt" => list(date_filter()()),
-        "repositories" => list(string_filter()()),
-        "resourceIds" => list(string_filter()()),
+        "architectures" => list(string_filter()),
+        "imageShas" => list(string_filter()),
+        "imageTags" => list(string_filter()),
+        "inUseCount" => list(number_filter()),
+        "lastInUseAt" => list(date_filter()),
+        "repositories" => list(string_filter()),
+        "resourceIds" => list(string_filter()),
         "sortBy" => String.t(),
         "sortOrder" => String.t()
       }
@@ -3731,8 +3731,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_code_snippet_response() :: %{
-        "codeSnippetResults" => list(code_snippet_result()()),
-        "errors" => list(code_snippet_error()())
+        "codeSnippetResults" => list(code_snippet_result()),
+        "errors" => list(code_snippet_error())
       }
 
   """
@@ -3799,7 +3799,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_update_member_ec2_deep_inspection_status_request() :: %{
-        required("accountIds") => list(member_account_ec2_deep_inspection_status()())
+        required("accountIds") => list(member_account_ec2_deep_inspection_status())
       }
 
   """
@@ -3819,8 +3819,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_update_member_ec2_deep_inspection_status_response() :: %{
-        "accountIds" => list(member_account_ec2_deep_inspection_status_state()()),
-        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state()())
+        "accountIds" => list(member_account_ec2_deep_inspection_status_state()),
+        "failedAccountIds" => list(failed_member_account_ec2_deep_inspection_status_state())
       }
 
   """
@@ -3906,7 +3906,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       send_cis_session_telemetry_request() :: %{
-        required("messages") => list(cis_session_message()()),
+        required("messages") => list(cis_session_message()),
         required("scanJobId") => String.t(),
         required("sessionToken") => String.t()
       }
@@ -3976,7 +3976,7 @@ defmodule AWS.Inspector2 do
         "architecture" => String.t(),
         "author" => [String.t()],
         "imageHash" => String.t(),
-        "imageTags" => list(String.t()()),
+        "imageTags" => list(String.t()),
         "inUseCount" => [float()],
         "lastInUseAt" => non_neg_integer(),
         "platform" => String.t(),
@@ -4019,8 +4019,8 @@ defmodule AWS.Inspector2 do
         "resourceType" => String.t(),
         "sortBy" => String.t(),
         "sortOrder" => String.t(),
-        "titles" => list(string_filter()()),
-        "vulnerabilityIds" => list(string_filter()())
+        "titles" => list(string_filter()),
+        "vulnerabilityIds" => list(string_filter())
       }
 
   """
@@ -4041,7 +4041,7 @@ defmodule AWS.Inspector2 do
 
       aws_eks_metadata_details() :: %{
         "namespace" => [String.t()],
-        "workloadInfoList" => list(aws_eks_workload_info()())
+        "workloadInfoList" => list(aws_eks_workload_info())
       }
 
   """
@@ -4079,12 +4079,12 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       aws_lambda_function_details() :: %{
-        "architectures" => list(String.t()()),
+        "architectures" => list(String.t()),
         "codeSha256" => String.t(),
         "executionRoleArn" => String.t(),
         "functionName" => String.t(),
         "lastModifiedAt" => [non_neg_integer()],
-        "layers" => list(String.t()()),
+        "layers" => list(String.t()),
         "packageType" => String.t(),
         "runtime" => String.t(),
         "version" => String.t(),
@@ -4123,8 +4123,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_associate_code_security_scan_configuration_response() :: %{
-        "failedAssociations" => list(failed_association_result()()),
-        "successfulAssociations" => list(successful_association_result()())
+        "failedAssociations" => list(failed_association_result()),
+        "successfulAssociations" => list(successful_association_result())
       }
 
   """
@@ -4135,11 +4135,11 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       cis_scan_result_details_filter_criteria() :: %{
-        "checkIdFilters" => list(cis_string_filter()()),
-        "findingArnFilters" => list(cis_string_filter()()),
-        "findingStatusFilters" => list(cis_finding_status_filter()()),
-        "securityLevelFilters" => list(cis_security_level_filter()()),
-        "titleFilters" => list(cis_string_filter()())
+        "checkIdFilters" => list(cis_string_filter()),
+        "findingArnFilters" => list(cis_string_filter()),
+        "findingStatusFilters" => list(cis_finding_status_filter()),
+        "securityLevelFilters" => list(cis_security_level_filter()),
+        "titleFilters" => list(cis_string_filter())
       }
 
   """
@@ -4151,7 +4151,7 @@ defmodule AWS.Inspector2 do
 
       list_filters_response() :: %{
         optional("nextToken") => String.t(),
-        required("filters") => list(filter()())
+        required("filters") => list(filter())
       }
 
   """
@@ -4199,7 +4199,7 @@ defmodule AWS.Inspector2 do
 
       search_vulnerabilities_response() :: %{
         "nextToken" => String.t(),
-        "vulnerabilities" => list(vulnerability()())
+        "vulnerabilities" => list(vulnerability())
       }
 
   """
@@ -4211,7 +4211,7 @@ defmodule AWS.Inspector2 do
 
       free_trial_account_info() :: %{
         "accountId" => String.t(),
-        "freeTrialInfo" => list(free_trial_info()())
+        "freeTrialInfo" => list(free_trial_info())
       }
 
   """
@@ -4222,7 +4222,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       update_org_ec2_deep_inspection_configuration_request() :: %{
-        required("orgPackagePaths") => list(String.t()())
+        required("orgPackagePaths") => list(String.t())
       }
 
   """
@@ -4247,7 +4247,7 @@ defmodule AWS.Inspector2 do
         "accountId" => String.t(),
         "architecture" => [String.t()],
         "imageSha" => [String.t()],
-        "imageTags" => list(String.t()()),
+        "imageTags" => list(String.t()),
         "inUseCount" => [float()],
         "lastInUseAt" => non_neg_integer(),
         "repository" => [String.t()],
@@ -4288,16 +4288,16 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       list_cis_scans_filter_criteria() :: %{
-        "failedChecksFilters" => list(cis_number_filter()()),
-        "scanArnFilters" => list(cis_string_filter()()),
-        "scanAtFilters" => list(cis_date_filter()()),
-        "scanConfigurationArnFilters" => list(cis_string_filter()()),
-        "scanNameFilters" => list(cis_string_filter()()),
-        "scanStatusFilters" => list(cis_scan_status_filter()()),
-        "scheduledByFilters" => list(cis_string_filter()()),
-        "targetAccountIdFilters" => list(cis_string_filter()()),
-        "targetResourceIdFilters" => list(cis_string_filter()()),
-        "targetResourceTagFilters" => list(tag_filter()())
+        "failedChecksFilters" => list(cis_number_filter()),
+        "scanArnFilters" => list(cis_string_filter()),
+        "scanAtFilters" => list(cis_date_filter()),
+        "scanConfigurationArnFilters" => list(cis_string_filter()),
+        "scanNameFilters" => list(cis_string_filter()),
+        "scanStatusFilters" => list(cis_scan_status_filter()),
+        "scheduledByFilters" => list(cis_string_filter()),
+        "targetAccountIdFilters" => list(cis_string_filter()),
+        "targetResourceIdFilters" => list(cis_string_filter()),
+        "targetResourceTagFilters" => list(tag_filter())
       }
 
   """
@@ -4322,7 +4322,7 @@ defmodule AWS.Inspector2 do
 
       list_filters_request() :: %{
         optional("action") => String.t(),
-        optional("arns") => list(String.t()()),
+        optional("arns") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -4347,8 +4347,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       batch_get_finding_details_response() :: %{
-        "errors" => list(finding_details_error()()),
-        "findingDetails" => list(finding_detail()())
+        "errors" => list(finding_details_error()),
+        "findingDetails" => list(finding_detail())
       }
 
   """

@@ -66,7 +66,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_sandboxes_input() :: %{
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -121,7 +121,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_build_batches_input() :: %{
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -146,7 +146,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_builds_for_project_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -218,8 +218,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_command_executions_output() :: %{
-        "commandExecutions" => list(command_execution()()),
-        "commandExecutionsNotFound" => list(String.t()())
+        "commandExecutions" => list(command_execution()),
+        "commandExecutionsNotFound" => list(String.t())
       }
       
   """
@@ -261,7 +261,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_build_batches_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -285,7 +285,7 @@ defmodule AWS.CodeBuild do
       
       proxy_configuration() :: %{
         "defaultBehavior" => list(any()),
-        "orderedProxyRules" => list(fleet_proxy_rule()())
+        "orderedProxyRules" => list(fleet_proxy_rule())
       }
       
   """
@@ -319,7 +319,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_fleets_output() :: %{
-        "fleets" => list(String.t()()),
+        "fleets" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -331,26 +331,26 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       build() :: %{
-        "fileSystemLocations" => list(project_file_system_location()()),
+        "fileSystemLocations" => list(project_file_system_location()),
         "cache" => project_cache(),
         "id" => String.t(),
-        "phases" => list(build_phase()()),
+        "phases" => list(build_phase()),
         "artifacts" => build_artifacts(),
-        "reportArns" => list(String.t()()),
+        "reportArns" => list(String.t()),
         "buildNumber" => float(),
         "serviceRole" => String.t(),
-        "secondarySources" => list(project_source()()),
+        "secondarySources" => list(project_source()),
         "buildStatus" => list(any()),
         "sourceVersion" => String.t(),
-        "secondaryArtifacts" => list(build_artifacts()()),
+        "secondaryArtifacts" => list(build_artifacts()),
         "queuedTimeoutInMinutes" => integer(),
         "buildComplete" => boolean(),
         "source" => project_source(),
         "resolvedSourceVersion" => String.t(),
         "logs" => logs_location(),
-        "exportedEnvironmentVariables" => list(exported_environment_variable()()),
+        "exportedEnvironmentVariables" => list(exported_environment_variable()),
         "startTime" => non_neg_integer(),
-        "secondarySourceVersions" => list(project_source_version()()),
+        "secondarySourceVersions" => list(project_source_version()),
         "networkInterface" => network_interface(),
         "environment" => project_environment(),
         "arn" => String.t(),
@@ -383,16 +383,16 @@ defmodule AWS.CodeBuild do
         optional("description") => String.t(),
         optional("encryptionKey") => String.t(),
         optional("environment") => project_environment(),
-        optional("fileSystemLocations") => list(project_file_system_location()()),
+        optional("fileSystemLocations") => list(project_file_system_location()),
         optional("logsConfig") => logs_config(),
         optional("queuedTimeoutInMinutes") => integer(),
-        optional("secondaryArtifacts") => list(project_artifacts()()),
-        optional("secondarySourceVersions") => list(project_source_version()()),
-        optional("secondarySources") => list(project_source()()),
+        optional("secondaryArtifacts") => list(project_artifacts()),
+        optional("secondarySourceVersions") => list(project_source_version()),
+        optional("secondarySources") => list(project_source()),
         optional("serviceRole") => String.t(),
         optional("source") => project_source(),
         optional("sourceVersion") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("timeoutInMinutes") => integer(),
         optional("vpcConfig") => vpc_config(),
         required("name") => String.t()
@@ -407,10 +407,10 @@ defmodule AWS.CodeBuild do
       
       build_group() :: %{
         "currentBuildSummary" => build_summary(),
-        "dependsOn" => list(String.t()()),
+        "dependsOn" => list(String.t()),
         "identifier" => String.t(),
         "ignoreFailure" => boolean(),
-        "priorBuildSummaryList" => list(build_summary()())
+        "priorBuildSummaryList" => list(build_summary())
       }
       
   """
@@ -434,7 +434,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_builds_input() :: %{
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -495,7 +495,7 @@ defmodule AWS.CodeBuild do
       
       list_report_groups_output() :: %{
         "nextToken" => String.t(),
-        "reportGroups" => list(String.t()())
+        "reportGroups" => list(String.t())
       }
       
   """
@@ -593,7 +593,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       sandbox_session_phase() :: %{
-        "contexts" => list(phase_context()()),
+        "contexts" => list(phase_context()),
         "durationInSeconds" => float(),
         "endTime" => non_neg_integer(),
         "phaseStatus" => list(any()),
@@ -688,7 +688,7 @@ defmodule AWS.CodeBuild do
       
       list_shared_projects_output() :: %{
         "nextToken" => String.t(),
-        "projects" => list(String.t()())
+        "projects" => list(String.t())
       }
       
   """
@@ -699,8 +699,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_builds_output() :: %{
-        "builds" => list(build()()),
-        "buildsNotFound" => list(String.t()())
+        "builds" => list(build()),
+        "buildsNotFound" => list(String.t())
       }
       
   """
@@ -742,7 +742,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       environment_platform() :: %{
-        "languages" => list(environment_language()()),
+        "languages" => list(environment_language()),
         "platform" => list(any())
       }
       
@@ -880,7 +880,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_command_executions_for_sandbox_output() :: %{
-        "commandExecutions" => list(command_execution()()),
+        "commandExecutions" => list(command_execution()),
         "nextToken" => String.t()
       }
       
@@ -949,8 +949,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       delete_build_batch_output() :: %{
-        "buildsDeleted" => list(String.t()()),
-        "buildsNotDeleted" => list(build_not_deleted()()),
+        "buildsDeleted" => list(String.t()),
+        "buildsNotDeleted" => list(build_not_deleted()),
         "statusCode" => String.t()
       }
       
@@ -966,7 +966,7 @@ defmodule AWS.CodeBuild do
         "buildStatus" => list(any()),
         "primaryArtifact" => resolved_artifact(),
         "requestedOn" => non_neg_integer(),
-        "secondaryArtifacts" => list(resolved_artifact()())
+        "secondaryArtifacts" => list(resolved_artifact())
       }
       
   """
@@ -992,8 +992,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_reports_output() :: %{
-        "reports" => list(report()()),
-        "reportsNotFound" => list(String.t()())
+        "reports" => list(report()),
+        "reportsNotFound" => list(String.t())
       }
       
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.CodeBuild do
       
       list_reports_output() :: %{
         "nextToken" => String.t(),
-        "reports" => list(String.t()())
+        "reports" => list(String.t())
       }
       
   """
@@ -1069,15 +1069,15 @@ defmodule AWS.CodeBuild do
         optional("privilegedModeOverride") => boolean(),
         optional("gitCloneDepthOverride") => integer(),
         optional("queuedTimeoutInMinutesOverride") => integer(),
-        optional("secondarySourcesVersionOverride") => list(project_source_version()()),
-        optional("environmentVariablesOverride") => list(environment_variable()()),
+        optional("secondarySourcesVersionOverride") => list(project_source_version()),
+        optional("environmentVariablesOverride") => list(environment_variable()),
         required("projectName") => String.t(),
-        optional("secondarySourcesOverride") => list(project_source()()),
+        optional("secondarySourcesOverride") => list(project_source()),
         optional("sourceVersion") => String.t(),
         optional("sourceLocationOverride") => String.t(),
         optional("serviceRoleOverride") => String.t(),
         optional("logsConfigOverride") => logs_config(),
-        optional("secondaryArtifactsOverride") => list(project_artifacts()()),
+        optional("secondaryArtifactsOverride") => list(project_artifacts()),
         optional("imageOverride") => String.t(),
         optional("imagePullCredentialsTypeOverride") => list(any()),
         optional("registryCredentialOverride") => registry_credential(),
@@ -1107,7 +1107,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_delete_builds_input() :: %{
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -1118,7 +1118,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_curated_environment_images_output() :: %{
-        "platforms" => list(environment_platform()())
+        "platforms" => list(environment_platform())
       }
       
   """
@@ -1140,7 +1140,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       describe_code_coverages_output() :: %{
-        "codeCoverages" => list(code_coverage()()),
+        "codeCoverages" => list(code_coverage()),
         "nextToken" => String.t()
       }
       
@@ -1153,7 +1153,7 @@ defmodule AWS.CodeBuild do
       
       list_shared_report_groups_output() :: %{
         "nextToken" => String.t(),
-        "reportGroups" => list(String.t()())
+        "reportGroups" => list(String.t())
       }
       
   """
@@ -1234,7 +1234,7 @@ defmodule AWS.CodeBuild do
         "description" => String.t(),
         "encryptionKey" => String.t(),
         "environment" => project_environment(),
-        "fileSystemLocations" => list(project_file_system_location()()),
+        "fileSystemLocations" => list(project_file_system_location()),
         "lastModified" => non_neg_integer(),
         "logsConfig" => logs_config(),
         "name" => String.t(),
@@ -1242,13 +1242,13 @@ defmodule AWS.CodeBuild do
         "publicProjectAlias" => String.t(),
         "queuedTimeoutInMinutes" => integer(),
         "resourceAccessRole" => String.t(),
-        "secondaryArtifacts" => list(project_artifacts()()),
-        "secondarySourceVersions" => list(project_source_version()()),
-        "secondarySources" => list(project_source()()),
+        "secondaryArtifacts" => list(project_artifacts()),
+        "secondarySourceVersions" => list(project_source_version()),
+        "secondarySources" => list(project_source()),
         "serviceRole" => String.t(),
         "source" => project_source(),
         "sourceVersion" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "timeoutInMinutes" => integer(),
         "vpcConfig" => vpc_config(),
         "webhook" => webhook()
@@ -1274,8 +1274,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_projects_output() :: %{
-        "projects" => list(project()()),
-        "projectsNotFound" => list(String.t()())
+        "projects" => list(project()),
+        "projectsNotFound" => list(String.t())
       }
       
   """
@@ -1287,7 +1287,7 @@ defmodule AWS.CodeBuild do
       
       list_projects_output() :: %{
         "nextToken" => String.t(),
-        "projects" => list(String.t()())
+        "projects" => list(String.t())
       }
       
   """
@@ -1324,8 +1324,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_build_batches_output() :: %{
-        "buildBatches" => list(build_batch()()),
-        "buildBatchesNotFound" => list(String.t()())
+        "buildBatches" => list(build_batch()),
+        "buildBatchesNotFound" => list(String.t())
       }
       
   """
@@ -1382,7 +1382,7 @@ defmodule AWS.CodeBuild do
       
       describe_test_cases_output() :: %{
         "nextToken" => String.t(),
-        "testCases" => list(test_case()())
+        "testCases" => list(test_case())
       }
       
   """
@@ -1393,8 +1393,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       vpc_config() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnets" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
+        "subnets" => list(String.t()),
         "vpcId" => String.t()
       }
       
@@ -1445,7 +1445,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_source_credentials_output() :: %{
-        "sourceCredentialsInfos" => list(source_credentials_info()())
+        "sourceCredentialsInfos" => list(source_credentials_info())
       }
       
   """
@@ -1543,7 +1543,7 @@ defmodule AWS.CodeBuild do
       create_webhook_input() :: %{
         optional("branchFilter") => String.t(),
         optional("buildType") => list(any()),
-        optional("filterGroups") => list(list(webhook_filter()())()),
+        optional("filterGroups") => list(list(webhook_filter())()),
         optional("manualCreation") => boolean(),
         optional("scopeConfiguration") => scope_configuration(),
         required("projectName") => String.t()
@@ -1579,8 +1579,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_fleets_output() :: %{
-        "fleets" => list(fleet()()),
-        "fleetsNotFound" => list(String.t()())
+        "fleets" => list(fleet()),
+        "fleetsNotFound" => list(String.t())
       }
       
   """
@@ -1618,14 +1618,14 @@ defmodule AWS.CodeBuild do
         optional("concurrentBuildLimit") => integer(),
         optional("description") => String.t(),
         optional("encryptionKey") => String.t(),
-        optional("fileSystemLocations") => list(project_file_system_location()()),
+        optional("fileSystemLocations") => list(project_file_system_location()),
         optional("logsConfig") => logs_config(),
         optional("queuedTimeoutInMinutes") => integer(),
-        optional("secondaryArtifacts") => list(project_artifacts()()),
-        optional("secondarySourceVersions") => list(project_source_version()()),
-        optional("secondarySources") => list(project_source()()),
+        optional("secondaryArtifacts") => list(project_artifacts()),
+        optional("secondarySourceVersions") => list(project_source_version()),
+        optional("secondarySources") => list(project_source()),
         optional("sourceVersion") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("timeoutInMinutes") => integer(),
         optional("vpcConfig") => vpc_config(),
         required("artifacts") => project_artifacts(),
@@ -1680,7 +1680,7 @@ defmodule AWS.CodeBuild do
         optional("overflowBehavior") => list(any()),
         optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("vpcConfig") => vpc_config(),
         required("arn") => String.t()
       }
@@ -1699,7 +1699,7 @@ defmodule AWS.CodeBuild do
         optional("overflowBehavior") => list(any()),
         optional("proxyConfiguration") => proxy_configuration(),
         optional("scalingConfiguration") => scaling_configuration_input(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("vpcConfig") => vpc_config(),
         required("baseCapacity") => integer(),
         required("computeType") => list(any()),
@@ -1728,7 +1728,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       build_batch_phase() :: %{
-        "contexts" => list(phase_context()()),
+        "contexts" => list(phase_context()),
         "durationInSeconds" => float(),
         "endTime" => non_neg_integer(),
         "phaseStatus" => list(any()),
@@ -1749,14 +1749,14 @@ defmodule AWS.CodeBuild do
         "encryptionKey" => String.t(),
         "endTime" => non_neg_integer(),
         "environment" => project_environment(),
-        "fileSystemLocations" => list(project_file_system_location()()),
+        "fileSystemLocations" => list(project_file_system_location()),
         "id" => String.t(),
         "logConfig" => logs_config(),
         "projectName" => String.t(),
         "queuedTimeoutInMinutes" => integer(),
         "requestTime" => non_neg_integer(),
-        "secondarySourceVersions" => list(project_source_version()()),
-        "secondarySources" => list(project_source()()),
+        "secondarySourceVersions" => list(project_source_version()),
+        "secondarySources" => list(project_source()),
         "serviceRole" => String.t(),
         "source" => project_source(),
         "sourceVersion" => String.t(),
@@ -1793,7 +1793,7 @@ defmodule AWS.CodeBuild do
       
       fleet_proxy_rule() :: %{
         "effect" => list(any()),
-        "entities" => list(String.t()()),
+        "entities" => list(String.t()),
         "type" => list(any())
       }
       
@@ -1827,7 +1827,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_command_executions_input() :: %{
-        required("commandExecutionIds") => list(String.t()()),
+        required("commandExecutionIds") => list(String.t()),
         required("sandboxId") => String.t()
       }
       
@@ -1876,7 +1876,7 @@ defmodule AWS.CodeBuild do
         "buildBatchConfig" => project_build_batch_config(),
         "buildBatchNumber" => float(),
         "buildBatchStatus" => list(any()),
-        "buildGroups" => list(build_group()()),
+        "buildGroups" => list(build_group()),
         "buildTimeoutInMinutes" => integer(),
         "cache" => project_cache(),
         "complete" => boolean(),
@@ -1885,18 +1885,18 @@ defmodule AWS.CodeBuild do
         "encryptionKey" => String.t(),
         "endTime" => non_neg_integer(),
         "environment" => project_environment(),
-        "fileSystemLocations" => list(project_file_system_location()()),
+        "fileSystemLocations" => list(project_file_system_location()),
         "id" => String.t(),
         "initiator" => String.t(),
         "logConfig" => logs_config(),
-        "phases" => list(build_batch_phase()()),
+        "phases" => list(build_batch_phase()),
         "projectName" => String.t(),
         "queuedTimeoutInMinutes" => integer(),
-        "reportArns" => list(String.t()()),
+        "reportArns" => list(String.t()),
         "resolvedSourceVersion" => String.t(),
-        "secondaryArtifacts" => list(build_artifacts()()),
-        "secondarySourceVersions" => list(project_source_version()()),
-        "secondarySources" => list(project_source()()),
+        "secondaryArtifacts" => list(build_artifacts()),
+        "secondarySourceVersions" => list(project_source_version()),
+        "secondarySources" => list(project_source()),
         "serviceRole" => String.t(),
         "source" => project_source(),
         "sourceVersion" => String.t(),
@@ -1912,7 +1912,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_sandboxes_for_project_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1962,7 +1962,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       create_report_group_input() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("exportConfig") => report_export_config(),
         required("name") => String.t(),
         required("type") => list(any())
@@ -1989,7 +1989,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_sandboxes_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2074,7 +2074,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_projects_input() :: %{
-        required("names") => list(String.t()())
+        required("names") => list(String.t())
       }
       
   """
@@ -2085,8 +2085,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_restrictions() :: %{
-        "computeTypesAllowed" => list(String.t()()),
-        "fleetsAllowed" => list(String.t()()),
+        "computeTypesAllowed" => list(String.t()),
+        "fleetsAllowed" => list(String.t()),
         "maximumBuildsAllowed" => integer()
       }
       
@@ -2098,7 +2098,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_fleets_input() :: %{
-        required("names") => list(String.t()())
+        required("names") => list(String.t())
       }
       
   """
@@ -2136,7 +2136,7 @@ defmodule AWS.CodeBuild do
       scaling_configuration_input() :: %{
         "maxCapacity" => integer(),
         "scalingType" => list(any()),
-        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration()())
+        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration())
       }
       
   """
@@ -2218,7 +2218,7 @@ defmodule AWS.CodeBuild do
       environment_image() :: %{
         "description" => String.t(),
         "name" => String.t(),
-        "versions" => list(String.t()())
+        "versions" => list(String.t())
       }
       
   """
@@ -2229,8 +2229,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_delete_builds_output() :: %{
-        "buildsDeleted" => list(String.t()()),
-        "buildsNotDeleted" => list(build_not_deleted()())
+        "buildsDeleted" => list(String.t()),
+        "buildsNotDeleted" => list(build_not_deleted())
       }
       
   """
@@ -2242,7 +2242,7 @@ defmodule AWS.CodeBuild do
       
       update_report_group_input() :: %{
         optional("exportConfig") => report_export_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("arn") => String.t()
       }
       
@@ -2254,7 +2254,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       build_phase() :: %{
-        "contexts" => list(phase_context()()),
+        "contexts" => list(phase_context()),
         "durationInSeconds" => float(),
         "endTime" => non_neg_integer(),
         "phaseStatus" => list(any()),
@@ -2270,7 +2270,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_build_batches_for_project_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2313,7 +2313,7 @@ defmodule AWS.CodeBuild do
         optional("debugSessionEnabled") => boolean(),
         optional("encryptionKeyOverride") => String.t(),
         optional("environmentTypeOverride") => list(any()),
-        optional("environmentVariablesOverride") => list(environment_variable()()),
+        optional("environmentVariablesOverride") => list(environment_variable()),
         optional("gitCloneDepthOverride") => integer(),
         optional("gitSubmodulesConfigOverride") => git_submodules_config(),
         optional("idempotencyToken") => String.t(),
@@ -2325,9 +2325,9 @@ defmodule AWS.CodeBuild do
         optional("queuedTimeoutInMinutesOverride") => integer(),
         optional("registryCredentialOverride") => registry_credential(),
         optional("reportBuildBatchStatusOverride") => boolean(),
-        optional("secondaryArtifactsOverride") => list(project_artifacts()()),
-        optional("secondarySourcesOverride") => list(project_source()()),
-        optional("secondarySourcesVersionOverride") => list(project_source_version()()),
+        optional("secondaryArtifactsOverride") => list(project_artifacts()),
+        optional("secondarySourcesOverride") => list(project_source()),
+        optional("secondarySourcesVersionOverride") => list(project_source_version()),
         optional("serviceRoleOverride") => String.t(),
         optional("sourceAuthOverride") => source_auth(),
         optional("sourceLocationOverride") => String.t(),
@@ -2344,7 +2344,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       environment_language() :: %{
-        "images" => list(environment_image()()),
+        "images" => list(environment_image()),
         "language" => list(any())
       }
       
@@ -2356,8 +2356,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_sandboxes_output() :: %{
-        "sandboxes" => list(sandbox()()),
-        "sandboxesNotFound" => list(String.t()())
+        "sandboxes" => list(sandbox()),
+        "sandboxesNotFound" => list(String.t())
       }
       
   """
@@ -2373,7 +2373,7 @@ defmodule AWS.CodeBuild do
         "id" => String.t(),
         "logs" => logs_location(),
         "networkInterface" => network_interface(),
-        "phases" => list(sandbox_session_phase()()),
+        "phases" => list(sandbox_session_phase()),
         "resolvedSourceVersion" => String.t(),
         "startTime" => non_neg_integer(),
         "status" => String.t()
@@ -2390,7 +2390,7 @@ defmodule AWS.CodeBuild do
         "desiredCapacity" => integer(),
         "maxCapacity" => integer(),
         "scalingType" => list(any()),
-        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration()())
+        "targetTrackingScalingConfigs" => list(target_tracking_scaling_configuration())
       }
       
   """
@@ -2434,7 +2434,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_reports_input() :: %{
-        required("reportArns") => list(String.t()())
+        required("reportArns") => list(String.t())
       }
       
   """
@@ -2499,7 +2499,7 @@ defmodule AWS.CodeBuild do
       webhook() :: %{
         "branchFilter" => String.t(),
         "buildType" => list(any()),
-        "filterGroups" => list(list(webhook_filter()())()),
+        "filterGroups" => list(list(webhook_filter())()),
         "lastModifiedSecret" => non_neg_integer(),
         "manualCreation" => boolean(),
         "payloadUrl" => String.t(),
@@ -2518,8 +2518,8 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_report_groups_output() :: %{
-        "reportGroups" => list(report_group()()),
-        "reportGroupsNotFound" => list(String.t()())
+        "reportGroups" => list(report_group()),
+        "reportGroupsNotFound" => list(String.t())
       }
       
   """
@@ -2532,7 +2532,7 @@ defmodule AWS.CodeBuild do
       update_webhook_input() :: %{
         optional("branchFilter") => String.t(),
         optional("buildType") => list(any()),
-        optional("filterGroups") => list(list(webhook_filter()())()),
+        optional("filterGroups") => list(list(webhook_filter())()),
         optional("rotateSecret") => boolean(),
         required("projectName") => String.t()
       }
@@ -2560,7 +2560,7 @@ defmodule AWS.CodeBuild do
         "proxyConfiguration" => proxy_configuration(),
         "scalingConfiguration" => scaling_configuration_output(),
         "status" => fleet_status(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "vpcConfig" => vpc_config()
       }
       
@@ -2584,7 +2584,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       get_report_group_trend_output() :: %{
-        "rawData" => list(report_with_raw_data()()),
+        "rawData" => list(report_with_raw_data()),
         "stats" => report_group_trend_stats()
       }
       
@@ -2597,7 +2597,7 @@ defmodule AWS.CodeBuild do
       
       list_reports_for_report_group_output() :: %{
         "nextToken" => String.t(),
-        "reports" => list(String.t()())
+        "reports" => list(String.t())
       }
       
   """
@@ -2612,7 +2612,7 @@ defmodule AWS.CodeBuild do
         "computeConfiguration" => compute_configuration(),
         "computeType" => list(any()),
         "dockerServer" => docker_server(),
-        "environmentVariables" => list(environment_variable()()),
+        "environmentVariables" => list(environment_variable()),
         "fleet" => project_fleet(),
         "image" => String.t(),
         "imagePullCredentialsType" => list(any()),
@@ -2630,7 +2630,7 @@ defmodule AWS.CodeBuild do
       
       docker_server() :: %{
         "computeType" => list(any()),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => docker_server_status()
       }
       
@@ -2642,7 +2642,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       list_builds_output() :: %{
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2654,7 +2654,7 @@ defmodule AWS.CodeBuild do
   ## Example:
       
       batch_get_report_groups_input() :: %{
-        required("reportGroupArns") => list(String.t()())
+        required("reportGroupArns") => list(String.t())
       }
       
   """
@@ -2686,7 +2686,7 @@ defmodule AWS.CodeBuild do
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
         "status" => list(any()),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "type" => list(any())
       }
       
@@ -2911,7 +2911,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_delete_builds_errors()}
   def batch_delete_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteBuilds", input, options)
   end
@@ -2925,7 +2926,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_build_batches_errors()}
   def batch_get_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuildBatches", input, options)
   end
@@ -2939,7 +2941,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_builds_errors()}
   def batch_get_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBuilds", input, options)
   end
@@ -2953,7 +2956,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_command_executions_errors()}
   def batch_get_command_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCommandExecutions", input, options)
   end
@@ -2967,7 +2971,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_fleets_errors()}
   def batch_get_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetFleets", input, options)
   end
@@ -2981,7 +2986,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_projects_errors()}
   def batch_get_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetProjects", input, options)
   end
@@ -2996,7 +3002,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_report_groups_errors()}
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReportGroups", input, options)
   end
@@ -3011,7 +3018,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_reports_errors()}
   def batch_get_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
   end
@@ -3025,7 +3033,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_sandboxes_errors()}
   def batch_get_sandboxes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetSandboxes", input, options)
   end
@@ -3039,7 +3048,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3053,7 +3063,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -3070,7 +3081,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_report_group_errors()}
   def create_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReportGroup", input, options)
   end
@@ -3100,7 +3112,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebhook", input, options)
   end
@@ -3114,7 +3127,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_build_batch_errors()}
   def delete_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBuildBatch", input, options)
   end
@@ -3130,7 +3144,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3146,7 +3161,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -3161,7 +3177,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_errors()}
   def delete_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReport", input, options)
   end
@@ -3177,7 +3194,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_group_errors()}
   def delete_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportGroup", input, options)
   end
@@ -3191,7 +3209,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3205,7 +3224,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_source_credentials_errors()}
   def delete_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSourceCredentials", input, options)
   end
@@ -3223,7 +3243,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3237,7 +3258,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_code_coverages_errors()}
   def describe_code_coverages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCodeCoverages", input, options)
   end
@@ -3252,7 +3274,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_test_cases_errors()}
   def describe_test_cases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTestCases", input, options)
   end
@@ -3266,7 +3289,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_report_group_trend_errors()}
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReportGroupTrend", input, options)
   end
@@ -3280,7 +3304,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3296,7 +3321,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, import_source_credentials_errors()}
   def import_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportSourceCredentials", input, options)
   end
@@ -3310,7 +3336,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, invalidate_project_cache_errors()}
   def invalidate_project_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvalidateProjectCache", input, options)
   end
@@ -3324,7 +3351,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_errors()}
   def list_build_batches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatches", input, options)
   end
@@ -3338,7 +3366,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_for_project_errors()}
   def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildBatchesForProject", input, options)
   end
@@ -3352,7 +3381,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -3368,7 +3398,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_for_project_errors()}
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuildsForProject", input, options)
   end
@@ -3386,7 +3417,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_command_executions_for_sandbox_errors()}
   def list_command_executions_for_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommandExecutionsForSandbox", input, options)
   end
@@ -3399,7 +3431,8 @@ defmodule AWS.CodeBuild do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCuratedEnvironmentImages", input, options)
   end
@@ -3414,7 +3447,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -3430,7 +3464,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -3446,7 +3481,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_report_groups_errors()}
   def list_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportGroups", input, options)
   end
@@ -3462,7 +3498,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReports", input, options)
   end
@@ -3477,7 +3514,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_for_report_group_errors()}
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReportsForReportGroup", input, options)
   end
@@ -3491,7 +3529,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_errors()}
   def list_sandboxes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSandboxes", input, options)
   end
@@ -3505,7 +3544,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_for_project_errors()}
   def list_sandboxes_for_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSandboxesForProject", input, options)
   end
@@ -3520,7 +3560,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_projects_errors()}
   def list_shared_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedProjects", input, options)
   end
@@ -3535,7 +3576,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_report_groups_errors()}
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSharedReportGroups", input, options)
   end
@@ -3549,7 +3591,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_source_credentials_errors()}
   def list_source_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceCredentials", input, options)
   end
@@ -3564,7 +3607,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3578,7 +3622,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_errors()}
   def retry_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuild", input, options)
   end
@@ -3594,7 +3639,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_batch_errors()}
   def retry_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryBuildBatch", input, options)
   end
@@ -3616,7 +3662,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_errors()}
   def start_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuild", input, options)
   end
@@ -3630,7 +3677,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_batch_errors()}
   def start_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBuildBatch", input, options)
   end
@@ -3644,7 +3692,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_command_execution_errors()}
   def start_command_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCommandExecution", input, options)
   end
@@ -3658,7 +3707,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_errors()}
   def start_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSandbox", input, options)
   end
@@ -3672,7 +3722,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_connection_errors()}
   def start_sandbox_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSandboxConnection", input, options)
   end
@@ -3686,7 +3737,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_errors()}
   def stop_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuild", input, options)
   end
@@ -3700,7 +3752,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_batch_errors()}
   def stop_build_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
   end
@@ -3714,7 +3767,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_sandbox_errors()}
   def stop_sandbox(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSandbox", input, options)
   end
@@ -3728,7 +3782,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3742,7 +3797,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -3800,7 +3856,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_visibility_errors()}
   def update_project_visibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProjectVisibility", input, options)
   end
@@ -3815,7 +3872,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_report_group_errors()}
   def update_report_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReportGroup", input, options)
   end
@@ -3831,7 +3889,8 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebhook", input, options)
   end

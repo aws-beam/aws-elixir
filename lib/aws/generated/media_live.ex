@@ -16,7 +16,7 @@ defmodule AWS.MediaLive do
       static_image_output_deactivate_schedule_action_settings() :: %{
         "FadeOut" => integer(),
         "Layer" => integer(),
-        "OutputNames" => list(String.t()())
+        "OutputNames" => list(String.t())
       }
 
   """
@@ -46,11 +46,11 @@ defmodule AWS.MediaLive do
 
       create_network_response() :: %{
         "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()()),
+        "AssociatedClusterIds" => list(String.t()),
         "Id" => String.t(),
-        "IpPools" => list(ip_pool()()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "State" => list(any())
       }
 
@@ -141,7 +141,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_networks_response() :: %{
-        "Networks" => list(describe_network_summary()()),
+        "Networks" => list(describe_network_summary()),
         "NextToken" => String.t()
       }
 
@@ -244,11 +244,11 @@ defmodule AWS.MediaLive do
 
       describe_channel_placement_group_summary() :: %{
         "Arn" => String.t(),
-        "Channels" => list(String.t()()),
+        "Channels" => list(String.t()),
         "ClusterId" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Nodes" => list(String.t()()),
+        "Nodes" => list(String.t()),
         "State" => list(any())
       }
 
@@ -262,7 +262,7 @@ defmodule AWS.MediaLive do
       input_destination() :: %{
         "Ip" => String.t(),
         "Network" => String.t(),
-        "NetworkRoutes" => list(input_destination_route()()),
+        "NetworkRoutes" => list(input_destination_route()),
         "Port" => String.t(),
         "Url" => String.t(),
         "Vpc" => input_destination_vpc()
@@ -284,7 +284,7 @@ defmodule AWS.MediaLive do
         "HdDeviceSettings" => input_device_hd_settings(),
         "Id" => String.t(),
         "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()()),
+        "MedialiveInputArns" => list(String.t()),
         "Name" => String.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
@@ -302,8 +302,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_start_response() :: %{
-        "Failed" => list(batch_failed_result_model()()),
-        "Successful" => list(batch_successful_result_model()())
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
       }
 
   """
@@ -336,7 +336,7 @@ defmodule AWS.MediaLive do
 
       list_signal_maps_response() :: %{
         "NextToken" => String.t(),
-        "SignalMaps" => list(signal_map_summary()())
+        "SignalMaps" => list(signal_map_summary())
       }
 
   """
@@ -392,11 +392,11 @@ defmodule AWS.MediaLive do
 
       output_destination() :: %{
         "Id" => String.t(),
-        "LogicalInterfaceNames" => list(String.t()()),
-        "MediaPackageSettings" => list(media_package_output_destination_settings()()),
+        "LogicalInterfaceNames" => list(String.t()),
+        "MediaPackageSettings" => list(media_package_output_destination_settings()),
         "MultiplexSettings" => multiplex_program_channel_destination_settings(),
-        "Settings" => list(output_destination_settings()()),
-        "SrtSettings" => list(srt_output_destination_settings()())
+        "Settings" => list(output_destination_settings()),
+        "SrtSettings" => list(srt_output_destination_settings())
       }
 
   """
@@ -443,7 +443,7 @@ defmodule AWS.MediaLive do
 
       multiplex_summary() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings_summary(),
         "Name" => String.t(),
@@ -470,7 +470,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -495,7 +495,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_multiplex_programs_response() :: %{
-        "MultiplexPrograms" => list(multiplex_program_summary()()),
+        "MultiplexPrograms" => list(multiplex_program_summary()),
         "NextToken" => String.t()
       }
 
@@ -545,17 +545,17 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "MaintenanceStatus" => String.t(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -720,11 +720,11 @@ defmodule AWS.MediaLive do
 
       describe_channel_placement_group_response() :: %{
         "Arn" => String.t(),
-        "Channels" => list(String.t()()),
+        "Channels" => list(String.t()),
         "ClusterId" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Nodes" => list(String.t()()),
+        "Nodes" => list(String.t()),
         "State" => list(any())
       }
 
@@ -778,7 +778,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       pause_state_schedule_action_settings() :: %{
-        "Pipelines" => list(pipeline_pause_state_settings()())
+        "Pipelines" => list(pipeline_pause_state_settings())
       }
 
   """
@@ -790,7 +790,7 @@ defmodule AWS.MediaLive do
 
       describe_cluster_response() :: %{
         "Arn" => String.t(),
-        "ChannelIds" => list(String.t()()),
+        "ChannelIds" => list(String.t()),
         "ClusterType" => list(any()),
         "Id" => String.t(),
         "InstanceRoleArn" => String.t(),
@@ -808,11 +808,11 @@ defmodule AWS.MediaLive do
 
       update_channel_placement_group_response() :: %{
         "Arn" => String.t(),
-        "Channels" => list(String.t()()),
+        "Channels" => list(String.t()),
         "ClusterId" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Nodes" => list(String.t()()),
+        "Nodes" => list(String.t()),
         "State" => list(any())
       }
 
@@ -837,11 +837,11 @@ defmodule AWS.MediaLive do
 
       describe_network_response() :: %{
         "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()()),
+        "AssociatedClusterIds" => list(String.t()),
         "Id" => String.t(),
-        "IpPools" => list(ip_pool()()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "State" => list(any())
       }
 
@@ -926,7 +926,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_settings() :: %{
-        "Sources" => list(multicast_source()())
+        "Sources" => list(multicast_source())
       }
 
   """
@@ -942,16 +942,16 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -979,7 +979,7 @@ defmodule AWS.MediaLive do
 
       update_channel_placement_group_request() :: %{
         optional("Name") => String.t(),
-        optional("Nodes") => list(String.t()())
+        optional("Nodes") => list(String.t())
       }
 
   """
@@ -991,7 +991,7 @@ defmodule AWS.MediaLive do
 
       update_input_security_group_request() :: %{
         optional("Tags") => map(),
-        optional("WhitelistRules") => list(input_whitelist_rule_cidr()())
+        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
       }
 
   """
@@ -1078,7 +1078,7 @@ defmodule AWS.MediaLive do
 
       create_node_request() :: %{
         optional("Name") => String.t(),
-        optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()()),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()),
         optional("RequestId") => String.t(),
         optional("Role") => list(any()),
         optional("Tags") => map()
@@ -1093,7 +1093,7 @@ defmodule AWS.MediaLive do
 
       create_cluster_response() :: %{
         "Arn" => String.t(),
-        "ChannelIds" => list(String.t()()),
+        "ChannelIds" => list(String.t()),
         "ClusterType" => list(any()),
         "Id" => String.t(),
         "InstanceRoleArn" => String.t(),
@@ -1118,7 +1118,7 @@ defmodule AWS.MediaLive do
         "HdDeviceSettings" => input_device_hd_settings(),
         "Id" => String.t(),
         "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()()),
+        "MedialiveInputArns" => list(String.t()),
         "Name" => String.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
@@ -1158,7 +1158,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_device_network_settings() :: %{
-        "DnsAddresses" => list(String.t()()),
+        "DnsAddresses" => list(String.t()),
         "Gateway" => String.t(),
         "IpAddress" => String.t(),
         "IpScheme" => list(any()),
@@ -1193,7 +1193,7 @@ defmodule AWS.MediaLive do
         "ChannelId" => String.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()()),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
         "ProgramName" => String.t()
       }
 
@@ -1397,11 +1397,11 @@ defmodule AWS.MediaLive do
 
       create_channel_placement_group_response() :: %{
         "Arn" => String.t(),
-        "Channels" => list(String.t()()),
+        "Channels" => list(String.t()),
         "ClusterId" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Nodes" => list(String.t()()),
+        "Nodes" => list(String.t()),
         "State" => list(any())
       }
 
@@ -1434,7 +1434,7 @@ defmodule AWS.MediaLive do
 
       list_offerings_response() :: %{
         "NextToken" => String.t(),
-        "Offerings" => list(offering()())
+        "Offerings" => list(offering())
       }
 
   """
@@ -1468,7 +1468,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
         "GroupId" => String.t(),
         "Id" => String.t(),
@@ -1518,8 +1518,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_settings() :: %{
-        "AudioSelectors" => list(audio_selector()()),
-        "CaptionSelectors" => list(caption_selector()()),
+        "AudioSelectors" => list(audio_selector()),
+        "CaptionSelectors" => list(caption_selector()),
         "DeblockFilter" => list(any()),
         "DenoiseFilter" => list(any()),
         "FilterStrength" => integer(),
@@ -1540,7 +1540,7 @@ defmodule AWS.MediaLive do
 
       create_multiplex_request() :: %{
         optional("Tags") => map(),
-        required("AvailabilityZones") => list(String.t()()),
+        required("AvailabilityZones") => list(String.t()),
         required("MultiplexSettings") => multiplex_settings(),
         required("Name") => String.t(),
         required("RequestId") => String.t()
@@ -1581,16 +1581,16 @@ defmodule AWS.MediaLive do
 
       describe_node_summary() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "ManagedInstanceId" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -1603,15 +1603,15 @@ defmodule AWS.MediaLive do
 
       update_node_state_response() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -1623,7 +1623,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       smpte2110_receiver_group_settings() :: %{
-        "Smpte2110ReceiverGroups" => list(smpte2110_receiver_group()())
+        "Smpte2110ReceiverGroups" => list(smpte2110_receiver_group())
       }
 
   """
@@ -1670,8 +1670,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_delete_response() :: %{
-        "Failed" => list(batch_failed_result_model()()),
-        "Successful" => list(batch_successful_result_model()())
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
       }
 
   """
@@ -1726,7 +1726,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_settings_update_request() :: %{
-        "Sources" => list(multicast_source_update_request()())
+        "Sources" => list(multicast_source_update_request())
       }
 
   """
@@ -1902,10 +1902,10 @@ defmodule AWS.MediaLive do
       input_security_group() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "State" => list(any()),
         "Tags" => map(),
-        "WhitelistRules" => list(input_whitelist_rule()())
+        "WhitelistRules" => list(input_whitelist_rule())
       }
 
   """
@@ -1987,7 +1987,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_cloud_watch_alarm_template_groups_response() :: %{
-        "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()()),
+        "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()),
         "NextToken" => String.t()
       }
 
@@ -2043,7 +2043,7 @@ defmodule AWS.MediaLive do
       sdi_source() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Mode" => list(any()),
         "Name" => String.t(),
         "State" => list(any()),
@@ -2067,7 +2067,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_device_configurable_settings() :: %{
-        "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()()),
+        "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()),
         "Codec" => list(any()),
         "ConfiguredInput" => list(any()),
         "InputResolution" => String.t(),
@@ -2096,15 +2096,15 @@ defmodule AWS.MediaLive do
 
       update_node_response() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -2175,15 +2175,15 @@ defmodule AWS.MediaLive do
 
       describe_node_response() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -2237,7 +2237,7 @@ defmodule AWS.MediaLive do
 
       create_input_security_group_request() :: %{
         optional("Tags") => map(),
-        optional("WhitelistRules") => list(input_whitelist_rule_cidr()())
+        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
       }
 
   """
@@ -2260,11 +2260,11 @@ defmodule AWS.MediaLive do
 
       delete_network_response() :: %{
         "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()()),
+        "AssociatedClusterIds" => list(String.t()),
         "Id" => String.t(),
-        "IpPools" => list(ip_pool()()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "State" => list(any())
       }
 
@@ -2276,10 +2276,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_delete_request() :: %{
-        optional("ChannelIds") => list(String.t()()),
-        optional("InputIds") => list(String.t()()),
-        optional("InputSecurityGroupIds") => list(String.t()()),
-        optional("MultiplexIds") => list(String.t()())
+        optional("ChannelIds") => list(String.t()),
+        optional("InputIds") => list(String.t()),
+        optional("InputSecurityGroupIds") => list(String.t()),
+        optional("MultiplexIds") => list(String.t())
       }
 
   """
@@ -2292,7 +2292,7 @@ defmodule AWS.MediaLive do
       create_node_registration_script_request() :: %{
         optional("Id") => String.t(),
         optional("Name") => String.t(),
-        optional("NodeInterfaceMappings") => list(node_interface_mapping()()),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping()),
         optional("RequestId") => String.t(),
         optional("Role") => list(any())
       }
@@ -2317,7 +2317,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_input_security_groups_response() :: %{
-        "InputSecurityGroups" => list(input_security_group()()),
+        "InputSecurityGroups" => list(input_security_group()),
         "NextToken" => String.t()
       }
 
@@ -2379,7 +2379,7 @@ defmodule AWS.MediaLive do
         "InputAttachmentName" => String.t(),
         "InputId" => String.t(),
         "InputSettings" => input_settings(),
-        "LogicalInterfaceNames" => list(String.t()())
+        "LogicalInterfaceNames" => list(String.t())
       }
 
   """
@@ -2442,7 +2442,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_input_devices_response() :: %{
-        "InputDevices" => list(input_device_summary()()),
+        "InputDevices" => list(input_device_summary()),
         "NextToken" => String.t()
       }
 
@@ -2499,7 +2499,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_schedule_action_create_request() :: %{
-        "ScheduleActions" => list(schedule_action()())
+        "ScheduleActions" => list(schedule_action())
       }
 
   """
@@ -2510,7 +2510,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_settings_create_request() :: %{
-        "Sources" => list(multicast_source_create_request()())
+        "Sources" => list(multicast_source_create_request())
       }
 
   """
@@ -2542,7 +2542,7 @@ defmodule AWS.MediaLive do
 
       describe_schedule_response() :: %{
         "NextToken" => String.t(),
-        "ScheduleActions" => list(schedule_action()())
+        "ScheduleActions" => list(schedule_action())
       }
 
   """
@@ -2602,8 +2602,8 @@ defmodule AWS.MediaLive do
 
       stop_multiplex_response() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
-        "Destinations" => list(multiplex_output_destination()()),
+        "AvailabilityZones" => list(String.t()),
+        "Destinations" => list(multiplex_output_destination()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings(),
         "Name" => String.t(),
@@ -2737,18 +2737,18 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_input_request() :: %{
-        optional("Destinations") => list(input_destination_request()()),
-        optional("InputDevices") => list(input_device_settings()()),
+        optional("Destinations") => list(input_destination_request()),
+        optional("InputDevices") => list(input_device_settings()),
         optional("InputNetworkLocation") => list(any()),
-        optional("InputSecurityGroups") => list(String.t()()),
-        optional("MediaConnectFlows") => list(media_connect_flow_request()()),
+        optional("InputSecurityGroups") => list(String.t()),
+        optional("MediaConnectFlows") => list(media_connect_flow_request()),
         optional("MulticastSettings") => multicast_settings_create_request(),
         optional("Name") => String.t(),
         optional("RequestId") => String.t(),
         optional("RoleArn") => String.t(),
-        optional("SdiSources") => list(String.t()()),
+        optional("SdiSources") => list(String.t()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
-        optional("Sources") => list(input_source_request()()),
+        optional("Sources") => list(input_source_request()),
         optional("SrtSettings") => srt_settings_request(),
         optional("Tags") => map(),
         optional("Type") => list(any()),
@@ -2778,7 +2778,7 @@ defmodule AWS.MediaLive do
         "ChannelId" => String.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()()),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
         "ProgramName" => String.t()
       }
 
@@ -2795,10 +2795,10 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -2807,7 +2807,7 @@ defmodule AWS.MediaLive do
         "RoleArn" => String.t(),
         "State" => list(any()),
         "Tags" => map(),
-        "UsedChannelEngineVersions" => list(channel_engine_version_response()()),
+        "UsedChannelEngineVersions" => list(channel_engine_version_response()),
         "Vpc" => vpc_output_settings_description()
       }
 
@@ -2850,16 +2850,16 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -2912,7 +2912,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       describe_thumbnails_response() :: %{
-        "ThumbnailDetails" => list(thumbnail_detail()())
+        "ThumbnailDetails" => list(thumbnail_detail())
       }
 
   """
@@ -2940,8 +2940,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_stop_response() :: %{
-        "Failed" => list(batch_failed_result_model()()),
-        "Successful" => list(batch_successful_result_model()())
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
       }
 
   """
@@ -2953,22 +2953,22 @@ defmodule AWS.MediaLive do
 
       input() :: %{
         "Arn" => String.t(),
-        "AttachedChannels" => list(String.t()()),
-        "Destinations" => list(input_destination()()),
+        "AttachedChannels" => list(String.t()),
+        "Destinations" => list(input_destination()),
         "Id" => String.t(),
         "InputClass" => list(any()),
-        "InputDevices" => list(input_device_settings()()),
+        "InputDevices" => list(input_device_settings()),
         "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t()()),
+        "InputPartnerIds" => list(String.t()),
         "InputSourceType" => list(any()),
-        "MediaConnectFlows" => list(media_connect_flow()()),
+        "MediaConnectFlows" => list(media_connect_flow()),
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
-        "SdiSources" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "SdiSources" => list(String.t()),
+        "SecurityGroups" => list(String.t()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
-        "Sources" => list(input_source()()),
+        "Sources" => list(input_source()),
         "SrtSettings" => srt_settings(),
         "State" => list(any()),
         "Tags" => map(),
@@ -2984,7 +2984,7 @@ defmodule AWS.MediaLive do
 
       automatic_input_failover_settings() :: %{
         "ErrorClearTimeMsec" => integer(),
-        "FailoverConditions" => list(failover_condition()()),
+        "FailoverConditions" => list(failover_condition()),
         "InputPreference" => list(any()),
         "SecondaryInputId" => String.t()
       }
@@ -3026,16 +3026,16 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_input_request() :: %{
-        optional("Destinations") => list(input_destination_request()()),
-        optional("InputDevices") => list(input_device_request()()),
-        optional("InputSecurityGroups") => list(String.t()()),
-        optional("MediaConnectFlows") => list(media_connect_flow_request()()),
+        optional("Destinations") => list(input_destination_request()),
+        optional("InputDevices") => list(input_device_request()),
+        optional("InputSecurityGroups") => list(String.t()),
+        optional("MediaConnectFlows") => list(media_connect_flow_request()),
         optional("MulticastSettings") => multicast_settings_update_request(),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
-        optional("SdiSources") => list(String.t()()),
+        optional("SdiSources") => list(String.t()),
         optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
-        optional("Sources") => list(input_source_request()()),
+        optional("Sources") => list(input_source_request()),
         optional("SrtSettings") => srt_settings_request()
       }
 
@@ -3075,11 +3075,11 @@ defmodule AWS.MediaLive do
 
       describe_network_summary() :: %{
         "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()()),
+        "AssociatedClusterIds" => list(String.t()),
         "Id" => String.t(),
-        "IpPools" => list(ip_pool()()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "State" => list(any())
       }
 
@@ -3162,8 +3162,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_stop_request() :: %{
-        optional("ChannelIds") => list(String.t()()),
-        optional("MultiplexIds") => list(String.t()())
+        optional("ChannelIds") => list(String.t()),
+        optional("MultiplexIds") => list(String.t())
       }
 
   """
@@ -3202,7 +3202,7 @@ defmodule AWS.MediaLive do
 
       describe_cluster_summary() :: %{
         "Arn" => String.t(),
-        "ChannelIds" => list(String.t()()),
+        "ChannelIds" => list(String.t()),
         "ClusterType" => list(any()),
         "Id" => String.t(),
         "InstanceRoleArn" => String.t(),
@@ -3221,7 +3221,7 @@ defmodule AWS.MediaLive do
       output_group() :: %{
         "Name" => String.t(),
         "OutputGroupSettings" => output_group_settings(),
-        "Outputs" => list(output()())
+        "Outputs" => list(output())
       }
 
   """
@@ -3233,7 +3233,7 @@ defmodule AWS.MediaLive do
 
       input_device_uhd_settings() :: %{
         "ActiveInput" => list(any()),
-        "AudioChannelPairs" => list(input_device_uhd_audio_channel_pair_config()()),
+        "AudioChannelPairs" => list(input_device_uhd_audio_channel_pair_config()),
         "Codec" => list(any()),
         "ConfiguredInput" => list(any()),
         "DeviceState" => list(any()),
@@ -3354,7 +3354,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_channel_class_request() :: %{
-        optional("Destinations") => list(output_destination()()),
+        optional("Destinations") => list(output_destination()),
         required("ChannelClass") => list(any())
       }
 
@@ -3405,7 +3405,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       srt_settings_request() :: %{
-        "SrtCallerSources" => list(srt_caller_source_request()())
+        "SrtCallerSources" => list(srt_caller_source_request())
       }
 
   """
@@ -3421,16 +3421,16 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -3449,7 +3449,7 @@ defmodule AWS.MediaLive do
         "ChannelId" => String.t(),
         "MultiplexProgramSettings" => multiplex_program_settings(),
         "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()()),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
         "ProgramName" => String.t()
       }
 
@@ -3535,7 +3535,7 @@ defmodule AWS.MediaLive do
 
       cluster_network_settings() :: %{
         "DefaultRoute" => String.t(),
-        "InterfaceMappings" => list(interface_mapping()())
+        "InterfaceMappings" => list(interface_mapping())
       }
 
   """
@@ -3622,12 +3622,12 @@ defmodule AWS.MediaLive do
 
       create_signal_map_response() :: %{
         "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DiscoveryEntryPointArn" => String.t(),
         "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
         "FailedMediaResourceMap" => map(),
         "Id" => String.t(),
         "LastDiscoveredAt" => non_neg_integer(),
@@ -3774,22 +3774,22 @@ defmodule AWS.MediaLive do
 
       describe_input_response() :: %{
         "Arn" => String.t(),
-        "AttachedChannels" => list(String.t()()),
-        "Destinations" => list(input_destination()()),
+        "AttachedChannels" => list(String.t()),
+        "Destinations" => list(input_destination()),
         "Id" => String.t(),
         "InputClass" => list(any()),
-        "InputDevices" => list(input_device_settings()()),
+        "InputDevices" => list(input_device_settings()),
         "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t()()),
+        "InputPartnerIds" => list(String.t()),
         "InputSourceType" => list(any()),
-        "MediaConnectFlows" => list(media_connect_flow()()),
+        "MediaConnectFlows" => list(media_connect_flow()),
         "MulticastSettings" => multicast_settings(),
         "Name" => String.t(),
         "RoleArn" => String.t(),
-        "SdiSources" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "SdiSources" => list(String.t()),
+        "SecurityGroups" => list(String.t()),
         "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
-        "Sources" => list(input_source()()),
+        "Sources" => list(input_source()),
         "SrtSettings" => srt_settings(),
         "State" => list(any()),
         "Tags" => map(),
@@ -3820,10 +3820,10 @@ defmodule AWS.MediaLive do
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelClass") => list(any()),
         optional("ChannelEngineVersion") => channel_engine_version_request(),
-        optional("Destinations") => list(output_destination()()),
+        optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
-        optional("InputAttachments") => list(input_attachment()()),
+        optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_create_settings(),
@@ -3856,12 +3856,12 @@ defmodule AWS.MediaLive do
 
       start_delete_monitor_deployment_response() :: %{
         "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DiscoveryEntryPointArn" => String.t(),
         "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
         "FailedMediaResourceMap" => map(),
         "Id" => String.t(),
         "LastDiscoveredAt" => non_neg_integer(),
@@ -3993,8 +3993,8 @@ defmodule AWS.MediaLive do
 
       start_multiplex_response() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
-        "Destinations" => list(multiplex_output_destination()()),
+        "AvailabilityZones" => list(String.t()),
+        "Destinations" => list(multiplex_output_destination()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings(),
         "Name" => String.t(),
@@ -4061,18 +4061,18 @@ defmodule AWS.MediaLive do
 
       multiplex_program_packet_identifiers_map() :: %{
         "AribCaptionsPid" => integer(),
-        "AudioPids" => list(integer()()),
-        "DvbSubPids" => list(integer()()),
+        "AudioPids" => list(integer()),
+        "DvbSubPids" => list(integer()),
         "DvbTeletextPid" => integer(),
-        "DvbTeletextPids" => list(integer()()),
+        "DvbTeletextPids" => list(integer()),
         "EcmPid" => integer(),
         "EtvPlatformPid" => integer(),
         "EtvSignalPid" => integer(),
-        "KlvDataPids" => list(integer()()),
+        "KlvDataPids" => list(integer()),
         "PcrPid" => integer(),
         "PmtPid" => integer(),
         "PrivateMetadataPid" => integer(),
-        "Scte27Pids" => list(integer()()),
+        "Scte27Pids" => list(integer()),
         "Scte35Pid" => integer(),
         "Smpte2038Pid" => integer(),
         "TimedMetadataPid" => integer(),
@@ -4160,7 +4160,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_schedule_action_create_result() :: %{
-        "ScheduleActions" => list(schedule_action()())
+        "ScheduleActions" => list(schedule_action())
       }
 
   """
@@ -4229,7 +4229,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_versions_response() :: %{
-        "Versions" => list(channel_engine_version_response()())
+        "Versions" => list(channel_engine_version_response())
       }
 
   """
@@ -4241,11 +4241,11 @@ defmodule AWS.MediaLive do
 
       delete_channel_placement_group_response() :: %{
         "Arn" => String.t(),
-        "Channels" => list(String.t()()),
+        "Channels" => list(String.t()),
         "ClusterId" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Nodes" => list(String.t()()),
+        "Nodes" => list(String.t()),
         "State" => list(any())
       }
 
@@ -4257,7 +4257,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_inputs_response() :: %{
-        "Inputs" => list(input()()),
+        "Inputs" => list(input()),
         "NextToken" => String.t()
       }
 
@@ -4298,7 +4298,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_clusters_response() :: %{
-        "Clusters" => list(describe_cluster_summary()()),
+        "Clusters" => list(describe_cluster_summary()),
         "NextToken" => String.t()
       }
 
@@ -4322,7 +4322,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_channels_response() :: %{
-        "Channels" => list(channel_summary()()),
+        "Channels" => list(channel_summary()),
         "NextToken" => String.t()
       }
 
@@ -4372,7 +4372,7 @@ defmodule AWS.MediaLive do
       input_switch_schedule_action_settings() :: %{
         "InputAttachmentNameReference" => String.t(),
         "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t()())
+        "UrlPath" => list(String.t())
       }
 
   """
@@ -4384,7 +4384,7 @@ defmodule AWS.MediaLive do
 
       delete_cluster_response() :: %{
         "Arn" => String.t(),
-        "ChannelIds" => list(String.t()()),
+        "ChannelIds" => list(String.t()),
         "ClusterType" => list(any()),
         "Id" => String.t(),
         "InstanceRoleArn" => String.t(),
@@ -4454,7 +4454,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       audio_channel_mapping() :: %{
-        "InputChannelLevels" => list(input_channel_level()()),
+        "InputChannelLevels" => list(input_channel_level()),
         "OutputChannel" => integer()
       }
 
@@ -4501,7 +4501,7 @@ defmodule AWS.MediaLive do
         "BaseUrlManifest" => String.t(),
         "TsFileMode" => list(any()),
         "OutputSelection" => list(any()),
-        "CaptionLanguageMappings" => list(caption_language_mapping()()),
+        "CaptionLanguageMappings" => list(caption_language_mapping()),
         "KeepSegments" => integer(),
         "TimedMetadataId3Frame" => list(any()),
         "SegmentsPerSubdirectory" => integer(),
@@ -4569,10 +4569,10 @@ defmodule AWS.MediaLive do
         optional("AnywhereSettings") => anywhere_settings(),
         optional("CdiInputSpecification") => cdi_input_specification(),
         optional("ChannelEngineVersion") => channel_engine_version_request(),
-        optional("Destinations") => list(output_destination()()),
+        optional("Destinations") => list(output_destination()),
         optional("DryRun") => boolean(),
         optional("EncoderSettings") => encoder_settings(),
-        optional("InputAttachments") => list(input_attachment()()),
+        optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_update_settings(),
@@ -4692,8 +4692,8 @@ defmodule AWS.MediaLive do
 
       describe_multiplex_response() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
-        "Destinations" => list(multiplex_output_destination()()),
+        "AvailabilityZones" => list(String.t()),
+        "Destinations" => list(multiplex_output_destination()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings(),
         "Name" => String.t(),
@@ -4723,12 +4723,12 @@ defmodule AWS.MediaLive do
 
       get_signal_map_response() :: %{
         "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DiscoveryEntryPointArn" => String.t(),
         "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
         "FailedMediaResourceMap" => map(),
         "Id" => String.t(),
         "LastDiscoveredAt" => non_neg_integer(),
@@ -4914,7 +4914,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       scte35_time_signal_schedule_action_settings() :: %{
-        "Scte35Descriptors" => list(scte35_descriptor()())
+        "Scte35Descriptors" => list(scte35_descriptor())
       }
 
   """
@@ -4945,7 +4945,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_channel_placement_groups_response() :: %{
-        "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()()),
+        "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()),
         "NextToken" => String.t()
       }
 
@@ -5025,9 +5025,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_signal_map_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()),
         optional("Description") => String.t(),
-        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()()),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()),
         optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("DiscoveryEntryPointArn") => String.t(),
@@ -5063,10 +5063,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       create_network_request() :: %{
-        optional("IpPools") => list(ip_pool_create_request()()),
+        optional("IpPools") => list(ip_pool_create_request()),
         optional("Name") => String.t(),
         optional("RequestId") => String.t(),
-        optional("Routes") => list(route_create_request()()),
+        optional("Routes") => list(route_create_request()),
         optional("Tags") => map()
       }
 
@@ -5093,7 +5093,7 @@ defmodule AWS.MediaLive do
 
       create_channel_placement_group_request() :: %{
         optional("Name") => String.t(),
-        optional("Nodes") => list(String.t()()),
+        optional("Nodes") => list(String.t()),
         optional("RequestId") => String.t(),
         optional("Tags") => map()
       }
@@ -5149,7 +5149,7 @@ defmodule AWS.MediaLive do
         "ImageY" => integer(),
         "Layer" => integer(),
         "Opacity" => integer(),
-        "OutputNames" => list(String.t()()),
+        "OutputNames" => list(String.t()),
         "Width" => integer()
       }
 
@@ -5181,10 +5181,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       vpc_output_settings_description() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "NetworkInterfaceIds" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "AvailabilityZones" => list(String.t()),
+        "NetworkInterfaceIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -5210,9 +5210,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       vpc_output_settings() :: %{
-        "PublicAddressAllocationIds" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "PublicAddressAllocationIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -5225,7 +5225,7 @@ defmodule AWS.MediaLive do
       input_prepare_schedule_action_settings() :: %{
         "InputAttachmentNameReference" => String.t(),
         "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t()())
+        "UrlPath" => list(String.t())
       }
 
   """
@@ -5265,7 +5265,7 @@ defmodule AWS.MediaLive do
 
       update_event_bridge_rule_template_request() :: %{
         optional("Description") => String.t(),
-        optional("EventTargets") => list(event_bridge_rule_template_target()()),
+        optional("EventTargets") => list(event_bridge_rule_template_target()),
         optional("EventType") => list(any()),
         optional("GroupIdentifier") => String.t(),
         optional("Name") => String.t()
@@ -5315,7 +5315,7 @@ defmodule AWS.MediaLive do
 
       unprocessable_entity_exception() :: %{
         "Message" => String.t(),
-        "ValidationErrors" => list(validation_error()())
+        "ValidationErrors" => list(validation_error())
       }
 
   """
@@ -5326,20 +5326,20 @@ defmodule AWS.MediaLive do
   ## Example:
 
       encoder_settings() :: %{
-        "AudioDescriptions" => list(audio_description()()),
+        "AudioDescriptions" => list(audio_description()),
         "AvailBlanking" => avail_blanking(),
         "AvailConfiguration" => avail_configuration(),
         "BlackoutSlate" => blackout_slate(),
-        "CaptionDescriptions" => list(caption_description()()),
+        "CaptionDescriptions" => list(caption_description()),
         "ColorCorrectionSettings" => color_correction_settings(),
         "FeatureActivations" => feature_activations(),
         "GlobalConfiguration" => global_configuration(),
         "MotionGraphicsConfiguration" => motion_graphics_configuration(),
         "NielsenConfiguration" => nielsen_configuration(),
-        "OutputGroups" => list(output_group()()),
+        "OutputGroups" => list(output_group()),
         "ThumbnailConfiguration" => thumbnail_configuration(),
         "TimecodeConfig" => timecode_config(),
-        "VideoDescriptions" => list(video_description()())
+        "VideoDescriptions" => list(video_description())
       }
 
   """
@@ -5408,7 +5408,7 @@ defmodule AWS.MediaLive do
 
       list_reservations_response() :: %{
         "NextToken" => String.t(),
-        "Reservations" => list(reservation()())
+        "Reservations" => list(reservation())
       }
 
   """
@@ -5473,11 +5473,11 @@ defmodule AWS.MediaLive do
 
       update_network_response() :: %{
         "Arn" => String.t(),
-        "AssociatedClusterIds" => list(String.t()()),
+        "AssociatedClusterIds" => list(String.t()),
         "Id" => String.t(),
-        "IpPools" => list(ip_pool()()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "State" => list(any())
       }
 
@@ -5529,7 +5529,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       remix_settings() :: %{
-        "ChannelMappings" => list(audio_channel_mapping()()),
+        "ChannelMappings" => list(audio_channel_mapping()),
         "ChannelsIn" => integer(),
         "ChannelsOut" => integer()
       }
@@ -5555,7 +5555,7 @@ defmodule AWS.MediaLive do
 
       thumbnail_detail() :: %{
         "PipelineId" => String.t(),
-        "Thumbnails" => list(thumbnail()())
+        "Thumbnails" => list(thumbnail())
       }
 
   """
@@ -5633,15 +5633,15 @@ defmodule AWS.MediaLive do
 
       create_node_response() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -5656,7 +5656,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
         "GroupId" => String.t(),
         "Id" => String.t(),
@@ -5702,8 +5702,8 @@ defmodule AWS.MediaLive do
 
       multiplex() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
-        "Destinations" => list(multiplex_output_destination()()),
+        "AvailabilityZones" => list(String.t()),
+        "Destinations" => list(multiplex_output_destination()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings(),
         "Name" => String.t(),
@@ -5742,8 +5742,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       smpte2110_receiver_group_sdp_settings() :: %{
-        "AncillarySdps" => list(input_sdp_location()()),
-        "AudioSdps" => list(input_sdp_location()()),
+        "AncillarySdps" => list(input_sdp_location()),
+        "AudioSdps" => list(input_sdp_location()),
         "VideoSdp" => input_sdp_location()
       }
 
@@ -5755,7 +5755,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       cmaf_ingest_group_settings() :: %{
-        "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()()),
+        "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()),
         "Destination" => output_location_ref(),
         "Id3Behavior" => list(any()),
         "Id3NameModifier" => String.t(),
@@ -5781,8 +5781,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       input_vpc_request() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -5828,15 +5828,15 @@ defmodule AWS.MediaLive do
 
       delete_node_response() :: %{
         "Arn" => String.t(),
-        "ChannelPlacementGroups" => list(String.t()()),
+        "ChannelPlacementGroups" => list(String.t()),
         "ClusterId" => String.t(),
         "ConnectionState" => list(any()),
         "Id" => String.t(),
         "InstanceArn" => String.t(),
         "Name" => String.t(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()()),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
         "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
         "State" => list(any())
       }
 
@@ -5856,7 +5856,7 @@ defmodule AWS.MediaLive do
         "HdDeviceSettings" => input_device_hd_settings(),
         "Id" => String.t(),
         "MacAddress" => String.t(),
-        "MedialiveInputArns" => list(String.t()()),
+        "MedialiveInputArns" => list(String.t()),
         "Name" => String.t(),
         "NetworkSettings" => input_device_network_settings(),
         "OutputType" => list(any()),
@@ -5906,7 +5906,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       color_correction_settings() :: %{
-        "GlobalColorCorrections" => list(color_correction()())
+        "GlobalColorCorrections" => list(color_correction())
       }
 
   """
@@ -5928,7 +5928,7 @@ defmodule AWS.MediaLive do
       sdi_source_summary() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Mode" => list(any()),
         "Name" => String.t(),
         "State" => list(any()),
@@ -5945,10 +5945,10 @@ defmodule AWS.MediaLive do
       describe_input_security_group_response() :: %{
         "Arn" => String.t(),
         "Id" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "State" => list(any()),
         "Tags" => map(),
-        "WhitelistRules" => list(input_whitelist_rule()())
+        "WhitelistRules" => list(input_whitelist_rule())
       }
 
   """
@@ -5988,7 +5988,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_cloud_watch_alarm_templates_response() :: %{
-        "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()()),
+        "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()),
         "NextToken" => String.t()
       }
 
@@ -6000,7 +6000,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_event_bridge_rule_template_groups_response() :: %{
-        "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()()),
+        "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()),
         "NextToken" => String.t()
       }
 
@@ -6059,9 +6059,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       media_resource() :: %{
-        "Destinations" => list(media_resource_neighbor()()),
+        "Destinations" => list(media_resource_neighbor()),
         "Name" => String.t(),
-        "Sources" => list(media_resource_neighbor()())
+        "Sources" => list(media_resource_neighbor())
       }
 
   """
@@ -6101,16 +6101,16 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -6172,16 +6172,16 @@ defmodule AWS.MediaLive do
         "CdiInputSpecification" => cdi_input_specification(),
         "ChannelClass" => list(any()),
         "ChannelEngineVersion" => channel_engine_version_response(),
-        "Destinations" => list(output_destination()()),
-        "EgressEndpoints" => list(channel_egress_endpoint()()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "EncoderSettings" => encoder_settings(),
         "Id" => String.t(),
-        "InputAttachments" => list(input_attachment()()),
+        "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
         "Name" => String.t(),
-        "PipelineDetails" => list(pipeline_detail()()),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
         "RoleArn" => String.t(),
         "State" => list(any()),
@@ -6282,7 +6282,7 @@ defmodule AWS.MediaLive do
 
       audio_track_selection() :: %{
         "DolbyEDecode" => audio_dolby_e_decode(),
-        "Tracks" => list(audio_track()())
+        "Tracks" => list(audio_track())
       }
 
   """
@@ -6338,7 +6338,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       srt_settings() :: %{
-        "SrtCallerSources" => list(srt_caller_source()())
+        "SrtCallerSources" => list(srt_caller_source())
       }
 
   """
@@ -6436,7 +6436,7 @@ defmodule AWS.MediaLive do
 
       input_destination_request() :: %{
         "Network" => String.t(),
-        "NetworkRoutes" => list(input_request_destination_route()()),
+        "NetworkRoutes" => list(input_request_destination_route()),
         "StaticIpAddress" => String.t(),
         "StreamName" => String.t()
       }
@@ -6551,7 +6551,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_event_bridge_rule_templates_response() :: %{
-        "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()()),
+        "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()),
         "NextToken" => String.t()
       }
 
@@ -6633,7 +6633,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_schedule_action_delete_result() :: %{
-        "ScheduleActions" => list(schedule_action()())
+        "ScheduleActions" => list(schedule_action())
       }
 
   """
@@ -6665,7 +6665,7 @@ defmodule AWS.MediaLive do
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTargets" => list(event_bridge_rule_template_target()()),
+        "EventTargets" => list(event_bridge_rule_template_target()),
         "EventType" => list(any()),
         "GroupId" => String.t(),
         "Id" => String.t(),
@@ -6695,7 +6695,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_schedule_action_delete_request() :: %{
-        "ActionNames" => list(String.t()())
+        "ActionNames" => list(String.t())
       }
 
   """
@@ -6707,7 +6707,7 @@ defmodule AWS.MediaLive do
 
       list_sdi_sources_response() :: %{
         "NextToken" => String.t(),
-        "SdiSources" => list(sdi_source_summary()())
+        "SdiSources" => list(sdi_source_summary())
       }
 
   """
@@ -6802,12 +6802,12 @@ defmodule AWS.MediaLive do
 
       start_monitor_deployment_response() :: %{
         "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DiscoveryEntryPointArn" => String.t(),
         "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
         "FailedMediaResourceMap" => map(),
         "Id" => String.t(),
         "LastDiscoveredAt" => non_neg_integer(),
@@ -6829,7 +6829,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_multiplexes_response() :: %{
-        "Multiplexes" => list(multiplex_summary()()),
+        "Multiplexes" => list(multiplex_summary()),
         "NextToken" => String.t()
       }
 
@@ -6887,9 +6887,9 @@ defmodule AWS.MediaLive do
   ## Example:
 
       update_network_request() :: %{
-        optional("IpPools") => list(ip_pool_update_request()()),
+        optional("IpPools") => list(ip_pool_update_request()),
         optional("Name") => String.t(),
-        optional("Routes") => list(route_update_request()())
+        optional("Routes") => list(route_update_request())
       }
 
   """
@@ -6925,7 +6925,7 @@ defmodule AWS.MediaLive do
 
       cluster_network_settings_update_request() :: %{
         "DefaultRoute" => String.t(),
-        "InterfaceMappings" => list(interface_mapping_update_request()())
+        "InterfaceMappings" => list(interface_mapping_update_request())
       }
 
   """
@@ -7094,7 +7094,7 @@ defmodule AWS.MediaLive do
 
       create_event_bridge_rule_template_request() :: %{
         optional("Description") => String.t(),
-        optional("EventTargets") => list(event_bridge_rule_template_target()()),
+        optional("EventTargets") => list(event_bridge_rule_template_target()),
         optional("RequestId") => String.t(),
         optional("Tags") => map(),
         required("EventType") => list(any()),
@@ -7204,12 +7204,12 @@ defmodule AWS.MediaLive do
 
       start_update_signal_map_response() :: %{
         "Arn" => String.t(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t()()),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DiscoveryEntryPointArn" => String.t(),
         "ErrorMessage" => String.t(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t()()),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t()),
         "FailedMediaResourceMap" => map(),
         "Id" => String.t(),
         "LastDiscoveredAt" => non_neg_integer(),
@@ -7446,7 +7446,7 @@ defmodule AWS.MediaLive do
       update_node_request() :: %{
         optional("Name") => String.t(),
         optional("Role") => list(any()),
-        optional("SdiSourceMappings") => list(sdi_source_mapping_update_request()())
+        optional("SdiSourceMappings") => list(sdi_source_mapping_update_request())
       }
 
   """
@@ -7469,7 +7469,7 @@ defmodule AWS.MediaLive do
 
       cluster_network_settings_create_request() :: %{
         "DefaultRoute" => String.t(),
-        "InterfaceMappings" => list(interface_mapping_create_request()())
+        "InterfaceMappings" => list(interface_mapping_create_request())
       }
 
   """
@@ -7493,7 +7493,7 @@ defmodule AWS.MediaLive do
 
       list_nodes_response() :: %{
         "NextToken" => String.t(),
-        "Nodes" => list(describe_node_summary()())
+        "Nodes" => list(describe_node_summary())
       }
 
   """
@@ -7504,7 +7504,7 @@ defmodule AWS.MediaLive do
   ## Example:
 
       list_input_device_transfers_response() :: %{
-        "InputDeviceTransfers" => list(transferring_input_device_summary()()),
+        "InputDeviceTransfers" => list(transferring_input_device_summary()),
         "NextToken" => String.t()
       }
 
@@ -7599,8 +7599,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       batch_start_request() :: %{
-        optional("ChannelIds") => list(String.t()()),
-        optional("MultiplexIds") => list(String.t()())
+        optional("ChannelIds") => list(String.t()),
+        optional("MultiplexIds") => list(String.t())
       }
 
   """
@@ -7651,8 +7651,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       output() :: %{
-        "AudioDescriptionNames" => list(String.t()()),
-        "CaptionDescriptionNames" => list(String.t()()),
+        "AudioDescriptionNames" => list(String.t()),
+        "CaptionDescriptionNames" => list(String.t()),
         "OutputName" => String.t(),
         "OutputSettings" => output_settings(),
         "VideoDescriptionName" => String.t()
@@ -7678,8 +7678,8 @@ defmodule AWS.MediaLive do
 
       delete_multiplex_response() :: %{
         "Arn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
-        "Destinations" => list(multiplex_output_destination()()),
+        "AvailabilityZones" => list(String.t()),
+        "Destinations" => list(multiplex_output_destination()),
         "Id" => String.t(),
         "MultiplexSettings" => multiplex_settings(),
         "Name" => String.t(),
@@ -7832,7 +7832,7 @@ defmodule AWS.MediaLive do
 
       update_cluster_response() :: %{
         "Arn" => String.t(),
-        "ChannelIds" => list(String.t()()),
+        "ChannelIds" => list(String.t()),
         "ClusterType" => list(any()),
         "Id" => String.t(),
         "Name" => String.t(),
@@ -7848,10 +7848,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       start_update_signal_map_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()()),
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t()),
         optional("Description") => String.t(),
         optional("DiscoveryEntryPointArn") => String.t(),
-        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()()),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t()),
         optional("ForceRediscovery") => boolean(),
         optional("Name") => String.t()
       }

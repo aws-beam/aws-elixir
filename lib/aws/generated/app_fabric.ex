@@ -46,7 +46,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       tag_resource_request() :: %{
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -69,7 +69,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       list_ingestions_response() :: %{
-        "ingestions" => list(ingestion_summary()()),
+        "ingestions" => list(ingestion_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -117,7 +117,7 @@ defmodule AWS.AppFabric do
 
       create_ingestion_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("app") => String.t(),
         required("ingestionType") => list(any()),
         required("tenantId") => String.t()
@@ -172,7 +172,7 @@ defmodule AWS.AppFabric do
 
       create_ingestion_destination_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("destinationConfiguration") => list(),
         required("processingConfiguration") => list()
       }
@@ -216,7 +216,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -263,7 +263,7 @@ defmodule AWS.AppFabric do
       create_app_bundle_request() :: %{
         optional("clientToken") => String.t(),
         optional("customerManagedKeyIdentifier") => String.t(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -406,7 +406,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       list_app_bundles_response() :: %{
-        "appBundleSummaryList" => list(app_bundle_summary()()),
+        "appBundleSummaryList" => list(app_bundle_summary()),
         "nextToken" => String.t()
       }
 
@@ -488,7 +488,7 @@ defmodule AWS.AppFabric do
 
       batch_get_user_access_tasks_request() :: %{
         required("appBundleIdentifier") => String.t(),
-        required("taskIdList") => list(String.t()())
+        required("taskIdList") => list(String.t())
       }
 
   """
@@ -500,7 +500,7 @@ defmodule AWS.AppFabric do
 
       create_app_authorization_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("app") => String.t(),
         required("authType") => list(any()),
         required("credential") => list(),
@@ -529,7 +529,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -540,7 +540,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       list_ingestion_destinations_response() :: %{
-        "ingestionDestinations" => list(ingestion_destination_summary()()),
+        "ingestionDestinations" => list(ingestion_destination_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -638,7 +638,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       batch_get_user_access_tasks_response() :: %{
-        "userAccessResultsList" => list(user_access_result_item()())
+        "userAccessResultsList" => list(user_access_result_item())
       }
 
   """
@@ -735,7 +735,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       list_app_authorizations_response() :: %{
-        "appAuthorizationSummaryList" => list(app_authorization_summary()()),
+        "appAuthorizationSummaryList" => list(app_authorization_summary()),
         "nextToken" => String.t()
       }
 
@@ -747,7 +747,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       start_user_access_tasks_response() :: %{
-        "userAccessTasksList" => list(user_access_task_item()())
+        "userAccessTasksList" => list(user_access_task_item())
       }
 
   """
@@ -810,7 +810,7 @@ defmodule AWS.AppFabric do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }

@@ -149,7 +149,7 @@ defmodule AWS.LexRuntime do
 
       generic_attachment() :: %{
         "attachmentLinkUrl" => String.t(),
-        "buttons" => list(button()()),
+        "buttons" => list(button()),
         "imageUrl" => String.t(),
         "subTitle" => String.t(),
         "title" => String.t()
@@ -174,9 +174,9 @@ defmodule AWS.LexRuntime do
   ## Example:
 
       get_session_response() :: %{
-        "activeContexts" => list(active_context()()),
+        "activeContexts" => list(active_context()),
         "dialogAction" => dialog_action(),
-        "recentIntentSummaryView" => list(intent_summary()()),
+        "recentIntentSummaryView" => list(intent_summary()),
         "sessionAttributes" => map(),
         "sessionId" => String.t()
       }
@@ -317,7 +317,7 @@ defmodule AWS.LexRuntime do
   ## Example:
 
       post_text_request() :: %{
-        optional("activeContexts") => list(active_context()()),
+        optional("activeContexts") => list(active_context()),
         optional("requestAttributes") => map(),
         optional("sessionAttributes") => map(),
         required("inputText") => String.t()
@@ -331,8 +331,8 @@ defmodule AWS.LexRuntime do
   ## Example:
 
       post_text_response() :: %{
-        "activeContexts" => list(active_context()()),
-        "alternativeIntents" => list(predicted_intent()()),
+        "activeContexts" => list(active_context()),
+        "alternativeIntents" => list(predicted_intent()),
         "botVersion" => String.t(),
         "dialogState" => list(any()),
         "intentName" => String.t(),
@@ -369,9 +369,9 @@ defmodule AWS.LexRuntime do
 
       put_session_request() :: %{
         optional("accept") => String.t(),
-        optional("activeContexts") => list(active_context()()),
+        optional("activeContexts") => list(active_context()),
         optional("dialogAction") => dialog_action(),
-        optional("recentIntentSummaryView") => list(intent_summary()()),
+        optional("recentIntentSummaryView") => list(intent_summary()),
         optional("sessionAttributes") => map()
       }
 
@@ -417,7 +417,7 @@ defmodule AWS.LexRuntime do
 
       response_card() :: %{
         "contentType" => list(any()),
-        "genericAttachments" => list(generic_attachment()()),
+        "genericAttachments" => list(generic_attachment()),
         "version" => String.t()
       }
 

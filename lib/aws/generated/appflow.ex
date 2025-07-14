@@ -78,10 +78,10 @@ defmodule AWS.Appflow do
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("metadataCatalogConfig") => metadata_catalog_config(),
-        required("destinationFlowConfigList") => list(destination_flow_config()()),
+        required("destinationFlowConfigList") => list(destination_flow_config()),
         required("flowName") => String.t(),
         required("sourceFlowConfig") => source_flow_config(),
-        required("tasks") => list(task()()),
+        required("tasks") => list(task()),
         required("triggerConfig") => trigger_config()
       }
 
@@ -138,7 +138,7 @@ defmodule AWS.Appflow do
       task() :: %{
         "connectorOperator" => connector_operator(),
         "destinationField" => String.t(),
-        "sourceFields" => list(String.t()()),
+        "sourceFields" => list(String.t()),
         "taskProperties" => map(),
         "taskType" => list(any())
       }
@@ -201,7 +201,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       snowflake_metadata() :: %{
-        "supportedRegions" => list(String.t()())
+        "supportedRegions" => list(String.t())
       }
 
   """
@@ -225,7 +225,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       honeycode_metadata() :: %{
-        "oAuthScopes" => list(String.t()())
+        "oAuthScopes" => list(String.t())
       }
 
   """
@@ -300,7 +300,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       list_connectors_response() :: %{
-        "connectors" => list(connector_detail()()),
+        "connectors" => list(connector_detail()),
         "nextToken" => String.t()
       }
 
@@ -371,10 +371,10 @@ defmodule AWS.Appflow do
         optional("kmsArn") => String.t(),
         optional("metadataCatalogConfig") => metadata_catalog_config(),
         optional("tags") => map(),
-        required("destinationFlowConfigList") => list(destination_flow_config()()),
+        required("destinationFlowConfigList") => list(destination_flow_config()),
         required("flowName") => String.t(),
         required("sourceFlowConfig") => source_flow_config(),
-        required("tasks") => list(task()()),
+        required("tasks") => list(task()),
         required("triggerConfig") => trigger_config()
       }
 
@@ -387,7 +387,7 @@ defmodule AWS.Appflow do
 
       zendesk_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t()()),
+        "idFieldNames" => list(String.t()),
         "object" => String.t(),
         "writeOperationType" => list(any())
       }
@@ -481,11 +481,11 @@ defmodule AWS.Appflow do
   ## Example:
 
       o_auth2_defaults() :: %{
-        "authCodeUrls" => list(String.t()()),
-        "oauth2CustomProperties" => list(o_auth2_custom_parameter()()),
+        "authCodeUrls" => list(String.t()),
+        "oauth2CustomProperties" => list(o_auth2_custom_parameter()),
         "oauth2GrantTypesSupported" => list(list(any())()),
-        "oauthScopes" => list(String.t()()),
-        "tokenUrls" => list(String.t()())
+        "oauthScopes" => list(String.t()),
+        "tokenUrls" => list(String.t())
       }
 
   """
@@ -573,7 +573,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       describe_connector_entity_response() :: %{
-        "connectorEntityFields" => list(connector_entity_field()())
+        "connectorEntityFields" => list(connector_entity_field())
       }
 
   """
@@ -584,7 +584,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       describe_connector_profiles_response() :: %{
-        "connectorProfileDetails" => list(connector_profile()()),
+        "connectorProfileDetails" => list(connector_profile()),
         "nextToken" => String.t()
       }
 
@@ -645,7 +645,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       google_analytics_metadata() :: %{
-        "oAuthScopes" => list(String.t()())
+        "oAuthScopes" => list(String.t())
       }
 
   """
@@ -794,7 +794,7 @@ defmodule AWS.Appflow do
 
       describe_connectors_response() :: %{
         "connectorConfigurations" => map(),
-        "connectors" => list(connector_detail()()),
+        "connectors" => list(connector_detail()),
         "nextToken" => String.t()
       }
 
@@ -870,7 +870,7 @@ defmodule AWS.Appflow do
       salesforce_destination_properties() :: %{
         "dataTransferApi" => list(any()),
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t()()),
+        "idFieldNames" => list(String.t()),
         "object" => String.t(),
         "writeOperationType" => list(any())
       }
@@ -1007,7 +1007,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1183,7 +1183,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       custom_auth_config() :: %{
-        "authParameters" => list(auth_parameter()()),
+        "authParameters" => list(auth_parameter()),
         "customAuthenticationType" => String.t()
       }
 
@@ -1209,7 +1209,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       cancel_flow_executions_response() :: %{
-        "invalidExecutions" => list(String.t()())
+        "invalidExecutions" => list(String.t())
       }
 
   """
@@ -1221,7 +1221,7 @@ defmodule AWS.Appflow do
 
       o_auth_properties() :: %{
         "authCodeUrl" => String.t(),
-        "oAuthScopes" => list(String.t()()),
+        "oAuthScopes" => list(String.t()),
         "tokenUrl" => String.t()
       }
 
@@ -1262,7 +1262,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       list_flows_response() :: %{
-        "flows" => list(flow_definition()()),
+        "flows" => list(flow_definition()),
         "nextToken" => String.t()
       }
 
@@ -1283,7 +1283,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       zendesk_metadata() :: %{
-        "oAuthScopes" => list(String.t()())
+        "oAuthScopes" => list(String.t())
       }
 
   """
@@ -1415,7 +1415,7 @@ defmodule AWS.Appflow do
 
       describe_connector_profiles_request() :: %{
         optional("connectorLabel") => String.t(),
-        optional("connectorProfileNames") => list(String.t()()),
+        optional("connectorProfileNames") => list(String.t()),
         optional("connectorType") => list(any()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1466,7 +1466,7 @@ defmodule AWS.Appflow do
 
       s_a_p_o_data_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t()()),
+        "idFieldNames" => list(String.t()),
         "objectPath" => String.t(),
         "successResponseHandlingConfig" => success_response_handling_config(),
         "writeOperationType" => list(any())
@@ -1656,7 +1656,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       describe_flow_execution_records_response() :: %{
-        "flowExecutions" => list(execution_record()()),
+        "flowExecutions" => list(execution_record()),
         "nextToken" => String.t()
       }
 
@@ -1776,7 +1776,7 @@ defmodule AWS.Appflow do
         "applicationType" => String.t(),
         "connectorDescription" => String.t(),
         "connectorLabel" => String.t(),
-        "connectorModes" => list(String.t()()),
+        "connectorModes" => list(String.t()),
         "connectorName" => String.t(),
         "connectorOwner" => String.t(),
         "connectorProvisioningType" => list(any()),
@@ -1885,7 +1885,7 @@ defmodule AWS.Appflow do
         "customProperties" => map(),
         "entityName" => String.t(),
         "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t()()),
+        "idFieldNames" => list(String.t()),
         "writeOperationType" => list(any())
       }
 
@@ -1897,7 +1897,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       auth_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t()()),
+        "connectorSuppliedValues" => list(String.t()),
         "description" => String.t(),
         "isRequired" => boolean(),
         "isSensitiveField" => boolean(),
@@ -1950,7 +1950,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       slack_metadata() :: %{
-        "oAuthScopes" => list(String.t()())
+        "oAuthScopes" => list(String.t())
       }
 
   """
@@ -2117,7 +2117,7 @@ defmodule AWS.Appflow do
         "executionResult" => execution_result(),
         "executionStatus" => list(any()),
         "lastUpdatedAt" => non_neg_integer(),
-        "metadataCatalogDetails" => list(metadata_catalog_detail()()),
+        "metadataCatalogDetails" => list(metadata_catalog_detail()),
         "startedAt" => non_neg_integer()
       }
 
@@ -2155,7 +2155,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       o_auth2_custom_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t()()),
+        "connectorSuppliedValues" => list(String.t()),
         "description" => String.t(),
         "isRequired" => boolean(),
         "isSensitiveField" => boolean(),
@@ -2426,7 +2426,7 @@ defmodule AWS.Appflow do
         "fieldValueRange" => range(),
         "filterOperators" => list(list(any())()),
         "supportedDateFormat" => String.t(),
-        "supportedValues" => list(String.t()()),
+        "supportedValues" => list(String.t()),
         "valueRegexPattern" => String.t()
       }
 
@@ -2513,7 +2513,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       cancel_flow_executions_request() :: %{
-        optional("executionIds") => list(String.t()()),
+        optional("executionIds") => list(String.t()),
         required("flowName") => String.t()
       }
 
@@ -2528,21 +2528,21 @@ defmodule AWS.Appflow do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "description" => String.t(),
-        "destinationFlowConfigList" => list(destination_flow_config()()),
+        "destinationFlowConfigList" => list(destination_flow_config()),
         "flowArn" => String.t(),
         "flowName" => String.t(),
         "flowStatus" => list(any()),
         "flowStatusMessage" => String.t(),
         "kmsArn" => String.t(),
         "lastRunExecutionDetails" => execution_details(),
-        "lastRunMetadataCatalogDetails" => list(metadata_catalog_detail()()),
+        "lastRunMetadataCatalogDetails" => list(metadata_catalog_detail()),
         "lastUpdatedAt" => non_neg_integer(),
         "lastUpdatedBy" => String.t(),
         "metadataCatalogConfig" => metadata_catalog_config(),
         "schemaVersion" => float(),
         "sourceFlowConfig" => source_flow_config(),
         "tags" => map(),
-        "tasks" => list(task()()),
+        "tasks" => list(task()),
         "triggerConfig" => trigger_config()
       }
 
@@ -2633,7 +2633,7 @@ defmodule AWS.Appflow do
 
       salesforce_metadata() :: %{
         "dataTransferApis" => list(list(any())()),
-        "oAuthScopes" => list(String.t()()),
+        "oAuthScopes" => list(String.t()),
         "oauth2GrantTypesSupported" => list(list(any())())
       }
 
@@ -2707,7 +2707,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       connector_runtime_setting() :: %{
-        "connectorSuppliedValueOptions" => list(String.t()()),
+        "connectorSuppliedValueOptions" => list(String.t()),
         "dataType" => String.t(),
         "description" => String.t(),
         "isRequired" => boolean(),
@@ -2736,7 +2736,7 @@ defmodule AWS.Appflow do
   ## Example:
 
       authentication_config() :: %{
-        "customAuthConfigs" => list(custom_auth_config()()),
+        "customAuthConfigs" => list(custom_auth_config()),
         "isApiKeyAuthSupported" => boolean(),
         "isBasicAuthSupported" => boolean(),
         "isCustomAuthSupported" => boolean(),
@@ -2768,12 +2768,12 @@ defmodule AWS.Appflow do
         "connectorDescription" => String.t(),
         "connectorLabel" => String.t(),
         "connectorMetadata" => connector_metadata(),
-        "connectorModes" => list(String.t()()),
+        "connectorModes" => list(String.t()),
         "connectorName" => String.t(),
         "connectorOwner" => String.t(),
         "connectorProvisioningConfig" => connector_provisioning_config(),
         "connectorProvisioningType" => list(any()),
-        "connectorRuntimeSettings" => list(connector_runtime_setting()()),
+        "connectorRuntimeSettings" => list(connector_runtime_setting()),
         "connectorType" => list(any()),
         "connectorVersion" => String.t(),
         "isPrivateLinkEnabled" => boolean(),
@@ -2781,8 +2781,8 @@ defmodule AWS.Appflow do
         "logoURL" => String.t(),
         "registeredAt" => non_neg_integer(),
         "registeredBy" => String.t(),
-        "supportedApiVersions" => list(String.t()()),
-        "supportedDataTransferApis" => list(data_transfer_api()()),
+        "supportedApiVersions" => list(String.t()),
+        "supportedDataTransferApis" => list(data_transfer_api()),
         "supportedDataTransferTypes" => list(list(any())()),
         "supportedDestinationConnectors" => list(list(any())()),
         "supportedOperators" => list(list(any())()),

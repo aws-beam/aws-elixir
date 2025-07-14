@@ -78,11 +78,11 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       record() :: %{
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MeasureName" => String.t(),
         "MeasureValue" => String.t(),
         "MeasureValueType" => list(any()),
-        "MeasureValues" => list(measure_value()()),
+        "MeasureValues" => list(measure_value()),
         "Time" => String.t(),
         "TimeUnit" => list(any()),
         "Version" => float()
@@ -97,7 +97,7 @@ defmodule AWS.TimestreamWrite do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -309,7 +309,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()())
+        "Endpoints" => list(endpoint())
       }
       
   """
@@ -323,7 +323,7 @@ defmodule AWS.TimestreamWrite do
         optional("MagneticStoreWriteProperties") => magnetic_store_write_properties(),
         optional("RetentionProperties") => retention_properties(),
         optional("Schema") => schema(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DatabaseName") => String.t(),
         required("TableName") => String.t()
       }
@@ -348,7 +348,7 @@ defmodule AWS.TimestreamWrite do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -443,7 +443,7 @@ defmodule AWS.TimestreamWrite do
       
       list_tables_response() :: %{
         "NextToken" => String.t(),
-        "Tables" => list(table()())
+        "Tables" => list(table())
       }
       
   """
@@ -530,7 +530,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       schema() :: %{
-        "CompositePartitionKey" => list(partition_key()())
+        "CompositePartitionKey" => list(partition_key())
       }
       
   """
@@ -541,7 +541,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -611,7 +611,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       list_batch_load_tasks_response() :: %{
-        "BatchLoadTasks" => list(batch_load_task()()),
+        "BatchLoadTasks" => list(batch_load_task()),
         "NextToken" => String.t()
       }
       
@@ -625,7 +625,7 @@ defmodule AWS.TimestreamWrite do
       write_records_request() :: %{
         optional("CommonAttributes") => record(),
         required("DatabaseName") => String.t(),
-        required("Records") => list(record()()),
+        required("Records") => list(record()),
         required("TableName") => String.t()
       }
       
@@ -637,7 +637,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       multi_measure_mappings() :: %{
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
         "TargetMultiMeasureName" => String.t()
       }
       
@@ -752,9 +752,9 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       data_model() :: %{
-        "DimensionMappings" => list(dimension_mapping()()),
+        "DimensionMappings" => list(dimension_mapping()),
         "MeasureNameColumn" => String.t(),
-        "MixedMeasureMappings" => list(mixed_measure_mapping()()),
+        "MixedMeasureMappings" => list(mixed_measure_mapping()),
         "MultiMeasureMappings" => multi_measure_mappings(),
         "TimeColumn" => String.t(),
         "TimeUnit" => list(any())
@@ -770,7 +770,7 @@ defmodule AWS.TimestreamWrite do
       mixed_measure_mapping() :: %{
         "MeasureName" => String.t(),
         "MeasureValueType" => list(any()),
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
         "SourceColumn" => String.t(),
         "TargetMeasureName" => String.t()
       }
@@ -861,7 +861,7 @@ defmodule AWS.TimestreamWrite do
       
       rejected_records_exception() :: %{
         "Message" => String.t(),
-        "RejectedRecords" => list(rejected_record()())
+        "RejectedRecords" => list(rejected_record())
       }
       
   """
@@ -872,7 +872,7 @@ defmodule AWS.TimestreamWrite do
   ## Example:
       
       list_databases_response() :: %{
-        "Databases" => list(database()()),
+        "Databases" => list(database()),
         "NextToken" => String.t()
       }
       
@@ -896,7 +896,7 @@ defmodule AWS.TimestreamWrite do
       
       create_database_request() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DatabaseName") => String.t()
       }
       
@@ -1152,7 +1152,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_batch_load_task_errors()}
   def create_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchLoadTask", input, options)
   end
@@ -1173,7 +1174,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -1198,7 +1200,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -1228,7 +1231,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -1253,7 +1257,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -1274,7 +1279,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_batch_load_task_errors()}
   def describe_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchLoadTask", input, options)
   end
@@ -1295,7 +1301,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_database_errors()}
   def describe_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatabase", input, options)
   end
@@ -1331,7 +1338,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -1352,7 +1360,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -1371,7 +1380,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_batch_load_tasks_errors()}
   def list_batch_load_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBatchLoadTasks", input, options)
   end
@@ -1391,7 +1401,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatabases", input, options)
   end
@@ -1410,7 +1421,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -1424,7 +1436,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1435,7 +1448,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, resume_batch_load_task_errors()}
   def resume_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeBatchLoadTask", input, options)
   end
@@ -1454,7 +1468,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1468,7 +1483,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1490,7 +1506,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -1517,7 +1534,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -1580,7 +1598,8 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, write_records_errors()}
   def write_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "WriteRecords", input, options)
   end

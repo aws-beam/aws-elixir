@@ -280,8 +280,8 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       git_branch_filter_criteria() :: %{
-        "excludes" => list(String.t()()),
-        "includes" => list(String.t()())
+        "excludes" => list(String.t()),
+        "includes" => list(String.t())
       }
       
   """
@@ -317,7 +317,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       list_action_executions_output() :: %{
-        "actionExecutionDetails" => list(action_execution_detail()()),
+        "actionExecutionDetails" => list(action_execution_detail()),
         "nextToken" => String.t()
       }
       
@@ -393,7 +393,7 @@ defmodule AWS.CodePipeline do
         "errorCode" => String.t(),
         "errorMessage" => String.t(),
         "lastTriggered" => non_neg_integer(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "url" => String.t()
       }
       
@@ -411,9 +411,9 @@ defmodule AWS.CodePipeline do
         "name" => String.t(),
         "pipelineType" => list(any()),
         "roleArn" => String.t(),
-        "stages" => list(stage_declaration()()),
-        "triggers" => list(pipeline_trigger_declaration()()),
-        "variables" => list(pipeline_variable_declaration()()),
+        "stages" => list(stage_declaration()),
+        "triggers" => list(pipeline_trigger_declaration()),
+        "variables" => list(pipeline_variable_declaration()),
         "version" => integer()
       }
       
@@ -425,7 +425,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       output_artifact() :: %{
-        "files" => list(String.t()()),
+        "files" => list(String.t()),
         "name" => String.t()
       }
       
@@ -437,7 +437,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       action_type_permissions() :: %{
-        "allowedAccounts" => list(String.t()())
+        "allowedAccounts" => list(String.t())
       }
       
   """
@@ -472,7 +472,7 @@ defmodule AWS.CodePipeline do
       
       create_pipeline_output() :: %{
         "pipeline" => pipeline_declaration(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -661,7 +661,7 @@ defmodule AWS.CodePipeline do
         "lastUpdateTime" => non_neg_integer(),
         "pipelineExecutionId" => String.t(),
         "rollbackMetadata" => pipeline_rollback_metadata(),
-        "sourceRevisions" => list(source_revision()()),
+        "sourceRevisions" => list(source_revision()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
         "statusSummary" => String.t(),
@@ -724,7 +724,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       pipeline_execution() :: %{
-        "artifactRevisions" => list(artifact_revision()()),
+        "artifactRevisions" => list(artifact_revision()),
         "executionMode" => list(any()),
         "executionType" => list(any()),
         "pipelineExecutionId" => String.t(),
@@ -734,7 +734,7 @@ defmodule AWS.CodePipeline do
         "status" => list(any()),
         "statusSummary" => String.t(),
         "trigger" => execution_trigger(),
-        "variables" => list(resolved_pipeline_variable()())
+        "variables" => list(resolved_pipeline_variable())
       }
       
   """
@@ -781,7 +781,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       list_rule_types_output() :: %{
-        "ruleTypes" => list(rule_type()())
+        "ruleTypes" => list(rule_type())
       }
       
   """
@@ -828,7 +828,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       failure_conditions() :: %{
-        "conditions" => list(condition()()),
+        "conditions" => list(condition()),
         "result" => list(any()),
         "retryConfiguration" => retry_configuration()
       }
@@ -910,8 +910,8 @@ defmodule AWS.CodePipeline do
         "artifactCredentials" => aws_session_credentials(),
         "continuationToken" => String.t(),
         "encryptionKey" => encryption_key(),
-        "inputArtifacts" => list(artifact()()),
-        "outputArtifacts" => list(artifact()()),
+        "inputArtifacts" => list(artifact()),
+        "outputArtifacts" => list(artifact()),
         "pipelineContext" => pipeline_context()
       }
       
@@ -924,7 +924,7 @@ defmodule AWS.CodePipeline do
       
       list_webhooks_output() :: %{
         "NextToken" => String.t(),
-        "webhooks" => list(list_webhook_item()())
+        "webhooks" => list(list_webhook_item())
       }
       
   """
@@ -974,7 +974,7 @@ defmodule AWS.CodePipeline do
       
       list_tags_for_resource_output() :: %{
         "nextToken" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -986,7 +986,7 @@ defmodule AWS.CodePipeline do
       
       list_deploy_action_execution_targets_output() :: %{
         "nextToken" => String.t(),
-        "targets" => list(deploy_action_execution_target()())
+        "targets" => list(deploy_action_execution_target())
       }
       
   """
@@ -1068,7 +1068,7 @@ defmodule AWS.CodePipeline do
       rule_type() :: %{
         "id" => rule_type_id(),
         "inputArtifactDetails" => artifact_details(),
-        "ruleConfigurationProperties" => list(rule_configuration_property()()),
+        "ruleConfigurationProperties" => list(rule_configuration_property()),
         "settings" => rule_type_settings()
       }
       
@@ -1156,8 +1156,8 @@ defmodule AWS.CodePipeline do
         "artifactCredentials" => aws_session_credentials(),
         "continuationToken" => String.t(),
         "encryptionKey" => encryption_key(),
-        "inputArtifacts" => list(artifact()()),
-        "outputArtifacts" => list(artifact()()),
+        "inputArtifacts" => list(artifact()),
+        "outputArtifacts" => list(artifact()),
         "pipelineContext" => pipeline_context()
       }
       
@@ -1170,7 +1170,7 @@ defmodule AWS.CodePipeline do
       
       condition_state() :: %{
         "latestExecution" => condition_execution(),
-        "ruleStates" => list(rule_state()())
+        "ruleStates" => list(rule_state())
       }
       
   """
@@ -1214,8 +1214,8 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       git_file_path_filter_criteria() :: %{
-        "excludes" => list(String.t()()),
-        "includes" => list(String.t()())
+        "excludes" => list(String.t()),
+        "includes" => list(String.t())
       }
       
   """
@@ -1226,8 +1226,8 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       job_worker_executor_configuration() :: %{
-        "pollingAccounts" => list(String.t()()),
-        "pollingServicePrincipals" => list(String.t()())
+        "pollingAccounts" => list(String.t()),
+        "pollingServicePrincipals" => list(String.t())
       }
       
   """
@@ -1275,7 +1275,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       create_pipeline_input() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("pipeline") => pipeline_declaration()
       }
       
@@ -1300,14 +1300,14 @@ defmodule AWS.CodePipeline do
       
       action_declaration() :: %{
         "actionTypeId" => action_type_id(),
-        "commands" => list(String.t()()),
+        "commands" => list(String.t()),
         "configuration" => map(),
-        "environmentVariables" => list(environment_variable()()),
-        "inputArtifacts" => list(input_artifact()()),
+        "environmentVariables" => list(environment_variable()),
+        "inputArtifacts" => list(input_artifact()),
         "name" => String.t(),
         "namespace" => String.t(),
-        "outputArtifacts" => list(output_artifact()()),
-        "outputVariables" => list(String.t()()),
+        "outputArtifacts" => list(output_artifact()),
+        "outputVariables" => list(String.t()),
         "region" => String.t(),
         "roleArn" => String.t(),
         "runOrder" => integer(),
@@ -1366,7 +1366,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       put_webhook_input() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("webhook") => webhook_definition()
       }
       
@@ -1530,7 +1530,7 @@ defmodule AWS.CodePipeline do
       
       action_execution_output() :: %{
         "executionResult" => action_execution_result(),
-        "outputArtifacts" => list(artifact_detail()()),
+        "outputArtifacts" => list(artifact_detail()),
         "outputVariables" => map()
       }
       
@@ -1580,7 +1580,7 @@ defmodule AWS.CodePipeline do
       
       list_pipeline_executions_output() :: %{
         "nextToken" => String.t(),
-        "pipelineExecutionSummaries" => list(pipeline_execution_summary()())
+        "pipelineExecutionSummaries" => list(pipeline_execution_summary())
       }
       
   """
@@ -1669,8 +1669,8 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       git_configuration() :: %{
-        "pullRequest" => list(git_pull_request_filter()()),
-        "push" => list(git_push_filter()()),
+        "pullRequest" => list(git_pull_request_filter()),
+        "push" => list(git_push_filter()),
         "sourceActionName" => String.t()
       }
       
@@ -1682,7 +1682,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       list_action_types_output() :: %{
-        "actionTypes" => list(action_type()()),
+        "actionTypes" => list(action_type()),
         "nextToken" => String.t()
       }
       
@@ -1710,7 +1710,7 @@ defmodule AWS.CodePipeline do
       webhook_definition() :: %{
         "authentication" => list(any()),
         "authenticationConfiguration" => webhook_auth_configuration(),
-        "filters" => list(webhook_filter_rule()()),
+        "filters" => list(webhook_filter_rule()),
         "name" => String.t(),
         "targetAction" => String.t(),
         "targetPipeline" => String.t()
@@ -1725,7 +1725,7 @@ defmodule AWS.CodePipeline do
       
       condition() :: %{
         "result" => list(any()),
-        "rules" => list(rule_declaration()())
+        "rules" => list(rule_declaration())
       }
       
   """
@@ -1773,7 +1773,7 @@ defmodule AWS.CodePipeline do
         "created" => non_neg_integer(),
         "pipelineName" => String.t(),
         "pipelineVersion" => integer(),
-        "stageStates" => list(stage_state()()),
+        "stageStates" => list(stage_state()),
         "updated" => non_neg_integer()
       }
       
@@ -1800,7 +1800,7 @@ defmodule AWS.CodePipeline do
       
       tag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -1848,7 +1848,7 @@ defmodule AWS.CodePipeline do
       
       deploy_action_execution_target() :: %{
         "endTime" => non_neg_integer(),
-        "events" => list(deploy_target_event()()),
+        "events" => list(deploy_target_event()),
         "startTime" => non_neg_integer(),
         "status" => String.t(),
         "targetId" => String.t(),
@@ -1876,8 +1876,8 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       git_tag_filter_criteria() :: %{
-        "excludes" => list(String.t()()),
-        "includes" => list(String.t()())
+        "excludes" => list(String.t()),
+        "includes" => list(String.t())
       }
       
   """
@@ -1910,9 +1910,9 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       rule_declaration() :: %{
-        "commands" => list(String.t()()),
+        "commands" => list(String.t()),
         "configuration" => map(),
-        "inputArtifacts" => list(input_artifact()()),
+        "inputArtifacts" => list(input_artifact()),
         "name" => String.t(),
         "region" => String.t(),
         "roleArn" => String.t(),
@@ -1928,7 +1928,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       poll_for_jobs_output() :: %{
-        "jobs" => list(job()())
+        "jobs" => list(job())
       }
       
   """
@@ -1940,7 +1940,7 @@ defmodule AWS.CodePipeline do
       
       list_rule_executions_output() :: %{
         "nextToken" => String.t(),
-        "ruleExecutionDetails" => list(rule_execution_detail()())
+        "ruleExecutionDetails" => list(rule_execution_detail())
       }
       
   """
@@ -2009,7 +2009,7 @@ defmodule AWS.CodePipeline do
       
       untag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -2074,8 +2074,8 @@ defmodule AWS.CodePipeline do
       
       start_pipeline_execution_input() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("sourceRevisions") => list(source_revision_override()()),
-        optional("variables") => list(pipeline_variable()()),
+        optional("sourceRevisions") => list(source_revision_override()),
+        optional("variables") => list(pipeline_variable()),
         required("name") => String.t()
       }
       
@@ -2136,7 +2136,7 @@ defmodule AWS.CodePipeline do
       
       target_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -2243,7 +2243,7 @@ defmodule AWS.CodePipeline do
       
       create_custom_action_type_output() :: %{
         "actionType" => action_type(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -2289,7 +2289,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       poll_for_third_party_jobs_output() :: %{
-        "jobs" => list(third_party_job()())
+        "jobs" => list(third_party_job())
       }
       
   """
@@ -2316,7 +2316,7 @@ defmodule AWS.CodePipeline do
       action_execution_input() :: %{
         "actionTypeId" => action_type_id(),
         "configuration" => map(),
-        "inputArtifacts" => list(artifact_detail()()),
+        "inputArtifacts" => list(artifact_detail()),
         "namespace" => String.t(),
         "region" => String.t(),
         "resolvedConfiguration" => map(),
@@ -2458,7 +2458,7 @@ defmodule AWS.CodePipeline do
       
       list_pipelines_output() :: %{
         "nextToken" => String.t(),
-        "pipelines" => list(pipeline_summary()())
+        "pipelines" => list(pipeline_summary())
       }
       
   """
@@ -2517,9 +2517,9 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       stage_declaration() :: %{
-        "actions" => list(action_declaration()()),
+        "actions" => list(action_declaration()),
         "beforeEntry" => before_entry_conditions(),
-        "blockers" => list(blocker_declaration()()),
+        "blockers" => list(blocker_declaration()),
         "name" => String.t(),
         "onFailure" => failure_conditions(),
         "onSuccess" => success_conditions()
@@ -2533,9 +2533,9 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       create_custom_action_type_input() :: %{
-        optional("configurationProperties") => list(action_configuration_property()()),
+        optional("configurationProperties") => list(action_configuration_property()),
         optional("settings") => action_type_settings(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("category") => list(any()),
         required("inputArtifactDetails") => artifact_details(),
         required("outputArtifactDetails") => artifact_details(),
@@ -2562,7 +2562,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       stage_condition_state() :: %{
-        "conditionStates" => list(condition_state()()),
+        "conditionStates" => list(condition_state()),
         "latestExecution" => stage_conditions_execution()
       }
       
@@ -2619,7 +2619,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       list_deploy_action_execution_targets_input() :: %{
-        optional("filters") => list(target_filter()()),
+        optional("filters") => list(target_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("pipelineName") => String.t(),
@@ -2634,7 +2634,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       before_entry_conditions() :: %{
-        "conditions" => list(condition()())
+        "conditions" => list(condition())
       }
       
   """
@@ -2657,10 +2657,10 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       stage_state() :: %{
-        "actionStates" => list(action_state()()),
+        "actionStates" => list(action_state()),
         "beforeEntryConditionState" => stage_condition_state(),
         "inboundExecution" => stage_execution(),
-        "inboundExecutions" => list(stage_execution()()),
+        "inboundExecutions" => list(stage_execution()),
         "inboundTransitionState" => transition_state(),
         "latestExecution" => stage_execution(),
         "onFailureConditionState" => stage_condition_state(),
@@ -2964,7 +2964,7 @@ defmodule AWS.CodePipeline do
       
       rule_execution_input() :: %{
         "configuration" => map(),
-        "inputArtifacts" => list(artifact_detail()()),
+        "inputArtifacts" => list(artifact_detail()),
         "region" => String.t(),
         "resolvedConfiguration" => map(),
         "roleArn" => String.t(),
@@ -2998,7 +2998,7 @@ defmodule AWS.CodePipeline do
         "inputArtifactDetails" => action_type_artifact_details(),
         "outputArtifactDetails" => action_type_artifact_details(),
         "permissions" => action_type_permissions(),
-        "properties" => list(action_type_property()()),
+        "properties" => list(action_type_property()),
         "urls" => action_type_urls()
       }
       
@@ -3021,7 +3021,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       action_type() :: %{
-        "actionConfigurationProperties" => list(action_configuration_property()()),
+        "actionConfigurationProperties" => list(action_configuration_property()),
         "id" => action_type_id(),
         "inputArtifactDetails" => artifact_details(),
         "outputArtifactDetails" => artifact_details(),
@@ -3093,7 +3093,7 @@ defmodule AWS.CodePipeline do
   ## Example:
       
       success_conditions() :: %{
-        "conditions" => list(condition()())
+        "conditions" => list(condition())
       }
       
   """
@@ -3399,7 +3399,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_job_errors()}
   def acknowledge_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcknowledgeJob", input, options)
   end
@@ -3416,7 +3417,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, acknowledge_third_party_job_errors()}
   def acknowledge_third_party_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcknowledgeThirdPartyJob", input, options)
   end
@@ -3434,7 +3436,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_custom_action_type_errors()}
   def create_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomActionType", input, options)
   end
@@ -3453,7 +3456,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -3477,7 +3481,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_custom_action_type_errors()}
   def delete_custom_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomActionType", input, options)
   end
@@ -3491,7 +3496,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -3513,7 +3519,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3535,7 +3542,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, deregister_webhook_with_third_party_errors()}
   def deregister_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterWebhookWithThirdParty", input, options)
   end
@@ -3550,7 +3558,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, disable_stage_transition_errors()}
   def disable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableStageTransition", input, options)
   end
@@ -3564,7 +3573,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, enable_stage_transition_errors()}
   def enable_stage_transition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableStageTransition", input, options)
   end
@@ -3583,7 +3593,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_action_type_errors()}
   def get_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActionType", input, options)
   end
@@ -3605,7 +3616,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_job_details_errors()}
   def get_job_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobDetails", input, options)
   end
@@ -3624,7 +3636,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_errors()}
   def get_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipeline", input, options)
   end
@@ -3640,7 +3653,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_execution_errors()}
   def get_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineExecution", input, options)
   end
@@ -3659,7 +3673,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_pipeline_state_errors()}
   def get_pipeline_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineState", input, options)
   end
@@ -3682,7 +3697,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, get_third_party_job_details_errors()}
   def get_third_party_job_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetThirdPartyJobDetails", input, options)
   end
@@ -3696,7 +3712,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_executions_errors()}
   def list_action_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActionExecutions", input, options)
   end
@@ -3711,7 +3728,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_action_types_errors()}
   def list_action_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActionTypes", input, options)
   end
@@ -3729,7 +3747,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_deploy_action_execution_targets_errors()}
   def list_deploy_action_execution_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeployActionExecutionTargets", input, options)
   end
@@ -3749,7 +3768,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipeline_executions_errors()}
   def list_pipeline_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelineExecutions", input, options)
   end
@@ -3763,7 +3783,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -3779,7 +3800,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_executions_errors()}
   def list_rule_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleExecutions", input, options)
   end
@@ -3798,7 +3820,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_rule_types_errors()}
   def list_rule_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleTypes", input, options)
   end
@@ -3813,7 +3836,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3833,7 +3857,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, list_webhooks_errors()}
   def list_webhooks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebhooks", input, options)
   end
@@ -3851,7 +3876,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, override_stage_condition_errors()}
   def override_stage_condition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OverrideStageCondition", input, options)
   end
@@ -3875,7 +3901,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_jobs_errors()}
   def poll_for_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForJobs", input, options)
   end
@@ -3896,7 +3923,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, poll_for_third_party_jobs_errors()}
   def poll_for_third_party_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForThirdPartyJobs", input, options)
   end
@@ -3911,7 +3939,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_action_revision_errors()}
   def put_action_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutActionRevision", input, options)
   end
@@ -3928,7 +3957,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_approval_result_errors()}
   def put_approval_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutApprovalResult", input, options)
   end
@@ -3945,7 +3975,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_failure_result_errors()}
   def put_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutJobFailureResult", input, options)
   end
@@ -3962,7 +3993,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_job_success_result_errors()}
   def put_job_success_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutJobSuccessResult", input, options)
   end
@@ -3983,7 +4015,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_failure_result_errors()}
   def put_third_party_job_failure_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobFailureResult", input, options)
   end
@@ -4004,7 +4037,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_third_party_job_success_result_errors()}
   def put_third_party_job_success_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutThirdPartyJobSuccessResult", input, options)
   end
@@ -4043,7 +4077,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, put_webhook_errors()}
   def put_webhook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWebhook", input, options)
   end
@@ -4063,7 +4098,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, register_webhook_with_third_party_errors()}
   def register_webhook_with_third_party(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterWebhookWithThirdParty", input, options)
   end
@@ -4092,7 +4128,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, retry_stage_execution_errors()}
   def retry_stage_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RetryStageExecution", input, options)
   end
@@ -4106,7 +4143,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, rollback_stage_errors()}
   def rollback_stage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackStage", input, options)
   end
@@ -4123,7 +4161,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, start_pipeline_execution_errors()}
   def start_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPipelineExecution", input, options)
   end
@@ -4146,7 +4185,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, stop_pipeline_execution_errors()}
   def stop_pipeline_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPipelineExecution", input, options)
   end
@@ -4163,7 +4203,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4177,7 +4218,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4197,7 +4239,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_action_type_errors()}
   def update_action_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateActionType", input, options)
   end
@@ -4217,7 +4260,8 @@ defmodule AWS.CodePipeline do
           | {:error, term()}
           | {:error, update_pipeline_errors()}
   def update_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePipeline", input, options)
   end

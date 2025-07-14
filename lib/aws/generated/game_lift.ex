@@ -111,7 +111,7 @@ defmodule AWS.GameLift do
       update_game_server_group_input() :: %{
         optional("BalancingStrategy") => list(any()),
         optional("GameServerProtectionPolicy") => list(any()),
-        optional("InstanceDefinitions") => list(instance_definition()()),
+        optional("InstanceDefinitions") => list(instance_definition()),
         optional("RoleArn") => String.t(),
         required("GameServerGroupName") => String.t()
       }
@@ -181,7 +181,7 @@ defmodule AWS.GameLift do
         "DnsName" => String.t(),
         "GameSessionArn" => String.t(),
         "IpAddress" => String.t(),
-        "MatchedPlayerSessions" => list(matched_player_session()()),
+        "MatchedPlayerSessions" => list(matched_player_session()),
         "Port" => integer()
       }
       
@@ -193,7 +193,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_matchmaking_input() :: %{
-        required("TicketIds") => list(String.t()())
+        required("TicketIds") => list(String.t())
       }
       
   """
@@ -220,7 +220,7 @@ defmodule AWS.GameLift do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -231,7 +231,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_locations_output() :: %{
-        "Locations" => list(location_model()()),
+        "Locations" => list(location_model()),
         "NextToken" => String.t()
       }
       
@@ -307,7 +307,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_compute_output() :: %{
-        "ComputeList" => list(compute()()),
+        "ComputeList" => list(compute()),
         "NextToken" => String.t()
       }
       
@@ -325,10 +325,10 @@ defmodule AWS.GameLift do
         optional("GameServerContainerGroupsPerInstance") => integer(),
         optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
         optional("InstanceConnectionPortRange") => connection_port_range(),
-        optional("InstanceInboundPermissionAuthorizations") => list(ip_permission()()),
-        optional("InstanceInboundPermissionRevocations") => list(ip_permission()()),
+        optional("InstanceInboundPermissionAuthorizations") => list(ip_permission()),
+        optional("InstanceInboundPermissionRevocations") => list(ip_permission()),
         optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t()()),
+        optional("MetricGroups") => list(String.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("PerInstanceContainerGroupDefinitionName") => String.t(),
         optional("RemoveAttributes") => list(list(any())()),
@@ -343,7 +343,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       priority_configuration() :: %{
-        "LocationOrder" => list(String.t()()),
+        "LocationOrder" => list(String.t()),
         "PriorityOrder" => list(list(any())())
       }
       
@@ -378,7 +378,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       create_location_input() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("LocationName") => String.t()
       }
       
@@ -468,7 +468,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       priority_configuration_override() :: %{
-        "LocationOrder" => list(String.t()()),
+        "LocationOrder" => list(String.t()),
         "PlacementFallbackStrategy" => list(any())
       }
       
@@ -491,7 +491,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_fleets_output() :: %{
-        "FleetIds" => list(String.t()()),
+        "FleetIds" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -517,7 +517,7 @@ defmodule AWS.GameLift do
       describe_fleet_location_attributes_output() :: %{
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
-        "LocationAttributes" => list(location_attributes()()),
+        "LocationAttributes" => list(location_attributes()),
         "NextToken" => String.t()
       }
       
@@ -570,10 +570,10 @@ defmodule AWS.GameLift do
       
       game_server_container_definition_input() :: %{
         "ContainerName" => String.t(),
-        "DependsOn" => list(container_dependency()()),
-        "EnvironmentOverride" => list(container_environment()()),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
         "ImageUri" => String.t(),
-        "MountPoints" => list(container_mount_point()()),
+        "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "ServerSdkVersion" => String.t()
       }
@@ -623,7 +623,7 @@ defmodule AWS.GameLift do
         "GameServerGroupArn" => String.t(),
         "GameServerGroupName" => String.t(),
         "GameServerProtectionPolicy" => list(any()),
-        "InstanceDefinitions" => list(instance_definition()()),
+        "InstanceDefinitions" => list(instance_definition()),
         "LastUpdatedTime" => non_neg_integer(),
         "RoleArn" => String.t(),
         "Status" => list(any()),
@@ -640,13 +640,13 @@ defmodule AWS.GameLift do
       
       support_container_definition() :: %{
         "ContainerName" => String.t(),
-        "DependsOn" => list(container_dependency()()),
-        "EnvironmentOverride" => list(container_environment()()),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
         "ImageUri" => String.t(),
         "MemoryHardLimitMebibytes" => integer(),
-        "MountPoints" => list(container_mount_point()()),
+        "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "ResolvedImageDigest" => String.t(),
         "Vcpu" => float()
@@ -673,7 +673,7 @@ defmodule AWS.GameLift do
       
       describe_fleet_location_attributes_input() :: %{
         optional("Limit") => integer(),
-        optional("Locations") => list(String.t()()),
+        optional("Locations") => list(String.t()),
         optional("NextToken") => String.t(),
         required("FleetId") => String.t()
       }
@@ -688,7 +688,7 @@ defmodule AWS.GameLift do
       delete_fleet_locations_output() :: %{
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
-        "LocationStates" => list(location_state()())
+        "LocationStates" => list(location_state())
       }
       
   """
@@ -711,7 +711,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_session_queues_output() :: %{
-        "GameSessionQueues" => list(game_session_queue()()),
+        "GameSessionQueues" => list(game_session_queue()),
         "NextToken" => String.t()
       }
       
@@ -732,7 +732,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       create_player_sessions_output() :: %{
-        "PlayerSessions" => list(player_session()())
+        "PlayerSessions" => list(player_session())
       }
       
   """
@@ -791,7 +791,7 @@ defmodule AWS.GameLift do
         "ComputeArn" => String.t(),
         "ComputeName" => String.t(),
         "ComputeStatus" => list(any()),
-        "ContainerAttributes" => list(container_attribute()()),
+        "ContainerAttributes" => list(container_attribute()),
         "CreationTime" => non_neg_integer(),
         "DnsName" => String.t(),
         "FleetArn" => String.t(),
@@ -856,9 +856,9 @@ defmodule AWS.GameLift do
         "CustomEventData" => String.t(),
         "Description" => String.t(),
         "FlexMatchMode" => list(any()),
-        "GameProperties" => list(game_property()()),
+        "GameProperties" => list(game_property()),
         "GameSessionData" => String.t(),
-        "GameSessionQueueArns" => list(String.t()()),
+        "GameSessionQueueArns" => list(String.t()),
         "Name" => String.t(),
         "NotificationTarget" => String.t(),
         "RequestTimeoutSeconds" => integer(),
@@ -885,7 +885,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_vpc_peering_authorizations_output() :: %{
-        "VpcPeeringAuthorizations" => list(vpc_peering_authorization()())
+        "VpcPeeringAuthorizations" => list(vpc_peering_authorization())
       }
       
   """
@@ -934,7 +934,7 @@ defmodule AWS.GameLift do
       runtime_configuration() :: %{
         "GameSessionActivationTimeoutSeconds" => integer(),
         "MaxConcurrentGameSessionActivations" => integer(),
-        "ServerProcesses" => list(server_process()())
+        "ServerProcesses" => list(server_process())
       }
       
   """
@@ -945,7 +945,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_container_group_definitions_output() :: %{
-        "ContainerGroupDefinitions" => list(container_group_definition()()),
+        "ContainerGroupDefinitions" => list(container_group_definition()),
         "NextToken" => String.t()
       }
       
@@ -1006,7 +1006,7 @@ defmodule AWS.GameLift do
       update_fleet_attributes_input() :: %{
         optional("AnywhereConfiguration") => anywhere_configuration(),
         optional("Description") => String.t(),
-        optional("MetricGroups") => list(String.t()()),
+        optional("MetricGroups") => list(String.t()),
         optional("Name") => String.t(),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
@@ -1044,7 +1044,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_aliases_output() :: %{
-        "Aliases" => list(alias()()),
+        "Aliases" => list(alias()),
         "NextToken" => String.t()
       }
       
@@ -1091,7 +1091,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_vpc_peering_connections_output() :: %{
-        "VpcPeeringConnections" => list(vpc_peering_connection()())
+        "VpcPeeringConnections" => list(vpc_peering_connection())
       }
       
   """
@@ -1185,7 +1185,7 @@ defmodule AWS.GameLift do
       describe_fleet_port_settings_output() :: %{
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
-        "InboundPermissions" => list(ip_permission()()),
+        "InboundPermissions" => list(ip_permission()),
         "Location" => String.t(),
         "UpdateStatus" => list(any())
       }
@@ -1278,7 +1278,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       create_matchmaking_rule_set_input() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("RuleSetBody") => String.t()
       }
@@ -1292,7 +1292,7 @@ defmodule AWS.GameLift do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1363,8 +1363,8 @@ defmodule AWS.GameLift do
   ## Example:
       
       update_fleet_port_settings_input() :: %{
-        optional("InboundPermissionAuthorizations") => list(ip_permission()()),
-        optional("InboundPermissionRevocations") => list(ip_permission()()),
+        optional("InboundPermissionAuthorizations") => list(ip_permission()),
+        optional("InboundPermissionRevocations") => list(ip_permission()),
         required("FleetId") => String.t()
       }
       
@@ -1377,7 +1377,7 @@ defmodule AWS.GameLift do
       
       accept_match_input() :: %{
         required("AcceptanceType") => list(any()),
-        required("PlayerIds") => list(String.t()()),
+        required("PlayerIds") => list(String.t()),
         required("TicketId") => String.t()
       }
       
@@ -1472,13 +1472,13 @@ defmodule AWS.GameLift do
       
       support_container_definition_input() :: %{
         "ContainerName" => String.t(),
-        "DependsOn" => list(container_dependency()()),
-        "EnvironmentOverride" => list(container_environment()()),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
         "ImageUri" => String.t(),
         "MemoryHardLimitMebibytes" => integer(),
-        "MountPoints" => list(container_mount_point()()),
+        "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "Vcpu" => float()
       }
@@ -1504,7 +1504,7 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_configurations_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t(),
         optional("RuleSetName") => String.t()
       }
@@ -1575,12 +1575,12 @@ defmodule AWS.GameLift do
       
       game_session_queue() :: %{
         "CustomEventData" => String.t(),
-        "Destinations" => list(game_session_queue_destination()()),
+        "Destinations" => list(game_session_queue_destination()),
         "FilterConfiguration" => filter_configuration(),
         "GameSessionQueueArn" => String.t(),
         "Name" => String.t(),
         "NotificationTarget" => String.t(),
-        "PlayerLatencyPolicies" => list(player_latency_policy()()),
+        "PlayerLatencyPolicies" => list(player_latency_policy()),
         "PriorityConfiguration" => priority_configuration(),
         "TimeoutInSeconds" => integer()
       }
@@ -1629,7 +1629,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_game_server_groups_output() :: %{
-        "GameServerGroups" => list(game_server_group()()),
+        "GameServerGroups" => list(game_server_group()),
         "NextToken" => String.t()
       }
       
@@ -1678,7 +1678,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_utilization_output() :: %{
-        "FleetUtilization" => list(fleet_utilization()()),
+        "FleetUtilization" => list(fleet_utilization()),
         "NextToken" => String.t()
       }
       
@@ -1761,7 +1761,7 @@ defmodule AWS.GameLift do
         "OperatingSystem" => list(any()),
         "Status" => list(any()),
         "StatusReason" => String.t(),
-        "SupportContainerDefinitions" => list(support_container_definition()()),
+        "SupportContainerDefinitions" => list(support_container_definition()),
         "TotalMemoryLimitMebibytes" => integer(),
         "TotalVcpuLimit" => float(),
         "VersionDescription" => String.t(),
@@ -1777,10 +1777,10 @@ defmodule AWS.GameLift do
       
       update_game_session_queue_input() :: %{
         optional("CustomEventData") => String.t(),
-        optional("Destinations") => list(game_session_queue_destination()()),
+        optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
         optional("NotificationTarget") => String.t(),
-        optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
         optional("TimeoutInSeconds") => integer(),
         required("Name") => String.t()
@@ -1805,7 +1805,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_capacity_input() :: %{
-        optional("FleetIds") => list(String.t()()),
+        optional("FleetIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1832,7 +1832,7 @@ defmodule AWS.GameLift do
       get_compute_access_output() :: %{
         "ComputeArn" => String.t(),
         "ComputeName" => String.t(),
-        "ContainerIdentifiers" => list(container_identifier()()),
+        "ContainerIdentifiers" => list(container_identifier()),
         "Credentials" => aws_credentials(),
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
@@ -1848,7 +1848,7 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_rule_sets_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -1872,7 +1872,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_sessions_output() :: %{
-        "GameSessions" => list(game_session()()),
+        "GameSessions" => list(game_session()),
         "NextToken" => String.t()
       }
       
@@ -1913,7 +1913,7 @@ defmodule AWS.GameLift do
         optional("GameServerContainerDefinition") => game_server_container_definition_input(),
         optional("OperatingSystem") => list(any()),
         optional("SourceVersionNumber") => integer(),
-        optional("SupportContainerDefinitions") => list(support_container_definition_input()()),
+        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
         optional("TotalMemoryLimitMebibytes") => integer(),
         optional("TotalVcpuLimit") => float(),
         optional("VersionDescription") => String.t(),
@@ -1939,7 +1939,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_matchmaking_output() :: %{
-        "TicketList" => list(matchmaking_ticket()())
+        "TicketList" => list(matchmaking_ticket())
       }
       
   """
@@ -1961,7 +1961,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_fleet_deployments_output() :: %{
-        "FleetDeployments" => list(fleet_deployment()()),
+        "FleetDeployments" => list(fleet_deployment()),
         "NextToken" => String.t()
       }
       
@@ -2033,7 +2033,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       container_health_check() :: %{
-        "Command" => list(String.t()()),
+        "Command" => list(String.t()),
         "Interval" => integer(),
         "Retries" => integer(),
         "StartPeriod" => integer(),
@@ -2090,7 +2090,7 @@ defmodule AWS.GameLift do
       
       delete_fleet_locations_input() :: %{
         required("FleetId") => String.t(),
-        required("Locations") => list(String.t()())
+        required("Locations") => list(String.t())
       }
       
   """
@@ -2174,7 +2174,7 @@ defmodule AWS.GameLift do
       
       create_fleet_locations_input() :: %{
         required("FleetId") => String.t(),
-        required("Locations") => list(location_configuration()())
+        required("Locations") => list(location_configuration())
       }
       
   """
@@ -2226,7 +2226,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       filter_configuration() :: %{
-        "AllowedLocations" => list(String.t()())
+        "AllowedLocations" => list(String.t())
       }
       
   """
@@ -2254,11 +2254,11 @@ defmodule AWS.GameLift do
         optional("CustomEventData") => String.t(),
         optional("Description") => String.t(),
         optional("FlexMatchMode") => list(any()),
-        optional("GameProperties") => list(game_property()()),
+        optional("GameProperties") => list(game_property()),
         optional("GameSessionData") => String.t(),
-        optional("GameSessionQueueArns") => list(String.t()()),
+        optional("GameSessionQueueArns") => list(String.t()),
         optional("NotificationTarget") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AcceptanceRequired") => boolean(),
         required("Name") => String.t(),
         required("RequestTimeoutSeconds") => integer(),
@@ -2273,11 +2273,11 @@ defmodule AWS.GameLift do
   ## Example:
       
       start_game_session_placement_input() :: %{
-        optional("DesiredPlayerSessions") => list(desired_player_session()()),
-        optional("GameProperties") => list(game_property()()),
+        optional("DesiredPlayerSessions") => list(desired_player_session()),
+        optional("GameProperties") => list(game_property()),
         optional("GameSessionData") => String.t(),
         optional("GameSessionName") => String.t(),
-        optional("PlayerLatencies") => list(player_latency()()),
+        optional("PlayerLatencies") => list(player_latency()),
         optional("PriorityConfigurationOverride") => priority_configuration_override(),
         required("GameSessionQueueName") => String.t(),
         required("MaximumPlayerSessionCount") => integer(),
@@ -2303,7 +2303,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_container_group_definition_versions_output() :: %{
-        "ContainerGroupDefinitions" => list(container_group_definition()()),
+        "ContainerGroupDefinitions" => list(container_group_definition()),
         "NextToken" => String.t()
       }
       
@@ -2315,7 +2315,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2328,7 +2328,7 @@ defmodule AWS.GameLift do
       create_fleet_locations_output() :: %{
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
-        "LocationStates" => list(location_state()())
+        "LocationStates" => list(location_state())
       }
       
   """
@@ -2425,7 +2425,7 @@ defmodule AWS.GameLift do
         "N" => float(),
         "S" => String.t(),
         "SDM" => map(),
-        "SL" => list(String.t()())
+        "SL" => list(String.t())
       }
       
   """
@@ -2496,7 +2496,7 @@ defmodule AWS.GameLift do
       
       describe_player_sessions_output() :: %{
         "NextToken" => String.t(),
-        "PlayerSessions" => list(player_session()())
+        "PlayerSessions" => list(player_session())
       }
       
   """
@@ -2507,7 +2507,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_instances_output() :: %{
-        "Instances" => list(instance()()),
+        "Instances" => list(instance()),
         "NextToken" => String.t()
       }
       
@@ -2533,7 +2533,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_utilization_input() :: %{
-        optional("FleetIds") => list(String.t()()),
+        optional("FleetIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2570,7 +2570,7 @@ defmodule AWS.GameLift do
       
       create_fleet_output() :: %{
         "FleetAttributes" => fleet_attributes(),
-        "LocationStates" => list(location_state()())
+        "LocationStates" => list(location_state())
       }
       
   """
@@ -2594,8 +2594,8 @@ defmodule AWS.GameLift do
         "InstanceRoleArn" => String.t(),
         "InstanceRoleCredentialsProvider" => list(any()),
         "InstanceType" => list(any()),
-        "LogPaths" => list(String.t()()),
-        "MetricGroups" => list(String.t()()),
+        "LogPaths" => list(String.t()),
+        "MetricGroups" => list(String.t()),
         "Name" => String.t(),
         "NewGameSessionProtectionPolicy" => list(any()),
         "OperatingSystem" => list(any()),
@@ -2642,8 +2642,8 @@ defmodule AWS.GameLift do
       create_container_group_definition_input() :: %{
         optional("ContainerGroupType") => list(any()),
         optional("GameServerContainerDefinition") => game_server_container_definition_input(),
-        optional("SupportContainerDefinitions") => list(support_container_definition_input()()),
-        optional("Tags") => list(tag()()),
+        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
+        optional("Tags") => list(tag()),
         optional("VersionDescription") => String.t(),
         required("Name") => String.t(),
         required("OperatingSystem") => list(any()),
@@ -2675,7 +2675,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       update_game_session_input() :: %{
-        optional("GameProperties") => list(game_property()()),
+        optional("GameProperties") => list(game_property()),
         optional("MaximumPlayerSessionCount") => integer(),
         optional("Name") => String.t(),
         optional("PlayerSessionCreationPolicy") => list(any()),
@@ -2696,7 +2696,7 @@ defmodule AWS.GameLift do
         "EndTime" => non_neg_integer(),
         "EstimatedWaitTime" => integer(),
         "GameSessionConnectionInfo" => game_session_connection_info(),
-        "Players" => list(player()()),
+        "Players" => list(player()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
@@ -2748,12 +2748,12 @@ defmodule AWS.GameLift do
       
       create_game_session_queue_input() :: %{
         optional("CustomEventData") => String.t(),
-        optional("Destinations") => list(game_session_queue_destination()()),
+        optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
         optional("NotificationTarget") => String.t(),
-        optional("PlayerLatencyPolicies") => list(player_latency_policy()()),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TimeoutInSeconds") => integer(),
         required("Name") => String.t()
       }
@@ -2839,14 +2839,14 @@ defmodule AWS.GameLift do
         optional("CertificateConfiguration") => certificate_configuration(),
         optional("ComputeType") => list(any()),
         optional("Description") => String.t(),
-        optional("EC2InboundPermissions") => list(ip_permission()()),
+        optional("EC2InboundPermissions") => list(ip_permission()),
         optional("EC2InstanceType") => list(any()),
         optional("FleetType") => list(any()),
         optional("InstanceRoleArn") => String.t(),
         optional("InstanceRoleCredentialsProvider") => list(any()),
-        optional("Locations") => list(location_configuration()()),
-        optional("LogPaths") => list(String.t()()),
-        optional("MetricGroups") => list(String.t()()),
+        optional("Locations") => list(location_configuration()),
+        optional("LogPaths") => list(String.t()),
+        optional("MetricGroups") => list(String.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("PeerVpcAwsAccountId") => String.t(),
         optional("PeerVpcId") => String.t(),
@@ -2855,7 +2855,7 @@ defmodule AWS.GameLift do
         optional("ScriptId") => String.t(),
         optional("ServerLaunchParameters") => String.t(),
         optional("ServerLaunchPath") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -2869,7 +2869,7 @@ defmodule AWS.GameLift do
       start_matchmaking_input() :: %{
         optional("TicketId") => String.t(),
         required("ConfigurationName") => String.t(),
-        required("Players") => list(player()())
+        required("Players") => list(player())
       }
       
   """
@@ -2963,7 +2963,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_events_output() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "NextToken" => String.t()
       }
       
@@ -3078,7 +3078,7 @@ defmodule AWS.GameLift do
       
       describe_game_session_queues_input() :: %{
         optional("Limit") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -3090,7 +3090,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       search_game_sessions_output() :: %{
-        "GameSessions" => list(game_session()()),
+        "GameSessions" => list(game_session()),
         "NextToken" => String.t()
       }
       
@@ -3216,9 +3216,9 @@ defmodule AWS.GameLift do
         optional("CustomEventData") => String.t(),
         optional("Description") => String.t(),
         optional("FlexMatchMode") => list(any()),
-        optional("GameProperties") => list(game_property()()),
+        optional("GameProperties") => list(game_property()),
         optional("GameSessionData") => String.t(),
-        optional("GameSessionQueueArns") => list(String.t()()),
+        optional("GameSessionQueueArns") => list(String.t()),
         optional("NotificationTarget") => String.t(),
         optional("RequestTimeoutSeconds") => integer(),
         optional("RuleSetName") => String.t(),
@@ -3265,7 +3265,7 @@ defmodule AWS.GameLift do
       
       list_scripts_output() :: %{
         "NextToken" => String.t(),
-        "Scripts" => list(script()())
+        "Scripts" => list(script())
       }
       
   """
@@ -3344,7 +3344,7 @@ defmodule AWS.GameLift do
       
       describe_matchmaking_rule_sets_output() :: %{
         "NextToken" => String.t(),
-        "RuleSets" => list(matchmaking_rule_set()())
+        "RuleSets" => list(matchmaking_rule_set())
       }
       
   """
@@ -3402,7 +3402,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_attributes_input() :: %{
-        optional("FleetIds") => list(String.t()()),
+        optional("FleetIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3429,7 +3429,7 @@ defmodule AWS.GameLift do
         optional("AliasId") => String.t(),
         optional("CreatorId") => String.t(),
         optional("FleetId") => String.t(),
-        optional("GameProperties") => list(game_property()()),
+        optional("GameProperties") => list(game_property()),
         optional("GameSessionData") => String.t(),
         optional("GameSessionId") => String.t(),
         optional("IdempotencyToken") => String.t(),
@@ -3489,7 +3489,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_server_instances_output() :: %{
-        "GameServerInstances" => list(game_server_instance()()),
+        "GameServerInstances" => list(game_server_instance()),
         "NextToken" => String.t()
       }
       
@@ -3517,7 +3517,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_ec2_instance_limits_output() :: %{
-        "EC2InstanceLimits" => list(ec2_instance_limit()())
+        "EC2InstanceLimits" => list(ec2_instance_limit())
       }
       
   """
@@ -3573,7 +3573,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_capacity_output() :: %{
-        "FleetCapacity" => list(fleet_capacity()()),
+        "FleetCapacity" => list(fleet_capacity()),
         "NextToken" => String.t()
       }
       
@@ -3610,12 +3610,12 @@ defmodule AWS.GameLift do
         "GameServerContainerGroupsPerInstance" => integer(),
         "GameSessionCreationLimitPolicy" => game_session_creation_limit_policy(),
         "InstanceConnectionPortRange" => connection_port_range(),
-        "InstanceInboundPermissions" => list(ip_permission()()),
+        "InstanceInboundPermissions" => list(ip_permission()),
         "InstanceType" => String.t(),
-        "LocationAttributes" => list(container_fleet_location_attributes()()),
+        "LocationAttributes" => list(container_fleet_location_attributes()),
         "LogConfiguration" => log_configuration(),
         "MaximumGameServerContainerGroupsPerInstance" => integer(),
-        "MetricGroups" => list(String.t()()),
+        "MetricGroups" => list(String.t()),
         "NewGameSessionProtectionPolicy" => list(any()),
         "PerInstanceContainerGroupDefinitionArn" => String.t(),
         "PerInstanceContainerGroupDefinitionName" => String.t(),
@@ -3630,7 +3630,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_fleet_attributes_output() :: %{
-        "FleetAttributes" => list(fleet_attributes()()),
+        "FleetAttributes" => list(fleet_attributes()),
         "NextToken" => String.t()
       }
       
@@ -3736,7 +3736,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       container_port_configuration() :: %{
-        "ContainerPortRanges" => list(container_port_range()())
+        "ContainerPortRanges" => list(container_port_range())
       }
       
   """
@@ -3793,7 +3793,7 @@ defmodule AWS.GameLift do
       
       create_alias_input() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("RoutingStrategy") => routing_strategy()
       }
@@ -3809,7 +3809,7 @@ defmodule AWS.GameLift do
         optional("GameSessionArn") => String.t(),
         optional("TicketId") => String.t(),
         required("ConfigurationName") => String.t(),
-        required("Players") => list(player()())
+        required("Players") => list(player())
       }
       
   """
@@ -3846,7 +3846,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_container_fleets_output() :: %{
-        "ContainerFleets" => list(container_fleet()()),
+        "ContainerFleets" => list(container_fleet()),
         "NextToken" => String.t()
       }
       
@@ -3908,7 +3908,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_game_servers_output() :: %{
-        "GameServers" => list(game_server()()),
+        "GameServers" => list(game_server()),
         "NextToken" => String.t()
       }
       
@@ -3944,7 +3944,7 @@ defmodule AWS.GameLift do
       
       describe_scaling_policies_output() :: %{
         "NextToken" => String.t(),
-        "ScalingPolicies" => list(scaling_policy()())
+        "ScalingPolicies" => list(scaling_policy())
       }
       
   """
@@ -3970,7 +3970,7 @@ defmodule AWS.GameLift do
         optional("OperatingSystem") => list(any()),
         optional("ServerSdkVersion") => String.t(),
         optional("StorageLocation") => s3_location(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Version") => String.t()
       }
       
@@ -3983,10 +3983,10 @@ defmodule AWS.GameLift do
       
       game_server_container_definition() :: %{
         "ContainerName" => String.t(),
-        "DependsOn" => list(container_dependency()()),
-        "EnvironmentOverride" => list(container_environment()()),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
         "ImageUri" => String.t(),
-        "MountPoints" => list(container_mount_point()()),
+        "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "ResolvedImageDigest" => String.t(),
         "ServerSdkVersion" => String.t()
@@ -4053,7 +4053,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_session_details_output() :: %{
-        "GameSessionDetails" => list(game_session_detail()()),
+        "GameSessionDetails" => list(game_session_detail()),
         "NextToken" => String.t()
       }
       
@@ -4133,10 +4133,10 @@ defmodule AWS.GameLift do
         optional("AutoScalingPolicy") => game_server_group_auto_scaling_policy(),
         optional("BalancingStrategy") => list(any()),
         optional("GameServerProtectionPolicy") => list(any()),
-        optional("Tags") => list(tag()()),
-        optional("VpcSubnets") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSubnets") => list(String.t()),
         required("GameServerGroupName") => String.t(),
-        required("InstanceDefinitions") => list(instance_definition()()),
+        required("InstanceDefinitions") => list(instance_definition()),
         required("LaunchTemplate") => launch_template_specification(),
         required("MaxSize") => integer(),
         required("MinSize") => integer(),
@@ -4207,14 +4207,14 @@ defmodule AWS.GameLift do
         optional("GameServerContainerGroupsPerInstance") => integer(),
         optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
         optional("InstanceConnectionPortRange") => connection_port_range(),
-        optional("InstanceInboundPermissions") => list(ip_permission()()),
+        optional("InstanceInboundPermissions") => list(ip_permission()),
         optional("InstanceType") => String.t(),
-        optional("Locations") => list(location_configuration()()),
+        optional("Locations") => list(location_configuration()),
         optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t()()),
+        optional("MetricGroups") => list(String.t()),
         optional("NewGameSessionProtectionPolicy") => list(any()),
         optional("PerInstanceContainerGroupDefinitionName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FleetRoleArn") => String.t()
       }
       
@@ -4243,7 +4243,7 @@ defmodule AWS.GameLift do
       create_player_sessions_input() :: %{
         optional("PlayerDataMap") => map(),
         required("GameSessionId") => String.t(),
-        required("PlayerIds") => list(String.t()())
+        required("PlayerIds") => list(String.t())
       }
       
   """
@@ -4256,7 +4256,7 @@ defmodule AWS.GameLift do
       game_session_placement() :: %{
         "DnsName" => String.t(),
         "EndTime" => non_neg_integer(),
-        "GameProperties" => list(game_property()()),
+        "GameProperties" => list(game_property()),
         "GameSessionArn" => String.t(),
         "GameSessionData" => String.t(),
         "GameSessionId" => String.t(),
@@ -4266,9 +4266,9 @@ defmodule AWS.GameLift do
         "IpAddress" => String.t(),
         "MatchmakerData" => String.t(),
         "MaximumPlayerSessionCount" => integer(),
-        "PlacedPlayerSessions" => list(placed_player_session()()),
+        "PlacedPlayerSessions" => list(placed_player_session()),
         "PlacementId" => String.t(),
-        "PlayerLatencies" => list(player_latency()()),
+        "PlayerLatencies" => list(player_latency()),
         "Port" => integer(),
         "PriorityConfigurationOverride" => priority_configuration_override(),
         "StartTime" => non_neg_integer(),
@@ -4289,7 +4289,7 @@ defmodule AWS.GameLift do
         "DnsName" => String.t(),
         "FleetArn" => String.t(),
         "FleetId" => String.t(),
-        "GameProperties" => list(game_property()()),
+        "GameProperties" => list(game_property()),
         "GameSessionData" => String.t(),
         "GameSessionId" => String.t(),
         "IpAddress" => String.t(),
@@ -4334,7 +4334,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       list_builds_output() :: %{
-        "Builds" => list(build()()),
+        "Builds" => list(build()),
         "NextToken" => String.t()
       }
       
@@ -4348,7 +4348,7 @@ defmodule AWS.GameLift do
       create_script_input() :: %{
         optional("Name") => String.t(),
         optional("StorageLocation") => s3_location(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Version") => String.t(),
         optional("ZipFile") => binary()
       }
@@ -4406,7 +4406,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_matchmaking_configurations_output() :: %{
-        "Configurations" => list(matchmaking_configuration()()),
+        "Configurations" => list(matchmaking_configuration()),
         "NextToken" => String.t()
       }
       
@@ -4443,7 +4443,7 @@ defmodule AWS.GameLift do
   ## Example:
       
       describe_game_server_instances_input() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
         required("GameServerGroupName") => String.t()
@@ -5330,7 +5330,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, accept_match_errors()}
   def accept_match(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptMatch", input, options)
   end
@@ -5396,7 +5397,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, claim_game_server_errors()}
   def claim_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClaimGameServer", input, options)
   end
@@ -5438,7 +5440,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -5500,7 +5503,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_build_errors()}
   def create_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBuild", input, options)
   end
@@ -5611,7 +5615,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_fleet_errors()}
   def create_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerFleet", input, options)
   end
@@ -5783,7 +5788,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_group_definition_errors()}
   def create_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerGroupDefinition", input, options)
   end
@@ -5888,7 +5894,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -5936,7 +5943,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_locations_errors()}
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleetLocations", input, options)
   end
@@ -6009,7 +6017,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_server_group_errors()}
   def create_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameServerGroup", input, options)
   end
@@ -6078,7 +6087,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_errors()}
   def create_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameSession", input, options)
   end
@@ -6199,7 +6209,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_queue_errors()}
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameSessionQueue", input, options)
   end
@@ -6213,7 +6224,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_location_errors()}
   def create_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocation", input, options)
   end
@@ -6262,7 +6274,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_configuration_errors()}
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingConfiguration", input, options)
   end
@@ -6305,7 +6318,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_rule_set_errors()}
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingRuleSet", input, options)
   end
@@ -6344,7 +6358,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_session_errors()}
   def create_player_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlayerSession", input, options)
   end
@@ -6380,7 +6395,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_sessions_errors()}
   def create_player_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlayerSessions", input, options)
   end
@@ -6439,7 +6455,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -6498,7 +6515,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_authorization_errors()}
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringAuthorization", input, options)
   end
@@ -6554,7 +6572,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_connection_errors()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
@@ -6577,7 +6596,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -6605,7 +6625,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_build_errors()}
   def delete_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBuild", input, options)
   end
@@ -6632,7 +6653,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_fleet_errors()}
   def delete_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerFleet", input, options)
   end
@@ -6691,7 +6713,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_group_definition_errors()}
   def delete_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerGroupDefinition", input, options)
   end
@@ -6723,7 +6746,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -6754,7 +6778,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_locations_errors()}
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetLocations", input, options)
   end
@@ -6809,7 +6834,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_server_group_errors()}
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGameServerGroup", input, options)
   end
@@ -6828,7 +6854,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_session_queue_errors()}
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGameSessionQueue", input, options)
   end
@@ -6846,7 +6873,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocation", input, options)
   end
@@ -6865,7 +6893,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_configuration_errors()}
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingConfiguration", input, options)
   end
@@ -6890,7 +6919,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_rule_set_errors()}
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingRuleSet", input, options)
   end
@@ -6914,7 +6944,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
@@ -6948,7 +6979,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_script_errors()}
   def delete_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScript", input, options)
   end
@@ -6970,7 +7002,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_authorization_errors()}
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringAuthorization", input, options)
   end
@@ -6997,7 +7030,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_connection_errors()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
@@ -7021,7 +7055,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_compute_errors()}
   def deregister_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterCompute", input, options)
   end
@@ -7053,7 +7088,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_game_server_errors()}
   def deregister_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterGameServer", input, options)
   end
@@ -7078,7 +7114,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_alias_errors()}
   def describe_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlias", input, options)
   end
@@ -7102,7 +7139,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_build_errors()}
   def describe_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBuild", input, options)
   end
@@ -7156,7 +7194,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_compute_errors()}
   def describe_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCompute", input, options)
   end
@@ -7191,7 +7230,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_fleet_errors()}
   def describe_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerFleet", input, options)
   end
@@ -7234,7 +7274,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_group_definition_errors()}
   def describe_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerGroupDefinition", input, options)
   end
@@ -7313,7 +7354,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_ec2_instance_limits_errors()}
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEC2InstanceLimits", input, options)
   end
@@ -7356,7 +7398,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_attributes_errors()}
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAttributes", input, options)
   end
@@ -7408,7 +7451,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_capacity_errors()}
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetCapacity", input, options)
   end
@@ -7436,7 +7480,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_deployment_errors()}
   def describe_fleet_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetDeployment", input, options)
   end
@@ -7467,7 +7512,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_events_errors()}
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetEvents", input, options)
   end
@@ -7518,7 +7564,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_attributes_errors()}
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationAttributes", input, options)
   end
@@ -7558,7 +7605,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_capacity_errors()}
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationCapacity", input, options)
   end
@@ -7598,7 +7646,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_utilization_errors()}
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationUtilization", input, options)
   end
@@ -7639,7 +7688,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_port_settings_errors()}
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetPortSettings", input, options)
   end
@@ -7691,7 +7741,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_utilization_errors()}
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetUtilization", input, options)
   end
@@ -7721,7 +7772,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_errors()}
   def describe_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServer", input, options)
   end
@@ -7755,7 +7807,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_group_errors()}
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServerGroup", input, options)
   end
@@ -7800,7 +7853,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_instances_errors()}
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServerInstances", input, options)
   end
@@ -7850,7 +7904,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_details_errors()}
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionDetails", input, options)
   end
@@ -7876,7 +7931,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_placement_errors()}
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionPlacement", input, options)
   end
@@ -7903,7 +7959,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_queues_errors()}
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionQueues", input, options)
   end
@@ -7962,7 +8019,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_sessions_errors()}
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessions", input, options)
   end
@@ -8019,7 +8077,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -8059,7 +8118,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_errors()}
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmaking", input, options)
   end
@@ -8092,7 +8152,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_configurations_errors()}
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingConfigurations", input, options)
   end
@@ -8118,7 +8179,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_rule_sets_errors()}
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingRuleSets", input, options)
   end
@@ -8160,7 +8222,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_player_sessions_errors()}
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePlayerSessions", input, options)
   end
@@ -8196,7 +8259,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_runtime_configuration_errors()}
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuntimeConfiguration", input, options)
   end
@@ -8222,7 +8286,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
@@ -8248,7 +8313,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_script_errors()}
   def describe_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScript", input, options)
   end
@@ -8275,7 +8341,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_authorizations_errors()}
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringAuthorizations", input, options)
   end
@@ -8306,7 +8373,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_connections_errors()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
@@ -8353,7 +8421,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_access_errors()}
   def get_compute_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeAccess", input, options)
   end
@@ -8407,7 +8476,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_auth_token_errors()}
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeAuthToken", input, options)
   end
@@ -8433,7 +8503,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_game_session_log_url_errors()}
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGameSessionLogUrl", input, options)
   end
@@ -8484,7 +8555,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_instance_access_errors()}
   def get_instance_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceAccess", input, options)
   end
@@ -8509,7 +8581,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -8538,7 +8611,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -8583,7 +8657,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_compute_errors()}
   def list_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompute", input, options)
   end
@@ -8627,7 +8702,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_fleets_errors()}
   def list_container_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerFleets", input, options)
   end
@@ -8672,7 +8748,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definition_versions_errors()}
   def list_container_group_definition_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitionVersions", input, options)
   end
@@ -8714,7 +8791,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definitions_errors()}
   def list_container_group_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitions", input, options)
   end
@@ -8751,7 +8829,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleet_deployments_errors()}
   def list_fleet_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleetDeployments", input, options)
   end
@@ -8795,7 +8874,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -8809,7 +8889,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_server_groups_errors()}
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGameServerGroups", input, options)
   end
@@ -8837,7 +8918,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_servers_errors()}
   def list_game_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGameServers", input, options)
   end
@@ -8866,7 +8948,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
   end
@@ -8890,7 +8973,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_scripts_errors()}
   def list_scripts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListScripts", input, options)
   end
@@ -8924,7 +9008,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -9029,7 +9114,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -9085,7 +9171,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_compute_errors()}
   def register_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCompute", input, options)
   end
@@ -9129,7 +9216,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_game_server_errors()}
   def register_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterGameServer", input, options)
   end
@@ -9158,7 +9246,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, request_upload_credentials_errors()}
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestUploadCredentials", input, options)
   end
@@ -9184,7 +9273,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resolve_alias_errors()}
   def resolve_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveAlias", input, options)
   end
@@ -9222,7 +9312,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resume_game_server_group_errors()}
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeGameServerGroup", input, options)
   end
@@ -9330,7 +9421,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, search_game_sessions_errors()}
   def search_game_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchGameSessions", input, options)
   end
@@ -9369,7 +9461,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_fleet_actions_errors()}
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFleetActions", input, options)
   end
@@ -9497,7 +9590,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_game_session_placement_errors()}
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartGameSessionPlacement", input, options)
   end
@@ -9569,7 +9663,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_match_backfill_errors()}
   def start_match_backfill(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMatchBackfill", input, options)
   end
@@ -9624,7 +9719,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_matchmaking_errors()}
   def start_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMatchmaking", input, options)
   end
@@ -9671,7 +9767,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_fleet_actions_errors()}
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopFleetActions", input, options)
   end
@@ -9700,7 +9797,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_game_session_placement_errors()}
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopGameSessionPlacement", input, options)
   end
@@ -9735,7 +9833,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_matchmaking_errors()}
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMatchmaking", input, options)
   end
@@ -9780,7 +9879,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, suspend_game_server_group_errors()}
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SuspendGameServerGroup", input, options)
   end
@@ -9820,7 +9920,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -9890,7 +9991,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, terminate_game_session_errors()}
   def terminate_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateGameSession", input, options)
   end
@@ -9929,7 +10031,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -9953,7 +10056,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end
@@ -9979,7 +10083,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_build_errors()}
   def update_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBuild", input, options)
   end
@@ -10056,7 +10161,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_fleet_errors()}
   def update_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerFleet", input, options)
   end
@@ -10129,7 +10235,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_group_definition_errors()}
   def update_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerGroupDefinition", input, options)
   end
@@ -10154,7 +10261,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_attributes_errors()}
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetAttributes", input, options)
   end
@@ -10222,7 +10330,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_capacity_errors()}
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetCapacity", input, options)
   end
@@ -10256,7 +10365,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_port_settings_errors()}
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetPortSettings", input, options)
   end
@@ -10309,7 +10419,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_errors()}
   def update_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameServer", input, options)
   end
@@ -10345,7 +10456,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_group_errors()}
   def update_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameServerGroup", input, options)
   end
@@ -10366,7 +10478,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_errors()}
   def update_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameSession", input, options)
   end
@@ -10393,7 +10506,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_queue_errors()}
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameSessionQueue", input, options)
   end
@@ -10416,7 +10530,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_matchmaking_configuration_errors()}
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMatchmakingConfiguration", input, options)
   end
@@ -10455,7 +10570,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_runtime_configuration_errors()}
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuntimeConfiguration", input, options)
   end
@@ -10493,7 +10609,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_script_errors()}
   def update_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScript", input, options)
   end
@@ -10518,7 +10635,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, validate_matchmaking_rule_set_errors()}
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateMatchmakingRuleSet", input, options)
   end

@@ -122,7 +122,7 @@ defmodule AWS.QLDBSession do
   ## Example:
       
       execute_statement_request() :: %{
-        "Parameters" => list(value_holder()()),
+        "Parameters" => list(value_holder()),
         "Statement" => String.t(),
         "TransactionId" => String.t()
       }
@@ -220,7 +220,7 @@ defmodule AWS.QLDBSession do
       
       page() :: %{
         "NextPageToken" => String.t(),
-        "Values" => list(value_holder()())
+        "Values" => list(value_holder())
       }
       
   """
@@ -391,7 +391,8 @@ defmodule AWS.QLDBSession do
           | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendCommand", input, options)
   end

@@ -152,7 +152,7 @@ defmodule AWS.MachineLearning do
       delete_tags_input() :: %{
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any()),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -230,7 +230,7 @@ defmodule AWS.MachineLearning do
       
       describe_batch_predictions_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(batch_prediction()())
+        "Results" => list(batch_prediction())
       }
       
   """
@@ -298,7 +298,7 @@ defmodule AWS.MachineLearning do
       add_tags_input() :: %{
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any()),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -392,7 +392,7 @@ defmodule AWS.MachineLearning do
       
       describe_ml_models_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(ml_model()())
+        "Results" => list(ml_model())
       }
       
   """
@@ -487,7 +487,7 @@ defmodule AWS.MachineLearning do
         "DatabaseInformation" => rds_database(),
         "ResourceRole" => String.t(),
         "S3StagingLocation" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "SelectSqlQuery" => String.t(),
         "ServiceRole" => String.t(),
         "SubnetId" => String.t()
@@ -634,7 +634,7 @@ defmodule AWS.MachineLearning do
       describe_tags_output() :: %{
         "ResourceId" => String.t(),
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -815,7 +815,7 @@ defmodule AWS.MachineLearning do
       
       describe_data_sources_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(data_source()())
+        "Results" => list(data_source())
       }
       
   """
@@ -1157,7 +1157,7 @@ defmodule AWS.MachineLearning do
       
       describe_evaluations_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(evaluation()())
+        "Results" => list(evaluation())
       }
       
   """
@@ -1297,7 +1297,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -1328,7 +1329,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_batch_prediction_errors()}
   def create_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchPrediction", input, options)
   end
@@ -1359,7 +1361,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_rds_errors()}
   def create_data_source_from_rds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRDS", input, options)
   end
@@ -1414,7 +1417,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_redshift_errors()}
   def create_data_source_from_redshift(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromRedshift", input, options)
   end
@@ -1466,7 +1470,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_data_source_from_s3_errors()}
   def create_data_source_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSourceFromS3", input, options)
   end
@@ -1499,7 +1504,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_evaluation_errors()}
   def create_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEvaluation", input, options)
   end
@@ -1532,7 +1538,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_ml_model_errors()}
   def create_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLModel", input, options)
   end
@@ -1549,7 +1556,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, create_realtime_endpoint_errors()}
   def create_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRealtimeEndpoint", input, options)
   end
@@ -1570,7 +1578,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_batch_prediction_errors()}
   def delete_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBatchPrediction", input, options)
   end
@@ -1589,7 +1598,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
@@ -1609,7 +1619,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_evaluation_errors()}
   def delete_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvaluation", input, options)
   end
@@ -1629,7 +1640,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_ml_model_errors()}
   def delete_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLModel", input, options)
   end
@@ -1643,7 +1655,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_realtime_endpoint_errors()}
   def delete_realtime_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRealtimeEndpoint", input, options)
   end
@@ -1661,7 +1674,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -1676,7 +1690,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_batch_predictions_errors()}
   def describe_batch_predictions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchPredictions", input, options)
   end
@@ -1690,7 +1705,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_data_sources_errors()}
   def describe_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSources", input, options)
   end
@@ -1705,7 +1721,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_evaluations_errors()}
   def describe_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvaluations", input, options)
   end
@@ -1719,7 +1736,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_ml_models_errors()}
   def describe_ml_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMLModels", input, options)
   end
@@ -1733,7 +1751,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1749,7 +1768,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_batch_prediction_errors()}
   def get_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBatchPrediction", input, options)
   end
@@ -1768,7 +1788,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_data_source_errors()}
   def get_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataSource", input, options)
   end
@@ -1783,7 +1804,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_evaluation_errors()}
   def get_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEvaluation", input, options)
   end
@@ -1800,7 +1822,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, get_ml_model_errors()}
   def get_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLModel", input, options)
   end
@@ -1817,7 +1840,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, predict_errors()}
   def predict(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Predict", input, options)
   end
@@ -1834,7 +1858,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_batch_prediction_errors()}
   def update_batch_prediction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBatchPrediction", input, options)
   end
@@ -1851,7 +1876,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
@@ -1868,7 +1894,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_evaluation_errors()}
   def update_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEvaluation", input, options)
   end
@@ -1885,7 +1912,8 @@ defmodule AWS.MachineLearning do
           | {:error, term()}
           | {:error, update_ml_model_errors()}
   def update_ml_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLModel", input, options)
   end

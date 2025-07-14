@@ -14,7 +14,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_deployment_jobs_response() :: %{
-        "deploymentJobs" => list(deployment_job()()),
+        "deploymentJobs" => list(deployment_job()),
         "nextToken" => String.t()
       }
 
@@ -52,12 +52,12 @@ defmodule AWS.RoboMaker do
       describe_deployment_job_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "deploymentApplicationConfigs" => list(deployment_application_config()()),
+        "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
         "fleet" => String.t(),
-        "robotDeploymentSummary" => list(robot_deployment()()),
+        "robotDeploymentSummary" => list(robot_deployment()),
         "status" => list(any()),
         "tags" => map()
       }
@@ -71,7 +71,7 @@ defmodule AWS.RoboMaker do
 
       list_simulation_applications_response() :: %{
         "nextToken" => String.t(),
-        "simulationApplicationSummaries" => list(simulation_application_summary()())
+        "simulationApplicationSummaries" => list(simulation_application_summary())
       }
 
   """
@@ -82,7 +82,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_world_export_jobs_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -164,7 +164,7 @@ defmodule AWS.RoboMaker do
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "tags" => map(),
         "version" => String.t()
       }
@@ -181,11 +181,11 @@ defmodule AWS.RoboMaker do
         "batchPolicy" => batch_policy(),
         "clientRequestToken" => String.t(),
         "createdAt" => non_neg_integer(),
-        "createdRequests" => list(simulation_job_summary()()),
-        "failedRequests" => list(failed_create_simulation_job_request()()),
+        "createdRequests" => list(simulation_job_summary()),
+        "failedRequests" => list(failed_create_simulation_job_request()),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
-        "pendingRequests" => list(simulation_job_request()()),
+        "pendingRequests" => list(simulation_job_request()),
         "status" => list(any()),
         "tags" => map()
       }
@@ -209,7 +209,7 @@ defmodule AWS.RoboMaker do
       create_simulation_application_request() :: %{
         optional("environment") => environment(),
         optional("renderingEngine") => rendering_engine(),
-        optional("sources") => list(source_config()()),
+        optional("sources") => list(source_config()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("robotSoftwareSuite") => robot_software_suite(),
@@ -316,7 +316,7 @@ defmodule AWS.RoboMaker do
       create_deployment_job_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "deploymentApplicationConfigs" => list(deployment_application_config()()),
+        "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -398,7 +398,7 @@ defmodule AWS.RoboMaker do
       update_robot_application_request() :: %{
         optional("currentRevisionId") => String.t(),
         optional("environment") => environment(),
-        optional("sources") => list(source_config()()),
+        optional("sources") => list(source_config()),
         required("application") => String.t(),
         required("robotSoftwareSuite") => robot_software_suite()
       }
@@ -412,14 +412,14 @@ defmodule AWS.RoboMaker do
 
       simulation_job_request() :: %{
         "compute" => compute(),
-        "dataSources" => list(data_source_config()()),
+        "dataSources" => list(data_source_config()),
         "failureBehavior" => list(any()),
         "iamRole" => String.t(),
         "loggingConfig" => logging_config(),
         "maxJobDurationInSeconds" => float(),
         "outputLocation" => output_location(),
-        "robotApplications" => list(robot_application_config()()),
-        "simulationApplications" => list(simulation_application_config()()),
+        "robotApplications" => list(robot_application_config()),
+        "simulationApplications" => list(simulation_application_config()),
         "tags" => map(),
         "useDefaultApplications" => boolean(),
         "vpcConfig" => vpc_config()
@@ -433,7 +433,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_fleets_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -510,11 +510,11 @@ defmodule AWS.RoboMaker do
       simulation_job_summary() :: %{
         "arn" => String.t(),
         "computeType" => list(any()),
-        "dataSourceNames" => list(String.t()()),
+        "dataSourceNames" => list(String.t()),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t(),
-        "robotApplicationNames" => list(String.t()()),
-        "simulationApplicationNames" => list(String.t()()),
+        "robotApplicationNames" => list(String.t()),
+        "simulationApplicationNames" => list(String.t()),
         "status" => list(any())
       }
 
@@ -526,7 +526,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_fleets_response() :: %{
-        "fleetDetails" => list(fleet()()),
+        "fleetDetails" => list(fleet()),
         "nextToken" => String.t()
       }
 
@@ -555,7 +555,7 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "version" => String.t()
       }
 
@@ -567,7 +567,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -581,7 +581,7 @@ defmodule AWS.RoboMaker do
         optional("currentRevisionId") => String.t(),
         optional("environment") => environment(),
         optional("renderingEngine") => rendering_engine(),
-        optional("sources") => list(source_config()()),
+        optional("sources") => list(source_config()),
         required("application") => String.t(),
         required("robotSoftwareSuite") => robot_software_suite(),
         required("simulationSoftwareSuite") => simulation_software_suite()
@@ -597,7 +597,7 @@ defmodule AWS.RoboMaker do
       create_robot_application_version_request() :: %{
         optional("currentRevisionId") => String.t(),
         optional("imageDigest") => String.t(),
-        optional("s3Etags") => list(String.t()()),
+        optional("s3Etags") => list(String.t()),
         required("application") => String.t()
       }
 
@@ -673,7 +673,7 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "version" => String.t()
       }
 
@@ -699,7 +699,7 @@ defmodule AWS.RoboMaker do
         optional("deploymentConfig") => deployment_config(),
         optional("tags") => map(),
         required("clientRequestToken") => String.t(),
-        required("deploymentApplicationConfigs") => list(deployment_application_config()()),
+        required("deploymentApplicationConfigs") => list(deployment_application_config()),
         required("fleet") => String.t()
       }
 
@@ -773,7 +773,7 @@ defmodule AWS.RoboMaker do
 
       list_world_generation_jobs_response() :: %{
         "nextToken" => String.t(),
-        "worldGenerationJobSummaries" => list(world_generation_job_summary()())
+        "worldGenerationJobSummaries" => list(world_generation_job_summary())
       }
 
   """
@@ -790,7 +790,7 @@ defmodule AWS.RoboMaker do
         "lastDeploymentStatus" => list(any()),
         "lastDeploymentTime" => non_neg_integer(),
         "name" => String.t(),
-        "robots" => list(robot()()),
+        "robots" => list(robot()),
         "tags" => map()
       }
 
@@ -804,7 +804,7 @@ defmodule AWS.RoboMaker do
       create_simulation_application_version_request() :: %{
         optional("currentRevisionId") => String.t(),
         optional("imageDigest") => String.t(),
-        optional("s3Etags") => list(String.t()()),
+        optional("s3Etags") => list(String.t()),
         required("application") => String.t()
       }
 
@@ -867,7 +867,7 @@ defmodule AWS.RoboMaker do
         "arn" => String.t(),
         "clientRequestToken" => String.t(),
         "compute" => compute_response(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -879,8 +879,8 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "networkInterface" => network_interface(),
         "outputLocation" => output_location(),
-        "robotApplications" => list(robot_application_config()()),
-        "simulationApplications" => list(simulation_application_config()()),
+        "robotApplications" => list(robot_application_config()),
+        "simulationApplications" => list(simulation_application_config()),
         "simulationTimeMillis" => float(),
         "status" => list(any()),
         "tags" => map(),
@@ -946,7 +946,7 @@ defmodule AWS.RoboMaker do
 
       list_world_templates_response() :: %{
         "nextToken" => String.t(),
-        "templateSummaries" => list(template_summary()())
+        "templateSummaries" => list(template_summary())
       }
 
   """
@@ -976,7 +976,7 @@ defmodule AWS.RoboMaker do
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "version" => String.t()
       }
 
@@ -1012,7 +1012,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       launch_config() :: %{
-        "command" => list(String.t()()),
+        "command" => list(String.t()),
         "environmentVariables" => map(),
         "launchFile" => String.t(),
         "packageName" => String.t(),
@@ -1052,7 +1052,7 @@ defmodule AWS.RoboMaker do
         "arn" => String.t(),
         "clientRequestToken" => String.t(),
         "compute" => compute_response(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
         "iamRole" => String.t(),
@@ -1061,8 +1061,8 @@ defmodule AWS.RoboMaker do
         "loggingConfig" => logging_config(),
         "maxJobDurationInSeconds" => float(),
         "outputLocation" => output_location(),
-        "robotApplications" => list(robot_application_config()()),
-        "simulationApplications" => list(simulation_application_config()()),
+        "robotApplications" => list(robot_application_config()),
+        "simulationApplications" => list(simulation_application_config()),
         "simulationTimeMillis" => float(),
         "status" => list(any()),
         "tags" => map(),
@@ -1077,7 +1077,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       port_forwarding_config() :: %{
-        "portMappings" => list(port_mapping()())
+        "portMappings" => list(port_mapping())
       }
 
   """
@@ -1117,7 +1117,7 @@ defmodule AWS.RoboMaker do
         "destination" => String.t(),
         "name" => String.t(),
         "s3Bucket" => String.t(),
-        "s3Keys" => list(String.t()()),
+        "s3Keys" => list(String.t()),
         "type" => list(any())
       }
 
@@ -1193,8 +1193,8 @@ defmodule AWS.RoboMaker do
 
       vpc_config() :: %{
         "assignPublicIp" => boolean(),
-        "securityGroups" => list(String.t()()),
-        "subnets" => list(String.t()())
+        "securityGroups" => list(String.t()),
+        "subnets" => list(String.t())
       }
 
   """
@@ -1221,7 +1221,7 @@ defmodule AWS.RoboMaker do
         "createdAt" => non_neg_integer(),
         "outputLocation" => output_location(),
         "status" => list(any()),
-        "worlds" => list(String.t()())
+        "worlds" => list(String.t())
       }
 
   """
@@ -1235,7 +1235,7 @@ defmodule AWS.RoboMaker do
         "arn" => String.t(),
         "clientRequestToken" => String.t(),
         "compute" => compute_response(),
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "failureBehavior" => list(any()),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -1247,8 +1247,8 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "networkInterface" => network_interface(),
         "outputLocation" => output_location(),
-        "robotApplications" => list(robot_application_config()()),
-        "simulationApplications" => list(simulation_application_config()()),
+        "robotApplications" => list(robot_application_config()),
+        "simulationApplications" => list(simulation_application_config()),
         "simulationTimeMillis" => float(),
         "status" => list(any()),
         "tags" => map(),
@@ -1274,8 +1274,8 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       batch_describe_simulation_job_response() :: %{
-        "jobs" => list(simulation_job()()),
-        "unprocessedJobs" => list(String.t()())
+        "jobs" => list(simulation_job()),
+        "unprocessedJobs" => list(String.t())
       }
 
   """
@@ -1287,7 +1287,7 @@ defmodule AWS.RoboMaker do
 
       list_world_export_jobs_response() :: %{
         "nextToken" => String.t(),
-        "worldExportJobSummaries" => list(world_export_job_summary()())
+        "worldExportJobSummaries" => list(world_export_job_summary())
       }
 
   """
@@ -1393,7 +1393,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       batch_delete_worlds_request() :: %{
-        required("worlds") => list(String.t()())
+        required("worlds") => list(String.t())
       }
 
   """
@@ -1405,7 +1405,7 @@ defmodule AWS.RoboMaker do
 
       list_robot_applications_response() :: %{
         "nextToken" => String.t(),
-        "robotApplicationSummaries" => list(robot_application_summary()())
+        "robotApplicationSummaries" => list(robot_application_summary())
       }
 
   """
@@ -1428,7 +1428,7 @@ defmodule AWS.RoboMaker do
 
       filter() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1450,7 +1450,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_world_generation_jobs_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1464,7 +1464,7 @@ defmodule AWS.RoboMaker do
 
       list_simulation_job_batches_response() :: %{
         "nextToken" => String.t(),
-        "simulationJobBatchSummaries" => list(simulation_job_batch_summary()())
+        "simulationJobBatchSummaries" => list(simulation_job_batch_summary())
       }
 
   """
@@ -1483,7 +1483,7 @@ defmodule AWS.RoboMaker do
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "version" => String.t()
       }
 
@@ -1496,7 +1496,7 @@ defmodule AWS.RoboMaker do
 
       list_robots_response() :: %{
         "nextToken" => String.t(),
-        "robots" => list(robot()())
+        "robots" => list(robot())
       }
 
   """
@@ -1535,7 +1535,7 @@ defmodule AWS.RoboMaker do
         optional("batchPolicy") => batch_policy(),
         optional("clientRequestToken") => String.t(),
         optional("tags") => map(),
-        required("createSimulationJobRequests") => list(simulation_job_request()())
+        required("createSimulationJobRequests") => list(simulation_job_request())
       }
 
   """
@@ -1546,7 +1546,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       failure_summary() :: %{
-        "failures" => list(world_failure()()),
+        "failures" => list(world_failure()),
         "totalFailureCount" => integer()
       }
 
@@ -1559,7 +1559,7 @@ defmodule AWS.RoboMaker do
 
       list_simulation_jobs_response() :: %{
         "nextToken" => String.t(),
-        "simulationJobSummaries" => list(simulation_job_summary()())
+        "simulationJobSummaries" => list(simulation_job_summary())
       }
 
   """
@@ -1591,7 +1591,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_worlds_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1644,7 +1644,7 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "tags" => map(),
         "version" => String.t()
       }
@@ -1680,7 +1680,7 @@ defmodule AWS.RoboMaker do
         "outputLocation" => output_location(),
         "status" => list(any()),
         "tags" => map(),
-        "worlds" => list(String.t()())
+        "worlds" => list(String.t())
       }
 
   """
@@ -1754,7 +1754,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_simulation_jobs_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1768,7 +1768,7 @@ defmodule AWS.RoboMaker do
 
       create_robot_application_request() :: %{
         optional("environment") => environment(),
-        optional("sources") => list(source_config()()),
+        optional("sources") => list(source_config()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("robotSoftwareSuite") => robot_software_suite()
@@ -1786,12 +1786,12 @@ defmodule AWS.RoboMaker do
         "batchPolicy" => batch_policy(),
         "clientRequestToken" => String.t(),
         "createdAt" => non_neg_integer(),
-        "createdRequests" => list(simulation_job_summary()()),
-        "failedRequests" => list(failed_create_simulation_job_request()()),
+        "createdRequests" => list(simulation_job_summary()),
+        "failedRequests" => list(failed_create_simulation_job_request()),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "pendingRequests" => list(simulation_job_request()()),
+        "pendingRequests" => list(simulation_job_request()),
         "status" => list(any()),
         "tags" => map()
       }
@@ -1804,7 +1804,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       batch_delete_worlds_response() :: %{
-        "unprocessedWorlds" => list(String.t()())
+        "unprocessedWorlds" => list(String.t())
       }
 
   """
@@ -1815,7 +1815,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_robot_applications_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("versionQualifier") => String.t()
@@ -1901,7 +1901,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       batch_describe_simulation_job_request() :: %{
-        required("jobs") => list(String.t()())
+        required("jobs") => list(String.t())
       }
 
   """
@@ -1923,7 +1923,7 @@ defmodule AWS.RoboMaker do
       finished_worlds_summary() :: %{
         "failureSummary" => failure_summary(),
         "finishedCount" => integer(),
-        "succeededWorlds" => list(String.t()())
+        "succeededWorlds" => list(String.t())
       }
 
   """
@@ -1947,12 +1947,12 @@ defmodule AWS.RoboMaker do
       create_simulation_job_request() :: %{
         optional("clientRequestToken") => String.t(),
         optional("compute") => compute(),
-        optional("dataSources") => list(data_source_config()()),
+        optional("dataSources") => list(data_source_config()),
         optional("failureBehavior") => list(any()),
         optional("loggingConfig") => logging_config(),
         optional("outputLocation") => output_location(),
-        optional("robotApplications") => list(robot_application_config()()),
-        optional("simulationApplications") => list(simulation_application_config()()),
+        optional("robotApplications") => list(robot_application_config()),
+        optional("simulationApplications") => list(simulation_application_config()),
         optional("tags") => map(),
         optional("vpcConfig") => vpc_config(),
         required("iamRole") => String.t(),
@@ -2005,8 +2005,8 @@ defmodule AWS.RoboMaker do
 
       vpc_config_response() :: %{
         "assignPublicIp" => boolean(),
-        "securityGroups" => list(String.t()()),
-        "subnets" => list(String.t()()),
+        "securityGroups" => list(String.t()),
+        "subnets" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -2021,11 +2021,11 @@ defmodule AWS.RoboMaker do
         "application" => String.t(),
         "applicationVersion" => String.t(),
         "launchConfig" => launch_config(),
-        "tools" => list(tool()()),
-        "uploadConfigurations" => list(upload_configuration()()),
+        "tools" => list(tool()),
+        "uploadConfigurations" => list(upload_configuration()),
         "useDefaultTools" => boolean(),
         "useDefaultUploadConfigurations" => boolean(),
-        "worldConfigs" => list(world_config()())
+        "worldConfigs" => list(world_config())
       }
 
   """
@@ -2053,7 +2053,7 @@ defmodule AWS.RoboMaker do
       sync_deployment_job_response() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "deploymentApplicationConfigs" => list(deployment_application_config()()),
+        "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -2099,7 +2099,7 @@ defmodule AWS.RoboMaker do
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
         "simulationSoftwareSuite" => simulation_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "tags" => map(),
         "version" => String.t()
       }
@@ -2138,7 +2138,7 @@ defmodule AWS.RoboMaker do
         "destination" => String.t(),
         "name" => String.t(),
         "s3Bucket" => String.t(),
-        "s3Keys" => list(s3_key_output()()),
+        "s3Keys" => list(s3_key_output()),
         "type" => list(any())
       }
 
@@ -2150,7 +2150,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_robots_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -2182,7 +2182,7 @@ defmodule AWS.RoboMaker do
         "name" => String.t(),
         "revisionId" => String.t(),
         "robotSoftwareSuite" => robot_software_suite(),
-        "sources" => list(source()()),
+        "sources" => list(source()),
         "tags" => map(),
         "version" => String.t()
       }
@@ -2195,7 +2195,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_simulation_job_batches_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -2209,7 +2209,7 @@ defmodule AWS.RoboMaker do
 
       list_worlds_response() :: %{
         "nextToken" => String.t(),
-        "worldSummaries" => list(world_summary()())
+        "worldSummaries" => list(world_summary())
       }
 
   """
@@ -2250,7 +2250,7 @@ defmodule AWS.RoboMaker do
         optional("tags") => map(),
         required("iamRole") => String.t(),
         required("outputLocation") => output_location(),
-        required("worlds") => list(String.t()())
+        required("worlds") => list(String.t())
       }
 
   """
@@ -2287,7 +2287,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_simulation_applications_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("versionQualifier") => String.t()
@@ -2340,7 +2340,7 @@ defmodule AWS.RoboMaker do
       deployment_job() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "deploymentApplicationConfigs" => list(deployment_application_config()()),
+        "deploymentApplicationConfigs" => list(deployment_application_config()),
         "deploymentConfig" => deployment_config(),
         "failureCode" => list(any()),
         "failureReason" => String.t(),
@@ -2359,8 +2359,8 @@ defmodule AWS.RoboMaker do
         "application" => String.t(),
         "applicationVersion" => String.t(),
         "launchConfig" => launch_config(),
-        "tools" => list(tool()()),
-        "uploadConfigurations" => list(upload_configuration()()),
+        "tools" => list(tool()),
+        "uploadConfigurations" => list(upload_configuration()),
         "useDefaultTools" => boolean(),
         "useDefaultUploadConfigurations" => boolean()
       }
@@ -2373,7 +2373,7 @@ defmodule AWS.RoboMaker do
   ## Example:
 
       list_deployment_jobs_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }

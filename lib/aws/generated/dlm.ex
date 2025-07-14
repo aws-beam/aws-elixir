@@ -64,7 +64,7 @@ defmodule AWS.DLM do
       update_lifecycle_policy_request() :: %{
         optional("CopyTags") => boolean(),
         optional("CreateInterval") => integer(),
-        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()()),
+        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
         optional("Description") => String.t(),
         optional("Exclusions") => exclusions(),
         optional("ExecutionRoleArn") => String.t(),
@@ -140,11 +140,11 @@ defmodule AWS.DLM do
 
       get_lifecycle_policies_request() :: %{
         optional("DefaultPolicyType") => list(any()),
-        optional("PolicyIds") => list(String.t()()),
+        optional("PolicyIds") => list(String.t()),
         optional("ResourceTypes") => list(list(any())()),
         optional("State") => list(any()),
-        optional("TagsToAdd") => list(String.t()()),
-        optional("TargetTags") => list(String.t()())
+        optional("TagsToAdd") => list(String.t()),
+        optional("TargetTags") => list(String.t())
       }
 
   """
@@ -157,7 +157,7 @@ defmodule AWS.DLM do
       event_parameters() :: %{
         "DescriptionRegex" => String.t(),
         "EventType" => list(any()),
-        "SnapshotOwner" => list(String.t()())
+        "SnapshotOwner" => list(String.t())
       }
 
   """
@@ -168,7 +168,7 @@ defmodule AWS.DLM do
   ## Example:
 
       fast_restore_rule() :: %{
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "Count" => integer(),
         "Interval" => integer(),
         "IntervalUnit" => list(any())
@@ -182,7 +182,7 @@ defmodule AWS.DLM do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -194,7 +194,7 @@ defmodule AWS.DLM do
 
       parameters() :: %{
         "ExcludeBootVolume" => boolean(),
-        "ExcludeDataVolumeTags" => list(tag()()),
+        "ExcludeDataVolumeTags" => list(tag()),
         "NoReboot" => boolean()
       }
 
@@ -229,7 +229,7 @@ defmodule AWS.DLM do
       resource_not_found_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
-        "ResourceIds" => list(String.t()()),
+        "ResourceIds" => list(String.t()),
         "ResourceType" => String.t()
       }
 
@@ -283,8 +283,8 @@ defmodule AWS.DLM do
       invalid_request_exception() :: %{
         "Code" => String.t(),
         "Message" => String.t(),
-        "MutuallyExclusiveParameters" => list(String.t()()),
-        "RequiredParameters" => list(String.t()())
+        "MutuallyExclusiveParameters" => list(String.t()),
+        "RequiredParameters" => list(String.t())
       }
 
   """
@@ -307,8 +307,8 @@ defmodule AWS.DLM do
 
       exclusions() :: %{
         "ExcludeBootVolumes" => boolean(),
-        "ExcludeTags" => list(tag()()),
-        "ExcludeVolumeTypes" => list(String.t()())
+        "ExcludeTags" => list(tag()),
+        "ExcludeVolumeTypes" => list(String.t())
       }
 
   """
@@ -330,7 +330,7 @@ defmodule AWS.DLM do
   ## Example:
 
       get_lifecycle_policies_response() :: %{
-        "Policies" => list(lifecycle_policy_summary()())
+        "Policies" => list(lifecycle_policy_summary())
       }
 
   """
@@ -416,14 +416,14 @@ defmodule AWS.DLM do
         "ArchiveRule" => archive_rule(),
         "CopyTags" => boolean(),
         "CreateRule" => create_rule(),
-        "CrossRegionCopyRules" => list(cross_region_copy_rule()()),
+        "CrossRegionCopyRules" => list(cross_region_copy_rule()),
         "DeprecateRule" => deprecate_rule(),
         "FastRestoreRule" => fast_restore_rule(),
         "Name" => String.t(),
         "RetainRule" => retain_rule(),
-        "ShareRules" => list(share_rule()()),
-        "TagsToAdd" => list(tag()()),
-        "VariableTags" => list(tag()())
+        "ShareRules" => list(share_rule()),
+        "TagsToAdd" => list(tag()),
+        "VariableTags" => list(tag())
       }
 
   """
@@ -443,7 +443,7 @@ defmodule AWS.DLM do
   ## Example:
 
       action() :: %{
-        "CrossRegionCopy" => list(cross_region_copy_action()()),
+        "CrossRegionCopy" => list(cross_region_copy_action()),
         "Name" => String.t()
       }
 
@@ -459,8 +459,8 @@ defmodule AWS.DLM do
         "Interval" => integer(),
         "IntervalUnit" => list(any()),
         "Location" => list(any()),
-        "Scripts" => list(script()()),
-        "Times" => list(String.t()())
+        "Scripts" => list(script()),
+        "Times" => list(String.t())
       }
 
   """
@@ -525,7 +525,7 @@ defmodule AWS.DLM do
       create_lifecycle_policy_request() :: %{
         optional("CopyTags") => boolean(),
         optional("CreateInterval") => integer(),
-        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()()),
+        optional("CrossRegionCopyTargets") => list(cross_region_copy_target()),
         optional("DefaultPolicy") => list(any()),
         optional("Exclusions") => exclusions(),
         optional("ExtendDeletion") => boolean(),
@@ -574,10 +574,10 @@ defmodule AWS.DLM do
   ## Example:
 
       policy_details() :: %{
-        "Actions" => list(action()()),
+        "Actions" => list(action()),
         "CopyTags" => boolean(),
         "CreateInterval" => integer(),
-        "CrossRegionCopyTargets" => list(cross_region_copy_target()()),
+        "CrossRegionCopyTargets" => list(cross_region_copy_target()),
         "EventSource" => event_source(),
         "Exclusions" => exclusions(),
         "ExtendDeletion" => boolean(),
@@ -588,8 +588,8 @@ defmodule AWS.DLM do
         "ResourceType" => list(any()),
         "ResourceTypes" => list(list(any())()),
         "RetainInterval" => integer(),
-        "Schedules" => list(schedule()()),
-        "TargetTags" => list(tag()())
+        "Schedules" => list(schedule()),
+        "TargetTags" => list(tag())
       }
 
   """
@@ -600,7 +600,7 @@ defmodule AWS.DLM do
   ## Example:
 
       share_rule() :: %{
-        "TargetAccounts" => list(String.t()()),
+        "TargetAccounts" => list(String.t()),
         "UnshareInterval" => integer(),
         "UnshareIntervalUnit" => list(any())
       }

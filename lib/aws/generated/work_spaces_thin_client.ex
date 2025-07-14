@@ -202,7 +202,7 @@ defmodule AWS.WorkSpacesThinClient do
         "arn" => String.t(),
         "id" => String.t(),
         "releasedAt" => non_neg_integer(),
-        "software" => list(software()()),
+        "software" => list(software()),
         "supportedUntil" => non_neg_integer(),
         "validationStatus" => list(any()),
         "version" => [String.t()]
@@ -308,7 +308,7 @@ defmodule AWS.WorkSpacesThinClient do
   ## Example:
 
       list_devices_response() :: %{
-        "devices" => list(device_summary()()),
+        "devices" => list(device_summary()),
         "nextToken" => String.t()
       }
 
@@ -455,7 +455,7 @@ defmodule AWS.WorkSpacesThinClient do
 
       list_software_sets_response() :: %{
         "nextToken" => String.t(),
-        "softwareSets" => list(software_set_summary()())
+        "softwareSets" => list(software_set_summary())
       }
 
   """
@@ -498,7 +498,7 @@ defmodule AWS.WorkSpacesThinClient do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -534,7 +534,7 @@ defmodule AWS.WorkSpacesThinClient do
   ## Example:
 
       list_environments_response() :: %{
-        "environments" => list(environment_summary()()),
+        "environments" => list(environment_summary()),
         "nextToken" => String.t()
       }
 

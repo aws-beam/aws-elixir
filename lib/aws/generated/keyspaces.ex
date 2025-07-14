@@ -77,7 +77,7 @@ defmodule AWS.Keyspaces do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -100,7 +100,7 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       update_table_request() :: %{
-        optional("addColumns") => list(column_definition()()),
+        optional("addColumns") => list(column_definition()),
         optional("autoScalingSpecification") => auto_scaling_specification(),
         optional("capacitySpecification") => capacity_specification(),
         optional("cdcSpecification") => cdc_specification(),
@@ -108,7 +108,7 @@ defmodule AWS.Keyspaces do
         optional("defaultTimeToLive") => integer(),
         optional("encryptionSpecification") => encryption_specification(),
         optional("pointInTimeRecovery") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()()),
+        optional("replicaSpecifications") => list(replica_specification()),
         optional("ttl") => time_to_live(),
         required("keyspaceName") => String.t(),
         required("tableName") => String.t()
@@ -134,7 +134,7 @@ defmodule AWS.Keyspaces do
       
       list_types_response() :: %{
         "nextToken" => String.t(),
-        "types" => list(String.t()())
+        "types" => list(String.t())
       }
       
   """
@@ -146,7 +146,7 @@ defmodule AWS.Keyspaces do
       
       keyspace_summary() :: %{
         "keyspaceName" => String.t(),
-        "replicationRegions" => list(String.t()()),
+        "replicationRegions" => list(String.t()),
         "replicationStrategy" => String.t(),
         "resourceArn" => String.t()
       }
@@ -172,7 +172,7 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       replication_specification() :: %{
-        "regionList" => list(String.t()()),
+        "regionList" => list(String.t()),
         "replicationStrategy" => String.t()
       }
       
@@ -185,7 +185,7 @@ defmodule AWS.Keyspaces do
       
       list_keyspaces_response() :: %{
         optional("nextToken") => String.t(),
-        required("keyspaces") => list(keyspace_summary()())
+        required("keyspaces") => list(keyspace_summary())
       }
       
   """
@@ -196,10 +196,10 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       schema_definition() :: %{
-        "allColumns" => list(column_definition()()),
-        "clusteringKeys" => list(clustering_key()()),
-        "partitionKeys" => list(partition_key()()),
-        "staticColumns" => list(static_column()())
+        "allColumns" => list(column_definition()),
+        "clusteringKeys" => list(clustering_key()),
+        "partitionKeys" => list(partition_key()),
+        "staticColumns" => list(static_column())
       }
       
   """
@@ -221,7 +221,7 @@ defmodule AWS.Keyspaces do
       cdc_specification() :: %{
         "propagateTags" => String.t(),
         "status" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "viewType" => String.t()
       }
       
@@ -292,8 +292,8 @@ defmodule AWS.Keyspaces do
         optional("defaultTimeToLive") => integer(),
         optional("encryptionSpecification") => encryption_specification(),
         optional("pointInTimeRecovery") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()()),
-        optional("tags") => list(tag()()),
+        optional("replicaSpecifications") => list(replica_specification()),
+        optional("tags") => list(tag()),
         optional("ttl") => time_to_live(),
         required("keyspaceName") => String.t(),
         required("schemaDefinition") => schema_definition(),
@@ -317,7 +317,7 @@ defmodule AWS.Keyspaces do
         optional("encryptionSpecification") => encryption_specification(),
         optional("latestStreamArn") => String.t(),
         optional("pointInTimeRecovery") => point_in_time_recovery_summary(),
-        optional("replicaSpecifications") => list(replica_specification_summary()()),
+        optional("replicaSpecifications") => list(replica_specification_summary()),
         optional("schemaDefinition") => schema_definition(),
         optional("status") => String.t(),
         optional("ttl") => time_to_live(),
@@ -357,7 +357,7 @@ defmodule AWS.Keyspaces do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -368,7 +368,7 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       create_type_request() :: %{
-        required("fieldDefinitions") => list(field_definition()()),
+        required("fieldDefinitions") => list(field_definition()),
         required("keyspaceName") => String.t(),
         required("typeName") => String.t()
       }
@@ -395,7 +395,7 @@ defmodule AWS.Keyspaces do
       
       create_keyspace_request() :: %{
         optional("replicationSpecification") => replication_specification(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("keyspaceName") => String.t()
       }
       
@@ -432,9 +432,9 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       get_type_response() :: %{
-        "directParentTypes" => list(String.t()()),
-        "directReferringTables" => list(String.t()()),
-        "fieldDefinitions" => list(field_definition()()),
+        "directParentTypes" => list(String.t()),
+        "directReferringTables" => list(String.t()),
+        "fieldDefinitions" => list(field_definition()),
         "keyspaceArn" => String.t(),
         "keyspaceName" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
@@ -475,7 +475,7 @@ defmodule AWS.Keyspaces do
       
       list_tables_response() :: %{
         optional("nextToken") => String.t(),
-        optional("tables") => list(table_summary()())
+        optional("tables") => list(table_summary())
       }
       
   """
@@ -579,7 +579,7 @@ defmodule AWS.Keyspaces do
       
       list_tags_for_resource_response() :: %{
         optional("nextToken") => String.t(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
       
   """
@@ -718,9 +718,9 @@ defmodule AWS.Keyspaces do
         optional("capacitySpecificationOverride") => capacity_specification(),
         optional("encryptionSpecificationOverride") => encryption_specification(),
         optional("pointInTimeRecoveryOverride") => point_in_time_recovery(),
-        optional("replicaSpecifications") => list(replica_specification()()),
+        optional("replicaSpecifications") => list(replica_specification()),
         optional("restoreTimestamp") => non_neg_integer(),
-        optional("tagsOverride") => list(tag()()),
+        optional("tagsOverride") => list(tag()),
         required("sourceKeyspaceName") => String.t(),
         required("sourceTableName") => String.t(),
         required("targetKeyspaceName") => String.t(),
@@ -783,8 +783,8 @@ defmodule AWS.Keyspaces do
   ## Example:
       
       get_keyspace_response() :: %{
-        optional("replicationGroupStatuses") => list(replication_group_status()()),
-        optional("replicationRegions") => list(String.t()()),
+        optional("replicationGroupStatuses") => list(replication_group_status()),
+        optional("replicationRegions") => list(String.t()),
         required("keyspaceName") => String.t(),
         required("replicationStrategy") => String.t(),
         required("resourceArn") => String.t()
@@ -836,7 +836,7 @@ defmodule AWS.Keyspaces do
       get_table_auto_scaling_settings_response() :: %{
         "autoScalingSpecification" => auto_scaling_specification(),
         "keyspaceName" => String.t(),
-        "replicaSpecifications" => list(replica_auto_scaling_specification()()),
+        "replicaSpecifications" => list(replica_auto_scaling_specification()),
         "resourceArn" => String.t(),
         "tableName" => String.t()
       }
@@ -1127,7 +1127,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_keyspace_errors()}
   def create_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateKeyspace", input, options)
   end
@@ -1151,7 +1152,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -1172,7 +1174,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_type_errors()}
   def create_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateType", input, options)
   end
@@ -1186,7 +1189,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_keyspace_errors()}
   def delete_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKeyspace", input, options)
   end
@@ -1208,7 +1212,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -1227,7 +1232,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_type_errors()}
   def delete_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteType", input, options)
   end
@@ -1244,7 +1250,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_keyspace_errors()}
   def get_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetKeyspace", input, options)
   end
@@ -1262,7 +1269,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -1295,7 +1303,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_auto_scaling_settings_errors()}
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableAutoScalingSettings", input, options)
   end
@@ -1317,7 +1326,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_type_errors()}
   def get_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetType", input, options)
   end
@@ -1331,7 +1341,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_keyspaces_errors()}
   def list_keyspaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeyspaces", input, options)
   end
@@ -1348,7 +1359,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -1366,7 +1378,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1385,7 +1398,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTypes", input, options)
   end
@@ -1440,7 +1454,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, restore_table_errors()}
   def restore_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTable", input, options)
   end
@@ -1463,7 +1478,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1477,7 +1493,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1550,7 +1567,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_keyspace_errors()}
   def update_keyspace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateKeyspace", input, options)
   end
@@ -1568,7 +1586,8 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end

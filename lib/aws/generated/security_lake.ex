@@ -68,7 +68,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       tag_resource_request() :: %{
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -79,7 +79,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_data_lake_exceptions_response() :: %{
-        "exceptions" => list(data_lake_exception()()),
+        "exceptions" => list(data_lake_exception()),
         "nextToken" => String.t()
       }
 
@@ -91,7 +91,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_aws_log_source_response() :: %{
-        "failed" => list(String.t()())
+        "failed" => list(String.t())
       }
 
   """
@@ -111,7 +111,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_data_lakes_request() :: %{
-        optional("regions") => list(String.t()())
+        optional("regions") => list(String.t())
       }
 
   """
@@ -122,7 +122,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       data_lake_replication_configuration() :: %{
-        "regions" => list(String.t()()),
+        "regions" => list(String.t()),
         "roleArn" => String.t()
       }
 
@@ -158,11 +158,11 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_log_sources_request() :: %{
-        optional("accounts") => list(String.t()()),
+        optional("accounts") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("regions") => list(String.t()()),
-        optional("sources") => list(list()())
+        optional("regions") => list(String.t()),
+        optional("sources") => list(list())
       }
 
   """
@@ -202,7 +202,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       get_data_lake_sources_request() :: %{
-        optional("accounts") => list(String.t()()),
+        optional("accounts") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -215,8 +215,8 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_data_lake_request() :: %{
-        optional("tags") => list(tag()()),
-        required("configurations") => list(data_lake_configuration()()),
+        optional("tags") => list(tag()),
+        required("configurations") => list(data_lake_configuration()),
         required("metaStoreManagerRoleArn") => String.t()
       }
 
@@ -240,7 +240,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_data_lakes_response() :: %{
-        "dataLakes" => list(data_lake_resource()())
+        "dataLakes" => list(data_lake_resource())
       }
 
   """
@@ -292,7 +292,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -326,7 +326,7 @@ defmodule AWS.SecurityLake do
 
       data_lake_auto_enable_new_account_configuration() :: %{
         "region" => String.t(),
-        "sources" => list(aws_log_source_resource()())
+        "sources" => list(aws_log_source_resource())
       }
 
   """
@@ -338,7 +338,7 @@ defmodule AWS.SecurityLake do
 
       update_data_lake_request() :: %{
         optional("metaStoreManagerRoleArn") => String.t(),
-        required("configurations") => list(data_lake_configuration()())
+        required("configurations") => list(data_lake_configuration())
       }
 
   """
@@ -358,7 +358,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_aws_log_source_request() :: %{
-        required("sources") => list(aws_log_source_configuration()())
+        required("sources") => list(aws_log_source_configuration())
       }
 
   """
@@ -370,7 +370,7 @@ defmodule AWS.SecurityLake do
 
       get_data_lake_sources_response() :: %{
         "dataLakeArn" => String.t(),
-        "dataLakeSources" => list(data_lake_source()()),
+        "dataLakeSources" => list(data_lake_source()),
         "nextToken" => String.t()
       }
 
@@ -414,7 +414,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       update_data_lake_response() :: %{
-        "dataLakes" => list(data_lake_resource()())
+        "dataLakes" => list(data_lake_resource())
       }
 
   """
@@ -425,7 +425,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_data_lake_response() :: %{
-        "dataLakes" => list(data_lake_resource()())
+        "dataLakes" => list(data_lake_resource())
       }
 
   """
@@ -462,7 +462,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       update_subscriber_request() :: %{
-        optional("sources") => list(list()()),
+        optional("sources") => list(list()),
         optional("subscriberDescription") => String.t(),
         optional("subscriberIdentity") => aws_identity(),
         optional("subscriberName") => String.t()
@@ -603,7 +603,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -620,7 +620,7 @@ defmodule AWS.SecurityLake do
         "resourceShareName" => String.t(),
         "roleArn" => String.t(),
         "s3BucketArn" => String.t(),
-        "sources" => list(list()()),
+        "sources" => list(list()),
         "subscriberArn" => String.t(),
         "subscriberDescription" => String.t(),
         "subscriberEndpoint" => String.t(),
@@ -639,7 +639,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_data_lake_organization_configuration_request() :: %{
-        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration()())
+        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration())
       }
 
   """
@@ -661,7 +661,7 @@ defmodule AWS.SecurityLake do
       list_data_lake_exceptions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("regions") => list(String.t()())
+        optional("regions") => list(String.t())
       }
 
   """
@@ -682,7 +682,7 @@ defmodule AWS.SecurityLake do
 
       list_subscribers_response() :: %{
         "nextToken" => String.t(),
-        "subscribers" => list(subscriber_resource()())
+        "subscribers" => list(subscriber_resource())
       }
 
   """
@@ -693,7 +693,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       delete_data_lake_organization_configuration_request() :: %{
-        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration()())
+        optional("autoEnableNewAccount") => list(data_lake_auto_enable_new_account_configuration())
       }
 
   """
@@ -704,8 +704,8 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       aws_log_source_configuration() :: %{
-        "accounts" => list(String.t()()),
-        "regions" => list(String.t()()),
+        "accounts" => list(String.t()),
+        "regions" => list(String.t()),
         "sourceName" => list(any()),
         "sourceVersion" => String.t()
       }
@@ -730,9 +730,9 @@ defmodule AWS.SecurityLake do
 
       data_lake_source() :: %{
         "account" => [String.t()],
-        "eventClasses" => list(String.t()()),
+        "eventClasses" => list(String.t()),
         "sourceName" => [String.t()],
-        "sourceStatuses" => list(data_lake_source_status()())
+        "sourceStatuses" => list(data_lake_source_status())
       }
 
   """
@@ -765,7 +765,7 @@ defmodule AWS.SecurityLake do
       log_source() :: %{
         "account" => String.t(),
         "region" => String.t(),
-        "sources" => list(list()())
+        "sources" => list(list())
       }
 
   """
@@ -805,7 +805,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       delete_aws_log_source_response() :: %{
-        "failed" => list(String.t()())
+        "failed" => list(String.t())
       }
 
   """
@@ -817,7 +817,7 @@ defmodule AWS.SecurityLake do
 
       data_lake_lifecycle_configuration() :: %{
         "expiration" => data_lake_lifecycle_expiration(),
-        "transitions" => list(data_lake_lifecycle_transition()())
+        "transitions" => list(data_lake_lifecycle_transition())
       }
 
   """
@@ -859,7 +859,7 @@ defmodule AWS.SecurityLake do
 
       list_log_sources_response() :: %{
         "nextToken" => String.t(),
-        "sources" => list(log_source()())
+        "sources" => list(log_source())
       }
 
   """
@@ -891,7 +891,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       create_custom_log_source_request() :: %{
-        optional("eventClasses") => list(String.t()()),
+        optional("eventClasses") => list(String.t()),
         optional("sourceVersion") => String.t(),
         required("configuration") => custom_log_source_configuration(),
         required("sourceName") => String.t()
@@ -917,7 +917,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       delete_data_lake_request() :: %{
-        required("regions") => list(String.t()())
+        required("regions") => list(String.t())
       }
 
   """
@@ -1041,7 +1041,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       get_data_lake_organization_configuration_response() :: %{
-        "autoEnableNewAccount" => list(data_lake_auto_enable_new_account_configuration()())
+        "autoEnableNewAccount" => list(data_lake_auto_enable_new_account_configuration())
       }
 
   """
@@ -1083,8 +1083,8 @@ defmodule AWS.SecurityLake do
       create_subscriber_request() :: %{
         optional("accessTypes") => list(list(any())()),
         optional("subscriberDescription") => String.t(),
-        optional("tags") => list(tag()()),
-        required("sources") => list(list()()),
+        optional("tags") => list(tag()),
+        required("sources") => list(list()),
         required("subscriberIdentity") => aws_identity(),
         required("subscriberName") => [String.t()]
       }
@@ -1097,7 +1097,7 @@ defmodule AWS.SecurityLake do
   ## Example:
 
       delete_aws_log_source_request() :: %{
-        required("sources") => list(aws_log_source_configuration()())
+        required("sources") => list(aws_log_source_configuration())
       }
 
   """

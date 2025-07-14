@@ -99,7 +99,7 @@ defmodule AWS.SSO do
 
       list_account_roles_response() :: %{
         "nextToken" => String.t(),
-        "roleList" => list(role_info()())
+        "roleList" => list(role_info())
       }
 
   """
@@ -123,7 +123,7 @@ defmodule AWS.SSO do
   ## Example:
 
       list_accounts_response() :: %{
-        "accountList" => list(account_info()()),
+        "accountList" => list(account_info()),
         "nextToken" => String.t()
       }
 

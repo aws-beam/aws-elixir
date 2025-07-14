@@ -195,7 +195,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       applications() :: %{
-        optional("Items") => list(application()()),
+        optional("Items") => list(application()),
         optional("NextToken") => String.t()
       }
 
@@ -280,7 +280,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       extension_associations() :: %{
-        optional("Items") => list(extension_association_summary()()),
+        optional("Items") => list(extension_association_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -293,7 +293,7 @@ defmodule AWS.AppConfig do
 
       deployment() :: %{
         optional("ApplicationId") => String.t(),
-        optional("AppliedExtensions") => list(applied_extension()()),
+        optional("AppliedExtensions") => list(applied_extension()),
         optional("CompletedAt") => non_neg_integer(),
         optional("ConfigurationLocationUri") => String.t(),
         optional("ConfigurationName") => String.t(),
@@ -304,7 +304,7 @@ defmodule AWS.AppConfig do
         optional("DeploymentStrategyId") => String.t(),
         optional("Description") => String.t(),
         optional("EnvironmentId") => String.t(),
-        optional("EventLog") => list(deployment_event()()),
+        optional("EventLog") => list(deployment_event()),
         optional("FinalBakeTimeInMinutes") => integer(),
         optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any()),
@@ -410,7 +410,7 @@ defmodule AWS.AppConfig do
         optional("KmsKeyIdentifier") => String.t(),
         optional("Name") => String.t(),
         optional("RetrievalRoleArn") => String.t(),
-        optional("Validators") => list(validator()())
+        optional("Validators") => list(validator())
       }
 
   """
@@ -492,7 +492,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       hosted_configuration_versions() :: %{
-        optional("Items") => list(hosted_configuration_version_summary()()),
+        optional("Items") => list(hosted_configuration_version_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -518,7 +518,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -605,7 +605,7 @@ defmodule AWS.AppConfig do
         optional("ApplicationId") => String.t(),
         optional("Description") => String.t(),
         optional("Id") => String.t(),
-        optional("Monitors") => list(monitor()()),
+        optional("Monitors") => list(monitor()),
         optional("Name") => String.t(),
         optional("State") => list(any())
       }
@@ -713,7 +713,7 @@ defmodule AWS.AppConfig do
         optional("Name") => String.t(),
         optional("RetrievalRoleArn") => String.t(),
         optional("Type") => String.t(),
-        optional("Validators") => list(validator()())
+        optional("Validators") => list(validator())
       }
 
   """
@@ -797,7 +797,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       environments() :: %{
-        optional("Items") => list(environment()()),
+        optional("Items") => list(environment()),
         optional("NextToken") => String.t()
       }
 
@@ -827,7 +827,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       deployment_strategies() :: %{
-        optional("Items") => list(deployment_strategy()()),
+        optional("Items") => list(deployment_strategy()),
         optional("NextToken") => String.t()
       }
 
@@ -918,7 +918,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       configuration_profiles() :: %{
-        optional("Items") => list(configuration_profile_summary()()),
+        optional("Items") => list(configuration_profile_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -956,7 +956,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       extensions() :: %{
-        optional("Items") => list(extension_summary()()),
+        optional("Items") => list(extension_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -984,7 +984,7 @@ defmodule AWS.AppConfig do
         optional("RetrievalRoleArn") => String.t(),
         optional("Tags") => map(),
         optional("Type") => String.t(),
-        optional("Validators") => list(validator()()),
+        optional("Validators") => list(validator()),
         required("LocationUri") => String.t(),
         required("Name") => String.t()
       }
@@ -1125,7 +1125,7 @@ defmodule AWS.AppConfig do
 
       create_environment_request() :: %{
         optional("Description") => String.t(),
-        optional("Monitors") => list(monitor()()),
+        optional("Monitors") => list(monitor()),
         optional("Tags") => map(),
         required("Name") => String.t()
       }
@@ -1138,7 +1138,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       deployment_event() :: %{
-        "ActionInvocations" => list(action_invocation()()),
+        "ActionInvocations" => list(action_invocation()),
         "Description" => String.t(),
         "EventType" => list(any()),
         "OccurredAt" => non_neg_integer(),
@@ -1154,7 +1154,7 @@ defmodule AWS.AppConfig do
 
       update_environment_request() :: %{
         optional("Description") => String.t(),
-        optional("Monitors") => list(monitor()()),
+        optional("Monitors") => list(monitor()),
         optional("Name") => String.t()
       }
 
@@ -1193,7 +1193,7 @@ defmodule AWS.AppConfig do
   ## Example:
 
       deployments() :: %{
-        optional("Items") => list(deployment_summary()()),
+        optional("Items") => list(deployment_summary()),
         optional("NextToken") => String.t()
       }
 

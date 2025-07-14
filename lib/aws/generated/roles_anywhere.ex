@@ -38,9 +38,9 @@ defmodule AWS.RolesAnywhere do
 
       subject_detail() :: %{
         "createdAt" => [non_neg_integer()],
-        "credentials" => list(credential_summary()()),
+        "credentials" => list(credential_summary()),
         "enabled" => [boolean()],
-        "instanceProperties" => list(instance_property()()),
+        "instanceProperties" => list(instance_property()),
         "lastSeenAt" => [non_neg_integer()],
         "subjectArn" => [String.t()],
         "subjectId" => String.t(),
@@ -73,7 +73,7 @@ defmodule AWS.RolesAnywhere do
 
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -95,7 +95,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       put_notification_settings_request() :: %{
-        required("notificationSettings") => list(notification_setting()()),
+        required("notificationSettings") => list(notification_setting()),
         required("trustAnchorId") => String.t()
       }
 
@@ -175,7 +175,7 @@ defmodule AWS.RolesAnywhere do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -199,7 +199,7 @@ defmodule AWS.RolesAnywhere do
 
       list_subjects_response() :: %{
         optional("nextToken") => [String.t()],
-        optional("subjects") => list(subject_summary()())
+        optional("subjects") => list(subject_summary())
       }
 
   """
@@ -210,7 +210,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       list_crls_response() :: %{
-        optional("crls") => list(crl_detail()()),
+        optional("crls") => list(crl_detail()),
         optional("nextToken") => [String.t()]
       }
 
@@ -269,9 +269,9 @@ defmodule AWS.RolesAnywhere do
         optional("managedPolicyArns") => list([String.t()]()),
         optional("requireInstanceProperties") => [boolean()],
         optional("sessionPolicy") => [String.t()],
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t(),
-        required("roleArns") => list(String.t()())
+        required("roleArns") => list(String.t())
       }
 
   """
@@ -307,7 +307,7 @@ defmodule AWS.RolesAnywhere do
         "createdAt" => [non_neg_integer()],
         "enabled" => [boolean()],
         "name" => String.t(),
-        "notificationSettings" => list(notification_setting_detail()()),
+        "notificationSettings" => list(notification_setting_detail()),
         "source" => source(),
         "trustAnchorArn" => [String.t()],
         "trustAnchorId" => String.t(),
@@ -326,7 +326,7 @@ defmodule AWS.RolesAnywhere do
         optional("durationSeconds") => [integer()],
         optional("managedPolicyArns") => list([String.t()]()),
         optional("name") => String.t(),
-        optional("roleArns") => list(String.t()()),
+        optional("roleArns") => list(String.t()),
         optional("sessionPolicy") => [String.t()]
       }
 
@@ -351,7 +351,7 @@ defmodule AWS.RolesAnywhere do
 
       attribute_mapping() :: %{
         "certificateField" => String.t(),
-        "mappingRules" => list(mapping_rule()())
+        "mappingRules" => list(mapping_rule())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -374,7 +374,7 @@ defmodule AWS.RolesAnywhere do
 
       profile_detail() :: %{
         "acceptRoleSessionName" => [boolean()],
-        "attributeMappings" => list(attribute_mapping()()),
+        "attributeMappings" => list(attribute_mapping()),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t()],
         "durationSeconds" => [integer()],
@@ -384,7 +384,7 @@ defmodule AWS.RolesAnywhere do
         "profileArn" => String.t(),
         "profileId" => String.t(),
         "requireInstanceProperties" => [boolean()],
-        "roleArns" => list(String.t()()),
+        "roleArns" => list(String.t()),
         "sessionPolicy" => [String.t()],
         "updatedAt" => [non_neg_integer()]
       }
@@ -475,7 +475,7 @@ defmodule AWS.RolesAnywhere do
 
       list_profiles_response() :: %{
         optional("nextToken") => [String.t()],
-        optional("profiles") => list(profile_detail()())
+        optional("profiles") => list(profile_detail())
       }
 
   """
@@ -542,7 +542,7 @@ defmodule AWS.RolesAnywhere do
 
       import_crl_request() :: %{
         optional("enabled") => [boolean()],
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("crlData") => [binary()],
         required("name") => String.t(),
         required("trustAnchorArn") => String.t()
@@ -578,7 +578,7 @@ defmodule AWS.RolesAnywhere do
 
       list_trust_anchors_response() :: %{
         optional("nextToken") => [String.t()],
-        optional("trustAnchors") => list(trust_anchor_detail()())
+        optional("trustAnchors") => list(trust_anchor_detail())
       }
 
   """
@@ -603,7 +603,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       reset_notification_settings_request() :: %{
-        required("notificationSettingKeys") => list(notification_setting_key()()),
+        required("notificationSettingKeys") => list(notification_setting_key()),
         required("trustAnchorId") => String.t()
       }
 
@@ -616,8 +616,8 @@ defmodule AWS.RolesAnywhere do
 
       create_trust_anchor_request() :: %{
         optional("enabled") => [boolean()],
-        optional("notificationSettings") => list(notification_setting()()),
-        optional("tags") => list(tag()()),
+        optional("notificationSettings") => list(notification_setting()),
+        optional("tags") => list(tag()),
         required("name") => String.t(),
         required("source") => source()
       }
@@ -668,7 +668,7 @@ defmodule AWS.RolesAnywhere do
 
       put_attribute_mapping_request() :: %{
         required("certificateField") => String.t(),
-        required("mappingRules") => list(mapping_rule()())
+        required("mappingRules") => list(mapping_rule())
       }
 
   """

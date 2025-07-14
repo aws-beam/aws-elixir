@@ -19,17 +19,17 @@ defmodule AWS.DocDB do
   ## Example:
       
       restore_db_cluster_from_snapshot_message() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("DBClusterParameterGroupName") => String.t(),
         optional("DBSubnetGroupName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EngineVersion") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("Port") => integer(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("Engine") => String.t(),
         required("SnapshotIdentifier") => String.t()
@@ -76,7 +76,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       event_subscriptions_message() :: %{
-        "EventSubscriptionsList" => list(event_subscription()()),
+        "EventSubscriptionsList" => list(event_subscription()),
         "Marker" => String.t()
       }
       
@@ -161,7 +161,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_cluster_snapshot() :: %{
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "DBClusterIdentifier" => String.t(),
         "DBClusterSnapshotArn" => String.t(),
@@ -213,7 +213,7 @@ defmodule AWS.DocDB do
       modify_db_subnet_group_message() :: %{
         optional("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -224,7 +224,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_subnet_group_message() :: %{
-        "DBSubnetGroups" => list(db_subnet_group()()),
+        "DBSubnetGroups" => list(db_subnet_group()),
         "Marker" => String.t()
       }
       
@@ -236,7 +236,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_db_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("Source") => String.t(),
@@ -251,7 +251,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       resource_pending_maintenance_actions() :: %{
-        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()()),
+        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
         "ResourceIdentifier" => String.t()
       }
       
@@ -263,7 +263,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       event_categories_map() :: %{
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "SourceType" => String.t()
       }
       
@@ -320,7 +320,7 @@ defmodule AWS.DocDB do
       
       describe_db_instances_message() :: %{
         optional("DBInstanceIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -344,7 +344,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       create_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterParameterGroupName") => String.t(),
         required("DBParameterGroupFamily") => String.t(),
         required("Description") => String.t()
@@ -370,7 +370,7 @@ defmodule AWS.DocDB do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("SnsTopicArn") => String.t(),
         optional("SourceType") => String.t(),
         required("SubscriptionName") => String.t()
@@ -384,7 +384,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       copy_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterParameterGroupIdentifier") => String.t(),
         required("TargetDBClusterParameterGroupDescription") => String.t(),
         required("TargetDBClusterParameterGroupIdentifier") => String.t()
@@ -398,7 +398,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_pending_maintenance_actions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ResourceIdentifier") => String.t()
@@ -414,7 +414,7 @@ defmodule AWS.DocDB do
       describe_orderable_db_instance_options_message() :: %{
         optional("DBInstanceClass") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LicenseModel") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -430,8 +430,8 @@ defmodule AWS.DocDB do
   ## Example:
       
       pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()()),
-        "LogTypesToEnable" => list(String.t()())
+        "LogTypesToDisable" => list(String.t()),
+        "LogTypesToEnable" => list(String.t())
       }
       
   """
@@ -444,7 +444,7 @@ defmodule AWS.DocDB do
       engine_defaults() :: %{
         "DBParameterGroupFamily" => String.t(),
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -477,8 +477,8 @@ defmodule AWS.DocDB do
   ## Example:
       
       cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t()()),
-        "EnableLogTypes" => list(String.t()())
+        "DisableLogTypes" => list(String.t()),
+        "EnableLogTypes" => list(String.t())
       }
       
   """
@@ -537,10 +537,10 @@ defmodule AWS.DocDB do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "EventSubscriptionArn" => String.t(),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
@@ -556,7 +556,7 @@ defmodule AWS.DocDB do
       global_cluster_member() :: %{
         "DBClusterArn" => String.t(),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t()())
+        "Readers" => list(String.t())
       }
       
   """
@@ -567,8 +567,8 @@ defmodule AWS.DocDB do
   ## Example:
       
       modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()()),
-        optional("ValuesToRemove") => list(String.t()()),
+        optional("ValuesToAdd") => list(String.t()),
+        optional("ValuesToRemove") => list(String.t()),
         required("AttributeName") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -605,7 +605,7 @@ defmodule AWS.DocDB do
       
       describe_certificates_message() :: %{
         optional("CertificateIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -620,15 +620,15 @@ defmodule AWS.DocDB do
       restore_db_cluster_to_point_in_time_message() :: %{
         optional("DBSubnetGroupName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("KmsKeyId") => String.t(),
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
         optional("RestoreType") => String.t(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UseLatestRestorableTime") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("SourceDBClusterIdentifier") => String.t()
       }
@@ -677,7 +677,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_cluster_snapshot_message() :: %{
-        "DBClusterSnapshots" => list(db_cluster_snapshot()()),
+        "DBClusterSnapshots" => list(db_cluster_snapshot()),
         "Marker" => String.t()
       }
       
@@ -700,7 +700,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         required("ResourceName") => String.t()
       }
       
@@ -714,7 +714,7 @@ defmodule AWS.DocDB do
       describe_db_cluster_snapshots_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
         optional("DBClusterSnapshotIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
         optional("Marker") => String.t(),
@@ -738,7 +738,7 @@ defmodule AWS.DocDB do
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("PromotionTier") => integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterIdentifier") => String.t(),
         required("DBInstanceClass") => String.t(),
         required("DBInstanceIdentifier") => String.t(),
@@ -821,7 +821,7 @@ defmodule AWS.DocDB do
         "DBInstanceStatus" => String.t(),
         "DBSubnetGroup" => db_subnet_group(),
         "DbiResourceId" => String.t(),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "Endpoint" => endpoint(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
@@ -835,9 +835,9 @@ defmodule AWS.DocDB do
         "PreferredMaintenanceWindow" => String.t(),
         "PromotionTier" => integer(),
         "PubliclyAccessible" => boolean(),
-        "StatusInfos" => list(db_instance_status_info()()),
+        "StatusInfos" => list(db_instance_status_info()),
         "StorageEncrypted" => boolean(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()())
+        "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
   """
@@ -892,7 +892,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_cluster_message() :: %{
-        "DBClusters" => list(db_cluster()()),
+        "DBClusters" => list(db_cluster()),
         "Marker" => String.t()
       }
       
@@ -941,7 +941,7 @@ defmodule AWS.DocDB do
         optional("DefaultOnly") => boolean(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("ListSupportedCharacterSets") => boolean(),
         optional("ListSupportedTimezones") => boolean(),
         optional("Marker") => String.t(),
@@ -1038,10 +1038,10 @@ defmodule AWS.DocDB do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
-        optional("SourceIds") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnsTopicArn") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -1077,7 +1077,7 @@ defmodule AWS.DocDB do
       
       orderable_db_instance_options_message() :: %{
         "Marker" => String.t(),
-        "OrderableDBInstanceOptions" => list(orderable_db_instance_option()())
+        "OrderableDBInstanceOptions" => list(orderable_db_instance_option())
       }
       
   """
@@ -1088,7 +1088,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_event_subscriptions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SubscriptionName") => String.t()
@@ -1125,7 +1125,7 @@ defmodule AWS.DocDB do
       
       db_cluster_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t()())
+        "AttributeValues" => list(String.t())
       }
       
   """
@@ -1171,7 +1171,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       orderable_db_instance_option() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "DBInstanceClass" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
@@ -1188,7 +1188,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_cluster_parameter_groups_message() :: %{
-        "DBClusterParameterGroups" => list(db_cluster_parameter_group()()),
+        "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -1201,7 +1201,7 @@ defmodule AWS.DocDB do
       
       describe_db_cluster_parameter_groups_message() :: %{
         optional("DBClusterParameterGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1250,7 +1250,7 @@ defmodule AWS.DocDB do
         optional("CopyTags") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("PreSignedUrl") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterSnapshotIdentifier") => String.t(),
         required("TargetDBClusterSnapshotIdentifier") => String.t()
       }
@@ -1269,7 +1269,7 @@ defmodule AWS.DocDB do
         "EngineVersion" => String.t(),
         "GlobalClusterArn" => String.t(),
         "GlobalClusterIdentifier" => String.t(),
-        "GlobalClusterMembers" => list(global_cluster_member()()),
+        "GlobalClusterMembers" => list(global_cluster_member()),
         "GlobalClusterResourceId" => String.t(),
         "Status" => String.t(),
         "StorageEncrypted" => boolean()
@@ -1306,7 +1306,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       certificate_message() :: %{
-        "Certificates" => list(certificate()()),
+        "Certificates" => list(certificate()),
         "Marker" => String.t()
       }
       
@@ -1329,7 +1329,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       global_clusters_message() :: %{
-        "GlobalClusters" => list(global_cluster()()),
+        "GlobalClusters" => list(global_cluster()),
         "Marker" => String.t()
       }
       
@@ -1398,7 +1398,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_engine_version_message() :: %{
-        "DBEngineVersions" => list(db_engine_version()()),
+        "DBEngineVersions" => list(db_engine_version()),
         "Marker" => String.t()
       }
       
@@ -1428,11 +1428,11 @@ defmodule AWS.DocDB do
         "DBParameterGroupFamily" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
-        "ExportableLogTypes" => list(String.t()()),
-        "SupportedCACertificateIdentifiers" => list(String.t()()),
+        "ExportableLogTypes" => list(String.t()),
+        "SupportedCACertificateIdentifiers" => list(String.t()),
         "SupportsCertificateRotationWithoutRestart" => boolean(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
-        "ValidUpgradeTarget" => list(upgrade_target()())
+        "ValidUpgradeTarget" => list(upgrade_target())
       }
       
   """
@@ -1485,7 +1485,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       create_db_cluster_snapshot_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterIdentifier") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -1510,7 +1510,7 @@ defmodule AWS.DocDB do
       
       describe_db_clusters_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1536,7 +1536,7 @@ defmodule AWS.DocDB do
       
       modify_db_cluster_parameter_group_message() :: %{
         required("DBClusterParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -1558,12 +1558,12 @@ defmodule AWS.DocDB do
   ## Example:
       
       create_db_cluster_message() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("BackupRetentionPeriod") => integer(),
         optional("DBClusterParameterGroupName") => String.t(),
         optional("DBSubnetGroupName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EngineVersion") => String.t(),
         optional("GlobalClusterIdentifier") => String.t(),
         optional("KmsKeyId") => String.t(),
@@ -1577,8 +1577,8 @@ defmodule AWS.DocDB do
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("StorageEncrypted") => boolean(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("Engine") => String.t()
       }
@@ -1592,7 +1592,7 @@ defmodule AWS.DocDB do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1677,7 +1677,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       events_message() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -1711,7 +1711,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       reset_db_cluster_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("DBClusterParameterGroupName") => String.t()
       }
@@ -1829,7 +1829,7 @@ defmodule AWS.DocDB do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "Message" => String.t(),
         "SourceArn" => String.t(),
         "SourceIdentifier" => String.t(),
@@ -1855,7 +1855,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_instance_message() :: %{
-        "DBInstances" => list(db_instance()()),
+        "DBInstances" => list(db_instance()),
         "Marker" => String.t()
       }
       
@@ -1867,7 +1867,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_engine_default_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBParameterGroupFamily") => String.t()
@@ -1881,7 +1881,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       tag_list_message() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -1897,7 +1897,7 @@ defmodule AWS.DocDB do
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => cluster_master_user_secret(),
         "Engine" => String.t(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "MultiAZ" => boolean(),
         "EarliestRestorableTime" => non_neg_integer(),
         "PreferredMaintenanceWindow" => String.t(),
@@ -1905,17 +1905,17 @@ defmodule AWS.DocDB do
         "PreferredBackupWindow" => String.t(),
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
-        "ReadReplicaIdentifiers" => list(String.t()()),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "ReadReplicaIdentifiers" => list(String.t()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "PercentProgress" => String.t(),
         "ReplicationSourceIdentifier" => String.t(),
         "Port" => integer(),
         "DBClusterArn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "MasterUsername" => String.t(),
         "DbClusterResourceId" => String.t(),
-        "DBClusterMembers" => list(db_cluster_member()()),
+        "DBClusterMembers" => list(db_cluster_member()),
         "ReaderEndpoint" => String.t(),
         "DBClusterIdentifier" => String.t(),
         "DeletionProtection" => boolean(),
@@ -1923,7 +1923,7 @@ defmodule AWS.DocDB do
         "DBSubnetGroup" => String.t(),
         "EngineVersion" => String.t(),
         "HostedZoneId" => String.t(),
-        "AssociatedRoles" => list(db_cluster_role()()),
+        "AssociatedRoles" => list(db_cluster_role()),
         "StorageEncrypted" => boolean(),
         "Endpoint" => String.t()
       }
@@ -1970,7 +1970,7 @@ defmodule AWS.DocDB do
       
       add_tags_to_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1981,7 +1981,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       event_categories_message() :: %{
-        "EventCategoriesMapList" => list(event_categories_map()())
+        "EventCategoriesMapList" => list(event_categories_map())
       }
       
   """
@@ -2025,10 +2025,10 @@ defmodule AWS.DocDB do
   ## Example:
       
       create_db_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -2075,7 +2075,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_global_clusters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("GlobalClusterIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -2102,8 +2102,8 @@ defmodule AWS.DocDB do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("EventCategories") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SourceIdentifier") => String.t(),
@@ -2152,7 +2152,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       db_cluster_snapshot_attributes_result() :: %{
-        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()()),
+        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
         "DBClusterSnapshotIdentifier" => String.t()
       }
       
@@ -2236,7 +2236,7 @@ defmodule AWS.DocDB do
       
       describe_db_subnet_groups_message() :: %{
         optional("DBSubnetGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -2264,7 +2264,7 @@ defmodule AWS.DocDB do
         "DBSubnetGroupDescription" => String.t(),
         "DBSubnetGroupName" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(subnet()()),
+        "Subnets" => list(subnet()),
         "VpcId" => String.t()
       }
       
@@ -2336,7 +2336,7 @@ defmodule AWS.DocDB do
       
       remove_tags_from_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -2374,7 +2374,7 @@ defmodule AWS.DocDB do
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("RotateMasterUserPassword") => boolean(),
         optional("StorageType") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t()
       }
       
@@ -2386,7 +2386,7 @@ defmodule AWS.DocDB do
   ## Example:
       
       describe_event_categories_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("SourceType") => String.t()
       }
       
@@ -2527,7 +2527,7 @@ defmodule AWS.DocDB do
       
       db_cluster_parameter_group_details() :: %{
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -2550,7 +2550,7 @@ defmodule AWS.DocDB do
       
       pending_maintenance_actions_message() :: %{
         "Marker" => String.t(),
-        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions()())
+        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
@@ -2893,7 +2893,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -2912,7 +2913,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -2931,7 +2933,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -2945,7 +2948,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -2970,7 +2974,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -2984,7 +2989,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -3024,7 +3030,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -3038,7 +3045,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -3052,7 +3060,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -3069,7 +3078,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -3103,7 +3113,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -3129,7 +3140,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -3147,7 +3159,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -3167,7 +3180,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -3185,7 +3199,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -3199,7 +3214,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -3216,7 +3232,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -3230,7 +3247,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -3249,7 +3267,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -3264,7 +3283,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
@@ -3285,7 +3305,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -3300,7 +3321,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -3326,7 +3348,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -3342,7 +3365,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -3363,7 +3387,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -3376,7 +3401,8 @@ defmodule AWS.DocDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -3392,7 +3418,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -3410,7 +3437,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -3429,7 +3457,8 @@ defmodule AWS.DocDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -3444,7 +3473,8 @@ defmodule AWS.DocDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -3464,7 +3494,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -3482,7 +3513,8 @@ defmodule AWS.DocDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -3500,7 +3532,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -3517,7 +3550,8 @@ defmodule AWS.DocDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -3537,7 +3571,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -3559,7 +3594,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -3582,7 +3618,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -3596,7 +3633,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3615,7 +3653,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -3653,7 +3692,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -3684,7 +3724,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -3701,7 +3742,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -3718,7 +3760,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -3732,7 +3775,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -3752,7 +3796,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -3778,7 +3823,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -3797,7 +3843,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -3817,7 +3864,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -3831,7 +3879,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -3859,7 +3908,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -3885,7 +3935,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -3909,7 +3960,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -3926,7 +3978,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -3945,7 +3998,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -3960,7 +4014,8 @@ defmodule AWS.DocDB do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end

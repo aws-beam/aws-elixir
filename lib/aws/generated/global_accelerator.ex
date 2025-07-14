@@ -125,7 +125,7 @@ defmodule AWS.GlobalAccelerator do
       
       byoip_cidr() :: %{
         "Cidr" => String.t(),
-        "Events" => list(byoip_cidr_event()()),
+        "Events" => list(byoip_cidr_event()),
         "State" => list(any())
       }
       
@@ -149,7 +149,7 @@ defmodule AWS.GlobalAccelerator do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -160,7 +160,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_cross_account_attachments_response() :: %{
-        "CrossAccountAttachments" => list(attachment()()),
+        "CrossAccountAttachments" => list(attachment()),
         "NextToken" => String.t()
       }
       
@@ -196,7 +196,7 @@ defmodule AWS.GlobalAccelerator do
       update_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()()),
+        optional("IpAddresses") => list(String.t()),
         optional("Name") => String.t(),
         required("AcceleratorArn") => String.t()
       }
@@ -302,7 +302,7 @@ defmodule AWS.GlobalAccelerator do
       listener() :: %{
         "ClientAffinity" => list(any()),
         "ListenerArn" => String.t(),
-        "PortRanges" => list(port_range()()),
+        "PortRanges" => list(port_range()),
         "Protocol" => list(any())
       }
       
@@ -348,8 +348,8 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       custom_routing_endpoint_group() :: %{
-        "DestinationDescriptions" => list(custom_routing_destination_description()()),
-        "EndpointDescriptions" => list(custom_routing_endpoint_description()()),
+        "DestinationDescriptions" => list(custom_routing_destination_description()),
+        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
         "EndpointGroupArn" => String.t(),
         "EndpointGroupRegion" => String.t()
       }
@@ -373,7 +373,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_custom_routing_endpoint_groups_response() :: %{
-        "EndpointGroups" => list(custom_routing_endpoint_group()()),
+        "EndpointGroups" => list(custom_routing_endpoint_group()),
         "NextToken" => String.t()
       }
       
@@ -424,8 +424,8 @@ defmodule AWS.GlobalAccelerator do
         "CreatedTime" => non_neg_integer(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
-        "Principals" => list(String.t()()),
-        "Resources" => list(resource()())
+        "Principals" => list(String.t()),
+        "Resources" => list(resource())
       }
       
   """
@@ -437,7 +437,7 @@ defmodule AWS.GlobalAccelerator do
       
       list_custom_routing_port_mappings_response() :: %{
         "NextToken" => String.t(),
-        "PortMappings" => list(port_mapping()())
+        "PortMappings" => list(port_mapping())
       }
       
   """
@@ -555,7 +555,7 @@ defmodule AWS.GlobalAccelerator do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -568,7 +568,7 @@ defmodule AWS.GlobalAccelerator do
       create_custom_routing_listener_request() :: %{
         required("AcceleratorArn") => String.t(),
         required("IdempotencyToken") => String.t(),
-        required("PortRanges") => list(port_range()())
+        required("PortRanges") => list(port_range())
       }
       
   """
@@ -591,7 +591,7 @@ defmodule AWS.GlobalAccelerator do
       
       remove_custom_routing_endpoints_request() :: %{
         required("EndpointGroupArn") => String.t(),
-        required("EndpointIds") => list(String.t()())
+        required("EndpointIds") => list(String.t())
       }
       
   """
@@ -604,8 +604,8 @@ defmodule AWS.GlobalAccelerator do
       create_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("IpAddresses") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("IdempotencyToken") => String.t(),
         required("Name") => String.t()
       }
@@ -641,7 +641,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_custom_routing_listeners_response() :: %{
-        "Listeners" => list(custom_routing_listener()()),
+        "Listeners" => list(custom_routing_listener()),
         "NextToken" => String.t()
       }
       
@@ -653,11 +653,11 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       update_cross_account_attachment_request() :: %{
-        optional("AddPrincipals") => list(String.t()()),
-        optional("AddResources") => list(resource()()),
+        optional("AddPrincipals") => list(String.t()),
+        optional("AddResources") => list(resource()),
         optional("Name") => String.t(),
-        optional("RemovePrincipals") => list(String.t()()),
-        optional("RemoveResources") => list(resource()()),
+        optional("RemovePrincipals") => list(String.t()),
+        optional("RemoveResources") => list(resource()),
         required("AttachmentArn") => String.t()
       }
       
@@ -692,7 +692,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       add_endpoints_request() :: %{
-        required("EndpointConfigurations") => list(endpoint_configuration()()),
+        required("EndpointConfigurations") => list(endpoint_configuration()),
         required("EndpointGroupArn") => String.t()
       }
       
@@ -811,7 +811,7 @@ defmodule AWS.GlobalAccelerator do
       
       remove_endpoints_request() :: %{
         required("EndpointGroupArn") => String.t(),
-        required("EndpointIdentifiers") => list(endpoint_identifier()())
+        required("EndpointIdentifiers") => list(endpoint_identifier())
       }
       
   """
@@ -855,7 +855,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_accelerators_response() :: %{
-        "Accelerators" => list(accelerator()()),
+        "Accelerators" => list(accelerator()),
         "NextToken" => String.t()
       }
       
@@ -903,7 +903,7 @@ defmodule AWS.GlobalAccelerator do
       
       update_custom_routing_listener_request() :: %{
         required("ListenerArn") => String.t(),
-        required("PortRanges") => list(port_range()())
+        required("PortRanges") => list(port_range())
       }
       
   """
@@ -936,7 +936,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_custom_routing_port_mappings_by_destination_response() :: %{
-        "DestinationPortMappings" => list(destination_port_mapping()()),
+        "DestinationPortMappings" => list(destination_port_mapping()),
         "NextToken" => String.t()
       }
       
@@ -949,7 +949,7 @@ defmodule AWS.GlobalAccelerator do
       
       custom_routing_listener() :: %{
         "ListenerArn" => String.t(),
-        "PortRanges" => list(port_range()())
+        "PortRanges" => list(port_range())
       }
       
   """
@@ -975,7 +975,7 @@ defmodule AWS.GlobalAccelerator do
       
       ip_set() :: %{
         "IpAddressFamily" => list(any()),
-        "IpAddresses" => list(String.t()()),
+        "IpAddresses" => list(String.t()),
         "IpFamily" => String.t()
       }
       
@@ -987,7 +987,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1003,9 +1003,9 @@ defmodule AWS.GlobalAccelerator do
         "DnsName" => String.t(),
         "DualStackDnsName" => String.t(),
         "Enabled" => boolean(),
-        "Events" => list(accelerator_event()()),
+        "Events" => list(accelerator_event()),
         "IpAddressType" => list(any()),
-        "IpSets" => list(ip_set()()),
+        "IpSets" => list(ip_set()),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Status" => list(any())
@@ -1066,8 +1066,8 @@ defmodule AWS.GlobalAccelerator do
       create_custom_routing_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("IpAddresses") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("IdempotencyToken") => String.t(),
         required("Name") => String.t()
       }
@@ -1080,7 +1080,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_listeners_response() :: %{
-        "Listeners" => list(listener()()),
+        "Listeners" => list(listener()),
         "NextToken" => String.t()
       }
       
@@ -1104,8 +1104,8 @@ defmodule AWS.GlobalAccelerator do
       
       allow_custom_routing_traffic_request() :: %{
         optional("AllowAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t()()),
-        optional("DestinationPorts") => list(integer()()),
+        optional("DestinationAddresses") => list(String.t()),
+        optional("DestinationPorts") => list(integer()),
         required("EndpointGroupArn") => String.t(),
         required("EndpointId") => String.t()
       }
@@ -1119,8 +1119,8 @@ defmodule AWS.GlobalAccelerator do
       
       deny_custom_routing_traffic_request() :: %{
         optional("DenyAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t()()),
-        optional("DestinationPorts") => list(integer()()),
+        optional("DestinationAddresses") => list(String.t()),
+        optional("DestinationPorts") => list(integer()),
         required("EndpointGroupArn") => String.t(),
         required("EndpointId") => String.t()
       }
@@ -1157,9 +1157,9 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       create_cross_account_attachment_request() :: %{
-        optional("Principals") => list(String.t()()),
-        optional("Resources") => list(resource()()),
-        optional("Tags") => list(tag()()),
+        optional("Principals") => list(String.t()),
+        optional("Resources") => list(resource()),
+        optional("Tags") => list(tag()),
         required("IdempotencyToken") => String.t(),
         required("Name") => String.t()
       }
@@ -1183,7 +1183,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_cross_account_resources_response() :: %{
-        "CrossAccountResources" => list(cross_account_resource()()),
+        "CrossAccountResources" => list(cross_account_resource()),
         "NextToken" => String.t()
       }
       
@@ -1243,7 +1243,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       add_endpoints_response() :: %{
-        "EndpointDescriptions" => list(endpoint_description()()),
+        "EndpointDescriptions" => list(endpoint_description()),
         "EndpointGroupArn" => String.t()
       }
       
@@ -1289,12 +1289,12 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       update_endpoint_group_request() :: %{
-        optional("EndpointConfigurations") => list(endpoint_configuration()()),
+        optional("EndpointConfigurations") => list(endpoint_configuration()),
         optional("HealthCheckIntervalSeconds") => integer(),
         optional("HealthCheckPath") => String.t(),
         optional("HealthCheckPort") => integer(),
         optional("HealthCheckProtocol") => list(any()),
-        optional("PortOverrides") => list(port_override()()),
+        optional("PortOverrides") => list(port_override()),
         optional("ThresholdCount") => integer(),
         optional("TrafficDialPercentage") => float(),
         required("EndpointGroupArn") => String.t()
@@ -1310,7 +1310,7 @@ defmodule AWS.GlobalAccelerator do
       update_custom_routing_accelerator_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t()()),
+        optional("IpAddresses") => list(String.t()),
         optional("Name") => String.t(),
         required("AcceleratorArn") => String.t()
       }
@@ -1334,7 +1334,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_endpoint_groups_response() :: %{
-        "EndpointGroups" => list(endpoint_group()()),
+        "EndpointGroups" => list(endpoint_group()),
         "NextToken" => String.t()
       }
       
@@ -1369,7 +1369,7 @@ defmodule AWS.GlobalAccelerator do
       
       update_listener_request() :: %{
         optional("ClientAffinity") => list(any()),
-        optional("PortRanges") => list(port_range()()),
+        optional("PortRanges") => list(port_range()),
         optional("Protocol") => list(any()),
         required("ListenerArn") => String.t()
       }
@@ -1476,7 +1476,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       add_custom_routing_endpoints_request() :: %{
-        required("EndpointConfigurations") => list(custom_routing_endpoint_configuration()()),
+        required("EndpointConfigurations") => list(custom_routing_endpoint_configuration()),
         required("EndpointGroupArn") => String.t()
       }
       
@@ -1488,7 +1488,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_byoip_cidrs_response() :: %{
-        "ByoipCidrs" => list(byoip_cidr()()),
+        "ByoipCidrs" => list(byoip_cidr()),
         "NextToken" => String.t()
       }
       
@@ -1591,7 +1591,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_custom_routing_accelerators_response() :: %{
-        "Accelerators" => list(custom_routing_accelerator()()),
+        "Accelerators" => list(custom_routing_accelerator()),
         "NextToken" => String.t()
       }
       
@@ -1608,7 +1608,7 @@ defmodule AWS.GlobalAccelerator do
         "DnsName" => String.t(),
         "Enabled" => boolean(),
         "IpAddressType" => list(any()),
-        "IpSets" => list(ip_set()()),
+        "IpSets" => list(ip_set()),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Status" => list(any())
@@ -1647,7 +1647,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       add_custom_routing_endpoints_response() :: %{
-        "EndpointDescriptions" => list(custom_routing_endpoint_description()()),
+        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
         "EndpointGroupArn" => String.t()
       }
       
@@ -1684,7 +1684,7 @@ defmodule AWS.GlobalAccelerator do
       
       destination_port_mapping() :: %{
         "AcceleratorArn" => String.t(),
-        "AcceleratorSocketAddresses" => list(socket_address()()),
+        "AcceleratorSocketAddresses" => list(socket_address()),
         "DestinationSocketAddress" => socket_address(),
         "DestinationTrafficState" => list(any()),
         "EndpointGroupArn" => String.t(),
@@ -1701,7 +1701,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       list_cross_account_resource_accounts_response() :: %{
-        "ResourceOwnerAwsAccountIds" => list(String.t()())
+        "ResourceOwnerAwsAccountIds" => list(String.t())
       }
       
   """
@@ -1768,7 +1768,7 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       create_custom_routing_endpoint_group_request() :: %{
-        required("DestinationConfigurations") => list(custom_routing_destination_configuration()()),
+        required("DestinationConfigurations") => list(custom_routing_destination_configuration()),
         required("EndpointGroupRegion") => String.t(),
         required("IdempotencyToken") => String.t(),
         required("ListenerArn") => String.t()
@@ -1782,14 +1782,14 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       endpoint_group() :: %{
-        "EndpointDescriptions" => list(endpoint_description()()),
+        "EndpointDescriptions" => list(endpoint_description()),
         "EndpointGroupArn" => String.t(),
         "EndpointGroupRegion" => String.t(),
         "HealthCheckIntervalSeconds" => integer(),
         "HealthCheckPath" => String.t(),
         "HealthCheckPort" => integer(),
         "HealthCheckProtocol" => list(any()),
-        "PortOverrides" => list(port_override()()),
+        "PortOverrides" => list(port_override()),
         "ThresholdCount" => integer(),
         "TrafficDialPercentage" => float()
       }
@@ -1872,7 +1872,7 @@ defmodule AWS.GlobalAccelerator do
         optional("ClientAffinity") => list(any()),
         required("AcceleratorArn") => String.t(),
         required("IdempotencyToken") => String.t(),
-        required("PortRanges") => list(port_range()()),
+        required("PortRanges") => list(port_range()),
         required("Protocol") => list(any())
       }
       
@@ -1909,12 +1909,12 @@ defmodule AWS.GlobalAccelerator do
   ## Example:
       
       create_endpoint_group_request() :: %{
-        optional("EndpointConfigurations") => list(endpoint_configuration()()),
+        optional("EndpointConfigurations") => list(endpoint_configuration()),
         optional("HealthCheckIntervalSeconds") => integer(),
         optional("HealthCheckPath") => String.t(),
         optional("HealthCheckPort") => integer(),
         optional("HealthCheckProtocol") => list(any()),
-        optional("PortOverrides") => list(port_override()()),
+        optional("PortOverrides") => list(port_override()),
         optional("ThresholdCount") => integer(),
         optional("TrafficDialPercentage") => float(),
         required("EndpointGroupRegion") => String.t(),
@@ -2330,7 +2330,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, add_custom_routing_endpoints_errors()}
   def add_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCustomRoutingEndpoints", input, options)
   end
@@ -2374,7 +2375,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, add_endpoints_errors()}
   def add_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddEndpoints", input, options)
   end
@@ -2401,7 +2403,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, advertise_byoip_cidr_errors()}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdvertiseByoipCidr", input, options)
   end
@@ -2427,7 +2430,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, allow_custom_routing_traffic_errors()}
   def allow_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllowCustomRoutingTraffic", input, options)
   end
@@ -2452,7 +2456,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_accelerator_errors()}
   def create_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccelerator", input, options)
   end
@@ -2496,7 +2501,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_cross_account_attachment_errors()}
   def create_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrossAccountAttachment", input, options)
   end
@@ -2532,7 +2538,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_accelerator_errors()}
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingAccelerator", input, options)
   end
@@ -2554,7 +2561,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_endpoint_group_errors()}
   def create_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingEndpointGroup", input, options)
   end
@@ -2572,7 +2580,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_listener_errors()}
   def create_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingListener", input, options)
   end
@@ -2596,7 +2605,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_endpoint_group_errors()}
   def create_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointGroup", input, options)
   end
@@ -2613,7 +2623,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
@@ -2651,7 +2662,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_accelerator_errors()}
   def delete_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccelerator", input, options)
   end
@@ -2676,7 +2688,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_cross_account_attachment_errors()}
   def delete_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrossAccountAttachment", input, options)
   end
@@ -2717,7 +2730,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_accelerator_errors()}
   def delete_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingAccelerator", input, options)
   end
@@ -2735,7 +2749,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_endpoint_group_errors()}
   def delete_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingEndpointGroup", input, options)
   end
@@ -2749,7 +2764,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_listener_errors()}
   def delete_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingListener", input, options)
   end
@@ -2763,7 +2779,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_endpoint_group_errors()}
   def delete_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointGroup", input, options)
   end
@@ -2777,7 +2794,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
@@ -2803,7 +2821,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, deny_custom_routing_traffic_errors()}
   def deny_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DenyCustomRoutingTraffic", input, options)
   end
@@ -2830,7 +2849,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, deprovision_byoip_cidr_errors()}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionByoipCidr", input, options)
   end
@@ -2844,7 +2864,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_accelerator_errors()}
   def describe_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccelerator", input, options)
   end
@@ -2858,7 +2879,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_accelerator_attributes_errors()}
   def describe_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAcceleratorAttributes", input, options)
   end
@@ -2876,7 +2898,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_cross_account_attachment_errors()}
   def describe_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCrossAccountAttachment", input, options)
   end
@@ -2894,7 +2917,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_accelerator_errors()}
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingAccelerator", input, options)
   end
@@ -2912,7 +2936,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_accelerator_attributes_errors()}
   def describe_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2936,7 +2961,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_endpoint_group_errors()}
   def describe_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingEndpointGroup", input, options)
   end
@@ -2954,7 +2980,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_listener_errors()}
   def describe_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingListener", input, options)
   end
@@ -2968,7 +2995,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_endpoint_group_errors()}
   def describe_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointGroup", input, options)
   end
@@ -2982,7 +3010,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_listener_errors()}
   def describe_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListener", input, options)
   end
@@ -2996,7 +3025,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_accelerators_errors()}
   def list_accelerators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccelerators", input, options)
   end
@@ -3013,7 +3043,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_byoip_cidrs_errors()}
   def list_byoip_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListByoipCidrs", input, options)
   end
@@ -3027,7 +3058,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_attachments_errors()}
   def list_cross_account_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountAttachments", input, options)
   end
@@ -3051,7 +3083,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_resource_accounts_errors()}
   def list_cross_account_resource_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountResourceAccounts", input, options)
   end
@@ -3065,7 +3098,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_resources_errors()}
   def list_cross_account_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountResources", input, options)
   end
@@ -3083,7 +3117,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_accelerators_errors()}
   def list_custom_routing_accelerators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingAccelerators", input, options)
   end
@@ -3102,7 +3137,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_endpoint_groups_errors()}
   def list_custom_routing_endpoint_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingEndpointGroups", input, options)
   end
@@ -3116,7 +3152,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_listeners_errors()}
   def list_custom_routing_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingListeners", input, options)
   end
@@ -3153,7 +3190,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_port_mappings_errors()}
   def list_custom_routing_port_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingPortMappings", input, options)
   end
@@ -3179,7 +3217,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_port_mappings_by_destination_errors()}
   def list_custom_routing_port_mappings_by_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3199,7 +3238,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_endpoint_groups_errors()}
   def list_endpoint_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointGroups", input, options)
   end
@@ -3213,7 +3253,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_listeners_errors()}
   def list_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListListeners", input, options)
   end
@@ -3231,7 +3272,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3255,7 +3297,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, provision_byoip_cidr_errors()}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionByoipCidr", input, options)
   end
@@ -3269,7 +3312,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, remove_custom_routing_endpoints_errors()}
   def remove_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveCustomRoutingEndpoints", input, options)
   end
@@ -3305,7 +3349,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, remove_endpoints_errors()}
   def remove_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveEndpoints", input, options)
   end
@@ -3323,7 +3368,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3346,7 +3392,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3386,7 +3433,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_accelerator_errors()}
   def update_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccelerator", input, options)
   end
@@ -3400,7 +3448,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_accelerator_attributes_errors()}
   def update_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAcceleratorAttributes", input, options)
   end
@@ -3425,7 +3474,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_cross_account_attachment_errors()}
   def update_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrossAccountAttachment", input, options)
   end
@@ -3443,7 +3493,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_accelerator_errors()}
   def update_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingAccelerator", input, options)
   end
@@ -3461,7 +3512,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_accelerator_attributes_errors()}
   def update_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingAcceleratorAttributes", input, options)
   end
@@ -3475,7 +3527,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_listener_errors()}
   def update_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingListener", input, options)
   end
@@ -3491,7 +3544,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_endpoint_group_errors()}
   def update_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointGroup", input, options)
   end
@@ -3505,7 +3559,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_listener_errors()}
   def update_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateListener", input, options)
   end
@@ -3531,7 +3586,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, withdraw_byoip_cidr_errors()}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "WithdrawByoipCidr", input, options)
   end

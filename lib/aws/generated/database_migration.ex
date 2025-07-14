@@ -119,7 +119,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_databases_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -132,7 +132,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_table_statistics_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("ReplicationTaskArn") => String.t()
@@ -282,7 +282,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_endpoints_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -341,7 +341,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_configs_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -354,7 +354,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       resource_pending_maintenance_actions() :: %{
-        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()()),
+        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
         "ResourceIdentifier" => String.t()
       }
       
@@ -391,7 +391,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_collectors_response() :: %{
-        "Collectors" => list(collector_response()()),
+        "Collectors" => list(collector_response()),
         "NextToken" => String.t()
       }
       
@@ -426,7 +426,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_imports_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -484,7 +484,7 @@ defmodule AWS.DatabaseMigration do
         "NetworkType" => String.t(),
         "PubliclyAccessible" => boolean(),
         "SubnetGroupIdentifier" => String.t(),
-        "VpcSecurityGroups" => list(String.t()())
+        "VpcSecurityGroups" => list(String.t())
       }
       
   """
@@ -520,11 +520,11 @@ defmodule AWS.DatabaseMigration do
         optional("Description") => String.t(),
         optional("MigrationProjectName") => String.t(),
         optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TransformationRules") => String.t(),
         required("InstanceProfileIdentifier") => String.t(),
-        required("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
-        required("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()())
+        required("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()),
+        required("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition())
       }
       
   """
@@ -537,7 +537,7 @@ defmodule AWS.DatabaseMigration do
       endpoint_setting() :: %{
         "Applicability" => String.t(),
         "DefaultValue" => String.t(),
-        "EnumValues" => list(String.t()()),
+        "EnumValues" => list(String.t()),
         "IntValueMax" => integer(),
         "IntValueMin" => integer(),
         "Name" => String.t(),
@@ -609,7 +609,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_recommendation_limitations_response() :: %{
-        "Limitations" => list(limitation()()),
+        "Limitations" => list(limitation()),
         "NextToken" => String.t()
       }
       
@@ -621,7 +621,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_event_categories_response() :: %{
-        "EventCategoryGroupList" => list(event_category_group()())
+        "EventCategoryGroupList" => list(event_category_group())
       }
       
   """
@@ -646,7 +646,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_conversions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -677,10 +677,10 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       create_replication_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ReplicationSubnetGroupDescription") => String.t(),
         required("ReplicationSubnetGroupIdentifier") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -702,7 +702,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       delete_fleet_advisor_databases_request() :: %{
-        required("DatabaseIds") => list(String.t()())
+        required("DatabaseIds") => list(String.t())
       }
       
   """
@@ -713,7 +713,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_databases_response() :: %{
-        "Databases" => list(database_response()()),
+        "Databases" => list(database_response()),
         "NextToken" => String.t()
       }
       
@@ -741,7 +741,7 @@ defmodule AWS.DatabaseMigration do
       
       engine_version() :: %{
         "AutoUpgradeDate" => non_neg_integer(),
-        "AvailableUpgrades" => list(String.t()()),
+        "AvailableUpgrades" => list(String.t()),
         "DeprecationDate" => non_neg_integer(),
         "ForceUpgradeDate" => non_neg_integer(),
         "LaunchDate" => non_neg_integer(),
@@ -769,7 +769,7 @@ defmodule AWS.DatabaseMigration do
       describe_replication_table_statistics_response() :: %{
         "Marker" => String.t(),
         "ReplicationConfigArn" => String.t(),
-        "ReplicationTableStatistics" => list(table_statistics()())
+        "ReplicationTableStatistics" => list(table_statistics())
       }
       
   """
@@ -781,7 +781,7 @@ defmodule AWS.DatabaseMigration do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("SnsTopicArn") => String.t(),
         optional("SourceType") => String.t(),
         required("SubscriptionName") => String.t()
@@ -822,7 +822,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_tasks_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("WithoutSettings") => boolean()
@@ -836,7 +836,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_pending_maintenance_actions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ReplicationInstanceArn") => String.t()
@@ -896,7 +896,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_exports_to_target_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -966,7 +966,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_lsa_analysis_response() :: %{
-        "Analysis" => list(fleet_advisor_lsa_analysis_response()()),
+        "Analysis" => list(fleet_advisor_lsa_analysis_response()),
         "NextToken" => String.t()
       }
       
@@ -978,7 +978,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_schema_object_summary_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1008,15 +1008,15 @@ defmodule AWS.DatabaseMigration do
         "ReplicationInstanceArn" => String.t(),
         "ReplicationInstanceClass" => String.t(),
         "ReplicationInstanceIdentifier" => String.t(),
-        "ReplicationInstanceIpv6Addresses" => list(String.t()()),
+        "ReplicationInstanceIpv6Addresses" => list(String.t()),
         "ReplicationInstancePrivateIpAddress" => String.t(),
-        "ReplicationInstancePrivateIpAddresses" => list(String.t()()),
+        "ReplicationInstancePrivateIpAddresses" => list(String.t()),
         "ReplicationInstancePublicIpAddress" => String.t(),
-        "ReplicationInstancePublicIpAddresses" => list(String.t()()),
+        "ReplicationInstancePublicIpAddresses" => list(String.t()),
         "ReplicationInstanceStatus" => String.t(),
         "ReplicationSubnetGroup" => replication_subnet_group(),
         "SecondaryAvailabilityZone" => String.t(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()())
+        "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
   """
@@ -1054,9 +1054,9 @@ defmodule AWS.DatabaseMigration do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
@@ -1093,7 +1093,7 @@ defmodule AWS.DatabaseMigration do
       describe_replication_task_assessment_results_response() :: %{
         "BucketName" => String.t(),
         "Marker" => String.t(),
-        "ReplicationTaskAssessmentResults" => list(replication_task_assessment_result()())
+        "ReplicationTaskAssessmentResults" => list(replication_task_assessment_result())
       }
       
   """
@@ -1104,7 +1104,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_data_providers_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1117,7 +1117,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_certificates_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1171,7 +1171,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_migration_projects_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1185,7 +1185,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_conversions_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -1249,7 +1249,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()()),
+        "Endpoints" => list(endpoint()),
         "Marker" => String.t()
       }
       
@@ -1262,7 +1262,7 @@ defmodule AWS.DatabaseMigration do
       
       list_tags_for_resource_message() :: %{
         optional("ResourceArn") => String.t(),
-        optional("ResourceArnList") => list(String.t()())
+        optional("ResourceArnList") => list(String.t())
       }
       
   """
@@ -1273,7 +1273,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       database_response() :: %{
-        "Collectors" => list(collector_short_info_response()()),
+        "Collectors" => list(collector_short_info_response()),
         "DatabaseId" => String.t(),
         "DatabaseName" => String.t(),
         "IpAddress" => String.t(),
@@ -1302,7 +1302,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_exports_as_script_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -1362,7 +1362,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_applicable_individual_assessments_response() :: %{
-        "IndividualAssessmentNames" => list(String.t()()),
+        "IndividualAssessmentNames" => list(String.t()),
         "Marker" => String.t()
       }
       
@@ -1433,7 +1433,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_instance_profiles_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1462,7 +1462,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_recommendations_response() :: %{
         "NextToken" => String.t(),
-        "Recommendations" => list(recommendation()())
+        "Recommendations" => list(recommendation())
       }
       
   """
@@ -1473,7 +1473,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_collectors_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1550,7 +1550,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_extension_pack_associations_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -1618,8 +1618,8 @@ defmodule AWS.DatabaseMigration do
         optional("NumberOfJobs") => integer(),
         optional("SelectionRules") => String.t(),
         optional("ServiceAccessRoleArn") => String.t(),
-        optional("SourceDataSettings") => list(source_data_setting()()),
-        optional("TargetDataSettings") => list(target_data_setting()()),
+        optional("SourceDataSettings") => list(source_data_setting()),
+        optional("TargetDataSettings") => list(target_data_setting()),
         required("DataMigrationIdentifier") => String.t()
       }
       
@@ -1700,7 +1700,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_subnet_groups_response() :: %{
         "Marker" => String.t(),
-        "ReplicationSubnetGroups" => list(replication_subnet_group()())
+        "ReplicationSubnetGroups" => list(replication_subnet_group())
       }
       
   """
@@ -1798,7 +1798,7 @@ defmodule AWS.DatabaseMigration do
       modify_replication_subnet_group_message() :: %{
         optional("ReplicationSubnetGroupDescription") => String.t(),
         required("ReplicationSubnetGroupIdentifier") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -1838,7 +1838,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_connections_response() :: %{
-        "Connections" => list(connection()()),
+        "Connections" => list(connection()),
         "Marker" => String.t()
       }
       
@@ -1871,7 +1871,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_assessments_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -1883,7 +1883,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_instances_response() :: %{
         "Marker" => String.t(),
-        "ReplicationInstances" => list(replication_instance()())
+        "ReplicationInstances" => list(replication_instance())
       }
       
   """
@@ -1910,7 +1910,7 @@ defmodule AWS.DatabaseMigration do
         optional("CdcStopPosition") => String.t(),
         optional("ReplicationTaskSettings") => String.t(),
         optional("ResourceIdentifier") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TaskData") => String.t(),
         required("MigrationType") => list(any()),
         required("ReplicationInstanceArn") => String.t(),
@@ -1987,10 +1987,10 @@ defmodule AWS.DatabaseMigration do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
-        optional("SourceIds") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnsTopicArn") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -2015,7 +2015,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_configs_response() :: %{
         "Marker" => String.t(),
-        "ReplicationConfigs" => list(replication_config()())
+        "ReplicationConfigs" => list(replication_config())
       }
       
   """
@@ -2026,7 +2026,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_event_subscriptions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SubscriptionName") => String.t()
@@ -2041,7 +2041,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_schemas_response() :: %{
         "Marker" => String.t(),
-        "Schemas" => list(String.t()())
+        "Schemas" => list(String.t())
       }
       
   """
@@ -2079,7 +2079,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_data_providers_response() :: %{
-        "DataProviders" => list(data_provider()()),
+        "DataProviders" => list(data_provider()),
         "Marker" => String.t()
       }
       
@@ -2093,7 +2093,7 @@ defmodule AWS.DatabaseMigration do
       create_data_provider_message() :: %{
         optional("DataProviderName") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Virtual") => boolean(),
         required("Engine") => String.t(),
         required("Settings") => list()
@@ -2138,8 +2138,8 @@ defmodule AWS.DatabaseMigration do
         "CdcStartPosition" => String.t(),
         "CdcStartTime" => non_neg_integer(),
         "CdcStopPosition" => String.t(),
-        "FailureMessages" => list(String.t()()),
-        "PremigrationAssessmentStatuses" => list(premigration_assessment_status()()),
+        "FailureMessages" => list(String.t()),
+        "PremigrationAssessmentStatuses" => list(premigration_assessment_status()),
         "ProvisionData" => provision_data(),
         "RecoveryCheckpoint" => String.t(),
         "ReplicationConfigArn" => String.t(),
@@ -2165,7 +2165,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_recommendations_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2262,7 +2262,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_task_assessment_runs_response() :: %{
         "Marker" => String.t(),
-        "ReplicationTaskAssessmentRuns" => list(replication_task_assessment_run()())
+        "ReplicationTaskAssessmentRuns" => list(replication_task_assessment_run())
       }
       
   """
@@ -2284,7 +2284,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_schemas_response() :: %{
-        "FleetAdvisorSchemas" => list(schema_response()()),
+        "FleetAdvisorSchemas" => list(schema_response()),
         "NextToken" => String.t()
       }
       
@@ -2327,7 +2327,7 @@ defmodule AWS.DatabaseMigration do
         optional("ReplicationSettings") => String.t(),
         optional("ResourceIdentifier") => String.t(),
         optional("SupplementalSettings") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ComputeConfig") => compute_config(),
         required("ReplicationConfigIdentifier") => String.t(),
         required("ReplicationType") => list(any()),
@@ -2371,7 +2371,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       event_category_group() :: %{
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "SourceType" => String.t()
       }
       
@@ -2394,7 +2394,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_endpoint_settings_response() :: %{
-        "EndpointSettings" => list(endpoint_setting()()),
+        "EndpointSettings" => list(endpoint_setting()),
         "Marker" => String.t()
       }
       
@@ -2431,7 +2431,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_pending_maintenance_actions_response() :: %{
         "Marker" => String.t(),
-        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions()())
+        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
@@ -2483,7 +2483,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_endpoint_types_response() :: %{
         "Marker" => String.t(),
-        "SupportedEndpointTypes" => list(supported_endpoint_type()())
+        "SupportedEndpointTypes" => list(supported_endpoint_type())
       }
       
   """
@@ -2543,7 +2543,7 @@ defmodule AWS.DatabaseMigration do
       describe_table_statistics_response() :: %{
         "Marker" => String.t(),
         "ReplicationTaskArn" => String.t(),
-        "TableStatistics" => list(table_statistics()())
+        "TableStatistics" => list(table_statistics())
       }
       
   """
@@ -2620,7 +2620,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_extension_pack_associations_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -2691,7 +2691,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -2719,7 +2719,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_instances_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -2732,7 +2732,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       orderable_replication_instance() :: %{
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "DefaultAllocatedStorage" => integer(),
         "EngineVersion" => String.t(),
         "IncludedAllocatedStorage" => integer(),
@@ -2751,7 +2751,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_account_attributes_response() :: %{
-        "AccountQuotas" => list(account_quota()()),
+        "AccountQuotas" => list(account_quota()),
         "UniqueAccountIdentifier" => String.t()
       }
       
@@ -2775,7 +2775,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_schema_object_summary_response() :: %{
-        "FleetAdvisorSchemaObjects" => list(fleet_advisor_schema_object_response()()),
+        "FleetAdvisorSchemaObjects" => list(fleet_advisor_schema_object_response()),
         "NextToken" => String.t()
       }
       
@@ -2805,8 +2805,8 @@ defmodule AWS.DatabaseMigration do
         optional("NetworkType") => String.t(),
         optional("PubliclyAccessible") => boolean(),
         optional("SubnetGroupIdentifier") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroups") => list(String.t()())
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroups") => list(String.t())
       }
       
   """
@@ -2817,7 +2817,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_assessments_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -2866,7 +2866,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_exports_as_script_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -2881,7 +2881,7 @@ defmodule AWS.DatabaseMigration do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2990,7 +2990,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_connections_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3036,7 +3036,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_task_individual_assessments_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3050,7 +3050,7 @@ defmodule AWS.DatabaseMigration do
       
       data_migration() :: %{
         "DataMigrationArn" => String.t(),
-        "DataMigrationCidrBlocks" => list(String.t()()),
+        "DataMigrationCidrBlocks" => list(String.t()),
         "DataMigrationCreateTime" => non_neg_integer(),
         "DataMigrationEndTime" => non_neg_integer(),
         "DataMigrationName" => String.t(),
@@ -3061,11 +3061,11 @@ defmodule AWS.DatabaseMigration do
         "DataMigrationType" => list(any()),
         "LastFailureMessage" => String.t(),
         "MigrationProjectArn" => String.t(),
-        "PublicIpAddresses" => list(String.t()()),
+        "PublicIpAddresses" => list(String.t()),
         "ServiceAccessRoleArn" => String.t(),
-        "SourceDataSettings" => list(source_data_setting()()),
+        "SourceDataSettings" => list(source_data_setting()),
         "StopReason" => String.t(),
-        "TargetDataSettings" => list(target_data_setting()())
+        "TargetDataSettings" => list(target_data_setting())
       }
       
   """
@@ -3149,7 +3149,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_task_individual_assessments_response() :: %{
         "Marker" => String.t(),
-        "ReplicationTaskIndividualAssessments" => list(replication_task_individual_assessment()())
+        "ReplicationTaskIndividualAssessments" => list(replication_task_individual_assessment())
       }
       
   """
@@ -3274,8 +3274,8 @@ defmodule AWS.DatabaseMigration do
         optional("PubliclyAccessible") => boolean(),
         optional("ReplicationSubnetGroupIdentifier") => String.t(),
         optional("ResourceIdentifier") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("ReplicationInstanceClass") => String.t(),
         required("ReplicationInstanceIdentifier") => String.t()
       }
@@ -3379,7 +3379,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_table_statistics_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("ReplicationConfigArn") => String.t()
@@ -3393,7 +3393,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_event_subscriptions_response() :: %{
-        "EventSubscriptionsList" => list(event_subscription()()),
+        "EventSubscriptionsList" => list(event_subscription()),
         "Marker" => String.t()
       }
       
@@ -3406,7 +3406,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replications_response() :: %{
         "Marker" => String.t(),
-        "Replications" => list(replication()())
+        "Replications" => list(replication())
       }
       
   """
@@ -3418,7 +3418,7 @@ defmodule AWS.DatabaseMigration do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "Message" => String.t(),
         "SourceIdentifier" => String.t(),
         "SourceType" => list(any())
@@ -3478,7 +3478,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       delete_fleet_advisor_databases_response() :: %{
-        "DatabaseIds" => list(String.t()())
+        "DatabaseIds" => list(String.t())
       }
       
   """
@@ -3489,7 +3489,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_recommendation_limitations_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3502,7 +3502,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_data_migrations_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("WithoutSettings") => boolean(),
@@ -3586,7 +3586,7 @@ defmodule AWS.DatabaseMigration do
         "MultiAZ" => boolean(),
         "PreferredMaintenanceWindow" => String.t(),
         "ReplicationSubnetGroupId" => String.t(),
-        "VpcSecurityGroupIds" => list(String.t()())
+        "VpcSecurityGroupIds" => list(String.t())
       }
       
   """
@@ -3598,7 +3598,7 @@ defmodule AWS.DatabaseMigration do
       
       add_tags_to_resource_message() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -3640,7 +3640,7 @@ defmodule AWS.DatabaseMigration do
         "UseLogminerReader" => boolean(),
         "Password" => String.t(),
         "AddSupplementalLogging" => boolean(),
-        "ExtraArchivedLogDestIds" => list(integer()()),
+        "ExtraArchivedLogDestIds" => list(integer()),
         "EnableHomogenousTablespace" => boolean(),
         "SecurityDbEncryption" => String.t(),
         "AccessAlternateDirectly" => boolean(),
@@ -3727,7 +3727,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_metadata_model_imports_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("MigrationProjectIdentifier") => String.t()
@@ -3778,7 +3778,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_orderable_replication_instances_response() :: %{
         "Marker" => String.t(),
-        "OrderableReplicationInstances" => list(orderable_replication_instance()())
+        "OrderableReplicationInstances" => list(orderable_replication_instance())
       }
       
   """
@@ -3818,8 +3818,8 @@ defmodule AWS.DatabaseMigration do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("EventCategories") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SourceIdentifier") => String.t(),
@@ -3835,7 +3835,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_endpoint_types_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3852,8 +3852,8 @@ defmodule AWS.DatabaseMigration do
         optional("InstanceProfileIdentifier") => String.t(),
         optional("MigrationProjectName") => String.t(),
         optional("SchemaConversionApplicationAttributes") => s_capplication_attributes(),
-        optional("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
-        optional("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()()),
+        optional("SourceDataProviderDescriptors") => list(data_provider_descriptor_definition()),
+        optional("TargetDataProviderDescriptors") => list(data_provider_descriptor_definition()),
         optional("TransformationRules") => String.t(),
         required("MigrationProjectIdentifier") => String.t()
       }
@@ -3916,7 +3916,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_instance_profiles_response() :: %{
-        "InstanceProfiles" => list(instance_profile()()),
+        "InstanceProfiles" => list(instance_profile()),
         "Marker" => String.t()
       }
       
@@ -3959,9 +3959,9 @@ defmodule AWS.DatabaseMigration do
         optional("EnableCloudwatchLogs") => boolean(),
         optional("NumberOfJobs") => integer(),
         optional("SelectionRules") => String.t(),
-        optional("SourceDataSettings") => list(source_data_setting()()),
-        optional("Tags") => list(tag()()),
-        optional("TargetDataSettings") => list(target_data_setting()()),
+        optional("SourceDataSettings") => list(source_data_setting()),
+        optional("Tags") => list(tag()),
+        optional("TargetDataSettings") => list(target_data_setting()),
         required("DataMigrationType") => list(any()),
         required("MigrationProjectIdentifier") => String.t(),
         required("ServiceAccessRoleArn") => String.t()
@@ -3978,8 +3978,8 @@ defmodule AWS.DatabaseMigration do
         "ReplicationSubnetGroupDescription" => String.t(),
         "ReplicationSubnetGroupIdentifier" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(subnet()()),
-        "SupportedNetworkTypes" => list(String.t()()),
+        "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -4029,12 +4029,12 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       start_replication_task_assessment_run_message() :: %{
-        optional("Exclude") => list(String.t()()),
-        optional("IncludeOnly") => list(String.t()()),
+        optional("Exclude") => list(String.t()),
+        optional("IncludeOnly") => list(String.t()),
         optional("ResultEncryptionMode") => String.t(),
         optional("ResultKmsKeyArn") => String.t(),
         optional("ResultLocationFolder") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AssessmentRunName") => String.t(),
         required("ReplicationTaskArn") => String.t(),
         required("ResultLocationBucket") => String.t(),
@@ -4096,7 +4096,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_data_migrations_response() :: %{
-        "DataMigrations" => list(data_migration()()),
+        "DataMigrations" => list(data_migration()),
         "Marker" => String.t()
       }
       
@@ -4109,7 +4109,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_replication_tasks_response() :: %{
         "Marker" => String.t(),
-        "ReplicationTasks" => list(replication_task()())
+        "ReplicationTasks" => list(replication_task())
       }
       
   """
@@ -4216,7 +4216,7 @@ defmodule AWS.DatabaseMigration do
       import_certificate_message() :: %{
         optional("CertificatePem") => String.t(),
         optional("CertificateWallet") => binary(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CertificateIdentifier") => String.t()
       }
       
@@ -4264,7 +4264,7 @@ defmodule AWS.DatabaseMigration do
         optional("NetworkType") => String.t(),
         optional("PubliclyAccessible") => boolean(),
         optional("SubnetGroupIdentifier") => String.t(),
-        optional("VpcSecurityGroups") => list(String.t()()),
+        optional("VpcSecurityGroups") => list(String.t()),
         required("InstanceProfileIdentifier") => String.t()
       }
       
@@ -4314,7 +4314,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_migration_projects_response() :: %{
         "Marker" => String.t(),
-        "MigrationProjects" => list(migration_project()())
+        "MigrationProjects" => list(migration_project())
       }
       
   """
@@ -4369,7 +4369,7 @@ defmodule AWS.DatabaseMigration do
         optional("KmsKeyId") => String.t(),
         optional("ResourceIdentifier") => String.t(),
         required("EngineName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("RedshiftSettings") => redshift_settings()
       }
       
@@ -4393,7 +4393,7 @@ defmodule AWS.DatabaseMigration do
       
       remove_tags_from_resource_message() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -4476,7 +4476,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_subnet_groups_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -4502,7 +4502,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_event_categories_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("SourceType") => String.t()
       }
       
@@ -4562,7 +4562,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       batch_start_recommendations_response() :: %{
-        "ErrorEntries" => list(batch_start_recommendations_error_entry()())
+        "ErrorEntries" => list(batch_start_recommendations_error_entry())
       }
       
   """
@@ -4584,7 +4584,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replications_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -4599,7 +4599,7 @@ defmodule AWS.DatabaseMigration do
       reload_replication_tables_message() :: %{
         optional("ReloadOption") => list(any()),
         required("ReplicationConfigArn") => String.t(),
-        required("TablesToReload") => list(table_to_reload()())
+        required("TablesToReload") => list(table_to_reload())
       }
       
   """
@@ -4610,7 +4610,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       batch_start_recommendations_request() :: %{
-        optional("Data") => list(start_recommendations_request_entry()())
+        optional("Data") => list(start_recommendations_request_entry())
       }
       
   """
@@ -4622,7 +4622,7 @@ defmodule AWS.DatabaseMigration do
       
       describe_metadata_model_exports_to_target_response() :: %{
         "Marker" => String.t(),
-        "Requests" => list(schema_conversion_request()())
+        "Requests" => list(schema_conversion_request())
       }
       
   """
@@ -4648,7 +4648,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_engine_versions_response() :: %{
-        "EngineVersions" => list(engine_version()()),
+        "EngineVersions" => list(engine_version()),
         "Marker" => String.t()
       }
       
@@ -4682,7 +4682,7 @@ defmodule AWS.DatabaseMigration do
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("ReplicationInstanceClass") => String.t(),
         optional("ReplicationInstanceIdentifier") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("ReplicationInstanceArn") => String.t()
       }
       
@@ -4696,7 +4696,7 @@ defmodule AWS.DatabaseMigration do
       describe_replication_instance_task_logs_response() :: %{
         "Marker" => String.t(),
         "ReplicationInstanceArn" => String.t(),
-        "ReplicationInstanceTaskLogs" => list(replication_instance_task_log()())
+        "ReplicationInstanceTaskLogs" => list(replication_instance_task_log())
       }
       
   """
@@ -4718,7 +4718,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_certificates_response() :: %{
-        "Certificates" => list(certificate()()),
+        "Certificates" => list(certificate()),
         "Marker" => String.t()
       }
       
@@ -4805,8 +4805,8 @@ defmodule AWS.DatabaseMigration do
         "MigrationProjectCreationTime" => non_neg_integer(),
         "MigrationProjectName" => String.t(),
         "SchemaConversionApplicationAttributes" => s_capplication_attributes(),
-        "SourceDataProviderDescriptors" => list(data_provider_descriptor()()),
-        "TargetDataProviderDescriptors" => list(data_provider_descriptor()()),
+        "SourceDataProviderDescriptors" => list(data_provider_descriptor()),
+        "TargetDataProviderDescriptors" => list(data_provider_descriptor()),
         "TransformationRules" => String.t()
       }
       
@@ -4852,7 +4852,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_fleet_advisor_schemas_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4865,7 +4865,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_replication_task_assessment_runs_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -4958,7 +4958,7 @@ defmodule AWS.DatabaseMigration do
   ## Example:
       
       describe_events_response() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -4983,7 +4983,7 @@ defmodule AWS.DatabaseMigration do
       reload_tables_message() :: %{
         optional("ReloadOption") => list(any()),
         required("ReplicationTaskArn") => String.t(),
-        required("TablesToReload") => list(table_to_reload()())
+        required("TablesToReload") => list(table_to_reload())
       }
       
   """
@@ -5579,7 +5579,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -5599,7 +5600,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -5632,7 +5634,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, batch_start_recommendations_errors()}
   def batch_start_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStartRecommendations", input, options)
   end
@@ -5656,7 +5659,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, cancel_replication_task_assessment_run_errors()}
   def cancel_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelReplicationTaskAssessmentRun", input, options)
   end
@@ -5670,7 +5674,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_data_migration_errors()}
   def create_data_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataMigration", input, options)
   end
@@ -5687,7 +5692,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_data_provider_errors()}
   def create_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataProvider", input, options)
   end
@@ -5710,7 +5716,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
@@ -5745,7 +5752,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -5768,7 +5776,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_fleet_advisor_collector_errors()}
   def create_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleetAdvisorCollector", input, options)
   end
@@ -5782,7 +5791,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
@@ -5802,7 +5812,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_migration_project_errors()}
   def create_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMigrationProject", input, options)
   end
@@ -5820,7 +5831,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_replication_config_errors()}
   def create_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationConfig", input, options)
   end
@@ -5847,7 +5859,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_replication_instance_errors()}
   def create_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationInstance", input, options)
   end
@@ -5876,7 +5889,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_replication_subnet_group_errors()}
   def create_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationSubnetGroup", input, options)
   end
@@ -5890,7 +5904,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, create_replication_task_errors()}
   def create_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationTask", input, options)
   end
@@ -5904,7 +5919,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -5918,7 +5934,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -5932,7 +5949,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_data_migration_errors()}
   def delete_data_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataMigration", input, options)
   end
@@ -5950,7 +5968,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_data_provider_errors()}
   def delete_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataProvider", input, options)
   end
@@ -5967,7 +5986,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -5981,7 +6001,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -6004,7 +6025,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_fleet_advisor_collector_errors()}
   def delete_fleet_advisor_collector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorCollector", input, options)
   end
@@ -6027,7 +6049,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_fleet_advisor_databases_errors()}
   def delete_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetAdvisorDatabases", input, options)
   end
@@ -6044,7 +6067,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
@@ -6060,7 +6084,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_migration_project_errors()}
   def delete_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMigrationProject", input, options)
   end
@@ -6081,7 +6106,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_replication_config_errors()}
   def delete_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationConfig", input, options)
   end
@@ -6099,7 +6125,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_replication_instance_errors()}
   def delete_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationInstance", input, options)
   end
@@ -6113,7 +6140,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_replication_subnet_group_errors()}
   def delete_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationSubnetGroup", input, options)
   end
@@ -6127,7 +6155,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_replication_task_errors()}
   def delete_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationTask", input, options)
   end
@@ -6151,7 +6180,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, delete_replication_task_assessment_run_errors()}
   def delete_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationTaskAssessmentRun", input, options)
   end
@@ -6177,7 +6207,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -6223,7 +6254,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_applicable_individual_assessments_errors()}
   def describe_applicable_individual_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicableIndividualAssessments", input, options)
   end
@@ -6237,7 +6269,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
@@ -6255,7 +6288,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnections", input, options)
   end
@@ -6273,7 +6307,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_conversion_configuration_errors()}
   def describe_conversion_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConversionConfiguration", input, options)
   end
@@ -6287,7 +6322,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_data_migrations_errors()}
   def describe_data_migrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataMigrations", input, options)
   end
@@ -6302,7 +6338,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_data_providers_errors()}
   def describe_data_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataProviders", input, options)
   end
@@ -6317,7 +6354,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointSettings", input, options)
   end
@@ -6330,7 +6368,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoint_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointTypes", input, options)
   end
@@ -6344,7 +6383,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -6357,7 +6397,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
@@ -6377,7 +6418,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -6399,7 +6441,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -6417,7 +6460,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -6440,7 +6484,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_extension_pack_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExtensionPackAssociations", input, options)
   end
@@ -6467,7 +6512,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_fleet_advisor_collectors_errors()}
   def describe_fleet_advisor_collectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorCollectors", input, options)
   end
@@ -6494,7 +6540,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_fleet_advisor_databases_errors()}
   def describe_fleet_advisor_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorDatabases", input, options)
   end
@@ -6523,7 +6570,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_fleet_advisor_lsa_analysis_errors()}
   def describe_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorLsaAnalysis", input, options)
   end
@@ -6551,7 +6599,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_fleet_advisor_schema_object_summary_errors()}
   def describe_fleet_advisor_schema_object_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorSchemaObjectSummary", input, options)
   end
@@ -6574,7 +6623,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_fleet_advisor_schemas_errors()}
   def describe_fleet_advisor_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAdvisorSchemas", input, options)
   end
@@ -6589,7 +6639,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_instance_profiles_errors()}
   def describe_instance_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceProfiles", input, options)
   end
@@ -6609,7 +6660,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_metadata_model_assessments_errors()}
   def describe_metadata_model_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelAssessments", input, options)
   end
@@ -6627,7 +6679,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_metadata_model_conversions_errors()}
   def describe_metadata_model_conversions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelConversions", input, options)
   end
@@ -6645,7 +6698,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_metadata_model_exports_as_script_errors()}
   def describe_metadata_model_exports_as_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelExportsAsScript", input, options)
   end
@@ -6663,7 +6717,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_metadata_model_exports_to_target_errors()}
   def describe_metadata_model_exports_to_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelExportsToTarget", input, options)
   end
@@ -6677,7 +6732,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_metadata_model_imports_errors()}
   def describe_metadata_model_imports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetadataModelImports", input, options)
   end
@@ -6692,7 +6748,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_migration_projects_errors()}
   def describe_migration_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMigrationProjects", input, options)
   end
@@ -6711,7 +6768,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_replication_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableReplicationInstances", input, options)
   end
@@ -6731,7 +6789,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -6760,7 +6819,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_recommendation_limitations_errors()}
   def describe_recommendation_limitations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommendationLimitations", input, options)
   end
@@ -6784,7 +6844,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_recommendations_errors()}
   def describe_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommendations", input, options)
   end
@@ -6798,7 +6859,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_refresh_schemas_status_errors()}
   def describe_refresh_schemas_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRefreshSchemasStatus", input, options)
   end
@@ -6814,7 +6876,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_configs_errors()}
   def describe_replication_configs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationConfigs", input, options)
   end
@@ -6832,7 +6895,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_instance_task_logs_errors()}
   def describe_replication_instance_task_logs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationInstanceTaskLogs", input, options)
   end
@@ -6847,7 +6911,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_instances_errors()}
   def describe_replication_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationInstances", input, options)
   end
@@ -6865,7 +6930,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_subnet_groups_errors()}
   def describe_replication_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationSubnetGroups", input, options)
   end
@@ -6885,7 +6951,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_table_statistics_errors()}
   def describe_replication_table_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTableStatistics", input, options)
   end
@@ -6910,7 +6977,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_task_assessment_results_errors()}
   def describe_replication_task_assessment_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTaskAssessmentResults", input, options)
   end
@@ -6936,7 +7004,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_task_assessment_runs_errors()}
   def describe_replication_task_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTaskAssessmentRuns", input, options)
   end
@@ -6957,7 +7026,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_task_individual_assessments_errors()}
   def describe_replication_task_individual_assessments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6978,7 +7048,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replication_tasks_errors()}
   def describe_replication_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationTasks", input, options)
   end
@@ -6994,7 +7065,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_replications_errors()}
   def describe_replications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplications", input, options)
   end
@@ -7008,7 +7080,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_schemas_errors()}
   def describe_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSchemas", input, options)
   end
@@ -7030,7 +7103,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, describe_table_statistics_errors()}
   def describe_table_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTableStatistics", input, options)
   end
@@ -7051,7 +7125,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, export_metadata_model_assessment_errors()}
   def export_metadata_model_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportMetadataModelAssessment", input, options)
   end
@@ -7065,7 +7140,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
   end
@@ -7086,7 +7162,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -7101,7 +7178,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_conversion_configuration_errors()}
   def modify_conversion_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyConversionConfiguration", input, options)
   end
@@ -7115,7 +7193,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_data_migration_errors()}
   def modify_data_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDataMigration", input, options)
   end
@@ -7133,7 +7212,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_data_provider_errors()}
   def modify_data_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDataProvider", input, options)
   end
@@ -7156,7 +7236,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_endpoint_errors()}
   def modify_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEndpoint", input, options)
   end
@@ -7170,7 +7251,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -7187,7 +7269,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_instance_profile_errors()}
   def modify_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceProfile", input, options)
   end
@@ -7203,7 +7286,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_migration_project_errors()}
   def modify_migration_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyMigrationProject", input, options)
   end
@@ -7231,7 +7315,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_replication_config_errors()}
   def modify_replication_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationConfig", input, options)
   end
@@ -7250,7 +7335,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_replication_instance_errors()}
   def modify_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationInstance", input, options)
   end
@@ -7264,7 +7350,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_replication_subnet_group_errors()}
   def modify_replication_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationSubnetGroup", input, options)
   end
@@ -7284,7 +7371,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, modify_replication_task_errors()}
   def modify_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationTask", input, options)
   end
@@ -7304,7 +7392,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, move_replication_task_errors()}
   def move_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveReplicationTask", input, options)
   end
@@ -7321,7 +7410,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, reboot_replication_instance_errors()}
   def reboot_replication_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootReplicationInstance", input, options)
   end
@@ -7340,7 +7430,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, refresh_schemas_errors()}
   def refresh_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RefreshSchemas", input, options)
   end
@@ -7360,7 +7451,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, reload_replication_tables_errors()}
   def reload_replication_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReloadReplicationTables", input, options)
   end
@@ -7377,7 +7469,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, reload_tables_errors()}
   def reload_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReloadTables", input, options)
   end
@@ -7398,7 +7491,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -7422,7 +7516,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, run_fleet_advisor_lsa_analysis_errors()}
   def run_fleet_advisor_lsa_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunFleetAdvisorLsaAnalysis", input, options)
   end
@@ -7436,7 +7531,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_data_migration_errors()}
   def start_data_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataMigration", input, options)
   end
@@ -7459,7 +7555,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_extension_pack_association_errors()}
   def start_extension_pack_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExtensionPackAssociation", input, options)
   end
@@ -7480,7 +7577,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_metadata_model_assessment_errors()}
   def start_metadata_model_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelAssessment", input, options)
   end
@@ -7495,7 +7593,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_metadata_model_conversion_errors()}
   def start_metadata_model_conversion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelConversion", input, options)
   end
@@ -7515,7 +7614,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_metadata_model_export_as_script_errors()}
   def start_metadata_model_export_as_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelExportAsScript", input, options)
   end
@@ -7533,7 +7633,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_metadata_model_export_to_target_errors()}
   def start_metadata_model_export_to_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelExportToTarget", input, options)
   end
@@ -7551,7 +7652,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_metadata_model_import_errors()}
   def start_metadata_model_import(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMetadataModelImport", input, options)
   end
@@ -7578,7 +7680,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_recommendations_errors()}
   def start_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRecommendations", input, options)
   end
@@ -7600,7 +7703,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_replication_errors()}
   def start_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplication", input, options)
   end
@@ -7618,7 +7722,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_replication_task_errors()}
   def start_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTask", input, options)
   end
@@ -7652,7 +7757,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_replication_task_assessment_errors()}
   def start_replication_task_assessment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessment", input, options)
   end
@@ -7682,7 +7788,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, start_replication_task_assessment_run_errors()}
   def start_replication_task_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplicationTaskAssessmentRun", input, options)
   end
@@ -7696,7 +7803,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, stop_data_migration_errors()}
   def stop_data_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataMigration", input, options)
   end
@@ -7715,7 +7823,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, stop_replication_errors()}
   def stop_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopReplication", input, options)
   end
@@ -7729,7 +7838,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, stop_replication_task_errors()}
   def stop_replication_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopReplicationTask", input, options)
   end
@@ -7743,7 +7853,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
@@ -7781,7 +7892,8 @@ defmodule AWS.DatabaseMigration do
           | {:error, term()}
           | {:error, update_subscriptions_to_event_bridge_errors()}
   def update_subscriptions_to_event_bridge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscriptionsToEventBridge", input, options)
   end

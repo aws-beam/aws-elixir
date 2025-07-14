@@ -71,7 +71,7 @@ defmodule AWS.SMS do
       
       get_replication_jobs_response() :: %{
         "nextToken" => String.t(),
-        "replicationJobList" => list(replication_job()())
+        "replicationJobList" => list(replication_job())
       }
       
   """
@@ -82,7 +82,7 @@ defmodule AWS.SMS do
   ## Example:
       
       list_apps_response() :: %{
-        "apps" => list(app_summary()()),
+        "apps" => list(app_summary()),
         "nextToken" => String.t()
       }
       
@@ -127,8 +127,8 @@ defmodule AWS.SMS do
         optional("description") => String.t(),
         optional("name") => String.t(),
         optional("roleName") => String.t(),
-        optional("serverGroups") => list(server_group()()),
-        optional("tags") => list(tag()())
+        optional("serverGroups") => list(server_group()),
+        optional("tags") => list(tag())
       }
       
   """
@@ -322,7 +322,7 @@ defmodule AWS.SMS do
   ## Example:
       
       get_connectors_response() :: %{
-        "connectorList" => list(connector()()),
+        "connectorList" => list(connector()),
         "nextToken" => String.t()
       }
       
@@ -335,7 +335,7 @@ defmodule AWS.SMS do
       
       put_app_replication_configuration_request() :: %{
         optional("appId") => String.t(),
-        optional("serverGroupReplicationConfigurations") => list(server_group_replication_configuration()())
+        optional("serverGroupReplicationConfigurations") => list(server_group_replication_configuration())
       }
       
   """
@@ -384,7 +384,7 @@ defmodule AWS.SMS do
       server_group_launch_configuration() :: %{
         "launchOrder" => integer(),
         "serverGroupId" => String.t(),
-        "serverLaunchConfigurations" => list(server_launch_configuration()())
+        "serverLaunchConfigurations" => list(server_launch_configuration())
       }
       
   """
@@ -456,7 +456,7 @@ defmodule AWS.SMS do
       
       server_group_replication_configuration() :: %{
         "serverGroupId" => String.t(),
-        "serverReplicationConfigurations" => list(server_replication_configuration()())
+        "serverReplicationConfigurations" => list(server_replication_configuration())
       }
       
   """
@@ -491,7 +491,7 @@ defmodule AWS.SMS do
       get_servers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("vmServerAddressList") => list(vm_server_address()())
+        optional("vmServerAddressList") => list(vm_server_address())
       }
       
   """
@@ -551,7 +551,7 @@ defmodule AWS.SMS do
         optional("appId") => String.t(),
         optional("autoLaunch") => boolean(),
         optional("roleName") => String.t(),
-        optional("serverGroupLaunchConfigurations") => list(server_group_launch_configuration()())
+        optional("serverGroupLaunchConfigurations") => list(server_group_launch_configuration())
       }
       
   """
@@ -658,8 +658,8 @@ defmodule AWS.SMS do
   ## Example:
       
       put_app_validation_configuration_request() :: %{
-        optional("appValidationConfigurations") => list(app_validation_configuration()()),
-        optional("serverGroupValidationConfigurations") => list(server_group_validation_configuration()()),
+        optional("appValidationConfigurations") => list(app_validation_configuration()),
+        optional("serverGroupValidationConfigurations") => list(server_group_validation_configuration()),
         required("appId") => String.t()
       }
       
@@ -812,8 +812,8 @@ defmodule AWS.SMS do
       
       get_app_response() :: %{
         "appSummary" => app_summary(),
-        "serverGroups" => list(server_group()()),
-        "tags" => list(tag()())
+        "serverGroups" => list(server_group()),
+        "tags" => list(tag())
       }
       
   """
@@ -836,8 +836,8 @@ defmodule AWS.SMS do
       
       update_app_response() :: %{
         "appSummary" => app_summary(),
-        "serverGroups" => list(server_group()()),
-        "tags" => list(tag()())
+        "serverGroups" => list(server_group()),
+        "tags" => list(tag())
       }
       
   """
@@ -860,7 +860,7 @@ defmodule AWS.SMS do
       
       server_group_validation_configuration() :: %{
         "serverGroupId" => String.t(),
-        "serverValidationConfigurations" => list(server_validation_configuration()())
+        "serverValidationConfigurations" => list(server_validation_configuration())
       }
       
   """
@@ -905,8 +905,8 @@ defmodule AWS.SMS do
   ## Example:
       
       get_app_validation_configuration_response() :: %{
-        "appValidationConfigurations" => list(app_validation_configuration()()),
-        "serverGroupValidationConfigurations" => list(server_group_validation_configuration()())
+        "appValidationConfigurations" => list(app_validation_configuration()),
+        "serverGroupValidationConfigurations" => list(server_group_validation_configuration())
       }
       
   """
@@ -1047,8 +1047,8 @@ defmodule AWS.SMS do
         optional("description") => String.t(),
         optional("name") => String.t(),
         optional("roleName") => String.t(),
-        optional("serverGroups") => list(server_group()()),
-        optional("tags") => list(tag()())
+        optional("serverGroups") => list(server_group()),
+        optional("tags") => list(tag())
       }
       
   """
@@ -1073,7 +1073,7 @@ defmodule AWS.SMS do
         "lastModifiedOn" => non_neg_integer(),
         "nextToken" => String.t(),
         "serverCatalogStatus" => list(any()),
-        "serverList" => list(server()())
+        "serverList" => list(server())
       }
       
   """
@@ -1119,7 +1119,7 @@ defmodule AWS.SMS do
   ## Example:
       
       list_apps_request() :: %{
-        optional("appIds") => list(String.t()()),
+        optional("appIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1188,7 +1188,7 @@ defmodule AWS.SMS do
   ## Example:
       
       get_app_replication_configuration_response() :: %{
-        "serverGroupReplicationConfigurations" => list(server_group_replication_configuration()())
+        "serverGroupReplicationConfigurations" => list(server_group_replication_configuration())
       }
       
   """
@@ -1227,8 +1227,8 @@ defmodule AWS.SMS do
       
       create_app_response() :: %{
         "appSummary" => app_summary(),
-        "serverGroups" => list(server_group()()),
-        "tags" => list(tag()())
+        "serverGroups" => list(server_group()),
+        "tags" => list(tag())
       }
       
   """
@@ -1274,7 +1274,7 @@ defmodule AWS.SMS do
   ## Example:
       
       get_app_validation_output_response() :: %{
-        "validationOutputList" => list(validation_output()())
+        "validationOutputList" => list(validation_output())
       }
       
   """
@@ -1288,7 +1288,7 @@ defmodule AWS.SMS do
         "appId" => String.t(),
         "autoLaunch" => boolean(),
         "roleName" => String.t(),
-        "serverGroupLaunchConfigurations" => list(server_group_launch_configuration()())
+        "serverGroupLaunchConfigurations" => list(server_group_launch_configuration())
       }
       
   """
@@ -1338,7 +1338,7 @@ defmodule AWS.SMS do
         "nextReplicationRunStartTime" => non_neg_integer(),
         "numberOfRecentAmisToKeep" => integer(),
         "replicationJobId" => String.t(),
-        "replicationRunList" => list(replication_run()()),
+        "replicationRunList" => list(replication_run()),
         "roleName" => String.t(),
         "runOnce" => boolean(),
         "seedReplicationTime" => non_neg_integer(),
@@ -1359,7 +1359,7 @@ defmodule AWS.SMS do
       get_replication_runs_response() :: %{
         "nextToken" => String.t(),
         "replicationJob" => replication_job(),
-        "replicationRunList" => list(replication_run()())
+        "replicationRunList" => list(replication_run())
       }
       
   """
@@ -1385,7 +1385,7 @@ defmodule AWS.SMS do
       server_group() :: %{
         "name" => String.t(),
         "serverGroupId" => String.t(),
-        "serverList" => list(server()())
+        "serverList" => list(server())
       }
       
   """
@@ -1660,7 +1660,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -1679,7 +1680,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, create_replication_job_errors()}
   def create_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationJob", input, options)
   end
@@ -1697,7 +1699,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -1711,7 +1714,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_launch_configuration_errors()}
   def delete_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppLaunchConfiguration", input, options)
   end
@@ -1729,7 +1733,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_replication_configuration_errors()}
   def delete_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppReplicationConfiguration", input, options)
   end
@@ -1747,7 +1752,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_app_validation_configuration_errors()}
   def delete_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppValidationConfiguration", input, options)
   end
@@ -1767,7 +1773,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_replication_job_errors()}
   def delete_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationJob", input, options)
   end
@@ -1781,7 +1788,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, delete_server_catalog_errors()}
   def delete_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerCatalog", input, options)
   end
@@ -1798,7 +1806,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, disassociate_connector_errors()}
   def disassociate_connector(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnector", input, options)
   end
@@ -1814,7 +1823,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, generate_change_set_errors()}
   def generate_change_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateChangeSet", input, options)
   end
@@ -1830,7 +1840,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, generate_template_errors()}
   def generate_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateTemplate", input, options)
   end
@@ -1844,7 +1855,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_errors()}
   def get_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApp", input, options)
   end
@@ -1859,7 +1871,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_launch_configuration_errors()}
   def get_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppLaunchConfiguration", input, options)
   end
@@ -1879,7 +1892,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_replication_configuration_errors()}
   def get_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppReplicationConfiguration", input, options)
   end
@@ -1897,7 +1911,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_validation_configuration_errors()}
   def get_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationConfiguration", input, options)
   end
@@ -1911,7 +1926,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_app_validation_output_errors()}
   def get_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppValidationOutput", input, options)
   end
@@ -1925,7 +1941,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_connectors_errors()}
   def get_connectors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnectors", input, options)
   end
@@ -1939,7 +1956,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_replication_jobs_errors()}
   def get_replication_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationJobs", input, options)
   end
@@ -1953,7 +1971,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_replication_runs_errors()}
   def get_replication_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReplicationRuns", input, options)
   end
@@ -1970,7 +1989,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, get_servers_errors()}
   def get_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServers", input, options)
   end
@@ -1984,7 +2004,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, import_app_catalog_errors()}
   def import_app_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportAppCatalog", input, options)
   end
@@ -2005,7 +2026,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, import_server_catalog_errors()}
   def import_server_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportServerCatalog", input, options)
   end
@@ -2019,7 +2041,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, launch_app_errors()}
   def launch_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LaunchApp", input, options)
   end
@@ -2033,7 +2056,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, list_apps_errors()}
   def list_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApps", input, options)
   end
@@ -2048,7 +2072,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, notify_app_validation_output_errors()}
   def notify_app_validation_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyAppValidationOutput", input, options)
   end
@@ -2062,7 +2087,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_launch_configuration_errors()}
   def put_app_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppLaunchConfiguration", input, options)
   end
@@ -2080,7 +2106,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_replication_configuration_errors()}
   def put_app_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppReplicationConfiguration", input, options)
   end
@@ -2098,7 +2125,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, put_app_validation_configuration_errors()}
   def put_app_validation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppValidationConfiguration", input, options)
   end
@@ -2114,7 +2142,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_app_replication_errors()}
   def start_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAppReplication", input, options)
   end
@@ -2128,7 +2157,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_on_demand_app_replication_errors()}
   def start_on_demand_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandAppReplication", input, options)
   end
@@ -2151,7 +2181,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, start_on_demand_replication_run_errors()}
   def start_on_demand_replication_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartOnDemandReplicationRun", input, options)
   end
@@ -2167,7 +2198,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, stop_app_replication_errors()}
   def stop_app_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAppReplication", input, options)
   end
@@ -2181,7 +2213,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, terminate_app_errors()}
   def terminate_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateApp", input, options)
   end
@@ -2195,7 +2228,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -2209,7 +2243,8 @@ defmodule AWS.SMS do
           | {:error, term()}
           | {:error, update_replication_job_errors()}
   def update_replication_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReplicationJob", input, options)
   end

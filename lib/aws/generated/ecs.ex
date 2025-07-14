@@ -54,7 +54,7 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_task_definition_response() :: %{
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "taskDefinition" => task_definition()
       }
       
@@ -66,7 +66,7 @@ defmodule AWS.ECS do
   ## Example:
       
       container_instance_health_status() :: %{
-        "details" => list(instance_health_check_result()()),
+        "details" => list(instance_health_check_result()),
         "overallStatus" => list(any())
       }
       
@@ -89,8 +89,8 @@ defmodule AWS.ECS do
   ## Example:
       
       update_container_instances_state_response() :: %{
-        "containerInstances" => list(container_instance()()),
-        "failures" => list(failure()())
+        "containerInstances" => list(container_instance()),
+        "failures" => list(failure())
       }
       
   """
@@ -117,7 +117,7 @@ defmodule AWS.ECS do
   ## Example:
       
       task_set() :: %{
-        "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "clusterArn" => String.t(),
         "computedDesiredCount" => integer(),
         "createdAt" => non_neg_integer(),
@@ -125,7 +125,7 @@ defmodule AWS.ECS do
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
         "id" => String.t(),
         "launchType" => list(any()),
-        "loadBalancers" => list(load_balancer()()),
+        "loadBalancers" => list(load_balancer()),
         "networkConfiguration" => network_configuration(),
         "pendingCount" => integer(),
         "platformFamily" => String.t(),
@@ -133,12 +133,12 @@ defmodule AWS.ECS do
         "runningCount" => integer(),
         "scale" => scale(),
         "serviceArn" => String.t(),
-        "serviceRegistries" => list(service_registry()()),
+        "serviceRegistries" => list(service_registry()),
         "stabilityStatus" => list(any()),
         "stabilityStatusAt" => non_neg_integer(),
         "startedBy" => String.t(),
         "status" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "taskDefinition" => String.t(),
         "taskSetArn" => String.t(),
         "updatedAt" => non_neg_integer()
@@ -153,13 +153,13 @@ defmodule AWS.ECS do
       
       task() :: %{
         "launchType" => list(any()),
-        "attachments" => list(attachment()()),
+        "attachments" => list(attachment()),
         "ephemeralStorage" => ephemeral_storage(),
         "pullStartedAt" => non_neg_integer(),
         "containerInstanceArn" => String.t(),
         "startedBy" => String.t(),
         "executionStoppedAt" => non_neg_integer(),
-        "attributes" => list(attribute()()),
+        "attributes" => list(attribute()),
         "stoppingAt" => non_neg_integer(),
         "cpu" => String.t(),
         "platformVersion" => String.t(),
@@ -173,15 +173,15 @@ defmodule AWS.ECS do
         "desiredStatus" => String.t(),
         "overrides" => task_override(),
         "connectivity" => list(any()),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "connectivityAt" => non_neg_integer(),
         "taskDefinitionArn" => String.t(),
         "platformFamily" => String.t(),
-        "inferenceAccelerators" => list(inference_accelerator()()),
+        "inferenceAccelerators" => list(inference_accelerator()),
         "pullStoppedAt" => non_neg_integer(),
         "stoppedAt" => non_neg_integer(),
         "fargateEphemeralStorage" => task_ephemeral_storage(),
-        "containers" => list(container()()),
+        "containers" => list(container()),
         "capacityProviderName" => String.t(),
         "clusterArn" => String.t(),
         "group" => String.t(),
@@ -211,7 +211,7 @@ defmodule AWS.ECS do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -248,7 +248,7 @@ defmodule AWS.ECS do
       describe_container_instances_request() :: %{
         optional("cluster") => String.t(),
         optional("include") => list(list(any())()),
-        required("containerInstances") => list(String.t()())
+        required("containerInstances") => list(String.t())
       }
       
   """
@@ -274,17 +274,17 @@ defmodule AWS.ECS do
         "containerArn" => String.t(),
         "cpu" => String.t(),
         "exitCode" => integer(),
-        "gpuIds" => list(String.t()()),
+        "gpuIds" => list(String.t()),
         "healthStatus" => list(any()),
         "image" => String.t(),
         "imageDigest" => String.t(),
         "lastStatus" => String.t(),
-        "managedAgents" => list(managed_agent()()),
+        "managedAgents" => list(managed_agent()),
         "memory" => String.t(),
         "memoryReservation" => String.t(),
         "name" => String.t(),
-        "networkBindings" => list(network_binding()()),
-        "networkInterfaces" => list(network_interface()()),
+        "networkBindings" => list(network_binding()),
+        "networkInterfaces" => list(network_interface()),
         "reason" => String.t(),
         "runtimeId" => String.t(),
         "taskArn" => String.t()
@@ -323,8 +323,8 @@ defmodule AWS.ECS do
   ## Example:
       
       run_task_response() :: %{
-        "failures" => list(failure()()),
-        "tasks" => list(task()())
+        "failures" => list(failure()),
+        "tasks" => list(task())
       }
       
   """
@@ -336,7 +336,7 @@ defmodule AWS.ECS do
       
       proxy_configuration() :: %{
         "containerName" => String.t(),
-        "properties" => list(key_value_pair()()),
+        "properties" => list(key_value_pair()),
         "type" => list(any())
       }
       
@@ -373,7 +373,7 @@ defmodule AWS.ECS do
   ## Example:
       
       deployment() :: %{
-        "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "createdAt" => non_neg_integer(),
         "desiredCount" => integer(),
         "failedTasks" => integer(),
@@ -388,12 +388,12 @@ defmodule AWS.ECS do
         "rolloutStateReason" => String.t(),
         "runningCount" => integer(),
         "serviceConnectConfiguration" => service_connect_configuration(),
-        "serviceConnectResources" => list(service_connect_service_resource()()),
+        "serviceConnectResources" => list(service_connect_service_resource()),
         "status" => String.t(),
         "taskDefinition" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "volumeConfigurations" => list(service_volume_configuration()()),
-        "vpcLatticeConfigurations" => list(vpc_lattice_configuration()())
+        "volumeConfigurations" => list(service_volume_configuration()),
+        "vpcLatticeConfigurations" => list(vpc_lattice_configuration())
       }
       
   """
@@ -419,7 +419,7 @@ defmodule AWS.ECS do
       describe_services_request() :: %{
         optional("cluster") => String.t(),
         optional("include") => list(list(any())()),
-        required("services") => list(String.t()())
+        required("services") => list(String.t())
       }
       
   """
@@ -451,11 +451,11 @@ defmodule AWS.ECS do
   ## Example:
       
       task_override() :: %{
-        "containerOverrides" => list(container_override()()),
+        "containerOverrides" => list(container_override()),
         "cpu" => String.t(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
-        "inferenceAcceleratorOverrides" => list(inference_accelerator_override()()),
+        "inferenceAcceleratorOverrides" => list(inference_accelerator_override()),
         "memory" => String.t(),
         "taskRoleArn" => String.t()
       }
@@ -468,8 +468,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_service_deployments_response() :: %{
-        "failures" => list(failure()()),
-        "serviceDeployments" => list(service_deployment()())
+        "failures" => list(failure()),
+        "serviceDeployments" => list(service_deployment())
       }
       
   """
@@ -525,16 +525,16 @@ defmodule AWS.ECS do
   ## Example:
       
       create_task_set_request() :: %{
-        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("clientToken") => String.t(),
         optional("externalId") => String.t(),
         optional("launchType") => list(any()),
-        optional("loadBalancers") => list(load_balancer()()),
+        optional("loadBalancers") => list(load_balancer()),
         optional("networkConfiguration") => network_configuration(),
         optional("platformVersion") => String.t(),
         optional("scale") => scale(),
-        optional("serviceRegistries") => list(service_registry()()),
-        optional("tags") => list(tag()()),
+        optional("serviceRegistries") => list(service_registry()),
+        optional("tags") => list(tag()),
         required("cluster") => String.t(),
         required("service") => String.t(),
         required("taskDefinition") => String.t()
@@ -557,9 +557,9 @@ defmodule AWS.ECS do
         optional("propagateTags") => list(any()),
         optional("referenceId") => String.t(),
         optional("startedBy") => String.t(),
-        optional("tags") => list(tag()()),
-        optional("volumeConfigurations") => list(task_volume_configuration()()),
-        required("containerInstances") => list(String.t()()),
+        optional("tags") => list(tag()),
+        optional("volumeConfigurations") => list(task_volume_configuration()),
+        required("containerInstances") => list(String.t()),
         required("taskDefinition") => String.t()
       }
       
@@ -618,8 +618,8 @@ defmodule AWS.ECS do
   ## Example:
       
       get_task_protection_response() :: %{
-        "failures" => list(failure()()),
-        "protectedTasks" => list(protected_task()())
+        "failures" => list(failure()),
+        "protectedTasks" => list(protected_task())
       }
       
   """
@@ -715,7 +715,7 @@ defmodule AWS.ECS do
   ## Example:
       
       attachment() :: %{
-        "details" => list(key_value_pair()()),
+        "details" => list(key_value_pair()),
         "id" => String.t(),
         "status" => String.t(),
         "type" => String.t()
@@ -766,24 +766,24 @@ defmodule AWS.ECS do
       
       service() :: %{
         "availabilityZoneRebalancing" => list(any()),
-        "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "clusterArn" => String.t(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "deploymentConfiguration" => deployment_configuration(),
         "deploymentController" => deployment_controller(),
-        "deployments" => list(deployment()()),
+        "deployments" => list(deployment()),
         "desiredCount" => integer(),
         "enableECSManagedTags" => boolean(),
         "enableExecuteCommand" => boolean(),
-        "events" => list(service_event()()),
+        "events" => list(service_event()),
         "healthCheckGracePeriodSeconds" => integer(),
         "launchType" => list(any()),
-        "loadBalancers" => list(load_balancer()()),
+        "loadBalancers" => list(load_balancer()),
         "networkConfiguration" => network_configuration(),
         "pendingCount" => integer(),
-        "placementConstraints" => list(placement_constraint()()),
-        "placementStrategy" => list(placement_strategy()()),
+        "placementConstraints" => list(placement_constraint()),
+        "placementStrategy" => list(placement_strategy()),
         "platformFamily" => String.t(),
         "platformVersion" => String.t(),
         "propagateTags" => list(any()),
@@ -792,11 +792,11 @@ defmodule AWS.ECS do
         "schedulingStrategy" => list(any()),
         "serviceArn" => String.t(),
         "serviceName" => String.t(),
-        "serviceRegistries" => list(service_registry()()),
+        "serviceRegistries" => list(service_registry()),
         "status" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "taskDefinition" => String.t(),
-        "taskSets" => list(task_set()())
+        "taskSets" => list(task_set())
       }
       
   """
@@ -880,7 +880,7 @@ defmodule AWS.ECS do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -903,7 +903,7 @@ defmodule AWS.ECS do
       
       update_container_instances_state_request() :: %{
         optional("cluster") => String.t(),
-        required("containerInstances") => list(String.t()()),
+        required("containerInstances") => list(String.t()),
         required("status") => list(any())
       }
       
@@ -933,7 +933,7 @@ defmodule AWS.ECS do
         optional("expiresInMinutes") => integer(),
         required("cluster") => String.t(),
         required("protectionEnabled") => boolean(),
-        required("tasks") => list(String.t()())
+        required("tasks") => list(String.t())
       }
       
   """
@@ -946,7 +946,7 @@ defmodule AWS.ECS do
       update_cluster_request() :: %{
         optional("configuration") => cluster_configuration(),
         optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
-        optional("settings") => list(cluster_setting()()),
+        optional("settings") => list(cluster_setting()),
         required("cluster") => String.t()
       }
       
@@ -958,14 +958,14 @@ defmodule AWS.ECS do
   ## Example:
       
       register_container_instance_request() :: %{
-        optional("attributes") => list(attribute()()),
+        optional("attributes") => list(attribute()),
         optional("cluster") => String.t(),
         optional("containerInstanceArn") => String.t(),
         optional("instanceIdentityDocument") => String.t(),
         optional("instanceIdentityDocumentSignature") => String.t(),
-        optional("platformDevices") => list(platform_device()()),
-        optional("tags") => list(tag()()),
-        optional("totalResources") => list(resource()()),
+        optional("platformDevices") => list(platform_device()),
+        optional("tags") => list(tag()),
+        optional("totalResources") => list(resource()),
         optional("versionInfo") => version_info()
       }
       
@@ -1028,7 +1028,7 @@ defmodule AWS.ECS do
   ## Example:
       
       deployment_alarms() :: %{
-        "alarmNames" => list(String.t()()),
+        "alarmNames" => list(String.t()),
         "enable" => boolean(),
         "rollback" => boolean()
       }
@@ -1085,8 +1085,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_services_response() :: %{
-        "failures" => list(failure()()),
-        "services" => list(service()())
+        "failures" => list(failure()),
+        "services" => list(service())
       }
       
   """
@@ -1172,7 +1172,7 @@ defmodule AWS.ECS do
       
       list_account_settings_response() :: %{
         "nextToken" => String.t(),
-        "settings" => list(setting()())
+        "settings" => list(setting())
       }
       
   """
@@ -1196,13 +1196,13 @@ defmodule AWS.ECS do
   ## Example:
       
       create_cluster_request() :: %{
-        optional("capacityProviders") => list(String.t()()),
+        optional("capacityProviders") => list(String.t()),
         optional("clusterName") => String.t(),
         optional("configuration") => cluster_configuration(),
-        optional("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+        optional("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("serviceConnectDefaults") => cluster_service_connect_defaults_request(),
-        optional("settings") => list(cluster_setting()()),
-        optional("tags") => list(tag()())
+        optional("settings") => list(cluster_setting()),
+        optional("tags") => list(tag())
       }
       
   """
@@ -1214,7 +1214,7 @@ defmodule AWS.ECS do
       
       container_restart_policy() :: %{
         "enabled" => boolean(),
-        "ignoredExitCodes" => list(integer()()),
+        "ignoredExitCodes" => list(integer()),
         "restartAttemptPeriod" => integer()
       }
       
@@ -1227,7 +1227,7 @@ defmodule AWS.ECS do
       
       list_service_deployments_response() :: %{
         "nextToken" => String.t(),
-        "serviceDeployments" => list(service_deployment_brief()())
+        "serviceDeployments" => list(service_deployment_brief())
       }
       
   """
@@ -1241,7 +1241,7 @@ defmodule AWS.ECS do
         "enabled" => boolean(),
         "logConfiguration" => log_configuration(),
         "namespace" => String.t(),
-        "services" => list(service_connect_service()())
+        "services" => list(service_connect_service())
       }
       
   """
@@ -1263,7 +1263,7 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_capacity_providers_request() :: %{
-        optional("capacityProviders") => list(String.t()()),
+        optional("capacityProviders") => list(String.t()),
         optional("include") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -1278,7 +1278,7 @@ defmodule AWS.ECS do
       
       conflict_exception() :: %{
         "message" => String.t(),
-        "resourceIds" => list(String.t()())
+        "resourceIds" => list(String.t())
       }
       
   """
@@ -1300,47 +1300,47 @@ defmodule AWS.ECS do
   ## Example:
       
       container_definition() :: %{
-        "dependsOn" => list(container_dependency()()),
+        "dependsOn" => list(container_dependency()),
         "image" => String.t(),
-        "entryPoint" => list(String.t()()),
+        "entryPoint" => list(String.t()),
         "user" => String.t(),
         "healthCheck" => health_check(),
         "interactive" => boolean(),
-        "dockerSecurityOptions" => list(String.t()()),
+        "dockerSecurityOptions" => list(String.t()),
         "pseudoTerminal" => boolean(),
         "hostname" => String.t(),
-        "secrets" => list(secret()()),
+        "secrets" => list(secret()),
         "name" => String.t(),
-        "portMappings" => list(port_mapping()()),
+        "portMappings" => list(port_mapping()),
         "workingDirectory" => String.t(),
-        "command" => list(String.t()()),
-        "environmentFiles" => list(environment_file()()),
+        "command" => list(String.t()),
+        "environmentFiles" => list(environment_file()),
         "cpu" => integer(),
         "repositoryCredentials" => repository_credentials(),
-        "links" => list(String.t()()),
-        "ulimits" => list(ulimit()()),
+        "links" => list(String.t()),
+        "ulimits" => list(ulimit()),
         "readonlyRootFilesystem" => boolean(),
-        "volumesFrom" => list(volume_from()()),
+        "volumesFrom" => list(volume_from()),
         "disableNetworking" => boolean(),
         "memory" => integer(),
         "privileged" => boolean(),
         "logConfiguration" => log_configuration(),
-        "systemControls" => list(system_control()()),
-        "mountPoints" => list(mount_point()()),
-        "environment" => list(key_value_pair()()),
-        "dnsSearchDomains" => list(String.t()()),
+        "systemControls" => list(system_control()),
+        "mountPoints" => list(mount_point()),
+        "environment" => list(key_value_pair()),
+        "dnsSearchDomains" => list(String.t()),
         "linuxParameters" => linux_parameters(),
         "startTimeout" => integer(),
-        "resourceRequirements" => list(resource_requirement()()),
-        "dnsServers" => list(String.t()()),
+        "resourceRequirements" => list(resource_requirement()),
+        "dnsServers" => list(String.t()),
         "restartPolicy" => container_restart_policy(),
         "dockerLabels" => map(),
         "versionConsistency" => list(any()),
         "essential" => boolean(),
         "stopTimeout" => integer(),
         "memoryReservation" => integer(),
-        "credentialSpecs" => list(String.t()()),
-        "extraHosts" => list(host_entry()()),
+        "credentialSpecs" => list(String.t()),
+        "extraHosts" => list(host_entry()),
         "firelensConfiguration" => firelens_configuration()
       }
       
@@ -1377,7 +1377,7 @@ defmodule AWS.ECS do
   ## Example:
       
       get_task_protection_request() :: %{
-        optional("tasks") => list(String.t()()),
+        optional("tasks") => list(String.t()),
         required("cluster") => String.t()
       }
       
@@ -1413,7 +1413,7 @@ defmodule AWS.ECS do
       
       list_task_definitions_response() :: %{
         "nextToken" => String.t(),
-        "taskDefinitionArns" => list(String.t()())
+        "taskDefinitionArns" => list(String.t())
       }
       
   """
@@ -1424,14 +1424,14 @@ defmodule AWS.ECS do
   ## Example:
       
       container_override() :: %{
-        "command" => list(String.t()()),
+        "command" => list(String.t()),
         "cpu" => integer(),
-        "environment" => list(key_value_pair()()),
-        "environmentFiles" => list(environment_file()()),
+        "environment" => list(key_value_pair()),
+        "environmentFiles" => list(environment_file()),
         "memory" => integer(),
         "memoryReservation" => integer(),
         "name" => String.t(),
-        "resourceRequirements" => list(resource_requirement()())
+        "resourceRequirements" => list(resource_requirement())
       }
       
   """
@@ -1471,21 +1471,21 @@ defmodule AWS.ECS do
       
       cluster() :: %{
         "activeServicesCount" => integer(),
-        "attachments" => list(attachment()()),
+        "attachments" => list(attachment()),
         "attachmentsStatus" => String.t(),
-        "capacityProviders" => list(String.t()()),
+        "capacityProviders" => list(String.t()),
         "clusterArn" => String.t(),
         "clusterName" => String.t(),
         "configuration" => cluster_configuration(),
-        "defaultCapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "defaultCapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "pendingTasksCount" => integer(),
         "registeredContainerInstancesCount" => integer(),
         "runningTasksCount" => integer(),
         "serviceConnectDefaults" => cluster_service_connect_defaults(),
-        "settings" => list(cluster_setting()()),
-        "statistics" => list(key_value_pair()()),
+        "settings" => list(cluster_setting()),
+        "statistics" => list(key_value_pair()),
         "status" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1509,7 +1509,7 @@ defmodule AWS.ECS do
       
       list_services_response() :: %{
         "nextToken" => String.t(),
-        "serviceArns" => list(String.t()())
+        "serviceArns" => list(String.t())
       }
       
   """
@@ -1520,8 +1520,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_service_revisions_response() :: %{
-        "failures" => list(failure()()),
-        "serviceRevisions" => list(service_revision()())
+        "failures" => list(failure()),
+        "serviceRevisions" => list(service_revision())
       }
       
   """
@@ -1532,9 +1532,9 @@ defmodule AWS.ECS do
   ## Example:
       
       service_deployment_alarms() :: %{
-        "alarmNames" => list(String.t()()),
+        "alarmNames" => list(String.t()),
         "status" => list(any()),
-        "triggeredAlarmNames" => list(String.t()())
+        "triggeredAlarmNames" => list(String.t())
       }
       
   """
@@ -1568,7 +1568,7 @@ defmodule AWS.ECS do
   ## Example:
       
       delete_task_definitions_request() :: %{
-        required("taskDefinitions") => list(String.t()())
+        required("taskDefinitions") => list(String.t())
       }
       
   """
@@ -1580,7 +1580,7 @@ defmodule AWS.ECS do
       
       describe_task_sets_request() :: %{
         optional("include") => list(list(any())()),
-        optional("taskSets") => list(String.t()()),
+        optional("taskSets") => list(String.t()),
         required("cluster") => String.t(),
         required("service") => String.t()
       }
@@ -1596,7 +1596,7 @@ defmodule AWS.ECS do
         optional("cluster") => String.t(),
         optional("containerName") => String.t(),
         optional("exitCode") => integer(),
-        optional("networkBindings") => list(network_binding()()),
+        optional("networkBindings") => list(network_binding()),
         optional("reason") => String.t(),
         optional("runtimeId") => String.t(),
         optional("status") => String.t(),
@@ -1612,7 +1612,7 @@ defmodule AWS.ECS do
       
       create_service_request() :: %{
         optional("availabilityZoneRebalancing") => list(any()),
-        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("clientToken") => String.t(),
         optional("cluster") => String.t(),
         optional("deploymentConfiguration") => deployment_configuration(),
@@ -1622,20 +1622,20 @@ defmodule AWS.ECS do
         optional("enableExecuteCommand") => boolean(),
         optional("healthCheckGracePeriodSeconds") => integer(),
         optional("launchType") => list(any()),
-        optional("loadBalancers") => list(load_balancer()()),
+        optional("loadBalancers") => list(load_balancer()),
         optional("networkConfiguration") => network_configuration(),
-        optional("placementConstraints") => list(placement_constraint()()),
-        optional("placementStrategy") => list(placement_strategy()()),
+        optional("placementConstraints") => list(placement_constraint()),
+        optional("placementStrategy") => list(placement_strategy()),
         optional("platformVersion") => String.t(),
         optional("propagateTags") => list(any()),
         optional("role") => String.t(),
         optional("schedulingStrategy") => list(any()),
         optional("serviceConnectConfiguration") => service_connect_configuration(),
-        optional("serviceRegistries") => list(service_registry()()),
-        optional("tags") => list(tag()()),
+        optional("serviceRegistries") => list(service_registry()),
+        optional("tags") => list(tag()),
         optional("taskDefinition") => String.t(),
-        optional("volumeConfigurations") => list(service_volume_configuration()()),
-        optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()()),
+        optional("volumeConfigurations") => list(service_volume_configuration()),
+        optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()),
         required("serviceName") => String.t()
       }
       
@@ -1659,7 +1659,7 @@ defmodule AWS.ECS do
   ## Example:
       
       list_task_definition_families_response() :: %{
-        "families" => list(String.t()()),
+        "families" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1695,7 +1695,7 @@ defmodule AWS.ECS do
   ## Example:
       
       delete_attributes_response() :: %{
-        "attributes" => list(attribute()())
+        "attributes" => list(attribute())
       }
       
   """
@@ -1706,8 +1706,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_tasks_response() :: %{
-        "failures" => list(failure()()),
-        "tasks" => list(task()())
+        "failures" => list(failure()),
+        "tasks" => list(task())
       }
       
   """
@@ -1730,8 +1730,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_container_instances_response() :: %{
-        "containerInstances" => list(container_instance()()),
-        "failures" => list(failure()())
+        "containerInstances" => list(container_instance()),
+        "failures" => list(failure())
       }
       
   """
@@ -1745,7 +1745,7 @@ defmodule AWS.ECS do
         "containerName" => String.t(),
         "exitCode" => integer(),
         "imageDigest" => String.t(),
-        "networkBindings" => list(network_binding()()),
+        "networkBindings" => list(network_binding()),
         "reason" => String.t(),
         "runtimeId" => String.t(),
         "status" => String.t()
@@ -1771,9 +1771,9 @@ defmodule AWS.ECS do
   ## Example:
       
       put_cluster_capacity_providers_request() :: %{
-        required("capacityProviders") => list(String.t()()),
+        required("capacityProviders") => list(String.t()),
         required("cluster") => String.t(),
-        required("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item()())
+        required("defaultCapacityProviderStrategy") => list(capacity_provider_strategy_item())
       }
       
   """
@@ -1784,7 +1784,7 @@ defmodule AWS.ECS do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1847,7 +1847,7 @@ defmodule AWS.ECS do
         "rollback" => rollback(),
         "serviceArn" => String.t(),
         "serviceDeploymentArn" => String.t(),
-        "sourceServiceRevisions" => list(service_revision_summary()()),
+        "sourceServiceRevisions" => list(service_revision_summary()),
         "startedAt" => non_neg_integer(),
         "status" => list(any()),
         "statusReason" => String.t(),
@@ -1864,8 +1864,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_task_sets_response() :: %{
-        "failures" => list(failure()()),
-        "taskSets" => list(task_set()())
+        "failures" => list(failure()),
+        "taskSets" => list(task_set())
       }
       
   """
@@ -1904,11 +1904,11 @@ defmodule AWS.ECS do
   ## Example:
       
       submit_task_state_change_request() :: %{
-        optional("attachments") => list(attachment_state_change()()),
+        optional("attachments") => list(attachment_state_change()),
         optional("cluster") => String.t(),
-        optional("containers") => list(container_state_change()()),
+        optional("containers") => list(container_state_change()),
         optional("executionStoppedAt") => non_neg_integer(),
-        optional("managedAgents") => list(managed_agent_state_change()()),
+        optional("managedAgents") => list(managed_agent_state_change()),
         optional("pullStartedAt") => non_neg_integer(),
         optional("pullStoppedAt") => non_neg_integer(),
         optional("reason") => String.t(),
@@ -1924,7 +1924,7 @@ defmodule AWS.ECS do
   ## Example:
       
       health_check() :: %{
-        "command" => list(String.t()()),
+        "command" => list(String.t()),
         "interval" => integer(),
         "retries" => integer(),
         "startPeriod" => integer(),
@@ -1973,7 +1973,7 @@ defmodule AWS.ECS do
   ## Example:
       
       list_clusters_response() :: %{
-        "clusterArns" => list(String.t()()),
+        "clusterArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2042,7 +2042,7 @@ defmodule AWS.ECS do
   ## Example:
       
       put_attributes_response() :: %{
-        "attributes" => list(attribute()())
+        "attributes" => list(attribute())
       }
       
   """
@@ -2054,30 +2054,30 @@ defmodule AWS.ECS do
       
       task_definition() :: %{
         "compatibilities" => list(list(any())()),
-        "containerDefinitions" => list(container_definition()()),
+        "containerDefinitions" => list(container_definition()),
         "cpu" => String.t(),
         "deregisteredAt" => non_neg_integer(),
         "enableFaultInjection" => boolean(),
         "ephemeralStorage" => ephemeral_storage(),
         "executionRoleArn" => String.t(),
         "family" => String.t(),
-        "inferenceAccelerators" => list(inference_accelerator()()),
+        "inferenceAccelerators" => list(inference_accelerator()),
         "ipcMode" => list(any()),
         "memory" => String.t(),
         "networkMode" => list(any()),
         "pidMode" => list(any()),
-        "placementConstraints" => list(task_definition_placement_constraint()()),
+        "placementConstraints" => list(task_definition_placement_constraint()),
         "proxyConfiguration" => proxy_configuration(),
         "registeredAt" => non_neg_integer(),
         "registeredBy" => String.t(),
-        "requiresAttributes" => list(attribute()()),
+        "requiresAttributes" => list(attribute()),
         "requiresCompatibilities" => list(list(any())()),
         "revision" => integer(),
         "runtimePlatform" => runtime_platform(),
         "status" => list(any()),
         "taskDefinitionArn" => String.t(),
         "taskRoleArn" => String.t(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
       
   """
@@ -2088,7 +2088,7 @@ defmodule AWS.ECS do
   ## Example:
       
       list_container_instances_response() :: %{
-        "containerInstanceArns" => list(String.t()()),
+        "containerInstanceArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -2101,7 +2101,7 @@ defmodule AWS.ECS do
       
       update_cluster_settings_request() :: %{
         required("cluster") => String.t(),
-        required("settings") => list(cluster_setting()())
+        required("settings") => list(cluster_setting())
       }
       
   """
@@ -2113,7 +2113,7 @@ defmodule AWS.ECS do
       
       update_service_request() :: %{
         optional("availabilityZoneRebalancing") => list(any()),
-        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("cluster") => String.t(),
         optional("deploymentConfiguration") => deployment_configuration(),
         optional("desiredCount") => integer(),
@@ -2121,17 +2121,17 @@ defmodule AWS.ECS do
         optional("enableExecuteCommand") => boolean(),
         optional("forceNewDeployment") => boolean(),
         optional("healthCheckGracePeriodSeconds") => integer(),
-        optional("loadBalancers") => list(load_balancer()()),
+        optional("loadBalancers") => list(load_balancer()),
         optional("networkConfiguration") => network_configuration(),
-        optional("placementConstraints") => list(placement_constraint()()),
-        optional("placementStrategy") => list(placement_strategy()()),
+        optional("placementConstraints") => list(placement_constraint()),
+        optional("placementStrategy") => list(placement_strategy()),
         optional("platformVersion") => String.t(),
         optional("propagateTags") => list(any()),
         optional("serviceConnectConfiguration") => service_connect_configuration(),
-        optional("serviceRegistries") => list(service_registry()()),
+        optional("serviceRegistries") => list(service_registry()),
         optional("taskDefinition") => String.t(),
-        optional("volumeConfigurations") => list(service_volume_configuration()()),
-        optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()()),
+        optional("volumeConfigurations") => list(service_volume_configuration()),
+        optional("vpcLatticeConfigurations") => list(vpc_lattice_configuration()),
         required("service") => String.t()
       }
       
@@ -2145,7 +2145,7 @@ defmodule AWS.ECS do
       ebs_tag_specification() :: %{
         "propagateTags" => list(any()),
         "resourceType" => list(any()),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -2250,7 +2250,7 @@ defmodule AWS.ECS do
       
       delete_attributes_request() :: %{
         optional("cluster") => String.t(),
-        required("attributes") => list(attribute()())
+        required("attributes") => list(attribute())
       }
       
   """
@@ -2273,8 +2273,8 @@ defmodule AWS.ECS do
   ## Example:
       
       update_task_protection_response() :: %{
-        "failures" => list(failure()()),
-        "protectedTasks" => list(protected_task()())
+        "failures" => list(failure()),
+        "protectedTasks" => list(protected_task())
       }
       
   """
@@ -2396,8 +2396,8 @@ defmodule AWS.ECS do
   ## Example:
       
       delete_task_definitions_response() :: %{
-        "failures" => list(failure()()),
-        "taskDefinitions" => list(task_definition()())
+        "failures" => list(failure()),
+        "taskDefinitions" => list(task_definition())
       }
       
   """
@@ -2520,19 +2520,19 @@ defmodule AWS.ECS do
         optional("enableFaultInjection") => boolean(),
         optional("ephemeralStorage") => ephemeral_storage(),
         optional("executionRoleArn") => String.t(),
-        optional("inferenceAccelerators") => list(inference_accelerator()()),
+        optional("inferenceAccelerators") => list(inference_accelerator()),
         optional("ipcMode") => list(any()),
         optional("memory") => String.t(),
         optional("networkMode") => list(any()),
         optional("pidMode") => list(any()),
-        optional("placementConstraints") => list(task_definition_placement_constraint()()),
+        optional("placementConstraints") => list(task_definition_placement_constraint()),
         optional("proxyConfiguration") => proxy_configuration(),
         optional("requiresCompatibilities") => list(list(any())()),
         optional("runtimePlatform") => runtime_platform(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("taskRoleArn") => String.t(),
-        optional("volumes") => list(volume()()),
-        required("containerDefinitions") => list(container_definition()()),
+        optional("volumes") => list(volume()),
+        required("containerDefinitions") => list(container_definition()),
         required("family") => String.t()
       }
       
@@ -2546,7 +2546,7 @@ defmodule AWS.ECS do
       describe_tasks_request() :: %{
         optional("cluster") => String.t(),
         optional("include") => list(list(any())()),
-        required("tasks") => list(String.t()())
+        required("tasks") => list(String.t())
       }
       
   """
@@ -2610,8 +2610,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_clusters_response() :: %{
-        "clusters" => list(cluster()()),
-        "failures" => list(failure()())
+        "clusters" => list(cluster()),
+        "failures" => list(failure())
       }
       
   """
@@ -2622,8 +2622,8 @@ defmodule AWS.ECS do
   ## Example:
       
       start_task_response() :: %{
-        "failures" => list(failure()()),
-        "tasks" => list(task()())
+        "failures" => list(failure()),
+        "tasks" => list(task())
       }
       
   """
@@ -2682,8 +2682,8 @@ defmodule AWS.ECS do
   ## Example:
       
       kernel_capabilities() :: %{
-        "add" => list(String.t()()),
-        "drop" => list(String.t()())
+        "add" => list(String.t()),
+        "drop" => list(String.t())
       }
       
   """
@@ -2759,12 +2759,12 @@ defmodule AWS.ECS do
       
       linux_parameters() :: %{
         "capabilities" => kernel_capabilities(),
-        "devices" => list(device()()),
+        "devices" => list(device()),
         "initProcessEnabled" => boolean(),
         "maxSwap" => integer(),
         "sharedMemorySize" => integer(),
         "swappiness" => integer(),
-        "tmpfs" => list(tmpfs()())
+        "tmpfs" => list(tmpfs())
       }
       
   """
@@ -2786,7 +2786,7 @@ defmodule AWS.ECS do
   ## Example:
       
       service_connect_service() :: %{
-        "clientAliases" => list(service_connect_client_alias()()),
+        "clientAliases" => list(service_connect_client_alias()),
         "discoveryName" => String.t(),
         "ingressPortOverride" => integer(),
         "portName" => String.t(),
@@ -2849,7 +2849,7 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_service_deployments_request() :: %{
-        required("serviceDeploymentArns") => list(String.t()())
+        required("serviceDeploymentArns") => list(String.t())
       }
       
   """
@@ -2927,8 +2927,8 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_capacity_providers_response() :: %{
-        "capacityProviders" => list(capacity_provider()()),
-        "failures" => list(failure()()),
+        "capacityProviders" => list(capacity_provider()),
+        "failures" => list(failure()),
         "nextToken" => String.t()
       }
       
@@ -2976,7 +2976,7 @@ defmodule AWS.ECS do
       
       list_services_by_namespace_response() :: %{
         "nextToken" => String.t(),
-        "serviceArns" => list(String.t()())
+        "serviceArns" => list(String.t())
       }
       
   """
@@ -3000,8 +3000,8 @@ defmodule AWS.ECS do
       
       aws_vpc_configuration() :: %{
         "assignPublicIp" => list(any()),
-        "securityGroups" => list(String.t()()),
-        "subnets" => list(String.t()())
+        "securityGroups" => list(String.t()),
+        "subnets" => list(String.t())
       }
       
   """
@@ -3016,7 +3016,7 @@ defmodule AWS.ECS do
         "capacityProviderArn" => String.t(),
         "name" => String.t(),
         "status" => list(any()),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "updateStatus" => list(any()),
         "updateStatusReason" => String.t()
       }
@@ -3029,7 +3029,7 @@ defmodule AWS.ECS do
   ## Example:
       
       create_capacity_provider_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("autoScalingGroupProvider") => auto_scaling_group_provider(),
         required("name") => String.t()
       }
@@ -3043,7 +3043,7 @@ defmodule AWS.ECS do
       
       put_attributes_request() :: %{
         optional("cluster") => String.t(),
-        required("attributes") => list(attribute()())
+        required("attributes") => list(attribute())
       }
       
   """
@@ -3091,24 +3091,24 @@ defmodule AWS.ECS do
   ## Example:
       
       service_revision() :: %{
-        "capacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "capacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "clusterArn" => String.t(),
-        "containerImages" => list(container_image()()),
+        "containerImages" => list(container_image()),
         "createdAt" => non_neg_integer(),
         "fargateEphemeralStorage" => deployment_ephemeral_storage(),
         "guardDutyEnabled" => boolean(),
         "launchType" => list(any()),
-        "loadBalancers" => list(load_balancer()()),
+        "loadBalancers" => list(load_balancer()),
         "networkConfiguration" => network_configuration(),
         "platformFamily" => String.t(),
         "platformVersion" => String.t(),
         "serviceArn" => String.t(),
         "serviceConnectConfiguration" => service_connect_configuration(),
-        "serviceRegistries" => list(service_registry()()),
+        "serviceRegistries" => list(service_registry()),
         "serviceRevisionArn" => String.t(),
         "taskDefinition" => String.t(),
-        "volumeConfigurations" => list(service_volume_configuration()()),
-        "vpcLatticeConfigurations" => list(vpc_lattice_configuration()())
+        "volumeConfigurations" => list(service_volume_configuration()),
+        "vpcLatticeConfigurations" => list(vpc_lattice_configuration())
       }
       
   """
@@ -3183,7 +3183,7 @@ defmodule AWS.ECS do
       
       submit_attachment_state_changes_request() :: %{
         optional("cluster") => String.t(),
-        required("attachments") => list(attachment_state_change()())
+        required("attachments") => list(attachment_state_change())
       }
       
   """
@@ -3229,7 +3229,7 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_service_revisions_request() :: %{
-        required("serviceRevisionArns") => list(String.t()())
+        required("serviceRevisionArns") => list(String.t())
       }
       
   """
@@ -3241,7 +3241,7 @@ defmodule AWS.ECS do
       
       list_tasks_response() :: %{
         "nextToken" => String.t(),
-        "taskArns" => list(String.t()())
+        "taskArns" => list(String.t())
       }
       
   """
@@ -3270,7 +3270,7 @@ defmodule AWS.ECS do
         "roleArn" => String.t(),
         "sizeInGiB" => integer(),
         "snapshotId" => String.t(),
-        "tagSpecifications" => list(ebs_tag_specification()()),
+        "tagSpecifications" => list(ebs_tag_specification()),
         "terminationPolicy" => task_managed_ebs_volume_termination_policy(),
         "throughput" => integer(),
         "volumeInitializationRate" => integer(),
@@ -3287,7 +3287,7 @@ defmodule AWS.ECS do
       log_configuration() :: %{
         "logDriver" => list(any()),
         "options" => map(),
-        "secretOptions" => list(secret()())
+        "secretOptions" => list(secret())
       }
       
   """
@@ -3300,20 +3300,20 @@ defmodule AWS.ECS do
       container_instance() :: %{
         "agentConnected" => boolean(),
         "agentUpdateStatus" => list(any()),
-        "attachments" => list(attachment()()),
-        "attributes" => list(attribute()()),
+        "attachments" => list(attachment()),
+        "attributes" => list(attribute()),
         "capacityProviderName" => String.t(),
         "containerInstanceArn" => String.t(),
         "ec2InstanceId" => String.t(),
         "healthStatus" => container_instance_health_status(),
         "pendingTasksCount" => integer(),
         "registeredAt" => non_neg_integer(),
-        "registeredResources" => list(resource()()),
-        "remainingResources" => list(resource()()),
+        "registeredResources" => list(resource()),
+        "remainingResources" => list(resource()),
         "runningTasksCount" => integer(),
         "status" => String.t(),
         "statusReason" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "version" => float(),
         "versionInfo" => version_info()
       }
@@ -3414,7 +3414,7 @@ defmodule AWS.ECS do
         "roleArn" => String.t(),
         "sizeInGiB" => integer(),
         "snapshotId" => String.t(),
-        "tagSpecifications" => list(ebs_tag_specification()()),
+        "tagSpecifications" => list(ebs_tag_specification()),
         "throughput" => integer(),
         "volumeInitializationRate" => integer(),
         "volumeType" => String.t()
@@ -3428,7 +3428,7 @@ defmodule AWS.ECS do
   ## Example:
       
       register_task_definition_response() :: %{
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "taskDefinition" => task_definition()
       }
       
@@ -3440,7 +3440,7 @@ defmodule AWS.ECS do
   ## Example:
       
       describe_clusters_request() :: %{
-        optional("clusters") => list(String.t()()),
+        optional("clusters") => list(String.t()),
         optional("include") => list(list(any())())
       }
       
@@ -3452,7 +3452,7 @@ defmodule AWS.ECS do
   ## Example:
       
       run_task_request() :: %{
-        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()()),
+        optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("clientToken") => String.t(),
         optional("cluster") => String.t(),
         optional("count") => integer(),
@@ -3462,14 +3462,14 @@ defmodule AWS.ECS do
         optional("launchType") => list(any()),
         optional("networkConfiguration") => network_configuration(),
         optional("overrides") => task_override(),
-        optional("placementConstraints") => list(placement_constraint()()),
-        optional("placementStrategy") => list(placement_strategy()()),
+        optional("placementConstraints") => list(placement_constraint()),
+        optional("placementStrategy") => list(placement_strategy()),
         optional("platformVersion") => String.t(),
         optional("propagateTags") => list(any()),
         optional("referenceId") => String.t(),
         optional("startedBy") => String.t(),
-        optional("tags") => list(tag()()),
-        optional("volumeConfigurations") => list(task_volume_configuration()()),
+        optional("tags") => list(tag()),
+        optional("volumeConfigurations") => list(task_volume_configuration()),
         required("taskDefinition") => String.t()
       }
       
@@ -3514,7 +3514,7 @@ defmodule AWS.ECS do
   ## Example:
       
       list_attributes_response() :: %{
-        "attributes" => list(attribute()()),
+        "attributes" => list(attribute()),
         "nextToken" => String.t()
       }
       
@@ -3551,7 +3551,7 @@ defmodule AWS.ECS do
       
       tmpfs() :: %{
         "containerPath" => String.t(),
-        "mountOptions" => list(String.t()()),
+        "mountOptions" => list(String.t()),
         "size" => integer()
       }
       
@@ -3614,7 +3614,7 @@ defmodule AWS.ECS do
         "integerValue" => integer(),
         "longValue" => float(),
         "name" => String.t(),
-        "stringSetValue" => list(String.t()()),
+        "stringSetValue" => list(String.t()),
         "type" => String.t()
       }
       
@@ -4039,7 +4039,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_capacity_provider_errors()}
   def create_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCapacityProvider", input, options)
   end
@@ -4071,7 +4072,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -4211,7 +4213,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -4239,7 +4242,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_task_set_errors()}
   def create_task_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTaskSet", input, options)
   end
@@ -4254,7 +4258,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_account_setting_errors()}
   def delete_account_setting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccountSetting", input, options)
   end
@@ -4268,7 +4273,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_attributes_errors()}
   def delete_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAttributes", input, options)
   end
@@ -4305,7 +4311,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_capacity_provider_errors()}
   def delete_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCapacityProvider", input, options)
   end
@@ -4331,7 +4338,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -4372,7 +4380,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -4416,7 +4425,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_task_definitions_errors()}
   def delete_task_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTaskDefinitions", input, options)
   end
@@ -4435,7 +4445,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_task_set_errors()}
   def delete_task_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTaskSet", input, options)
   end
@@ -4469,7 +4480,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, deregister_container_instance_errors()}
   def deregister_container_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterContainerInstance", input, options)
   end
@@ -4507,7 +4519,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, deregister_task_definition_errors()}
   def deregister_task_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTaskDefinition", input, options)
   end
@@ -4521,7 +4534,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_capacity_providers_errors()}
   def describe_capacity_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityProviders", input, options)
   end
@@ -4539,7 +4553,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -4556,7 +4571,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_container_instances_errors()}
   def describe_container_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerInstances", input, options)
   end
@@ -4574,7 +4590,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_service_deployments_errors()}
   def describe_service_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceDeployments", input, options)
   end
@@ -4597,7 +4614,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_service_revisions_errors()}
   def describe_service_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceRevisions", input, options)
   end
@@ -4611,7 +4629,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -4633,7 +4652,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_task_definition_errors()}
   def describe_task_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTaskDefinition", input, options)
   end
@@ -4652,7 +4672,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_task_sets_errors()}
   def describe_task_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTaskSets", input, options)
   end
@@ -4673,7 +4694,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_tasks_errors()}
   def describe_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTasks", input, options)
   end
@@ -4691,7 +4713,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, discover_poll_endpoint_errors()}
   def discover_poll_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DiscoverPollEndpoint", input, options)
   end
@@ -4716,7 +4739,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, execute_command_errors()}
   def execute_command(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteCommand", input, options)
   end
@@ -4730,7 +4754,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, get_task_protection_errors()}
   def get_task_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTaskProtection", input, options)
   end
@@ -4744,7 +4769,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_account_settings_errors()}
   def list_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccountSettings", input, options)
   end
@@ -4769,7 +4795,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_attributes_errors()}
   def list_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAttributes", input, options)
   end
@@ -4783,7 +4810,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -4803,7 +4831,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_container_instances_errors()}
   def list_container_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerInstances", input, options)
   end
@@ -4827,7 +4856,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_service_deployments_errors()}
   def list_service_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceDeployments", input, options)
   end
@@ -4844,7 +4874,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -4866,7 +4897,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_services_by_namespace_errors()}
   def list_services_by_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServicesByNamespace", input, options)
   end
@@ -4880,7 +4912,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4903,7 +4936,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_task_definition_families_errors()}
   def list_task_definition_families(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTaskDefinitionFamilies", input, options)
   end
@@ -4921,7 +4955,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_task_definitions_errors()}
   def list_task_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTaskDefinitions", input, options)
   end
@@ -4942,7 +4977,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTasks", input, options)
   end
@@ -4965,7 +5001,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_account_setting_errors()}
   def put_account_setting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAccountSetting", input, options)
   end
@@ -4983,7 +5020,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_account_setting_default_errors()}
   def put_account_setting_default(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAccountSettingDefault", input, options)
   end
@@ -5005,7 +5043,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_attributes_errors()}
   def put_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAttributes", input, options)
   end
@@ -5044,7 +5083,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_cluster_capacity_providers_errors()}
   def put_cluster_capacity_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutClusterCapacityProviders", input, options)
   end
@@ -5064,7 +5104,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, register_container_instance_errors()}
   def register_container_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterContainerInstance", input, options)
   end
@@ -5103,7 +5144,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, register_task_definition_errors()}
   def register_task_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTaskDefinition", input, options)
   end
@@ -5184,7 +5226,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, run_task_errors()}
   def run_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunTask", input, options)
   end
@@ -5214,7 +5257,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, start_task_errors()}
   def start_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTask", input, options)
   end
@@ -5242,7 +5286,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, stop_service_deployment_errors()}
   def stop_service_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopServiceDeployment", input, options)
   end
@@ -5284,7 +5329,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, stop_task_errors()}
   def stop_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTask", input, options)
   end
@@ -5302,7 +5348,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_attachment_state_changes_errors()}
   def submit_attachment_state_changes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitAttachmentStateChanges", input, options)
   end
@@ -5320,7 +5367,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_container_state_change_errors()}
   def submit_container_state_change(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitContainerStateChange", input, options)
   end
@@ -5338,7 +5386,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_task_state_change_errors()}
   def submit_task_state_change(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitTaskStateChange", input, options)
   end
@@ -5358,7 +5407,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5372,7 +5422,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5386,7 +5437,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_capacity_provider_errors()}
   def update_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCapacityProvider", input, options)
   end
@@ -5400,7 +5452,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -5414,7 +5467,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_cluster_settings_errors()}
   def update_cluster_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClusterSettings", input, options)
   end
@@ -5454,7 +5508,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_container_agent_errors()}
   def update_container_agent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerAgent", input, options)
   end
@@ -5528,7 +5583,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_container_instances_state_errors()}
   def update_container_instances_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerInstancesState", input, options)
   end
@@ -5688,7 +5744,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -5709,7 +5766,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_service_primary_task_set_errors()}
   def update_service_primary_task_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServicePrimaryTaskSet", input, options)
   end
@@ -5755,7 +5813,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_task_protection_errors()}
   def update_task_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTaskProtection", input, options)
   end
@@ -5773,7 +5832,8 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_task_set_errors()}
   def update_task_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTaskSet", input, options)
   end

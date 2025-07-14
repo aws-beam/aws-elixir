@@ -31,8 +31,8 @@ defmodule AWS.WorkSpacesWeb do
         optional("customerManagedKey") => String.t(),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
-        optional("tags") => list(tag()()),
-        required("ipRules") => list(ip_rule()())
+        optional("tags") => list(tag()),
+        required("ipRules") => list(ip_rule())
       }
 
   """
@@ -123,8 +123,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       cookie_synchronization_configuration() :: %{
-        "allowlist" => list(cookie_specification()()),
-        "blocklist" => list(cookie_specification()())
+        "allowlist" => list(cookie_specification()),
+        "blocklist" => list(cookie_specification())
       }
 
   """
@@ -136,7 +136,7 @@ defmodule AWS.WorkSpacesWeb do
 
       tag_resource_request() :: %{
         optional("clientToken") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -158,7 +158,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_ip_access_settings_response() :: %{
-        "ipAccessSettings" => list(ip_access_settings_summary()()),
+        "ipAccessSettings" => list(ip_access_settings_summary()),
         "nextToken" => String.t()
       }
 
@@ -326,9 +326,9 @@ defmodule AWS.WorkSpacesWeb do
 
       create_network_settings_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
-        required("securityGroupIds") => list(String.t()()),
-        required("subnetIds") => list(String.t()()),
+        optional("tags") => list(tag()),
+        required("securityGroupIds") => list(String.t()),
+        required("subnetIds") => list(String.t()),
         required("vpcId") => String.t()
       }
 
@@ -350,9 +350,9 @@ defmodule AWS.WorkSpacesWeb do
 
       inline_redaction_configuration() :: %{
         "globalConfidenceLevel" => integer(),
-        "globalEnforcedUrls" => list(String.t()()),
-        "globalExemptUrls" => list(String.t()()),
-        "inlineRedactionPatterns" => list(inline_redaction_pattern()())
+        "globalEnforcedUrls" => list(String.t()),
+        "globalExemptUrls" => list(String.t()),
+        "inlineRedactionPatterns" => list(inline_redaction_pattern())
       }
 
   """
@@ -475,7 +475,7 @@ defmodule AWS.WorkSpacesWeb do
 
       list_user_settings_response() :: %{
         "nextToken" => String.t(),
-        "userSettings" => list(user_settings_summary()())
+        "userSettings" => list(user_settings_summary())
       }
 
   """
@@ -508,7 +508,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       user_access_logging_settings() :: %{
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "kinesisStreamArn" => String.t(),
         "userAccessLoggingSettingsArn" => String.t()
       }
@@ -603,8 +603,8 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       update_trust_store_request() :: %{
-        optional("certificatesToAdd") => list(binary()()),
-        optional("certificatesToDelete") => list(String.t()()),
+        optional("certificatesToAdd") => list(binary()),
+        optional("certificatesToDelete") => list(String.t()),
         optional("clientToken") => String.t()
       }
 
@@ -637,7 +637,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -774,10 +774,10 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       network_settings() :: %{
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "networkSettingsArn" => String.t(),
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -804,8 +804,8 @@ defmodule AWS.WorkSpacesWeb do
         "builtInPatternId" => String.t(),
         "confidenceLevel" => integer(),
         "customPattern" => custom_pattern(),
-        "enforcedUrls" => list(String.t()()),
-        "exemptUrls" => list(String.t()()),
+        "enforcedUrls" => list(String.t()),
+        "exemptUrls" => list(String.t()),
         "redactionPlaceHolder" => redaction_place_holder()
       }
 
@@ -818,7 +818,7 @@ defmodule AWS.WorkSpacesWeb do
 
       list_sessions_response() :: %{
         "nextToken" => String.t(),
-        "sessions" => list(session_summary()())
+        "sessions" => list(session_summary())
       }
 
   """
@@ -859,8 +859,8 @@ defmodule AWS.WorkSpacesWeb do
 
       create_trust_store_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
-        required("certificateList") => list(binary()())
+        optional("tags") => list(tag()),
+        required("certificateList") => list(binary())
       }
 
   """
@@ -956,7 +956,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("additionalEncryptionContext") => map(),
         optional("clientToken") => String.t(),
         optional("customerManagedKey") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("browserPolicy") => String.t()
       }
 
@@ -1017,7 +1017,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("displayName") => String.t(),
         optional("instanceType") => String.t(),
         optional("maxConcurrentSessions") => integer(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -1044,8 +1044,8 @@ defmodule AWS.WorkSpacesWeb do
 
       update_network_settings_request() :: %{
         optional("clientToken") => String.t(),
-        optional("securityGroupIds") => list(String.t()()),
-        optional("subnetIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
+        optional("subnetIds") => list(String.t()),
         optional("vpcId") => String.t()
       }
 
@@ -1080,7 +1080,7 @@ defmodule AWS.WorkSpacesWeb do
 
       data_protection_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "creationDate" => non_neg_integer(),
         "customerManagedKey" => String.t(),
         "dataProtectionSettingsArn" => String.t(),
@@ -1153,7 +1153,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1165,7 +1165,7 @@ defmodule AWS.WorkSpacesWeb do
 
       list_trust_stores_response() :: %{
         "nextToken" => String.t(),
-        "trustStores" => list(trust_store_summary()())
+        "trustStores" => list(trust_store_summary())
       }
 
   """
@@ -1234,7 +1234,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_data_protection_settings_response() :: %{
-        "dataProtectionSettings" => list(data_protection_settings_summary()()),
+        "dataProtectionSettings" => list(data_protection_settings_summary()),
         "nextToken" => String.t()
       }
 
@@ -1279,7 +1279,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       session() :: %{
-        "clientIpAddresses" => list(String.t()()),
+        "clientIpAddresses" => list(String.t()),
         "endTime" => non_neg_integer(),
         "portalArn" => String.t(),
         "sessionId" => String.t(),
@@ -1338,7 +1338,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_network_settings_response() :: %{
-        "networkSettings" => list(network_settings_summary()()),
+        "networkSettings" => list(network_settings_summary()),
         "nextToken" => String.t()
       }
 
@@ -1384,7 +1384,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_trust_store_certificates_response() :: %{
-        "certificateList" => list(certificate_summary()()),
+        "certificateList" => list(certificate_summary()),
         "nextToken" => String.t(),
         "trustStoreArn" => String.t()
       }
@@ -1398,7 +1398,7 @@ defmodule AWS.WorkSpacesWeb do
 
       list_portals_response() :: %{
         "nextToken" => String.t(),
-        "portals" => list(portal_summary()())
+        "portals" => list(portal_summary())
       }
 
   """
@@ -1468,7 +1468,7 @@ defmodule AWS.WorkSpacesWeb do
 
       create_identity_provider_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("identityProviderDetails") => map(),
         required("identityProviderName") => String.t(),
         required("identityProviderType") => String.t(),
@@ -1562,7 +1562,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("deepLinkAllowed") => String.t(),
         optional("disconnectTimeoutInMinutes") => integer(),
         optional("idleDisconnectTimeoutInMinutes") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("toolbarConfiguration") => toolbar_configuration(),
         required("copyAllowed") => String.t(),
         required("downloadAllowed") => String.t(),
@@ -1631,7 +1631,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("inlineRedactionConfiguration") => inline_redaction_configuration(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -1643,13 +1643,13 @@ defmodule AWS.WorkSpacesWeb do
 
       ip_access_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "creationDate" => non_neg_integer(),
         "customerManagedKey" => String.t(),
         "description" => String.t(),
         "displayName" => String.t(),
         "ipAccessSettingsArn" => String.t(),
-        "ipRules" => list(ip_rule()())
+        "ipRules" => list(ip_rule())
       }
 
   """
@@ -1669,7 +1669,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -1700,7 +1700,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_identity_providers_response() :: %{
-        "identityProviders" => list(identity_provider_summary()()),
+        "identityProviders" => list(identity_provider_summary()),
         "nextToken" => String.t()
       }
 
@@ -1746,7 +1746,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       list_browser_settings_response() :: %{
-        "browserSettings" => list(browser_settings_summary()()),
+        "browserSettings" => list(browser_settings_summary()),
         "nextToken" => String.t()
       }
 
@@ -1758,7 +1758,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       toolbar_configuration() :: %{
-        "hiddenToolbarItems" => list(String.t()()),
+        "hiddenToolbarItems" => list(String.t()),
         "maxDisplayResolution" => String.t(),
         "toolbarType" => String.t(),
         "visualMode" => String.t()
@@ -1845,7 +1845,7 @@ defmodule AWS.WorkSpacesWeb do
 
       user_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "cookieSynchronizationConfiguration" => cookie_synchronization_configuration(),
         "copyAllowed" => String.t(),
         "customerManagedKey" => String.t(),
@@ -1894,7 +1894,7 @@ defmodule AWS.WorkSpacesWeb do
 
       create_user_access_logging_settings_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("kinesisStreamArn") => String.t()
       }
 
@@ -1921,7 +1921,7 @@ defmodule AWS.WorkSpacesWeb do
 
       list_user_access_logging_settings_response() :: %{
         "nextToken" => String.t(),
-        "userAccessLoggingSettings" => list(user_access_logging_settings_summary()())
+        "userAccessLoggingSettings" => list(user_access_logging_settings_summary())
       }
 
   """
@@ -1964,7 +1964,7 @@ defmodule AWS.WorkSpacesWeb do
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
-        optional("ipRules") => list(ip_rule()())
+        optional("ipRules") => list(ip_rule())
       }
 
   """
@@ -1976,7 +1976,7 @@ defmodule AWS.WorkSpacesWeb do
 
       browser_settings() :: %{
         "additionalEncryptionContext" => map(),
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "browserPolicy" => String.t(),
         "browserSettingsArn" => String.t(),
         "customerManagedKey" => String.t()
@@ -2102,7 +2102,7 @@ defmodule AWS.WorkSpacesWeb do
   ## Example:
 
       trust_store() :: %{
-        "associatedPortalArns" => list(String.t()()),
+        "associatedPortalArns" => list(String.t()),
         "trustStoreArn" => String.t()
       }
 

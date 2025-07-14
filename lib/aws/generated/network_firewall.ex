@@ -155,8 +155,8 @@ defmodule AWS.NetworkFirewall do
       server_certificate_configuration() :: %{
         "CertificateAuthorityArn" => String.t(),
         "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
-        "Scopes" => list(server_certificate_scope()()),
-        "ServerCertificates" => list(server_certificate()())
+        "Scopes" => list(server_certificate_scope()),
+        "ServerCertificates" => list(server_certificate())
       }
       
   """
@@ -191,7 +191,7 @@ defmodule AWS.NetworkFirewall do
       
       analysis_result() :: %{
         "AnalysisDetail" => String.t(),
-        "IdentifiedRuleIds" => list(String.t()()),
+        "IdentifiedRuleIds" => list(String.t()),
         "IdentifiedType" => list(any())
       }
       
@@ -217,7 +217,7 @@ defmodule AWS.NetworkFirewall do
       rules_source() :: %{
         "RulesSourceList" => rules_source_list(),
         "RulesString" => String.t(),
-        "StatefulRules" => list(stateful_rule()()),
+        "StatefulRules" => list(stateful_rule()),
         "StatelessRulesAndCustomActions" => stateless_rules_and_custom_actions()
       }
       
@@ -243,7 +243,7 @@ defmodule AWS.NetworkFirewall do
       flow_filter() :: %{
         "DestinationAddress" => address(),
         "DestinationPort" => String.t(),
-        "Protocols" => list(String.t()()),
+        "Protocols" => list(String.t()),
         "SourceAddress" => address(),
         "SourcePort" => String.t()
       }
@@ -257,7 +257,7 @@ defmodule AWS.NetworkFirewall do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -312,7 +312,7 @@ defmodule AWS.NetworkFirewall do
       
       list_rule_groups_response() :: %{
         "NextToken" => String.t(),
-        "RuleGroups" => list(rule_group_metadata()())
+        "RuleGroups" => list(rule_group_metadata())
       }
       
   """
@@ -328,7 +328,7 @@ defmodule AWS.NetworkFirewall do
         optional("VpcEndpointAssociationArn") => String.t(),
         optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
-        required("FlowFilters") => list(flow_filter()())
+        required("FlowFilters") => list(flow_filter())
       }
       
   """
@@ -390,7 +390,7 @@ defmodule AWS.NetworkFirewall do
       associate_subnets_response() :: %{
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
-        "SubnetMappings" => list(subnet_mapping()()),
+        "SubnetMappings" => list(subnet_mapping()),
         "UpdateToken" => String.t()
       }
       
@@ -402,7 +402,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       associate_availability_zones_response() :: %{
-        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
         "UpdateToken" => String.t()
@@ -452,7 +452,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       rule_definition() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "MatchAttributes" => match_attributes()
       }
       
@@ -524,7 +524,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       get_analysis_report_results_response() :: %{
-        "AnalysisReportResults" => list(analysis_type_report_result()()),
+        "AnalysisReportResults" => list(analysis_type_report_result()),
         "AnalysisType" => list(any()),
         "EndTime" => non_neg_integer(),
         "NextToken" => String.t(),
@@ -608,7 +608,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       t_l_s_inspection_configuration() :: %{
-        "ServerCertificateConfigurations" => list(server_certificate_configuration()())
+        "ServerCertificateConfigurations" => list(server_certificate_configuration())
       }
       
   """
@@ -659,7 +659,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       publish_metric_action() :: %{
-        "Dimensions" => list(dimension()())
+        "Dimensions" => list(dimension())
       }
       
   """
@@ -671,7 +671,7 @@ defmodule AWS.NetworkFirewall do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -729,7 +729,7 @@ defmodule AWS.NetworkFirewall do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FirewallPolicy") => firewall_policy(),
         required("FirewallPolicyName") => String.t()
       }
@@ -757,7 +757,7 @@ defmodule AWS.NetworkFirewall do
       
       list_vpc_endpoint_associations_response() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata()())
+        "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata())
       }
       
   """
@@ -768,7 +768,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       logging_configuration() :: %{
-        "LogDestinationConfigs" => list(log_destination_config()())
+        "LogDestinationConfigs" => list(log_destination_config())
       }
       
   """
@@ -794,13 +794,13 @@ defmodule AWS.NetworkFirewall do
       
       firewall_policy() :: %{
         "PolicyVariables" => policy_variables(),
-        "StatefulDefaultActions" => list(String.t()()),
+        "StatefulDefaultActions" => list(String.t()),
         "StatefulEngineOptions" => stateful_engine_options(),
-        "StatefulRuleGroupReferences" => list(stateful_rule_group_reference()()),
-        "StatelessCustomActions" => list(custom_action()()),
-        "StatelessDefaultActions" => list(String.t()()),
-        "StatelessFragmentDefaultActions" => list(String.t()()),
-        "StatelessRuleGroupReferences" => list(stateless_rule_group_reference()()),
+        "StatefulRuleGroupReferences" => list(stateful_rule_group_reference()),
+        "StatelessCustomActions" => list(custom_action()),
+        "StatelessDefaultActions" => list(String.t()),
+        "StatelessFragmentDefaultActions" => list(String.t()),
+        "StatelessRuleGroupReferences" => list(stateless_rule_group_reference()),
         "TLSInspectionConfigurationArn" => String.t()
       }
       
@@ -888,7 +888,7 @@ defmodule AWS.NetworkFirewall do
         optional("Rules") => String.t(),
         optional("SourceMetadata") => source_metadata(),
         optional("SummaryConfiguration") => summary_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Capacity") => integer(),
         required("RuleGroupName") => String.t(),
         required("Type") => list(any())
@@ -924,7 +924,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       list_analysis_reports_response() :: %{
-        "AnalysisReports" => list(analysis_report()()),
+        "AnalysisReports" => list(analysis_report()),
         "NextToken" => String.t()
       }
       
@@ -975,7 +975,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       list_flow_operations_response() :: %{
-        "FlowOperations" => list(flow_operation_metadata()()),
+        "FlowOperations" => list(flow_operation_metadata()),
         "NextToken" => String.t()
       }
       
@@ -1093,11 +1093,11 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       server_certificate_scope() :: %{
-        "DestinationPorts" => list(port_range()()),
-        "Destinations" => list(address()()),
-        "Protocols" => list(integer()()),
-        "SourcePorts" => list(port_range()()),
-        "Sources" => list(address()())
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(address()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(address())
       }
       
   """
@@ -1158,7 +1158,7 @@ defmodule AWS.NetworkFirewall do
       disassociate_subnets_response() :: %{
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
-        "SubnetMappings" => list(subnet_mapping()()),
+        "SubnetMappings" => list(subnet_mapping()),
         "UpdateToken" => String.t()
       }
       
@@ -1220,7 +1220,7 @@ defmodule AWS.NetworkFirewall do
         "Description" => String.t(),
         "FirewallArn" => String.t(),
         "SubnetMapping" => subnet_mapping(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcEndpointAssociationArn" => String.t(),
         "VpcEndpointAssociationId" => String.t(),
         "VpcId" => String.t()
@@ -1258,7 +1258,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       rule_group_response() :: %{
-        "AnalysisResults" => list(analysis_result()()),
+        "AnalysisResults" => list(analysis_result()),
         "Capacity" => integer(),
         "ConsumedCapacity" => integer(),
         "Description" => String.t(),
@@ -1272,7 +1272,7 @@ defmodule AWS.NetworkFirewall do
         "SnsTopic" => String.t(),
         "SourceMetadata" => source_metadata(),
         "SummaryConfiguration" => summary_configuration(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => list(any())
       }
       
@@ -1298,7 +1298,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       ip_set() :: %{
-        "Definition" => list(String.t()())
+        "Definition" => list(String.t())
       }
       
   """
@@ -1339,7 +1339,7 @@ defmodule AWS.NetworkFirewall do
       stateful_rule() :: %{
         "Action" => list(any()),
         "Header" => header(),
-        "RuleOptions" => list(rule_option()())
+        "RuleOptions" => list(rule_option())
       }
       
   """
@@ -1377,7 +1377,7 @@ defmodule AWS.NetworkFirewall do
       
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1388,7 +1388,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       list_firewalls_response() :: %{
-        "Firewalls" => list(firewall_metadata()()),
+        "Firewalls" => list(firewall_metadata()),
         "NextToken" => String.t()
       }
       
@@ -1402,7 +1402,7 @@ defmodule AWS.NetworkFirewall do
       create_t_l_s_inspection_configuration_request() :: %{
         optional("Description") => String.t(),
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
         required("TLSInspectionConfigurationName") => String.t()
       }
@@ -1439,7 +1439,7 @@ defmodule AWS.NetworkFirewall do
         "FirewallPolicyStatus" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
         "NumberOfAssociations" => integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1450,7 +1450,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       flow_operation() :: %{
-        "FlowFilters" => list(flow_filter()()),
+        "FlowFilters" => list(flow_filter()),
         "MinimumFlowAgeInSeconds" => integer()
       }
       
@@ -1543,7 +1543,7 @@ defmodule AWS.NetworkFirewall do
       
       firewall() :: %{
         "AvailabilityZoneChangeProtection" => boolean(),
-        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
         "DeleteProtection" => boolean(),
         "Description" => String.t(),
         "EnabledAnalysisTypes" => list(list(any())()),
@@ -1555,8 +1555,8 @@ defmodule AWS.NetworkFirewall do
         "FirewallPolicyChangeProtection" => boolean(),
         "NumberOfAssociations" => integer(),
         "SubnetChangeProtection" => boolean(),
-        "SubnetMappings" => list(subnet_mapping()()),
-        "Tags" => list(tag()()),
+        "SubnetMappings" => list(subnet_mapping()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "TransitGatewayOwnerAccountId" => String.t(),
         "VpcId" => String.t()
@@ -1582,15 +1582,15 @@ defmodule AWS.NetworkFirewall do
       
       create_firewall_request() :: %{
         optional("AvailabilityZoneChangeProtection") => boolean(),
-        optional("AvailabilityZoneMappings") => list(availability_zone_mapping()()),
+        optional("AvailabilityZoneMappings") => list(availability_zone_mapping()),
         optional("DeleteProtection") => boolean(),
         optional("Description") => String.t(),
         optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallPolicyChangeProtection") => boolean(),
         optional("SubnetChangeProtection") => boolean(),
-        optional("SubnetMappings") => list(subnet_mapping()()),
-        optional("Tags") => list(tag()()),
+        optional("SubnetMappings") => list(subnet_mapping()),
+        optional("Tags") => list(tag()),
         optional("TransitGatewayId") => String.t(),
         optional("VpcId") => String.t(),
         required("FirewallName") => String.t(),
@@ -1647,7 +1647,7 @@ defmodule AWS.NetworkFirewall do
       
       list_t_l_s_inspection_configurations_response() :: %{
         "NextToken" => String.t(),
-        "TLSInspectionConfigurations" => list(t_l_s_inspection_configuration_metadata()())
+        "TLSInspectionConfigurations" => list(t_l_s_inspection_configuration_metadata())
       }
       
   """
@@ -1663,7 +1663,7 @@ defmodule AWS.NetworkFirewall do
         optional("VpcEndpointAssociationArn") => String.t(),
         optional("VpcEndpointId") => String.t(),
         required("FirewallArn") => String.t(),
-        required("FlowFilters") => list(flow_filter()())
+        required("FlowFilters") => list(flow_filter())
       }
       
   """
@@ -1688,7 +1688,7 @@ defmodule AWS.NetworkFirewall do
       
       t_l_s_inspection_configuration_response() :: %{
         "CertificateAuthority" => tls_certificate_data(),
-        "Certificates" => list(tls_certificate_data()()),
+        "Certificates" => list(tls_certificate_data()),
         "Description" => String.t(),
         "EncryptionConfiguration" => encryption_configuration(),
         "LastModifiedTime" => non_neg_integer(),
@@ -1697,7 +1697,7 @@ defmodule AWS.NetworkFirewall do
         "TLSInspectionConfigurationId" => String.t(),
         "TLSInspectionConfigurationName" => String.t(),
         "TLSInspectionConfigurationStatus" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1758,7 +1758,7 @@ defmodule AWS.NetworkFirewall do
       rules_source_list() :: %{
         "GeneratedRulesType" => list(any()),
         "TargetTypes" => list(list(any())()),
-        "Targets" => list(String.t()())
+        "Targets" => list(String.t())
       }
       
   """
@@ -1796,7 +1796,7 @@ defmodule AWS.NetworkFirewall do
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
         optional("UpdateToken") => String.t(),
-        required("AvailabilityZoneMappings") => list(availability_zone_mapping()())
+        required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
       
   """
@@ -1807,7 +1807,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       list_firewall_policies_response() :: %{
-        "FirewallPolicies" => list(firewall_policy_metadata()()),
+        "FirewallPolicies" => list(firewall_policy_metadata()),
         "NextToken" => String.t()
       }
       
@@ -1833,7 +1833,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       port_set() :: %{
-        "Definition" => list(String.t()())
+        "Definition" => list(String.t())
       }
       
   """
@@ -1983,7 +1983,7 @@ defmodule AWS.NetworkFirewall do
       list_firewalls_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcIds") => list(String.t()())
+        optional("VpcIds") => list(String.t())
       }
       
   """
@@ -2145,7 +2145,7 @@ defmodule AWS.NetworkFirewall do
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
         optional("UpdateToken") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -2211,7 +2211,7 @@ defmodule AWS.NetworkFirewall do
       
       create_vpc_endpoint_association_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FirewallArn") => String.t(),
         required("SubnetMapping") => subnet_mapping(),
         required("VpcId") => String.t()
@@ -2285,7 +2285,7 @@ defmodule AWS.NetworkFirewall do
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
         optional("UpdateToken") => String.t(),
-        required("AvailabilityZoneMappings") => list(availability_zone_mapping()())
+        required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
       
   """
@@ -2317,7 +2317,7 @@ defmodule AWS.NetworkFirewall do
         "FlowOperationId" => String.t(),
         "FlowOperationStatus" => list(any()),
         "FlowRequestTimestamp" => non_neg_integer(),
-        "Flows" => list(flow()()),
+        "Flows" => list(flow()),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
         "VpcEndpointAssociationArn" => String.t(),
@@ -2384,12 +2384,12 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       match_attributes() :: %{
-        "DestinationPorts" => list(port_range()()),
-        "Destinations" => list(address()()),
-        "Protocols" => list(integer()()),
-        "SourcePorts" => list(port_range()()),
-        "Sources" => list(address()()),
-        "TCPFlags" => list(t_c_p_flag_field()())
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(address()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(address()),
+        "TCPFlags" => list(t_c_p_flag_field())
       }
       
   """
@@ -2420,7 +2420,7 @@ defmodule AWS.NetworkFirewall do
         optional("FirewallArn") => String.t(),
         optional("FirewallName") => String.t(),
         optional("UpdateToken") => String.t(),
-        required("SubnetMappings") => list(subnet_mapping()())
+        required("SubnetMappings") => list(subnet_mapping())
       }
       
   """
@@ -2570,7 +2570,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       summary() :: %{
-        "RuleSummaries" => list(rule_summary()())
+        "RuleSummaries" => list(rule_summary())
       }
       
   """
@@ -2608,8 +2608,8 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       stateless_rules_and_custom_actions() :: %{
-        "CustomActions" => list(custom_action()()),
-        "StatelessRules" => list(stateless_rule()())
+        "CustomActions" => list(custom_action()),
+        "StatelessRules" => list(stateless_rule())
       }
       
   """
@@ -2621,7 +2621,7 @@ defmodule AWS.NetworkFirewall do
       
       rule_option() :: %{
         "Keyword" => String.t(),
-        "Settings" => list(String.t()())
+        "Settings" => list(String.t())
       }
       
   """
@@ -2632,7 +2632,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       disassociate_availability_zones_response() :: %{
-        "AvailabilityZoneMappings" => list(availability_zone_mapping()()),
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
         "FirewallArn" => String.t(),
         "FirewallName" => String.t(),
         "UpdateToken" => String.t()
@@ -3191,7 +3191,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, accept_network_firewall_transit_gateway_attachment_errors()}
   def accept_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3220,7 +3221,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_availability_zones_errors()}
   def associate_availability_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAvailabilityZones", input, options)
   end
@@ -3242,7 +3244,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_firewall_policy_errors()}
   def associate_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFirewallPolicy", input, options)
   end
@@ -3267,7 +3270,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_subnets_errors()}
   def associate_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSubnets", input, options)
   end
@@ -3304,7 +3308,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_firewall_errors()}
   def create_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewall", input, options)
   end
@@ -3324,7 +3329,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_firewall_policy_errors()}
   def create_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewallPolicy", input, options)
   end
@@ -3343,7 +3349,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3386,7 +3393,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_t_l_s_inspection_configuration_errors()}
   def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTLSInspectionConfiguration", input, options)
   end
@@ -3406,7 +3414,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_vpc_endpoint_association_errors()}
   def create_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointAssociation", input, options)
   end
@@ -3437,7 +3446,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_firewall_errors()}
   def delete_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewall", input, options)
   end
@@ -3451,7 +3461,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_firewall_policy_errors()}
   def delete_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallPolicy", input, options)
   end
@@ -3478,7 +3489,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_network_firewall_transit_gateway_attachment_errors()}
   def delete_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3498,7 +3510,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3512,7 +3525,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -3530,7 +3544,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_t_l_s_inspection_configuration_errors()}
   def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTLSInspectionConfiguration", input, options)
   end
@@ -3554,7 +3569,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_vpc_endpoint_association_errors()}
   def delete_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointAssociation", input, options)
   end
@@ -3568,7 +3584,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_errors()}
   def describe_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewall", input, options)
   end
@@ -3584,7 +3601,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_metadata_errors()}
   def describe_firewall_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewallMetadata", input, options)
   end
@@ -3598,7 +3616,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_policy_errors()}
   def describe_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewallPolicy", input, options)
   end
@@ -3612,7 +3631,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_flow_operation_errors()}
   def describe_flow_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowOperation", input, options)
   end
@@ -3626,7 +3646,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoggingConfiguration", input, options)
   end
@@ -3640,7 +3661,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -3654,7 +3676,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_errors()}
   def describe_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroup", input, options)
   end
@@ -3673,7 +3696,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_metadata_errors()}
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroupMetadata", input, options)
   end
@@ -3695,7 +3719,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_summary_errors()}
   def describe_rule_group_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroupSummary", input, options)
   end
@@ -3713,7 +3738,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_t_l_s_inspection_configuration_errors()}
   def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTLSInspectionConfiguration", input, options)
   end
@@ -3731,7 +3757,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_vpc_endpoint_association_errors()}
   def describe_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointAssociation", input, options)
   end
@@ -3756,7 +3783,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, disassociate_availability_zones_errors()}
   def disassociate_availability_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAvailabilityZones", input, options)
   end
@@ -3775,7 +3803,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, disassociate_subnets_errors()}
   def disassociate_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSubnets", input, options)
   end
@@ -3792,7 +3821,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, get_analysis_report_results_errors()}
   def get_analysis_report_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnalysisReportResults", input, options)
   end
@@ -3807,7 +3837,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_analysis_reports_errors()}
   def list_analysis_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAnalysisReports", input, options)
   end
@@ -3826,7 +3857,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_firewall_policies_errors()}
   def list_firewall_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallPolicies", input, options)
   end
@@ -3847,7 +3879,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_firewalls_errors()}
   def list_firewalls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewalls", input, options)
   end
@@ -3869,7 +3902,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_flow_operation_results_errors()}
   def list_flow_operation_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowOperationResults", input, options)
   end
@@ -3894,7 +3928,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_flow_operations_errors()}
   def list_flow_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowOperations", input, options)
   end
@@ -3913,7 +3948,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -3935,7 +3971,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_t_l_s_inspection_configurations_errors()}
   def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTLSInspectionConfigurations", input, options)
   end
@@ -3962,7 +3999,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3983,7 +4021,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_vpc_endpoint_associations_errors()}
   def list_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcEndpointAssociations", input, options)
   end
@@ -4027,7 +4066,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -4057,7 +4097,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, reject_network_firewall_transit_gateway_attachment_errors()}
   def reject_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4081,7 +4122,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_analysis_report_errors()}
   def start_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAnalysisReport", input, options)
   end
@@ -4110,7 +4152,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_flow_capture_errors()}
   def start_flow_capture(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFlowCapture", input, options)
   end
@@ -4135,7 +4178,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_flow_flush_errors()}
   def start_flow_flush(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFlowFlush", input, options)
   end
@@ -4161,7 +4205,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4188,7 +4233,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4215,7 +4261,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_availability_zone_change_protection_errors()}
   def update_availability_zone_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityZoneChangeProtection", input, options)
   end
@@ -4233,7 +4280,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_analysis_settings_errors()}
   def update_firewall_analysis_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallAnalysisSettings", input, options)
   end
@@ -4257,7 +4305,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_delete_protection_errors()}
   def update_firewall_delete_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDeleteProtection", input, options)
   end
@@ -4274,7 +4323,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_description_errors()}
   def update_firewall_description(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDescription", input, options)
   end
@@ -4292,7 +4342,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_encryption_configuration_errors()}
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallEncryptionConfiguration", input, options)
   end
@@ -4306,7 +4357,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_policy_errors()}
   def update_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallPolicy", input, options)
   end
@@ -4329,7 +4381,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_policy_change_protection_errors()}
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallPolicyChangeProtection", input, options)
   end
@@ -4372,7 +4425,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLoggingConfiguration", input, options)
   end
@@ -4395,7 +4449,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -4406,7 +4461,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_subnet_change_protection_errors()}
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetChangeProtection", input, options)
   end
@@ -4436,7 +4492,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_t_l_s_inspection_configuration_errors()}
   def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTLSInspectionConfiguration", input, options)
   end

@@ -131,7 +131,7 @@ defmodule AWS.IVSRealTime do
 
       list_participant_replicas_response() :: %{
         "nextToken" => String.t(),
-        "replicas" => list(participant_replica()())
+        "replicas" => list(participant_replica())
       }
 
   """
@@ -213,7 +213,7 @@ defmodule AWS.IVSRealTime do
 
       composition() :: %{
         "arn" => String.t(),
-        "destinations" => list(destination()()),
+        "destinations" => list(destination()),
         "endTime" => non_neg_integer(),
         "layout" => layout_configuration(),
         "stageArn" => String.t(),
@@ -241,7 +241,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       create_stage_response() :: %{
-        optional("participantTokens") => list(participant_token()()),
+        optional("participantTokens") => list(participant_token()),
         optional("stage") => stage()
       }
 
@@ -390,7 +390,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       list_compositions_response() :: %{
-        "compositions" => list(composition_summary()()),
+        "compositions" => list(composition_summary()),
         "nextToken" => String.t()
       }
 
@@ -403,7 +403,7 @@ defmodule AWS.IVSRealTime do
 
       list_public_keys_response() :: %{
         "nextToken" => String.t(),
-        "publicKeys" => list(public_key_summary()())
+        "publicKeys" => list(public_key_summary())
       }
 
   """
@@ -481,7 +481,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       list_ingest_configurations_response() :: %{
-        "ingestConfigurations" => list(ingest_configuration_summary()()),
+        "ingestConfigurations" => list(ingest_configuration_summary()),
         "nextToken" => String.t()
       }
 
@@ -565,7 +565,7 @@ defmodule AWS.IVSRealTime do
 
       participant_token_configuration() :: %{
         "attributes" => map(),
-        "capabilities" => list(String.t()()),
+        "capabilities" => list(String.t()),
         "duration" => integer(),
         "userId" => String.t()
       }
@@ -604,7 +604,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -675,7 +675,7 @@ defmodule AWS.IVSRealTime do
         optional("idempotencyToken") => String.t(),
         optional("layout") => layout_configuration(),
         optional("tags") => map(),
-        required("destinations") => list(destination_configuration()()),
+        required("destinations") => list(destination_configuration()),
         required("stageArn") => String.t()
       }
 
@@ -763,7 +763,7 @@ defmodule AWS.IVSRealTime do
 
       list_storage_configurations_response() :: %{
         "nextToken" => String.t(),
-        "storageConfigurations" => list(storage_configuration_summary()())
+        "storageConfigurations" => list(storage_configuration_summary())
       }
 
   """
@@ -836,7 +836,7 @@ defmodule AWS.IVSRealTime do
 
       list_participants_response() :: %{
         "nextToken" => String.t(),
-        "participants" => list(participant_summary()())
+        "participants" => list(participant_summary())
       }
 
   """
@@ -983,10 +983,10 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       s3_destination_configuration() :: %{
-        "encoderConfigurationArns" => list(String.t()()),
+        "encoderConfigurationArns" => list(String.t()),
         "recordingConfiguration" => recording_configuration(),
         "storageConfigurationArn" => String.t(),
-        "thumbnailConfigurations" => list(composition_thumbnail_configuration()())
+        "thumbnailConfigurations" => list(composition_thumbnail_configuration())
       }
 
   """
@@ -1026,7 +1026,7 @@ defmodule AWS.IVSRealTime do
 
       list_stage_sessions_response() :: %{
         "nextToken" => String.t(),
-        "stageSessions" => list(stage_session_summary()())
+        "stageSessions" => list(stage_session_summary())
       }
 
   """
@@ -1138,7 +1138,7 @@ defmodule AWS.IVSRealTime do
       create_stage_request() :: %{
         optional("autoParticipantRecordingConfiguration") => auto_participant_recording_configuration(),
         optional("name") => String.t(),
-        optional("participantTokenConfigurations") => list(participant_token_configuration()()),
+        optional("participantTokenConfigurations") => list(participant_token_configuration()),
         optional("tags") => map()
       }
 
@@ -1181,7 +1181,7 @@ defmodule AWS.IVSRealTime do
 
       create_participant_token_request() :: %{
         optional("attributes") => map(),
-        optional("capabilities") => list(String.t()()),
+        optional("capabilities") => list(String.t()),
         optional("duration") => integer(),
         optional("userId") => String.t(),
         required("stageArn") => String.t()
@@ -1235,7 +1235,7 @@ defmodule AWS.IVSRealTime do
 
       list_stages_response() :: %{
         optional("nextToken") => String.t(),
-        required("stages") => list(stage_summary()())
+        required("stages") => list(stage_summary())
       }
 
   """
@@ -1264,7 +1264,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       list_encoder_configurations_response() :: %{
-        "encoderConfigurations" => list(encoder_configuration_summary()()),
+        "encoderConfigurations" => list(encoder_configuration_summary()),
         "nextToken" => String.t()
       }
 
@@ -1487,7 +1487,7 @@ defmodule AWS.IVSRealTime do
 
       participant_token() :: %{
         "attributes" => map(),
-        "capabilities" => list(String.t()()),
+        "capabilities" => list(String.t()),
         "duration" => integer(),
         "expirationTime" => non_neg_integer(),
         "participantId" => String.t(),
@@ -1638,7 +1638,7 @@ defmodule AWS.IVSRealTime do
 
       composition_summary() :: %{
         "arn" => String.t(),
-        "destinations" => list(destination_summary()()),
+        "destinations" => list(destination_summary()),
         "endTime" => non_neg_integer(),
         "stageArn" => String.t(),
         "startTime" => non_neg_integer(),
@@ -1718,7 +1718,7 @@ defmodule AWS.IVSRealTime do
   ## Example:
 
       list_participant_events_response() :: %{
-        "events" => list(event()()),
+        "events" => list(event()),
         "nextToken" => String.t()
       }
 

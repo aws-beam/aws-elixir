@@ -30,7 +30,7 @@ defmodule AWS.Grafana do
 
       list_permissions_response() :: %{
         optional("nextToken") => String.t(),
-        required("permissions") => list(permission_entry()())
+        required("permissions") => list(permission_entry())
       }
 
   """
@@ -52,8 +52,8 @@ defmodule AWS.Grafana do
   ## Example:
 
       vpc_configuration() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -121,8 +121,8 @@ defmodule AWS.Grafana do
   ## Example:
 
       network_access_configuration() :: %{
-        "prefixListIds" => list(String.t()()),
-        "vpceIds" => list(String.t()())
+        "prefixListIds" => list(String.t()),
+        "vpceIds" => list(String.t())
       }
 
   """
@@ -155,7 +155,7 @@ defmodule AWS.Grafana do
         "licenseType" => String.t(),
         "modified" => [non_neg_integer()],
         "name" => String.t(),
-        "notificationDestinations" => list(String.t()()),
+        "notificationDestinations" => list(String.t()),
         "status" => String.t(),
         "tags" => map()
       }
@@ -190,7 +190,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -249,7 +249,7 @@ defmodule AWS.Grafana do
 
       authentication_description() :: %{
         "awsSso" => aws_sso_authentication(),
-        "providers" => list(String.t()()),
+        "providers" => list(String.t()),
         "saml" => saml_authentication()
       }
 
@@ -347,7 +347,7 @@ defmodule AWS.Grafana do
 
       update_workspace_authentication_request() :: %{
         optional("samlConfiguration") => saml_configuration(),
-        required("authenticationProviders") => list(String.t()())
+        required("authenticationProviders") => list(String.t())
       }
 
   """
@@ -386,7 +386,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       authentication_summary() :: %{
-        "providers" => list(String.t()()),
+        "providers" => list(String.t()),
         "samlConfigurationStatus" => String.t()
       }
 
@@ -490,7 +490,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       list_versions_response() :: %{
-        "grafanaVersions" => list(String.t()()),
+        "grafanaVersions" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -504,7 +504,7 @@ defmodule AWS.Grafana do
       list_workspace_service_account_tokens_response() :: %{
         "nextToken" => String.t(),
         "serviceAccountId" => [String.t()],
-        "serviceAccountTokens" => list(service_account_token_summary()()),
+        "serviceAccountTokens" => list(service_account_token_summary()),
         "workspaceId" => String.t()
       }
 
@@ -533,11 +533,11 @@ defmodule AWS.Grafana do
         optional("removeVpcConfiguration") => [boolean()],
         optional("stackSetName") => String.t(),
         optional("vpcConfiguration") => vpc_configuration(),
-        optional("workspaceDataSources") => list(String.t()()),
+        optional("workspaceDataSources") => list(String.t()),
         optional("workspaceDescription") => String.t(),
         optional("workspaceName") => String.t(),
-        optional("workspaceNotificationDestinations") => list(String.t()()),
-        optional("workspaceOrganizationalUnits") => list(String.t()()),
+        optional("workspaceNotificationDestinations") => list(String.t()),
+        optional("workspaceOrganizationalUnits") => list(String.t()),
         optional("workspaceRoleArn") => String.t()
       }
 
@@ -567,7 +567,7 @@ defmodule AWS.Grafana do
         "accountAccessType" => String.t(),
         "authentication" => authentication_summary(),
         "created" => [non_neg_integer()],
-        "dataSources" => list(String.t()()),
+        "dataSources" => list(String.t()),
         "description" => String.t(),
         "endpoint" => String.t(),
         "freeTrialConsumed" => [boolean()],
@@ -580,9 +580,9 @@ defmodule AWS.Grafana do
         "modified" => [non_neg_integer()],
         "name" => String.t(),
         "networkAccessControl" => network_access_configuration(),
-        "notificationDestinations" => list(String.t()()),
+        "notificationDestinations" => list(String.t()),
         "organizationRoleName" => String.t(),
-        "organizationalUnits" => list(String.t()()),
+        "organizationalUnits" => list(String.t()),
         "permissionType" => String.t(),
         "stackSetName" => String.t(),
         "status" => String.t(),
@@ -623,7 +623,7 @@ defmodule AWS.Grafana do
 
       list_workspaces_response() :: %{
         optional("nextToken") => String.t(),
-        required("workspaces") => list(workspace_summary()())
+        required("workspaces") => list(workspace_summary())
       }
 
   """
@@ -665,7 +665,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       update_permissions_response() :: %{
-        required("errors") => list(update_error()())
+        required("errors") => list(update_error())
       }
 
   """
@@ -717,7 +717,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -767,7 +767,7 @@ defmodule AWS.Grafana do
       update_instruction() :: %{
         "action" => String.t(),
         "role" => String.t(),
-        "users" => list(user()())
+        "users" => list(user())
       }
 
   """
@@ -840,8 +840,8 @@ defmodule AWS.Grafana do
   ## Example:
 
       role_values() :: %{
-        "admin" => list(String.t()()),
-        "editor" => list(String.t()())
+        "admin" => list(String.t()),
+        "editor" => list(String.t())
       }
 
   """
@@ -875,7 +875,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       update_permissions_request() :: %{
-        required("updateInstructionBatch") => list(update_instruction()())
+        required("updateInstructionBatch") => list(update_instruction())
       }
 
   """
@@ -921,7 +921,7 @@ defmodule AWS.Grafana do
 
       list_workspace_service_accounts_response() :: %{
         "nextToken" => String.t(),
-        "serviceAccounts" => list(service_account_summary()()),
+        "serviceAccounts" => list(service_account_summary()),
         "workspaceId" => String.t()
       }
 
@@ -945,7 +945,7 @@ defmodule AWS.Grafana do
   ## Example:
 
       saml_configuration() :: %{
-        "allowedOrganizations" => list(String.t()()),
+        "allowedOrganizations" => list(String.t()),
         "assertionAttributes" => assertion_attributes(),
         "idpMetadata" => list(),
         "loginValidityDuration" => integer(),
@@ -968,14 +968,14 @@ defmodule AWS.Grafana do
         optional("stackSetName") => String.t(),
         optional("tags") => map(),
         optional("vpcConfiguration") => vpc_configuration(),
-        optional("workspaceDataSources") => list(String.t()()),
+        optional("workspaceDataSources") => list(String.t()),
         optional("workspaceDescription") => String.t(),
         optional("workspaceName") => String.t(),
-        optional("workspaceNotificationDestinations") => list(String.t()()),
-        optional("workspaceOrganizationalUnits") => list(String.t()()),
+        optional("workspaceNotificationDestinations") => list(String.t()),
+        optional("workspaceOrganizationalUnits") => list(String.t()),
         optional("workspaceRoleArn") => String.t(),
         required("accountAccessType") => String.t(),
-        required("authenticationProviders") => list(String.t()()),
+        required("authenticationProviders") => list(String.t()),
         required("permissionType") => String.t()
       }
 

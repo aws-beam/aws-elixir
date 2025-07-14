@@ -70,7 +70,7 @@ defmodule AWS.DAX do
       
       tag_resource_request() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -94,7 +94,7 @@ defmodule AWS.DAX do
       
       describe_parameter_groups_response() :: %{
         "NextToken" => String.t(),
-        "ParameterGroups" => list(parameter_group()())
+        "ParameterGroups" => list(parameter_group())
       }
       
   """
@@ -105,7 +105,7 @@ defmodule AWS.DAX do
   ## Example:
       
       untag_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -222,7 +222,7 @@ defmodule AWS.DAX do
       
       list_tags_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -234,7 +234,7 @@ defmodule AWS.DAX do
       
       describe_parameters_response() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -268,7 +268,7 @@ defmodule AWS.DAX do
       
       untag_resource_request() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -290,7 +290,7 @@ defmodule AWS.DAX do
   ## Example:
       
       parameter_group_status() :: %{
-        "NodeIdsToReboot" => list(String.t()()),
+        "NodeIdsToReboot" => list(String.t()),
         "ParameterApplyStatus" => String.t(),
         "ParameterGroupName" => String.t()
       }
@@ -319,7 +319,7 @@ defmodule AWS.DAX do
         optional("NotificationTopicStatus") => String.t(),
         optional("ParameterGroupName") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         required("ClusterName") => String.t()
       }
       
@@ -377,7 +377,7 @@ defmodule AWS.DAX do
       subnet_group() :: %{
         "Description" => String.t(),
         "SubnetGroupName" => String.t(),
-        "Subnets" => list(subnet()()),
+        "Subnets" => list(subnet()),
         "VpcId" => String.t()
       }
       
@@ -400,16 +400,16 @@ defmodule AWS.DAX do
   ## Example:
       
       create_cluster_request() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("ClusterEndpointEncryptionType") => list(any()),
         optional("Description") => String.t(),
         optional("NotificationTopicArn") => String.t(),
         optional("ParameterGroupName") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("SSESpecification") => sse_specification(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SubnetGroupName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterName") => String.t(),
         required("IamRoleArn") => String.t(),
         required("NodeType") => String.t(),
@@ -425,7 +425,7 @@ defmodule AWS.DAX do
       
       describe_default_parameters_response() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -455,14 +455,14 @@ defmodule AWS.DAX do
         "ClusterName" => String.t(),
         "Description" => String.t(),
         "IamRoleArn" => String.t(),
-        "NodeIdsToRemove" => list(String.t()()),
+        "NodeIdsToRemove" => list(String.t()),
         "NodeType" => String.t(),
-        "Nodes" => list(dax_node()()),
+        "Nodes" => list(node()),
         "NotificationConfiguration" => notification_configuration(),
         "ParameterGroup" => parameter_group_status(),
         "PreferredMaintenanceWindow" => String.t(),
         "SSEDescription" => sse_description(),
-        "SecurityGroups" => list(security_group_membership()()),
+        "SecurityGroups" => list(security_group_membership()),
         "Status" => String.t(),
         "SubnetGroup" => String.t(),
         "TotalNodes" => integer()
@@ -507,7 +507,7 @@ defmodule AWS.DAX do
   ## Example:
       
       increase_replication_factor_request() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         required("ClusterName") => String.t(),
         required("NewReplicationFactor") => integer()
       }
@@ -521,7 +521,7 @@ defmodule AWS.DAX do
       
       describe_subnet_groups_response() :: %{
         "NextToken" => String.t(),
-        "SubnetGroups" => list(subnet_group()())
+        "SubnetGroups" => list(subnet_group())
       }
       
   """
@@ -537,7 +537,7 @@ defmodule AWS.DAX do
         "DataType" => String.t(),
         "Description" => String.t(),
         "IsModifiable" => list(any()),
-        "NodeTypeSpecificValues" => list(node_type_specific_value()()),
+        "NodeTypeSpecificValues" => list(node_type_specific_value()),
         "ParameterName" => String.t(),
         "ParameterType" => list(any()),
         "ParameterValue" => String.t(),
@@ -553,7 +553,7 @@ defmodule AWS.DAX do
       
       update_subnet_group_request() :: %{
         optional("Description") => String.t(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         required("SubnetGroupName") => String.t()
       }
       
@@ -590,7 +590,7 @@ defmodule AWS.DAX do
       create_subnet_group_request() :: %{
         optional("Description") => String.t(),
         required("SubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -646,8 +646,8 @@ defmodule AWS.DAX do
   ## Example:
       
       decrease_replication_factor_request() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
-        optional("NodeIdsToRemove") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
+        optional("NodeIdsToRemove") => list(String.t()),
         required("ClusterName") => String.t(),
         required("NewReplicationFactor") => integer()
       }
@@ -778,7 +778,7 @@ defmodule AWS.DAX do
       describe_subnet_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SubnetGroupNames") => list(String.t()())
+        optional("SubnetGroupNames") => list(String.t())
       }
       
   """
@@ -833,7 +833,7 @@ defmodule AWS.DAX do
   ## Example:
       
       tag_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -846,7 +846,7 @@ defmodule AWS.DAX do
       describe_parameter_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ParameterGroupNames") => list(String.t()())
+        optional("ParameterGroupNames") => list(String.t())
       }
       
   """
@@ -857,7 +857,7 @@ defmodule AWS.DAX do
   ## Example:
       
       describe_clusters_response() :: %{
-        "Clusters" => list(cluster()()),
+        "Clusters" => list(cluster()),
         "NextToken" => String.t()
       }
       
@@ -915,7 +915,7 @@ defmodule AWS.DAX do
       
       update_parameter_group_request() :: %{
         required("ParameterGroupName") => String.t(),
-        required("ParameterNameValues") => list(parameter_name_value()())
+        required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.DAX do
   ## Example:
       
       describe_clusters_request() :: %{
-        optional("ClusterNames") => list(String.t()()),
+        optional("ClusterNames") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1018,7 +1018,7 @@ defmodule AWS.DAX do
   ## Example:
       
       describe_events_response() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "NextToken" => String.t()
       }
       
@@ -1243,7 +1243,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1260,7 +1261,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -1274,7 +1276,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -1291,7 +1294,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, decrease_replication_factor_errors()}
   def decrease_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicationFactor", input, options)
   end
@@ -1311,7 +1315,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1328,7 +1333,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -1345,7 +1351,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -1375,7 +1382,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -1390,7 +1398,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_default_parameters_errors()}
   def describe_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDefaultParameters", input, options)
   end
@@ -1413,7 +1422,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -1430,7 +1440,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -1444,7 +1455,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -1461,7 +1473,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -1475,7 +1488,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, increase_replication_factor_errors()}
   def increase_replication_factor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicationFactor", input, options)
   end
@@ -1492,7 +1506,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1513,7 +1528,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, reboot_node_errors()}
   def reboot_node(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootNode", input, options)
   end
@@ -1530,7 +1546,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1547,7 +1564,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1565,7 +1583,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1583,7 +1602,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -1597,7 +1617,8 @@ defmodule AWS.DAX do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end

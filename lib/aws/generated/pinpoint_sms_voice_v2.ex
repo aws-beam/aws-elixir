@@ -53,7 +53,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_spend_limits_result() :: %{
         "NextToken" => String.t(),
-        "SpendLimits" => list(spend_limit()())
+        "SpendLimits" => list(spend_limit())
       }
       
   """
@@ -69,7 +69,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "IsoCountryCode" => String.t(),
         "MessageType" => String.t(),
         "MonthlyLeasingPrice" => [String.t()],
-        "NumberCapabilities" => list(String.t()()),
+        "NumberCapabilities" => list(String.t()),
         "NumberType" => String.t(),
         "OptOutListName" => String.t(),
         "PhoneNumber" => String.t(),
@@ -106,7 +106,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registration_field_definitions_result() :: %{
         "NextToken" => String.t(),
-        "RegistrationFieldDefinitions" => list(registration_field_definition()()),
+        "RegistrationFieldDefinitions" => list(registration_field_definition()),
         "RegistrationType" => String.t()
       }
       
@@ -119,7 +119,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_attachment_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -133,7 +133,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("AttachmentBody") => binary(),
         optional("AttachmentUrl") => String.t(),
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -149,7 +149,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "IsoCountryCode" => String.t(),
         "MessageType" => String.t(),
         "MonthlyLeasingPrice" => [String.t()],
-        "NumberCapabilities" => list(String.t()()),
+        "NumberCapabilities" => list(String.t()),
         "NumberType" => String.t(),
         "OptOutListName" => String.t(),
         "PhoneNumber" => String.t(),
@@ -176,7 +176,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "CreatedTimestamp" => [non_neg_integer()],
         "RegistrationAttachmentArn" => [String.t()],
         "RegistrationAttachmentId" => [String.t()],
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -189,8 +189,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
       request_sender_id_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("MessageTypes") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("MessageTypes") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("IsoCountryCode") => String.t(),
         required("SenderId") => String.t()
       }
@@ -204,7 +204,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -268,7 +268,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "NextToken" => String.t(),
         "RegistrationArn" => [String.t()],
         "RegistrationId" => [String.t()],
-        "RegistrationVersions" => list(registration_version_information()())
+        "RegistrationVersions" => list(registration_version_information())
       }
       
   """
@@ -321,7 +321,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "IsoCountryCode" => String.t(),
         "MessageType" => String.t(),
         "MonthlyLeasingPrice" => [String.t()],
-        "NumberCapabilities" => list(String.t()()),
+        "NumberCapabilities" => list(String.t()),
         "NumberType" => String.t(),
         "OptOutListName" => String.t(),
         "PhoneNumber" => String.t(),
@@ -331,7 +331,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "RegistrationId" => [String.t()],
         "SelfManagedOptOutsEnabled" => [boolean()],
         "Status" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TwoWayChannelArn" => String.t(),
         "TwoWayChannelRole" => String.t(),
         "TwoWayEnabled" => [boolean()]
@@ -355,7 +355,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_pools_result() :: %{
         "NextToken" => String.t(),
-        "Pools" => list(pool_information()())
+        "Pools" => list(pool_information())
       }
       
   """
@@ -366,7 +366,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       list_registration_associations_request() :: %{
-        optional("Filters") => list(registration_association_filter()()),
+        optional("Filters") => list(registration_association_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("RegistrationId") => String.t()
@@ -395,11 +395,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_pools_request() :: %{
-        optional("Filters") => list(pool_filter()()),
+        optional("Filters") => list(pool_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Owner") => String.t(),
-        optional("PoolIds") => list(String.t()())
+        optional("PoolIds") => list(String.t())
       }
       
   """
@@ -413,7 +413,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "CreatedTimestamp" => [non_neg_integer()],
         "OptOutListArn" => [String.t()],
         "OptOutListName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -434,7 +434,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       verified_destination_number_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -532,7 +532,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_association_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -627,10 +627,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_type_definitions_request() :: %{
-        optional("Filters") => list(registration_type_filter()()),
+        optional("Filters") => list(registration_type_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RegistrationTypes") => list(String.t()())
+        optional("RegistrationTypes") => list(String.t())
       }
       
   """
@@ -691,7 +691,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "SelfManagedOptOutsEnabled" => [boolean()],
         "SharedRoutesEnabled" => [boolean()],
         "Status" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TwoWayChannelArn" => String.t(),
         "TwoWayChannelRole" => String.t(),
         "TwoWayEnabled" => [boolean()]
@@ -720,7 +720,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "IsoCountryCode" => String.t(),
         "MessageType" => String.t(),
         "MonthlyLeasingPrice" => [String.t()],
-        "NumberCapabilities" => list(String.t()()),
+        "NumberCapabilities" => list(String.t()),
         "NumberType" => String.t(),
         "OptOutListName" => String.t(),
         "PhoneNumber" => String.t(),
@@ -785,7 +785,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DefaultMessageFeedbackEnabled" => [boolean()],
         "DefaultMessageType" => String.t(),
         "DefaultSenderId" => String.t(),
-        "EventDestinations" => list(event_destination()()),
+        "EventDestinations" => list(event_destination()),
         "ProtectConfigurationId" => String.t()
       }
       
@@ -822,7 +822,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       release_sender_id_result() :: %{
         "IsoCountryCode" => String.t(),
-        "MessageTypes" => list(String.t()()),
+        "MessageTypes" => list(String.t()),
         "MonthlyLeasingPrice" => [String.t()],
         "Registered" => [boolean()],
         "RegistrationId" => [String.t()],
@@ -893,7 +893,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       create_pool_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IsoCountryCode") => String.t(),
         required("MessageType") => String.t(),
         required("OriginationIdentity") => String.t()
@@ -908,7 +908,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -920,7 +920,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -944,12 +944,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
       request_sender_id_result() :: %{
         "DeletionProtectionEnabled" => [boolean()],
         "IsoCountryCode" => String.t(),
-        "MessageTypes" => list(String.t()()),
+        "MessageTypes" => list(String.t()),
         "MonthlyLeasingPrice" => [String.t()],
         "Registered" => [boolean()],
         "SenderId" => String.t(),
         "SenderIdArn" => [String.t()],
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1008,7 +1008,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registration_section_definitions_result() :: %{
         "NextToken" => String.t(),
-        "RegistrationSectionDefinitions" => list(registration_section_definition()()),
+        "RegistrationSectionDefinitions" => list(registration_section_definition()),
         "RegistrationType" => String.t()
       }
       
@@ -1044,7 +1044,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_keywords_result() :: %{
-        "Keywords" => list(keyword_information()()),
+        "Keywords" => list(keyword_information()),
         "NextToken" => String.t(),
         "OriginationIdentity" => [String.t()],
         "OriginationIdentityArn" => [String.t()]
@@ -1107,7 +1107,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("SnsDestination") => sns_destination(),
         required("ConfigurationSetName") => String.t(),
         required("EventDestinationName") => String.t(),
-        required("MatchingEventTypes") => list(String.t()())
+        required("MatchingEventTypes") => list(String.t())
       }
       
   """
@@ -1118,10 +1118,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registrations_request() :: %{
-        optional("Filters") => list(registration_filter()()),
+        optional("Filters") => list(registration_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RegistrationIds") => list(String.t()())
+        optional("RegistrationIds") => list(String.t())
       }
       
   """
@@ -1132,10 +1132,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_protect_configurations_request() :: %{
-        optional("Filters") => list(protect_configuration_filter()()),
+        optional("Filters") => list(protect_configuration_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ProtectConfigurationIds") => list(String.t()())
+        optional("ProtectConfigurationIds") => list(String.t())
       }
       
   """
@@ -1164,7 +1164,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("CloudWatchLogsDestination") => cloud_watch_logs_destination(),
         optional("Enabled") => [boolean()],
         optional("KinesisFirehoseDestination") => kinesis_firehose_destination(),
-        optional("MatchingEventTypes") => list(String.t()()),
+        optional("MatchingEventTypes") => list(String.t()),
         optional("SnsDestination") => sns_destination(),
         required("ConfigurationSetName") => String.t(),
         required("EventDestinationName") => String.t()
@@ -1193,7 +1193,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_verified_destination_numbers_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedDestinationNumbers" => list(verified_destination_number_information()())
+        "VerifiedDestinationNumbers" => list(verified_destination_number_information())
       }
       
   """
@@ -1232,7 +1232,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       create_protect_configuration_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DeletionProtectionEnabled") => [boolean()],
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1313,7 +1313,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       registration_type_definition() :: %{
         "DisplayHints" => registration_type_display_hints(),
         "RegistrationType" => String.t(),
-        "SupportedAssociations" => list(supported_association()())
+        "SupportedAssociations" => list(supported_association())
       }
       
   """
@@ -1340,7 +1340,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "NextToken" => String.t(),
         "ProtectConfigurationArn" => String.t(),
         "ProtectConfigurationId" => String.t(),
-        "RuleSetNumberOverrides" => list(protect_configuration_rule_set_number_override()())
+        "RuleSetNumberOverrides" => list(protect_configuration_rule_set_number_override())
       }
       
   """
@@ -1367,7 +1367,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "Enabled" => [boolean()],
         "EventDestinationName" => String.t(),
         "KinesisFirehoseDestination" => kinesis_firehose_destination(),
-        "MatchingEventTypes" => list(String.t()()),
+        "MatchingEventTypes" => list(String.t()),
         "SnsDestination" => sns_destination()
       }
       
@@ -1449,7 +1449,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       sender_id_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1474,7 +1474,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       protect_configuration_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1562,7 +1562,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "NextToken" => String.t(),
         "OptOutListArn" => [String.t()],
         "OptOutListName" => String.t(),
-        "OptedOutNumbers" => list(opted_out_number_information()())
+        "OptedOutNumbers" => list(opted_out_number_information())
       }
       
   """
@@ -1593,7 +1593,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       phone_number_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1604,7 +1604,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       list_pool_origination_identities_request() :: %{
-        optional("Filters") => list(pool_origination_identities_filter()()),
+        optional("Filters") => list(pool_origination_identities_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("PoolId") => String.t()
@@ -1675,7 +1675,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       keyword_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1697,8 +1697,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_keywords_request() :: %{
-        optional("Filters") => list(keyword_filter()()),
-        optional("Keywords") => list(String.t()()),
+        optional("Filters") => list(keyword_filter()),
+        optional("Keywords") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("OriginationIdentity") => String.t()
@@ -1741,10 +1741,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("OptOutListName") => String.t(),
         optional("PoolId") => String.t(),
         optional("RegistrationId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IsoCountryCode") => String.t(),
         required("MessageType") => String.t(),
-        required("NumberCapabilities") => list(String.t()()),
+        required("NumberCapabilities") => list(String.t()),
         required("NumberType") => String.t()
       }
       
@@ -1761,7 +1761,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DeletionProtectionEnabled" => [boolean()],
         "ProtectConfigurationArn" => String.t(),
         "ProtectConfigurationId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1774,7 +1774,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registration_field_values_result() :: %{
         "NextToken" => String.t(),
         "RegistrationArn" => [String.t()],
-        "RegistrationFieldValues" => list(registration_field_value_information()()),
+        "RegistrationFieldValues" => list(registration_field_value_information()),
         "RegistrationId" => [String.t()],
         "VersionNumber" => float()
       }
@@ -1811,7 +1811,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_field_values_request() :: %{
-        optional("FieldPaths") => list(String.t()()),
+        optional("FieldPaths") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SectionPath") => String.t(),
@@ -1829,7 +1829,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_opt_out_lists_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OptOutListNames") => list(String.t()()),
+        optional("OptOutListNames") => list(String.t()),
         optional("Owner") => String.t()
       }
       
@@ -1859,7 +1859,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "RegistrationId" => [String.t()],
         "RegistrationStatus" => String.t(),
         "RegistrationType" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1910,7 +1910,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       pool_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1933,11 +1933,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_sender_ids_request() :: %{
-        optional("Filters") => list(sender_id_filter()()),
+        optional("Filters") => list(sender_id_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Owner") => String.t(),
-        optional("SenderIds") => list(sender_id_and_country()())
+        optional("SenderIds") => list(sender_id_and_country())
       }
       
   """
@@ -1961,7 +1961,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registration_attachments_result() :: %{
         "NextToken" => String.t(),
-        "RegistrationAttachments" => list(registration_attachments_information()())
+        "RegistrationAttachments" => list(registration_attachments_information())
       }
       
   """
@@ -1973,7 +1973,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       list_pool_origination_identities_result() :: %{
         "NextToken" => String.t(),
-        "OriginationIdentities" => list(origination_identity_metadata()()),
+        "OriginationIdentities" => list(origination_identity_metadata()),
         "PoolArn" => [String.t()],
         "PoolId" => [String.t()]
       }
@@ -1990,7 +1990,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "RegistrationArn" => [String.t()],
         "RegistrationAttachmentId" => [String.t()],
         "RegistrationId" => [String.t()],
-        "SelectChoices" => list(String.t()()),
+        "SelectChoices" => list(String.t()),
         "TextValue" => String.t(),
         "VersionNumber" => float()
       }
@@ -2004,7 +2004,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       opted_out_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2026,11 +2026,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_verified_destination_numbers_request() :: %{
-        optional("DestinationPhoneNumbers") => list(String.t()()),
-        optional("Filters") => list(verified_destination_number_filter()()),
+        optional("DestinationPhoneNumbers") => list(String.t()),
+        optional("Filters") => list(verified_destination_number_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedDestinationNumberIds") => list(String.t()())
+        optional("VerifiedDestinationNumberIds") => list(String.t())
       }
       
   """
@@ -2045,7 +2045,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DocumentationTitle" => [String.t()],
         "ExampleTextValue" => [String.t()],
         "LongDescription" => [String.t()],
-        "SelectOptionDescriptions" => list(select_option_description()()),
+        "SelectOptionDescriptions" => list(select_option_description()),
         "ShortDescription" => [String.t()],
         "TextValidationDescription" => [String.t()],
         "Title" => [String.t()]
@@ -2134,7 +2134,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       list_registration_associations_result() :: %{
         "NextToken" => String.t(),
         "RegistrationArn" => [String.t()],
-        "RegistrationAssociations" => list(registration_association_metadata()()),
+        "RegistrationAssociations" => list(registration_association_metadata()),
         "RegistrationId" => [String.t()],
         "RegistrationType" => String.t()
       }
@@ -2163,7 +2163,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       list_tags_for_resource_result() :: %{
         "ResourceArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2236,7 +2236,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       sender_id_information() :: %{
         "DeletionProtectionEnabled" => [boolean()],
         "IsoCountryCode" => String.t(),
-        "MessageTypes" => list(String.t()()),
+        "MessageTypes" => list(String.t()),
         "MonthlyLeasingPrice" => [String.t()],
         "Registered" => [boolean()],
         "RegistrationId" => [String.t()],
@@ -2265,7 +2265,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       describe_registration_section_definitions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SectionPaths") => list(String.t()()),
+        optional("SectionPaths") => list(String.t()),
         required("RegistrationType") => String.t()
       }
       
@@ -2373,7 +2373,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_sender_ids_result() :: %{
         "NextToken" => String.t(),
-        "SenderIds" => list(sender_id_information()())
+        "SenderIds" => list(sender_id_information())
       }
       
   """
@@ -2398,7 +2398,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_account_attributes_result() :: %{
-        "AccountAttributes" => list(account_attribute()()),
+        "AccountAttributes" => list(account_attribute()),
         "NextToken" => String.t()
       }
       
@@ -2411,7 +2411,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       put_registration_field_value_request() :: %{
         optional("RegistrationAttachmentId") => String.t(),
-        optional("SelectChoices") => list(String.t()()),
+        optional("SelectChoices") => list(String.t()),
         optional("TextValue") => String.t(),
         required("FieldPath") => String.t(),
         required("RegistrationId") => String.t()
@@ -2425,7 +2425,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_field_definitions_request() :: %{
-        optional("FieldPaths") => list(String.t()()),
+        optional("FieldPaths") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SectionPath") => String.t(),
@@ -2441,7 +2441,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registrations_result() :: %{
         "NextToken" => String.t(),
-        "Registrations" => list(registration_information()())
+        "Registrations" => list(registration_information())
       }
       
   """
@@ -2453,7 +2453,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_opt_out_lists_result() :: %{
         "NextToken" => String.t(),
-        "OptOutLists" => list(opt_out_list_information()())
+        "OptOutLists" => list(opt_out_list_information())
       }
       
   """
@@ -2478,10 +2478,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_attachments_request() :: %{
-        optional("Filters") => list(registration_attachment_filter()()),
+        optional("Filters") => list(registration_attachment_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RegistrationAttachmentIds") => list(String.t()())
+        optional("RegistrationAttachmentIds") => list(String.t())
       }
       
   """
@@ -2494,7 +2494,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       update_sender_id_result() :: %{
         "DeletionProtectionEnabled" => [boolean()],
         "IsoCountryCode" => String.t(),
-        "MessageTypes" => list(String.t()()),
+        "MessageTypes" => list(String.t()),
         "MonthlyLeasingPrice" => [String.t()],
         "Registered" => [boolean()],
         "RegistrationId" => [String.t()],
@@ -2511,7 +2511,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       pool_origination_identities_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2522,7 +2522,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_account_limits_result() :: %{
-        "AccountLimits" => list(account_limit()()),
+        "AccountLimits" => list(account_limit()),
         "NextToken" => String.t()
       }
       
@@ -2534,7 +2534,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => [String.t()],
         "Reason" => String.t()
       }
@@ -2614,7 +2614,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       protect_configuration_rule_set_number_override_filter_item() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2640,7 +2640,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_type_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2664,7 +2664,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_verified_destination_number_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DestinationPhoneNumber") => String.t()
       }
       
@@ -2676,11 +2676,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_phone_numbers_request() :: %{
-        optional("Filters") => list(phone_number_filter()()),
+        optional("Filters") => list(phone_number_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Owner") => String.t(),
-        optional("PhoneNumberIds") => list(String.t()())
+        optional("PhoneNumberIds") => list(String.t())
       }
       
   """
@@ -2691,10 +2691,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_opted_out_numbers_request() :: %{
-        optional("Filters") => list(opted_out_filter()()),
+        optional("Filters") => list(opted_out_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OptedOutNumbers") => list(String.t()()),
+        optional("OptedOutNumbers") => list(String.t()),
         required("OptOutListName") => String.t()
       }
       
@@ -2707,7 +2707,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_protect_configurations_result() :: %{
         "NextToken" => String.t(),
-        "ProtectConfigurations" => list(protect_configuration_information()())
+        "ProtectConfigurations" => list(protect_configuration_information())
       }
       
   """
@@ -2741,7 +2741,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_registration_type_definitions_result() :: %{
         "NextToken" => String.t(),
-        "RegistrationTypeDefinitions" => list(registration_type_definition()())
+        "RegistrationTypeDefinitions" => list(registration_type_definition())
       }
       
   """
@@ -2753,7 +2753,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       describe_phone_numbers_result() :: %{
         "NextToken" => String.t(),
-        "PhoneNumbers" => list(phone_number_information()())
+        "PhoneNumbers" => list(phone_number_information())
       }
       
   """
@@ -2774,7 +2774,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       configuration_set_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2786,7 +2786,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_opt_out_list_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("OptOutListName") => String.t()
       }
       
@@ -2801,7 +2801,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "ConfigurationSetArn" => [String.t()],
         "ConfigurationSetName" => String.t(),
         "CreatedTimestamp" => [non_neg_integer()],
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2832,7 +2832,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_configuration_sets_result() :: %{
-        "ConfigurationSets" => list(configuration_set_information()()),
+        "ConfigurationSets" => list(configuration_set_information()),
         "NextToken" => String.t()
       }
       
@@ -2857,7 +2857,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       list_protect_configuration_rule_set_number_overrides_request() :: %{
-        optional("Filters") => list(protect_configuration_rule_set_number_override_filter_item()()),
+        optional("Filters") => list(protect_configuration_rule_set_number_override_filter_item()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ProtectConfigurationId") => String.t()
@@ -2949,10 +2949,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_registration_versions_request() :: %{
-        optional("Filters") => list(registration_version_filter()()),
+        optional("Filters") => list(registration_version_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VersionNumbers") => list(float()()),
+        optional("VersionNumbers") => list(float()),
         required("RegistrationId") => String.t()
       }
       
@@ -2967,7 +2967,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DeniedReason" => [String.t()],
         "FieldPath" => String.t(),
         "RegistrationAttachmentId" => String.t(),
-        "SelectChoices" => list(String.t()()),
+        "SelectChoices" => list(String.t()),
         "TextValue" => String.t()
       }
       
@@ -3032,7 +3032,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       registration_version_information() :: %{
-        "DeniedReasons" => list(registration_denied_reason_information()()),
+        "DeniedReasons" => list(registration_denied_reason_information()),
         "RegistrationVersionStatus" => String.t(),
         "RegistrationVersionStatusHistory" => registration_version_status_history(),
         "VersionNumber" => float()
@@ -3058,7 +3058,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       registration_version_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -3087,7 +3087,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       origination_identity_metadata() :: %{
         "IsoCountryCode" => String.t(),
-        "NumberCapabilities" => list(String.t()()),
+        "NumberCapabilities" => list(String.t()),
         "OriginationIdentity" => [String.t()],
         "OriginationIdentityArn" => [String.t()],
         "PhoneNumber" => String.t()
@@ -3114,8 +3114,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
   ## Example:
       
       describe_configuration_sets_request() :: %{
-        optional("ConfigurationSetNames") => list(String.t()()),
-        optional("Filters") => list(configuration_set_filter()()),
+        optional("ConfigurationSetNames") => list(String.t()),
+        optional("Filters") => list(configuration_set_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3129,7 +3129,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_registration_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("RegistrationType") => String.t()
       }
       
@@ -3201,7 +3201,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
       create_configuration_set_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConfigurationSetName") => String.t()
       }
       
@@ -3216,7 +3216,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "CreatedTimestamp" => [non_neg_integer()],
         "DestinationPhoneNumber" => String.t(),
         "Status" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerifiedDestinationNumberArn" => [String.t()],
         "VerifiedDestinationNumberId" => [String.t()]
       }
@@ -3235,7 +3235,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "DefaultMessageFeedbackEnabled" => [boolean()],
         "DefaultMessageType" => String.t(),
         "DefaultSenderId" => String.t(),
-        "EventDestinations" => list(event_destination()())
+        "EventDestinations" => list(event_destination())
       }
       
   """
@@ -3250,7 +3250,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "RegistrationArn" => [String.t()],
         "RegistrationAttachmentId" => [String.t()],
         "RegistrationId" => [String.t()],
-        "SelectChoices" => list(String.t()()),
+        "SelectChoices" => list(String.t()),
         "TextValue" => String.t(),
         "VersionNumber" => float()
       }
@@ -3333,7 +3333,7 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("Context") => map(),
         optional("DryRun") => [boolean()],
         optional("MaxPrice") => String.t(),
-        optional("MediaUrls") => list(String.t()()),
+        optional("MediaUrls") => list(String.t()),
         optional("MessageBody") => String.t(),
         optional("MessageFeedbackEnabled") => [boolean()],
         optional("ProtectConfigurationId") => String.t(),
@@ -4077,7 +4077,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, associate_origination_identity_errors()}
   def associate_origination_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateOriginationIdentity", input, options)
   end
@@ -4096,7 +4097,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, associate_protect_configuration_errors()}
   def associate_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProtectConfiguration", input, options)
   end
@@ -4118,7 +4120,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationSet", input, options)
   end
@@ -4147,7 +4150,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_event_destination_errors()}
   def create_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventDestination", input, options)
   end
@@ -4171,7 +4175,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_opt_out_list_errors()}
   def create_opt_out_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptOutList", input, options)
   end
@@ -4198,7 +4203,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_pool_errors()}
   def create_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePool", input, options)
   end
@@ -4217,7 +4223,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_protect_configuration_errors()}
   def create_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtectConfiguration", input, options)
   end
@@ -4231,7 +4238,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_registration_errors()}
   def create_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistration", input, options)
   end
@@ -4246,7 +4254,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_registration_association_errors()}
   def create_registration_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistrationAssociation", input, options)
   end
@@ -4268,7 +4277,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_registration_attachment_errors()}
   def create_registration_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistrationAttachment", input, options)
   end
@@ -4284,7 +4294,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_registration_version_errors()}
   def create_registration_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistrationVersion", input, options)
   end
@@ -4305,7 +4316,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, create_verified_destination_number_errors()}
   def create_verified_destination_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVerifiedDestinationNumber", input, options)
   end
@@ -4323,7 +4335,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_account_default_protect_configuration_errors()}
   def delete_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccountDefaultProtectConfiguration", input, options)
   end
@@ -4341,7 +4354,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationSet", input, options)
   end
@@ -4361,7 +4375,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_default_message_type_errors()}
   def delete_default_message_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDefaultMessageType", input, options)
   end
@@ -4379,7 +4394,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_default_sender_id_errors()}
   def delete_default_sender_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDefaultSenderId", input, options)
   end
@@ -4398,7 +4414,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_event_destination_errors()}
   def delete_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventDestination", input, options)
   end
@@ -4420,7 +4437,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_keyword_errors()}
   def delete_keyword(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKeyword", input, options)
   end
@@ -4444,7 +4462,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_media_message_spend_limit_override_errors()}
   def delete_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMediaMessageSpendLimitOverride", input, options)
   end
@@ -4463,7 +4482,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_opt_out_list_errors()}
   def delete_opt_out_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptOutList", input, options)
   end
@@ -4483,7 +4503,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_opted_out_number_errors()}
   def delete_opted_out_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptedOutNumber", input, options)
   end
@@ -4506,7 +4527,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_pool_errors()}
   def delete_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePool", input, options)
   end
@@ -4524,7 +4546,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_protect_configuration_errors()}
   def delete_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtectConfiguration", input, options)
   end
@@ -4546,7 +4569,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4566,7 +4590,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_registration_errors()}
   def delete_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistration", input, options)
   end
@@ -4580,7 +4605,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_registration_attachment_errors()}
   def delete_registration_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistrationAttachment", input, options)
   end
@@ -4594,7 +4620,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_registration_field_value_errors()}
   def delete_registration_field_value(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistrationFieldValue", input, options)
   end
@@ -4611,7 +4638,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4636,7 +4664,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_text_message_spend_limit_override_errors()}
   def delete_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTextMessageSpendLimitOverride", input, options)
   end
@@ -4654,7 +4683,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_verified_destination_number_errors()}
   def delete_verified_destination_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedDestinationNumber", input, options)
   end
@@ -4679,7 +4709,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, delete_voice_message_spend_limit_override_errors()}
   def delete_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVoiceMessageSpendLimitOverride", input, options)
   end
@@ -4702,7 +4733,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -4727,7 +4759,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -4749,7 +4782,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_configuration_sets_errors()}
   def describe_configuration_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationSets", input, options)
   end
@@ -4772,7 +4806,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_keywords_errors()}
   def describe_keywords(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeKeywords", input, options)
   end
@@ -4793,7 +4828,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_opt_out_lists_errors()}
   def describe_opt_out_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptOutLists", input, options)
   end
@@ -4816,7 +4852,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_opted_out_numbers_errors()}
   def describe_opted_out_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptedOutNumbers", input, options)
   end
@@ -4839,7 +4876,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_phone_numbers_errors()}
   def describe_phone_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePhoneNumbers", input, options)
   end
@@ -4865,7 +4903,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_pools_errors()}
   def describe_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePools", input, options)
   end
@@ -4881,7 +4920,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_protect_configurations_errors()}
   def describe_protect_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtectConfigurations", input, options)
   end
@@ -4900,7 +4940,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_attachments_errors()}
   def describe_registration_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationAttachments", input, options)
   end
@@ -4921,7 +4962,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_field_definitions_errors()}
   def describe_registration_field_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationFieldDefinitions", input, options)
   end
@@ -4939,7 +4981,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_field_values_errors()}
   def describe_registration_field_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationFieldValues", input, options)
   end
@@ -4960,7 +5003,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_section_definitions_errors()}
   def describe_registration_section_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationSectionDefinitions", input, options)
   end
@@ -4981,7 +5025,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_type_definitions_errors()}
   def describe_registration_type_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationTypeDefinitions", input, options)
   end
@@ -4995,7 +5040,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registration_versions_errors()}
   def describe_registration_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrationVersions", input, options)
   end
@@ -5009,7 +5055,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_registrations_errors()}
   def describe_registrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistrations", input, options)
   end
@@ -5031,7 +5078,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_sender_ids_errors()}
   def describe_sender_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSenderIds", input, options)
   end
@@ -5051,7 +5099,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_spend_limits_errors()}
   def describe_spend_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpendLimits", input, options)
   end
@@ -5069,7 +5118,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, describe_verified_destination_numbers_errors()}
   def describe_verified_destination_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedDestinationNumbers", input, options)
   end
@@ -5090,7 +5140,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, disassociate_origination_identity_errors()}
   def disassociate_origination_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateOriginationIdentity", input, options)
   end
@@ -5108,7 +5159,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, disassociate_protect_configuration_errors()}
   def disassociate_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateProtectConfiguration", input, options)
   end
@@ -5122,7 +5174,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, discard_registration_version_errors()}
   def discard_registration_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DiscardRegistrationVersion", input, options)
   end
@@ -5141,7 +5194,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, get_protect_configuration_country_rule_set_errors()}
   def get_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProtectConfigurationCountryRuleSet", input, options)
   end
@@ -5158,7 +5212,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -5179,7 +5234,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, list_pool_origination_identities_errors()}
   def list_pool_origination_identities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPoolOriginationIdentities", input, options)
   end
@@ -5202,7 +5258,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5223,7 +5280,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, list_registration_associations_errors()}
   def list_registration_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegistrationAssociations", input, options)
   end
@@ -5237,7 +5295,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5260,7 +5319,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_keyword_errors()}
   def put_keyword(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutKeyword", input, options)
   end
@@ -5280,7 +5340,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_message_feedback_errors()}
   def put_message_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMessageFeedback", input, options)
   end
@@ -5297,7 +5358,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_opted_out_number_errors()}
   def put_opted_out_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOptedOutNumber", input, options)
   end
@@ -5316,7 +5378,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_protect_configuration_rule_set_number_override_errors()}
   def put_protect_configuration_rule_set_number_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5336,7 +5399,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_registration_field_value_errors()}
   def put_registration_field_value(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRegistrationFieldValue", input, options)
   end
@@ -5356,7 +5420,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -5375,7 +5440,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, release_phone_number_errors()}
   def release_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleasePhoneNumber", input, options)
   end
@@ -5389,7 +5455,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, release_sender_id_errors()}
   def release_sender_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseSenderId", input, options)
   end
@@ -5406,7 +5473,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, request_phone_number_errors()}
   def request_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestPhoneNumber", input, options)
   end
@@ -5420,7 +5488,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, request_sender_id_errors()}
   def request_sender_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestSenderId", input, options)
   end
@@ -5444,7 +5513,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, send_destination_number_verification_code_errors()}
   def send_destination_number_verification_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendDestinationNumberVerificationCode", input, options)
   end
@@ -5459,7 +5529,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, send_media_message_errors()}
   def send_media_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendMediaMessage", input, options)
   end
@@ -5482,7 +5553,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, send_text_message_errors()}
   def send_text_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTextMessage", input, options)
   end
@@ -5499,7 +5571,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, send_voice_message_errors()}
   def send_voice_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendVoiceMessage", input, options)
   end
@@ -5521,7 +5594,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_account_default_protect_configuration_errors()}
   def set_account_default_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetAccountDefaultProtectConfiguration", input, options)
   end
@@ -5539,7 +5613,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_default_message_feedback_enabled_errors()}
   def set_default_message_feedback_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetDefaultMessageFeedbackEnabled", input, options)
   end
@@ -5559,7 +5634,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_default_message_type_errors()}
   def set_default_message_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetDefaultMessageType", input, options)
   end
@@ -5578,7 +5654,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_default_sender_id_errors()}
   def set_default_sender_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetDefaultSenderId", input, options)
   end
@@ -5599,7 +5676,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_media_message_spend_limit_override_errors()}
   def set_media_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetMediaMessageSpendLimitOverride", input, options)
   end
@@ -5620,7 +5698,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_text_message_spend_limit_override_errors()}
   def set_text_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTextMessageSpendLimitOverride", input, options)
   end
@@ -5641,7 +5720,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, set_voice_message_spend_limit_override_errors()}
   def set_voice_message_spend_limit_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetVoiceMessageSpendLimitOverride", input, options)
   end
@@ -5655,7 +5735,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, submit_registration_version_errors()}
   def submit_registration_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitRegistrationVersion", input, options)
   end
@@ -5675,7 +5756,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5693,7 +5775,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5714,7 +5797,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_event_destination_errors()}
   def update_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEventDestination", input, options)
   end
@@ -5734,7 +5818,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_phone_number_errors()}
   def update_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePhoneNumber", input, options)
   end
@@ -5752,7 +5837,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_pool_errors()}
   def update_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePool", input, options)
   end
@@ -5766,7 +5852,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_protect_configuration_errors()}
   def update_protect_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProtectConfiguration", input, options)
   end
@@ -5788,7 +5875,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_protect_configuration_country_rule_set_errors()}
   def update_protect_configuration_country_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProtectConfigurationCountryRuleSet", input, options)
   end
@@ -5802,7 +5890,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, update_sender_id_errors()}
   def update_sender_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSenderId", input, options)
   end
@@ -5817,7 +5906,8 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | {:error, term()}
           | {:error, verify_destination_number_errors()}
   def verify_destination_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyDestinationNumber", input, options)
   end

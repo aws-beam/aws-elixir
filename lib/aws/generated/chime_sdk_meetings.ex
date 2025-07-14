@@ -45,7 +45,7 @@ defmodule AWS.ChimeSDKMeetings do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -93,9 +93,9 @@ defmodule AWS.ChimeSDKMeetings do
         optional("MeetingHostId") => String.t(),
         optional("NotificationsConfiguration") => notifications_configuration(),
         optional("PrimaryMeetingId") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("TenantIds") => list(String.t()()),
-        required("Attendees") => list(create_attendee_request_item()()),
+        optional("Tags") => list(tag()),
+        optional("TenantIds") => list(String.t()),
+        required("Attendees") => list(create_attendee_request_item()),
         required("ClientRequestToken") => String.t(),
         required("ExternalMeetingId") => String.t(),
         required("MediaRegion") => String.t()
@@ -143,7 +143,7 @@ defmodule AWS.ChimeSDKMeetings do
         "MeetingHostId" => String.t(),
         "MeetingId" => String.t(),
         "PrimaryMeetingId" => String.t(),
-        "TenantIds" => list(String.t()())
+        "TenantIds" => list(String.t())
       }
 
   """
@@ -177,7 +177,7 @@ defmodule AWS.ChimeSDKMeetings do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -234,7 +234,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       list_attendees_response() :: %{
-        "Attendees" => list(attendee()()),
+        "Attendees" => list(attendee()),
         "NextToken" => String.t()
       }
 
@@ -246,8 +246,8 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       create_meeting_with_attendees_response() :: %{
-        "Attendees" => list(attendee()()),
-        "Errors" => list(create_attendee_error()()),
+        "Attendees" => list(attendee()),
+        "Errors" => list(create_attendee_error()),
         "Meeting" => meeting()
       }
 
@@ -350,8 +350,8 @@ defmodule AWS.ChimeSDKMeetings do
         optional("MeetingHostId") => String.t(),
         optional("NotificationsConfiguration") => notifications_configuration(),
         optional("PrimaryMeetingId") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("TenantIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("TenantIds") => list(String.t()),
         required("ClientRequestToken") => String.t(),
         required("ExternalMeetingId") => String.t(),
         required("MediaRegion") => String.t()
@@ -401,7 +401,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -574,7 +574,7 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       batch_create_attendee_request() :: %{
-        required("Attendees") => list(create_attendee_request_item()())
+        required("Attendees") => list(create_attendee_request_item())
       }
 
   """
@@ -585,8 +585,8 @@ defmodule AWS.ChimeSDKMeetings do
   ## Example:
 
       batch_create_attendee_response() :: %{
-        "Attendees" => list(attendee()()),
-        "Errors" => list(create_attendee_error()())
+        "Attendees" => list(attendee()),
+        "Errors" => list(create_attendee_error())
       }
 
   """
@@ -610,7 +610,7 @@ defmodule AWS.ChimeSDKMeetings do
 
       batch_update_attendee_capabilities_except_request() :: %{
         required("Capabilities") => attendee_capabilities(),
-        required("ExcludedAttendeeIds") => list(attendee_id_item()())
+        required("ExcludedAttendeeIds") => list(attendee_id_item())
       }
 
   """

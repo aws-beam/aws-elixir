@@ -56,7 +56,7 @@ defmodule AWS.InternetMonitor do
         required("EventArn") => String.t(),
         required("EventId") => String.t(),
         required("ImpactType") => String.t(),
-        required("ImpactedLocations") => list(impacted_location()()),
+        required("ImpactedLocations") => list(impacted_location()),
         required("LastUpdatedAt") => [non_neg_integer()],
         required("StartedAt") => [non_neg_integer()],
         required("Status") => String.t()
@@ -99,7 +99,7 @@ defmodule AWS.InternetMonitor do
 
       get_query_results_output() :: %{
         "Data" => list(list([String.t()]())()),
-        "Fields" => list(query_field()()),
+        "Fields" => list(query_field()),
         "NextToken" => [String.t()]
       }
 
@@ -120,7 +120,7 @@ defmodule AWS.InternetMonitor do
         "MonitorName" => String.t(),
         "ProcessingStatus" => String.t(),
         "ProcessingStatusInfo" => [String.t()],
-        "Resources" => list(String.t()()),
+        "Resources" => list(String.t()),
         "Status" => String.t(),
         "Tags" => map(),
         "TrafficPercentageToMonitor" => integer()
@@ -145,7 +145,7 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       list_monitors_output() :: %{
-        "Monitors" => list(monitor()()),
+        "Monitors" => list(monitor()),
         "NextToken" => [String.t()]
       }
 
@@ -179,9 +179,9 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       network_impairment() :: %{
-        "AsPath" => list(network()()),
+        "AsPath" => list(network()),
         "NetworkEventType" => String.t(),
-        "Networks" => list(network()())
+        "Networks" => list(network())
       }
 
   """
@@ -467,7 +467,7 @@ defmodule AWS.InternetMonitor do
 
       list_health_events_output() :: %{
         optional("NextToken") => [String.t()],
-        required("HealthEvents") => list(health_event()())
+        required("HealthEvents") => list(health_event())
       }
 
   """
@@ -561,7 +561,7 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       untag_resource_input() :: %{
-        "TagKeys" => list(String.t()())
+        "TagKeys" => list(String.t())
       }
 
   """
@@ -576,8 +576,8 @@ defmodule AWS.InternetMonitor do
         optional("HealthEventsConfig") => health_events_config(),
         optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
         optional("MaxCityNetworksToMonitor") => integer(),
-        optional("ResourcesToAdd") => list(String.t()()),
-        optional("ResourcesToRemove") => list(String.t()()),
+        optional("ResourcesToAdd") => list(String.t()),
+        optional("ResourcesToRemove") => list(String.t()),
         optional("Status") => String.t(),
         optional("TrafficPercentageToMonitor") => integer()
       }
@@ -596,7 +596,7 @@ defmodule AWS.InternetMonitor do
         "EventId" => String.t(),
         "HealthScoreThreshold" => float(),
         "ImpactType" => String.t(),
-        "ImpactedLocations" => list(impacted_location()()),
+        "ImpactedLocations" => list(impacted_location()),
         "LastUpdatedAt" => [non_neg_integer()],
         "PercentOfTotalTrafficImpacted" => [float()],
         "StartedAt" => [non_neg_integer()],
@@ -745,7 +745,7 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       list_internet_events_output() :: %{
-        "InternetEvents" => list(internet_event_summary()()),
+        "InternetEvents" => list(internet_event_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -774,7 +774,7 @@ defmodule AWS.InternetMonitor do
   ## Example:
 
       start_query_input() :: %{
-        optional("FilterParameters") => list(filter_parameter()()),
+        optional("FilterParameters") => list(filter_parameter()),
         optional("LinkedAccountId") => String.t(),
         required("EndTime") => [non_neg_integer()],
         required("QueryType") => String.t(),
@@ -805,7 +805,7 @@ defmodule AWS.InternetMonitor do
         optional("HealthEventsConfig") => health_events_config(),
         optional("InternetMeasurementsLogDelivery") => internet_measurements_log_delivery(),
         optional("MaxCityNetworksToMonitor") => integer(),
-        optional("Resources") => list(String.t()()),
+        optional("Resources") => list(String.t()),
         optional("Tags") => map(),
         optional("TrafficPercentageToMonitor") => integer(),
         required("MonitorName") => String.t()

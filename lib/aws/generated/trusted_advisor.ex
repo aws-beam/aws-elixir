@@ -37,7 +37,7 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       list_organization_recommendation_accounts_response() :: %{
-        "accountRecommendationLifecycleSummaries" => list(account_recommendation_lifecycle_summary()()),
+        "accountRecommendationLifecycleSummaries" => list(account_recommendation_lifecycle_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -49,7 +49,7 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       list_checks_response() :: %{
-        "checkSummaries" => list(check_summary()()),
+        "checkSummaries" => list(check_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -71,7 +71,7 @@ defmodule AWS.TrustedAdvisor do
 
       organization_recommendation_summary() :: %{
         "arn" => String.t(),
-        "awsServices" => list(String.t()()),
+        "awsServices" => list(String.t()),
         "checkArn" => [String.t()],
         "createdAt" => [non_neg_integer()],
         "id" => [String.t()],
@@ -107,7 +107,7 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       batch_update_recommendation_resource_exclusion_request() :: %{
-        required("recommendationResourceExclusions") => list(recommendation_resource_exclusion()())
+        required("recommendationResourceExclusions") => list(recommendation_resource_exclusion())
       }
 
   """
@@ -154,7 +154,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_recommendation_resources_response() :: %{
         "nextToken" => [String.t()],
-        "recommendationResourceSummaries" => list(recommendation_resource_summary()())
+        "recommendationResourceSummaries" => list(recommendation_resource_summary())
       }
 
   """
@@ -166,7 +166,7 @@ defmodule AWS.TrustedAdvisor do
 
       recommendation() :: %{
         "arn" => String.t(),
-        "awsServices" => list(String.t()()),
+        "awsServices" => list(String.t()),
         "checkArn" => [String.t()],
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t()],
@@ -251,7 +251,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_organization_recommendations_response() :: %{
         "nextToken" => [String.t()],
-        "organizationRecommendationSummaries" => list(organization_recommendation_summary()())
+        "organizationRecommendationSummaries" => list(organization_recommendation_summary())
       }
 
   """
@@ -275,7 +275,7 @@ defmodule AWS.TrustedAdvisor do
   ## Example:
 
       batch_update_recommendation_resource_exclusion_response() :: %{
-        "batchUpdateRecommendationResourceExclusionErrors" => list(update_recommendation_resource_exclusion_error()())
+        "batchUpdateRecommendationResourceExclusionErrors" => list(update_recommendation_resource_exclusion_error())
       }
 
   """
@@ -324,7 +324,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_organization_recommendation_resources_response() :: %{
         "nextToken" => [String.t()],
-        "organizationRecommendationResourceSummaries" => list(organization_recommendation_resource_summary()())
+        "organizationRecommendationResourceSummaries" => list(organization_recommendation_resource_summary())
       }
 
   """
@@ -407,7 +407,7 @@ defmodule AWS.TrustedAdvisor do
 
       check_summary() :: %{
         "arn" => String.t(),
-        "awsServices" => list(String.t()()),
+        "awsServices" => list(String.t()),
         "description" => [String.t()],
         "id" => [String.t()],
         "metadata" => map(),
@@ -425,7 +425,7 @@ defmodule AWS.TrustedAdvisor do
 
       recommendation_summary() :: %{
         "arn" => String.t(),
-        "awsServices" => list(String.t()()),
+        "awsServices" => list(String.t()),
         "checkArn" => [String.t()],
         "createdAt" => [non_neg_integer()],
         "id" => [String.t()],
@@ -482,7 +482,7 @@ defmodule AWS.TrustedAdvisor do
 
       list_recommendations_response() :: %{
         "nextToken" => [String.t()],
-        "recommendationSummaries" => list(recommendation_summary()())
+        "recommendationSummaries" => list(recommendation_summary())
       }
 
   """
@@ -517,7 +517,7 @@ defmodule AWS.TrustedAdvisor do
 
       organization_recommendation() :: %{
         "arn" => String.t(),
-        "awsServices" => list(String.t()()),
+        "awsServices" => list(String.t()),
         "checkArn" => [String.t()],
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t()],

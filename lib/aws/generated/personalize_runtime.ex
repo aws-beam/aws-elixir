@@ -25,7 +25,7 @@ defmodule AWS.PersonalizeRuntime do
   ## Example:
 
       get_action_recommendations_response() :: %{
-        "actionList" => list(predicted_action()()),
+        "actionList" => list(predicted_action()),
         "recommendationId" => String.t()
       }
 
@@ -42,7 +42,7 @@ defmodule AWS.PersonalizeRuntime do
         optional("filterValues") => map(),
         optional("metadataColumns") => map(),
         required("campaignArn") => String.t(),
-        required("inputList") => list(String.t()()),
+        required("inputList") => list(String.t()),
         required("userId") => String.t()
       }
 
@@ -54,7 +54,7 @@ defmodule AWS.PersonalizeRuntime do
   ## Example:
 
       get_personalized_ranking_response() :: %{
-        "personalizedRanking" => list(predicted_item()()),
+        "personalizedRanking" => list(predicted_item()),
         "recommendationId" => String.t()
       }
 
@@ -73,7 +73,7 @@ defmodule AWS.PersonalizeRuntime do
         optional("itemId") => String.t(),
         optional("metadataColumns") => map(),
         optional("numResults") => integer(),
-        optional("promotions") => list(promotion()()),
+        optional("promotions") => list(promotion()),
         optional("recommenderArn") => String.t(),
         optional("userId") => String.t()
       }
@@ -86,7 +86,7 @@ defmodule AWS.PersonalizeRuntime do
   ## Example:
 
       get_recommendations_response() :: %{
-        "itemList" => list(predicted_item()()),
+        "itemList" => list(predicted_item()),
         "recommendationId" => String.t()
       }
 
@@ -124,7 +124,7 @@ defmodule AWS.PersonalizeRuntime do
         "itemId" => String.t(),
         "metadata" => map(),
         "promotionName" => String.t(),
-        "reason" => list(String.t()()),
+        "reason" => list(String.t()),
         "score" => float()
       }
 

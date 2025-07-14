@@ -37,7 +37,7 @@ defmodule AWS.QLDB do
   ## Example:
 
       list_journal_s3_exports_for_ledger_response() :: %{
-        "JournalS3Exports" => list(journal_s3_export_description()()),
+        "JournalS3Exports" => list(journal_s3_export_description()),
         "NextToken" => String.t()
       }
 
@@ -208,7 +208,7 @@ defmodule AWS.QLDB do
   ## Example:
 
       list_ledgers_response() :: %{
-        "Ledgers" => list(ledger_summary()()),
+        "Ledgers" => list(ledger_summary()),
         "NextToken" => String.t()
       }
 
@@ -241,7 +241,7 @@ defmodule AWS.QLDB do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -289,7 +289,7 @@ defmodule AWS.QLDB do
 
       list_journal_kinesis_streams_for_ledger_response() :: %{
         "NextToken" => String.t(),
-        "Streams" => list(journal_kinesis_stream_description()())
+        "Streams" => list(journal_kinesis_stream_description())
       }
 
   """
@@ -473,7 +473,7 @@ defmodule AWS.QLDB do
   ## Example:
 
       list_journal_s3_exports_response() :: %{
-        "JournalS3Exports" => list(journal_s3_export_description()()),
+        "JournalS3Exports" => list(journal_s3_export_description()),
         "NextToken" => String.t()
       }
 

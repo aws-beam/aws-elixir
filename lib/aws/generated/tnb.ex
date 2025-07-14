@@ -33,7 +33,7 @@ defmodule AWS.Tnb do
 
       get_sol_vnf_info() :: %{
         "vnfState" => list(any()),
-        "vnfcResourceInfo" => list(get_sol_vnfc_resource_info()())
+        "vnfcResourceInfo" => list(get_sol_vnfc_resource_info())
       }
 
   """
@@ -147,7 +147,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       list_sol_network_packages_output() :: %{
-        "networkPackages" => list(list_sol_network_package_info()()),
+        "networkPackages" => list(list_sol_network_package_info()),
         "nextToken" => String.t()
       }
 
@@ -245,7 +245,7 @@ defmodule AWS.Tnb do
         "nsdUsageState" => list(any()),
         "nsdVersion" => [String.t()],
         "tags" => map(),
-        "vnfPkgIds" => list(String.t()())
+        "vnfPkgIds" => list(String.t())
       }
 
   """
@@ -432,7 +432,7 @@ defmodule AWS.Tnb do
         "nsdId" => String.t(),
         "nsdName" => [String.t()],
         "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t()())
+        "vnfPkgIds" => list(String.t())
       }
 
   """
@@ -579,7 +579,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       list_sol_function_packages_output() :: %{
-        "functionPackages" => list(list_sol_function_package_info()()),
+        "functionPackages" => list(list_sol_function_package_info()),
         "nextToken" => String.t()
       }
 
@@ -821,7 +821,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -887,7 +887,7 @@ defmodule AWS.Tnb do
         "nsdId" => String.t(),
         "nsdName" => [String.t()],
         "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t()())
+        "vnfPkgIds" => list(String.t())
       }
 
   """
@@ -995,7 +995,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       list_sol_network_operations_output() :: %{
-        "networkOperations" => list(list_sol_network_operations_info()()),
+        "networkOperations" => list(list_sol_network_operations_info()),
         "nextToken" => String.t()
       }
 
@@ -1062,7 +1062,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       list_sol_network_instances_output() :: %{
-        "networkInstances" => list(list_sol_network_instance_info()()),
+        "networkInstances" => list(list_sol_network_instance_info()),
         "nextToken" => String.t()
       }
 
@@ -1126,7 +1126,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       function_artifact_meta() :: %{
-        "overrides" => list(tosca_override()())
+        "overrides" => list(tosca_override())
       }
 
   """
@@ -1208,7 +1208,7 @@ defmodule AWS.Tnb do
         "nsInstanceId" => String.t(),
         "operationState" => list(any()),
         "tags" => map(),
-        "tasks" => list(get_sol_network_operation_task_details()()),
+        "tasks" => list(get_sol_network_operation_task_details()),
         "updateType" => list(any())
       }
 
@@ -1260,7 +1260,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       list_sol_function_instances_output() :: %{
-        "functionInstances" => list(list_sol_function_instance_info()()),
+        "functionInstances" => list(list_sol_function_instance_info()),
         "nextToken" => String.t()
       }
 
@@ -1283,7 +1283,7 @@ defmodule AWS.Tnb do
         "nsdOperationalState" => list(any()),
         "nsdUsageState" => list(any()),
         "nsdVersion" => [String.t()],
-        "vnfPkgIds" => list(String.t()())
+        "vnfPkgIds" => list(String.t())
       }
 
   """
@@ -1306,7 +1306,7 @@ defmodule AWS.Tnb do
   ## Example:
 
       network_artifact_meta() :: %{
-        "overrides" => list(tosca_override()())
+        "overrides" => list(tosca_override())
       }
 
   """

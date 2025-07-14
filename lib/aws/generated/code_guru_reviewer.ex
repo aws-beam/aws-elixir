@@ -138,7 +138,7 @@ defmodule AWS.CodeGuruReviewer do
   ## Example:
 
       list_code_reviews_response() :: %{
-        "CodeReviewSummaries" => list(code_review_summary()()),
+        "CodeReviewSummaries" => list(code_review_summary()),
         "NextToken" => String.t()
       }
 
@@ -239,7 +239,7 @@ defmodule AWS.CodeGuruReviewer do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -271,9 +271,9 @@ defmodule AWS.CodeGuruReviewer do
 
       list_repository_associations_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t(),
-        optional("Owners") => list(String.t()()),
+        optional("Owners") => list(String.t()),
         optional("ProviderTypes") => list(list(any())()),
         optional("States") => list(list(any())())
       }
@@ -483,7 +483,7 @@ defmodule AWS.CodeGuruReviewer do
         "LongDescription" => String.t(),
         "RuleId" => String.t(),
         "RuleName" => String.t(),
-        "RuleTags" => list(String.t()()),
+        "RuleTags" => list(String.t()),
         "ShortDescription" => String.t()
       }
 
@@ -628,7 +628,7 @@ defmodule AWS.CodeGuruReviewer do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ProviderTypes") => list(list(any())()),
-        optional("RepositoryNames") => list(String.t()()),
+        optional("RepositoryNames") => list(String.t()),
         optional("States") => list(list(any())()),
         required("Type") => list(any())
       }
@@ -655,8 +655,8 @@ defmodule AWS.CodeGuruReviewer do
       list_recommendation_feedback_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RecommendationIds") => list(String.t()()),
-        optional("UserIds") => list(String.t()())
+        optional("RecommendationIds") => list(String.t()),
+        optional("UserIds") => list(String.t())
       }
 
   """
@@ -710,7 +710,7 @@ defmodule AWS.CodeGuruReviewer do
 
       list_repository_associations_response() :: %{
         "NextToken" => String.t(),
-        "RepositoryAssociationSummaries" => list(repository_association_summary()())
+        "RepositoryAssociationSummaries" => list(repository_association_summary())
       }
 
   """
@@ -751,7 +751,7 @@ defmodule AWS.CodeGuruReviewer do
 
       list_recommendation_feedback_response() :: %{
         "NextToken" => String.t(),
-        "RecommendationFeedbackSummaries" => list(recommendation_feedback_summary()())
+        "RecommendationFeedbackSummaries" => list(recommendation_feedback_summary())
       }
 
   """
@@ -772,7 +772,7 @@ defmodule AWS.CodeGuruReviewer do
 
       list_recommendations_response() :: %{
         "NextToken" => String.t(),
-        "RecommendationSummaries" => list(recommendation_summary()())
+        "RecommendationSummaries" => list(recommendation_summary())
       }
 
   """

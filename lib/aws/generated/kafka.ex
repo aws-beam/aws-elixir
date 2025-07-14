@@ -36,9 +36,9 @@ defmodule AWS.Kafka do
       describe_vpc_connection_response() :: %{
         "Authentication" => String.t(),
         "CreationTime" => non_neg_integer(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "State" => list(any()),
-        "Subnets" => list(String.t()()),
+        "Subnets" => list(String.t()),
         "Tags" => map(),
         "TargetClusterArn" => String.t(),
         "VpcConnectionArn" => String.t(),
@@ -106,7 +106,7 @@ defmodule AWS.Kafka do
 
       compatible_kafka_version() :: %{
         "SourceVersion" => String.t(),
-        "TargetVersions" => list(String.t()())
+        "TargetVersions" => list(String.t())
       }
 
   """
@@ -117,7 +117,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       get_compatible_kafka_versions_response() :: %{
-        "CompatibleKafkaVersions" => list(compatible_kafka_version()())
+        "CompatibleKafkaVersions" => list(compatible_kafka_version())
       }
 
   """
@@ -131,8 +131,8 @@ defmodule AWS.Kafka do
         "CopyAccessControlListsForTopics" => boolean(),
         "CopyTopicConfigurations" => boolean(),
         "DetectAndCopyNewTopics" => boolean(),
-        "TopicsToExclude" => list(String.t()()),
-        "TopicsToReplicate" => list(String.t()())
+        "TopicsToExclude" => list(String.t()),
+        "TopicsToReplicate" => list(String.t())
       }
 
   """
@@ -144,9 +144,9 @@ defmodule AWS.Kafka do
 
       create_vpc_connection_response() :: %{
         "Authentication" => String.t(),
-        "ClientSubnets" => list(String.t()()),
+        "ClientSubnets" => list(String.t()),
         "CreationTime" => non_neg_integer(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "State" => list(any()),
         "Tags" => map(),
         "VpcConnectionArn" => String.t(),
@@ -212,7 +212,7 @@ defmodule AWS.Kafka do
 
       list_vpc_connections_response() :: %{
         "NextToken" => String.t(),
-        "VpcConnections" => list(vpc_connection()())
+        "VpcConnections" => list(vpc_connection())
       }
 
   """
@@ -390,7 +390,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_configurations_response() :: %{
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "NextToken" => String.t()
       }
 
@@ -402,7 +402,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_client_vpc_connections_response() :: %{
-        "ClientVpcConnections" => list(client_vpc_connection()()),
+        "ClientVpcConnections" => list(client_vpc_connection()),
         "NextToken" => String.t()
       }
 
@@ -511,8 +511,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       kafka_cluster_client_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -526,7 +526,7 @@ defmodule AWS.Kafka do
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
-        "KafkaVersions" => list(String.t()()),
+        "KafkaVersions" => list(String.t()),
         "LatestRevision" => configuration_revision(),
         "Name" => String.t(),
         "State" => list(any())
@@ -662,7 +662,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -703,8 +703,8 @@ defmodule AWS.Kafka do
       create_vpc_connection_request() :: %{
         optional("Tags") => map(),
         required("Authentication") => String.t(),
-        required("ClientSubnets") => list(String.t()()),
-        required("SecurityGroups") => list(String.t()()),
+        required("ClientSubnets") => list(String.t()),
+        required("SecurityGroups") => list(String.t()),
         required("TargetClusterArn") => String.t(),
         required("VpcId") => String.t()
       }
@@ -762,7 +762,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       batch_associate_scram_secret_request() :: %{
-        required("SecretArnList") => list(String.t()())
+        required("SecretArnList") => list(String.t())
       }
 
   """
@@ -775,8 +775,8 @@ defmodule AWS.Kafka do
       create_replicator_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
-        required("KafkaClusters") => list(kafka_cluster()()),
-        required("ReplicationInfoList") => list(replication_info()()),
+        required("KafkaClusters") => list(kafka_cluster()),
+        required("ReplicationInfoList") => list(replication_info()),
         required("ReplicatorName") => String.t(),
         required("ServiceExecutionRoleArn") => String.t()
       }
@@ -798,7 +798,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_cluster_operations_response() :: %{
-        "ClusterOperationInfoList" => list(cluster_operation_info()()),
+        "ClusterOperationInfoList" => list(cluster_operation_info()),
         "NextToken" => String.t()
       }
 
@@ -822,8 +822,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       consumer_group_replication() :: %{
-        "ConsumerGroupsToExclude" => list(String.t()()),
-        "ConsumerGroupsToReplicate" => list(String.t()()),
+        "ConsumerGroupsToExclude" => list(String.t()),
+        "ConsumerGroupsToReplicate" => list(String.t()),
         "DetectAndCopyNewConsumerGroups" => boolean(),
         "SynchroniseConsumerGroupOffsets" => boolean()
       }
@@ -921,8 +921,8 @@ defmodule AWS.Kafka do
         "DetectAndCopyNewTopics" => boolean(),
         "StartingPosition" => replication_starting_position(),
         "TopicNameConfiguration" => replication_topic_name_configuration(),
-        "TopicsToExclude" => list(String.t()()),
-        "TopicsToReplicate" => list(String.t()())
+        "TopicsToExclude" => list(String.t()),
+        "TopicsToReplicate" => list(String.t())
       }
 
   """
@@ -966,7 +966,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       cluster_operation_v2_provisioned() :: %{
-        "OperationSteps" => list(cluster_operation_step()()),
+        "OperationSteps" => list(cluster_operation_step()),
         "SourceClusterInfo" => mutable_cluster_info(),
         "TargetClusterInfo" => mutable_cluster_info(),
         "VpcConnectionInfo" => vpc_connection_info()
@@ -1039,7 +1039,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       tls() :: %{
-        "CertificateAuthorityArnList" => list(String.t()()),
+        "CertificateAuthorityArnList" => list(String.t()),
         "Enabled" => boolean()
       }
 
@@ -1052,12 +1052,12 @@ defmodule AWS.Kafka do
 
       broker_node_group_info() :: %{
         "BrokerAZDistribution" => list(any()),
-        "ClientSubnets" => list(String.t()()),
+        "ClientSubnets" => list(String.t()),
         "ConnectivityInfo" => connectivity_info(),
         "InstanceType" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "StorageInfo" => storage_info(),
-        "ZoneIds" => list(String.t()())
+        "ZoneIds" => list(String.t())
       }
 
   """
@@ -1068,7 +1068,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       controller_node_info() :: %{
-        "Endpoints" => list(String.t()())
+        "Endpoints" => list(String.t())
       }
 
   """
@@ -1199,7 +1199,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       reboot_broker_request() :: %{
-        required("BrokerIds") => list(String.t()())
+        required("BrokerIds") => list(String.t())
       }
 
   """
@@ -1285,7 +1285,7 @@ defmodule AWS.Kafka do
 
       update_broker_storage_request() :: %{
         required("CurrentVersion") => String.t(),
-        required("TargetBrokerEBSVolumeInfo") => list(broker_ebs_volume_info()())
+        required("TargetBrokerEBSVolumeInfo") => list(broker_ebs_volume_info())
       }
 
   """
@@ -1308,7 +1308,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_kafka_versions_response() :: %{
-        "KafkaVersions" => list(kafka_version()()),
+        "KafkaVersions" => list(kafka_version()),
         "NextToken" => String.t()
       }
 
@@ -1345,8 +1345,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -1369,7 +1369,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_clusters_v2_response() :: %{
-        "ClusterInfoList" => list(cluster()()),
+        "ClusterInfoList" => list(cluster()),
         "NextToken" => String.t()
       }
 
@@ -1395,7 +1395,7 @@ defmodule AWS.Kafka do
 
       create_configuration_request() :: %{
         optional("Description") => String.t(),
-        optional("KafkaVersions") => list(String.t()()),
+        optional("KafkaVersions") => list(String.t()),
         required("Name") => String.t(),
         required("ServerProperties") => binary()
       }
@@ -1443,7 +1443,7 @@ defmodule AWS.Kafka do
 
       serverless_request() :: %{
         "ClientAuthentication" => serverless_client_authentication(),
-        "VpcConfigs" => list(vpc_config()())
+        "VpcConfigs" => list(vpc_config())
       }
 
   """
@@ -1499,7 +1499,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_clusters_response() :: %{
-        "ClusterInfoList" => list(cluster_info()()),
+        "ClusterInfoList" => list(cluster_info()),
         "NextToken" => String.t()
       }
 
@@ -1535,7 +1535,7 @@ defmodule AWS.Kafka do
 
       list_configuration_revisions_response() :: %{
         "NextToken" => String.t(),
-        "Revisions" => list(configuration_revision()())
+        "Revisions" => list(configuration_revision())
       }
 
   """
@@ -1632,8 +1632,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       consumer_group_replication_update() :: %{
-        "ConsumerGroupsToExclude" => list(String.t()()),
-        "ConsumerGroupsToReplicate" => list(String.t()()),
+        "ConsumerGroupsToExclude" => list(String.t()),
+        "ConsumerGroupsToReplicate" => list(String.t()),
         "DetectAndCopyNewConsumerGroups" => boolean(),
         "SynchroniseConsumerGroupOffsets" => boolean()
       }
@@ -1781,7 +1781,7 @@ defmodule AWS.Kafka do
         "ClientSubnet" => String.t(),
         "ClientVpcIpAddress" => String.t(),
         "CurrentBrokerSoftwareInfo" => broker_software_info(),
-        "Endpoints" => list(String.t()())
+        "Endpoints" => list(String.t())
       }
 
   """
@@ -1794,7 +1794,7 @@ defmodule AWS.Kafka do
       zookeeper_node_info() :: %{
         "AttachedENIId" => String.t(),
         "ClientVpcIpAddress" => String.t(),
-        "Endpoints" => list(String.t()()),
+        "Endpoints" => list(String.t()),
         "ZookeeperId" => float(),
         "ZookeeperVersion" => String.t()
       }
@@ -1880,7 +1880,7 @@ defmodule AWS.Kafka do
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
-        "KafkaVersions" => list(String.t()()),
+        "KafkaVersions" => list(String.t()),
         "LatestRevision" => configuration_revision(),
         "Name" => String.t(),
         "State" => list(any())
@@ -1954,7 +1954,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       list_cluster_operations_v2_response() :: %{
-        "ClusterOperationInfoList" => list(cluster_operation_v2_summary()()),
+        "ClusterOperationInfoList" => list(cluster_operation_v2_summary()),
         "NextToken" => String.t()
       }
 
@@ -1988,7 +1988,7 @@ defmodule AWS.Kafka do
 
       list_replicators_response() :: %{
         "NextToken" => String.t(),
-        "Replicators" => list(replicator_summary()())
+        "Replicators" => list(replicator_summary())
       }
 
   """
@@ -2014,8 +2014,8 @@ defmodule AWS.Kafka do
         "CreationTime" => non_neg_integer(),
         "CurrentVersion" => String.t(),
         "IsReplicatorReference" => boolean(),
-        "KafkaClusters" => list(kafka_cluster_description()()),
-        "ReplicationInfoList" => list(replication_info_description()()),
+        "KafkaClusters" => list(kafka_cluster_description()),
+        "ReplicationInfoList" => list(replication_info_description()),
         "ReplicatorArn" => String.t(),
         "ReplicatorDescription" => String.t(),
         "ReplicatorName" => String.t(),
@@ -2099,7 +2099,7 @@ defmodule AWS.Kafka do
         "ErrorInfo" => error_info(),
         "OperationArn" => String.t(),
         "OperationState" => String.t(),
-        "OperationSteps" => list(cluster_operation_step()()),
+        "OperationSteps" => list(cluster_operation_step()),
         "OperationType" => String.t(),
         "SourceClusterInfo" => mutable_cluster_info(),
         "TargetClusterInfo" => mutable_cluster_info(),
@@ -2136,7 +2136,7 @@ defmodule AWS.Kafka do
 
       batch_disassociate_scram_secret_response() :: %{
         "ClusterArn" => String.t(),
-        "UnprocessedScramSecrets" => list(unprocessed_scram_secret()())
+        "UnprocessedScramSecrets" => list(unprocessed_scram_secret())
       }
 
   """
@@ -2204,7 +2204,7 @@ defmodule AWS.Kafka do
 
       mutable_cluster_info() :: %{
         "BrokerCountUpdateInfo" => broker_count_update_info(),
-        "BrokerEBSVolumeInfo" => list(broker_ebs_volume_info()()),
+        "BrokerEBSVolumeInfo" => list(broker_ebs_volume_info()),
         "ClientAuthentication" => client_authentication(),
         "ConfigurationInfo" => configuration_info(),
         "ConnectivityInfo" => connectivity_info(),
@@ -2240,7 +2240,7 @@ defmodule AWS.Kafka do
 
       list_scram_secrets_response() :: %{
         "NextToken" => String.t(),
-        "SecretArnList" => list(String.t()())
+        "SecretArnList" => list(String.t())
       }
 
   """
@@ -2252,7 +2252,7 @@ defmodule AWS.Kafka do
 
       batch_associate_scram_secret_response() :: %{
         "ClusterArn" => String.t(),
-        "UnprocessedScramSecrets" => list(unprocessed_scram_secret()())
+        "UnprocessedScramSecrets" => list(unprocessed_scram_secret())
       }
 
   """
@@ -2298,8 +2298,8 @@ defmodule AWS.Kafka do
         "CreationTime" => non_neg_integer(),
         "CurrentVersion" => String.t(),
         "IsReplicatorReference" => boolean(),
-        "KafkaClustersSummary" => list(kafka_cluster_summary()()),
-        "ReplicationInfoSummaryList" => list(replication_info_summary()()),
+        "KafkaClustersSummary" => list(kafka_cluster_summary()),
+        "ReplicationInfoSummaryList" => list(replication_info_summary()),
         "ReplicatorArn" => String.t(),
         "ReplicatorName" => String.t(),
         "ReplicatorResourceArn" => String.t(),
@@ -2338,7 +2338,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       batch_disassociate_scram_secret_request() :: %{
-        required("SecretArnList") => list(String.t()())
+        required("SecretArnList") => list(String.t())
       }
 
   """
@@ -2421,8 +2421,8 @@ defmodule AWS.Kafka do
   ## Example:
 
       broker_count_update_info() :: %{
-        "CreatedBrokerIds" => list(float()()),
-        "DeletedBrokerIds" => list(float()())
+        "CreatedBrokerIds" => list(float()),
+        "DeletedBrokerIds" => list(float())
       }
 
   """
@@ -2434,7 +2434,7 @@ defmodule AWS.Kafka do
 
       list_nodes_response() :: %{
         "NextToken" => String.t(),
-        "NodeInfoList" => list(node_info()())
+        "NodeInfoList" => list(node_info())
       }
 
   """
@@ -2494,7 +2494,7 @@ defmodule AWS.Kafka do
 
       serverless() :: %{
         "ClientAuthentication" => serverless_client_authentication(),
-        "VpcConfigs" => list(vpc_config()())
+        "VpcConfigs" => list(vpc_config())
       }
 
   """

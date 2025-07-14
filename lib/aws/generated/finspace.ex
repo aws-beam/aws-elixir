@@ -15,8 +15,8 @@ defmodule AWS.Finspace do
   ## Example:
 
       get_kx_volume_response() :: %{
-        "attachedClusters" => list(kx_attached_cluster()()),
-        "availabilityZoneIds" => list(String.t()()),
+        "attachedClusters" => list(kx_attached_cluster()),
+        "availabilityZoneIds" => list(String.t()),
         "azMode" => list(any()),
         "createdTimestamp" => non_neg_integer(),
         "description" => String.t(),
@@ -128,10 +128,10 @@ defmodule AWS.Finspace do
   ## Example:
 
       update_kx_environment_network_response() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "awsAccountId" => String.t(),
         "creationTimestamp" => non_neg_integer(),
-        "customDNSConfiguration" => list(custom_dns_server()()),
+        "customDNSConfiguration" => list(custom_dns_server()),
         "dedicatedServiceAccountId" => String.t(),
         "description" => String.t(),
         "dnsStatus" => list(any()),
@@ -168,7 +168,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_dataviews_response() :: %{
-        "kxDataviews" => list(kx_dataview_list_entry()()),
+        "kxDataviews" => list(kx_dataview_list_entry()),
         "nextToken" => String.t()
       }
 
@@ -193,7 +193,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_environments_response() :: %{
-        "environments" => list(kx_environment()()),
+        "environments" => list(kx_environment()),
         "nextToken" => String.t()
       }
 
@@ -206,8 +206,8 @@ defmodule AWS.Finspace do
 
       vpc_configuration() :: %{
         "ipAddressType" => list(any()),
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -219,7 +219,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_volumes_response() :: %{
-        "kxVolumeSummaries" => list(kx_volume()()),
+        "kxVolumeSummaries" => list(kx_volume()),
         "nextToken" => String.t()
       }
 
@@ -243,7 +243,7 @@ defmodule AWS.Finspace do
         "releaseLabel" => String.t(),
         "status" => list(any()),
         "statusReason" => String.t(),
-        "volumes" => list(volume()())
+        "volumes" => list(volume())
       }
 
   """
@@ -302,7 +302,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_dataview_list_entry() :: %{
-        "activeVersions" => list(kx_dataview_active_version()()),
+        "activeVersions" => list(kx_dataview_active_version()),
         "autoUpdate" => boolean(),
         "availabilityZoneId" => String.t(),
         "azMode" => list(any()),
@@ -314,7 +314,7 @@ defmodule AWS.Finspace do
         "environmentId" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
         "readWrite" => boolean(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()()),
+        "segmentConfigurations" => list(kx_dataview_segment_configuration()),
         "status" => list(any()),
         "statusReason" => String.t()
       }
@@ -366,7 +366,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       create_kx_changeset_request() :: %{
-        required("changeRequests") => list(change_request()()),
+        required("changeRequests") => list(change_request()),
         required("clientToken") => String.t()
       }
 
@@ -428,7 +428,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_databases_response() :: %{
-        "kxDatabases" => list(kx_database_list_entry()()),
+        "kxDatabases" => list(kx_database_list_entry()),
         "nextToken" => String.t()
       }
 
@@ -490,7 +490,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       create_kx_changeset_response() :: %{
-        "changeRequests" => list(change_request()()),
+        "changeRequests" => list(change_request()),
         "changesetId" => String.t(),
         "createdTimestamp" => non_neg_integer(),
         "databaseName" => String.t(),
@@ -517,7 +517,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_volume() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "azMode" => list(any()),
         "createdTimestamp" => non_neg_integer(),
         "description" => String.t(),
@@ -536,7 +536,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       tickerplant_log_configuration() :: %{
-        "tickerplantLogVolumes" => list(String.t()())
+        "tickerplantLogVolumes" => list(String.t())
       }
 
   """
@@ -549,7 +549,7 @@ defmodule AWS.Finspace do
       update_kx_dataview_request() :: %{
         optional("changesetId") => String.t(),
         optional("description") => String.t(),
-        optional("segmentConfigurations") => list(kx_dataview_segment_configuration()()),
+        optional("segmentConfigurations") => list(kx_dataview_segment_configuration()),
         required("clientToken") => String.t()
       }
 
@@ -590,7 +590,7 @@ defmodule AWS.Finspace do
 
       list_kx_users_response() :: %{
         "nextToken" => String.t(),
-        "users" => list(kx_user()())
+        "users" => list(kx_user())
       }
 
   """
@@ -602,7 +602,7 @@ defmodule AWS.Finspace do
 
       list_kx_cluster_nodes_response() :: %{
         "nextToken" => String.t(),
-        "nodes" => list(kx_node()())
+        "nodes" => list(kx_node())
       }
 
   """
@@ -636,7 +636,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -647,11 +647,11 @@ defmodule AWS.Finspace do
   ## Example:
 
       get_kx_environment_response() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "awsAccountId" => String.t(),
         "certificateAuthorityArn" => String.t(),
         "creationTimestamp" => non_neg_integer(),
-        "customDNSConfiguration" => list(custom_dns_server()()),
+        "customDNSConfiguration" => list(custom_dns_server()),
         "dedicatedServiceAccountId" => String.t(),
         "description" => String.t(),
         "dnsStatus" => list(any()),
@@ -717,7 +717,7 @@ defmodule AWS.Finspace do
       kx_database_cache_configuration() :: %{
         "cacheType" => String.t(),
         "dataviewName" => String.t(),
-        "dbPaths" => list(String.t()())
+        "dbPaths" => list(String.t())
       }
 
   """
@@ -749,7 +749,7 @@ defmodule AWS.Finspace do
 
       get_kx_scaling_group_response() :: %{
         "availabilityZoneId" => String.t(),
-        "clusters" => list(String.t()()),
+        "clusters" => list(String.t()),
         "createdTimestamp" => non_neg_integer(),
         "hostType" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
@@ -832,7 +832,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_database_configuration() :: %{
-        "cacheConfigurations" => list(kx_database_cache_configuration()()),
+        "cacheConfigurations" => list(kx_database_cache_configuration()),
         "changesetId" => String.t(),
         "databaseName" => String.t(),
         "dataviewConfiguration" => kx_dataview_configuration(),
@@ -848,7 +848,7 @@ defmodule AWS.Finspace do
 
       get_kx_changeset_response() :: %{
         "activeFromTimestamp" => non_neg_integer(),
-        "changeRequests" => list(change_request()()),
+        "changeRequests" => list(change_request()),
         "changesetId" => String.t(),
         "createdTimestamp" => non_neg_integer(),
         "databaseName" => String.t(),
@@ -869,7 +869,7 @@ defmodule AWS.Finspace do
         "changesetId" => String.t(),
         "dataviewName" => String.t(),
         "dataviewVersionId" => String.t(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()())
+        "segmentConfigurations" => list(kx_dataview_segment_configuration())
       }
 
   """
@@ -983,7 +983,7 @@ defmodule AWS.Finspace do
         optional("description") => String.t(),
         optional("nas1Configuration") => kx_n_a_s1_configuration(),
         optional("tags") => map(),
-        required("availabilityZoneIds") => list(String.t()()),
+        required("availabilityZoneIds") => list(String.t()),
         required("azMode") => list(any()),
         required("volumeName") => String.t(),
         required("volumeType") => list(any())
@@ -997,11 +997,11 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_environment() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "awsAccountId" => String.t(),
         "certificateAuthorityArn" => String.t(),
         "creationTimestamp" => non_neg_integer(),
-        "customDNSConfiguration" => list(custom_dns_server()()),
+        "customDNSConfiguration" => list(custom_dns_server()),
         "dedicatedServiceAccountId" => String.t(),
         "description" => String.t(),
         "dnsStatus" => list(any()),
@@ -1084,15 +1084,15 @@ defmodule AWS.Finspace do
         "autoScalingConfiguration" => auto_scaling_configuration(),
         "availabilityZoneId" => String.t(),
         "azMode" => list(any()),
-        "cacheStorageConfigurations" => list(kx_cache_storage_configuration()()),
+        "cacheStorageConfigurations" => list(kx_cache_storage_configuration()),
         "capacityConfiguration" => capacity_configuration(),
         "clusterDescription" => String.t(),
         "clusterName" => String.t(),
         "clusterType" => list(any()),
         "code" => code_configuration(),
-        "commandLineArguments" => list(kx_command_line_argument()()),
+        "commandLineArguments" => list(kx_command_line_argument()),
         "createdTimestamp" => non_neg_integer(),
-        "databases" => list(kx_database_configuration()()),
+        "databases" => list(kx_database_configuration()),
         "executionRole" => String.t(),
         "initializationScript" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
@@ -1102,7 +1102,7 @@ defmodule AWS.Finspace do
         "status" => list(any()),
         "statusReason" => String.t(),
         "tickerplantLogConfiguration" => tickerplant_log_configuration(),
-        "volumes" => list(volume()()),
+        "volumes" => list(volume()),
         "vpcConfiguration" => vpc_configuration()
       }
 
@@ -1119,7 +1119,7 @@ defmodule AWS.Finspace do
         optional("changesetId") => String.t(),
         optional("description") => String.t(),
         optional("readWrite") => boolean(),
-        optional("segmentConfigurations") => list(kx_dataview_segment_configuration()()),
+        optional("segmentConfigurations") => list(kx_dataview_segment_configuration()),
         optional("tags") => map(),
         required("azMode") => list(any()),
         required("clientToken") => String.t(),
@@ -1135,7 +1135,7 @@ defmodule AWS.Finspace do
 
       kx_scaling_group() :: %{
         "availabilityZoneId" => String.t(),
-        "clusters" => list(String.t()()),
+        "clusters" => list(String.t()),
         "createdTimestamp" => non_neg_integer(),
         "hostType" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
@@ -1224,7 +1224,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_clusters_response() :: %{
-        "kxClusterSummaries" => list(kx_cluster()()),
+        "kxClusterSummaries" => list(kx_cluster()),
         "nextToken" => String.t()
       }
 
@@ -1292,7 +1292,7 @@ defmodule AWS.Finspace do
         "environmentId" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
         "readWrite" => boolean(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()()),
+        "segmentConfigurations" => list(kx_dataview_segment_configuration()),
         "status" => list(any())
       }
 
@@ -1325,8 +1325,8 @@ defmodule AWS.Finspace do
   ## Example:
 
       update_kx_volume_response() :: %{
-        "attachedClusters" => list(kx_attached_cluster()()),
-        "availabilityZoneIds" => list(String.t()()),
+        "attachedClusters" => list(kx_attached_cluster()),
+        "availabilityZoneIds" => list(String.t()),
         "azMode" => list(any()),
         "createdTimestamp" => non_neg_integer(),
         "description" => String.t(),
@@ -1362,7 +1362,7 @@ defmodule AWS.Finspace do
 
       update_kx_cluster_code_configuration_request() :: %{
         optional("clientToken") => String.t(),
-        optional("commandLineArguments") => list(kx_command_line_argument()()),
+        optional("commandLineArguments") => list(kx_command_line_argument()),
         optional("deploymentConfiguration") => kx_cluster_code_deployment_configuration(),
         optional("initializationScript") => String.t(),
         required("code") => code_configuration()
@@ -1496,13 +1496,13 @@ defmodule AWS.Finspace do
       create_kx_cluster_request() :: %{
         optional("autoScalingConfiguration") => auto_scaling_configuration(),
         optional("availabilityZoneId") => String.t(),
-        optional("cacheStorageConfigurations") => list(kx_cache_storage_configuration()()),
+        optional("cacheStorageConfigurations") => list(kx_cache_storage_configuration()),
         optional("capacityConfiguration") => capacity_configuration(),
         optional("clientToken") => String.t(),
         optional("clusterDescription") => String.t(),
         optional("code") => code_configuration(),
-        optional("commandLineArguments") => list(kx_command_line_argument()()),
-        optional("databases") => list(kx_database_configuration()()),
+        optional("commandLineArguments") => list(kx_command_line_argument()),
+        optional("databases") => list(kx_database_configuration()),
         optional("executionRole") => String.t(),
         optional("initializationScript") => String.t(),
         optional("savedownStorageConfiguration") => kx_savedown_storage_configuration(),
@@ -1575,10 +1575,10 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_dataview_active_version() :: %{
-        "attachedClusters" => list(String.t()()),
+        "attachedClusters" => list(String.t()),
         "changesetId" => String.t(),
         "createdTimestamp" => non_neg_integer(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()()),
+        "segmentConfigurations" => list(kx_dataview_segment_configuration()),
         "versionId" => String.t()
       }
 
@@ -1591,7 +1591,7 @@ defmodule AWS.Finspace do
 
       list_kx_scaling_groups_response() :: %{
         "nextToken" => String.t(),
-        "scalingGroups" => list(kx_scaling_group()())
+        "scalingGroups" => list(kx_scaling_group())
       }
 
   """
@@ -1625,7 +1625,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_environments_response() :: %{
-        "environments" => list(environment()()),
+        "environments" => list(environment()),
         "nextToken" => String.t()
       }
 
@@ -1663,7 +1663,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       update_kx_dataview_response() :: %{
-        "activeVersions" => list(kx_dataview_active_version()()),
+        "activeVersions" => list(kx_dataview_active_version()),
         "autoUpdate" => boolean(),
         "availabilityZoneId" => String.t(),
         "azMode" => list(any()),
@@ -1675,7 +1675,7 @@ defmodule AWS.Finspace do
         "environmentId" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
         "readWrite" => boolean(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()()),
+        "segmentConfigurations" => list(kx_dataview_segment_configuration()),
         "status" => list(any())
       }
 
@@ -1689,7 +1689,7 @@ defmodule AWS.Finspace do
       update_kx_cluster_databases_request() :: %{
         optional("clientToken") => String.t(),
         optional("deploymentConfiguration") => kx_deployment_configuration(),
-        required("databases") => list(kx_database_configuration()())
+        required("databases") => list(kx_database_configuration())
       }
 
   """
@@ -1711,7 +1711,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       get_kx_dataview_response() :: %{
-        "activeVersions" => list(kx_dataview_active_version()()),
+        "activeVersions" => list(kx_dataview_active_version()),
         "autoUpdate" => boolean(),
         "availabilityZoneId" => String.t(),
         "azMode" => list(any()),
@@ -1723,7 +1723,7 @@ defmodule AWS.Finspace do
         "environmentId" => String.t(),
         "lastModifiedTimestamp" => non_neg_integer(),
         "readWrite" => boolean(),
-        "segmentConfigurations" => list(kx_dataview_segment_configuration()()),
+        "segmentConfigurations" => list(kx_dataview_segment_configuration()),
         "status" => list(any()),
         "statusReason" => String.t()
       }
@@ -1802,7 +1802,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       kx_dataview_segment_configuration() :: %{
-        "dbPaths" => list(String.t()()),
+        "dbPaths" => list(String.t()),
         "onDemand" => boolean(),
         "volumeName" => String.t()
       }
@@ -1826,7 +1826,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       create_environment_request() :: %{
-        optional("dataBundles") => list(String.t()()),
+        optional("dataBundles") => list(String.t()),
         optional("description") => String.t(),
         optional("federationMode") => list(any()),
         optional("federationParameters") => federation_parameters(),
@@ -1872,7 +1872,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       list_kx_changesets_response() :: %{
-        "kxChangesets" => list(kx_changeset_list_entry()()),
+        "kxChangesets" => list(kx_changeset_list_entry()),
         "nextToken" => String.t()
       }
 
@@ -1885,7 +1885,7 @@ defmodule AWS.Finspace do
 
       update_kx_environment_network_request() :: %{
         optional("clientToken") => String.t(),
-        optional("customDNSConfiguration") => list(custom_dns_server()()),
+        optional("customDNSConfiguration") => list(custom_dns_server()),
         optional("transitGatewayConfiguration") => transit_gateway_configuration()
       }
 
@@ -1922,7 +1922,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       transit_gateway_configuration() :: %{
-        "attachmentNetworkAclConfiguration" => list(network_acl_entry()()),
+        "attachmentNetworkAclConfiguration" => list(network_acl_entry()),
         "routableCIDRSpace" => String.t(),
         "transitGatewayID" => String.t()
       }
@@ -1944,7 +1944,7 @@ defmodule AWS.Finspace do
   ## Example:
 
       create_kx_volume_response() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "azMode" => list(any()),
         "createdTimestamp" => non_neg_integer(),
         "description" => String.t(),
@@ -1979,10 +1979,10 @@ defmodule AWS.Finspace do
   ## Example:
 
       update_kx_environment_response() :: %{
-        "availabilityZoneIds" => list(String.t()()),
+        "availabilityZoneIds" => list(String.t()),
         "awsAccountId" => String.t(),
         "creationTimestamp" => non_neg_integer(),
-        "customDNSConfiguration" => list(custom_dns_server()()),
+        "customDNSConfiguration" => list(custom_dns_server()),
         "dedicatedServiceAccountId" => String.t(),
         "description" => String.t(),
         "dnsStatus" => list(any()),
@@ -2029,15 +2029,15 @@ defmodule AWS.Finspace do
         "autoScalingConfiguration" => auto_scaling_configuration(),
         "availabilityZoneId" => String.t(),
         "azMode" => list(any()),
-        "cacheStorageConfigurations" => list(kx_cache_storage_configuration()()),
+        "cacheStorageConfigurations" => list(kx_cache_storage_configuration()),
         "capacityConfiguration" => capacity_configuration(),
         "clusterDescription" => String.t(),
         "clusterName" => String.t(),
         "clusterType" => list(any()),
         "code" => code_configuration(),
-        "commandLineArguments" => list(kx_command_line_argument()()),
+        "commandLineArguments" => list(kx_command_line_argument()),
         "createdTimestamp" => non_neg_integer(),
-        "databases" => list(kx_database_configuration()()),
+        "databases" => list(kx_database_configuration()),
         "environmentId" => String.t(),
         "executionRole" => String.t(),
         "initializationScript" => String.t(),
@@ -2048,7 +2048,7 @@ defmodule AWS.Finspace do
         "status" => list(any()),
         "statusReason" => String.t(),
         "tickerplantLogConfiguration" => tickerplant_log_configuration(),
-        "volumes" => list(volume()()),
+        "volumes" => list(volume()),
         "vpcConfiguration" => vpc_configuration()
       }
 

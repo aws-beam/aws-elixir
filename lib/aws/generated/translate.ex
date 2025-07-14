@@ -53,7 +53,7 @@ defmodule AWS.Translate do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -106,7 +106,7 @@ defmodule AWS.Translate do
         "SkippedRecordCount" => float(),
         "SourceLanguageCode" => String.t(),
         "Status" => list(any()),
-        "TargetLanguageCodes" => list(String.t()())
+        "TargetLanguageCodes" => list(String.t())
       }
       
   """
@@ -139,7 +139,7 @@ defmodule AWS.Translate do
       
       translate_text_response() :: %{
         "AppliedSettings" => translation_settings(),
-        "AppliedTerminologies" => list(applied_terminology()()),
+        "AppliedTerminologies" => list(applied_terminology()),
         "SourceLanguageCode" => String.t(),
         "TargetLanguageCode" => String.t(),
         "TranslatedText" => String.t()
@@ -221,12 +221,12 @@ defmodule AWS.Translate do
         "JobStatus" => list(any()),
         "Message" => String.t(),
         "OutputDataConfig" => output_data_config(),
-        "ParallelDataNames" => list(String.t()()),
+        "ParallelDataNames" => list(String.t()),
         "Settings" => translation_settings(),
         "SourceLanguageCode" => String.t(),
         "SubmittedTime" => non_neg_integer(),
-        "TargetLanguageCodes" => list(String.t()()),
-        "TerminologyNames" => list(String.t()())
+        "TargetLanguageCodes" => list(String.t()),
+        "TerminologyNames" => list(String.t())
       }
       
   """
@@ -251,7 +251,7 @@ defmodule AWS.Translate do
       import_terminology_request() :: %{
         optional("Description") => String.t(),
         optional("EncryptionKey") => encryption_key(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("MergeStrategy") => list(any()),
         required("Name") => String.t(),
         required("TerminologyData") => terminology_data()
@@ -266,7 +266,7 @@ defmodule AWS.Translate do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -351,7 +351,7 @@ defmodule AWS.Translate do
       
       list_text_translation_jobs_response() :: %{
         "NextToken" => String.t(),
-        "TextTranslationJobPropertiesList" => list(text_translation_job_properties()())
+        "TextTranslationJobPropertiesList" => list(text_translation_job_properties())
       }
       
   """
@@ -363,7 +363,7 @@ defmodule AWS.Translate do
       
       list_terminologies_response() :: %{
         "NextToken" => String.t(),
-        "TerminologyPropertiesList" => list(terminology_properties()())
+        "TerminologyPropertiesList" => list(terminology_properties())
       }
       
   """
@@ -467,7 +467,7 @@ defmodule AWS.Translate do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -551,7 +551,7 @@ defmodule AWS.Translate do
       
       translate_text_request() :: %{
         optional("Settings") => translation_settings(),
-        optional("TerminologyNames") => list(String.t()()),
+        optional("TerminologyNames") => list(String.t()),
         required("SourceLanguageCode") => String.t(),
         required("TargetLanguageCode") => String.t(),
         required("Text") => String.t()
@@ -578,7 +578,7 @@ defmodule AWS.Translate do
       create_parallel_data_request() :: %{
         optional("Description") => String.t(),
         optional("EncryptionKey") => encryption_key(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientToken") => String.t(),
         required("Name") => String.t(),
         required("ParallelDataConfig") => parallel_data_config()
@@ -593,7 +593,7 @@ defmodule AWS.Translate do
       
       list_parallel_data_response() :: %{
         "NextToken" => String.t(),
-        "ParallelDataPropertiesList" => list(parallel_data_properties()())
+        "ParallelDataPropertiesList" => list(parallel_data_properties())
       }
       
   """
@@ -617,7 +617,7 @@ defmodule AWS.Translate do
       
       list_languages_response() :: %{
         "DisplayLanguageCode" => list(any()),
-        "Languages" => list(language()()),
+        "Languages" => list(language()),
         "NextToken" => String.t()
       }
       
@@ -642,7 +642,7 @@ defmodule AWS.Translate do
       
       translate_document_response() :: %{
         "AppliedSettings" => translation_settings(),
-        "AppliedTerminologies" => list(applied_terminology()()),
+        "AppliedTerminologies" => list(applied_terminology()),
         "SourceLanguageCode" => String.t(),
         "TargetLanguageCode" => String.t(),
         "TranslatedDocument" => translated_document()
@@ -783,7 +783,7 @@ defmodule AWS.Translate do
       
       translate_document_request() :: %{
         optional("Settings") => translation_settings(),
-        optional("TerminologyNames") => list(String.t()()),
+        optional("TerminologyNames") => list(String.t()),
         required("Document") => document(),
         required("SourceLanguageCode") => String.t(),
         required("TargetLanguageCode") => String.t()
@@ -845,7 +845,7 @@ defmodule AWS.Translate do
         "SizeBytes" => integer(),
         "SkippedTermCount" => integer(),
         "SourceLanguageCode" => String.t(),
-        "TargetLanguageCodes" => list(String.t()()),
+        "TargetLanguageCodes" => list(String.t()),
         "TermCount" => integer()
       }
       
@@ -858,15 +858,15 @@ defmodule AWS.Translate do
       
       start_text_translation_job_request() :: %{
         optional("JobName") => String.t(),
-        optional("ParallelDataNames") => list(String.t()()),
+        optional("ParallelDataNames") => list(String.t()),
         optional("Settings") => translation_settings(),
-        optional("TerminologyNames") => list(String.t()()),
+        optional("TerminologyNames") => list(String.t()),
         required("ClientToken") => String.t(),
         required("DataAccessRoleArn") => String.t(),
         required("InputDataConfig") => input_data_config(),
         required("OutputDataConfig") => output_data_config(),
         required("SourceLanguageCode") => String.t(),
-        required("TargetLanguageCodes") => list(String.t()())
+        required("TargetLanguageCodes") => list(String.t())
       }
       
   """
@@ -914,7 +914,7 @@ defmodule AWS.Translate do
       
       applied_terminology() :: %{
         "Name" => String.t(),
-        "Terms" => list(translate_term()())
+        "Terms" => list(term())
       }
       
   """
@@ -1082,7 +1082,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, create_parallel_data_errors()}
   def create_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParallelData", input, options)
   end
@@ -1096,7 +1097,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, delete_parallel_data_errors()}
   def delete_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParallelData", input, options)
   end
@@ -1110,7 +1112,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, delete_terminology_errors()}
   def delete_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTerminology", input, options)
   end
@@ -1126,7 +1129,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, describe_text_translation_job_errors()}
   def describe_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTextTranslationJob", input, options)
   end
@@ -1140,7 +1144,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, get_parallel_data_errors()}
   def get_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParallelData", input, options)
   end
@@ -1154,7 +1159,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, get_terminology_errors()}
   def get_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTerminology", input, options)
   end
@@ -1183,7 +1189,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, import_terminology_errors()}
   def import_terminology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportTerminology", input, options)
   end
@@ -1198,7 +1205,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_languages_errors()}
   def list_languages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLanguages", input, options)
   end
@@ -1212,7 +1220,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_parallel_data_errors()}
   def list_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListParallelData", input, options)
   end
@@ -1230,7 +1239,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1244,7 +1254,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_terminologies_errors()}
   def list_terminologies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTerminologies", input, options)
   end
@@ -1258,7 +1269,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, list_text_translation_jobs_errors()}
   def list_text_translation_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTextTranslationJobs", input, options)
   end
@@ -1286,7 +1298,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, start_text_translation_job_errors()}
   def start_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTextTranslationJob", input, options)
   end
@@ -1311,7 +1324,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, stop_text_translation_job_errors()}
   def stop_text_translation_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTextTranslationJob", input, options)
   end
@@ -1331,7 +1345,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1360,7 +1375,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, translate_document_errors()}
   def translate_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TranslateDocument", input, options)
   end
@@ -1377,7 +1393,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, translate_text_errors()}
   def translate_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TranslateText", input, options)
   end
@@ -1395,7 +1412,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1411,7 +1429,8 @@ defmodule AWS.Translate do
           | {:error, term()}
           | {:error, update_parallel_data_errors()}
   def update_parallel_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParallelData", input, options)
   end

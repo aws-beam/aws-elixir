@@ -110,7 +110,7 @@ defmodule AWS.QConnect do
 
       query_assistant_response() :: %{
         optional("nextToken") => String.t(),
-        required("results") => list(result_data()())
+        required("results") => list(result_data())
       }
 
   """
@@ -304,9 +304,9 @@ defmodule AWS.QConnect do
   ## Example:
 
       quick_response_search_expression() :: %{
-        "filters" => list(quick_response_filter_field()()),
+        "filters" => list(quick_response_filter_field()),
         "orderOnField" => quick_response_order_field(),
-        "queries" => list(quick_response_query_field()())
+        "queries" => list(quick_response_query_field())
       }
 
   """
@@ -364,7 +364,7 @@ defmodule AWS.QConnect do
 
       guardrail_topic_config() :: %{
         "definition" => String.t(),
-        "examples" => list(String.t()()),
+        "examples" => list(String.t()),
         "name" => String.t(),
         "type" => String.t()
       }
@@ -378,7 +378,7 @@ defmodule AWS.QConnect do
 
       app_integrations_configuration() :: %{
         "appIntegrationArn" => String.t(),
-        "objectFields" => list(String.t()())
+        "objectFields" => list(String.t())
       }
 
   """
@@ -406,7 +406,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_i_agent_versions_response() :: %{
-        "aiAgentVersionSummaries" => list(a_i_agent_version_summary()()),
+        "aiAgentVersionSummaries" => list(a_i_agent_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -454,7 +454,7 @@ defmodule AWS.QConnect do
 
       list_contents_response() :: %{
         optional("nextToken") => String.t(),
-        required("contentSummaries") => list(content_summary()())
+        required("contentSummaries") => list(content_summary())
       }
 
   """
@@ -479,7 +479,7 @@ defmodule AWS.QConnect do
         "includeNoExistence" => [boolean()],
         "name" => String.t(),
         "operator" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -490,7 +490,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_messages_response() :: %{
-        "messages" => list(message_output()()),
+        "messages" => list(message_output()),
         "nextToken" => String.t()
       }
 
@@ -526,7 +526,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       get_next_message_response() :: %{
-        "conversationSessionData" => list(runtime_session_data()()),
+        "conversationSessionData" => list(runtime_session_data()),
         "conversationState" => conversation_state(),
         "nextMessageToken" => String.t(),
         "requestMessageId" => String.t(),
@@ -561,7 +561,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_i_guardrail_versions_response() :: %{
-        "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()()),
+        "aiGuardrailVersionSummaries" => list(a_i_guardrail_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -755,7 +755,7 @@ defmodule AWS.QConnect do
       generative_chunk_data_details() :: %{
         "completion" => String.t(),
         "nextChunkToken" => String.t(),
-        "references" => list(data_summary()())
+        "references" => list(data_summary())
       }
 
   """
@@ -777,7 +777,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_iprompts_response() :: %{
-        "aiPromptSummaries" => list(a_iprompt_summary()()),
+        "aiPromptSummaries" => list(a_iprompt_summary()),
         "nextToken" => String.t()
       }
 
@@ -800,8 +800,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       get_recommendations_response() :: %{
-        optional("triggers") => list(recommendation_trigger()()),
-        required("recommendations") => list(recommendation_data()())
+        optional("triggers") => list(recommendation_trigger()),
+        required("recommendations") => list(recommendation_data())
       }
 
   """
@@ -925,7 +925,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -959,7 +959,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       create_quick_response_request() :: %{
-        optional("channels") => list(String.t()()),
+        optional("channels") => list(String.t()),
         optional("clientToken") => String.t(),
         optional("contentType") => String.t(),
         optional("description") => String.t(),
@@ -1050,7 +1050,7 @@ defmodule AWS.QConnect do
 
       search_content_response() :: %{
         optional("nextToken") => String.t(),
-        required("contentSummaries") => list(content_summary()())
+        required("contentSummaries") => list(content_summary())
       }
 
   """
@@ -1082,7 +1082,7 @@ defmodule AWS.QConnect do
         "includeNoExistence" => [boolean()],
         "name" => String.t(),
         "operator" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1141,7 +1141,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_i_agents_response() :: %{
-        "aiAgentSummaries" => list(a_i_agent_summary()()),
+        "aiAgentSummaries" => list(a_i_agent_summary()),
         "nextToken" => String.t()
       }
 
@@ -1153,9 +1153,9 @@ defmodule AWS.QConnect do
   ## Example:
 
       message_template_search_expression() :: %{
-        "filters" => list(message_template_filter_field()()),
+        "filters" => list(message_template_filter_field()),
         "orderOnField" => message_template_order_field(),
-        "queries" => list(message_template_query_field()())
+        "queries" => list(message_template_query_field())
       }
 
   """
@@ -1274,7 +1274,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       self_service_a_i_agent_configuration() :: %{
-        "associationConfigurations" => list(association_configuration()()),
+        "associationConfigurations" => list(association_configuration()),
         "selfServiceAIGuardrailId" => String.t(),
         "selfServiceAnswerGenerationAIPromptId" => String.t(),
         "selfServicePreProcessingAIPromptId" => String.t()
@@ -1313,7 +1313,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       hierarchical_chunking_configuration() :: %{
-        "levelConfigurations" => list(hierarchical_chunking_level_configuration()()),
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
         "overlapTokens" => [integer()]
       }
 
@@ -1537,7 +1537,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_message_template_versions_response() :: %{
-        "messageTemplateVersionSummaries" => list(message_template_version_summary()()),
+        "messageTemplateVersionSummaries" => list(message_template_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -1582,7 +1582,7 @@ defmodule AWS.QConnect do
 
       list_quick_responses_response() :: %{
         "nextToken" => String.t(),
-        "quickResponseSummaries" => list(quick_response_summary()())
+        "quickResponseSummaries" => list(quick_response_summary())
       }
 
   """
@@ -1675,7 +1675,7 @@ defmodule AWS.QConnect do
 
       knowledge_base_data() :: %{
         "description" => String.t(),
-        "ingestionFailureReasons" => list(String.t()()),
+        "ingestionFailureReasons" => list(String.t()),
         "ingestionStatus" => String.t(),
         "knowledgeBaseArn" => String.t(),
         "knowledgeBaseId" => String.t(),
@@ -1728,7 +1728,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       document_text() :: %{
-        "highlights" => list(highlight()()),
+        "highlights" => list(highlight()),
         "text" => String.t()
       }
 
@@ -1762,7 +1762,7 @@ defmodule AWS.QConnect do
         "name" => String.t(),
         "operator" => String.t(),
         "priority" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1824,8 +1824,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       extended_message_template_data() :: %{
-        "attachments" => list(message_template_attachment()()),
-        "attributeTypes" => list(String.t()()),
+        "attachments" => list(message_template_attachment()),
+        "attributeTypes" => list(String.t()),
         "channelSubtype" => String.t(),
         "content" => list(),
         "createdTime" => [non_neg_integer()],
@@ -1955,7 +1955,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       url_configuration() :: %{
-        "seedUrls" => list(seed_url()())
+        "seedUrls" => list(seed_url())
       }
 
   """
@@ -1987,7 +1987,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       conversation_context() :: %{
-        "selfServiceConversationHistory" => list(self_service_conversation_history()())
+        "selfServiceConversationHistory" => list(self_service_conversation_history())
       }
 
   """
@@ -2031,7 +2031,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       quick_response_summary() :: %{
-        "channels" => list(String.t()()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "createdTime" => [non_neg_integer()],
         "description" => String.t(),
@@ -2190,7 +2190,7 @@ defmodule AWS.QConnect do
 
       search_sessions_response() :: %{
         optional("nextToken") => String.t(),
-        required("sessionSummaries") => list(session_summary()())
+        required("sessionSummaries") => list(session_summary())
       }
 
   """
@@ -2224,8 +2224,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       notify_recommendations_received_response() :: %{
-        optional("errors") => list(notify_recommendations_received_error()()),
-        optional("recommendationIds") => list(String.t()())
+        optional("errors") => list(notify_recommendations_received_error()),
+        optional("recommendationIds") => list(String.t())
       }
 
   """
@@ -2236,7 +2236,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       update_quick_response_request() :: %{
-        optional("channels") => list(String.t()()),
+        optional("channels") => list(String.t()),
         optional("content") => list(),
         optional("contentType") => String.t(),
         optional("description") => String.t(),
@@ -2258,7 +2258,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       quick_response_data() :: %{
-        "channels" => list(String.t()()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
@@ -2428,7 +2428,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_guardrail_topic_policy_config() :: %{
-        "topicsConfig" => list(guardrail_topic_config()())
+        "topicsConfig" => list(guardrail_topic_config())
       }
 
   """
@@ -2450,7 +2450,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       search_expression() :: %{
-        "filters" => list(filter()())
+        "filters" => list(filter())
       }
 
   """
@@ -2628,8 +2628,8 @@ defmodule AWS.QConnect do
 
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t()()),
-        "inclusionFilters" => list(String.t()()),
+        "exclusionFilters" => list(String.t()),
+        "inclusionFilters" => list(String.t()),
         "scope" => String.t(),
         "urlConfiguration" => url_configuration()
       }
@@ -2642,7 +2642,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_import_jobs_response() :: %{
-        "importJobSummaries" => list(import_job_summary()()),
+        "importJobSummaries" => list(import_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2721,8 +2721,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_guardrail_word_policy_config() :: %{
-        "managedWordListsConfig" => list(guardrail_managed_words_config()()),
-        "wordsConfig" => list(guardrail_word_config()())
+        "managedWordListsConfig" => list(guardrail_managed_words_config()),
+        "wordsConfig" => list(guardrail_word_config())
       }
 
   """
@@ -2744,7 +2744,7 @@ defmodule AWS.QConnect do
       generative_data_details() :: %{
         "completion" => String.t(),
         "rankingData" => ranking_data(),
-        "references" => list(data_summary()())
+        "references" => list(data_summary())
       }
 
   """
@@ -2756,7 +2756,7 @@ defmodule AWS.QConnect do
 
       search_quick_responses_response() :: %{
         "nextToken" => String.t(),
-        "results" => list(quick_response_search_result_data()())
+        "results" => list(quick_response_search_result_data())
       }
 
   """
@@ -2814,7 +2814,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_message_templates_response() :: %{
-        "messageTemplateSummaries" => list(message_template_summary()()),
+        "messageTemplateSummaries" => list(message_template_summary()),
         "nextToken" => String.t()
       }
 
@@ -2858,7 +2858,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_guardrail_contextual_grounding_policy_config() :: %{
-        "filtersConfig" => list(guardrail_contextual_grounding_filter_config()())
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
       }
 
   """
@@ -2894,7 +2894,7 @@ defmodule AWS.QConnect do
       manual_search_a_i_agent_configuration() :: %{
         "answerGenerationAIGuardrailId" => String.t(),
         "answerGenerationAIPromptId" => String.t(),
-        "associationConfigurations" => list(association_configuration()()),
+        "associationConfigurations" => list(association_configuration()),
         "locale" => String.t()
       }
 
@@ -2946,8 +2946,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_guardrail_sensitive_information_policy_config() :: %{
-        "piiEntitiesConfig" => list(guardrail_pii_entity_config()()),
-        "regexesConfig" => list(guardrail_regex_config()())
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
+        "regexesConfig" => list(guardrail_regex_config())
       }
 
   """
@@ -3051,7 +3051,7 @@ defmodule AWS.QConnect do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("overrideKnowledgeBaseSearchType") => String.t(),
-        optional("queryCondition") => list(list()()),
+        optional("queryCondition") => list(list()),
         optional("queryInputData") => list(),
         optional("queryText") => String.t(),
         optional("sessionId") => String.t()
@@ -3074,9 +3074,9 @@ defmodule AWS.QConnect do
   ## Example:
 
       quick_response_search_result_data() :: %{
-        "attributesInterpolated" => list(String.t()()),
-        "attributesNotInterpolated" => list(String.t()()),
-        "channels" => list(String.t()()),
+        "attributesInterpolated" => list(String.t()),
+        "attributesNotInterpolated" => list(String.t()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
@@ -3148,7 +3148,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_i_guardrails_response() :: %{
-        "aiGuardrailSummaries" => list(a_i_guardrail_summary()()),
+        "aiGuardrailSummaries" => list(a_i_guardrail_summary()),
         "nextToken" => String.t()
       }
 
@@ -3250,7 +3250,7 @@ defmodule AWS.QConnect do
 
       search_message_templates_response() :: %{
         "nextToken" => String.t(),
-        "results" => list(message_template_search_result_data()())
+        "results" => list(message_template_search_result_data())
       }
 
   """
@@ -3329,7 +3329,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       update_session_data_response() :: %{
-        "data" => list(runtime_session_data()()),
+        "data" => list(runtime_session_data()),
         "namespace" => String.t(),
         "sessionArn" => String.t(),
         "sessionId" => String.t()
@@ -3380,7 +3380,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       a_i_guardrail_content_policy_config() :: %{
-        "filtersConfig" => list(guardrail_content_filter_config()())
+        "filtersConfig" => list(guardrail_content_filter_config())
       }
 
   """
@@ -3425,7 +3425,7 @@ defmodule AWS.QConnect do
       recommendation_trigger() :: %{
         "data" => list(),
         "id" => String.t(),
-        "recommendationIds" => list(String.t()()),
+        "recommendationIds" => list(String.t()),
         "source" => String.t(),
         "type" => String.t()
       }
@@ -3449,7 +3449,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       notify_recommendations_received_request() :: %{
-        required("recommendationIds") => list(String.t()())
+        required("recommendationIds") => list(String.t())
       }
 
   """
@@ -3484,7 +3484,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       message_template_data() :: %{
-        "attributeTypes" => list(String.t()()),
+        "attributeTypes" => list(String.t()),
         "channelSubtype" => String.t(),
         "content" => list(),
         "createdTime" => [non_neg_integer()],
@@ -3512,7 +3512,7 @@ defmodule AWS.QConnect do
 
       list_knowledge_bases_response() :: %{
         optional("nextToken") => String.t(),
-        required("knowledgeBaseSummaries") => list(knowledge_base_summary()())
+        required("knowledgeBaseSummaries") => list(knowledge_base_summary())
       }
 
   """
@@ -3546,7 +3546,7 @@ defmodule AWS.QConnect do
 
       list_assistant_associations_response() :: %{
         optional("nextToken") => String.t(),
-        required("assistantAssociationSummaries") => list(assistant_association_summary()())
+        required("assistantAssociationSummaries") => list(assistant_association_summary())
       }
 
   """
@@ -3594,8 +3594,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       render_message_template_response() :: %{
-        "attachments" => list(message_template_attachment()()),
-        "attributesNotInterpolated" => list(String.t()()),
+        "attachments" => list(message_template_attachment()),
+        "attributesNotInterpolated" => list(String.t()),
         "content" => list()
       }
 
@@ -3732,7 +3732,7 @@ defmodule AWS.QConnect do
         "name" => String.t(),
         "operator" => String.t(),
         "priority" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3781,7 +3781,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_a_iprompt_versions_response() :: %{
-        "aiPromptVersionSummaries" => list(a_iprompt_version_summary()()),
+        "aiPromptVersionSummaries" => list(a_iprompt_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -3819,7 +3819,7 @@ defmodule AWS.QConnect do
 
       list_assistants_response() :: %{
         optional("nextToken") => String.t(),
-        required("assistantSummaries") => list(assistant_summary()())
+        required("assistantSummaries") => list(assistant_summary())
       }
 
   """
@@ -3905,7 +3905,7 @@ defmodule AWS.QConnect do
 
       grouping_configuration() :: %{
         "criteria" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3954,7 +3954,7 @@ defmodule AWS.QConnect do
       answer_recommendation_a_i_agent_configuration() :: %{
         "answerGenerationAIGuardrailId" => String.t(),
         "answerGenerationAIPromptId" => String.t(),
-        "associationConfigurations" => list(association_configuration()()),
+        "associationConfigurations" => list(association_configuration()),
         "intentLabelingGenerationAIPromptId" => String.t(),
         "locale" => String.t(),
         "queryReformulationAIPromptId" => String.t()
@@ -3969,7 +3969,7 @@ defmodule AWS.QConnect do
 
       email_message_template_content() :: %{
         "body" => email_message_template_content_body(),
-        "headers" => list(email_header()()),
+        "headers" => list(email_header()),
         "subject" => String.t()
       }
 
@@ -4014,7 +4014,7 @@ defmodule AWS.QConnect do
   ## Example:
 
       list_content_associations_response() :: %{
-        "contentAssociationSummaries" => list(content_association_summary()()),
+        "contentAssociationSummaries" => list(content_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -4084,7 +4084,7 @@ defmodule AWS.QConnect do
 
       update_session_data_request() :: %{
         optional("namespace") => String.t(),
-        required("data") => list(runtime_session_data()())
+        required("data") => list(runtime_session_data())
       }
 
   """

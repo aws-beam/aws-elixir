@@ -17,7 +17,7 @@ defmodule AWS.LakeFormation do
 
       delete_object_input() :: %{
         "ETag" => String.t(),
-        "PartitionValues" => list(String.t()()),
+        "PartitionValues" => list(String.t()),
         "Uri" => String.t()
       }
 
@@ -55,7 +55,7 @@ defmodule AWS.LakeFormation do
 
       list_permissions_response() :: %{
         "NextToken" => String.t(),
-        "PrincipalResourcePermissions" => list(principal_resource_permissions()())
+        "PrincipalResourcePermissions" => list(principal_resource_permissions())
       }
 
   """
@@ -69,7 +69,7 @@ defmodule AWS.LakeFormation do
         optional("CatalogId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Expression") => list(l_f_tag()())
+        required("Expression") => list(l_f_tag())
       }
 
   """
@@ -93,7 +93,7 @@ defmodule AWS.LakeFormation do
       l_f_tag_key_resource() :: %{
         "CatalogId" => String.t(),
         "TagKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -139,7 +139,7 @@ defmodule AWS.LakeFormation do
 
       list_resources_response() :: %{
         "NextToken" => String.t(),
-        "ResourceInfoList" => list(resource_info()())
+        "ResourceInfoList" => list(resource_info())
       }
 
   """
@@ -152,7 +152,7 @@ defmodule AWS.LakeFormation do
       l_f_tag_expression() :: %{
         "CatalogId" => String.t(),
         "Description" => String.t(),
-        "Expression" => list(l_f_tag()()),
+        "Expression" => list(l_f_tag()),
         "Name" => String.t()
       }
 
@@ -177,7 +177,7 @@ defmodule AWS.LakeFormation do
       filter_condition() :: %{
         "ComparisonOperator" => list(any()),
         "Field" => list(any()),
-        "StringValueList" => list(String.t()())
+        "StringValueList" => list(String.t())
       }
 
   """
@@ -189,8 +189,8 @@ defmodule AWS.LakeFormation do
 
       update_l_f_tag_request() :: %{
         optional("CatalogId") => String.t(),
-        optional("TagValuesToAdd") => list(String.t()()),
-        optional("TagValuesToDelete") => list(String.t()()),
+        optional("TagValuesToAdd") => list(String.t()),
+        optional("TagValuesToDelete") => list(String.t()),
         required("TagKey") => String.t()
       }
 
@@ -218,7 +218,7 @@ defmodule AWS.LakeFormation do
 
       l_f_tag() :: %{
         "TagKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -291,9 +291,9 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       get_resource_l_f_tags_response() :: %{
-        "LFTagOnDatabase" => list(l_f_tag_pair()()),
-        "LFTagsOnColumns" => list(column_l_f_tag()()),
-        "LFTagsOnTable" => list(l_f_tag_pair()())
+        "LFTagOnDatabase" => list(l_f_tag_pair()),
+        "LFTagsOnColumns" => list(column_l_f_tag()),
+        "LFTagsOnTable" => list(l_f_tag_pair())
       }
 
   """
@@ -327,7 +327,7 @@ defmodule AWS.LakeFormation do
 
       l_f_tag_policy_resource() :: %{
         "CatalogId" => String.t(),
-        "Expression" => list(l_f_tag()()),
+        "Expression" => list(l_f_tag()),
         "ExpressionName" => String.t(),
         "ResourceType" => list(any())
       }
@@ -394,7 +394,7 @@ defmodule AWS.LakeFormation do
         optional("ApplicationStatus") => list(any()),
         optional("CatalogId") => String.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
-        optional("ShareRecipients") => list(data_lake_principal()())
+        optional("ShareRecipients") => list(data_lake_principal())
       }
 
   """
@@ -430,7 +430,7 @@ defmodule AWS.LakeFormation do
         optional("CatalogId") => String.t(),
         optional("ExternalFiltering") => external_filtering_configuration(),
         optional("InstanceArn") => String.t(),
-        optional("ShareRecipients") => list(data_lake_principal()())
+        optional("ShareRecipients") => list(data_lake_principal())
       }
 
   """
@@ -442,7 +442,7 @@ defmodule AWS.LakeFormation do
 
       list_transactions_response() :: %{
         "NextToken" => String.t(),
-        "Transactions" => list(transaction_description()())
+        "Transactions" => list(transaction_description())
       }
 
   """
@@ -503,7 +503,7 @@ defmodule AWS.LakeFormation do
       create_l_f_tag_expression_request() :: %{
         optional("CatalogId") => String.t(),
         optional("Description") => String.t(),
-        required("Expression") => list(l_f_tag()()),
+        required("Expression") => list(l_f_tag()),
         required("Name") => String.t()
       }
 
@@ -515,9 +515,9 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       tagged_table() :: %{
-        "LFTagOnDatabase" => list(l_f_tag_pair()()),
-        "LFTagsOnColumns" => list(column_l_f_tag()()),
-        "LFTagsOnTable" => list(l_f_tag_pair()()),
+        "LFTagOnDatabase" => list(l_f_tag_pair()),
+        "LFTagsOnColumns" => list(column_l_f_tag()),
+        "LFTagsOnTable" => list(l_f_tag_pair()),
         "Table" => table_resource()
       }
 
@@ -548,7 +548,7 @@ defmodule AWS.LakeFormation do
 
       list_table_storage_optimizers_response() :: %{
         "NextToken" => String.t(),
-        "StorageOptimizerList" => list(storage_optimizer()())
+        "StorageOptimizerList" => list(storage_optimizer())
       }
 
   """
@@ -562,7 +562,7 @@ defmodule AWS.LakeFormation do
         optional("CatalogId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Expression") => list(l_f_tag()())
+        required("Expression") => list(l_f_tag())
       }
 
   """
@@ -575,7 +575,7 @@ defmodule AWS.LakeFormation do
       update_l_f_tag_expression_request() :: %{
         optional("CatalogId") => String.t(),
         optional("Description") => String.t(),
-        required("Expression") => list(l_f_tag()()),
+        required("Expression") => list(l_f_tag()),
         required("Name") => String.t()
       }
 
@@ -598,8 +598,8 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       partition_objects() :: %{
-        "Objects" => list(table_object()()),
-        "PartitionValues" => list(String.t()())
+        "Objects" => list(table_object()),
+        "PartitionValues" => list(String.t())
       }
 
   """
@@ -634,7 +634,7 @@ defmodule AWS.LakeFormation do
       get_l_f_tag_response() :: %{
         "CatalogId" => String.t(),
         "TagKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -656,7 +656,7 @@ defmodule AWS.LakeFormation do
       create_l_f_tag_request() :: %{
         optional("CatalogId") => String.t(),
         required("TagKey") => String.t(),
-        required("TagValues") => list(String.t()())
+        required("TagValues") => list(String.t())
       }
 
   """
@@ -667,7 +667,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_lake_formation_opt_ins_response() :: %{
-        "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()()),
+        "LakeFormationOptInsInfoList" => list(lake_formation_opt_ins_info()),
         "NextToken" => String.t()
       }
 
@@ -737,7 +737,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_l_f_tag_expressions_response() :: %{
-        "LFTagExpressions" => list(l_f_tag_expression()()),
+        "LFTagExpressions" => list(l_f_tag_expression()),
         "NextToken" => String.t()
       }
 
@@ -841,7 +841,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       add_l_f_tags_to_resource_response() :: %{
-        "Failures" => list(l_f_tag_error()())
+        "Failures" => list(l_f_tag_error())
       }
 
   """
@@ -852,7 +852,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       data_cells_filter() :: %{
-        "ColumnNames" => list(String.t()()),
+        "ColumnNames" => list(String.t()),
         "ColumnWildcard" => column_wildcard(),
         "DatabaseName" => String.t(),
         "Name" => String.t(),
@@ -947,7 +947,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       partition_value_list() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -971,7 +971,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       search_databases_by_l_f_tags_response() :: %{
-        "DatabaseList" => list(tagged_database()()),
+        "DatabaseList" => list(tagged_database()),
         "NextToken" => String.t()
       }
 
@@ -1039,7 +1039,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       column_wildcard() :: %{
-        "ExcludedColumnNames" => list(String.t()())
+        "ExcludedColumnNames" => list(String.t())
       }
 
   """
@@ -1154,7 +1154,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       remove_l_f_tags_from_resource_response() :: %{
-        "Failures" => list(l_f_tag_error()())
+        "Failures" => list(l_f_tag_error())
       }
 
   """
@@ -1165,7 +1165,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       details_map() :: %{
-        "ResourceShare" => list(String.t()())
+        "ResourceShare" => list(String.t())
       }
 
   """
@@ -1190,7 +1190,7 @@ defmodule AWS.LakeFormation do
 
       search_tables_by_l_f_tags_response() :: %{
         "NextToken" => String.t(),
-        "TableList" => list(tagged_table()())
+        "TableList" => list(tagged_table())
       }
 
   """
@@ -1202,7 +1202,7 @@ defmodule AWS.LakeFormation do
 
       add_object_input() :: %{
         "ETag" => String.t(),
-        "PartitionValues" => list(String.t()()),
+        "PartitionValues" => list(String.t()),
         "Size" => float(),
         "Uri" => String.t()
       }
@@ -1256,7 +1256,7 @@ defmodule AWS.LakeFormation do
       get_l_f_tag_expression_response() :: %{
         "CatalogId" => String.t(),
         "Description" => String.t(),
-        "Expression" => list(l_f_tag()()),
+        "Expression" => list(l_f_tag()),
         "Name" => String.t()
       }
 
@@ -1338,7 +1338,7 @@ defmodule AWS.LakeFormation do
         "Expiration" => non_neg_integer(),
         "SecretAccessKey" => String.t(),
         "SessionToken" => String.t(),
-        "VendedS3Path" => list(String.t()())
+        "VendedS3Path" => list(String.t())
       }
 
   """
@@ -1354,7 +1354,7 @@ defmodule AWS.LakeFormation do
         "ExternalFiltering" => external_filtering_configuration(),
         "InstanceArn" => String.t(),
         "ResourceShare" => String.t(),
-        "ShareRecipients" => list(data_lake_principal()())
+        "ShareRecipients" => list(data_lake_principal())
       }
 
   """
@@ -1390,7 +1390,7 @@ defmodule AWS.LakeFormation do
       l_f_tag_pair() :: %{
         "CatalogId" => String.t(),
         "TagKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -1473,7 +1473,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       batch_revoke_permissions_response() :: %{
-        "Failures" => list(batch_permissions_failure_entry()())
+        "Failures" => list(batch_permissions_failure_entry())
       }
 
   """
@@ -1488,7 +1488,7 @@ defmodule AWS.LakeFormation do
         optional("TransactionId") => String.t(),
         required("DatabaseName") => String.t(),
         required("TableName") => String.t(),
-        required("WriteOperations") => list(write_operation()())
+        required("WriteOperations") => list(write_operation())
       }
 
   """
@@ -1508,7 +1508,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_data_cells_filter_response() :: %{
-        "DataCellsFilters" => list(data_cells_filter()()),
+        "DataCellsFilters" => list(data_cells_filter()),
         "NextToken" => String.t()
       }
 
@@ -1533,7 +1533,7 @@ defmodule AWS.LakeFormation do
 
       get_effective_permissions_for_path_response() :: %{
         "NextToken" => String.t(),
-        "Permissions" => list(principal_resource_permissions()())
+        "Permissions" => list(principal_resource_permissions())
       }
 
   """
@@ -1545,7 +1545,7 @@ defmodule AWS.LakeFormation do
 
       batch_grant_permissions_request() :: %{
         optional("CatalogId") => String.t(),
-        required("Entries") => list(batch_permissions_request_entry()())
+        required("Entries") => list(batch_permissions_request_entry())
       }
 
   """
@@ -1619,7 +1619,7 @@ defmodule AWS.LakeFormation do
       delete_objects_on_cancel_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("Objects") => list(virtual_object()()),
+        required("Objects") => list(virtual_object()),
         required("TableName") => String.t(),
         required("TransactionId") => String.t()
       }
@@ -1655,14 +1655,14 @@ defmodule AWS.LakeFormation do
       data_lake_settings() :: %{
         "AllowExternalDataFiltering" => boolean(),
         "AllowFullTableExternalDataAccess" => boolean(),
-        "AuthorizedSessionTagValueList" => list(String.t()()),
-        "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
-        "CreateTableDefaultPermissions" => list(principal_permissions()()),
-        "DataLakeAdmins" => list(data_lake_principal()()),
-        "ExternalDataFilteringAllowList" => list(data_lake_principal()()),
+        "AuthorizedSessionTagValueList" => list(String.t()),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
+        "DataLakeAdmins" => list(data_lake_principal()),
+        "ExternalDataFilteringAllowList" => list(data_lake_principal()),
         "Parameters" => map(),
-        "ReadOnlyAdmins" => list(data_lake_principal()()),
-        "TrustedResourceOwners" => list(String.t()())
+        "ReadOnlyAdmins" => list(data_lake_principal()),
+        "TrustedResourceOwners" => list(String.t())
       }
 
   """
@@ -1709,7 +1709,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       batch_grant_permissions_response() :: %{
-        "Failures" => list(batch_permissions_failure_entry()())
+        "Failures" => list(batch_permissions_failure_entry())
       }
 
   """
@@ -1720,7 +1720,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       external_filtering_configuration() :: %{
-        "AuthorizedTargets" => list(String.t()()),
+        "AuthorizedTargets" => list(String.t()),
         "Status" => list(any())
       }
 
@@ -1801,7 +1801,7 @@ defmodule AWS.LakeFormation do
       get_work_units_response() :: %{
         "NextToken" => String.t(),
         "QueryId" => String.t(),
-        "WorkUnitRanges" => list(work_unit_range()())
+        "WorkUnitRanges" => list(work_unit_range())
       }
 
   """
@@ -1813,7 +1813,7 @@ defmodule AWS.LakeFormation do
 
       tagged_database() :: %{
         "Database" => database_resource(),
-        "LFTags" => list(l_f_tag_pair()())
+        "LFTags" => list(l_f_tag_pair())
       }
 
   """
@@ -1846,7 +1846,7 @@ defmodule AWS.LakeFormation do
 
       batch_revoke_permissions_request() :: %{
         optional("CatalogId") => String.t(),
-        required("Entries") => list(batch_permissions_request_entry()())
+        required("Entries") => list(batch_permissions_request_entry())
       }
 
   """
@@ -1933,7 +1933,7 @@ defmodule AWS.LakeFormation do
 
       get_table_objects_response() :: %{
         "NextToken" => String.t(),
-        "Objects" => list(partition_objects()())
+        "Objects" => list(partition_objects())
       }
 
   """
@@ -1956,7 +1956,7 @@ defmodule AWS.LakeFormation do
 
       table_with_columns_resource() :: %{
         "CatalogId" => String.t(),
-        "ColumnNames" => list(String.t()()),
+        "ColumnNames" => list(String.t()),
         "ColumnWildcard" => column_wildcard(),
         "DatabaseName" => String.t(),
         "Name" => String.t()
@@ -1970,7 +1970,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_resources_request() :: %{
-        optional("FilterConditionList") => list(filter_condition()()),
+        optional("FilterConditionList") => list(filter_condition()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1983,7 +1983,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       list_l_f_tags_response() :: %{
-        "LFTags" => list(l_f_tag_pair()()),
+        "LFTags" => list(l_f_tag_pair()),
         "NextToken" => String.t()
       }
 
@@ -2100,7 +2100,7 @@ defmodule AWS.LakeFormation do
 
       remove_l_f_tags_from_resource_request() :: %{
         optional("CatalogId") => String.t(),
-        required("LFTags") => list(l_f_tag_pair()()),
+        required("LFTags") => list(l_f_tag_pair()),
         required("Resource") => resource()
       }
 
@@ -2261,7 +2261,7 @@ defmodule AWS.LakeFormation do
 
       add_l_f_tags_to_resource_request() :: %{
         optional("CatalogId") => String.t(),
-        required("LFTags") => list(l_f_tag_pair()()),
+        required("LFTags") => list(l_f_tag_pair()),
         required("Resource") => resource()
       }
 
@@ -2284,7 +2284,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       column_l_f_tag() :: %{
-        "LFTags" => list(l_f_tag_pair()()),
+        "LFTags" => list(l_f_tag_pair()),
         "Name" => String.t()
       }
 

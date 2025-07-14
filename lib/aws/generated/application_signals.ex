@@ -71,7 +71,7 @@ defmodule AWS.ApplicationSignals do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -99,7 +99,7 @@ defmodule AWS.ApplicationSignals do
       service_dependency() :: %{
         "DependencyKeyAttributes" => map(),
         "DependencyOperationName" => String.t(),
-        "MetricReferences" => list(metric_reference()()),
+        "MetricReferences" => list(metric_reference()),
         "OperationName" => String.t()
       }
 
@@ -113,7 +113,7 @@ defmodule AWS.ApplicationSignals do
       list_service_dependencies_output() :: %{
         "EndTime" => [non_neg_integer()],
         "NextToken" => String.t(),
-        "ServiceDependencies" => list(service_dependency()()),
+        "ServiceDependencies" => list(service_dependency()),
         "StartTime" => [non_neg_integer()]
       }
 
@@ -125,7 +125,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       service_operation() :: %{
-        "MetricReferences" => list(metric_reference()()),
+        "MetricReferences" => list(metric_reference()),
         "Name" => String.t()
       }
 
@@ -159,7 +159,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       metric() :: %{
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
@@ -228,7 +228,7 @@ defmodule AWS.ApplicationSignals do
       service_level_indicator_metric_config() :: %{
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
-        "MetricDataQueries" => list(metric_data_query()()),
+        "MetricDataQueries" => list(metric_data_query()),
         "MetricType" => list(any()),
         "OperationName" => String.t(),
         "PeriodSeconds" => integer(),
@@ -262,7 +262,7 @@ defmodule AWS.ApplicationSignals do
 
       metric_reference() :: %{
         "AccountId" => String.t(),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricName" => String.t(),
         "MetricType" => String.t(),
         "Namespace" => String.t()
@@ -276,10 +276,10 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       service() :: %{
-        "AttributeMaps" => list(map()()),
+        "AttributeMaps" => list(map()),
         "KeyAttributes" => map(),
-        "LogGroupReferences" => list(map()()),
-        "MetricReferences" => list(metric_reference()())
+        "LogGroupReferences" => list(map()),
+        "MetricReferences" => list(metric_reference())
       }
 
   """
@@ -290,12 +290,12 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       create_service_level_objective_input() :: %{
-        optional("BurnRateConfigurations") => list(burn_rate_configuration()()),
+        optional("BurnRateConfigurations") => list(burn_rate_configuration()),
         optional("Description") => String.t(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),
         optional("SliConfig") => service_level_indicator_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
 
@@ -308,7 +308,7 @@ defmodule AWS.ApplicationSignals do
 
       service_level_objective() :: %{
         "Arn" => String.t(),
-        "BurnRateConfigurations" => list(burn_rate_configuration()()),
+        "BurnRateConfigurations" => list(burn_rate_configuration()),
         "CreatedTime" => [non_neg_integer()],
         "Description" => String.t(),
         "EvaluationType" => list(any()),
@@ -329,7 +329,7 @@ defmodule AWS.ApplicationSignals do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -340,7 +340,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       batch_update_exclusion_windows_output() :: %{
-        "Errors" => list(batch_update_exclusion_windows_error()()),
+        "Errors" => list(batch_update_exclusion_windows_error()),
         "SloIds" => list([String.t()]())
       }
 
@@ -365,8 +365,8 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       batch_get_service_level_objective_budget_report_output() :: %{
-        "Errors" => list(service_level_objective_budget_report_error()()),
-        "Reports" => list(service_level_objective_budget_report()()),
+        "Errors" => list(service_level_objective_budget_report_error()),
+        "Reports" => list(service_level_objective_budget_report()),
         "Timestamp" => [non_neg_integer()]
       }
 
@@ -380,7 +380,7 @@ defmodule AWS.ApplicationSignals do
       service_level_indicator_metric() :: %{
         "DependencyConfig" => dependency_config(),
         "KeyAttributes" => map(),
-        "MetricDataQueries" => list(metric_data_query()()),
+        "MetricDataQueries" => list(metric_data_query()),
         "MetricType" => list(any()),
         "OperationName" => String.t()
       }
@@ -398,7 +398,7 @@ defmodule AWS.ApplicationSignals do
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
         "OperationName" => String.t(),
-        "TotalRequestCountMetric" => list(metric_data_query()())
+        "TotalRequestCountMetric" => list(metric_data_query())
       }
 
   """
@@ -454,7 +454,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       list_service_level_objective_exclusion_windows_output() :: %{
-        "ExclusionWindows" => list(exclusion_window()()),
+        "ExclusionWindows" => list(exclusion_window()),
         "NextToken" => String.t()
       }
 
@@ -467,7 +467,7 @@ defmodule AWS.ApplicationSignals do
 
       get_service_output() :: %{
         "EndTime" => [non_neg_integer()],
-        "LogGroupReferences" => list(map()()),
+        "LogGroupReferences" => list(map()),
         "Service" => service(),
         "StartTime" => [non_neg_integer()]
       }
@@ -503,9 +503,9 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       service_summary() :: %{
-        "AttributeMaps" => list(map()()),
+        "AttributeMaps" => list(map()),
         "KeyAttributes" => map(),
-        "MetricReferences" => list(metric_reference()())
+        "MetricReferences" => list(metric_reference())
       }
 
   """
@@ -568,7 +568,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -581,7 +581,7 @@ defmodule AWS.ApplicationSignals do
       service_dependent() :: %{
         "DependentKeyAttributes" => map(),
         "DependentOperationName" => String.t(),
-        "MetricReferences" => list(metric_reference()()),
+        "MetricReferences" => list(metric_reference()),
         "OperationName" => String.t()
       }
 
@@ -652,8 +652,8 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       batch_update_exclusion_windows_input() :: %{
-        optional("AddExclusionWindows") => list(exclusion_window()()),
-        optional("RemoveExclusionWindows") => list(exclusion_window()()),
+        optional("AddExclusionWindows") => list(exclusion_window()),
+        optional("RemoveExclusionWindows") => list(exclusion_window()),
         required("SloIds") => list([String.t()]())
       }
 
@@ -666,7 +666,7 @@ defmodule AWS.ApplicationSignals do
 
       list_service_level_objectives_output() :: %{
         "NextToken" => String.t(),
-        "SloSummaries" => list(service_level_objective_summary()())
+        "SloSummaries" => list(service_level_objective_summary())
       }
 
   """
@@ -741,7 +741,7 @@ defmodule AWS.ApplicationSignals do
         "MetricType" => list(any()),
         "MonitoredRequestCountMetric" => list(),
         "OperationName" => String.t(),
-        "TotalRequestCountMetric" => list(metric_data_query()())
+        "TotalRequestCountMetric" => list(metric_data_query())
       }
 
   """
@@ -754,7 +754,7 @@ defmodule AWS.ApplicationSignals do
       list_service_operations_output() :: %{
         "EndTime" => [non_neg_integer()],
         "NextToken" => String.t(),
-        "ServiceOperations" => list(service_operation()()),
+        "ServiceOperations" => list(service_operation()),
         "StartTime" => [non_neg_integer()]
       }
 
@@ -766,7 +766,7 @@ defmodule AWS.ApplicationSignals do
   ## Example:
 
       update_service_level_objective_input() :: %{
-        optional("BurnRateConfigurations") => list(burn_rate_configuration()()),
+        optional("BurnRateConfigurations") => list(burn_rate_configuration()),
         optional("Description") => String.t(),
         optional("Goal") => goal(),
         optional("RequestBasedSliConfig") => request_based_service_level_indicator_config(),
@@ -906,7 +906,7 @@ defmodule AWS.ApplicationSignals do
       list_service_dependents_output() :: %{
         "EndTime" => [non_neg_integer()],
         "NextToken" => String.t(),
-        "ServiceDependents" => list(service_dependent()()),
+        "ServiceDependents" => list(service_dependent()),
         "StartTime" => [non_neg_integer()]
       }
 
@@ -929,7 +929,7 @@ defmodule AWS.ApplicationSignals do
       list_services_output() :: %{
         "EndTime" => [non_neg_integer()],
         "NextToken" => String.t(),
-        "ServiceSummaries" => list(service_summary()()),
+        "ServiceSummaries" => list(service_summary()),
         "StartTime" => [non_neg_integer()]
       }
 

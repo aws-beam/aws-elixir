@@ -88,7 +88,7 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       associate_profile_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("ProfileId") => String.t(),
         required("ResourceId") => String.t()
@@ -172,7 +172,7 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -228,7 +228,7 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       create_profile_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientToken") => String.t(),
         required("Name") => String.t()
       }
@@ -343,7 +343,7 @@ defmodule AWS.Route53Profiles do
 
       list_profile_associations_response() :: %{
         "NextToken" => String.t(),
-        "ProfileAssociations" => list(profile_association()())
+        "ProfileAssociations" => list(profile_association())
       }
 
   """
@@ -364,7 +364,7 @@ defmodule AWS.Route53Profiles do
 
       list_profile_resource_associations_response() :: %{
         "NextToken" => String.t(),
-        "ProfileResourceAssociations" => list(profile_resource_association()())
+        "ProfileResourceAssociations" => list(profile_resource_association())
       }
 
   """
@@ -489,7 +489,7 @@ defmodule AWS.Route53Profiles do
 
       list_profiles_response() :: %{
         "NextToken" => String.t(),
-        "ProfileSummaries" => list(profile_summary()())
+        "ProfileSummaries" => list(profile_summary())
       }
 
   """

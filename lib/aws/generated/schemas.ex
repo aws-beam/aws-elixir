@@ -128,7 +128,7 @@ defmodule AWS.Schemas do
 
       list_schema_versions_response() :: %{
         "NextToken" => String.t(),
-        "SchemaVersions" => list(schema_version_summary()())
+        "SchemaVersions" => list(schema_version_summary())
       }
 
   """
@@ -193,7 +193,7 @@ defmodule AWS.Schemas do
   ## Example:
 
       get_discovered_schema_request() :: %{
-        required("Events") => list(String.t()()),
+        required("Events") => list(String.t()),
         required("Type") => list(any())
       }
 
@@ -312,7 +312,7 @@ defmodule AWS.Schemas do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -440,7 +440,7 @@ defmodule AWS.Schemas do
   ## Example:
 
       list_discoverers_response() :: %{
-        "Discoverers" => list(discoverer_summary()()),
+        "Discoverers" => list(discoverer_summary()),
         "NextToken" => String.t()
       }
 
@@ -490,7 +490,7 @@ defmodule AWS.Schemas do
         optional("RegistryName") => String.t(),
         optional("SchemaArn") => String.t(),
         optional("SchemaName") => String.t(),
-        optional("SchemaVersions") => list(search_schema_version_summary()())
+        optional("SchemaVersions") => list(search_schema_version_summary())
       }
 
   """
@@ -631,7 +631,7 @@ defmodule AWS.Schemas do
 
       list_registries_response() :: %{
         "NextToken" => String.t(),
-        "Registries" => list(registry_summary()())
+        "Registries" => list(registry_summary())
       }
 
   """
@@ -656,7 +656,7 @@ defmodule AWS.Schemas do
 
       search_schemas_response() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(search_schema_summary()())
+        "Schemas" => list(search_schema_summary())
       }
 
   """
@@ -813,7 +813,7 @@ defmodule AWS.Schemas do
 
       list_schemas_response() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(schema_summary()())
+        "Schemas" => list(schema_summary())
       }
 
   """

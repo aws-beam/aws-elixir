@@ -22,7 +22,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       create_node_from_template_job_request() :: %{
-        optional("JobTags") => list(job_resource_tags()()),
+        optional("JobTags") => list(job_resource_tags()),
         optional("NodeDescription") => String.t(),
         required("NodeName") => String.t(),
         required("OutputPackageName") => String.t(),
@@ -96,7 +96,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       create_package_import_job_request() :: %{
-        optional("JobTags") => list(job_resource_tags()()),
+        optional("JobTags") => list(job_resource_tags()),
         required("ClientToken") => String.t(),
         required("InputConfig") => package_import_job_input_config(),
         required("JobType") => String.t(),
@@ -170,7 +170,7 @@ defmodule AWS.Panorama do
 
       list_node_from_template_jobs_response() :: %{
         optional("NextToken") => String.t(),
-        required("NodeFromTemplateJobs") => list(node_from_template_job()())
+        required("NodeFromTemplateJobs") => list(node_from_template_job())
       }
 
   """
@@ -240,7 +240,7 @@ defmodule AWS.Panorama do
 
       list_package_import_jobs_response() :: %{
         optional("NextToken") => String.t(),
-        required("PackageImportJobs") => list(package_import_job()())
+        required("PackageImportJobs") => list(package_import_job())
       }
 
   """
@@ -291,7 +291,7 @@ defmodule AWS.Panorama do
         optional("HealthStatus") => String.t(),
         optional("LastUpdatedTime") => non_neg_integer(),
         optional("Name") => String.t(),
-        optional("RuntimeContextStates") => list(reported_runtime_context_state()()),
+        optional("RuntimeContextStates") => list(reported_runtime_context_state()),
         optional("RuntimeRoleArn") => String.t(),
         optional("Status") => String.t(),
         optional("StatusDescription") => String.t(),
@@ -306,7 +306,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       create_job_for_devices_response() :: %{
-        required("Jobs") => list(job()())
+        required("Jobs") => list(job())
       }
 
   """
@@ -377,8 +377,8 @@ defmodule AWS.Panorama do
   ## Example:
 
       describe_package_response() :: %{
-        optional("ReadAccessPrincipalArns") => list(String.t()()),
-        optional("WriteAccessPrincipalArns") => list(String.t()()),
+        optional("ReadAccessPrincipalArns") => list(String.t()),
+        optional("WriteAccessPrincipalArns") => list(String.t()),
         required("Arn") => String.t(),
         required("CreatedTime") => non_neg_integer(),
         required("PackageId") => String.t(),
@@ -451,7 +451,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       list_application_instances_response() :: %{
-        optional("ApplicationInstances") => list(application_instance()()),
+        optional("ApplicationInstances") => list(application_instance()),
         optional("NextToken") => String.t()
       }
 
@@ -463,7 +463,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -608,7 +608,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       conflict_exception() :: %{
-        "ErrorArguments" => list(conflict_exception_error_argument()()),
+        "ErrorArguments" => list(conflict_exception_error_argument()),
         "ErrorId" => String.t(),
         "Message" => String.t(),
         "ResourceId" => String.t(),
@@ -712,7 +712,7 @@ defmodule AWS.Panorama do
         "Description" => String.t(),
         "HealthStatus" => String.t(),
         "Name" => String.t(),
-        "RuntimeContextStates" => list(reported_runtime_context_state()()),
+        "RuntimeContextStates" => list(reported_runtime_context_state()),
         "Status" => String.t(),
         "StatusDescription" => String.t(),
         "Tags" => map()
@@ -774,7 +774,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       ntp_payload() :: %{
-        "NtpServers" => list(String.t()())
+        "NtpServers" => list(String.t())
       }
 
   """
@@ -785,8 +785,8 @@ defmodule AWS.Panorama do
   ## Example:
 
       node_interface() :: %{
-        "Inputs" => list(node_input_port()()),
-        "Outputs" => list(node_output_port()())
+        "Inputs" => list(node_input_port()),
+        "Outputs" => list(node_output_port())
       }
 
   """
@@ -798,7 +798,7 @@ defmodule AWS.Panorama do
 
       static_ip_connection_info() :: %{
         "DefaultGateway" => String.t(),
-        "Dns" => list(String.t()()),
+        "Dns" => list(String.t()),
         "IpAddress" => String.t(),
         "Mask" => String.t()
       }
@@ -869,7 +869,7 @@ defmodule AWS.Panorama do
 
       list_devices_response() :: %{
         optional("NextToken") => String.t(),
-        required("Devices") => list(device()())
+        required("Devices") => list(device())
       }
 
   """
@@ -923,7 +923,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       describe_node_from_template_job_response() :: %{
-        optional("JobTags") => list(job_resource_tags()()),
+        optional("JobTags") => list(job_resource_tags()),
         optional("NodeDescription") => String.t(),
         required("CreatedTime") => non_neg_integer(),
         required("JobId") => String.t(),
@@ -1033,7 +1033,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       list_devices_jobs_response() :: %{
-        optional("DeviceJobs") => list(device_job()()),
+        optional("DeviceJobs") => list(device_job()),
         optional("NextToken") => String.t()
       }
 
@@ -1094,7 +1094,7 @@ defmodule AWS.Panorama do
 
       describe_package_import_job_response() :: %{
         optional("ClientToken") => String.t(),
-        optional("JobTags") => list(job_resource_tags()()),
+        optional("JobTags") => list(job_resource_tags()),
         required("CreatedTime") => non_neg_integer(),
         required("InputConfig") => package_import_job_input_config(),
         required("JobId") => String.t(),
@@ -1138,7 +1138,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       signal_application_instance_node_instances_request() :: %{
-        required("NodeSignals") => list(node_signal()())
+        required("NodeSignals") => list(node_signal())
       }
 
   """
@@ -1172,9 +1172,9 @@ defmodule AWS.Panorama do
   ## Example:
 
       validation_exception() :: %{
-        "ErrorArguments" => list(validation_exception_error_argument()()),
+        "ErrorArguments" => list(validation_exception_error_argument()),
         "ErrorId" => String.t(),
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => String.t()
       }
@@ -1221,7 +1221,7 @@ defmodule AWS.Panorama do
 
       list_application_instance_dependencies_response() :: %{
         optional("NextToken") => String.t(),
-        optional("PackageObjects") => list(package_object()())
+        optional("PackageObjects") => list(package_object())
       }
 
   """
@@ -1347,7 +1347,7 @@ defmodule AWS.Panorama do
 
       create_job_for_devices_request() :: %{
         optional("DeviceJobConfig") => device_job_config(),
-        required("DeviceIds") => list(String.t()()),
+        required("DeviceIds") => list(String.t()),
         required("JobType") => String.t()
       }
 
@@ -1372,7 +1372,7 @@ defmodule AWS.Panorama do
 
       list_application_instance_node_instances_response() :: %{
         optional("NextToken") => String.t(),
-        optional("NodeInstances") => list(node_instance()())
+        optional("NodeInstances") => list(node_instance())
       }
 
   """
@@ -1384,7 +1384,7 @@ defmodule AWS.Panorama do
 
       list_packages_response() :: %{
         optional("NextToken") => String.t(),
-        optional("Packages") => list(package_list_item()())
+        optional("Packages") => list(package_list_item())
       }
 
   """
@@ -1405,7 +1405,7 @@ defmodule AWS.Panorama do
 
       list_nodes_response() :: %{
         optional("NextToken") => String.t(),
-        optional("Nodes") => list(panorama_node()())
+        optional("Nodes") => list(node())
       }
 
   """
@@ -1470,7 +1470,7 @@ defmodule AWS.Panorama do
   ## Example:
 
       describe_device_response() :: %{
-        optional("AlternateSoftwares") => list(alternate_software_metadata()()),
+        optional("AlternateSoftwares") => list(alternate_software_metadata()),
         optional("Arn") => String.t(),
         optional("Brand") => String.t(),
         optional("CreatedTime") => non_neg_integer(),

@@ -183,7 +183,7 @@ defmodule AWS.EBS do
 
       list_changed_blocks_response() :: %{
         "BlockSize" => integer(),
-        "ChangedBlocks" => list(changed_block()()),
+        "ChangedBlocks" => list(changed_block()),
         "ExpiryTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "VolumeSize" => float()
@@ -211,7 +211,7 @@ defmodule AWS.EBS do
 
       list_snapshot_blocks_response() :: %{
         "BlockSize" => integer(),
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "ExpiryTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "VolumeSize" => float()
@@ -293,7 +293,7 @@ defmodule AWS.EBS do
         optional("Encrypted") => boolean(),
         optional("KmsKeyArn") => String.t(),
         optional("ParentSnapshotId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Timeout") => integer(),
         required("VolumeSize") => float()
       }
@@ -315,7 +315,7 @@ defmodule AWS.EBS do
         "SseType" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeSize" => float()
       }
 

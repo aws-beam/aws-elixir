@@ -50,7 +50,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_batch_job_executions_request() :: %{
-        optional("executionIds") => list(String.t()()),
+        optional("executionIds") => list(String.t()),
         optional("jobName") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -130,7 +130,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_data_set_export_history_response() :: %{
-        "dataSetExportTasks" => list(data_set_export_task()()),
+        "dataSetExportTasks" => list(data_set_export_task()),
         "nextToken" => String.t()
       }
 
@@ -154,7 +154,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_data_sets_response() :: %{
-        "dataSets" => list(data_set_summary()()),
+        "dataSets" => list(data_set_summary()),
         "nextToken" => String.t()
       }
 
@@ -254,7 +254,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_deployments_response() :: %{
-        "deployments" => list(deployment_summary()()),
+        "deployments" => list(deployment_summary()),
         "nextToken" => String.t()
       }
 
@@ -292,7 +292,7 @@ defmodule AWS.M2 do
   ## Example:
 
       vsam_attributes() :: %{
-        "alternateKeys" => list(alternate_key()()),
+        "alternateKeys" => list(alternate_key()),
         "compressed" => boolean(),
         "encoding" => [String.t()],
         "format" => [String.t()],
@@ -361,7 +361,7 @@ defmodule AWS.M2 do
   ## Example:
 
       vsam_detail_attributes() :: %{
-        "alternateKeys" => list(alternate_key()()),
+        "alternateKeys" => list(alternate_key()),
         "cacheAtStartup" => boolean(),
         "compressed" => boolean(),
         "encoding" => String.t(),
@@ -454,7 +454,7 @@ defmodule AWS.M2 do
         optional("preferredMaintenanceWindow") => String.t(),
         optional("publiclyAccessible") => boolean(),
         optional("statusReason") => [String.t()],
-        optional("storageConfigurations") => list(list()()),
+        optional("storageConfigurations") => list(list()),
         optional("tags") => map(),
         required("creationTime") => non_neg_integer(),
         required("engineType") => String.t(),
@@ -463,9 +463,9 @@ defmodule AWS.M2 do
         required("environmentId") => String.t(),
         required("instanceType") => String.t(),
         required("name") => String.t(),
-        required("securityGroupIds") => list(String.t()()),
+        required("securityGroupIds") => list(String.t()),
         required("status") => String.t(),
-        required("subnetIds") => list(String.t()()),
+        required("subnetIds") => list(String.t()),
         required("vpcId") => String.t()
       }
 
@@ -477,7 +477,7 @@ defmodule AWS.M2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -694,7 +694,7 @@ defmodule AWS.M2 do
       po_attributes() :: %{
         "encoding" => [String.t()],
         "format" => [String.t()],
-        "memberFileExtensions" => list(String.t()())
+        "memberFileExtensions" => list(String.t())
       }
 
   """
@@ -736,7 +736,7 @@ defmodule AWS.M2 do
       list_environments_request() :: %{
         optional("engineType") => String.t(),
         optional("maxResults") => integer(),
-        optional("names") => list(String.t()()),
+        optional("names") => list(String.t()),
         optional("nextToken") => String.t()
       }
 
@@ -932,7 +932,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_batch_job_restart_points_response() :: %{
-        "batchJobSteps" => list(job_step()())
+        "batchJobSteps" => list(job_step())
       }
 
   """
@@ -1001,14 +1001,14 @@ defmodule AWS.M2 do
         optional("environmentId") => String.t(),
         optional("kmsKeyId") => [String.t()],
         optional("lastStartTime") => non_neg_integer(),
-        optional("listenerArns") => list(String.t()()),
-        optional("listenerPorts") => list(integer()()),
+        optional("listenerArns") => list(String.t()),
+        optional("listenerPorts") => list(integer()),
         optional("loadBalancerDnsName") => String.t(),
-        optional("logGroups") => list(log_group_summary()()),
+        optional("logGroups") => list(log_group_summary()),
         optional("roleArn") => String.t(),
         optional("statusReason") => [String.t()],
         optional("tags") => map(),
-        optional("targetGroupArns") => list(String.t()()),
+        optional("targetGroupArns") => list(String.t()),
         required("applicationArn") => String.t(),
         required("applicationId") => String.t(),
         required("creationTime") => non_neg_integer(),
@@ -1028,7 +1028,7 @@ defmodule AWS.M2 do
       list_applications_request() :: %{
         optional("environmentId") => String.t(),
         optional("maxResults") => integer(),
-        optional("names") => list(String.t()()),
+        optional("names") => list(String.t()),
         optional("nextToken") => String.t()
       }
 
@@ -1130,7 +1130,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_batch_job_definitions_response() :: %{
-        "batchJobDefinitions" => list(list()()),
+        "batchJobDefinitions" => list(list()),
         "nextToken" => String.t()
       }
 
@@ -1169,7 +1169,7 @@ defmodule AWS.M2 do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -1247,7 +1247,7 @@ defmodule AWS.M2 do
 
       list_batch_job_executions_response() :: %{
         optional("nextToken") => String.t(),
-        required("batchJobExecutions") => list(batch_job_execution_summary()())
+        required("batchJobExecutions") => list(batch_job_execution_summary())
       }
 
   """
@@ -1271,7 +1271,7 @@ defmodule AWS.M2 do
 
       list_engine_versions_response() :: %{
         optional("nextToken") => String.t(),
-        required("engineVersions") => list(engine_versions_summary()())
+        required("engineVersions") => list(engine_versions_summary())
       }
 
   """
@@ -1282,7 +1282,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_environments_response() :: %{
-        "environments" => list(environment_summary()()),
+        "environments" => list(environment_summary()),
         "nextToken" => String.t()
       }
 
@@ -1346,7 +1346,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_applications_response() :: %{
-        "applications" => list(application_summary()()),
+        "applications" => list(application_summary()),
         "nextToken" => String.t()
       }
 
@@ -1358,7 +1358,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_application_versions_response() :: %{
-        "applicationVersions" => list(application_version_summary()()),
+        "applicationVersions" => list(application_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -1378,9 +1378,9 @@ defmodule AWS.M2 do
         optional("networkType") => String.t(),
         optional("preferredMaintenanceWindow") => String.t(),
         optional("publiclyAccessible") => boolean(),
-        optional("securityGroupIds") => list(String.t()()),
-        optional("storageConfigurations") => list(list()()),
-        optional("subnetIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
+        optional("storageConfigurations") => list(list()),
+        optional("subnetIds") => list(String.t()),
         optional("tags") => map(),
         required("engineType") => String.t(),
         required("instanceType") => String.t(),
@@ -1431,7 +1431,7 @@ defmodule AWS.M2 do
   ## Example:
 
       list_data_set_import_history_response() :: %{
-        "dataSetImportTasks" => list(data_set_import_task()()),
+        "dataSetImportTasks" => list(data_set_import_task()),
         "nextToken" => String.t()
       }
 

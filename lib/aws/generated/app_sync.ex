@@ -15,7 +15,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       data_source_introspection_model_index() :: %{
-        "fields" => list(String.t()()),
+        "fields" => list(String.t()),
         "name" => String.t()
       }
 
@@ -72,7 +72,7 @@ defmodule AWS.AppSync do
       evaluate_code_response() :: %{
         "error" => evaluate_code_error_detail(),
         "evaluationResult" => String.t(),
-        "logs" => list(String.t()()),
+        "logs" => list(String.t()),
         "outErrors" => String.t(),
         "stash" => String.t()
       }
@@ -168,7 +168,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_api_keys_response() :: %{
-        "apiKeys" => list(api_key()()),
+        "apiKeys" => list(api_key()),
         "nextToken" => String.t()
       }
 
@@ -191,7 +191,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       evaluate_code_error_detail() :: %{
-        "codeErrors" => list(code_error()()),
+        "codeErrors" => list(code_error()),
         "message" => String.t()
       }
 
@@ -215,7 +215,7 @@ defmodule AWS.AppSync do
 
       list_source_api_associations_response() :: %{
         "nextToken" => String.t(),
-        "sourceApiAssociationSummaries" => list(source_api_association_summary()())
+        "sourceApiAssociationSummaries" => list(source_api_association_summary())
       }
 
   """
@@ -226,7 +226,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_functions_response() :: %{
-        "functions" => list(function_configuration()()),
+        "functions" => list(function_configuration()),
         "nextToken" => String.t()
       }
 
@@ -239,7 +239,7 @@ defmodule AWS.AppSync do
 
       list_types_response() :: %{
         "nextToken" => String.t(),
-        "types" => list(type()())
+        "types" => list(type())
       }
 
   """
@@ -350,7 +350,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_graphql_apis_response() :: %{
-        "graphqlApis" => list(graphql_api()()),
+        "graphqlApis" => list(graphql_api()),
         "nextToken" => String.t()
       }
 
@@ -611,8 +611,8 @@ defmodule AWS.AppSync do
       update_channel_namespace_request() :: %{
         optional("codeHandlers") => String.t(),
         optional("handlerConfigs") => handler_configs(),
-        optional("publishAuthModes") => list(auth_mode()()),
-        optional("subscribeAuthModes") => list(auth_mode()())
+        optional("publishAuthModes") => list(auth_mode()),
+        optional("subscribeAuthModes") => list(auth_mode())
       }
 
   """
@@ -623,7 +623,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -685,7 +685,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_apis_response() :: %{
-        "apis" => list(api()()),
+        "apis" => list(api()),
         "nextToken" => String.t()
       }
 
@@ -725,7 +725,7 @@ defmodule AWS.AppSync do
       evaluate_mapping_template_response() :: %{
         "error" => error_detail(),
         "evaluationResult" => String.t(),
-        "logs" => list(String.t()()),
+        "logs" => list(String.t()),
         "outErrors" => String.t(),
         "stash" => String.t()
       }
@@ -739,7 +739,7 @@ defmodule AWS.AppSync do
 
       list_resolvers_by_function_response() :: %{
         "nextToken" => String.t(),
-        "resolvers" => list(resolver()())
+        "resolvers" => list(resolver())
       }
 
   """
@@ -819,7 +819,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       graphql_api() :: %{
-        "additionalAuthenticationProviders" => list(additional_authentication_provider()()),
+        "additionalAuthenticationProviders" => list(additional_authentication_provider()),
         "apiId" => String.t(),
         "apiType" => list(any()),
         "arn" => String.t(),
@@ -879,7 +879,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       caching_config() :: %{
-        "cachingKeys" => list(String.t()()),
+        "cachingKeys" => list(String.t()),
         "ttl" => float()
       }
 
@@ -939,8 +939,8 @@ defmodule AWS.AppSync do
       create_channel_namespace_request() :: %{
         optional("codeHandlers") => String.t(),
         optional("handlerConfigs") => handler_configs(),
-        optional("publishAuthModes") => list(auth_mode()()),
-        optional("subscribeAuthModes") => list(auth_mode()()),
+        optional("publishAuthModes") => list(auth_mode()),
+        optional("subscribeAuthModes") => list(auth_mode()),
         optional("tags") => map(),
         required("name") => String.t()
       }
@@ -1153,7 +1153,7 @@ defmodule AWS.AppSync do
 
       list_resolvers_response() :: %{
         "nextToken" => String.t(),
-        "resolvers" => list(resolver()())
+        "resolvers" => list(resolver())
       }
 
   """
@@ -1283,7 +1283,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_data_sources_response() :: %{
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "nextToken" => String.t()
       }
 
@@ -1433,7 +1433,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_domain_names_response() :: %{
-        "domainNameConfigs" => list(domain_name_config()()),
+        "domainNameConfigs" => list(domain_name_config()),
         "nextToken" => String.t()
       }
 
@@ -1468,7 +1468,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       pipeline_config() :: %{
-        "functions" => list(String.t()())
+        "functions" => list(String.t())
       }
 
   """
@@ -1527,10 +1527,10 @@ defmodule AWS.AppSync do
   ## Example:
 
       event_config() :: %{
-        "authProviders" => list(auth_provider()()),
-        "connectionAuthModes" => list(auth_mode()()),
-        "defaultPublishAuthModes" => list(auth_mode()()),
-        "defaultSubscribeAuthModes" => list(auth_mode()()),
+        "authProviders" => list(auth_provider()),
+        "connectionAuthModes" => list(auth_mode()),
+        "defaultPublishAuthModes" => list(auth_mode()),
+        "defaultSubscribeAuthModes" => list(auth_mode()),
         "logConfig" => event_log_config()
       }
 
@@ -1718,8 +1718,8 @@ defmodule AWS.AppSync do
         "handlerConfigs" => handler_configs(),
         "lastModified" => non_neg_integer(),
         "name" => String.t(),
-        "publishAuthModes" => list(auth_mode()()),
-        "subscribeAuthModes" => list(auth_mode()()),
+        "publishAuthModes" => list(auth_mode()),
+        "subscribeAuthModes" => list(auth_mode()),
         "tags" => map()
       }
 
@@ -1902,7 +1902,7 @@ defmodule AWS.AppSync do
 
       list_types_by_association_response() :: %{
         "nextToken" => String.t(),
-        "types" => list(type()())
+        "types" => list(type())
       }
 
   """
@@ -1944,7 +1944,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       list_channel_namespaces_response() :: %{
-        "channelNamespaces" => list(channel_namespace()()),
+        "channelNamespaces" => list(channel_namespace()),
         "nextToken" => String.t()
       }
 
@@ -2138,8 +2138,8 @@ defmodule AWS.AppSync do
   ## Example:
 
       data_source_introspection_model() :: %{
-        "fields" => list(data_source_introspection_model_field()()),
-        "indexes" => list(data_source_introspection_model_index()()),
+        "fields" => list(data_source_introspection_model_field()),
+        "indexes" => list(data_source_introspection_model_index()),
         "name" => String.t(),
         "primaryKey" => data_source_introspection_model_index(),
         "sdl" => String.t()
@@ -2195,7 +2195,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       data_source_introspection_result() :: %{
-        "models" => list(data_source_introspection_model()()),
+        "models" => list(data_source_introspection_model()),
         "nextToken" => String.t()
       }
 
@@ -2340,7 +2340,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       update_graphql_api_request() :: %{
-        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()()),
+        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
         optional("enhancedMetricsConfig") => enhanced_metrics_config(),
         optional("introspectionConfig") => list(any()),
         optional("lambdaAuthorizerConfig") => lambda_authorizer_config(),
@@ -2418,7 +2418,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       bad_request_detail() :: %{
-        "codeErrors" => list(code_error()())
+        "codeErrors" => list(code_error())
       }
 
   """
@@ -2507,7 +2507,7 @@ defmodule AWS.AppSync do
         "kind" => String.t(),
         "name" => String.t(),
         "type" => data_source_introspection_model_field_type(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -2518,7 +2518,7 @@ defmodule AWS.AppSync do
   ## Example:
 
       create_graphql_api_request() :: %{
-        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()()),
+        optional("additionalAuthenticationProviders") => list(additional_authentication_provider()),
         optional("apiType") => list(any()),
         optional("enhancedMetricsConfig") => enhanced_metrics_config(),
         optional("introspectionConfig") => list(any()),

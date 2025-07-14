@@ -141,7 +141,7 @@ defmodule AWS.MediaStoreData do
   ## Example:
 
       list_items_response() :: %{
-        "Items" => list(item()()),
+        "Items" => list(item()),
         "NextToken" => String.t()
       }
 

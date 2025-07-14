@@ -43,7 +43,7 @@ defmodule AWS.KinesisVideoSignaling do
   ## Example:
 
       get_ice_server_config_response() :: %{
-        "IceServerList" => list(ice_server()())
+        "IceServerList" => list(ice_server())
       }
 
   """
@@ -56,7 +56,7 @@ defmodule AWS.KinesisVideoSignaling do
       ice_server() :: %{
         "Password" => String.t(),
         "Ttl" => integer(),
-        "Uris" => list(String.t()()),
+        "Uris" => list(String.t()),
         "Username" => String.t()
       }
 

@@ -96,10 +96,10 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_aggregates_response() :: %{
-        "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()()),
+        "errorEntries" => list(batch_get_asset_property_aggregates_error_entry()),
         "nextToken" => String.t(),
-        "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()()),
-        "successEntries" => list(batch_get_asset_property_aggregates_success_entry()())
+        "skippedEntries" => list(batch_get_asset_property_aggregates_skipped_entry()),
+        "successEntries" => list(batch_get_asset_property_aggregates_success_entry())
       }
 
   """
@@ -140,7 +140,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_composition_relationships_response() :: %{
-        "compositionRelationshipSummaries" => list(composition_relationship_summary()()),
+        "compositionRelationshipSummaries" => list(composition_relationship_summary()),
         "nextToken" => String.t()
       }
 
@@ -152,7 +152,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_access_policies_response() :: %{
-        "accessPolicySummaries" => list(access_policy_summary()()),
+        "accessPolicySummaries" => list(access_policy_summary()),
         "nextToken" => String.t()
       }
 
@@ -184,14 +184,14 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       describe_asset_model_composite_model_response() :: %{
-        "actionDefinitions" => list(action_definition()()),
+        "actionDefinitions" => list(action_definition()),
         "assetModelCompositeModelDescription" => String.t(),
         "assetModelCompositeModelExternalId" => String.t(),
         "assetModelCompositeModelId" => String.t(),
         "assetModelCompositeModelName" => String.t(),
-        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()()),
-        "assetModelCompositeModelProperties" => list(asset_model_property()()),
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
+        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
+        "assetModelCompositeModelProperties" => list(asset_model_property()),
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
         "assetModelCompositeModelType" => String.t(),
         "assetModelId" => String.t(),
         "compositionDetails" => composition_details()
@@ -242,7 +242,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_associate_project_assets_response() :: %{
-        "errors" => list(asset_error_details()())
+        "errors" => list(asset_error_details())
       }
 
   """
@@ -260,7 +260,7 @@ defmodule AWS.IoTSiteWise do
         "id" => String.t(),
         "name" => String.t(),
         "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()()),
+        "path" => list(asset_property_path_segment()),
         "unit" => String.t()
       }
 
@@ -296,7 +296,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       get_asset_property_aggregates_response() :: %{
-        "aggregatedValues" => list(aggregated_value()()),
+        "aggregatedValues" => list(aggregated_value()),
         "nextToken" => String.t()
       }
 
@@ -330,7 +330,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_project_assets_response() :: %{
-        "assetIds" => list(String.t()()),
+        "assetIds" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -455,7 +455,7 @@ defmodule AWS.IoTSiteWise do
       metric() :: %{
         "expression" => String.t(),
         "processingConfig" => metric_processing_config(),
-        "variables" => list(expression_variable()()),
+        "variables" => list(expression_variable()),
         "window" => metric_window()
       }
 
@@ -500,7 +500,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_model_composite_models_response() :: %{
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -515,7 +515,7 @@ defmodule AWS.IoTSiteWise do
         optional("adaptiveIngestion") => boolean(),
         optional("deleteFilesAfterImport") => boolean(),
         required("errorReportLocation") => error_report_location(),
-        required("files") => list(file()()),
+        required("files") => list(file()),
         required("jobConfiguration") => job_configuration(),
         required("jobName") => String.t(),
         required("jobRoleArn") => String.t()
@@ -659,17 +659,17 @@ defmodule AWS.IoTSiteWise do
 
       describe_asset_response() :: %{
         "assetArn" => String.t(),
-        "assetCompositeModelSummaries" => list(asset_composite_model_summary()()),
-        "assetCompositeModels" => list(asset_composite_model()()),
+        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
+        "assetCompositeModels" => list(asset_composite_model()),
         "assetCreationDate" => non_neg_integer(),
         "assetDescription" => String.t(),
         "assetExternalId" => String.t(),
-        "assetHierarchies" => list(asset_hierarchy()()),
+        "assetHierarchies" => list(asset_hierarchy()),
         "assetId" => String.t(),
         "assetLastUpdateDate" => non_neg_integer(),
         "assetModelId" => String.t(),
         "assetName" => String.t(),
-        "assetProperties" => list(asset_property()()),
+        "assetProperties" => list(asset_property()),
         "assetStatus" => asset_status()
       }
 
@@ -685,7 +685,7 @@ defmodule AWS.IoTSiteWise do
         "entryId" => String.t(),
         "propertyAlias" => String.t(),
         "propertyId" => String.t(),
-        "propertyValues" => list(asset_property_value()())
+        "propertyValues" => list(asset_property_value())
       }
 
   """
@@ -737,7 +737,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "path" => list(asset_model_property_path_segment()()),
+        "path" => list(asset_model_property_path_segment()),
         "type" => property_type(),
         "unit" => String.t()
       }
@@ -750,7 +750,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       datum() :: %{
-        "arrayValue" => list(datum()()),
+        "arrayValue" => list(datum()),
         "nullValue" => boolean(),
         "rowValue" => row(),
         "scalarValue" => String.t()
@@ -765,7 +765,7 @@ defmodule AWS.IoTSiteWise do
 
       citation() :: %{
         "content" => content(),
-        "reference" => iotsitewise_reference()
+        "reference" => reference()
       }
 
   """
@@ -848,7 +848,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "properties" => list(asset_model_property()()),
+        "properties" => list(asset_model_property()),
         "type" => String.t()
       }
 
@@ -946,7 +946,7 @@ defmodule AWS.IoTSiteWise do
       batch_get_asset_property_aggregates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        required("entries") => list(batch_get_asset_property_aggregates_entry()())
+        required("entries") => list(batch_get_asset_property_aggregates_entry())
       }
 
   """
@@ -1006,7 +1006,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       invocation_output() :: %{
-        "citations" => list(citation()()),
+        "citations" => list(citation()),
         "message" => String.t()
       }
 
@@ -1098,7 +1098,7 @@ defmodule AWS.IoTSiteWise do
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
         "externalId" => String.t(),
-        "hierarchies" => list(asset_hierarchy()()),
+        "hierarchies" => list(asset_hierarchy()),
         "id" => String.t(),
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t(),
@@ -1127,7 +1127,7 @@ defmodule AWS.IoTSiteWise do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1241,10 +1241,10 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_value_history_response() :: %{
-        "errorEntries" => list(batch_get_asset_property_value_history_error_entry()()),
+        "errorEntries" => list(batch_get_asset_property_value_history_error_entry()),
         "nextToken" => String.t(),
-        "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()()),
-        "successEntries" => list(batch_get_asset_property_value_history_success_entry()())
+        "skippedEntries" => list(batch_get_asset_property_value_history_skipped_entry()),
+        "successEntries" => list(batch_get_asset_property_value_history_success_entry())
       }
 
   """
@@ -1301,7 +1301,7 @@ defmodule AWS.IoTSiteWise do
         "adaptiveIngestion" => boolean(),
         "deleteFilesAfterImport" => boolean(),
         "errorReportLocation" => error_report_location(),
-        "files" => list(file()()),
+        "files" => list(file()),
         "jobConfiguration" => job_configuration(),
         "jobCreationDate" => non_neg_integer(),
         "jobId" => String.t(),
@@ -1320,7 +1320,7 @@ defmodule AWS.IoTSiteWise do
 
       batch_associate_project_assets_request() :: %{
         optional("clientToken") => String.t(),
-        required("assetIds") => list(String.t()())
+        required("assetIds") => list(String.t())
       }
 
   """
@@ -1389,7 +1389,7 @@ defmodule AWS.IoTSiteWise do
 
       gateway_summary() :: %{
         "creationDate" => non_neg_integer(),
-        "gatewayCapabilitySummaries" => list(gateway_capability_summary()()),
+        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
         "gatewayId" => String.t(),
         "gatewayName" => String.t(),
         "gatewayPlatform" => gateway_platform(),
@@ -1405,7 +1405,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_time_series_response() :: %{
-        "TimeSeriesSummaries" => list(time_series_summary()()),
+        "TimeSeriesSummaries" => list(time_series_summary()),
         "nextToken" => String.t()
       }
 
@@ -1459,7 +1459,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "properties" => list(asset_property()()),
+        "properties" => list(asset_property()),
         "type" => String.t()
       }
 
@@ -1522,7 +1522,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_aggregates_success_entry() :: %{
-        "aggregatedValues" => list(aggregated_value()()),
+        "aggregatedValues" => list(aggregated_value()),
         "entryId" => String.t()
       }
 
@@ -1706,7 +1706,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       row() :: %{
-        "data" => list(datum()())
+        "data" => list(datum())
       }
 
   """
@@ -1742,11 +1742,11 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       update_asset_model_request() :: %{
-        optional("assetModelCompositeModels") => list(asset_model_composite_model()()),
+        optional("assetModelCompositeModels") => list(asset_model_composite_model()),
         optional("assetModelDescription") => String.t(),
         optional("assetModelExternalId") => String.t(),
-        optional("assetModelHierarchies") => list(asset_model_hierarchy()()),
-        optional("assetModelProperties") => list(asset_model_property()()),
+        optional("assetModelHierarchies") => list(asset_model_hierarchy()),
+        optional("assetModelProperties") => list(asset_model_property()),
         optional("clientToken") => String.t(),
         optional("ifMatch") => String.t(),
         optional("ifNoneMatch") => String.t(),
@@ -1789,7 +1789,7 @@ defmodule AWS.IoTSiteWise do
         "creationDate" => non_neg_integer(),
         "description" => String.t(),
         "externalId" => String.t(),
-        "hierarchies" => list(asset_hierarchy()()),
+        "hierarchies" => list(asset_hierarchy()),
         "id" => String.t(),
         "lastUpdateDate" => non_neg_integer(),
         "name" => String.t(),
@@ -1858,7 +1858,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()()),
+        "path" => list(asset_property_path_segment()),
         "unit" => String.t()
       }
 
@@ -1874,7 +1874,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "properties" => list(asset_model_property_definition()()),
+        "properties" => list(asset_model_property_definition()),
         "type" => String.t()
       }
 
@@ -1977,7 +1977,7 @@ defmodule AWS.IoTSiteWise do
 
       list_projects_response() :: %{
         "nextToken" => String.t(),
-        "projectSummaries" => list(project_summary()())
+        "projectSummaries" => list(project_summary())
       }
 
   """
@@ -2011,7 +2011,7 @@ defmodule AWS.IoTSiteWise do
 
       error_details() :: %{
         "code" => list(any()),
-        "details" => list(detailed_error()()),
+        "details" => list(detailed_error()),
         "message" => String.t()
       }
 
@@ -2083,7 +2083,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_actions_response() :: %{
-        "actionSummaries" => list(action_summary()()),
+        "actionSummaries" => list(action_summary()),
         "nextToken" => String.t()
       }
 
@@ -2208,7 +2208,7 @@ defmodule AWS.IoTSiteWise do
         optional("assetModelCompositeModelDescription") => String.t(),
         optional("assetModelCompositeModelExternalId") => String.t(),
         optional("assetModelCompositeModelId") => String.t(),
-        optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()()),
+        optional("assetModelCompositeModelProperties") => list(asset_model_property_definition()),
         optional("clientToken") => String.t(),
         optional("composedAssetModelId") => String.t(),
         optional("ifMatch") => String.t(),
@@ -2271,7 +2271,7 @@ defmodule AWS.IoTSiteWise do
       batch_get_asset_property_value_history_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        required("entries") => list(batch_get_asset_property_value_history_entry()())
+        required("entries") => list(batch_get_asset_property_value_history_entry())
       }
 
   """
@@ -2316,7 +2316,7 @@ defmodule AWS.IoTSiteWise do
 
       create_asset_model_composite_model_response() :: %{
         "assetModelCompositeModelId" => String.t(),
-        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()()),
+        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
         "assetModelStatus" => asset_model_status()
       }
 
@@ -2353,7 +2353,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_models_response() :: %{
-        "assetModelSummaries" => list(asset_model_summary()()),
+        "assetModelSummaries" => list(asset_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -2427,7 +2427,7 @@ defmodule AWS.IoTSiteWise do
 
       batch_put_asset_property_value_request() :: %{
         optional("enablePartialEntryProcessing") => boolean(),
-        required("entries") => list(put_asset_property_value_entry()())
+        required("entries") => list(put_asset_property_value_entry())
       }
 
   """
@@ -2464,16 +2464,16 @@ defmodule AWS.IoTSiteWise do
 
       describe_asset_model_response() :: %{
         "assetModelArn" => String.t(),
-        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()()),
-        "assetModelCompositeModels" => list(asset_model_composite_model()()),
+        "assetModelCompositeModelSummaries" => list(asset_model_composite_model_summary()),
+        "assetModelCompositeModels" => list(asset_model_composite_model()),
         "assetModelCreationDate" => non_neg_integer(),
         "assetModelDescription" => String.t(),
         "assetModelExternalId" => String.t(),
-        "assetModelHierarchies" => list(asset_model_hierarchy()()),
+        "assetModelHierarchies" => list(asset_model_hierarchy()),
         "assetModelId" => String.t(),
         "assetModelLastUpdateDate" => non_neg_integer(),
         "assetModelName" => String.t(),
-        "assetModelProperties" => list(asset_model_property()()),
+        "assetModelProperties" => list(asset_model_property()),
         "assetModelStatus" => asset_model_status(),
         "assetModelType" => list(any()),
         "assetModelVersion" => String.t(),
@@ -2513,7 +2513,7 @@ defmodule AWS.IoTSiteWise do
 
       list_portals_response() :: %{
         "nextToken" => String.t(),
-        "portalSummaries" => list(portal_summary()())
+        "portalSummaries" => list(portal_summary())
       }
 
   """
@@ -2678,7 +2678,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       get_interpolated_asset_property_values_response() :: %{
-        "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()()),
+        "interpolatedAssetPropertyValues" => list(interpolated_asset_property_value()),
         "nextToken" => String.t()
       }
 
@@ -2746,10 +2746,10 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_value_response() :: %{
-        "errorEntries" => list(batch_get_asset_property_value_error_entry()()),
+        "errorEntries" => list(batch_get_asset_property_value_error_entry()),
         "nextToken" => String.t(),
-        "skippedEntries" => list(batch_get_asset_property_value_skipped_entry()()),
-        "successEntries" => list(batch_get_asset_property_value_success_entry()())
+        "skippedEntries" => list(batch_get_asset_property_value_skipped_entry()),
+        "successEntries" => list(batch_get_asset_property_value_success_entry())
       }
 
   """
@@ -2762,7 +2762,7 @@ defmodule AWS.IoTSiteWise do
       transform() :: %{
         "expression" => String.t(),
         "processingConfig" => transform_processing_config(),
-        "variables" => list(expression_variable()())
+        "variables" => list(expression_variable())
       }
 
   """
@@ -2819,7 +2819,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "path" => list(asset_composite_model_path_segment()()),
+        "path" => list(asset_composite_model_path_segment()),
         "type" => String.t()
       }
 
@@ -2964,7 +2964,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_disassociate_project_assets_response() :: %{
-        "errors" => list(asset_error_details()())
+        "errors" => list(asset_error_details())
       }
 
   """
@@ -3148,7 +3148,7 @@ defmodule AWS.IoTSiteWise do
         "id" => String.t(),
         "name" => String.t(),
         "notification" => property_notification(),
-        "path" => list(asset_property_path_segment()()),
+        "path" => list(asset_property_path_segment()),
         "type" => property_type(),
         "unit" => String.t()
       }
@@ -3161,9 +3161,9 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       execute_query_response() :: %{
-        "columns" => list(column_info()()),
+        "columns" => list(column_info()),
         "nextToken" => String.t(),
-        "rows" => list(row()())
+        "rows" => list(row())
       }
 
   """
@@ -3185,7 +3185,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       get_asset_property_value_history_response() :: %{
-        "assetPropertyValueHistory" => list(asset_property_value()()),
+        "assetPropertyValueHistory" => list(asset_property_value()),
         "nextToken" => String.t()
       }
 
@@ -3201,7 +3201,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "path" => list(asset_model_composite_model_path_segment()()),
+        "path" => list(asset_model_composite_model_path_segment()),
         "type" => String.t()
       }
 
@@ -3225,7 +3225,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       composition_details() :: %{
-        "compositionRelationship" => list(composition_relationship_item()())
+        "compositionRelationship" => list(composition_relationship_item())
       }
 
   """
@@ -3264,7 +3264,7 @@ defmodule AWS.IoTSiteWise do
       describe_gateway_response() :: %{
         "creationDate" => non_neg_integer(),
         "gatewayArn" => String.t(),
-        "gatewayCapabilitySummaries" => list(gateway_capability_summary()()),
+        "gatewayCapabilitySummaries" => list(gateway_capability_summary()),
         "gatewayId" => String.t(),
         "gatewayName" => String.t(),
         "gatewayPlatform" => gateway_platform(),
@@ -3281,7 +3281,7 @@ defmodule AWS.IoTSiteWise do
 
       batch_get_asset_property_value_request() :: %{
         optional("nextToken") => String.t(),
-        required("entries") => list(batch_get_asset_property_value_entry()())
+        required("entries") => list(batch_get_asset_property_value_entry())
       }
 
   """
@@ -3305,7 +3305,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_get_asset_property_value_history_success_entry() :: %{
-        "assetPropertyValueHistory" => list(asset_property_value()()),
+        "assetPropertyValueHistory" => list(asset_property_value()),
         "entryId" => String.t()
       }
 
@@ -3375,7 +3375,7 @@ defmodule AWS.IoTSiteWise do
       update_asset_model_composite_model_request() :: %{
         optional("assetModelCompositeModelDescription") => String.t(),
         optional("assetModelCompositeModelExternalId") => String.t(),
-        optional("assetModelCompositeModelProperties") => list(asset_model_property()()),
+        optional("assetModelCompositeModelProperties") => list(asset_model_property()),
         optional("clientToken") => String.t(),
         optional("ifMatch") => String.t(),
         optional("ifNoneMatch") => String.t(),
@@ -3391,7 +3391,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_relationships_response() :: %{
-        "assetRelationshipSummaries" => list(asset_relationship_summary()()),
+        "assetRelationshipSummaries" => list(asset_relationship_summary()),
         "nextToken" => String.t()
       }
 
@@ -3419,7 +3419,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_model_properties_response() :: %{
-        "assetModelPropertySummaries" => list(asset_model_property_summary()()),
+        "assetModelPropertySummaries" => list(asset_model_property_summary()),
         "nextToken" => String.t()
       }
 
@@ -3487,7 +3487,7 @@ defmodule AWS.IoTSiteWise do
 
       batch_disassociate_project_assets_request() :: %{
         optional("clientToken") => String.t(),
-        required("assetIds") => list(String.t()())
+        required("assetIds") => list(String.t())
       }
 
   """
@@ -3498,7 +3498,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       batch_put_asset_property_value_response() :: %{
-        "errorEntries" => list(batch_put_asset_property_error_entry()())
+        "errorEntries" => list(batch_put_asset_property_error_entry())
       }
 
   """
@@ -3509,14 +3509,14 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       describe_asset_composite_model_response() :: %{
-        "actionDefinitions" => list(action_definition()()),
+        "actionDefinitions" => list(action_definition()),
         "assetCompositeModelDescription" => String.t(),
         "assetCompositeModelExternalId" => String.t(),
         "assetCompositeModelId" => String.t(),
         "assetCompositeModelName" => String.t(),
-        "assetCompositeModelPath" => list(asset_composite_model_path_segment()()),
-        "assetCompositeModelProperties" => list(asset_property()()),
-        "assetCompositeModelSummaries" => list(asset_composite_model_summary()()),
+        "assetCompositeModelPath" => list(asset_composite_model_path_segment()),
+        "assetCompositeModelProperties" => list(asset_property()),
+        "assetCompositeModelSummaries" => list(asset_composite_model_summary()),
         "assetCompositeModelType" => String.t(),
         "assetId" => String.t()
       }
@@ -3560,7 +3560,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_asset_properties_response() :: %{
-        "assetPropertySummaries" => list(asset_property_summary()()),
+        "assetPropertySummaries" => list(asset_property_summary()),
         "nextToken" => String.t()
       }
 
@@ -3626,7 +3626,7 @@ defmodule AWS.IoTSiteWise do
 
       batch_put_asset_property_error_entry() :: %{
         "entryId" => String.t(),
-        "errors" => list(batch_put_asset_property_error()())
+        "errors" => list(batch_put_asset_property_error())
       }
 
   """
@@ -3657,7 +3657,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_datasets_response() :: %{
-        "datasetSummaries" => list(dataset_summary()()),
+        "datasetSummaries" => list(dataset_summary()),
         "nextToken" => String.t()
       }
 
@@ -3684,7 +3684,7 @@ defmodule AWS.IoTSiteWise do
       variable_value() :: %{
         "hierarchyId" => String.t(),
         "propertyId" => String.t(),
-        "propertyPath" => list(asset_model_property_path_segment()())
+        "propertyPath" => list(asset_model_property_path_segment())
       }
 
   """
@@ -3760,7 +3760,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       portal_type_entry() :: %{
-        "portalTools" => list(String.t()())
+        "portalTools" => list(String.t())
       }
 
   """
@@ -3782,12 +3782,12 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       create_asset_model_request() :: %{
-        optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()()),
+        optional("assetModelCompositeModels") => list(asset_model_composite_model_definition()),
         optional("assetModelDescription") => String.t(),
         optional("assetModelExternalId") => String.t(),
-        optional("assetModelHierarchies") => list(asset_model_hierarchy_definition()()),
+        optional("assetModelHierarchies") => list(asset_model_hierarchy_definition()),
         optional("assetModelId") => String.t(),
-        optional("assetModelProperties") => list(asset_model_property_definition()()),
+        optional("assetModelProperties") => list(asset_model_property_definition()),
         optional("assetModelType") => list(any()),
         optional("clientToken") => String.t(),
         optional("tags") => map(),
@@ -3818,7 +3818,7 @@ defmodule AWS.IoTSiteWise do
       batch_put_asset_property_error() :: %{
         "errorCode" => list(any()),
         "errorMessage" => String.t(),
-        "timestamps" => list(time_in_nanos()())
+        "timestamps" => list(time_in_nanos())
       }
 
   """
@@ -3829,7 +3829,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_assets_response() :: %{
-        "assetSummaries" => list(asset_summary()()),
+        "assetSummaries" => list(asset_summary()),
         "nextToken" => String.t()
       }
 
@@ -3863,7 +3863,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_dashboards_response() :: %{
-        "dashboardSummaries" => list(dashboard_summary()()),
+        "dashboardSummaries" => list(dashboard_summary()),
         "nextToken" => String.t()
       }
 
@@ -3901,7 +3901,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_gateways_response() :: %{
-        "gatewaySummaries" => list(gateway_summary()()),
+        "gatewaySummaries" => list(gateway_summary()),
         "nextToken" => String.t()
       }
 
@@ -4057,7 +4057,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_associated_assets_response() :: %{
-        "assetSummaries" => list(associated_assets_summary()()),
+        "assetSummaries" => list(associated_assets_summary()),
         "nextToken" => String.t()
       }
 
@@ -4078,7 +4078,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       update_asset_model_composite_model_response() :: %{
-        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()()),
+        "assetModelCompositeModelPath" => list(asset_model_composite_model_path_segment()),
         "assetModelStatus" => asset_model_status()
       }
 
@@ -4121,7 +4121,7 @@ defmodule AWS.IoTSiteWise do
         "externalId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "path" => list(asset_model_property_path_segment()()),
+        "path" => list(asset_model_property_path_segment()),
         "type" => property_type(),
         "unit" => String.t()
       }
@@ -4171,7 +4171,7 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       list_bulk_import_jobs_response() :: %{
-        "jobSummaries" => list(job_summary()()),
+        "jobSummaries" => list(job_summary()),
         "nextToken" => String.t()
       }
 

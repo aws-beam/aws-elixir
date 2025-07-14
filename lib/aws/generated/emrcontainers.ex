@@ -222,7 +222,7 @@ defmodule AWS.EMRcontainers do
 
       configuration() :: %{
         "classification" => String.t(),
-        "configurations" => list(configuration()()),
+        "configurations" => list(configuration()),
         "properties" => map()
       }
 
@@ -272,7 +272,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -477,7 +477,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       list_job_runs_response() :: %{
-        "jobRuns" => list(job_run()()),
+        "jobRuns" => list(job_run()),
         "nextToken" => String.t()
       }
 
@@ -586,7 +586,7 @@ defmodule AWS.EMRcontainers do
         "serverUrl" => String.t(),
         "state" => list(any()),
         "stateDetails" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "tags" => map(),
         "type" => String.t(),
         "virtualClusterId" => String.t()
@@ -600,7 +600,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       parametric_configuration_overrides() :: %{
-        "applicationConfiguration" => list(configuration()()),
+        "applicationConfiguration" => list(configuration()),
         "monitoringConfiguration" => parametric_monitoring_configuration()
       }
 
@@ -822,7 +822,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       list_managed_endpoints_response() :: %{
-        "endpoints" => list(endpoint()()),
+        "endpoints" => list(endpoint()),
         "nextToken" => String.t()
       }
 
@@ -859,7 +859,7 @@ defmodule AWS.EMRcontainers do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("states") => list(list(any())()),
-        optional("types") => list(String.t()())
+        optional("types") => list(String.t())
       }
 
   """
@@ -912,7 +912,7 @@ defmodule AWS.EMRcontainers do
   ## Example:
 
       configuration_overrides() :: %{
-        "applicationConfiguration" => list(configuration()()),
+        "applicationConfiguration" => list(configuration()),
         "monitoringConfiguration" => monitoring_configuration()
       }
 
@@ -952,7 +952,7 @@ defmodule AWS.EMRcontainers do
 
       list_security_configurations_response() :: %{
         "nextToken" => String.t(),
-        "securityConfigurations" => list(security_configuration()())
+        "securityConfigurations" => list(security_configuration())
       }
 
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.EMRcontainers do
 
       list_job_templates_response() :: %{
         "nextToken" => String.t(),
-        "templates" => list(job_template()())
+        "templates" => list(job_template())
       }
 
   """
@@ -1040,7 +1040,7 @@ defmodule AWS.EMRcontainers do
 
       list_virtual_clusters_response() :: %{
         "nextToken" => String.t(),
-        "virtualClusters" => list(virtual_cluster()())
+        "virtualClusters" => list(virtual_cluster())
       }
 
   """
@@ -1074,7 +1074,7 @@ defmodule AWS.EMRcontainers do
 
       spark_submit_job_driver() :: %{
         "entryPoint" => String.t(),
-        "entryPointArguments" => list(String.t()()),
+        "entryPointArguments" => list(String.t()),
         "sparkSubmitParameters" => String.t()
       }
 

@@ -43,7 +43,7 @@ defmodule AWS.QBusiness do
       source_attribution() :: %{
         "citationNumber" => integer(),
         "snippet" => String.t(),
-        "textMessageSegments" => list(text_segment()()),
+        "textMessageSegments" => list(text_segment()),
         "title" => String.t(),
         "updatedAt" => non_neg_integer(),
         "url" => String.t()
@@ -128,7 +128,7 @@ defmodule AWS.QBusiness do
       update_data_accessor_request() :: %{
         optional("authenticationDetail") => data_accessor_authentication_detail(),
         optional("displayName") => String.t(),
-        required("actionConfigurations") => list(action_configuration()())
+        required("actionConfigurations") => list(action_configuration())
       }
 
   """
@@ -174,7 +174,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       tag_resource_request() :: %{
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -208,8 +208,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       data_source_vpc_configuration() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -220,7 +220,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_data_accessors_response() :: %{
-        "dataAccessors" => list(data_accessor()()),
+        "dataAccessors" => list(data_accessor()),
         "nextToken" => String.t()
       }
 
@@ -328,9 +328,9 @@ defmodule AWS.QBusiness do
   ## Example:
 
       update_user_response() :: %{
-        "userAliasesAdded" => list(user_alias()()),
-        "userAliasesDeleted" => list(user_alias()()),
-        "userAliasesUpdated" => list(user_alias()())
+        "userAliasesAdded" => list(user_alias()),
+        "userAliasesDeleted" => list(user_alias()),
+        "userAliasesUpdated" => list(user_alias())
       }
 
   """
@@ -347,7 +347,7 @@ defmodule AWS.QBusiness do
         optional("mediaExtractionConfiguration") => media_extraction_configuration(),
         optional("roleArn") => String.t(),
         optional("syncSchedule") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("vpcConfiguration") => data_source_vpc_configuration(),
         required("configuration") => any(),
         required("displayName") => String.t()
@@ -378,7 +378,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       get_data_accessor_response() :: %{
-        "actionConfigurations" => list(action_configuration()()),
+        "actionConfigurations" => list(action_configuration()),
         "applicationId" => String.t(),
         "authenticationDetail" => data_accessor_authentication_detail(),
         "createdAt" => non_neg_integer(),
@@ -567,7 +567,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_plugin_type_metadata_response() :: %{
-        "items" => list(plugin_type_metadata_summary()()),
+        "items" => list(plugin_type_metadata_summary()),
         "nextToken" => String.t()
       }
 
@@ -654,7 +654,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_messages_response() :: %{
-        "messages" => list(message()()),
+        "messages" => list(message()),
         "nextToken" => String.t()
       }
 
@@ -683,8 +683,8 @@ defmodule AWS.QBusiness do
       create_data_accessor_request() :: %{
         optional("authenticationDetail") => data_accessor_authentication_detail(),
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
-        required("actionConfigurations") => list(action_configuration()()),
+        optional("tags") => list(tag()),
+        required("actionConfigurations") => list(action_configuration()),
         required("displayName") => String.t(),
         required("principal") => String.t()
       }
@@ -730,7 +730,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       get_user_response() :: %{
-        "userAliases" => list(user_alias()())
+        "userAliases" => list(user_alias())
       }
 
   """
@@ -754,7 +754,7 @@ defmodule AWS.QBusiness do
       create_retriever_request() :: %{
         optional("clientToken") => String.t(),
         optional("roleArn") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("configuration") => list(),
         required("displayName") => String.t(),
         required("type") => list(any())
@@ -807,7 +807,7 @@ defmodule AWS.QBusiness do
 
       list_web_experiences_response() :: %{
         "nextToken" => String.t(),
-        "webExperiences" => list(web_experience()())
+        "webExperiences" => list(web_experience())
       }
 
   """
@@ -850,7 +850,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_plugin_actions_response() :: %{
-        "items" => list(action_summary()()),
+        "items" => list(action_summary()),
         "nextToken" => String.t()
       }
 
@@ -897,9 +897,9 @@ defmodule AWS.QBusiness do
 
       topic_configuration() :: %{
         "description" => String.t(),
-        "exampleChatMessages" => list(String.t()()),
+        "exampleChatMessages" => list(String.t()),
         "name" => String.t(),
-        "rules" => list(rule()())
+        "rules" => list(rule())
       }
 
   """
@@ -910,7 +910,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -923,8 +923,8 @@ defmodule AWS.QBusiness do
       check_document_access_response() :: %{
         "documentAcl" => document_acl(),
         "hasAccess" => [boolean()],
-        "userAliases" => list(associated_user()()),
-        "userGroups" => list(associated_group()())
+        "userAliases" => list(associated_user()),
+        "userGroups" => list(associated_group())
       }
 
   """
@@ -1027,7 +1027,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       document_acl_membership() :: %{
-        "conditions" => list(document_acl_condition()()),
+        "conditions" => list(document_acl_condition()),
         "memberRelation" => list(any())
       }
 
@@ -1039,7 +1039,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_documents_response() :: %{
-        "documentDetailList" => list(document_details()()),
+        "documentDetailList" => list(document_details()),
         "nextToken" => String.t()
       }
 
@@ -1063,7 +1063,7 @@ defmodule AWS.QBusiness do
         optional("clientToken") => String.t(),
         optional("customPluginConfiguration") => custom_plugin_configuration(),
         optional("serverUrl") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("authConfiguration") => list(),
         required("displayName") => String.t(),
         required("type") => list(any())
@@ -1079,7 +1079,7 @@ defmodule AWS.QBusiness do
       metadata_event() :: %{
         "conversationId" => String.t(),
         "finalTextMessage" => String.t(),
-        "sourceAttributions" => list(source_attribution()()),
+        "sourceAttributions" => list(source_attribution()),
         "systemMessageId" => String.t(),
         "userMessageId" => String.t()
       }
@@ -1143,8 +1143,8 @@ defmodule AWS.QBusiness do
         "actionReview" => action_review(),
         "authChallengeRequest" => auth_challenge_request(),
         "conversationId" => String.t(),
-        "failedAttachments" => list(attachment_output()()),
-        "sourceAttributions" => list(source_attribution()()),
+        "failedAttachments" => list(attachment_output()),
+        "sourceAttributions" => list(source_attribution()),
         "systemMessage" => String.t(),
         "systemMessageId" => String.t(),
         "userMessageId" => String.t()
@@ -1271,11 +1271,11 @@ defmodule AWS.QBusiness do
         optional("clientToken") => String.t(),
         optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
-        optional("origins") => list(String.t()()),
+        optional("origins") => list(String.t()),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("title") => String.t(),
         optional("welcomeMessage") => String.t()
       }
@@ -1412,7 +1412,7 @@ defmodule AWS.QBusiness do
         "defaultEndpoint" => String.t(),
         "error" => error_detail(),
         "identityProviderConfiguration" => list(),
-        "origins" => list(String.t()()),
+        "origins" => list(String.t()),
         "roleArn" => String.t(),
         "samplePromptsControlMode" => list(any()),
         "status" => list(any()),
@@ -1445,7 +1445,7 @@ defmodule AWS.QBusiness do
 
       list_retrievers_response() :: %{
         "nextToken" => String.t(),
-        "retrievers" => list(retriever()())
+        "retrievers" => list(retriever())
       }
 
   """
@@ -1456,7 +1456,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       batch_delete_document_response() :: %{
-        "failedDocuments" => list(failed_document()())
+        "failedDocuments" => list(failed_document())
       }
 
   """
@@ -1468,7 +1468,7 @@ defmodule AWS.QBusiness do
 
       chat_sync_input() :: %{
         optional("actionExecution") => action_execution(),
-        optional("attachments") => list(attachment_input()()),
+        optional("attachments") => list(attachment_input()),
         optional("attributeFilter") => attribute_filter(),
         optional("authChallengeResponse") => auth_challenge_response(),
         optional("chatMode") => list(any()),
@@ -1476,7 +1476,7 @@ defmodule AWS.QBusiness do
         optional("clientToken") => String.t(),
         optional("conversationId") => String.t(),
         optional("parentMessageId") => String.t(),
-        optional("userGroups") => list(String.t()()),
+        optional("userGroups") => list(String.t()),
         optional("userId") => String.t(),
         optional("userMessage") => String.t()
       }
@@ -1585,7 +1585,7 @@ defmodule AWS.QBusiness do
 
       access_control() :: %{
         "memberRelation" => list(any()),
-        "principals" => list(list()())
+        "principals" => list(list())
       }
 
   """
@@ -1613,7 +1613,7 @@ defmodule AWS.QBusiness do
         optional("browserExtensionConfiguration") => browser_extension_configuration(),
         optional("customizationConfiguration") => customization_configuration(),
         optional("identityProviderConfiguration") => list(),
-        optional("origins") => list(String.t()()),
+        optional("origins") => list(String.t()),
         optional("roleArn") => String.t(),
         optional("samplePromptsControlMode") => list(any()),
         optional("subtitle") => String.t(),
@@ -1704,7 +1704,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_data_sources_response() :: %{
-        "dataSources" => list(data_source()()),
+        "dataSources" => list(data_source()),
         "nextToken" => String.t()
       }
 
@@ -1780,7 +1780,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1804,7 +1804,7 @@ defmodule AWS.QBusiness do
 
       create_application_request() :: %{
         optional("attachmentsConfiguration") => attachments_configuration(),
-        optional("clientIdsForOIDC") => list(String.t()()),
+        optional("clientIdsForOIDC") => list(String.t()),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
@@ -1815,7 +1815,7 @@ defmodule AWS.QBusiness do
         optional("qAppsConfiguration") => q_apps_configuration(),
         optional("quickSightConfiguration") => quick_sight_configuration(),
         optional("roleArn") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("displayName") => String.t()
       }
 
@@ -1918,7 +1918,7 @@ defmodule AWS.QBusiness do
 
       list_plugins_response() :: %{
         "nextToken" => String.t(),
-        "plugins" => list(plugin()())
+        "plugins" => list(plugin())
       }
 
   """
@@ -1941,7 +1941,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_documents_request() :: %{
-        optional("dataSourceIds") => list(String.t()()),
+        optional("dataSourceIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1965,7 +1965,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       blocked_phrases_configuration() :: %{
-        "blockedPhrases" => list(String.t()()),
+        "blockedPhrases" => list(String.t()),
         "systemMessageOverride" => String.t()
       }
 
@@ -1977,7 +1977,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_indices_response() :: %{
-        "indices" => list(index()()),
+        "indices" => list(index()),
         "nextToken" => String.t()
       }
 
@@ -2148,9 +2148,9 @@ defmodule AWS.QBusiness do
   ## Example:
 
       document_acl_condition() :: %{
-        "groups" => list(document_acl_group()()),
+        "groups" => list(document_acl_group()),
         "memberRelation" => list(any()),
-        "users" => list(document_acl_user()())
+        "users" => list(document_acl_user())
       }
 
   """
@@ -2161,8 +2161,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       blocked_phrases_configuration_update() :: %{
-        "blockedPhrasesToCreateOrUpdate" => list(String.t()()),
-        "blockedPhrasesToDelete" => list(String.t()()),
+        "blockedPhrasesToCreateOrUpdate" => list(String.t()),
+        "blockedPhrasesToDelete" => list(String.t()),
         "systemMessageOverride" => String.t()
       }
 
@@ -2174,7 +2174,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_plugin_type_actions_response() :: %{
-        "items" => list(action_summary()()),
+        "items" => list(action_summary()),
         "nextToken" => String.t()
       }
 
@@ -2282,7 +2282,7 @@ defmodule AWS.QBusiness do
 
       search_relevant_content_response() :: %{
         "nextToken" => String.t(),
-        "relevantContent" => list(relevant_content()())
+        "relevantContent" => list(relevant_content())
       }
 
   """
@@ -2368,7 +2368,7 @@ defmodule AWS.QBusiness do
         "applicationId" => String.t(),
         "attachmentsConfiguration" => applied_attachments_configuration(),
         "autoSubscriptionConfiguration" => auto_subscription_configuration(),
-        "clientIdsForOIDC" => list(String.t()()),
+        "clientIdsForOIDC" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "displayName" => String.t(),
@@ -2394,7 +2394,7 @@ defmodule AWS.QBusiness do
 
       batch_delete_document_request() :: %{
         optional("dataSourceSyncId") => String.t(),
-        required("documents") => list(delete_document()())
+        required("documents") => list(delete_document())
       }
 
   """
@@ -2456,7 +2456,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       batch_put_document_response() :: %{
-        "failedDocuments" => list(failed_document()())
+        "failedDocuments" => list(failed_document())
       }
 
   """
@@ -2493,7 +2493,7 @@ defmodule AWS.QBusiness do
         optional("capacityConfiguration") => index_capacity_configuration(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("type") => list(any()),
         required("displayName") => String.t()
       }
@@ -2524,7 +2524,7 @@ defmodule AWS.QBusiness do
         optional("capacityConfiguration") => index_capacity_configuration(),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
-        optional("documentAttributeConfigurations") => list(document_attribute_configuration()())
+        optional("documentAttributeConfigurations") => list(document_attribute_configuration())
       }
 
   """
@@ -2564,7 +2564,7 @@ defmodule AWS.QBusiness do
 
       relevant_content() :: %{
         "content" => String.t(),
-        "documentAttributes" => list(document_attribute()()),
+        "documentAttributes" => list(document_attribute()),
         "documentId" => String.t(),
         "documentTitle" => String.t(),
         "documentUri" => String.t(),
@@ -2714,7 +2714,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_conversations_response() :: %{
-        "conversations" => list(conversation()()),
+        "conversations" => list(conversation()),
         "nextToken" => String.t()
       }
 
@@ -2735,8 +2735,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       update_user_request() :: %{
-        optional("userAliasesToDelete") => list(user_alias()()),
-        optional("userAliasesToUpdate") => list(user_alias()())
+        optional("userAliasesToDelete") => list(user_alias()),
+        optional("userAliasesToUpdate") => list(user_alias())
       }
 
   """
@@ -2751,7 +2751,7 @@ defmodule AWS.QBusiness do
         optional("conversationId") => String.t(),
         optional("inputStream") => list(),
         optional("parentMessageId") => String.t(),
-        optional("userGroups") => list(String.t()()),
+        optional("userGroups") => list(String.t()),
         optional("userId") => String.t()
       }
 
@@ -2769,8 +2769,8 @@ defmodule AWS.QBusiness do
         optional("hallucinationReductionConfiguration") => hallucination_reduction_configuration(),
         optional("orchestrationConfiguration") => orchestration_configuration(),
         optional("responseScope") => list(any()),
-        optional("topicConfigurationsToCreateOrUpdate") => list(topic_configuration()()),
-        optional("topicConfigurationsToDelete") => list(topic_configuration()())
+        optional("topicConfigurationsToCreateOrUpdate") => list(topic_configuration()),
+        optional("topicConfigurationsToDelete") => list(topic_configuration())
       }
 
   """
@@ -2790,7 +2790,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -2825,7 +2825,7 @@ defmodule AWS.QBusiness do
 
       action_review_payload_field() :: %{
         "allowedFormat" => String.t(),
-        "allowedValues" => list(action_review_payload_field_allowed_value()()),
+        "allowedValues" => list(action_review_payload_field_allowed_value()),
         "arrayItemJsonSchema" => any(),
         "displayDescription" => String.t(),
         "displayName" => String.t(),
@@ -2863,7 +2863,7 @@ defmodule AWS.QBusiness do
       batch_put_document_request() :: %{
         optional("dataSourceSyncId") => String.t(),
         optional("roleArn") => String.t(),
-        required("documents") => list(document()())
+        required("documents") => list(document())
       }
 
   """
@@ -2909,7 +2909,7 @@ defmodule AWS.QBusiness do
 
       get_group_response() :: %{
         "status" => group_status_detail(),
-        "statusHistory" => list(group_status_detail()())
+        "statusHistory" => list(group_status_detail())
       }
 
   """
@@ -2948,8 +2948,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       group_members() :: %{
-        "memberGroups" => list(member_group()()),
-        "memberUsers" => list(member_user()()),
+        "memberGroups" => list(member_group()),
+        "memberUsers" => list(member_user()),
         "s3PathForGroupMembers" => s3()
       }
 
@@ -2973,7 +2973,7 @@ defmodule AWS.QBusiness do
 
       list_subscriptions_response() :: %{
         "nextToken" => String.t(),
-        "subscriptions" => list(subscription()())
+        "subscriptions" => list(subscription())
       }
 
   """
@@ -2984,7 +2984,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       document_enrichment_configuration() :: %{
-        "inlineConfigurations" => list(inline_document_enrichment_configuration()()),
+        "inlineConfigurations" => list(inline_document_enrichment_configuration()),
         "postExtractionHookConfiguration" => hook_configuration(),
         "preExtractionHookConfiguration" => hook_configuration()
       }
@@ -2997,7 +2997,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_data_source_sync_jobs_response() :: %{
-        "history" => list(data_source_sync_job()()),
+        "history" => list(data_source_sync_job()),
         "nextToken" => String.t()
       }
 
@@ -3009,7 +3009,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       browser_extension_configuration() :: %{
-        "enabledBrowserExtensions" => list(String.t()())
+        "enabledBrowserExtensions" => list(String.t())
       }
 
   """
@@ -3057,8 +3057,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       associate_permission_request() :: %{
-        optional("conditions") => list(permission_condition()()),
-        required("actions") => list(String.t()()),
+        optional("conditions") => list(permission_condition()),
+        required("actions") => list(String.t()),
         required("principal") => String.t(),
         required("statementId") => String.t()
       }
@@ -3071,7 +3071,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       content_retrieval_rule() :: %{
-        "eligibleDataSources" => list(eligible_data_source()())
+        "eligibleDataSources" => list(eligible_data_source())
       }
 
   """
@@ -3106,7 +3106,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_chat_response_configurations_response() :: %{
-        "chatResponseConfigurations" => list(chat_response_configuration()()),
+        "chatResponseConfigurations" => list(chat_response_configuration()),
         "nextToken" => String.t()
       }
 
@@ -3136,7 +3136,7 @@ defmodule AWS.QBusiness do
 
       create_chat_response_configuration_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("displayName") => String.t(),
         required("responseConfigurations") => map()
       }
@@ -3149,7 +3149,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       attribute_filter() :: %{
-        "andAllFilters" => list(attribute_filter()()),
+        "andAllFilters" => list(attribute_filter()),
         "containsAll" => document_attribute(),
         "containsAny" => document_attribute(),
         "equalsTo" => document_attribute(),
@@ -3158,7 +3158,7 @@ defmodule AWS.QBusiness do
         "lessThan" => document_attribute(),
         "lessThanOrEquals" => document_attribute(),
         "notFilter" => attribute_filter(),
-        "orAllFilters" => list(attribute_filter()())
+        "orAllFilters" => list(attribute_filter())
       }
 
   """
@@ -3184,7 +3184,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_applications_response() :: %{
-        "applications" => list(application()()),
+        "applications" => list(application()),
         "nextToken" => String.t()
       }
 
@@ -3198,7 +3198,7 @@ defmodule AWS.QBusiness do
       data_accessor_authentication_detail() :: %{
         "authenticationConfiguration" => list(),
         "authenticationType" => list(any()),
-        "externalIds" => list(String.t()())
+        "externalIds" => list(String.t())
       }
 
   """
@@ -3251,7 +3251,7 @@ defmodule AWS.QBusiness do
         "nextToken" => String.t(),
         "orchestrationConfiguration" => applied_orchestration_configuration(),
         "responseScope" => list(any()),
-        "topicConfigurations" => list(topic_configuration()())
+        "topicConfigurations" => list(topic_configuration())
       }
 
   """
@@ -3340,7 +3340,7 @@ defmodule AWS.QBusiness do
       permission_condition() :: %{
         "conditionKey" => String.t(),
         "conditionOperator" => list(any()),
-        "conditionValues" => list(String.t()())
+        "conditionValues" => list(String.t())
       }
 
   """
@@ -3406,7 +3406,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_groups_response() :: %{
-        "items" => list(group_summary()()),
+        "items" => list(group_summary()),
         "nextToken" => String.t()
       }
 
@@ -3429,7 +3429,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       access_configuration() :: %{
-        "accessControls" => list(access_control()()),
+        "accessControls" => list(access_control()),
         "memberRelation" => list(any())
       }
 
@@ -3517,8 +3517,8 @@ defmodule AWS.QBusiness do
   ## Example:
 
       users_and_groups() :: %{
-        "userGroups" => list(String.t()()),
-        "userIds" => list(String.t()())
+        "userGroups" => list(String.t()),
+        "userIds" => list(String.t())
       }
 
   """
@@ -3698,7 +3698,7 @@ defmodule AWS.QBusiness do
 
       document() :: %{
         "accessConfiguration" => access_configuration(),
-        "attributes" => list(document_attribute()()),
+        "attributes" => list(document_attribute()),
         "content" => list(),
         "contentType" => list(any()),
         "documentEnrichmentConfiguration" => document_enrichment_configuration(),
@@ -3715,7 +3715,7 @@ defmodule AWS.QBusiness do
   ## Example:
 
       list_attachments_response() :: %{
-        "attachments" => list(attachment()()),
+        "attachments" => list(attachment()),
         "nextToken" => String.t()
       }
 
@@ -3841,7 +3841,7 @@ defmodule AWS.QBusiness do
 
       create_user_request() :: %{
         optional("clientToken") => String.t(),
-        optional("userAliases") => list(user_alias()()),
+        optional("userAliases") => list(user_alias()),
         required("userId") => String.t()
       }
 
@@ -3858,7 +3858,7 @@ defmodule AWS.QBusiness do
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
         "displayName" => String.t(),
-        "documentAttributeConfigurations" => list(document_attribute_configuration()()),
+        "documentAttributeConfigurations" => list(document_attribute_configuration()),
         "error" => error_detail(),
         "indexArn" => String.t(),
         "indexId" => String.t(),
@@ -3878,10 +3878,10 @@ defmodule AWS.QBusiness do
       message() :: %{
         "actionExecution" => action_execution(),
         "actionReview" => action_review(),
-        "attachments" => list(attachment_output()()),
+        "attachments" => list(attachment_output()),
         "body" => String.t(),
         "messageId" => String.t(),
-        "sourceAttribution" => list(source_attribution()()),
+        "sourceAttribution" => list(source_attribution()),
         "time" => non_neg_integer(),
         "type" => list(any())
       }

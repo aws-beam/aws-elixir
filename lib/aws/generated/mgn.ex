@@ -120,7 +120,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_exports_request_filters() :: %{
-        "exportIDs" => list(String.t()())
+        "exportIDs" => list(String.t())
       }
 
   """
@@ -143,7 +143,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_connectors_response() :: %{
-        "items" => list(connector()()),
+        "items" => list(connector()),
         "nextToken" => String.t()
       }
 
@@ -156,7 +156,7 @@ defmodule AWS.Mgn do
 
       list_waves_request_filters() :: %{
         "isArchived" => [boolean()],
-        "waveIDs" => list(String.t()())
+        "waveIDs" => list(String.t())
       }
 
   """
@@ -192,7 +192,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_launch_configuration_templates_request() :: %{
-        optional("launchConfigurationTemplateIDs") => list(String.t()()),
+        optional("launchConfigurationTemplateIDs") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -249,7 +249,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("tags") => map(),
@@ -301,7 +301,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
@@ -366,7 +366,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       network_interface() :: %{
-        "ips" => list(String.t()()),
+        "ips" => list(String.t()),
         "isPrimary" => [boolean()],
         "macAddress" => String.t()
       }
@@ -400,7 +400,7 @@ defmodule AWS.Mgn do
         required("defaultLargeStagingDiskType") => String.t(),
         required("ebsEncryption") => String.t(),
         required("replicationServerInstanceType") => String.t(),
-        required("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        required("replicationServersSecurityGroupsIDs") => list(String.t()),
         required("stagingAreaSubnetId") => String.t(),
         required("stagingAreaTags") => map(),
         required("useDedicatedReplicationServer") => [boolean()]
@@ -437,7 +437,7 @@ defmodule AWS.Mgn do
 
       associate_applications_request() :: %{
         optional("accountID") => String.t(),
-        required("applicationIDs") => list(String.t()()),
+        required("applicationIDs") => list(String.t()),
         required("waveID") => String.t()
       }
 
@@ -461,9 +461,9 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_applications_request_filters() :: %{
-        "applicationIDs" => list(String.t()()),
+        "applicationIDs" => list(String.t()),
         "isArchived" => [boolean()],
-        "waveIDs" => list(String.t()())
+        "waveIDs" => list(String.t())
       }
 
   """
@@ -516,7 +516,7 @@ defmodule AWS.Mgn do
       start_test_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t()())
+        required("sourceServerIDs") => list(String.t())
       }
 
   """
@@ -610,7 +610,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -621,7 +621,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_template_actions_response() :: %{
-        optional("items") => list(template_action_document()()),
+        optional("items") => list(template_action_document()),
         optional("nextToken") => String.t()
       }
 
@@ -676,7 +676,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_source_server_actions_response() :: %{
-        optional("items") => list(source_server_action_document()()),
+        optional("items") => list(source_server_action_document()),
         optional("nextToken") => String.t()
       }
 
@@ -777,7 +777,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_imports_response() :: %{
-        "items" => list(import_task()()),
+        "items" => list(import_task()),
         "nextToken" => String.t()
       }
 
@@ -804,7 +804,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       source_server_actions_request_filters() :: %{
-        "actionIDs" => list(String.t()())
+        "actionIDs" => list(String.t())
       }
 
   """
@@ -828,11 +828,11 @@ defmodule AWS.Mgn do
   ## Example:
 
       source_properties() :: %{
-        "cpus" => list(c_p_u()()),
-        "disks" => list(disk()()),
+        "cpus" => list(c_p_u()),
+        "disks" => list(disk()),
         "identificationHints" => identification_hints(),
         "lastUpdatedDateTime" => String.t(),
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "os" => o_s(),
         "ramBytes" => float(),
         "recommendedInstanceType" => String.t()
@@ -846,7 +846,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_source_servers_response() :: %{
-        optional("items") => list(source_server()()),
+        optional("items") => list(source_server()),
         optional("nextToken") => String.t()
       }
 
@@ -858,7 +858,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_replication_configuration_templates_response() :: %{
-        optional("items") => list(replication_configuration_template()()),
+        optional("items") => list(replication_configuration_template()),
         optional("nextToken") => String.t()
       }
 
@@ -952,9 +952,9 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("name") => String.t(),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("sourceServerID") => String.t(),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
@@ -971,7 +971,7 @@ defmodule AWS.Mgn do
 
       conflict_exception() :: %{
         "code" => String.t(),
-        "errors" => list(error_details()()),
+        "errors" => list(error_details()),
         "message" => String.t(),
         "resourceId" => String.t(),
         "resourceType" => String.t()
@@ -1012,7 +1012,7 @@ defmodule AWS.Mgn do
 
       disassociate_applications_request() :: %{
         optional("accountID") => String.t(),
-        required("applicationIDs") => list(String.t()()),
+        required("applicationIDs") => list(String.t()),
         required("waveID") => String.t()
       }
 
@@ -1053,7 +1053,7 @@ defmodule AWS.Mgn do
         "deployment" => String.t(),
         "s3LogBucket" => String.t(),
         "s3OutputKeyPrefix" => String.t(),
-        "ssmDocuments" => list(ssm_document()())
+        "ssmDocuments" => list(ssm_document())
       }
 
   """
@@ -1093,7 +1093,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       post_launch_actions_status() :: %{
-        "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()()),
+        "postLaunchActionsLaunchStatusList" => list(job_post_launch_actions_launch_status()),
         "ssmAgentDiscoveryDatetime" => String.t()
       }
 
@@ -1289,7 +1289,7 @@ defmodule AWS.Mgn do
         "etaDateTime" => String.t(),
         "lagDuration" => String.t(),
         "lastSnapshotDateTime" => String.t(),
-        "replicatedDisks" => list(data_replication_info_replicated_disk()())
+        "replicatedDisks" => list(data_replication_info_replicated_disk())
       }
 
   """
@@ -1312,11 +1312,11 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_source_servers_request_filters() :: %{
-        "applicationIDs" => list(String.t()()),
+        "applicationIDs" => list(String.t()),
         "isArchived" => [boolean()],
-        "lifeCycleStates" => list(String.t()()),
-        "replicationTypes" => list(String.t()()),
-        "sourceServerIDs" => list(String.t()())
+        "lifeCycleStates" => list(String.t()),
+        "replicationTypes" => list(String.t()),
+        "sourceServerIDs" => list(String.t())
       }
 
   """
@@ -1329,7 +1329,7 @@ defmodule AWS.Mgn do
       associate_source_servers_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t(),
-        required("sourceServerIDs") => list(String.t()())
+        required("sourceServerIDs") => list(String.t())
       }
 
   """
@@ -1353,7 +1353,7 @@ defmodule AWS.Mgn do
       terminate_target_instances_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t()())
+        required("sourceServerIDs") => list(String.t())
       }
 
   """
@@ -1448,7 +1448,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_vcenter_clients_response() :: %{
-        optional("items") => list(vcenter_client()()),
+        optional("items") => list(vcenter_client()),
         optional("nextToken") => String.t()
       }
 
@@ -1480,7 +1480,7 @@ defmodule AWS.Mgn do
 
       describe_jobs_request_filters() :: %{
         "fromDate" => String.t(),
-        "jobIDs" => list(String.t()()),
+        "jobIDs" => list(String.t()),
         "toDate" => String.t()
       }
 
@@ -1494,7 +1494,7 @@ defmodule AWS.Mgn do
       data_replication_initiation() :: %{
         "nextAttemptDateTime" => String.t(),
         "startDateTime" => String.t(),
-        "steps" => list(data_replication_initiation_step()())
+        "steps" => list(data_replication_initiation_step())
       }
 
   """
@@ -1505,7 +1505,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_managed_accounts_response() :: %{
-        "items" => list(managed_account()()),
+        "items" => list(managed_account()),
         "nextToken" => String.t()
       }
 
@@ -1536,7 +1536,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_launch_configuration_templates_response() :: %{
-        optional("items") => list(launch_configuration_template()()),
+        optional("items") => list(launch_configuration_template()),
         optional("nextToken") => String.t()
       }
 
@@ -1774,7 +1774,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_export_errors_response() :: %{
-        "items" => list(export_task_error()()),
+        "items" => list(export_task_error()),
         "nextToken" => String.t()
       }
 
@@ -1846,7 +1846,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_jobs_response() :: %{
-        optional("items") => list(job()()),
+        optional("items") => list(job()),
         optional("nextToken") => String.t()
       }
 
@@ -1893,7 +1893,7 @@ defmodule AWS.Mgn do
 
       validation_exception() :: %{
         "code" => String.t(),
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -1931,7 +1931,7 @@ defmodule AWS.Mgn do
         "endDateTime" => String.t(),
         "initiatedBy" => String.t(),
         "jobID" => String.t(),
-        "participatingServers" => list(participating_server()()),
+        "participatingServers" => list(participating_server()),
         "status" => String.t(),
         "tags" => map(),
         "type" => String.t()
@@ -2037,7 +2037,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_imports_request_filters() :: %{
-        "importIDs" => list(String.t()())
+        "importIDs" => list(String.t())
       }
 
   """
@@ -2110,7 +2110,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_applications_response() :: %{
-        optional("items") => list(application()()),
+        optional("items") => list(application()),
         optional("nextToken") => String.t()
       }
 
@@ -2163,9 +2163,9 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t(),
         optional("ebsEncryptionKeyArn") => String.t(),
         optional("name") => String.t(),
-        optional("replicatedDisks") => list(replication_configuration_replicated_disk()()),
+        optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t(),
-        optional("replicationServersSecurityGroupsIDs") => list(String.t()()),
+        optional("replicationServersSecurityGroupsIDs") => list(String.t()),
         optional("stagingAreaSubnetId") => String.t(),
         optional("stagingAreaTags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
@@ -2231,7 +2231,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_import_errors_response() :: %{
-        "items" => list(import_task_error()()),
+        "items" => list(import_task_error()),
         "nextToken" => String.t()
       }
 
@@ -2243,7 +2243,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_waves_response() :: %{
-        optional("items") => list(wave()()),
+        optional("items") => list(wave()),
         optional("nextToken") => String.t()
       }
 
@@ -2330,7 +2330,7 @@ defmodule AWS.Mgn do
       disassociate_source_servers_request() :: %{
         optional("accountID") => String.t(),
         required("applicationID") => String.t(),
-        required("sourceServerIDs") => list(String.t()())
+        required("sourceServerIDs") => list(String.t())
       }
 
   """
@@ -2343,7 +2343,7 @@ defmodule AWS.Mgn do
       describe_replication_configuration_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("replicationConfigurationTemplateIDs") => list(String.t()())
+        optional("replicationConfigurationTemplateIDs") => list(String.t())
       }
 
   """
@@ -2365,7 +2365,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_connectors_request_filters() :: %{
-        "connectorIDs" => list(String.t()())
+        "connectorIDs" => list(String.t())
       }
 
   """
@@ -2376,7 +2376,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       describe_job_log_items_response() :: %{
-        optional("items") => list(job_log()()),
+        optional("items") => list(job_log()),
         optional("nextToken") => String.t()
       }
 
@@ -2461,7 +2461,7 @@ defmodule AWS.Mgn do
       start_cutover_request() :: %{
         optional("accountID") => String.t(),
         optional("tags") => map(),
-        required("sourceServerIDs") => list(String.t()())
+        required("sourceServerIDs") => list(String.t())
       }
 
   """
@@ -2485,7 +2485,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       template_actions_request_filters() :: %{
-        "actionIDs" => list(String.t()())
+        "actionIDs" => list(String.t())
       }
 
   """
@@ -2508,7 +2508,7 @@ defmodule AWS.Mgn do
   ## Example:
 
       list_exports_response() :: %{
-        "items" => list(export_task()()),
+        "items" => list(export_task()),
         "nextToken" => String.t()
       }
 

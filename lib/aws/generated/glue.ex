@@ -72,7 +72,7 @@ defmodule AWS.Glue do
       evaluate_data_quality_multi_frame() :: %{
         "AdditionalDataSources" => map(),
         "AdditionalOptions" => map(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "PublishingOptions" => d_q_results_publishing_options(),
         "Ruleset" => String.t(),
@@ -142,7 +142,7 @@ defmodule AWS.Glue do
         "FunctionName" => String.t(),
         "OwnerName" => String.t(),
         "OwnerType" => list(any()),
-        "ResourceUris" => list(resource_uri()())
+        "ResourceUris" => list(resource_uri())
       }
       
   """
@@ -177,7 +177,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_custom_entity_type_response() :: %{
-        "ContextWords" => list(String.t()()),
+        "ContextWords" => list(String.t()),
         "Name" => String.t(),
         "RegexString" => String.t()
       }
@@ -204,13 +204,13 @@ defmodule AWS.Glue do
   ## Example:
       
       statistic_summary() :: %{
-        "ColumnsReferenced" => list(String.t()()),
+        "ColumnsReferenced" => list(String.t()),
         "DoubleValue" => float(),
         "EvaluationLevel" => list(any()),
         "InclusionAnnotation" => timestamped_inclusion_annotation(),
         "ProfileId" => String.t(),
         "RecordedOn" => non_neg_integer(),
-        "ReferencedDatasets" => list(String.t()()),
+        "ReferencedDatasets" => list(String.t()),
         "RunIdentifier" => run_identifier(),
         "StatisticId" => String.t(),
         "StatisticName" => String.t(),
@@ -226,7 +226,7 @@ defmodule AWS.Glue do
       
       list_data_quality_results_response() :: %{
         "NextToken" => String.t(),
-        "Results" => list(data_quality_result_description()())
+        "Results" => list(data_quality_result_description())
       }
       
   """
@@ -249,9 +249,9 @@ defmodule AWS.Glue do
       
       s3_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
       }
@@ -338,7 +338,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_crawlers_request() :: %{
-        required("CrawlerNames") => list(String.t()())
+        required("CrawlerNames") => list(String.t())
       }
       
   """
@@ -448,9 +448,9 @@ defmodule AWS.Glue do
       
       update_column_statistics_for_partition_request() :: %{
         optional("CatalogId") => String.t(),
-        required("ColumnStatisticsList") => list(column_statistics()()),
+        required("ColumnStatisticsList") => list(column_statistics()),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -462,8 +462,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_triggers_response() :: %{
-        "Triggers" => list(trigger()()),
-        "TriggersNotFound" => list(String.t()())
+        "Triggers" => list(trigger()),
+        "TriggersNotFound" => list(String.t())
       }
       
   """
@@ -516,9 +516,9 @@ defmodule AWS.Glue do
       
       basic_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Table" => String.t()
       }
       
@@ -555,13 +555,13 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "DataFilter" => String.t(),
         "Description" => String.t(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetArn" => String.t()
       }
       
@@ -575,8 +575,8 @@ defmodule AWS.Glue do
       view_definition_input() :: %{
         "Definer" => String.t(),
         "IsProtected" => boolean(),
-        "Representations" => list(view_representation_input()()),
-        "SubObjects" => list(String.t()())
+        "Representations" => list(view_representation_input()),
+        "SubObjects" => list(String.t())
       }
       
   """
@@ -590,7 +590,7 @@ defmodule AWS.Glue do
         "CloudWatchEncryption" => cloud_watch_encryption(),
         "DataQualityEncryption" => data_quality_encryption(),
         "JobBookmarksEncryption" => job_bookmarks_encryption(),
-        "S3Encryption" => list(s3_encryption()())
+        "S3Encryption" => list(s3_encryption())
       }
       
   """
@@ -616,9 +616,9 @@ defmodule AWS.Glue do
         "ConnectionName" => String.t(),
         "ConnectionType" => String.t(),
         "ConnectorName" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -629,8 +629,8 @@ defmodule AWS.Glue do
   ## Example:
       
       apply_mapping() :: %{
-        "Inputs" => list(String.t()()),
-        "Mapping" => list(mapping()()),
+        "Inputs" => list(String.t()),
+        "Mapping" => list(mapping()),
         "Name" => String.t()
       }
       
@@ -685,14 +685,14 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "DataFilter" => String.t(),
         "Description" => String.t(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationConfig" => integration_config(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetArn" => String.t()
       }
       
@@ -901,8 +901,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_blueprints_response() :: %{
-        "Blueprints" => list(blueprint()()),
-        "MissingBlueprints" => list(String.t()())
+        "Blueprints" => list(blueprint()),
+        "MissingBlueprints" => list(String.t())
       }
       
   """
@@ -930,7 +930,7 @@ defmodule AWS.Glue do
         "ConnectionType" => String.t(),
         "ConnectorName" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "Query" => String.t()
       }
       
@@ -954,7 +954,7 @@ defmodule AWS.Glue do
       
       database() :: %{
         "CatalogId" => String.t(),
-        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
         "CreateTime" => non_neg_integer(),
         "Description" => String.t(),
         "FederatedDatabase" => federated_database(),
@@ -973,7 +973,7 @@ defmodule AWS.Glue do
       
       get_triggers_response() :: %{
         "NextToken" => String.t(),
-        "Triggers" => list(trigger()())
+        "Triggers" => list(trigger())
       }
       
   """
@@ -1002,7 +1002,7 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_partition_spec() :: %{
-        "Fields" => list(iceberg_partition_field()()),
+        "Fields" => list(iceberg_partition_field()),
         "SpecId" => integer()
       }
       
@@ -1106,7 +1106,7 @@ defmodule AWS.Glue do
       
       partition_index() :: %{
         "IndexName" => String.t(),
-        "Keys" => list(String.t()())
+        "Keys" => list(String.t())
       }
       
   """
@@ -1176,7 +1176,7 @@ defmodule AWS.Glue do
       
       inbound_integration() :: %{
         "CreateTime" => non_neg_integer(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationConfig" => integration_config(),
         "SourceArn" => String.t(),
@@ -1219,7 +1219,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_delete_partition_response() :: %{
-        "Errors" => list(partition_error()())
+        "Errors" => list(partition_error())
       }
       
   """
@@ -1244,7 +1244,7 @@ defmodule AWS.Glue do
       
       get_user_defined_functions_response() :: %{
         "NextToken" => String.t(),
-        "UserDefinedFunctions" => list(user_defined_function()())
+        "UserDefinedFunctions" => list(user_defined_function())
       }
       
   """
@@ -1255,8 +1255,8 @@ defmodule AWS.Glue do
   ## Example:
       
       create_script_request() :: %{
-        optional("DagEdges") => list(code_gen_edge()()),
-        optional("DagNodes") => list(code_gen_node()()),
+        optional("DagEdges") => list(code_gen_edge()),
+        optional("DagNodes") => list(code_gen_node()),
         optional("Language") => list(any())
       }
       
@@ -1269,7 +1269,7 @@ defmodule AWS.Glue do
       
       partition_error() :: %{
         "ErrorDetail" => error_detail(),
-        "PartitionValues" => list(String.t()())
+        "PartitionValues" => list(String.t())
       }
       
   """
@@ -1292,7 +1292,7 @@ defmodule AWS.Glue do
       
       list_triggers_response() :: %{
         "NextToken" => String.t(),
-        "TriggerNames" => list(String.t()())
+        "TriggerNames" => list(String.t())
       }
       
   """
@@ -1326,7 +1326,7 @@ defmodule AWS.Glue do
         optional("CatalogId") => String.t(),
         optional("TransactionId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("TablesToDelete") => list(String.t()())
+        required("TablesToDelete") => list(String.t())
       }
       
   """
@@ -1347,7 +1347,7 @@ defmodule AWS.Glue do
       
       get_ml_transforms_response() :: %{
         "NextToken" => String.t(),
-        "Transforms" => list(ml_transform()())
+        "Transforms" => list(ml_transform())
       }
       
   """
@@ -1402,7 +1402,7 @@ defmodule AWS.Glue do
       
       get_tables_response() :: %{
         "NextToken" => String.t(),
-        "TableList" => list(table()())
+        "TableList" => list(table())
       }
       
   """
@@ -1413,7 +1413,7 @@ defmodule AWS.Glue do
   ## Example:
       
       trigger() :: %{
-        "Actions" => list(action()()),
+        "Actions" => list(action()),
         "Description" => String.t(),
         "EventBatchingCondition" => event_batching_condition(),
         "Id" => String.t(),
@@ -1454,16 +1454,16 @@ defmodule AWS.Glue do
       
       get_data_quality_result_response() :: %{
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
-        "AnalyzerResults" => list(data_quality_analyzer_result()()),
+        "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
         "EvaluationContext" => String.t(),
         "JobName" => String.t(),
         "JobRunId" => String.t(),
-        "Observations" => list(data_quality_observation()()),
+        "Observations" => list(data_quality_observation()),
         "ProfileId" => String.t(),
         "ResultId" => String.t(),
-        "RuleResults" => list(data_quality_rule_result()()),
+        "RuleResults" => list(data_quality_rule_result()),
         "RulesetEvaluationRunId" => String.t(),
         "RulesetName" => String.t(),
         "Score" => float(),
@@ -1478,7 +1478,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_create_partition_response() :: %{
-        "Errors" => list(partition_error()())
+        "Errors" => list(partition_error())
       }
       
   """
@@ -1501,7 +1501,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_classifiers_response() :: %{
-        "Classifiers" => list(classifier()()),
+        "Classifiers" => list(classifier()),
         "NextToken" => String.t()
       }
       
@@ -1526,14 +1526,14 @@ defmodule AWS.Glue do
   ## Example:
       
       crawler_targets() :: %{
-        "CatalogTargets" => list(catalog_target()()),
-        "DeltaTargets" => list(delta_target()()),
-        "DynamoDBTargets" => list(dynamo_db_target()()),
-        "HudiTargets" => list(hudi_target()()),
-        "IcebergTargets" => list(iceberg_target()()),
-        "JdbcTargets" => list(jdbc_target()()),
-        "MongoDBTargets" => list(mongo_db_target()()),
-        "S3Targets" => list(s3_target()())
+        "CatalogTargets" => list(catalog_target()),
+        "DeltaTargets" => list(delta_target()),
+        "DynamoDBTargets" => list(dynamo_db_target()),
+        "HudiTargets" => list(hudi_target()),
+        "IcebergTargets" => list(iceberg_target()),
+        "JdbcTargets" => list(jdbc_target()),
+        "MongoDBTargets" => list(mongo_db_target()),
+        "S3Targets" => list(s3_target())
       }
       
   """
@@ -1547,7 +1547,7 @@ defmodule AWS.Glue do
         "AdditionalHudiOptions" => map(),
         "Database" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "Table" => String.t()
       }
       
@@ -1587,9 +1587,9 @@ defmodule AWS.Glue do
       
       hudi_target() :: %{
         "ConnectionName" => String.t(),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "MaximumTraversalDepth" => integer(),
-        "Paths" => list(String.t()())
+        "Paths" => list(String.t())
       }
       
   """
@@ -1653,14 +1653,14 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "DataFilter" => String.t(),
         "Description" => String.t(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationConfig" => integration_config(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetArn" => String.t()
       }
       
@@ -1728,7 +1728,7 @@ defmodule AWS.Glue do
         "Description" => String.t(),
         "EvaluationMetrics" => evaluation_metrics(),
         "GlueVersion" => String.t(),
-        "InputRecordTables" => list(glue_table()()),
+        "InputRecordTables" => list(glue_table()),
         "LabelCount" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "MaxCapacity" => float(),
@@ -1737,7 +1737,7 @@ defmodule AWS.Glue do
         "NumberOfWorkers" => integer(),
         "Parameters" => transform_parameters(),
         "Role" => String.t(),
-        "Schema" => list(schema_column()()),
+        "Schema" => list(schema_column()),
         "Status" => list(any()),
         "Timeout" => integer(),
         "TransformEncryption" => transform_encryption(),
@@ -1766,13 +1766,13 @@ defmodule AWS.Glue do
         "CreateTime" => non_neg_integer(),
         "DataFilter" => String.t(),
         "Description" => String.t(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationName" => String.t(),
         "KmsKeyId" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetArn" => String.t()
       }
       
@@ -1804,7 +1804,7 @@ defmodule AWS.Glue do
         "MaxCapacity" => float(),
         "NotificationProperty" => notification_property(),
         "NumberOfWorkers" => integer(),
-        "PredecessorRuns" => list(predecessor()()),
+        "PredecessorRuns" => list(predecessor()),
         "PreviousRunId" => String.t(),
         "ProfileName" => String.t(),
         "SecurityConfiguration" => String.t(),
@@ -1860,8 +1860,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_data_quality_result_response() :: %{
-        "Results" => list(data_quality_result()()),
-        "ResultsNotFound" => list(String.t()())
+        "Results" => list(data_quality_result()),
+        "ResultsNotFound" => list(String.t())
       }
       
   """
@@ -1976,7 +1976,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_dev_endpoints_response() :: %{
-        "DevEndpoints" => list(dev_endpoint()()),
+        "DevEndpoints" => list(dev_endpoint()),
         "NextToken" => String.t()
       }
       
@@ -1999,8 +1999,8 @@ defmodule AWS.Glue do
   ## Example:
       
       get_unfiltered_table_metadata_response() :: %{
-        "AuthorizedColumns" => list(String.t()()),
-        "CellFilters" => list(column_row_filter()()),
+        "AuthorizedColumns" => list(String.t()),
+        "CellFilters" => list(column_row_filter()),
         "IsMultiDialectView" => boolean(),
         "IsProtected" => boolean(),
         "IsRegisteredWithLakeFormation" => boolean(),
@@ -2070,7 +2070,7 @@ defmodule AWS.Glue do
       
       batch_update_partition_failure_entry() :: %{
         "ErrorDetail" => error_detail(),
-        "PartitionValueList" => list(String.t()())
+        "PartitionValueList" => list(String.t())
       }
       
   """
@@ -2108,7 +2108,7 @@ defmodule AWS.Glue do
       
       list_usage_profiles_response() :: %{
         "NextToken" => String.t(),
-        "Profiles" => list(usage_profile_definition()())
+        "Profiles" => list(usage_profile_definition())
       }
       
   """
@@ -2124,7 +2124,7 @@ defmodule AWS.Glue do
         "ConnectionType" => String.t(),
         "ConnectorName" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "SchemaName" => String.t()
       }
       
@@ -2219,7 +2219,7 @@ defmodule AWS.Glue do
       
       list_data_quality_rulesets_response() :: %{
         "NextToken" => String.t(),
-        "Rulesets" => list(data_quality_ruleset_list_details()())
+        "Rulesets" => list(data_quality_ruleset_list_details())
       }
       
   """
@@ -2243,7 +2243,7 @@ defmodule AWS.Glue do
       
       integration_filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2333,7 +2333,7 @@ defmodule AWS.Glue do
       
       resume_workflow_run_request() :: %{
         required("Name") => String.t(),
-        required("NodeIds") => list(String.t()()),
+        required("NodeIds") => list(String.t()),
         required("RunId") => String.t()
       }
       
@@ -2366,8 +2366,8 @@ defmodule AWS.Glue do
   ## Example:
       
       get_column_statistics_for_partition_response() :: %{
-        "ColumnStatisticsList" => list(column_statistics()()),
-        "Errors" => list(column_error()())
+        "ColumnStatisticsList" => list(column_statistics()),
+        "Errors" => list(column_error())
       }
       
   """
@@ -2397,10 +2397,10 @@ defmodule AWS.Glue do
         "ContainsHeader" => list(any()),
         "CreationTime" => non_neg_integer(),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()()),
+        "CustomDatatypes" => list(String.t()),
         "Delimiter" => String.t(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()()),
+        "Header" => list(String.t()),
         "LastUpdated" => non_neg_integer(),
         "Name" => String.t(),
         "QuoteSymbol" => String.t(),
@@ -2417,7 +2417,7 @@ defmodule AWS.Glue do
       
       list_schema_versions_response() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(schema_version_list_item()())
+        "Schemas" => list(schema_version_list_item())
       }
       
   """
@@ -2463,7 +2463,7 @@ defmodule AWS.Glue do
       
       oracle_s_q_l_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Table" => String.t()
       }
@@ -2526,7 +2526,7 @@ defmodule AWS.Glue do
       
       get_workflow_runs_response() :: %{
         "NextToken" => String.t(),
-        "Runs" => list(workflow_run()())
+        "Runs" => list(workflow_run())
       }
       
   """
@@ -2553,7 +2553,7 @@ defmodule AWS.Glue do
   ## Example:
       
       describe_inbound_integrations_response() :: %{
-        "InboundIntegrations" => list(inbound_integration()()),
+        "InboundIntegrations" => list(inbound_integration()),
         "Marker" => String.t()
       }
       
@@ -2587,7 +2587,7 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_sort_order() :: %{
-        "Fields" => list(iceberg_sort_field()()),
+        "Fields" => list(iceberg_sort_field()),
         "OrderId" => integer()
       }
       
@@ -2643,10 +2643,10 @@ defmodule AWS.Glue do
       
       dynamic_transform() :: %{
         "FunctionName" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Parameters" => list(transform_config_parameter()()),
+        "OutputSchemas" => list(glue_schema()),
+        "Parameters" => list(transform_config_parameter()),
         "Path" => String.t(),
         "TransformName" => String.t(),
         "Version" => String.t()
@@ -2685,14 +2685,14 @@ defmodule AWS.Glue do
       s3_parquet_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "GroupFiles" => String.t(),
         "GroupSize" => String.t(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()()),
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t()),
         "Recurse" => boolean()
       }
       
@@ -2737,8 +2737,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_dev_endpoints_response() :: %{
-        "DevEndpoints" => list(dev_endpoint()()),
-        "DevEndpointsNotFound" => list(String.t()())
+        "DevEndpoints" => list(dev_endpoint()),
+        "DevEndpointsNotFound" => list(String.t())
       }
       
   """
@@ -2841,7 +2841,7 @@ defmodule AWS.Glue do
   ## Example:
       
       crawler_node_details() :: %{
-        "Crawls" => list(crawl()())
+        "Crawls" => list(crawl())
       }
       
   """
@@ -2854,10 +2854,10 @@ defmodule AWS.Glue do
       s3_direct_target() :: %{
         "Compression" => String.t(),
         "Format" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -2883,7 +2883,7 @@ defmodule AWS.Glue do
       
       get_entity_records_response() :: %{
         "NextToken" => String.t(),
-        "Records" => list(any()())
+        "Records" => list(any())
       }
       
   """
@@ -2909,7 +2909,7 @@ defmodule AWS.Glue do
         optional("CatalogId") => String.t(),
         optional("Name") => String.t(),
         optional("OpenTableFormatInput") => open_table_format_input(),
-        optional("PartitionIndexes") => list(partition_index()()),
+        optional("PartitionIndexes") => list(partition_index()),
         optional("TransactionId") => String.t(),
         required("DatabaseName") => String.t(),
         required("TableInput") => table_input()
@@ -2966,7 +2966,7 @@ defmodule AWS.Glue do
         optional("FilterPredicate") => String.t(),
         optional("NextToken") => String.t(),
         optional("OrderBy") => [String.t()],
-        optional("SelectedFields") => list(String.t()()),
+        optional("SelectedFields") => list(String.t()),
         required("EntityName") => String.t(),
         required("Limit") => float()
       }
@@ -3002,7 +3002,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_data_quality_statistic_annotations_response() :: %{
-        "Annotations" => list(statistic_annotation()()),
+        "Annotations" => list(statistic_annotation()),
         "NextToken" => String.t()
       }
       
@@ -3037,7 +3037,7 @@ defmodule AWS.Glue do
         optional("Timeout") => integer(),
         optional("TransformEncryption") => transform_encryption(),
         optional("WorkerType") => list(any()),
-        required("InputRecordTables") => list(glue_table()()),
+        required("InputRecordTables") => list(glue_table()),
         required("Name") => String.t(),
         required("Parameters") => transform_parameters(),
         required("Role") => String.t()
@@ -3051,7 +3051,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_connection_types_response() :: %{
-        "ConnectionTypes" => list(connection_type_brief()()),
+        "ConnectionTypes" => list(connection_type_brief()),
         "NextToken" => String.t()
       }
       
@@ -3063,10 +3063,10 @@ defmodule AWS.Glue do
   ## Example:
       
       partition_index_descriptor() :: %{
-        "BackfillErrors" => list(backfill_error()()),
+        "BackfillErrors" => list(backfill_error()),
         "IndexName" => String.t(),
         "IndexStatus" => list(any()),
-        "Keys" => list(key_schema_element()())
+        "Keys" => list(key_schema_element())
       }
       
   """
@@ -3092,10 +3092,10 @@ defmodule AWS.Glue do
         "PrivateAddress" => String.t(),
         "PublicAddress" => String.t(),
         "PublicKey" => String.t(),
-        "PublicKeys" => list(String.t()()),
+        "PublicKeys" => list(String.t()),
         "RoleArn" => String.t(),
         "SecurityConfiguration" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "Status" => String.t(),
         "SubnetId" => String.t(),
         "VpcId" => String.t(),
@@ -3143,7 +3143,7 @@ defmodule AWS.Glue do
         "LastModifiedAfter" => non_neg_integer(),
         "LastModifiedBefore" => non_neg_integer(),
         "Name" => String.t(),
-        "Schema" => list(schema_column()()),
+        "Schema" => list(schema_column()),
         "Status" => list(any()),
         "TransformType" => list(any())
       }
@@ -3156,9 +3156,9 @@ defmodule AWS.Glue do
   ## Example:
       
       aggregate() :: %{
-        "Aggs" => list(aggregate_operation()()),
-        "Groups" => list(list(String.t()())()),
-        "Inputs" => list(String.t()()),
+        "Aggs" => list(aggregate_operation()),
+        "Groups" => list(list(String.t())()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -3190,7 +3190,7 @@ defmodule AWS.Glue do
         "Parameters" => map(),
         "StorageDescriptor" => storage_descriptor(),
         "TableName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -3240,7 +3240,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_jobs_request() :: %{
-        required("JobNames") => list(String.t()())
+        required("JobNames") => list(String.t())
       }
       
   """
@@ -3253,9 +3253,9 @@ defmodule AWS.Glue do
       s3_hudi_catalog_target() :: %{
         "AdditionalOptions" => map(),
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
       }
@@ -3276,9 +3276,9 @@ defmodule AWS.Glue do
         "ExecutionTime" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "NumberOfWorkers" => integer(),
-        "ResultIds" => list(String.t()()),
+        "ResultIds" => list(String.t()),
         "Role" => String.t(),
-        "RulesetNames" => list(String.t()()),
+        "RulesetNames" => list(String.t()),
         "RunId" => String.t(),
         "StartedOn" => non_neg_integer(),
         "Status" => list(any()),
@@ -3337,7 +3337,7 @@ defmodule AWS.Glue do
   ## Example:
       
       code_gen_node() :: %{
-        "Args" => list(code_gen_node_arg()()),
+        "Args" => list(code_gen_node_arg()),
         "Id" => String.t(),
         "LineNumber" => integer(),
         "NodeType" => String.t()
@@ -3366,7 +3366,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_triggers_request() :: %{
-        required("TriggerNames") => list(String.t()())
+        required("TriggerNames") => list(String.t())
       }
       
   """
@@ -3389,7 +3389,7 @@ defmodule AWS.Glue do
       
       query_schema_version_metadata_input() :: %{
         optional("MaxResults") => integer(),
-        optional("MetadataList") => list(metadata_key_value_pair()()),
+        optional("MetadataList") => list(metadata_key_value_pair()),
         optional("NextToken") => String.t(),
         optional("SchemaId") => schema_id(),
         optional("SchemaVersionId") => String.t(),
@@ -3419,7 +3419,7 @@ defmodule AWS.Glue do
       
       get_data_quality_model_result_response() :: %{
         "CompletedOn" => non_neg_integer(),
-        "Model" => list(statistic_model_result()())
+        "Model" => list(statistic_model_result())
       }
       
   """
@@ -3443,7 +3443,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_jobs_response() :: %{
-        "JobNames" => list(String.t()()),
+        "JobNames" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -3572,7 +3572,7 @@ defmodule AWS.Glue do
       
       join_column() :: %{
         "From" => String.t(),
-        "Keys" => list(list(String.t()())())
+        "Keys" => list(list(String.t())())
       }
       
   """
@@ -3586,8 +3586,8 @@ defmodule AWS.Glue do
         optional("AdditionalPlanOptionsMap") => map(),
         optional("Language") => list(any()),
         optional("Location") => location(),
-        optional("Sinks") => list(catalog_entry()()),
-        required("Mapping") => list(mapping_entry()()),
+        optional("Sinks") => list(catalog_entry()),
+        required("Mapping") => list(mapping_entry()),
         required("Source") => catalog_entry()
       }
       
@@ -3638,7 +3638,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_connections_response() :: %{
-        "ConnectionList" => list(connection()()),
+        "ConnectionList" => list(connection()),
         "NextToken" => String.t()
       }
       
@@ -3752,7 +3752,7 @@ defmodule AWS.Glue do
   ## Example:
       
       describe_entity_response() :: %{
-        "Fields" => list(field()()),
+        "Fields" => list(field()),
         "NextToken" => String.t()
       }
       
@@ -3816,7 +3816,7 @@ defmodule AWS.Glue do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagsToRemove") => list(String.t()())
+        required("TagsToRemove") => list(String.t())
       }
       
   """
@@ -3892,7 +3892,7 @@ defmodule AWS.Glue do
   ## Example:
       
       target_table_config() :: %{
-        "PartitionSpec" => list(integration_partition()()),
+        "PartitionSpec" => list(integration_partition()),
         "TargetTableName" => String.t(),
         "UnnestSpec" => list(any())
       }
@@ -3906,7 +3906,7 @@ defmodule AWS.Glue do
       
       status_details() :: %{
         "RequestedChange" => table(),
-        "ViewValidations" => list(view_validation()())
+        "ViewValidations" => list(view_validation())
       }
       
   """
@@ -3918,7 +3918,7 @@ defmodule AWS.Glue do
       
       list_data_quality_ruleset_evaluation_runs_response() :: %{
         "NextToken" => String.t(),
-        "Runs" => list(data_quality_ruleset_evaluation_run_description()())
+        "Runs" => list(data_quality_ruleset_evaluation_run_description())
       }
       
   """
@@ -3942,7 +3942,7 @@ defmodule AWS.Glue do
       amazon_redshift_node_data() :: %{
         "AccessType" => String.t(),
         "Action" => String.t(),
-        "AdvancedOptions" => list(amazon_redshift_advanced_option()()),
+        "AdvancedOptions" => list(amazon_redshift_advanced_option()),
         "CatalogDatabase" => option(),
         "CatalogRedshiftSchema" => String.t(),
         "CatalogRedshiftTable" => String.t(),
@@ -3958,12 +3958,12 @@ defmodule AWS.Glue do
         "PreAction" => String.t(),
         "SampleQuery" => String.t(),
         "Schema" => option(),
-        "SelectedColumns" => list(option()()),
+        "SelectedColumns" => list(option()),
         "SourceType" => String.t(),
         "StagingTable" => String.t(),
         "Table" => option(),
         "TablePrefix" => String.t(),
-        "TableSchema" => list(option()()),
+        "TableSchema" => list(option()),
         "TempDir" => String.t(),
         "Upsert" => boolean()
       }
@@ -4023,7 +4023,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_custom_entity_types_response() :: %{
-        "CustomEntityTypes" => list(custom_entity_type()()),
+        "CustomEntityTypes" => list(custom_entity_type()),
         "NextToken" => String.t()
       }
       
@@ -4050,7 +4050,7 @@ defmodule AWS.Glue do
         "Capabilities" => capabilities(),
         "Categories" => list([String.t()]()),
         "ConnectionType" => list(any()),
-        "ConnectionTypeVariants" => list(connection_type_variant()()),
+        "ConnectionTypeVariants" => list(connection_type_variant()),
         "Description" => String.t(),
         "DisplayName" => String.t(),
         "LogoUrl" => String.t(),
@@ -4100,7 +4100,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_jobs_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextToken" => String.t()
       }
       
@@ -4127,7 +4127,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_put_data_quality_statistic_annotation_response() :: %{
-        "FailedInclusionAnnotations" => list(annotation_error()())
+        "FailedInclusionAnnotations" => list(annotation_error())
       }
       
   """
@@ -4149,7 +4149,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_blueprint_runs_response() :: %{
-        "BlueprintRuns" => list(blueprint_run()()),
+        "BlueprintRuns" => list(blueprint_run()),
         "NextToken" => String.t()
       }
       
@@ -4195,7 +4195,7 @@ defmodule AWS.Glue do
       j_db_c_connector_options() :: %{
         "DataTypeMapping" => map(),
         "FilterPredicate" => String.t(),
-        "JobBookmarkKeys" => list(String.t()()),
+        "JobBookmarkKeys" => list(String.t()),
         "JobBookmarkKeysSortOrder" => String.t(),
         "LowerBound" => float(),
         "NumPartitions" => float(),
@@ -4234,9 +4234,9 @@ defmodule AWS.Glue do
   ## Example:
       
       select_fields() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "Paths" => list(list(String.t()())())
+        "Paths" => list(list(String.t())())
       }
       
   """
@@ -4283,7 +4283,7 @@ defmodule AWS.Glue do
       
       batch_delete_connection_request() :: %{
         optional("CatalogId") => String.t(),
-        required("ConnectionNameList") => list(String.t()())
+        required("ConnectionNameList") => list(String.t())
       }
       
   """
@@ -4307,8 +4307,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_workflows_response() :: %{
-        "MissingWorkflows" => list(String.t()()),
-        "Workflows" => list(workflow()())
+        "MissingWorkflows" => list(String.t()),
+        "Workflows" => list(workflow())
       }
       
   """
@@ -4344,7 +4344,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_databases_response() :: %{
-        "DatabaseList" => list(database()()),
+        "DatabaseList" => list(database()),
         "NextToken" => String.t()
       }
       
@@ -4387,7 +4387,7 @@ defmodule AWS.Glue do
       
       filter_value() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
       
   """
@@ -4408,7 +4408,7 @@ defmodule AWS.Glue do
       
       batch_get_workflows_request() :: %{
         optional("IncludeGraph") => boolean(),
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -4464,7 +4464,7 @@ defmodule AWS.Glue do
       
       list_data_quality_rule_recommendation_runs_response() :: %{
         "NextToken" => String.t(),
-        "Runs" => list(data_quality_rule_recommendation_run_description()())
+        "Runs" => list(data_quality_rule_recommendation_run_description())
       }
       
   """
@@ -4562,7 +4562,7 @@ defmodule AWS.Glue do
   ## Example:
       
       create_custom_entity_type_request() :: %{
-        optional("ContextWords") => list(String.t()()),
+        optional("ContextWords") => list(String.t()),
         optional("Tags") => map(),
         required("Name") => String.t(),
         required("RegexString") => String.t()
@@ -4592,7 +4592,7 @@ defmodule AWS.Glue do
         optional("Region") => String.t(),
         required("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("SupportedPermissionTypes") => list(list(any())()),
         required("TableName") => String.t()
       }
@@ -4639,7 +4639,7 @@ defmodule AWS.Glue do
       
       find_matches_metrics() :: %{
         "AreaUnderPRCurve" => float(),
-        "ColumnImportances" => list(column_importance()()),
+        "ColumnImportances" => list(column_importance()),
         "ConfusionMatrix" => confusion_matrix(),
         "F1" => float(),
         "Precision" => float(),
@@ -4656,7 +4656,7 @@ defmodule AWS.Glue do
       s3_json_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "GroupFiles" => String.t(),
         "GroupSize" => String.t(),
         "JsonPath" => String.t(),
@@ -4664,8 +4664,8 @@ defmodule AWS.Glue do
         "MaxFilesInBand" => integer(),
         "Multiline" => boolean(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()()),
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t()),
         "Recurse" => boolean()
       }
       
@@ -4770,7 +4770,7 @@ defmodule AWS.Glue do
         "NumberOfWorkers" => integer(),
         "RoleArn" => String.t(),
         "SecurityConfiguration" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "Status" => String.t(),
         "SubnetId" => String.t(),
         "VpcId" => String.t(),
@@ -4787,8 +4787,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_custom_entity_types_response() :: %{
-        "CustomEntityTypes" => list(custom_entity_type()()),
-        "CustomEntityTypesNotFound" => list(String.t()())
+        "CustomEntityTypes" => list(custom_entity_type()),
+        "CustomEntityTypesNotFound" => list(String.t())
       }
       
   """
@@ -4811,7 +4811,7 @@ defmodule AWS.Glue do
       
       list_statements_response() :: %{
         "NextToken" => String.t(),
-        "Statements" => list(statement()())
+        "Statements" => list(statement())
       }
       
   """
@@ -4881,7 +4881,7 @@ defmodule AWS.Glue do
       
       get_partition_indexes_response() :: %{
         "NextToken" => String.t(),
-        "PartitionIndexDescriptorList" => list(partition_index_descriptor()())
+        "PartitionIndexDescriptorList" => list(partition_index_descriptor())
       }
       
   """
@@ -4921,7 +4921,7 @@ defmodule AWS.Glue do
       upsert_redshift_target_options() :: %{
         "ConnectionName" => String.t(),
         "TableLocation" => String.t(),
-        "UpsertKeys" => list(String.t()())
+        "UpsertKeys" => list(String.t())
       }
       
   """
@@ -4958,8 +4958,8 @@ defmodule AWS.Glue do
         "AdditionalHudiOptions" => map(),
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()())
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t())
       }
       
   """
@@ -4994,10 +4994,10 @@ defmodule AWS.Glue do
         "AdditionalOptions" => map(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -5012,7 +5012,7 @@ defmodule AWS.Glue do
       jdbc_target() :: %{
         "ConnectionName" => String.t(),
         "EnableAdditionalMetadata" => list(list(any())()),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "Path" => String.t()
       }
       
@@ -5026,7 +5026,7 @@ defmodule AWS.Glue do
       batch_get_blueprints_request() :: %{
         optional("IncludeBlueprint") => boolean(),
         optional("IncludeParameterSpec") => boolean(),
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -5050,7 +5050,7 @@ defmodule AWS.Glue do
       fill_missing_values() :: %{
         "FilledPath" => String.t(),
         "ImputedPath" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -5063,7 +5063,7 @@ defmodule AWS.Glue do
       
       get_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t(),
-        required("ColumnNames") => list(String.t()()),
+        required("ColumnNames") => list(String.t()),
         required("DatabaseName") => String.t(),
         required("TableName") => String.t()
       }
@@ -5111,9 +5111,9 @@ defmodule AWS.Glue do
   ## Example:
       
       list_sessions_response() :: %{
-        "Ids" => list(String.t()()),
+        "Ids" => list(String.t()),
         "NextToken" => String.t(),
-        "Sessions" => list(session()())
+        "Sessions" => list(session())
       }
       
   """
@@ -5144,7 +5144,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_custom_entity_types_request() :: %{
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -5200,7 +5200,7 @@ defmodule AWS.Glue do
       
       redshift_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "RedshiftTmpDir" => String.t(),
         "Table" => String.t(),
@@ -5219,7 +5219,7 @@ defmodule AWS.Glue do
         "AdditionalHudiOptions" => map(),
         "Database" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "Table" => String.t()
       }
       
@@ -5253,7 +5253,7 @@ defmodule AWS.Glue do
   ## Example:
       
       configuration_object() :: %{
-        "AllowedValues" => list(String.t()()),
+        "AllowedValues" => list(String.t()),
         "DefaultValue" => String.t(),
         "MaxValue" => String.t(),
         "MinValue" => String.t()
@@ -5267,7 +5267,7 @@ defmodule AWS.Glue do
   ## Example:
       
       partition_value_list() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -5301,7 +5301,7 @@ defmodule AWS.Glue do
       
       backfill_error() :: %{
         "Code" => list(any()),
-        "Partitions" => list(partition_value_list()())
+        "Partitions" => list(partition_value_list())
       }
       
   """
@@ -5313,9 +5313,9 @@ defmodule AWS.Glue do
       
       governed_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
       }
@@ -5339,7 +5339,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_column_statistics_task_runs_response() :: %{
-        "ColumnStatisticsTaskRunIds" => list(String.t()()),
+        "ColumnStatisticsTaskRunIds" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -5408,7 +5408,7 @@ defmodule AWS.Glue do
       
       batch_stop_job_run_request() :: %{
         required("JobName") => String.t(),
-        required("JobRunIds") => list(String.t()())
+        required("JobRunIds") => list(String.t())
       }
       
   """
@@ -5420,7 +5420,7 @@ defmodule AWS.Glue do
       
       batch_delete_connection_response() :: %{
         "Errors" => map(),
-        "Succeeded" => list(String.t()())
+        "Succeeded" => list(String.t())
       }
       
   """
@@ -5461,7 +5461,7 @@ defmodule AWS.Glue do
       
       batch_put_data_quality_statistic_annotation_request() :: %{
         optional("ClientToken") => String.t(),
-        required("InclusionAnnotations") => list(datapoint_inclusion_annotation()())
+        required("InclusionAnnotations") => list(datapoint_inclusion_annotation())
       }
       
   """
@@ -5546,7 +5546,7 @@ defmodule AWS.Glue do
   ## Example:
       
       update_iceberg_table_input() :: %{
-        "Updates" => list(iceberg_table_update()())
+        "Updates" => list(iceberg_table_update())
       }
       
   """
@@ -5580,7 +5580,7 @@ defmodule AWS.Glue do
         optional("CatalogId") => String.t(),
         required("ColumnName") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -5710,10 +5710,10 @@ defmodule AWS.Glue do
         "AdditionalOptions" => map(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -5829,7 +5829,7 @@ defmodule AWS.Glue do
       batch_get_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionsToGet") => list(partition_value_list()()),
+        required("PartitionsToGet") => list(partition_value_list()),
         required("TableName") => String.t()
       }
       
@@ -5841,8 +5841,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_partition_response() :: %{
-        "Partitions" => list(partition()()),
-        "UnprocessedKeys" => list(partition_value_list()())
+        "Partitions" => list(partition()),
+        "UnprocessedKeys" => list(partition_value_list())
       }
       
   """
@@ -5890,7 +5890,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_mapping_response() :: %{
-        "Mapping" => list(mapping_entry()())
+        "Mapping" => list(mapping_entry())
       }
       
   """
@@ -5901,8 +5901,8 @@ defmodule AWS.Glue do
   ## Example:
       
       get_dataflow_graph_response() :: %{
-        "DagEdges" => list(code_gen_edge()()),
-        "DagNodes" => list(code_gen_node()())
+        "DagEdges" => list(code_gen_edge()),
+        "DagNodes" => list(code_gen_node())
       }
       
   """
@@ -5924,7 +5924,7 @@ defmodule AWS.Glue do
       metric_based_observation() :: %{
         "MetricName" => String.t(),
         "MetricValues" => data_quality_metric_values(),
-        "NewRules" => list(String.t()()),
+        "NewRules" => list(String.t()),
         "StatisticId" => String.t()
       }
       
@@ -5972,7 +5972,7 @@ defmodule AWS.Glue do
         "LastConnectionValidationTime" => non_neg_integer(),
         "LastUpdatedBy" => String.t(),
         "LastUpdatedTime" => non_neg_integer(),
-        "MatchCriteria" => list(String.t()()),
+        "MatchCriteria" => list(String.t()),
         "Name" => String.t(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
         "PythonProperties" => map(),
@@ -6014,7 +6014,7 @@ defmodule AWS.Glue do
       get_connections_filter() :: %{
         "ConnectionSchemaVersion" => integer(),
         "ConnectionType" => list(any()),
-        "MatchCriteria" => list(String.t()())
+        "MatchCriteria" => list(String.t())
       }
       
   """
@@ -6028,7 +6028,7 @@ defmodule AWS.Glue do
         "ConnectionName" => String.t(),
         "DlqEventQueueArn" => String.t(),
         "EventQueueArn" => String.t(),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "Path" => String.t(),
         "SampleSize" => integer()
       }
@@ -6103,8 +6103,8 @@ defmodule AWS.Glue do
   ## Example:
       
       workflow_graph() :: %{
-        "Edges" => list(edge()()),
-        "Nodes" => list(glue_node()())
+        "Edges" => list(edge()),
+        "Nodes" => list(node())
       }
       
   """
@@ -6174,7 +6174,7 @@ defmodule AWS.Glue do
       delete_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -6210,9 +6210,9 @@ defmodule AWS.Glue do
       
       get_column_statistics_for_partition_request() :: %{
         optional("CatalogId") => String.t(),
-        required("ColumnNames") => list(String.t()()),
+        required("ColumnNames") => list(String.t()),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -6224,7 +6224,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_dev_endpoints_request() :: %{
-        required("DevEndpointNames") => list(String.t()())
+        required("DevEndpointNames") => list(String.t())
       }
       
   """
@@ -6285,8 +6285,8 @@ defmodule AWS.Glue do
   ## Example:
       
       join() :: %{
-        "Columns" => list(join_column()()),
-        "Inputs" => list(String.t()()),
+        "Columns" => list(join_column()),
+        "Inputs" => list(String.t()),
         "JoinType" => list(any()),
         "Name" => String.t()
       }
@@ -6301,7 +6301,7 @@ defmodule AWS.Glue do
       metadata_info() :: %{
         "CreatedTime" => String.t(),
         "MetadataValue" => String.t(),
-        "OtherMetadataValueList" => list(other_metadata_value_list_item()())
+        "OtherMetadataValueList" => list(other_metadata_value_list_item())
       }
       
   """
@@ -6337,7 +6337,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_job_runs_response() :: %{
-        "JobRuns" => list(job_run()()),
+        "JobRuns" => list(job_run()),
         "NextToken" => String.t()
       }
       
@@ -6382,7 +6382,7 @@ defmodule AWS.Glue do
       
       batch_update_partition_request_entry() :: %{
         "PartitionInput" => partition_input(),
-        "PartitionValueList" => list(String.t()())
+        "PartitionValueList" => list(String.t())
       }
       
   """
@@ -6449,9 +6449,9 @@ defmodule AWS.Glue do
       
       s3_hyper_direct_target() :: %{
         "Compression" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -6482,7 +6482,7 @@ defmodule AWS.Glue do
         "ConnectionType" => String.t(),
         "ConnectorName" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -6531,10 +6531,10 @@ defmodule AWS.Glue do
   ## Example:
       
       recipe() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "RecipeReference" => recipe_reference(),
-        "RecipeSteps" => list(recipe_step()())
+        "RecipeSteps" => list(recipe_step())
       }
       
   """
@@ -6720,7 +6720,7 @@ defmodule AWS.Glue do
   ## Example:
       
       update_crawler_request() :: %{
-        optional("Classifiers") => list(String.t()()),
+        optional("Classifiers") => list(String.t()),
         optional("Configuration") => String.t(),
         optional("CrawlerSecurityConfiguration") => String.t(),
         optional("DatabaseName") => String.t(),
@@ -6805,7 +6805,7 @@ defmodule AWS.Glue do
   ## Example:
       
       create_crawler_request() :: %{
-        optional("Classifiers") => list(String.t()()),
+        optional("Classifiers") => list(String.t()),
         optional("Configuration") => String.t(),
         optional("CrawlerSecurityConfiguration") => String.t(),
         optional("DatabaseName") => String.t(),
@@ -6843,7 +6843,7 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_schema_versions_response() :: %{
-        "SchemaVersionErrors" => list(schema_version_error_item()())
+        "SchemaVersionErrors" => list(schema_version_error_item())
       }
       
   """
@@ -6870,7 +6870,7 @@ defmodule AWS.Glue do
       
       select_from_collection() :: %{
         "Index" => integer(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -6892,10 +6892,10 @@ defmodule AWS.Glue do
       
       s3_glue_parquet_target() :: %{
         "Compression" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -6943,9 +6943,9 @@ defmodule AWS.Glue do
   ## Example:
       
       storage_descriptor() :: %{
-        "AdditionalLocations" => list(String.t()()),
-        "BucketColumns" => list(String.t()()),
-        "Columns" => list(column()()),
+        "AdditionalLocations" => list(String.t()),
+        "BucketColumns" => list(String.t()),
+        "Columns" => list(column()),
         "Compressed" => boolean(),
         "InputFormat" => String.t(),
         "Location" => String.t(),
@@ -6955,7 +6955,7 @@ defmodule AWS.Glue do
         "SchemaReference" => schema_reference(),
         "SerdeInfo" => ser_de_info(),
         "SkewedInfo" => skewed_info(),
-        "SortColumns" => list(order()()),
+        "SortColumns" => list(order()),
         "StoredAsSubDirectories" => boolean()
       }
       
@@ -7039,7 +7039,7 @@ defmodule AWS.Glue do
   ## Example:
       
       unfiltered_partition() :: %{
-        "AuthorizedColumns" => list(String.t()()),
+        "AuthorizedColumns" => list(String.t()),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Partition" => partition()
       }
@@ -7081,7 +7081,7 @@ defmodule AWS.Glue do
         "DatabaseName" => String.t(),
         "DlqEventQueueArn" => String.t(),
         "EventQueueArn" => String.t(),
-        "Tables" => list(String.t()())
+        "Tables" => list(String.t())
       }
       
   """
@@ -7129,7 +7129,7 @@ defmodule AWS.Glue do
       
       get_mapping_request() :: %{
         optional("Location") => location(),
-        optional("Sinks") => list(catalog_entry()()),
+        optional("Sinks") => list(catalog_entry()),
         required("Source") => catalog_entry()
       }
       
@@ -7176,8 +7176,8 @@ defmodule AWS.Glue do
       catalog_input() :: %{
         "AllowFullTableExternalDataAccess" => list(any()),
         "CatalogProperties" => catalog_properties(),
-        "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
-        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
         "Description" => String.t(),
         "FederatedCatalog" => federated_catalog(),
         "Parameters" => map(),
@@ -7192,9 +7192,9 @@ defmodule AWS.Glue do
   ## Example:
       
       source_table_config() :: %{
-        "Fields" => list(String.t()()),
+        "Fields" => list(String.t()),
         "FilterPredicate" => String.t(),
-        "PrimaryKey" => list(String.t()()),
+        "PrimaryKey" => list(String.t()),
         "RecordUpdateField" => String.t()
       }
       
@@ -7226,7 +7226,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_crawler_metrics_request() :: %{
-        optional("CrawlerNameList") => list(String.t()()),
+        optional("CrawlerNameList") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -7292,10 +7292,10 @@ defmodule AWS.Glue do
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()()),
+        "CustomDatatypes" => list(String.t()),
         "Delimiter" => String.t(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()()),
+        "Header" => list(String.t()),
         "Name" => String.t(),
         "QuoteSymbol" => String.t(),
         "Serde" => list(any())
@@ -7362,7 +7362,7 @@ defmodule AWS.Glue do
   ## Example:
       
       connections_list() :: %{
-        "Connections" => list(String.t()())
+        "Connections" => list(String.t())
       }
       
   """
@@ -7432,10 +7432,10 @@ defmodule AWS.Glue do
         "AllowSingleColumn" => boolean(),
         "ContainsHeader" => list(any()),
         "CustomDatatypeConfigured" => boolean(),
-        "CustomDatatypes" => list(String.t()()),
+        "CustomDatatypes" => list(String.t()),
         "Delimiter" => String.t(),
         "DisableValueTrimming" => boolean(),
-        "Header" => list(String.t()()),
+        "Header" => list(String.t()),
         "Name" => String.t(),
         "QuoteSymbol" => String.t(),
         "Serde" => list(any())
@@ -7452,7 +7452,7 @@ defmodule AWS.Glue do
         "AdditionalDeltaOptions" => map(),
         "Database" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "Table" => String.t()
       }
       
@@ -7491,9 +7491,9 @@ defmodule AWS.Glue do
   ## Example:
       
       location() :: %{
-        "DynamoDB" => list(code_gen_node_arg()()),
-        "Jdbc" => list(code_gen_node_arg()()),
-        "S3" => list(code_gen_node_arg()())
+        "DynamoDB" => list(code_gen_node_arg()),
+        "Jdbc" => list(code_gen_node_arg()),
+        "S3" => list(code_gen_node_arg())
       }
       
   """
@@ -7520,7 +7520,7 @@ defmodule AWS.Glue do
       filter_expression() :: %{
         "Negated" => boolean(),
         "Operation" => list(any()),
-        "Values" => list(filter_value()())
+        "Values" => list(filter_value())
       }
       
   """
@@ -7532,7 +7532,7 @@ defmodule AWS.Glue do
       
       search_tables_response() :: %{
         "NextToken" => String.t(),
-        "TableList" => list(table()())
+        "TableList" => list(table())
       }
       
   """
@@ -7561,7 +7561,7 @@ defmodule AWS.Glue do
         optional("StartOnCreation") => boolean(),
         optional("Tags") => map(),
         optional("WorkflowName") => String.t(),
-        required("Actions") => list(action()()),
+        required("Actions") => list(action()),
         required("Name") => String.t(),
         required("Type") => list(any())
       }
@@ -7654,7 +7654,7 @@ defmodule AWS.Glue do
       batch_update_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("Entries") => list(batch_update_partition_request_entry()()),
+        required("Entries") => list(batch_update_partition_request_entry()),
         required("TableName") => String.t()
       }
       
@@ -7795,11 +7795,11 @@ defmodule AWS.Glue do
         "PreAction" => String.t(),
         "SampleQuery" => String.t(),
         "Schema" => String.t(),
-        "SelectedColumns" => list(option()()),
+        "SelectedColumns" => list(option()),
         "SourceType" => String.t(),
         "StagingTable" => String.t(),
         "Table" => String.t(),
-        "TableSchema" => list(option()()),
+        "TableSchema" => list(option()),
         "TempDir" => String.t(),
         "Upsert" => boolean()
       }
@@ -7812,7 +7812,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_resource_policies_response() :: %{
-        "GetResourcePoliciesResponseList" => list(glue_policy()()),
+        "GetResourcePoliciesResponseList" => list(glue_policy()),
         "NextToken" => String.t()
       }
       
@@ -7826,8 +7826,8 @@ defmodule AWS.Glue do
       view_definition() :: %{
         "Definer" => String.t(),
         "IsProtected" => boolean(),
-        "Representations" => list(view_representation()()),
-        "SubObjects" => list(String.t()())
+        "Representations" => list(view_representation()),
+        "SubObjects" => list(String.t())
       }
       
   """
@@ -7850,8 +7850,8 @@ defmodule AWS.Glue do
   ## Example:
       
       filter() :: %{
-        "Filters" => list(filter_expression()()),
-        "Inputs" => list(String.t()()),
+        "Filters" => list(filter_expression()),
+        "Inputs" => list(String.t()),
         "LogicalOperator" => list(any()),
         "Name" => String.t()
       }
@@ -7921,9 +7921,9 @@ defmodule AWS.Glue do
       custom_code() :: %{
         "ClassName" => String.t(),
         "Code" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -8024,7 +8024,7 @@ defmodule AWS.Glue do
         "AdditionalDeltaOptions" => map(),
         "Database" => String.t(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
+        "OutputSchemas" => list(glue_schema()),
         "Table" => String.t()
       }
       
@@ -8049,7 +8049,7 @@ defmodule AWS.Glue do
       
       column_statistics_task_run() :: %{
         "CatalogID" => String.t(),
-        "ColumnNameList" => list(String.t()()),
+        "ColumnNameList" => list(String.t()),
         "ColumnStatisticsTaskRunId" => String.t(),
         "ComputationType" => list(any()),
         "CreationTime" => non_neg_integer(),
@@ -8084,7 +8084,7 @@ defmodule AWS.Glue do
         optional("Timeout") => integer(),
         required("DataSource") => data_source(),
         required("Role") => String.t(),
-        required("RulesetNames") => list(String.t()())
+        required("RulesetNames") => list(String.t())
       }
       
   """
@@ -8107,7 +8107,7 @@ defmodule AWS.Glue do
       
       list_ml_transforms_response() :: %{
         "NextToken" => String.t(),
-        "TransformIds" => list(String.t()())
+        "TransformIds" => list(String.t())
       }
       
   """
@@ -8177,7 +8177,7 @@ defmodule AWS.Glue do
       
       microsoft_s_q_l_server_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Table" => String.t()
       }
@@ -8269,7 +8269,7 @@ defmodule AWS.Glue do
         "ConnectionProperties" => map(),
         "ConnectionType" => list(any()),
         "Description" => String.t(),
-        "MatchCriteria" => list(String.t()()),
+        "MatchCriteria" => list(String.t()),
         "Name" => String.t(),
         "PhysicalConnectionRequirements" => physical_connection_requirements(),
         "PythonProperties" => map(),
@@ -8341,7 +8341,7 @@ defmodule AWS.Glue do
         optional("Description") => String.t(),
         optional("IntegrationConfig") => integration_config(),
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IntegrationName") => String.t(),
         required("SourceArn") => String.t(),
         required("TargetArn") => String.t()
@@ -8412,7 +8412,7 @@ defmodule AWS.Glue do
         "Description" => String.t(),
         "EvaluationMetrics" => evaluation_metrics(),
         "GlueVersion" => String.t(),
-        "InputRecordTables" => list(glue_table()()),
+        "InputRecordTables" => list(glue_table()),
         "LabelCount" => integer(),
         "LastModifiedOn" => non_neg_integer(),
         "MaxCapacity" => float(),
@@ -8421,7 +8421,7 @@ defmodule AWS.Glue do
         "NumberOfWorkers" => integer(),
         "Parameters" => transform_parameters(),
         "Role" => String.t(),
-        "Schema" => list(schema_column()()),
+        "Schema" => list(schema_column()),
         "Status" => list(any()),
         "Timeout" => integer(),
         "TransformEncryption" => transform_encryption(),
@@ -8450,7 +8450,7 @@ defmodule AWS.Glue do
       
       get_security_configurations_response() :: %{
         "NextToken" => String.t(),
-        "SecurityConfigurations" => list(security_configuration()())
+        "SecurityConfigurations" => list(security_configuration())
       }
       
   """
@@ -8481,7 +8481,7 @@ defmodule AWS.Glue do
   ## Example:
       
       trigger_update() :: %{
-        "Actions" => list(action()()),
+        "Actions" => list(action()),
         "Description" => String.t(),
         "EventBatchingCondition" => event_batching_condition(),
         "Name" => String.t(),
@@ -8516,7 +8516,7 @@ defmodule AWS.Glue do
       
       list_data_quality_statistics_response() :: %{
         "NextToken" => String.t(),
-        "Statistics" => list(statistic_summary()())
+        "Statistics" => list(statistic_summary())
       }
       
   """
@@ -8611,7 +8611,7 @@ defmodule AWS.Glue do
         "ConnectionType" => String.t(),
         "Data" => map(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -8658,9 +8658,9 @@ defmodule AWS.Glue do
       s3_delta_catalog_target() :: %{
         "AdditionalOptions" => map(),
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "SchemaChangePolicy" => catalog_schema_change_policy(),
         "Table" => String.t()
       }
@@ -8722,7 +8722,7 @@ defmodule AWS.Glue do
       
       physical_connection_requirements() :: %{
         "AvailabilityZone" => String.t(),
-        "SecurityGroupIdList" => list(String.t()()),
+        "SecurityGroupIdList" => list(String.t()),
         "SubnetId" => String.t()
       }
       
@@ -8818,7 +8818,7 @@ defmodule AWS.Glue do
         "FunctionName" => String.t(),
         "OwnerName" => String.t(),
         "OwnerType" => list(any()),
-        "ResourceUris" => list(resource_uri()())
+        "ResourceUris" => list(resource_uri())
       }
       
   """
@@ -8829,7 +8829,7 @@ defmodule AWS.Glue do
   ## Example:
       
       update_column_statistics_for_partition_response() :: %{
-        "Errors" => list(column_statistics_error()())
+        "Errors" => list(column_statistics_error())
       }
       
   """
@@ -8865,7 +8865,7 @@ defmodule AWS.Glue do
       
       my_s_q_l_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Table" => String.t()
       }
@@ -8944,7 +8944,7 @@ defmodule AWS.Glue do
       
       list_registries_response() :: %{
         "NextToken" => String.t(),
-        "Registries" => list(registry_list_item()())
+        "Registries" => list(registry_list_item())
       }
       
   """
@@ -8968,8 +8968,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_jobs_response() :: %{
-        "Jobs" => list(job()()),
-        "JobsNotFound" => list(String.t()())
+        "Jobs" => list(job()),
+        "JobsNotFound" => list(String.t())
       }
       
   """
@@ -9040,7 +9040,7 @@ defmodule AWS.Glue do
       
       recipe_step() :: %{
         "Action" => recipe_action(),
-        "ConditionExpressions" => list(condition_expression()())
+        "ConditionExpressions" => list(condition_expression())
       }
       
   """
@@ -9054,8 +9054,8 @@ defmodule AWS.Glue do
         "AllowFullTableExternalDataAccess" => list(any()),
         "CatalogId" => String.t(),
         "CatalogProperties" => catalog_properties_output(),
-        "CreateDatabaseDefaultPermissions" => list(principal_permissions()()),
-        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateDatabaseDefaultPermissions" => list(principal_permissions()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
         "CreateTime" => non_neg_integer(),
         "Description" => String.t(),
         "FederatedCatalog" => federated_catalog(),
@@ -9109,7 +9109,7 @@ defmodule AWS.Glue do
   ## Example:
       
       job_node_details() :: %{
-        "JobRuns" => list(job_run()())
+        "JobRuns" => list(job_run())
       }
       
   """
@@ -9120,10 +9120,10 @@ defmodule AWS.Glue do
   ## Example:
       
       rename_field() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "SourcePath" => list(String.t()()),
-        "TargetPath" => list(String.t()())
+        "SourcePath" => list(String.t()),
+        "TargetPath" => list(String.t())
       }
       
   """
@@ -9182,7 +9182,7 @@ defmodule AWS.Glue do
       batch_delete_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionsToDelete") => list(partition_value_list()()),
+        required("PartitionsToDelete") => list(partition_value_list()),
         required("TableName") => String.t()
       }
       
@@ -9217,8 +9217,8 @@ defmodule AWS.Glue do
         "AdditionalDeltaOptions" => map(),
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()())
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t())
       }
       
   """
@@ -9229,7 +9229,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_column_statistics_task_runs_response() :: %{
-        "ColumnStatisticsTaskRuns" => list(column_statistics_task_run()()),
+        "ColumnStatisticsTaskRuns" => list(column_statistics_task_run()),
         "NextToken" => String.t()
       }
       
@@ -9266,7 +9266,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_delete_table_response() :: %{
-        "Errors" => list(table_error()())
+        "Errors" => list(table_error())
       }
       
   """
@@ -9297,7 +9297,7 @@ defmodule AWS.Glue do
         "Name" => String.t(),
         "Owner" => String.t(),
         "Parameters" => map(),
-        "PartitionKeys" => list(column()()),
+        "PartitionKeys" => list(column()),
         "Retention" => integer(),
         "StorageDescriptor" => storage_descriptor(),
         "TableType" => String.t(),
@@ -9328,7 +9328,7 @@ defmodule AWS.Glue do
       
       create_column_statistics_task_settings_request() :: %{
         optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()()),
+        optional("ColumnNameList") => list(String.t()),
         optional("SampleSize") => float(),
         optional("Schedule") => String.t(),
         optional("SecurityConfiguration") => String.t(),
@@ -9347,7 +9347,7 @@ defmodule AWS.Glue do
       
       get_ml_task_runs_response() :: %{
         "NextToken" => String.t(),
-        "TaskRuns" => list(task_run()())
+        "TaskRuns" => list(task_run())
       }
       
   """
@@ -9378,7 +9378,7 @@ defmodule AWS.Glue do
       delta_target() :: %{
         "ConnectionName" => String.t(),
         "CreateNativeDeltaTable" => boolean(),
-        "DeltaTables" => list(String.t()()),
+        "DeltaTables" => list(String.t()),
         "WriteManifest" => boolean()
       }
       
@@ -9405,7 +9405,7 @@ defmodule AWS.Glue do
         "Type" => list(any()),
         "ValidationMessage" => String.t(),
         "ValidationRule" => String.t(),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
       
   """
@@ -9495,7 +9495,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_crawls_response() :: %{
-        "Crawls" => list(crawler_history()()),
+        "Crawls" => list(crawler_history()),
         "NextToken" => String.t()
       }
       
@@ -9545,7 +9545,7 @@ defmodule AWS.Glue do
         "LastAnalyzedTime" => non_neg_integer(),
         "Parameters" => map(),
         "StorageDescriptor" => storage_descriptor(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -9556,7 +9556,7 @@ defmodule AWS.Glue do
   ## Example:
       
       describe_integrations_request() :: %{
-        optional("Filters") => list(integration_filter()()),
+        optional("Filters") => list(integration_filter()),
         optional("IntegrationIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -9570,7 +9570,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_update_partition_response() :: %{
-        "Errors" => list(batch_update_partition_failure_entry()())
+        "Errors" => list(batch_update_partition_failure_entry())
       }
       
   """
@@ -9581,7 +9581,7 @@ defmodule AWS.Glue do
   ## Example:
       
       describe_integrations_response() :: %{
-        "Integrations" => list(integration()()),
+        "Integrations" => list(integration()),
         "Marker" => String.t()
       }
       
@@ -9619,8 +9619,8 @@ defmodule AWS.Glue do
   ## Example:
       
       p_i_idetection() :: %{
-        "EntityTypesToDetect" => list(String.t()()),
-        "Inputs" => list(String.t()()),
+        "EntityTypesToDetect" => list(String.t()),
+        "Inputs" => list(String.t()),
         "MaskValue" => String.t(),
         "Name" => String.t(),
         "OutputColumnName" => String.t(),
@@ -9638,7 +9638,7 @@ defmodule AWS.Glue do
       
       aggregate_operation() :: %{
         "AggFunc" => list(any()),
-        "Column" => list(String.t()())
+        "Column" => list(String.t())
       }
       
   """
@@ -9694,8 +9694,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_crawlers_response() :: %{
-        "Crawlers" => list(crawler()()),
-        "CrawlersNotFound" => list(String.t()())
+        "Crawlers" => list(crawler()),
+        "CrawlersNotFound" => list(String.t())
       }
       
   """
@@ -9719,7 +9719,7 @@ defmodule AWS.Glue do
       snowflake_source() :: %{
         "Data" => snowflake_node_data(),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -9731,16 +9731,16 @@ defmodule AWS.Glue do
       
       data_quality_result() :: %{
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
-        "AnalyzerResults" => list(data_quality_analyzer_result()()),
+        "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
         "DataSource" => data_source(),
         "EvaluationContext" => String.t(),
         "JobName" => String.t(),
         "JobRunId" => String.t(),
-        "Observations" => list(data_quality_observation()()),
+        "Observations" => list(data_quality_observation()),
         "ProfileId" => String.t(),
         "ResultId" => String.t(),
-        "RuleResults" => list(data_quality_rule_result()()),
+        "RuleResults" => list(data_quality_rule_result()),
         "RulesetEvaluationRunId" => String.t(),
         "RulesetName" => String.t(),
         "Score" => float(),
@@ -9755,10 +9755,10 @@ defmodule AWS.Glue do
   ## Example:
       
       drop_null_fields() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NullCheckBoxList" => null_check_box_list(),
-        "NullTextList" => list(null_value_field()())
+        "NullTextList" => list(null_value_field())
       }
       
   """
@@ -9804,7 +9804,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_catalogs_response() :: %{
-        "CatalogList" => list(catalog()()),
+        "CatalogList" => list(catalog()),
         "NextToken" => String.t()
       }
       
@@ -9829,7 +9829,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_crawls_request() :: %{
-        optional("Filters") => list(crawls_filter()()),
+        optional("Filters") => list(crawls_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("CrawlerName") => String.t()
@@ -9906,7 +9906,7 @@ defmodule AWS.Glue do
       audit_context() :: %{
         "AdditionalAuditContext" => String.t(),
         "AllColumnsRequested" => boolean(),
-        "RequestedColumns" => list(String.t()())
+        "RequestedColumns" => list(String.t())
       }
       
   """
@@ -10030,7 +10030,7 @@ defmodule AWS.Glue do
       connector_data_target() :: %{
         "ConnectionType" => String.t(),
         "Data" => map(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -10042,7 +10042,7 @@ defmodule AWS.Glue do
   ## Example:
       
       property() :: %{
-        "AllowedValues" => list(allowed_value()()),
+        "AllowedValues" => list(allowed_value()),
         "DataOperationScopes" => list(list(any())()),
         "DefaultValue" => [String.t()],
         "Description" => String.t(),
@@ -10193,7 +10193,7 @@ defmodule AWS.Glue do
   ## Example:
       
       evaluate_data_quality() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Output" => list(any()),
         "PublishingOptions" => d_q_results_publishing_options(),
@@ -10236,9 +10236,9 @@ defmodule AWS.Glue do
         optional("NumberOfNodes") => integer(),
         optional("NumberOfWorkers") => integer(),
         optional("PublicKey") => String.t(),
-        optional("PublicKeys") => list(String.t()()),
+        optional("PublicKeys") => list(String.t()),
         optional("SecurityConfiguration") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SubnetId") => String.t(),
         optional("Tags") => map(),
         optional("WorkerType") => list(any()),
@@ -10288,7 +10288,7 @@ defmodule AWS.Glue do
       
       get_table_versions_response() :: %{
         "NextToken" => String.t(),
-        "TableVersions" => list(table_version()())
+        "TableVersions" => list(table_version())
       }
       
   """
@@ -10323,7 +10323,7 @@ defmodule AWS.Glue do
   ## Example:
       
       predicate() :: %{
-        "Conditions" => list(condition()()),
+        "Conditions" => list(condition()),
         "Logical" => list(any())
       }
       
@@ -10385,7 +10385,7 @@ defmodule AWS.Glue do
   ## Example:
       
       resume_workflow_run_response() :: %{
-        "NodeIds" => list(String.t()()),
+        "NodeIds" => list(String.t()),
         "RunId" => String.t()
       }
       
@@ -10447,7 +10447,7 @@ defmodule AWS.Glue do
       
       get_unfiltered_partitions_metadata_response() :: %{
         "NextToken" => String.t(),
-        "UnfilteredPartitions" => list(unfiltered_partition()())
+        "UnfilteredPartitions" => list(unfiltered_partition())
       }
       
   """
@@ -10493,7 +10493,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_data_quality_result_request() :: %{
-        required("ResultIds") => list(String.t()())
+        required("ResultIds") => list(String.t())
       }
       
   """
@@ -10520,13 +10520,13 @@ defmodule AWS.Glue do
       
       search_tables_request() :: %{
         optional("CatalogId") => String.t(),
-        optional("Filters") => list(property_predicate()()),
+        optional("Filters") => list(property_predicate()),
         optional("IncludeStatusDetails") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceShareType") => list(any()),
         optional("SearchText") => String.t(),
-        optional("SortCriteria") => list(sort_criterion()())
+        optional("SortCriteria") => list(sort_criterion())
       }
       
   """
@@ -10597,7 +10597,7 @@ defmodule AWS.Glue do
       
       get_partitions_response() :: %{
         "NextToken" => String.t(),
-        "Partitions" => list(partition()())
+        "Partitions" => list(partition())
       }
       
   """
@@ -10633,7 +10633,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_blueprints_response() :: %{
-        "Blueprints" => list(String.t()()),
+        "Blueprints" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -10748,10 +10748,10 @@ defmodule AWS.Glue do
         "AdditionalOptions" => map(),
         "Compression" => list(any()),
         "Format" => list(any()),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "NumberTargetPartitions" => String.t(),
-        "PartitionKeys" => list(list(String.t()())()),
+        "PartitionKeys" => list(list(String.t())()),
         "Path" => String.t(),
         "SchemaChangePolicy" => direct_schema_change_policy()
       }
@@ -10799,8 +10799,8 @@ defmodule AWS.Glue do
   ## Example:
       
       iceberg_schema() :: %{
-        "Fields" => list(iceberg_struct_field()()),
-        "IdentifierFieldIds" => list(integer()()),
+        "Fields" => list(iceberg_struct_field()),
+        "IdentifierFieldIds" => list(integer()),
         "SchemaId" => integer(),
         "Type" => list(any())
       }
@@ -10824,7 +10824,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_unfiltered_partition_metadata_response() :: %{
-        "AuthorizedColumns" => list(String.t()()),
+        "AuthorizedColumns" => list(String.t()),
         "IsRegisteredWithLakeFormation" => boolean(),
         "Partition" => partition()
       }
@@ -10860,7 +10860,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_dev_endpoints_response() :: %{
-        "DevEndpointNames" => list(String.t()()),
+        "DevEndpointNames" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -10872,7 +10872,7 @@ defmodule AWS.Glue do
   ## Example:
       
       database_input() :: %{
-        "CreateTableDefaultPermissions" => list(principal_permissions()()),
+        "CreateTableDefaultPermissions" => list(principal_permissions()),
         "Description" => String.t(),
         "FederatedDatabase" => federated_database(),
         "LocationUri" => String.t(),
@@ -10926,10 +10926,10 @@ defmodule AWS.Glue do
   ## Example:
       
       spark_s_q_l() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()()),
-        "SqlAliases" => list(sql_alias()()),
+        "OutputSchemas" => list(glue_schema()),
+        "SqlAliases" => list(sql_alias()),
         "SqlQuery" => String.t()
       }
       
@@ -10983,7 +10983,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_delete_table_version_response() :: %{
-        "Errors" => list(table_version_error()())
+        "Errors" => list(table_version_error())
       }
       
   """
@@ -11040,9 +11040,9 @@ defmodule AWS.Glue do
   ## Example:
       
       drop_fields() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "Paths" => list(list(String.t()())())
+        "Paths" => list(list(String.t())())
       }
       
   """
@@ -11076,7 +11076,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_crawler_metrics_response() :: %{
-        "CrawlerMetricsList" => list(crawler_metrics()()),
+        "CrawlerMetricsList" => list(crawler_metrics()),
         "NextToken" => String.t()
       }
       
@@ -11132,8 +11132,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_stop_job_run_response() :: %{
-        "Errors" => list(batch_stop_job_run_error()()),
-        "SuccessfulSubmissions" => list(batch_stop_job_run_successful_submission()())
+        "Errors" => list(batch_stop_job_run_error()),
+        "SuccessfulSubmissions" => list(batch_stop_job_run_successful_submission())
       }
       
   """
@@ -11273,7 +11273,7 @@ defmodule AWS.Glue do
   ## Example:
       
       update_column_statistics_for_table_response() :: %{
-        "Errors" => list(column_statistics_error()())
+        "Errors" => list(column_statistics_error())
       }
       
   """
@@ -11306,9 +11306,9 @@ defmodule AWS.Glue do
   ## Example:
       
       mapping() :: %{
-        "Children" => list(mapping()()),
+        "Children" => list(mapping()),
         "Dropped" => boolean(),
-        "FromPath" => list(String.t()()),
+        "FromPath" => list(String.t()),
         "FromType" => String.t(),
         "ToKey" => String.t(),
         "ToType" => String.t()
@@ -11322,8 +11322,8 @@ defmodule AWS.Glue do
   ## Example:
       
       drop_duplicates() :: %{
-        "Columns" => list(list(String.t()())()),
-        "Inputs" => list(String.t()()),
+        "Columns" => list(list(String.t())()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -11386,7 +11386,7 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_table_optimizer_request() :: %{
-        required("Entries") => list(batch_get_table_optimizer_entry()())
+        required("Entries") => list(batch_get_table_optimizer_entry())
       }
       
   """
@@ -11409,7 +11409,7 @@ defmodule AWS.Glue do
       
       postgre_s_q_l_catalog_target() :: %{
         "Database" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Table" => String.t()
       }
@@ -11423,7 +11423,7 @@ defmodule AWS.Glue do
       
       snowflake_target() :: %{
         "Data" => snowflake_node_data(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -11459,7 +11459,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_entities_response() :: %{
-        "Entities" => list(entity()()),
+        "Entities" => list(entity()),
         "NextToken" => String.t()
       }
       
@@ -11483,7 +11483,7 @@ defmodule AWS.Glue do
   ## Example:
       
       list_crawlers_response() :: %{
-        "CrawlerNames" => list(String.t()()),
+        "CrawlerNames" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -11580,9 +11580,9 @@ defmodule AWS.Glue do
   ## Example:
       
       split_fields() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "Paths" => list(list(String.t()())())
+        "Paths" => list(list(String.t())())
       }
       
   """
@@ -11606,7 +11606,7 @@ defmodule AWS.Glue do
       batch_create_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionInputList") => list(partition_input()()),
+        required("PartitionInputList") => list(partition_input()),
         required("TableName") => String.t()
       }
       
@@ -11623,7 +11623,7 @@ defmodule AWS.Glue do
         "ErrorValue" => String.t(),
         "ExecutionCount" => integer(),
         "Status" => list(any()),
-        "Traceback" => list(String.t()())
+        "Traceback" => list(String.t())
       }
       
   """
@@ -11636,7 +11636,7 @@ defmodule AWS.Glue do
       get_partition_request() :: %{
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
-        required("PartitionValues") => list(String.t()()),
+        required("PartitionValues") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -11685,15 +11685,15 @@ defmodule AWS.Glue do
       s3_excel_source() :: %{
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "GroupFiles" => String.t(),
         "GroupSize" => String.t(),
         "MaxBand" => integer(),
         "MaxFilesInBand" => integer(),
         "Name" => String.t(),
         "NumberRows" => float(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()()),
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t()),
         "Recurse" => boolean(),
         "SkipFooter" => integer()
       }
@@ -11741,7 +11741,7 @@ defmodule AWS.Glue do
   ## Example:
       
       glue_schema() :: %{
-        "Columns" => list(glue_studio_schema_column()())
+        "Columns" => list(glue_studio_schema_column())
       }
       
   """
@@ -11803,7 +11803,7 @@ defmodule AWS.Glue do
         "Name" => String.t(),
         "Owner" => String.t(),
         "Parameters" => map(),
-        "PartitionKeys" => list(column()()),
+        "PartitionKeys" => list(column()),
         "Retention" => integer(),
         "Status" => table_status(),
         "StorageDescriptor" => storage_descriptor(),
@@ -11847,8 +11847,8 @@ defmodule AWS.Glue do
   ## Example:
       
       get_column_statistics_for_table_response() :: %{
-        "ColumnStatisticsList" => list(column_statistics()()),
-        "Errors" => list(column_error()())
+        "ColumnStatisticsList" => list(column_statistics()),
+        "Errors" => list(column_error())
       }
       
   """
@@ -11860,7 +11860,7 @@ defmodule AWS.Glue do
       
       list_workflows_response() :: %{
         "NextToken" => String.t(),
-        "Workflows" => list(String.t()())
+        "Workflows" => list(String.t())
       }
       
   """
@@ -11914,7 +11914,7 @@ defmodule AWS.Glue do
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
         required("PartitionInput") => partition_input(),
-        required("PartitionValueList") => list(String.t()()),
+        required("PartitionValueList") => list(String.t()),
         required("TableName") => String.t()
       }
       
@@ -11927,7 +11927,7 @@ defmodule AWS.Glue do
       
       list_schemas_response() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(schema_list_item()())
+        "Schemas" => list(schema_list_item())
       }
       
   """
@@ -11952,7 +11952,7 @@ defmodule AWS.Glue do
         "AdditionalOptions" => s3_direct_source_additional_options(),
         "CompressionType" => list(any()),
         "Escaper" => String.t(),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "GroupFiles" => String.t(),
         "GroupSize" => String.t(),
         "MaxBand" => integer(),
@@ -11960,8 +11960,8 @@ defmodule AWS.Glue do
         "Multiline" => boolean(),
         "Name" => String.t(),
         "OptimizePerformance" => boolean(),
-        "OutputSchemas" => list(glue_schema()()),
-        "Paths" => list(String.t()()),
+        "OutputSchemas" => list(glue_schema()),
+        "Paths" => list(String.t()),
         "QuoteChar" => list(any()),
         "Recurse" => boolean(),
         "Separator" => list(any()),
@@ -12045,7 +12045,7 @@ defmodule AWS.Glue do
   ## Example:
       
       crawler() :: %{
-        "Classifiers" => list(String.t()()),
+        "Classifiers" => list(String.t()),
         "Configuration" => String.t(),
         "CrawlElapsedTime" => float(),
         "CrawlerSecurityConfiguration" => String.t(),
@@ -12076,7 +12076,7 @@ defmodule AWS.Glue do
       
       amazon_redshift_target() :: %{
         "Data" => amazon_redshift_node_data(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t()
       }
       
@@ -12112,8 +12112,8 @@ defmodule AWS.Glue do
   ## Example:
       
       batch_get_table_optimizer_response() :: %{
-        "Failures" => list(batch_get_table_optimizer_error()()),
-        "TableOptimizers" => list(batch_table_optimizer()())
+        "Failures" => list(batch_get_table_optimizer_error()),
+        "TableOptimizers" => list(batch_table_optimizer())
       }
       
   """
@@ -12209,7 +12209,7 @@ defmodule AWS.Glue do
       
       column_statistics_task_settings() :: %{
         "CatalogID" => String.t(),
-        "ColumnNameList" => list(String.t()()),
+        "ColumnNameList" => list(String.t()),
         "DatabaseName" => String.t(),
         "LastExecutionAttempt" => execution_attempt(),
         "Role" => String.t(),
@@ -12280,9 +12280,9 @@ defmodule AWS.Glue do
       
       iceberg_target() :: %{
         "ConnectionName" => String.t(),
-        "Exclusions" => list(String.t()()),
+        "Exclusions" => list(String.t()),
         "MaximumTraversalDepth" => integer(),
-        "Paths" => list(String.t()())
+        "Paths" => list(String.t())
       }
       
   """
@@ -12294,10 +12294,10 @@ defmodule AWS.Glue do
       
       update_dev_endpoint_request() :: %{
         optional("AddArguments") => map(),
-        optional("AddPublicKeys") => list(String.t()()),
+        optional("AddPublicKeys") => list(String.t()),
         optional("CustomLibraries") => dev_endpoint_custom_libraries(),
-        optional("DeleteArguments") => list(String.t()()),
-        optional("DeletePublicKeys") => list(String.t()()),
+        optional("DeleteArguments") => list(String.t()),
+        optional("DeletePublicKeys") => list(String.t()),
         optional("PublicKey") => String.t(),
         optional("UpdateEtlLibraries") => boolean(),
         required("EndpointName") => String.t()
@@ -12325,7 +12325,7 @@ defmodule AWS.Glue do
       
       start_column_statistics_task_run_request() :: %{
         optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()()),
+        optional("ColumnNameList") => list(String.t()),
         optional("SampleSize") => float(),
         optional("SecurityConfiguration") => String.t(),
         required("DatabaseName") => String.t(),
@@ -12341,7 +12341,7 @@ defmodule AWS.Glue do
   ## Example:
       
       custom_entity_type() :: %{
-        "ContextWords" => list(String.t()()),
+        "ContextWords" => list(String.t()),
         "Name" => String.t(),
         "RegexString" => String.t()
       }
@@ -12391,9 +12391,9 @@ defmodule AWS.Glue do
   ## Example:
       
       merge() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "PrimaryKeys" => list(list(String.t()())()),
+        "PrimaryKeys" => list(list(String.t())()),
         "Source" => String.t()
       }
       
@@ -12425,7 +12425,7 @@ defmodule AWS.Glue do
         optional("CatalogId") => String.t(),
         required("DatabaseName") => String.t(),
         required("TableName") => String.t(),
-        required("VersionIds") => list(String.t()())
+        required("VersionIds") => list(String.t())
       }
       
   """
@@ -12436,9 +12436,9 @@ defmodule AWS.Glue do
   ## Example:
       
       skewed_info() :: %{
-        "SkewedColumnNames" => list(String.t()()),
+        "SkewedColumnNames" => list(String.t()),
         "SkewedColumnValueLocationMaps" => map(),
-        "SkewedColumnValues" => list(String.t()())
+        "SkewedColumnValues" => list(String.t())
       }
       
   """
@@ -12471,7 +12471,7 @@ defmodule AWS.Glue do
   ## Example:
       
       union() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "UnionType" => list(any())
       }
@@ -12484,7 +12484,7 @@ defmodule AWS.Glue do
   ## Example:
       
       get_crawlers_response() :: %{
-        "Crawlers" => list(crawler()()),
+        "Crawlers" => list(crawler()),
         "NextToken" => String.t()
       }
       
@@ -12589,7 +12589,7 @@ defmodule AWS.Glue do
         "DatabaseName" => String.t(),
         "NextToken" => String.t(),
         "TableName" => String.t(),
-        "TableOptimizerRuns" => list(table_optimizer_run()())
+        "TableOptimizerRuns" => list(table_optimizer_run())
       }
       
   """
@@ -12601,7 +12601,7 @@ defmodule AWS.Glue do
       
       update_column_statistics_task_settings_request() :: %{
         optional("CatalogID") => String.t(),
-        optional("ColumnNameList") => list(String.t()()),
+        optional("ColumnNameList") => list(String.t()),
         optional("Role") => String.t(),
         optional("SampleSize") => float(),
         optional("Schedule") => String.t(),
@@ -12656,7 +12656,7 @@ defmodule AWS.Glue do
   ## Example:
       
       spigot() :: %{
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
         "Path" => String.t(),
         "Prob" => float(),
@@ -12676,9 +12676,9 @@ defmodule AWS.Glue do
         "ConnectionTable" => String.t(),
         "ConnectionType" => String.t(),
         "ConnectorName" => String.t(),
-        "Inputs" => list(String.t()()),
+        "Inputs" => list(String.t()),
         "Name" => String.t(),
-        "OutputSchemas" => list(glue_schema()())
+        "OutputSchemas" => list(glue_schema())
       }
       
   """
@@ -12784,7 +12784,7 @@ defmodule AWS.Glue do
       
       update_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t(),
-        required("ColumnStatisticsList") => list(column_statistics()()),
+        required("ColumnStatisticsList") => list(column_statistics()),
         required("DatabaseName") => String.t(),
         required("TableName") => String.t()
       }
@@ -14541,7 +14541,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_create_partition_errors()}
   def batch_create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreatePartition", input, options)
   end
@@ -14555,7 +14556,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_connection_errors()}
   def batch_delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteConnection", input, options)
   end
@@ -14569,7 +14571,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_partition_errors()}
   def batch_delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeletePartition", input, options)
   end
@@ -14595,7 +14598,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_errors()}
   def batch_delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTable", input, options)
   end
@@ -14609,7 +14613,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_delete_table_version_errors()}
   def batch_delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteTableVersion", input, options)
   end
@@ -14623,7 +14628,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_blueprints_errors()}
   def batch_get_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetBlueprints", input, options)
   end
@@ -14641,7 +14647,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_crawlers_errors()}
   def batch_get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCrawlers", input, options)
   end
@@ -14655,7 +14662,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_custom_entity_types_errors()}
   def batch_get_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetCustomEntityTypes", input, options)
   end
@@ -14669,7 +14677,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_data_quality_result_errors()}
   def batch_get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDataQualityResult", input, options)
   end
@@ -14691,7 +14700,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_dev_endpoints_errors()}
   def batch_get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
   end
@@ -14709,7 +14719,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_jobs_errors()}
   def batch_get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetJobs", input, options)
   end
@@ -14723,7 +14734,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_partition_errors()}
   def batch_get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetPartition", input, options)
   end
@@ -14737,7 +14749,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_table_optimizer_errors()}
   def batch_get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTableOptimizer", input, options)
   end
@@ -14755,7 +14768,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_triggers_errors()}
   def batch_get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetTriggers", input, options)
   end
@@ -14773,7 +14787,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_get_workflows_errors()}
   def batch_get_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetWorkflows", input, options)
   end
@@ -14791,7 +14806,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_put_data_quality_statistic_annotation_errors()}
   def batch_put_data_quality_statistic_annotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutDataQualityStatisticAnnotation", input, options)
   end
@@ -14805,7 +14821,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_stop_job_run_errors()}
   def batch_stop_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopJobRun", input, options)
   end
@@ -14819,7 +14836,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, batch_update_partition_errors()}
   def batch_update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdatePartition", input, options)
   end
@@ -14837,7 +14855,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_rule_recommendation_run_errors()}
   def cancel_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRuleRecommendationRun", input, options)
   end
@@ -14855,7 +14874,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_data_quality_ruleset_evaluation_run_errors()}
   def cancel_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataQualityRulesetEvaluationRun", input, options)
   end
@@ -14874,7 +14894,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_ml_task_run_errors()}
   def cancel_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMLTaskRun", input, options)
   end
@@ -14888,7 +14909,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -14906,7 +14928,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, check_schema_version_validity_errors()}
   def check_schema_version_validity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckSchemaVersionValidity", input, options)
   end
@@ -14920,7 +14943,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_blueprint_errors()}
   def create_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueprint", input, options)
   end
@@ -14934,7 +14958,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_catalog_errors()}
   def create_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCatalog", input, options)
   end
@@ -14952,7 +14977,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_classifier_errors()}
   def create_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClassifier", input, options)
   end
@@ -14970,7 +14996,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_column_statistics_task_settings_errors()}
   def create_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateColumnStatisticsTaskSettings", input, options)
   end
@@ -14987,7 +15014,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -15005,7 +15033,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_crawler_errors()}
   def create_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrawler", input, options)
   end
@@ -15024,7 +15053,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_custom_entity_type_errors()}
   def create_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomEntityType", input, options)
   end
@@ -15042,7 +15072,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_data_quality_ruleset_errors()}
   def create_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataQualityRuleset", input, options)
   end
@@ -15056,7 +15087,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -15070,7 +15102,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_dev_endpoint_errors()}
   def create_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDevEndpoint", input, options)
   end
@@ -15085,7 +15118,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -15110,7 +15144,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_resource_property_errors()}
   def create_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegrationResourceProperty", input, options)
   end
@@ -15135,7 +15170,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_integration_table_properties_errors()}
   def create_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegrationTableProperties", input, options)
   end
@@ -15149,7 +15185,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -15181,7 +15218,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_ml_transform_errors()}
   def create_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMLTransform", input, options)
   end
@@ -15195,7 +15233,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_errors()}
   def create_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartition", input, options)
   end
@@ -15209,7 +15248,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_partition_index_errors()}
   def create_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartitionIndex", input, options)
   end
@@ -15223,7 +15263,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_registry_errors()}
   def create_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegistry", input, options)
   end
@@ -15250,7 +15291,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -15264,7 +15306,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -15283,7 +15326,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -15297,7 +15341,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_session_errors()}
   def create_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSession", input, options)
   end
@@ -15311,7 +15356,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -15325,7 +15371,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_table_optimizer_errors()}
   def create_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTableOptimizer", input, options)
   end
@@ -15343,7 +15390,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_trigger_errors()}
   def create_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrigger", input, options)
   end
@@ -15357,7 +15405,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_usage_profile_errors()}
   def create_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUsageProfile", input, options)
   end
@@ -15371,7 +15420,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_user_defined_function_errors()}
   def create_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserDefinedFunction", input, options)
   end
@@ -15385,7 +15435,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -15399,7 +15450,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_blueprint_errors()}
   def delete_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueprint", input, options)
   end
@@ -15425,7 +15477,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_catalog_errors()}
   def delete_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCatalog", input, options)
   end
@@ -15439,7 +15492,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_classifier_errors()}
   def delete_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClassifier", input, options)
   end
@@ -15460,7 +15514,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_partition_errors()}
   def delete_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForPartition", input, options)
   end
@@ -15481,7 +15536,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_for_table_errors()}
   def delete_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsForTable", input, options)
   end
@@ -15499,7 +15555,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_column_statistics_task_settings_errors()}
   def delete_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteColumnStatisticsTaskSettings", input, options)
   end
@@ -15513,7 +15570,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -15529,7 +15587,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_crawler_errors()}
   def delete_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrawler", input, options)
   end
@@ -15543,7 +15602,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_custom_entity_type_errors()}
   def delete_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
   end
@@ -15557,7 +15617,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_data_quality_ruleset_errors()}
   def delete_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataQualityRuleset", input, options)
   end
@@ -15586,7 +15647,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -15600,7 +15662,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_dev_endpoint_errors()}
   def delete_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
   end
@@ -15614,7 +15677,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -15633,7 +15697,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_integration_table_properties_errors()}
   def delete_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegrationTableProperties", input, options)
   end
@@ -15650,7 +15715,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_job_errors()}
   def delete_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteJob", input, options)
   end
@@ -15673,7 +15739,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_ml_transform_errors()}
   def delete_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMLTransform", input, options)
   end
@@ -15687,7 +15754,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_errors()}
   def delete_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartition", input, options)
   end
@@ -15701,7 +15769,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_partition_index_errors()}
   def delete_partition_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartitionIndex", input, options)
   end
@@ -15720,7 +15789,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_registry_errors()}
   def delete_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegistry", input, options)
   end
@@ -15734,7 +15804,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -15753,7 +15824,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
@@ -15786,7 +15858,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_schema_versions_errors()}
   def delete_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchemaVersions", input, options)
   end
@@ -15800,7 +15873,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -15814,7 +15888,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_session_errors()}
   def delete_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSession", input, options)
   end
@@ -15840,7 +15915,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -15856,7 +15932,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_optimizer_errors()}
   def delete_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableOptimizer", input, options)
   end
@@ -15870,7 +15947,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_table_version_errors()}
   def delete_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTableVersion", input, options)
   end
@@ -15887,7 +15965,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_trigger_errors()}
   def delete_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrigger", input, options)
   end
@@ -15901,7 +15980,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_usage_profile_errors()}
   def delete_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUsageProfile", input, options)
   end
@@ -15915,7 +15995,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_user_defined_function_errors()}
   def delete_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserDefinedFunction", input, options)
   end
@@ -15929,7 +16010,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -15944,7 +16026,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_connection_type_errors()}
   def describe_connection_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionType", input, options)
   end
@@ -15961,7 +16044,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_entity_errors()}
   def describe_entity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntity", input, options)
   end
@@ -15975,7 +16059,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_inbound_integrations_errors()}
   def describe_inbound_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInboundIntegrations", input, options)
   end
@@ -15989,7 +16074,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -16003,7 +16089,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_errors()}
   def get_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprint", input, options)
   end
@@ -16017,7 +16104,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_run_errors()}
   def get_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRun", input, options)
   end
@@ -16031,7 +16119,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_blueprint_runs_errors()}
   def get_blueprint_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBlueprintRuns", input, options)
   end
@@ -16047,7 +16136,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_errors()}
   def get_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalog", input, options)
   end
@@ -16061,7 +16151,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalog_import_status_errors()}
   def get_catalog_import_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogImportStatus", input, options)
   end
@@ -16078,7 +16169,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_catalogs_errors()}
   def get_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCatalogs", input, options)
   end
@@ -16092,7 +16184,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifier_errors()}
   def get_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifier", input, options)
   end
@@ -16106,7 +16199,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_classifiers_errors()}
   def get_classifiers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetClassifiers", input, options)
   end
@@ -16127,7 +16221,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_partition_errors()}
   def get_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForPartition", input, options)
   end
@@ -16144,7 +16239,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_for_table_errors()}
   def get_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsForTable", input, options)
   end
@@ -16158,7 +16254,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_run_errors()}
   def get_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRun", input, options)
   end
@@ -16172,7 +16269,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_runs_errors()}
   def get_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskRuns", input, options)
   end
@@ -16190,7 +16288,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_column_statistics_task_settings_errors()}
   def get_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetColumnStatisticsTaskSettings", input, options)
   end
@@ -16204,7 +16303,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connection_errors()}
   def get_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnection", input, options)
   end
@@ -16218,7 +16318,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_connections_errors()}
   def get_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnections", input, options)
   end
@@ -16232,7 +16333,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_errors()}
   def get_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawler", input, options)
   end
@@ -16246,7 +16348,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawler_metrics_errors()}
   def get_crawler_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlerMetrics", input, options)
   end
@@ -16261,7 +16364,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_crawlers_errors()}
   def get_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCrawlers", input, options)
   end
@@ -16275,7 +16379,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_custom_entity_type_errors()}
   def get_custom_entity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomEntityType", input, options)
   end
@@ -16293,7 +16398,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_catalog_encryption_settings_errors()}
   def get_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataCatalogEncryptionSettings", input, options)
   end
@@ -16308,7 +16414,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_errors()}
   def get_data_quality_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityModel", input, options)
   end
@@ -16322,7 +16429,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_model_result_errors()}
   def get_data_quality_model_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityModelResult", input, options)
   end
@@ -16336,7 +16444,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_result_errors()}
   def get_data_quality_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityResult", input, options)
   end
@@ -16354,7 +16463,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_rule_recommendation_run_errors()}
   def get_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleRecommendationRun", input, options)
   end
@@ -16368,7 +16478,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_errors()}
   def get_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRuleset", input, options)
   end
@@ -16386,7 +16497,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_data_quality_ruleset_evaluation_run_errors()}
   def get_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataQualityRulesetEvaluationRun", input, options)
   end
@@ -16400,7 +16512,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -16414,7 +16527,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_databases_errors()}
   def get_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDatabases", input, options)
   end
@@ -16428,7 +16542,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dataflow_graph_errors()}
   def get_dataflow_graph(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataflowGraph", input, options)
   end
@@ -16448,7 +16563,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoint_errors()}
   def get_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoint", input, options)
   end
@@ -16468,7 +16584,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_dev_endpoints_errors()}
   def get_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevEndpoints", input, options)
   end
@@ -16490,7 +16607,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_entity_records_errors()}
   def get_entity_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntityRecords", input, options)
   end
@@ -16509,7 +16627,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_resource_property_errors()}
   def get_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIntegrationResourceProperty", input, options)
   end
@@ -16531,7 +16650,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_integration_table_properties_errors()}
   def get_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIntegrationTableProperties", input, options)
   end
@@ -16545,7 +16665,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -16573,7 +16694,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_bookmark_errors()}
   def get_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobBookmark", input, options)
   end
@@ -16589,7 +16711,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_run_errors()}
   def get_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRun", input, options)
   end
@@ -16606,7 +16729,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_job_runs_errors()}
   def get_job_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobRuns", input, options)
   end
@@ -16620,7 +16744,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_jobs_errors()}
   def get_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobs", input, options)
   end
@@ -16634,7 +16759,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_mapping_errors()}
   def get_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMapping", input, options)
   end
@@ -16655,7 +16781,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_run_errors()}
   def get_ml_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRun", input, options)
   end
@@ -16679,7 +16806,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_task_runs_errors()}
   def get_ml_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTaskRuns", input, options)
   end
@@ -16702,7 +16830,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transform_errors()}
   def get_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransform", input, options)
   end
@@ -16725,7 +16854,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_ml_transforms_errors()}
   def get_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMLTransforms", input, options)
   end
@@ -16739,7 +16869,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_errors()}
   def get_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartition", input, options)
   end
@@ -16753,7 +16884,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partition_indexes_errors()}
   def get_partition_indexes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitionIndexes", input, options)
   end
@@ -16767,7 +16899,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_partitions_errors()}
   def get_partitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPartitions", input, options)
   end
@@ -16781,7 +16914,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -16795,7 +16929,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_registry_errors()}
   def get_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistry", input, options)
   end
@@ -16818,7 +16953,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -16832,7 +16968,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -16846,7 +16983,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -16866,7 +17004,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_by_definition_errors()}
   def get_schema_by_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaByDefinition", input, options)
   end
@@ -16883,7 +17022,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_version_errors()}
   def get_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersion", input, options)
   end
@@ -16901,7 +17041,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_schema_versions_diff_errors()}
   def get_schema_versions_diff(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchemaVersionsDiff", input, options)
   end
@@ -16915,7 +17056,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configuration_errors()}
   def get_security_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfiguration", input, options)
   end
@@ -16929,7 +17071,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_security_configurations_errors()}
   def get_security_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityConfigurations", input, options)
   end
@@ -16943,7 +17086,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -16957,7 +17101,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_statement_errors()}
   def get_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatement", input, options)
   end
@@ -16972,7 +17117,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -16986,7 +17132,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_optimizer_errors()}
   def get_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableOptimizer", input, options)
   end
@@ -17000,7 +17147,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_version_errors()}
   def get_table_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersion", input, options)
   end
@@ -17015,7 +17163,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_table_versions_errors()}
   def get_table_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTableVersions", input, options)
   end
@@ -17030,7 +17179,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tables_errors()}
   def get_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTables", input, options)
   end
@@ -17044,7 +17194,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -17058,7 +17209,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_trigger_errors()}
   def get_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrigger", input, options)
   end
@@ -17072,7 +17224,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_triggers_errors()}
   def get_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTriggers", input, options)
   end
@@ -17094,7 +17247,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partition_metadata_errors()}
   def get_unfiltered_partition_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionMetadata", input, options)
   end
@@ -17116,7 +17270,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_partitions_metadata_errors()}
   def get_unfiltered_partitions_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredPartitionsMetadata", input, options)
   end
@@ -17134,7 +17289,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_unfiltered_table_metadata_errors()}
   def get_unfiltered_table_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUnfilteredTableMetadata", input, options)
   end
@@ -17148,7 +17304,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_usage_profile_errors()}
   def get_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageProfile", input, options)
   end
@@ -17162,7 +17319,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_function_errors()}
   def get_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunction", input, options)
   end
@@ -17176,7 +17334,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_user_defined_functions_errors()}
   def get_user_defined_functions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserDefinedFunctions", input, options)
   end
@@ -17190,7 +17349,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_errors()}
   def get_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflow", input, options)
   end
@@ -17206,7 +17366,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_errors()}
   def get_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRun", input, options)
   end
@@ -17220,7 +17381,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_run_properties_errors()}
   def get_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRunProperties", input, options)
   end
@@ -17234,7 +17396,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, get_workflow_runs_errors()}
   def get_workflow_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowRuns", input, options)
   end
@@ -17248,7 +17411,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, import_catalog_to_glue_errors()}
   def import_catalog_to_glue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportCatalogToGlue", input, options)
   end
@@ -17262,7 +17426,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_blueprints_errors()}
   def list_blueprints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBlueprints", input, options)
   end
@@ -17280,7 +17445,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_column_statistics_task_runs_errors()}
   def list_column_statistics_task_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListColumnStatisticsTaskRuns", input, options)
   end
@@ -17300,7 +17466,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_connection_types_errors()}
   def list_connection_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnectionTypes", input, options)
   end
@@ -17324,7 +17491,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawlers_errors()}
   def list_crawlers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawlers", input, options)
   end
@@ -17357,7 +17525,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_crawls_errors()}
   def list_crawls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrawls", input, options)
   end
@@ -17371,7 +17540,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_custom_entity_types_errors()}
   def list_custom_entity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
   end
@@ -17385,7 +17555,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_results_errors()}
   def list_data_quality_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityResults", input, options)
   end
@@ -17403,7 +17574,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rule_recommendation_runs_errors()}
   def list_data_quality_rule_recommendation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRuleRecommendationRuns", input, options)
   end
@@ -17422,7 +17594,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_ruleset_evaluation_runs_errors()}
   def list_data_quality_ruleset_evaluation_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesetEvaluationRuns", input, options)
   end
@@ -17436,7 +17609,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_rulesets_errors()}
   def list_data_quality_rulesets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityRulesets", input, options)
   end
@@ -17454,7 +17628,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistic_annotations_errors()}
   def list_data_quality_statistic_annotations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatisticAnnotations", input, options)
   end
@@ -17468,7 +17643,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_data_quality_statistics_errors()}
   def list_data_quality_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataQualityStatistics", input, options)
   end
@@ -17492,7 +17668,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_dev_endpoints_errors()}
   def list_dev_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevEndpoints", input, options)
   end
@@ -17506,7 +17683,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_entities_errors()}
   def list_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntities", input, options)
   end
@@ -17529,7 +17707,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -17550,7 +17729,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_ml_transforms_errors()}
   def list_ml_transforms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMLTransforms", input, options)
   end
@@ -17568,7 +17748,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_registries_errors()}
   def list_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegistries", input, options)
   end
@@ -17586,7 +17767,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schema_versions_errors()}
   def list_schema_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemaVersions", input, options)
   end
@@ -17606,7 +17788,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -17620,7 +17803,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -17634,7 +17818,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -17648,7 +17833,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_table_optimizer_runs_errors()}
   def list_table_optimizer_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTableOptimizerRuns", input, options)
   end
@@ -17671,7 +17857,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_triggers_errors()}
   def list_triggers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTriggers", input, options)
   end
@@ -17685,7 +17872,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_usage_profiles_errors()}
   def list_usage_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsageProfiles", input, options)
   end
@@ -17699,7 +17887,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
@@ -17713,7 +17902,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -17734,7 +17924,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_catalog_encryption_settings_errors()}
   def put_data_catalog_encryption_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataCatalogEncryptionSettings", input, options)
   end
@@ -17752,7 +17943,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_data_quality_profile_annotation_errors()}
   def put_data_quality_profile_annotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataQualityProfileAnnotation", input, options)
   end
@@ -17766,7 +17958,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -17783,7 +17976,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_schema_version_metadata_errors()}
   def put_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchemaVersionMetadata", input, options)
   end
@@ -17800,7 +17994,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, put_workflow_run_properties_errors()}
   def put_workflow_run_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWorkflowRunProperties", input, options)
   end
@@ -17814,7 +18009,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, query_schema_version_metadata_errors()}
   def query_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QuerySchemaVersionMetadata", input, options)
   end
@@ -17842,7 +18038,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, register_schema_version_errors()}
   def register_schema_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterSchemaVersion", input, options)
   end
@@ -17857,7 +18054,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, remove_schema_version_metadata_errors()}
   def remove_schema_version_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSchemaVersionMetadata", input, options)
   end
@@ -17885,7 +18083,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, reset_job_bookmark_errors()}
   def reset_job_bookmark(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetJobBookmark", input, options)
   end
@@ -17903,7 +18102,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, resume_workflow_run_errors()}
   def resume_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeWorkflowRun", input, options)
   end
@@ -17917,7 +18117,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, run_statement_errors()}
   def run_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
   end
@@ -17942,7 +18143,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, search_tables_errors()}
   def search_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTables", input, options)
   end
@@ -17956,7 +18158,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_blueprint_run_errors()}
   def start_blueprint_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBlueprintRun", input, options)
   end
@@ -17974,7 +18177,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_errors()}
   def start_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRun", input, options)
   end
@@ -17992,7 +18196,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_column_statistics_task_run_schedule_errors()}
   def start_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18010,7 +18215,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_errors()}
   def start_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawler", input, options)
   end
@@ -18026,7 +18232,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_crawler_schedule_errors()}
   def start_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCrawlerSchedule", input, options)
   end
@@ -18051,7 +18258,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_rule_recommendation_run_errors()}
   def start_data_quality_rule_recommendation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRuleRecommendationRun", input, options)
   end
@@ -18073,7 +18281,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_data_quality_ruleset_evaluation_run_errors()}
   def start_data_quality_ruleset_evaluation_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataQualityRulesetEvaluationRun", input, options)
   end
@@ -18101,7 +18310,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_export_labels_task_run_errors()}
   def start_export_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportLabelsTaskRun", input, options)
   end
@@ -18147,7 +18357,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_import_labels_task_run_errors()}
   def start_import_labels_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportLabelsTaskRun", input, options)
   end
@@ -18161,7 +18372,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_job_run_errors()}
   def start_job_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartJobRun", input, options)
   end
@@ -18184,7 +18396,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_evaluation_task_run_errors()}
   def start_ml_evaluation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLEvaluationTaskRun", input, options)
   end
@@ -18224,7 +18437,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_ml_labeling_set_generation_task_run_errors()}
   def start_ml_labeling_set_generation_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMLLabelingSetGenerationTaskRun", input, options)
   end
@@ -18242,7 +18456,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_trigger_errors()}
   def start_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTrigger", input, options)
   end
@@ -18256,7 +18471,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, start_workflow_run_errors()}
   def start_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkflowRun", input, options)
   end
@@ -18270,7 +18486,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_errors()}
   def stop_column_statistics_task_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRun", input, options)
   end
@@ -18288,7 +18505,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_column_statistics_task_run_schedule_errors()}
   def stop_column_statistics_task_run_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopColumnStatisticsTaskRunSchedule", input, options)
   end
@@ -18302,7 +18520,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_errors()}
   def stop_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawler", input, options)
   end
@@ -18318,7 +18537,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_crawler_schedule_errors()}
   def stop_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
   end
@@ -18332,7 +18552,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_session_errors()}
   def stop_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSession", input, options)
   end
@@ -18346,7 +18567,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_trigger_errors()}
   def stop_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrigger", input, options)
   end
@@ -18360,7 +18582,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, stop_workflow_run_errors()}
   def stop_workflow_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopWorkflowRun", input, options)
   end
@@ -18378,7 +18601,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -18399,7 +18623,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
@@ -18413,7 +18638,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -18427,7 +18653,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_blueprint_errors()}
   def update_blueprint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBlueprint", input, options)
   end
@@ -18441,7 +18668,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_catalog_errors()}
   def update_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCatalog", input, options)
   end
@@ -18457,7 +18685,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_classifier_errors()}
   def update_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateClassifier", input, options)
   end
@@ -18478,7 +18707,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_partition_errors()}
   def update_column_statistics_for_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForPartition", input, options)
   end
@@ -18499,7 +18729,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_for_table_errors()}
   def update_column_statistics_for_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsForTable", input, options)
   end
@@ -18517,7 +18748,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_column_statistics_task_settings_errors()}
   def update_column_statistics_task_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateColumnStatisticsTaskSettings", input, options)
   end
@@ -18531,7 +18763,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -18549,7 +18782,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_errors()}
   def update_crawler(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawler", input, options)
   end
@@ -18563,7 +18797,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_crawler_schedule_errors()}
   def update_crawler_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
   end
@@ -18577,7 +18812,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_data_quality_ruleset_errors()}
   def update_data_quality_ruleset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataQualityRuleset", input, options)
   end
@@ -18591,7 +18827,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -18605,7 +18842,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_dev_endpoint_errors()}
   def update_dev_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
   end
@@ -18628,7 +18866,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_resource_property_errors()}
   def update_integration_resource_property(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationResourceProperty", input, options)
   end
@@ -18656,7 +18895,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_integration_table_properties_errors()}
   def update_integration_table_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIntegrationTableProperties", input, options)
   end
@@ -18672,7 +18912,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -18691,7 +18932,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_job_from_source_control_errors()}
   def update_job_from_source_control(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobFromSourceControl", input, options)
   end
@@ -18712,7 +18954,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_ml_transform_errors()}
   def update_ml_transform(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMLTransform", input, options)
   end
@@ -18726,7 +18969,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_partition_errors()}
   def update_partition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePartition", input, options)
   end
@@ -18743,7 +18987,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_registry_errors()}
   def update_registry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegistry", input, options)
   end
@@ -18769,7 +19014,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_schema_errors()}
   def update_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSchema", input, options)
   end
@@ -18788,7 +19034,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_source_control_from_job_errors()}
   def update_source_control_from_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSourceControlFromJob", input, options)
   end
@@ -18802,7 +19049,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -18816,7 +19064,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_table_optimizer_errors()}
   def update_table_optimizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTableOptimizer", input, options)
   end
@@ -18834,7 +19083,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_trigger_errors()}
   def update_trigger(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTrigger", input, options)
   end
@@ -18848,7 +19098,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_usage_profile_errors()}
   def update_usage_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUsageProfile", input, options)
   end
@@ -18862,7 +19113,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_user_defined_function_errors()}
   def update_user_defined_function(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserDefinedFunction", input, options)
   end
@@ -18876,7 +19128,8 @@ defmodule AWS.Glue do
           | {:error, term()}
           | {:error, update_workflow_errors()}
   def update_workflow(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWorkflow", input, options)
   end

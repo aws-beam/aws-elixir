@@ -70,7 +70,7 @@ defmodule AWS.AccessAnalyzer do
         "accessRole" => String.t(),
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
-        "trails" => list(trail()())
+        "trails" => list(trail())
       }
 
   """
@@ -149,7 +149,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       analysis_rule() :: %{
-        "exclusions" => list(analysis_rule_criteria()())
+        "exclusions" => list(analysis_rule_criteria())
       }
 
   """
@@ -173,7 +173,7 @@ defmodule AWS.AccessAnalyzer do
 
       check_no_public_access_response() :: %{
         "message" => [String.t()],
-        "reasons" => list(reason_summary()()),
+        "reasons" => list(reason_summary()),
         "result" => String.t()
       }
 
@@ -219,7 +219,7 @@ defmodule AWS.AccessAnalyzer do
 
       list_access_previews_response() :: %{
         optional("nextToken") => String.t(),
-        required("accessPreviews") => list(access_preview_summary()())
+        required("accessPreviews") => list(access_preview_summary())
       }
 
   """
@@ -279,7 +279,7 @@ defmodule AWS.AccessAnalyzer do
         "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
-        "sources" => list(finding_source()()),
+        "sources" => list(finding_source()),
         "status" => String.t(),
         "updatedAt" => non_neg_integer()
       }
@@ -340,7 +340,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       get_findings_statistics_response() :: %{
-        "findingsStatistics" => list(list()()),
+        "findingsStatistics" => list(list()),
         "lastUpdatedAt" => non_neg_integer()
       }
 
@@ -356,7 +356,7 @@ defmodule AWS.AccessAnalyzer do
         "error" => recommendation_error(),
         "nextToken" => String.t(),
         "recommendationType" => String.t(),
-        "recommendedSteps" => list(list()()),
+        "recommendedSteps" => list(list()),
         "resourceArn" => String.t(),
         "startedAt" => non_neg_integer(),
         "status" => String.t()
@@ -404,7 +404,7 @@ defmodule AWS.AccessAnalyzer do
       internal_access_analysis_rule_criteria() :: %{
         "accountIds" => list([String.t()]()),
         "resourceArns" => list([String.t()]()),
-        "resourceTypes" => list(String.t()())
+        "resourceTypes" => list(String.t())
       }
 
   """
@@ -415,7 +415,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_findings_response() :: %{
-        "findings" => list(finding_summary()()),
+        "findings" => list(finding_summary()),
         "nextToken" => String.t()
       }
 
@@ -428,7 +428,7 @@ defmodule AWS.AccessAnalyzer do
 
       create_analyzer_request() :: %{
         "analyzerName" => String.t(),
-        "archiveRules" => list(inline_archive_rule()()),
+        "archiveRules" => list(inline_archive_rule()),
         "clientToken" => [String.t()],
         "configuration" => list(),
         "tags" => map(),
@@ -465,7 +465,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       unused_permission_details() :: %{
-        "actions" => list(unused_action()()),
+        "actions" => list(unused_action()),
         "lastAccessed" => non_neg_integer(),
         "serviceNamespace" => [String.t()]
       }
@@ -562,7 +562,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_analyzers_response() :: %{
-        "analyzers" => list(analyzer_summary()()),
+        "analyzers" => list(analyzer_summary()),
         "nextToken" => String.t()
       }
 
@@ -575,7 +575,7 @@ defmodule AWS.AccessAnalyzer do
 
       analysis_rule_criteria() :: %{
         "accountIds" => list([String.t()]()),
-        "resourceTags" => list(map()())
+        "resourceTags" => list(map())
       }
 
   """
@@ -587,7 +587,7 @@ defmodule AWS.AccessAnalyzer do
 
       check_access_not_granted_response() :: %{
         "message" => [String.t()],
-        "reasons" => list(reason_summary()()),
+        "reasons" => list(reason_summary()),
         "result" => String.t()
       }
 
@@ -695,7 +695,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_analyzed_resources_response() :: %{
-        "analyzedResources" => list(analyzed_resource_summary()()),
+        "analyzedResources" => list(analyzed_resource_summary()),
         "nextToken" => String.t()
       }
 
@@ -721,7 +721,7 @@ defmodule AWS.AccessAnalyzer do
         "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
-        "sources" => list(finding_source()()),
+        "sources" => list(finding_source()),
         "status" => String.t()
       }
 
@@ -822,7 +822,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       internal_access_analysis_rule() :: %{
-        "inclusions" => list(internal_access_analysis_rule_criteria()())
+        "inclusions" => list(internal_access_analysis_rule_criteria())
       }
 
   """
@@ -874,7 +874,7 @@ defmodule AWS.AccessAnalyzer do
         "findingType" => String.t(),
         "issueCode" => String.t(),
         "learnMoreLink" => String.t(),
-        "locations" => list(location()())
+        "locations" => list(location())
       }
 
   """
@@ -885,7 +885,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_archive_rules_response() :: %{
-        "archiveRules" => list(archive_rule_summary()()),
+        "archiveRules" => list(archive_rule_summary()),
         "nextToken" => String.t()
       }
 
@@ -934,7 +934,7 @@ defmodule AWS.AccessAnalyzer do
         "resourceControlPolicyRestriction" => String.t(),
         "resourceOwnerAccount" => [String.t()],
         "resourceType" => String.t(),
-        "sources" => list(finding_source()()),
+        "sources" => list(finding_source()),
         "status" => String.t(),
         "updatedAt" => non_neg_integer()
       }
@@ -950,7 +950,7 @@ defmodule AWS.AccessAnalyzer do
         "constraints" => kms_grant_constraints(),
         "granteePrincipal" => String.t(),
         "issuingAccount" => String.t(),
-        "operations" => list(String.t()()),
+        "operations" => list(String.t()),
         "retiringPrincipal" => String.t()
       }
 
@@ -963,7 +963,7 @@ defmodule AWS.AccessAnalyzer do
 
       check_no_new_access_response() :: %{
         "message" => [String.t()],
-        "reasons" => list(reason_summary()()),
+        "reasons" => list(reason_summary()),
         "result" => String.t()
       }
 
@@ -1022,7 +1022,7 @@ defmodule AWS.AccessAnalyzer do
         "principalType" => String.t(),
         "resourceControlPolicyRestriction" => String.t(),
         "serviceControlPolicyRestriction" => String.t(),
-        "sources" => list(finding_source()())
+        "sources" => list(finding_source())
       }
 
   """
@@ -1033,7 +1033,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       generated_policy_result() :: %{
-        "generatedPolicies" => list(generated_policy()()),
+        "generatedPolicies" => list(generated_policy()),
         "properties" => generated_policy_properties()
       }
 
@@ -1080,7 +1080,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       location() :: %{
-        "path" => list(list()()),
+        "path" => list(list()),
         "span" => span()
       }
 
@@ -1133,7 +1133,7 @@ defmodule AWS.AccessAnalyzer do
 
       list_policy_generations_response() :: %{
         optional("nextToken") => String.t(),
-        required("policyGenerations") => list(policy_generation()())
+        required("policyGenerations") => list(policy_generation())
       }
 
   """
@@ -1168,7 +1168,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       kms_key_configuration() :: %{
-        "grants" => list(kms_grant_configuration()()),
+        "grants" => list(kms_grant_configuration()),
         "keyPolicies" => map()
       }
 
@@ -1207,9 +1207,9 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       ebs_snapshot_configuration() :: %{
-        "groups" => list(String.t()()),
+        "groups" => list(String.t()),
         "kmsKeyId" => String.t(),
-        "userIds" => list(String.t()())
+        "userIds" => list(String.t())
       }
 
   """
@@ -1266,7 +1266,7 @@ defmodule AWS.AccessAnalyzer do
 
       validate_policy_response() :: %{
         optional("nextToken") => String.t(),
-        required("findings") => list(validate_policy_finding()())
+        required("findings") => list(validate_policy_finding())
       }
 
   """
@@ -1318,7 +1318,7 @@ defmodule AWS.AccessAnalyzer do
         "isPublic" => [boolean()],
         "principal" => map(),
         "resourceControlPolicyRestriction" => String.t(),
-        "sources" => list(finding_source()())
+        "sources" => list(finding_source())
       }
 
   """
@@ -1354,7 +1354,7 @@ defmodule AWS.AccessAnalyzer do
       cloud_trail_properties() :: %{
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
-        "trailProperties" => list(trail_properties()())
+        "trailProperties" => list(trail_properties())
       }
 
   """
@@ -1495,11 +1495,11 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       unused_access_findings_statistics() :: %{
-        "topAccounts" => list(finding_aggregation_account_details()()),
+        "topAccounts" => list(finding_aggregation_account_details()),
         "totalActiveFindings" => [integer()],
         "totalArchivedFindings" => [integer()],
         "totalResolvedFindings" => [integer()],
-        "unusedAccessTypeStatistics" => list(unused_access_type_statistics()())
+        "unusedAccessTypeStatistics" => list(unused_access_type_statistics())
       }
 
   """
@@ -1511,7 +1511,7 @@ defmodule AWS.AccessAnalyzer do
 
       s3_bucket_configuration() :: %{
         "accessPoints" => map(),
-        "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()()),
+        "bucketAclGrants" => list(s3_bucket_acl_grant_configuration()),
         "bucketPolicy" => String.t(),
         "bucketPublicAccessBlock" => s3_public_access_block_configuration()
       }
@@ -1524,7 +1524,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -1548,7 +1548,7 @@ defmodule AWS.AccessAnalyzer do
       update_findings_request() :: %{
         "analyzerArn" => String.t(),
         "clientToken" => [String.t()],
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "resourceArn" => String.t(),
         "status" => String.t()
       }
@@ -1609,8 +1609,8 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       access() :: %{
-        "actions" => list(String.t()()),
-        "resources" => list(String.t()())
+        "actions" => list(String.t()),
+        "resources" => list(String.t())
       }
 
   """
@@ -1636,7 +1636,7 @@ defmodule AWS.AccessAnalyzer do
         "analyzedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
         "error" => [String.t()],
-        "findingDetails" => list(list()()),
+        "findingDetails" => list(list()),
         "findingType" => String.t(),
         "id" => String.t(),
         "nextToken" => String.t(),
@@ -1737,7 +1737,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       check_access_not_granted_request() :: %{
-        required("access") => list(access()()),
+        required("access") => list(access()),
         required("policyDocument") => String.t(),
         required("policyType") => String.t()
       }
@@ -1804,7 +1804,7 @@ defmodule AWS.AccessAnalyzer do
   ## Example:
 
       list_findings_v2_response() :: %{
-        "findings" => list(finding_summary_v2()()),
+        "findings" => list(finding_summary_v2()),
         "nextToken" => String.t()
       }
 
@@ -1987,7 +1987,7 @@ defmodule AWS.AccessAnalyzer do
 
       list_access_preview_findings_response() :: %{
         optional("nextToken") => String.t(),
-        required("findings") => list(access_preview_finding()())
+        required("findings") => list(access_preview_finding())
       }
 
   """

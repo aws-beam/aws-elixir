@@ -433,7 +433,7 @@ defmodule AWS.Codeartifact do
 
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -445,7 +445,7 @@ defmodule AWS.Codeartifact do
 
       list_package_groups_result() :: %{
         "nextToken" => String.t(),
-        "packageGroups" => list(package_group_summary()())
+        "packageGroups" => list(package_group_summary())
       }
 
   """
@@ -468,7 +468,7 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       list_package_version_assets_result() :: %{
-        "assets" => list(asset_summary()()),
+        "assets" => list(asset_summary()),
         "format" => list(any()),
         "namespace" => String.t(),
         "nextToken" => String.t(),
@@ -488,7 +488,7 @@ defmodule AWS.Codeartifact do
         optional("contactInfo") => String.t(),
         optional("description") => String.t(),
         optional("domainOwner") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("domain") => String.t(),
         required("packageGroup") => String.t()
       }
@@ -536,7 +536,7 @@ defmodule AWS.Codeartifact do
         required("format") => list(any()),
         required("package") => String.t(),
         required("repository") => String.t(),
-        required("versions") => list(String.t()())
+        required("versions") => list(String.t())
       }
 
   """
@@ -569,7 +569,7 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       list_allowed_repositories_for_group_result() :: %{
-        "allowedRepositories" => list(String.t()()),
+        "allowedRepositories" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -707,7 +707,7 @@ defmodule AWS.Codeartifact do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -794,7 +794,7 @@ defmodule AWS.Codeartifact do
         "displayName" => String.t(),
         "format" => list(any()),
         "homePage" => String.t(),
-        "licenses" => list(license_info()()),
+        "licenses" => list(license_info()),
         "namespace" => String.t(),
         "origin" => package_version_origin(),
         "packageName" => String.t(),
@@ -830,7 +830,7 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       list_package_version_dependencies_result() :: %{
-        "dependencies" => list(package_dependency()()),
+        "dependencies" => list(package_dependency()),
         "format" => list(any()),
         "namespace" => String.t(),
         "nextToken" => String.t(),
@@ -859,7 +859,7 @@ defmodule AWS.Codeartifact do
 
       list_repositories_result() :: %{
         "nextToken" => String.t(),
-        "repositories" => list(repository_summary()())
+        "repositories" => list(repository_summary())
       }
 
   """
@@ -883,7 +883,7 @@ defmodule AWS.Codeartifact do
 
       list_associated_packages_result() :: %{
         "nextToken" => String.t(),
-        "packages" => list(associated_package()())
+        "packages" => list(associated_package())
       }
 
   """
@@ -1003,7 +1003,7 @@ defmodule AWS.Codeartifact do
 
       list_repositories_in_domain_result() :: %{
         "nextToken" => String.t(),
-        "repositories" => list(repository_summary()())
+        "repositories" => list(repository_summary())
       }
 
   """
@@ -1015,7 +1015,7 @@ defmodule AWS.Codeartifact do
 
       create_domain_request() :: %{
         optional("encryptionKey") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("domain") => String.t()
       }
 
@@ -1058,7 +1058,7 @@ defmodule AWS.Codeartifact do
         required("format") => list(any()),
         required("package") => String.t(),
         required("repository") => String.t(),
-        required("versions") => list(String.t()())
+        required("versions") => list(String.t())
       }
 
   """
@@ -1199,7 +1199,7 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       list_domains_result() :: %{
-        "domains" => list(domain_summary()()),
+        "domains" => list(domain_summary()),
         "nextToken" => String.t()
       }
 
@@ -1211,9 +1211,9 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       update_package_group_origin_configuration_request() :: %{
-        optional("addAllowedRepositories") => list(package_group_allowed_repository()()),
+        optional("addAllowedRepositories") => list(package_group_allowed_repository()),
         optional("domainOwner") => String.t(),
-        optional("removeAllowedRepositories") => list(package_group_allowed_repository()()),
+        optional("removeAllowedRepositories") => list(package_group_allowed_repository()),
         optional("restrictions") => map(),
         required("domain") => String.t(),
         required("packageGroup") => String.t()
@@ -1228,7 +1228,7 @@ defmodule AWS.Codeartifact do
 
       list_packages_result() :: %{
         "nextToken" => String.t(),
-        "packages" => list(package_summary()())
+        "packages" => list(package_summary())
       }
 
   """
@@ -1417,7 +1417,7 @@ defmodule AWS.Codeartifact do
 
       list_sub_package_groups_result() :: %{
         "nextToken" => String.t(),
-        "packageGroups" => list(package_group_summary()())
+        "packageGroups" => list(package_group_summary())
       }
 
   """
@@ -1452,7 +1452,7 @@ defmodule AWS.Codeartifact do
   ## Example:
 
       list_tags_for_resource_result() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1476,8 +1476,8 @@ defmodule AWS.Codeartifact do
       create_repository_request() :: %{
         optional("description") => String.t(),
         optional("domainOwner") => String.t(),
-        optional("tags") => list(tag()()),
-        optional("upstreams") => list(upstream_repository()()),
+        optional("tags") => list(tag()),
+        optional("upstreams") => list(upstream_repository()),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
@@ -1863,7 +1863,7 @@ defmodule AWS.Codeartifact do
         "namespace" => String.t(),
         "nextToken" => String.t(),
         "package" => String.t(),
-        "versions" => list(package_version_summary()())
+        "versions" => list(package_version_summary())
       }
 
   """
@@ -1900,7 +1900,7 @@ defmodule AWS.Codeartifact do
       update_repository_request() :: %{
         optional("description") => String.t(),
         optional("domainOwner") => String.t(),
-        optional("upstreams") => list(upstream_repository()()),
+        optional("upstreams") => list(upstream_repository()),
         required("domain") => String.t(),
         required("repository") => String.t()
       }
@@ -2025,9 +2025,9 @@ defmodule AWS.Codeartifact do
         "description" => String.t(),
         "domainName" => String.t(),
         "domainOwner" => String.t(),
-        "externalConnections" => list(repository_external_connection_info()()),
+        "externalConnections" => list(repository_external_connection_info()),
         "name" => String.t(),
-        "upstreams" => list(upstream_repository_info()())
+        "upstreams" => list(upstream_repository_info())
       }
 
   """
@@ -2103,7 +2103,7 @@ defmodule AWS.Codeartifact do
         optional("includeFromUpstream") => boolean(),
         optional("namespace") => String.t(),
         optional("versionRevisions") => map(),
-        optional("versions") => list(String.t()()),
+        optional("versions") => list(String.t()),
         required("destinationRepository") => String.t(),
         required("domain") => String.t(),
         required("format") => list(any()),
@@ -2128,7 +2128,7 @@ defmodule AWS.Codeartifact do
         required("package") => String.t(),
         required("repository") => String.t(),
         required("targetStatus") => list(any()),
-        required("versions") => list(String.t()())
+        required("versions") => list(String.t())
       }
 
   """

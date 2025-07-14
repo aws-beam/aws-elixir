@@ -35,7 +35,7 @@ defmodule AWS.ChimeSDKVoice do
         "DataRetentionInHours" => integer(),
         "Disabled" => boolean(),
         "MediaInsightsConfiguration" => media_insights_configuration(),
-        "StreamingNotificationTargets" => list(streaming_notification_target()())
+        "StreamingNotificationTargets" => list(streaming_notification_target())
       }
 
   """
@@ -46,7 +46,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       batch_delete_phone_number_request() :: %{
-        required("PhoneNumberIds") => list(String.t()())
+        required("PhoneNumberIds") => list(String.t())
       }
 
   """
@@ -57,7 +57,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       put_voice_connector_termination_credentials_request() :: %{
-        optional("Credentials") => list(credential()())
+        optional("Credentials") => list(credential())
       }
 
   """
@@ -69,7 +69,7 @@ defmodule AWS.ChimeSDKVoice do
 
       update_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
-        optional("TargetApplications") => list(sip_rule_target_application()()),
+        optional("TargetApplications") => list(sip_rule_target_application()),
         required("Name") => String.t()
       }
 
@@ -85,7 +85,7 @@ defmodule AWS.ChimeSDKVoice do
         "Disabled" => boolean(),
         "Name" => String.t(),
         "SipRuleId" => String.t(),
-        "TargetApplications" => list(sip_rule_target_application()()),
+        "TargetApplications" => list(sip_rule_target_application()),
         "TriggerType" => list(any()),
         "TriggerValue" => String.t(),
         "UpdatedTimestamp" => non_neg_integer()
@@ -123,9 +123,9 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       create_sip_media_application_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AwsRegion") => String.t(),
-        required("Endpoints") => list(sip_media_application_endpoint()()),
+        required("Endpoints") => list(sip_media_application_endpoint()),
         required("Name") => String.t()
       }
 
@@ -149,7 +149,7 @@ defmodule AWS.ChimeSDKVoice do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -174,7 +174,7 @@ defmodule AWS.ChimeSDKVoice do
         "DefaultSessionExpiryMinutes" => integer(),
         "Disabled" => boolean(),
         "FallBackPhoneNumber" => String.t(),
-        "PhoneNumberCountries" => list(String.t()())
+        "PhoneNumberCountries" => list(String.t())
       }
 
   """
@@ -197,7 +197,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       batch_update_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -219,7 +219,7 @@ defmodule AWS.ChimeSDKVoice do
       validate_e911_address_response() :: %{
         "Address" => address(),
         "AddressExternalId" => String.t(),
-        "CandidateAddressList" => list(candidate_address()()),
+        "CandidateAddressList" => list(candidate_address()),
         "ValidationResult" => integer()
       }
 
@@ -243,7 +243,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_phone_number_orders_response() :: %{
         "NextToken" => String.t(),
-        "PhoneNumberOrders" => list(phone_number_order()())
+        "PhoneNumberOrders" => list(phone_number_order())
       }
 
   """
@@ -303,7 +303,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       update_sip_media_application_request() :: %{
-        optional("Endpoints") => list(sip_media_application_endpoint()()),
+        optional("Endpoints") => list(sip_media_application_endpoint()),
         optional("Name") => String.t()
       }
 
@@ -341,7 +341,7 @@ defmodule AWS.ChimeSDKVoice do
 
       origination() :: %{
         "Disabled" => boolean(),
-        "Routes" => list(origination_route()())
+        "Routes" => list(origination_route())
       }
 
   """
@@ -399,7 +399,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       search_available_phone_numbers_response() :: %{
-        "E164PhoneNumbers" => list(String.t()()),
+        "E164PhoneNumbers" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -443,7 +443,7 @@ defmodule AWS.ChimeSDKVoice do
 
       associate_phone_numbers_with_voice_connector_group_request() :: %{
         optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t()())
+        required("E164PhoneNumbers") => list(String.t())
       }
 
   """
@@ -466,7 +466,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_profile_domains_response() :: %{
         "NextToken" => String.t(),
-        "VoiceProfileDomains" => list(voice_profile_domain_summary()())
+        "VoiceProfileDomains" => list(voice_profile_domain_summary())
       }
 
   """
@@ -677,7 +677,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       phone_number() :: %{
-        "Associations" => list(phone_number_association()()),
+        "Associations" => list(phone_number_association()),
         "CallingName" => String.t(),
         "CallingNameStatus" => list(any()),
         "Capabilities" => phone_number_capabilities(),
@@ -702,8 +702,8 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       termination() :: %{
-        "CallingRegions" => list(String.t()()),
-        "CidrAllowedList" => list(String.t()()),
+        "CallingRegions" => list(String.t()),
+        "CidrAllowedList" => list(String.t()),
         "CpsLimit" => integer(),
         "DefaultPhoneNumber" => String.t(),
         "Disabled" => boolean()
@@ -845,7 +845,7 @@ defmodule AWS.ChimeSDKVoice do
 
       associate_phone_numbers_with_voice_connector_request() :: %{
         optional("ForceAssociate") => boolean(),
-        required("E164PhoneNumbers") => list(String.t()())
+        required("E164PhoneNumbers") => list(String.t())
       }
 
   """
@@ -889,7 +889,7 @@ defmodule AWS.ChimeSDKVoice do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -935,7 +935,7 @@ defmodule AWS.ChimeSDKVoice do
 
       create_phone_number_order_request() :: %{
         optional("Name") => String.t(),
-        required("E164PhoneNumbers") => list(String.t()()),
+        required("E164PhoneNumbers") => list(String.t()),
         required("ProductType") => list(any())
       }
 
@@ -1083,7 +1083,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       speaker_search_details() :: %{
-        "Results" => list(speaker_search_result()()),
+        "Results" => list(speaker_search_result()),
         "VoiceprintGenerationStatus" => String.t()
       }
 
@@ -1119,7 +1119,7 @@ defmodule AWS.ChimeSDKVoice do
 
       update_voice_connector_group_request() :: %{
         required("Name") => String.t(),
-        required("VoiceConnectorItems") => list(voice_connector_item()())
+        required("VoiceConnectorItems") => list(voice_connector_item())
       }
 
   """
@@ -1130,7 +1130,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_supported_phone_number_countries_response() :: %{
-        "PhoneNumberCountries" => list(phone_number_country()())
+        "PhoneNumberCountries" => list(phone_number_country())
       }
 
   """
@@ -1187,7 +1187,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_request() :: %{
-        required("E164PhoneNumbers") => list(String.t()())
+        required("E164PhoneNumbers") => list(String.t())
       }
 
   """
@@ -1208,7 +1208,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_connector_groups_response() :: %{
         "NextToken" => String.t(),
-        "VoiceConnectorGroups" => list(voice_connector_group()())
+        "VoiceConnectorGroups" => list(voice_connector_group())
       }
 
   """
@@ -1242,7 +1242,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_proxy_sessions_response() :: %{
         "NextToken" => String.t(),
-        "ProxySessions" => list(proxy_session()())
+        "ProxySessions" => list(proxy_session())
       }
 
   """
@@ -1316,7 +1316,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -1337,7 +1337,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_sip_rules_response() :: %{
         "NextToken" => String.t(),
-        "SipRules" => list(sip_rule()())
+        "SipRules" => list(sip_rule())
       }
 
   """
@@ -1348,7 +1348,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_group_request() :: %{
-        required("E164PhoneNumbers") => list(String.t()())
+        required("E164PhoneNumbers") => list(String.t())
       }
 
   """
@@ -1372,7 +1372,7 @@ defmodule AWS.ChimeSDKVoice do
 
       create_sip_rule_request() :: %{
         optional("Disabled") => boolean(),
-        optional("TargetApplications") => list(sip_rule_target_application()()),
+        optional("TargetApplications") => list(sip_rule_target_application()),
         required("Name") => String.t(),
         required("TriggerType") => list(any()),
         required("TriggerValue") => String.t()
@@ -1427,7 +1427,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       batch_delete_phone_number_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -1457,7 +1457,7 @@ defmodule AWS.ChimeSDKVoice do
         "GeoMatchParams" => geo_match_params(),
         "Name" => String.t(),
         "NumberSelectionBehavior" => list(any()),
-        "Participants" => list(participant()()),
+        "Participants" => list(participant()),
         "ProxySessionId" => String.t(),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer(),
@@ -1513,7 +1513,7 @@ defmodule AWS.ChimeSDKVoice do
       create_voice_connector_request() :: %{
         optional("AwsRegion") => list(any()),
         optional("IntegrationType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("RequireEncryption") => boolean()
       }
@@ -1561,7 +1561,7 @@ defmodule AWS.ChimeSDKVoice do
         optional("Disabled") => boolean(),
         optional("FallBackPhoneNumber") => String.t(),
         required("DefaultSessionExpiryMinutes") => integer(),
-        required("PhoneNumberPoolCountries") => list(String.t()())
+        required("PhoneNumberPoolCountries") => list(String.t())
       }
 
   """
@@ -1572,7 +1572,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       associate_phone_numbers_with_voice_connector_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -1597,7 +1597,7 @@ defmodule AWS.ChimeSDKVoice do
         "CreatedTimestamp" => non_neg_integer(),
         "FocDate" => non_neg_integer(),
         "OrderType" => list(any()),
-        "OrderedPhoneNumbers" => list(ordered_phone_number()()),
+        "OrderedPhoneNumbers" => list(ordered_phone_number()),
         "PhoneNumberOrderId" => String.t(),
         "ProductType" => list(any()),
         "Status" => list(any()),
@@ -1621,7 +1621,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1643,7 +1643,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       disassociate_phone_numbers_from_voice_connector_group_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -1766,7 +1766,7 @@ defmodule AWS.ChimeSDKVoice do
       create_voice_profile_domain_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
@@ -1848,7 +1848,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       list_voice_connector_termination_credentials_response() :: %{
-        "Usernames" => list(String.t()())
+        "Usernames" => list(String.t())
       }
 
   """
@@ -1881,7 +1881,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       sip_media_application_alexa_skill_configuration() :: %{
-        "AlexaSkillIds" => list(String.t()()),
+        "AlexaSkillIds" => list(String.t()),
         "AlexaSkillStatus" => list(any())
       }
 
@@ -1899,7 +1899,7 @@ defmodule AWS.ChimeSDKVoice do
         optional("Name") => String.t(),
         optional("NumberSelectionBehavior") => list(any()),
         required("Capabilities") => list(list(any())()),
-        required("ParticipantPhoneNumbers") => list(String.t()())
+        required("ParticipantPhoneNumbers") => list(String.t())
       }
 
   """
@@ -1955,7 +1955,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_sip_media_applications_response() :: %{
         "NextToken" => String.t(),
-        "SipMediaApplications" => list(sip_media_application()())
+        "SipMediaApplications" => list(sip_media_application())
       }
 
   """
@@ -2016,7 +2016,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_profiles_response() :: %{
         "NextToken" => String.t(),
-        "VoiceProfiles" => list(voice_profile_summary()())
+        "VoiceProfiles" => list(voice_profile_summary())
       }
 
   """
@@ -2066,7 +2066,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       create_voice_connector_group_request() :: %{
-        optional("VoiceConnectorItems") => list(voice_connector_item()()),
+        optional("VoiceConnectorItems") => list(voice_connector_item()),
         required("Name") => String.t()
       }
 
@@ -2139,7 +2139,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       associate_phone_numbers_with_voice_connector_group_response() :: %{
-        "PhoneNumberErrors" => list(phone_number_error()())
+        "PhoneNumberErrors" => list(phone_number_error())
       }
 
   """
@@ -2172,7 +2172,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       delete_voice_connector_termination_credentials_request() :: %{
-        required("Usernames") => list(String.t()())
+        required("Usernames") => list(String.t())
       }
 
   """
@@ -2184,7 +2184,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_voice_connectors_response() :: %{
         "NextToken" => String.t(),
-        "VoiceConnectors" => list(voice_connector()())
+        "VoiceConnectors" => list(voice_connector())
       }
 
   """
@@ -2220,7 +2220,7 @@ defmodule AWS.ChimeSDKVoice do
         "UpdatedTimestamp" => non_neg_integer(),
         "VoiceConnectorGroupArn" => String.t(),
         "VoiceConnectorGroupId" => String.t(),
-        "VoiceConnectorItems" => list(voice_connector_item()())
+        "VoiceConnectorItems" => list(voice_connector_item())
       }
 
   """
@@ -2372,7 +2372,7 @@ defmodule AWS.ChimeSDKVoice do
 
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
-        "PhoneNumbers" => list(phone_number()())
+        "PhoneNumbers" => list(phone_number())
       }
 
   """
@@ -2621,7 +2621,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       batch_update_phone_number_request() :: %{
-        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item()())
+        required("UpdatePhoneNumberRequestItems") => list(update_phone_number_request_item())
       }
 
   """
@@ -2645,7 +2645,7 @@ defmodule AWS.ChimeSDKVoice do
       sip_media_application() :: %{
         "AwsRegion" => String.t(),
         "CreatedTimestamp" => non_neg_integer(),
-        "Endpoints" => list(sip_media_application_endpoint()()),
+        "Endpoints" => list(sip_media_application_endpoint()),
         "Name" => String.t(),
         "SipMediaApplicationArn" => String.t(),
         "SipMediaApplicationId" => String.t(),
@@ -2689,7 +2689,7 @@ defmodule AWS.ChimeSDKVoice do
   ## Example:
 
       emergency_calling_configuration() :: %{
-        "DNIS" => list(d_n_i_s_emergency_calling_configuration()())
+        "DNIS" => list(d_n_i_s_emergency_calling_configuration())
       }
 
   """

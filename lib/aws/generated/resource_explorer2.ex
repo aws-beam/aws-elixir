@@ -79,8 +79,8 @@ defmodule AWS.ResourceExplorer2 do
   ## Example:
 
       batch_get_view_output() :: %{
-        optional("Errors") => list(batch_get_view_error()()),
-        optional("Views") => list(view()())
+        optional("Errors") => list(batch_get_view_error()),
+        optional("Views") => list(view())
       }
 
   """
@@ -115,7 +115,7 @@ defmodule AWS.ResourceExplorer2 do
       list_indexes_for_members_input() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
-        required("AccountIdList") => list(String.t()())
+        required("AccountIdList") => list(String.t())
       }
 
   """
@@ -152,7 +152,7 @@ defmodule AWS.ResourceExplorer2 do
 
       view() :: %{
         "Filters" => search_filter(),
-        "IncludedProperties" => list(included_property()()),
+        "IncludedProperties" => list(included_property()),
         "LastUpdatedAt" => [non_neg_integer()],
         "Owner" => [String.t()],
         "Scope" => [String.t()],
@@ -290,7 +290,7 @@ defmodule AWS.ResourceExplorer2 do
       search_output() :: %{
         optional("Count") => resource_count(),
         optional("NextToken") => [String.t()],
-        optional("Resources") => list(resource()()),
+        optional("Resources") => list(resource()),
         optional("ViewArn") => [String.t()]
       }
 
@@ -362,7 +362,7 @@ defmodule AWS.ResourceExplorer2 do
   ## Example:
 
       list_indexes_for_members_output() :: %{
-        "Indexes" => list(member_index()()),
+        "Indexes" => list(member_index()),
         "NextToken" => [String.t()]
       }
 
@@ -400,7 +400,7 @@ defmodule AWS.ResourceExplorer2 do
 
       update_view_input() :: %{
         optional("Filters") => search_filter(),
-        optional("IncludedProperties") => list(included_property()()),
+        optional("IncludedProperties") => list(included_property()),
         required("ViewArn") => [String.t()]
       }
 
@@ -577,7 +577,7 @@ defmodule AWS.ResourceExplorer2 do
       create_view_input() :: %{
         optional("ClientToken") => [String.t()],
         optional("Filters") => search_filter(),
-        optional("IncludedProperties") => list(included_property()()),
+        optional("IncludedProperties") => list(included_property()),
         optional("Scope") => [String.t()],
         optional("Tags") => map(),
         required("ViewName") => String.t()
@@ -602,7 +602,7 @@ defmodule AWS.ResourceExplorer2 do
   ## Example:
 
       validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()()),
+        "FieldList" => list(validation_exception_field()),
         "Message" => [String.t()]
       }
 
@@ -688,7 +688,7 @@ defmodule AWS.ResourceExplorer2 do
   ## Example:
 
       list_indexes_output() :: %{
-        optional("Indexes") => list(index()()),
+        optional("Indexes") => list(index()),
         optional("NextToken") => [String.t()]
       }
 
@@ -713,7 +713,7 @@ defmodule AWS.ResourceExplorer2 do
 
       list_supported_resource_types_output() :: %{
         optional("NextToken") => [String.t()],
-        optional("ResourceTypes") => list(supported_resource_type()())
+        optional("ResourceTypes") => list(supported_resource_type())
       }
 
   """
@@ -776,7 +776,7 @@ defmodule AWS.ResourceExplorer2 do
 
       list_resources_output() :: %{
         "NextToken" => [String.t()],
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "ViewArn" => [String.t()]
       }
 
@@ -789,7 +789,7 @@ defmodule AWS.ResourceExplorer2 do
 
       managed_view() :: %{
         "Filters" => search_filter(),
-        "IncludedProperties" => list(included_property()()),
+        "IncludedProperties" => list(included_property()),
         "LastUpdatedAt" => [non_neg_integer()],
         "ManagedViewArn" => [String.t()],
         "ManagedViewName" => [String.t()],
@@ -811,7 +811,7 @@ defmodule AWS.ResourceExplorer2 do
         "Arn" => [String.t()],
         "LastReportedAt" => [non_neg_integer()],
         "OwningAccountId" => [String.t()],
-        "Properties" => list(resource_property()()),
+        "Properties" => list(resource_property()),
         "Region" => [String.t()],
         "ResourceType" => [String.t()],
         "Service" => [String.t()]

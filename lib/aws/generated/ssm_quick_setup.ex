@@ -48,13 +48,13 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       get_configuration_manager_output() :: %{
-        "ConfigurationDefinitions" => list(configuration_definition()()),
+        "ConfigurationDefinitions" => list(configuration_definition()),
         "CreatedAt" => [non_neg_integer()],
         "Description" => [String.t()],
         "LastModifiedAt" => [non_neg_integer()],
         "ManagerArn" => [String.t()],
         "Name" => [String.t()],
-        "StatusSummaries" => list(status_summary()()),
+        "StatusSummaries" => list(status_summary()),
         "Tags" => map()
       }
 
@@ -73,7 +73,7 @@ defmodule AWS.SSMQuickSetup do
         "Id" => [String.t()],
         "ManagerArn" => [String.t()],
         "Region" => [String.t()],
-        "StatusSummaries" => list(status_summary()()),
+        "StatusSummaries" => list(status_summary()),
         "Type" => [String.t()],
         "TypeVersion" => [String.t()]
       }
@@ -94,7 +94,7 @@ defmodule AWS.SSMQuickSetup do
         "ManagerArn" => [String.t()],
         "Parameters" => map(),
         "Region" => [String.t()],
-        "StatusSummaries" => list(status_summary()()),
+        "StatusSummaries" => list(status_summary()),
         "Type" => [String.t()],
         "TypeVersion" => [String.t()]
       }
@@ -107,7 +107,7 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       list_configuration_managers_output() :: %{
-        "ConfigurationManagersList" => list(configuration_manager_summary()()),
+        "ConfigurationManagersList" => list(configuration_manager_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -122,7 +122,7 @@ defmodule AWS.SSMQuickSetup do
         optional("Description") => [String.t()],
         optional("Name") => [String.t()],
         optional("Tags") => map(),
-        required("ConfigurationDefinitions") => list(configuration_definition_input()())
+        required("ConfigurationDefinitions") => list(configuration_definition_input())
       }
 
   """
@@ -192,7 +192,7 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       list_quick_setup_types_output() :: %{
-        "QuickSetupTypeList" => list(quick_setup_type_output()())
+        "QuickSetupTypeList" => list(quick_setup_type_output())
       }
 
   """
@@ -203,7 +203,7 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       list_configurations_output() :: %{
-        "ConfigurationsList" => list(configuration_summary()()),
+        "ConfigurationsList" => list(configuration_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -224,7 +224,7 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag_entry()())
+        "Tags" => list(tag_entry())
       }
 
   """
@@ -413,11 +413,11 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       configuration_manager_summary() :: %{
-        "ConfigurationDefinitionSummaries" => list(configuration_definition_summary()()),
+        "ConfigurationDefinitionSummaries" => list(configuration_definition_summary()),
         "Description" => [String.t()],
         "ManagerArn" => [String.t()],
         "Name" => [String.t()],
-        "StatusSummaries" => list(status_summary()())
+        "StatusSummaries" => list(status_summary())
       }
 
   """
@@ -428,7 +428,7 @@ defmodule AWS.SSMQuickSetup do
   ## Example:
 
       list_configuration_managers_input() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxItems") => [integer()],
         optional("StartingToken") => [String.t()]
       }
@@ -457,7 +457,7 @@ defmodule AWS.SSMQuickSetup do
 
       list_configurations_input() :: %{
         optional("ConfigurationDefinitionId") => [String.t()],
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("ManagerArn") => [String.t()],
         optional("MaxItems") => [integer()],
         optional("StartingToken") => [String.t()]

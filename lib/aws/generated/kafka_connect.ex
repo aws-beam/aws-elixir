@@ -97,7 +97,7 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       list_connectors_response() :: %{
-        optional("connectors") => list(connector_summary()()),
+        optional("connectors") => list(connector_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -170,8 +170,8 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       vpc() :: %{
-        "securityGroups" => list(String.t()()),
-        "subnets" => list(String.t()())
+        "securityGroups" => list(String.t()),
+        "subnets" => list(String.t())
       }
 
   """
@@ -195,7 +195,7 @@ defmodule AWS.KafkaConnect do
         optional("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit_description(),
         optional("kafkaConnectVersion") => String.t(),
         optional("logDelivery") => log_delivery_description(),
-        optional("plugins") => list(plugin_description()()),
+        optional("plugins") => list(plugin_description()),
         optional("serviceExecutionRoleArn") => String.t(),
         optional("stateDescription") => state_description(),
         optional("workerConfiguration") => worker_configuration_description()
@@ -308,7 +308,7 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -393,7 +393,7 @@ defmodule AWS.KafkaConnect do
 
       list_worker_configurations_response() :: %{
         optional("nextToken") => String.t(),
-        optional("workerConfigurations") => list(worker_configuration_summary()())
+        optional("workerConfigurations") => list(worker_configuration_summary())
       }
 
   """
@@ -460,8 +460,8 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       vpc_description() :: %{
-        "securityGroups" => list(String.t()()),
-        "subnets" => list(String.t()())
+        "securityGroups" => list(String.t()),
+        "subnets" => list(String.t())
       }
 
   """
@@ -472,7 +472,7 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       list_custom_plugins_response() :: %{
-        optional("customPlugins") => list(custom_plugin_summary()()),
+        optional("customPlugins") => list(custom_plugin_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -756,7 +756,7 @@ defmodule AWS.KafkaConnect do
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
         "errorInfo" => state_description(),
-        "operationSteps" => list(connector_operation_step()()),
+        "operationSteps" => list(connector_operation_step()),
         "originConnectorConfiguration" => map(),
         "originWorkerSetting" => worker_setting(),
         "targetConnectorConfiguration" => map(),
@@ -808,7 +808,7 @@ defmodule AWS.KafkaConnect do
         required("kafkaClusterClientAuthentication") => kafka_cluster_client_authentication(),
         required("kafkaClusterEncryptionInTransit") => kafka_cluster_encryption_in_transit(),
         required("kafkaConnectVersion") => String.t(),
-        required("plugins") => list(plugin()()),
+        required("plugins") => list(plugin()),
         required("serviceExecutionRoleArn") => String.t()
       }
 
@@ -889,7 +889,7 @@ defmodule AWS.KafkaConnect do
         "kafkaClusterEncryptionInTransit" => kafka_cluster_encryption_in_transit_description(),
         "kafkaConnectVersion" => String.t(),
         "logDelivery" => log_delivery_description(),
-        "plugins" => list(plugin_description()()),
+        "plugins" => list(plugin_description()),
         "serviceExecutionRoleArn" => String.t(),
         "workerConfiguration" => worker_configuration_description()
       }
@@ -1175,7 +1175,7 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       list_connector_operations_response() :: %{
-        "connectorOperations" => list(connector_operation_summary()()),
+        "connectorOperations" => list(connector_operation_summary()),
         "nextToken" => String.t()
       }
 

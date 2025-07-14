@@ -30,7 +30,7 @@ defmodule AWS.Kinesis do
       
       list_shards_output() :: %{
         "NextToken" => String.t(),
-        "Shards" => list(shard()())
+        "Shards" => list(shard())
       }
       
   """
@@ -212,7 +212,7 @@ defmodule AWS.Kinesis do
       
       list_tags_for_stream_output() :: %{
         "HasMoreTags" => boolean(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -224,11 +224,11 @@ defmodule AWS.Kinesis do
       
       stream_description() :: %{
         "EncryptionType" => list(any()),
-        "EnhancedMonitoring" => list(enhanced_metrics()()),
+        "EnhancedMonitoring" => list(enhanced_metrics()),
         "HasMoreShards" => boolean(),
         "KeyId" => String.t(),
         "RetentionPeriodHours" => integer(),
-        "Shards" => list(shard()()),
+        "Shards" => list(shard()),
         "StreamARN" => String.t(),
         "StreamCreationTimestamp" => non_neg_integer(),
         "StreamModeDetails" => stream_mode_details(),
@@ -259,7 +259,7 @@ defmodule AWS.Kinesis do
       stream_description_summary() :: %{
         "ConsumerCount" => integer(),
         "EncryptionType" => list(any()),
-        "EnhancedMonitoring" => list(enhanced_metrics()()),
+        "EnhancedMonitoring" => list(enhanced_metrics()),
         "KeyId" => String.t(),
         "OpenShardCount" => integer(),
         "RetentionPeriodHours" => integer(),
@@ -328,7 +328,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -341,7 +341,7 @@ defmodule AWS.Kinesis do
       put_records_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
-        required("Records") => list(put_records_request_entry()())
+        required("Records") => list(put_records_request_entry())
       }
       
   """
@@ -352,10 +352,10 @@ defmodule AWS.Kinesis do
   ## Example:
       
       get_records_output() :: %{
-        "ChildShards" => list(child_shard()()),
+        "ChildShards" => list(child_shard()),
         "MillisBehindLatest" => float(),
         "NextShardIterator" => String.t(),
-        "Records" => list(record()())
+        "Records" => list(record())
       }
       
   """
@@ -381,8 +381,8 @@ defmodule AWS.Kinesis do
       list_streams_output() :: %{
         "HasMoreStreams" => boolean(),
         "NextToken" => String.t(),
-        "StreamNames" => list(String.t()()),
-        "StreamSummaries" => list(stream_summary()())
+        "StreamNames" => list(String.t()),
+        "StreamSummaries" => list(stream_summary())
       }
       
   """
@@ -531,7 +531,7 @@ defmodule AWS.Kinesis do
       remove_tags_from_stream_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -602,7 +602,7 @@ defmodule AWS.Kinesis do
   ## Example:
       
       list_stream_consumers_output() :: %{
-        "Consumers" => list(consumer()()),
+        "Consumers" => list(consumer()),
         "NextToken" => String.t()
       }
       
@@ -760,7 +760,7 @@ defmodule AWS.Kinesis do
       
       untag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -867,10 +867,10 @@ defmodule AWS.Kinesis do
   ## Example:
       
       subscribe_to_shard_event() :: %{
-        "ChildShards" => list(child_shard()()),
+        "ChildShards" => list(child_shard()),
         "ContinuationSequenceNumber" => String.t(),
         "MillisBehindLatest" => float(),
-        "Records" => list(record()())
+        "Records" => list(record())
       }
       
   """
@@ -882,7 +882,7 @@ defmodule AWS.Kinesis do
       
       child_shard() :: %{
         "HashKeyRange" => hash_key_range(),
-        "ParentShards" => list(String.t()()),
+        "ParentShards" => list(String.t()),
         "ShardId" => String.t()
       }
       
@@ -1105,7 +1105,7 @@ defmodule AWS.Kinesis do
       put_records_output() :: %{
         "EncryptionType" => list(any()),
         "FailedRecordCount" => integer(),
-        "Records" => list(put_records_result_entry()())
+        "Records" => list(put_records_result_entry())
       }
       
   """
@@ -1414,7 +1414,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, add_tags_to_stream_errors()}
   def add_tags_to_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToStream", input, options)
   end
@@ -1497,7 +1498,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, create_stream_errors()}
   def create_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStream", input, options)
   end
@@ -1526,7 +1528,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, decrease_stream_retention_period_errors()}
   def decrease_stream_retention_period(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseStreamRetentionPeriod", input, options)
   end
@@ -1549,7 +1552,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -1593,7 +1597,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, delete_stream_errors()}
   def delete_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStream", input, options)
   end
@@ -1620,7 +1625,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, deregister_stream_consumer_errors()}
   def deregister_stream_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterStreamConsumer", input, options)
   end
@@ -1639,7 +1645,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLimits", input, options)
   end
@@ -1688,7 +1695,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStream", input, options)
   end
@@ -1719,7 +1727,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, describe_stream_consumer_errors()}
   def describe_stream_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStreamConsumer", input, options)
   end
@@ -1748,7 +1757,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, describe_stream_summary_errors()}
   def describe_stream_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStreamSummary", input, options)
   end
@@ -1766,7 +1776,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, disable_enhanced_monitoring_errors()}
   def disable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableEnhancedMonitoring", input, options)
   end
@@ -1784,7 +1795,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, enable_enhanced_monitoring_errors()}
   def enable_enhanced_monitoring(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableEnhancedMonitoring", input, options)
   end
@@ -1880,7 +1892,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -1903,7 +1916,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1970,7 +1984,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -2005,7 +2020,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, increase_stream_retention_period_errors()}
   def increase_stream_retention_period(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseStreamRetentionPeriod", input, options)
   end
@@ -2037,7 +2053,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, list_shards_errors()}
   def list_shards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListShards", input, options)
   end
@@ -2055,7 +2072,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, list_stream_consumers_errors()}
   def list_stream_consumers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreamConsumers", input, options)
   end
@@ -2088,7 +2106,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end
@@ -2108,7 +2127,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2129,7 +2149,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, list_tags_for_stream_errors()}
   def list_tags_for_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForStream", input, options)
   end
@@ -2198,7 +2219,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, merge_shards_errors()}
   def merge_shards(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MergeShards", input, options)
   end
@@ -2273,7 +2295,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecord", input, options)
   end
@@ -2375,7 +2398,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, put_records_errors()}
   def put_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecords", input, options)
   end
@@ -2412,7 +2436,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -2455,7 +2480,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, register_stream_consumer_errors()}
   def register_stream_consumer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterStreamConsumer", input, options)
   end
@@ -2481,7 +2507,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, remove_tags_from_stream_errors()}
   def remove_tags_from_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromStream", input, options)
   end
@@ -2555,7 +2582,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, split_shard_errors()}
   def split_shard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SplitShard", input, options)
   end
@@ -2595,7 +2623,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, start_stream_encryption_errors()}
   def start_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartStreamEncryption", input, options)
   end
@@ -2635,7 +2664,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, stop_stream_encryption_errors()}
   def stop_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStreamEncryption", input, options)
   end
@@ -2682,7 +2712,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, subscribe_to_shard_errors()}
   def subscribe_to_shard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubscribeToShard", input, options)
   end
@@ -2700,7 +2731,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2717,7 +2749,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2793,7 +2826,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, update_shard_count_errors()}
   def update_shard_count(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateShardCount", input, options)
   end
@@ -2811,7 +2845,8 @@ defmodule AWS.Kinesis do
           | {:error, term()}
           | {:error, update_stream_mode_errors()}
   def update_stream_mode(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStreamMode", input, options)
   end

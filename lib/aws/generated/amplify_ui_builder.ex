@@ -43,9 +43,9 @@ defmodule AWS.AmplifyUIBuilder do
         "id" => String.t(),
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t(),
-        "overrides" => list(theme_values()()),
+        "overrides" => list(theme_values()),
         "tags" => map(),
-        "values" => list(theme_values()())
+        "values" => list(theme_values())
       }
 
   """
@@ -175,7 +175,7 @@ defmodule AWS.AmplifyUIBuilder do
         "asset" => codegen_job_asset(),
         "autoGenerateForms" => [boolean()],
         "createdAt" => [non_neg_integer()],
-        "dependencies" => list(codegen_dependency()()),
+        "dependencies" => list(codegen_dependency()),
         "environmentName" => [String.t()],
         "features" => codegen_feature_flags(),
         "genericDataSchema" => codegen_job_generic_data_schema(),
@@ -273,7 +273,7 @@ defmodule AWS.AmplifyUIBuilder do
         "field" => [String.t()],
         "key" => [String.t()],
         "model" => [String.t()],
-        "predicates" => list(predicate()()),
+        "predicates" => list(predicate()),
         "slotName" => [String.t()],
         "userAttribute" => [String.t()]
       }
@@ -310,9 +310,9 @@ defmodule AWS.AmplifyUIBuilder do
 
       create_theme_data() :: %{
         "name" => String.t(),
-        "overrides" => list(theme_values()()),
+        "overrides" => list(theme_values()),
         "tags" => map(),
-        "values" => list(theme_values()())
+        "values" => list(theme_values())
       }
 
   """
@@ -401,7 +401,7 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -550,7 +550,7 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       list_codegen_jobs_response() :: %{
-        "entities" => list(codegen_job_summary()()),
+        "entities" => list(codegen_job_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -606,7 +606,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       create_component_data() :: %{
         "bindingProperties" => map(),
-        "children" => list(component_child()()),
+        "children" => list(component_child()),
         "collectionProperties" => map(),
         "componentType" => String.t(),
         "events" => map(),
@@ -616,7 +616,7 @@ defmodule AWS.AmplifyUIBuilder do
         "schemaVersion" => [String.t()],
         "sourceId" => [String.t()],
         "tags" => map(),
-        "variants" => list(component_variant()())
+        "variants" => list(component_variant())
       }
 
   """
@@ -652,7 +652,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       export_forms_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(form()())
+        required("entities") => list(form())
       }
 
   """
@@ -711,7 +711,7 @@ defmodule AWS.AmplifyUIBuilder do
         "inputType" => field_input_config(),
         "label" => [String.t()],
         "position" => list(),
-        "validations" => list(field_validation_configuration()())
+        "validations" => list(field_validation_configuration())
       }
 
   """
@@ -744,7 +744,7 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       component_child() :: %{
-        "children" => list(component_child()()),
+        "children" => list(component_child()),
         "componentType" => [String.t()],
         "events" => map(),
         "name" => [String.t()],
@@ -762,7 +762,7 @@ defmodule AWS.AmplifyUIBuilder do
       component() :: %{
         "appId" => [String.t()],
         "bindingProperties" => map(),
-        "children" => list(component_child()()),
+        "children" => list(component_child()),
         "collectionProperties" => map(),
         "componentType" => String.t(),
         "createdAt" => [non_neg_integer()],
@@ -776,7 +776,7 @@ defmodule AWS.AmplifyUIBuilder do
         "schemaVersion" => [String.t()],
         "sourceId" => [String.t()],
         "tags" => map(),
-        "variants" => list(component_variant()())
+        "variants" => list(component_variant())
       }
 
   """
@@ -799,7 +799,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_forms_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(form_summary()())
+        required("entities") => list(form_summary())
       }
 
   """
@@ -840,7 +840,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       export_components_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(component()())
+        required("entities") => list(component())
       }
 
   """
@@ -1063,7 +1063,7 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       theme_value() :: %{
-        "children" => list(theme_values()()),
+        "children" => list(theme_values()),
         "value" => [String.t()]
       }
 
@@ -1100,7 +1100,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       form_input_value_property() :: %{
         "bindingProperties" => form_input_value_property_binding_properties(),
-        "concat" => list(form_input_value_property()()),
+        "concat" => list(form_input_value_property()),
         "value" => [String.t()]
       }
 
@@ -1215,7 +1215,7 @@ defmodule AWS.AmplifyUIBuilder do
         "bindings" => map(),
         "collectionBindingProperties" => component_property_binding_properties(),
         "componentName" => [String.t()],
-        "concat" => list(component_property()()),
+        "concat" => list(component_property()),
         "condition" => component_condition_property(),
         "configured" => [boolean()],
         "defaultValue" => [String.t()],
@@ -1321,8 +1321,8 @@ defmodule AWS.AmplifyUIBuilder do
       update_theme_data() :: %{
         "id" => String.t(),
         "name" => String.t(),
-        "overrides" => list(theme_values()()),
-        "values" => list(theme_values()())
+        "overrides" => list(theme_values()),
+        "values" => list(theme_values())
       }
 
   """
@@ -1368,7 +1368,7 @@ defmodule AWS.AmplifyUIBuilder do
         "identifiers" => list([String.t()]()),
         "model" => [String.t()],
         "predicate" => predicate(),
-        "sort" => list(sort_property()())
+        "sort" => list(sort_property())
       }
 
   """
@@ -1390,12 +1390,12 @@ defmodule AWS.AmplifyUIBuilder do
   ## Example:
 
       predicate() :: %{
-        "and" => list(predicate()()),
+        "and" => list(predicate()),
         "field" => [String.t()],
         "operand" => [String.t()],
         "operandType" => String.t(),
         "operator" => [String.t()],
-        "or" => list(predicate()())
+        "or" => list(predicate())
       }
 
   """
@@ -1432,7 +1432,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_components_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(component_summary()())
+        required("entities") => list(component_summary())
       }
 
   """
@@ -1490,7 +1490,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       value_mappings() :: %{
         "bindingProperties" => map(),
-        "values" => list(value_mapping()())
+        "values" => list(value_mapping())
       }
 
   """
@@ -1502,7 +1502,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       list_themes_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(theme_summary()())
+        required("entities") => list(theme_summary())
       }
 
   """
@@ -1526,7 +1526,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       export_themes_response() :: %{
         optional("nextToken") => [String.t()],
-        required("entities") => list(theme()())
+        required("entities") => list(theme())
       }
 
   """
@@ -1571,7 +1571,7 @@ defmodule AWS.AmplifyUIBuilder do
 
       update_component_data() :: %{
         "bindingProperties" => map(),
-        "children" => list(component_child()()),
+        "children" => list(component_child()),
         "collectionProperties" => map(),
         "componentType" => String.t(),
         "events" => map(),
@@ -1581,7 +1581,7 @@ defmodule AWS.AmplifyUIBuilder do
         "properties" => map(),
         "schemaVersion" => [String.t()],
         "sourceId" => [String.t()],
-        "variants" => list(component_variant()())
+        "variants" => list(component_variant())
       }
 
   """

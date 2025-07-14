@@ -129,7 +129,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_operating_systems_response() :: %{
-        "OperatingSystems" => list(operating_system()())
+        "OperatingSystems" => list(operating_system())
       }
       
   """
@@ -144,11 +144,11 @@ defmodule AWS.OpsWorks do
         "AppSource" => source(),
         "Attributes" => map(),
         "CreatedAt" => String.t(),
-        "DataSources" => list(data_source()()),
+        "DataSources" => list(data_source()),
         "Description" => String.t(),
-        "Domains" => list(String.t()()),
+        "Domains" => list(String.t()),
         "EnableSsl" => boolean(),
-        "Environment" => list(environment_variable()()),
+        "Environment" => list(environment_variable()),
         "Name" => String.t(),
         "Shortname" => String.t(),
         "SslConfiguration" => ssl_configuration(),
@@ -179,7 +179,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_apps_request() :: %{
-        optional("AppIds") => list(String.t()()),
+        optional("AppIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -246,11 +246,11 @@ defmodule AWS.OpsWorks do
       create_app_request() :: %{
         optional("AppSource") => source(),
         optional("Attributes") => map(),
-        optional("DataSources") => list(data_source()()),
+        optional("DataSources") => list(data_source()),
         optional("Description") => String.t(),
-        optional("Domains") => list(String.t()()),
+        optional("Domains") => list(String.t()),
         optional("EnableSsl") => boolean(),
-        optional("Environment") => list(environment_variable()()),
+        optional("Environment") => list(environment_variable()),
         optional("Shortname") => String.t(),
         optional("SslConfiguration") => ssl_configuration(),
         required("Name") => String.t(),
@@ -277,7 +277,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_elastic_ips_result() :: %{
-        "ElasticIps" => list(elastic_ip()())
+        "ElasticIps" => list(elastic_ip())
       }
       
   """
@@ -288,7 +288,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_rds_db_instances_request() :: %{
-        optional("RdsDbInstanceArns") => list(String.t()()),
+        optional("RdsDbInstanceArns") => list(String.t()),
         required("StackId") => String.t()
       }
       
@@ -309,7 +309,7 @@ defmodule AWS.OpsWorks do
         "DeploymentId" => String.t(),
         "Duration" => integer(),
         "IamUserArn" => String.t(),
-        "InstanceIds" => list(String.t()()),
+        "InstanceIds" => list(String.t()),
         "StackId" => String.t(),
         "Status" => String.t()
       }
@@ -416,7 +416,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_raid_arrays_result() :: %{
-        "RaidArrays" => list(raid_array()())
+        "RaidArrays" => list(raid_array())
       }
       
   """
@@ -440,7 +440,7 @@ defmodule AWS.OpsWorks do
       
       describe_elastic_ips_request() :: %{
         optional("InstanceId") => String.t(),
-        optional("Ips") => list(String.t()()),
+        optional("Ips") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -452,7 +452,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_commands_result() :: %{
-        "Commands" => list(command()())
+        "Commands" => list(command())
       }
       
   """
@@ -490,7 +490,7 @@ defmodule AWS.OpsWorks do
         optional("InstanceId") => String.t(),
         optional("RaidArrayId") => String.t(),
         optional("StackId") => String.t(),
-        optional("VolumeIds") => list(String.t()())
+        optional("VolumeIds") => list(String.t())
       }
       
   """
@@ -528,8 +528,8 @@ defmodule AWS.OpsWorks do
         optional("AppId") => String.t(),
         optional("Comment") => String.t(),
         optional("CustomJson") => String.t(),
-        optional("InstanceIds") => list(String.t()()),
-        optional("LayerIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
+        optional("LayerIds") => list(String.t()),
         required("Command") => deployment_command(),
         required("StackId") => String.t()
       }
@@ -628,7 +628,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       operating_system() :: %{
-        "ConfigurationManagers" => list(operating_system_configuration_manager()()),
+        "ConfigurationManagers" => list(operating_system_configuration_manager()),
         "Id" => String.t(),
         "Name" => String.t(),
         "ReportedName" => String.t(),
@@ -645,7 +645,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_permissions_result() :: %{
-        "Permissions" => list(permission()())
+        "Permissions" => list(permission())
       }
       
   """
@@ -669,7 +669,7 @@ defmodule AWS.OpsWorks do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -691,7 +691,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_commands_request() :: %{
-        optional("CommandIds") => list(String.t()()),
+        optional("CommandIds") => list(String.t()),
         optional("DeploymentId") => String.t(),
         optional("InstanceId") => String.t()
       }
@@ -794,7 +794,7 @@ defmodule AWS.OpsWorks do
       
       cloud_watch_logs_configuration() :: %{
         "Enabled" => boolean(),
-        "LogStreams" => list(cloud_watch_logs_log_stream()())
+        "LogStreams" => list(cloud_watch_logs_log_stream())
       }
       
   """
@@ -898,7 +898,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_rds_db_instances_result() :: %{
-        "RdsDbInstances" => list(rds_db_instance()())
+        "RdsDbInstances" => list(rds_db_instance())
       }
       
   """
@@ -909,7 +909,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_elastic_load_balancers_request() :: %{
-        optional("LayerIds") => list(String.t()()),
+        optional("LayerIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -921,14 +921,14 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       elastic_load_balancer() :: %{
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "DnsName" => String.t(),
-        "Ec2InstanceIds" => list(String.t()()),
+        "Ec2InstanceIds" => list(String.t()),
         "ElasticLoadBalancerName" => String.t(),
         "LayerId" => String.t(),
         "Region" => String.t(),
         "StackId" => String.t(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -951,11 +951,11 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       recipes() :: %{
-        "Configure" => list(String.t()()),
-        "Deploy" => list(String.t()()),
-        "Setup" => list(String.t()()),
-        "Shutdown" => list(String.t()()),
-        "Undeploy" => list(String.t()())
+        "Configure" => list(String.t()),
+        "Deploy" => list(String.t()),
+        "Setup" => list(String.t()),
+        "Shutdown" => list(String.t()),
+        "Undeploy" => list(String.t())
       }
       
   """
@@ -1006,7 +1006,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_stacks_request() :: %{
-        optional("StackIds") => list(String.t()())
+        optional("StackIds") => list(String.t())
       }
       
   """
@@ -1084,7 +1084,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_user_profiles_result() :: %{
-        "UserProfiles" => list(user_profile()())
+        "UserProfiles" => list(user_profile())
       }
       
   """
@@ -1113,7 +1113,7 @@ defmodule AWS.OpsWorks do
       
       assign_instance_request() :: %{
         required("InstanceId") => String.t(),
-        required("LayerIds") => list(String.t()())
+        required("LayerIds") => list(String.t())
       }
       
   """
@@ -1135,7 +1135,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_load_based_auto_scaling_request() :: %{
-        required("LayerIds") => list(String.t()())
+        required("LayerIds") => list(String.t())
       }
       
   """
@@ -1154,7 +1154,7 @@ defmodule AWS.OpsWorks do
         optional("Hostname") => String.t(),
         optional("InstallUpdatesOnBoot") => boolean(),
         optional("InstanceType") => String.t(),
-        optional("LayerIds") => list(String.t()()),
+        optional("LayerIds") => list(String.t()),
         optional("Os") => String.t(),
         optional("SshKeyName") => String.t(),
         required("InstanceId") => String.t()
@@ -1180,7 +1180,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_layers_result() :: %{
-        "Layers" => list(layer()())
+        "Layers" => list(layer())
       }
       
   """
@@ -1200,20 +1200,20 @@ defmodule AWS.OpsWorks do
         "CustomInstanceProfileArn" => String.t(),
         "CustomJson" => String.t(),
         "CustomRecipes" => recipes(),
-        "CustomSecurityGroupIds" => list(String.t()()),
+        "CustomSecurityGroupIds" => list(String.t()),
         "DefaultRecipes" => recipes(),
-        "DefaultSecurityGroupNames" => list(String.t()()),
+        "DefaultSecurityGroupNames" => list(String.t()),
         "EnableAutoHealing" => boolean(),
         "InstallUpdatesOnBoot" => boolean(),
         "LayerId" => String.t(),
         "LifecycleEventConfiguration" => lifecycle_event_configuration(),
         "Name" => String.t(),
-        "Packages" => list(String.t()()),
+        "Packages" => list(String.t()),
         "Shortname" => String.t(),
         "StackId" => String.t(),
         "Type" => list(any()),
         "UseEbsOptimizedInstances" => boolean(),
-        "VolumeConfigurations" => list(volume_configuration()())
+        "VolumeConfigurations" => list(volume_configuration())
       }
       
   """
@@ -1241,7 +1241,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_instances_request() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         optional("LayerId") => String.t(),
         optional("StackId") => String.t()
       }
@@ -1267,7 +1267,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_user_profiles_request() :: %{
-        optional("IamUserArns") => list(String.t()())
+        optional("IamUserArns") => list(String.t())
       }
       
   """
@@ -1278,7 +1278,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_elastic_load_balancers_result() :: %{
-        "ElasticLoadBalancers" => list(elastic_load_balancer()())
+        "ElasticLoadBalancers" => list(elastic_load_balancer())
       }
       
   """
@@ -1289,7 +1289,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_time_based_auto_scaling_request() :: %{
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -1312,7 +1312,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_ecs_clusters_request() :: %{
-        optional("EcsClusterArns") => list(String.t()()),
+        optional("EcsClusterArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StackId") => String.t()
@@ -1376,7 +1376,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_deployments_result() :: %{
-        "Deployments" => list(deployment()())
+        "Deployments" => list(deployment())
       }
       
   """
@@ -1387,7 +1387,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       auto_scaling_thresholds() :: %{
-        "Alarms" => list(String.t()()),
+        "Alarms" => list(String.t()),
         "CpuThreshold" => float(),
         "IgnoreMetricsTime" => integer(),
         "InstanceCount" => integer(),
@@ -1416,7 +1416,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_apps_result() :: %{
-        "Apps" => list(app()())
+        "Apps" => list(app())
       }
       
   """
@@ -1434,15 +1434,15 @@ defmodule AWS.OpsWorks do
         optional("CustomInstanceProfileArn") => String.t(),
         optional("CustomJson") => String.t(),
         optional("CustomRecipes") => recipes(),
-        optional("CustomSecurityGroupIds") => list(String.t()()),
+        optional("CustomSecurityGroupIds") => list(String.t()),
         optional("EnableAutoHealing") => boolean(),
         optional("InstallUpdatesOnBoot") => boolean(),
         optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
         optional("Name") => String.t(),
-        optional("Packages") => list(String.t()()),
+        optional("Packages") => list(String.t()),
         optional("Shortname") => String.t(),
         optional("UseEbsOptimizedInstances") => boolean(),
-        optional("VolumeConfigurations") => list(volume_configuration()()),
+        optional("VolumeConfigurations") => list(volume_configuration()),
         required("LayerId") => String.t()
       }
       
@@ -1494,7 +1494,7 @@ defmodule AWS.OpsWorks do
       
       describe_service_errors_request() :: %{
         optional("InstanceId") => String.t(),
-        optional("ServiceErrorIds") => list(String.t()()),
+        optional("ServiceErrorIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -1506,7 +1506,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_stacks_result() :: %{
-        "Stacks" => list(stack()())
+        "Stacks" => list(stack())
       }
       
   """
@@ -1520,7 +1520,7 @@ defmodule AWS.OpsWorks do
         optional("AgentVersion") => String.t(),
         optional("Attributes") => map(),
         optional("ChefConfiguration") => chef_configuration(),
-        optional("CloneAppIds") => list(String.t()()),
+        optional("CloneAppIds") => list(String.t()),
         optional("ClonePermissions") => boolean(),
         optional("ConfigurationManager") => stack_configuration_manager(),
         optional("CustomCookbooksSource") => source(),
@@ -1590,7 +1590,7 @@ defmodule AWS.OpsWorks do
         optional("Architecture") => list(any()),
         optional("AutoScalingType") => list(any()),
         optional("AvailabilityZone") => String.t(),
-        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("EbsOptimized") => boolean(),
         optional("Hostname") => String.t(),
         optional("InstallUpdatesOnBoot") => boolean(),
@@ -1601,7 +1601,7 @@ defmodule AWS.OpsWorks do
         optional("Tenancy") => String.t(),
         optional("VirtualizationType") => String.t(),
         required("InstanceType") => String.t(),
-        required("LayerIds") => list(String.t()()),
+        required("LayerIds") => list(String.t()),
         required("StackId") => String.t()
       }
       
@@ -1613,7 +1613,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_agent_versions_result() :: %{
-        "AgentVersions" => list(agent_version()())
+        "AgentVersions" => list(agent_version())
       }
       
   """
@@ -1644,7 +1644,7 @@ defmodule AWS.OpsWorks do
         "SubnetId" => String.t(),
         "InstanceProfileArn" => String.t(),
         "AgentVersion" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "SshKeyName" => String.t(),
         "Os" => String.t(),
         "StackId" => String.t(),
@@ -1653,7 +1653,7 @@ defmodule AWS.OpsWorks do
         "Ec2InstanceId" => String.t(),
         "AvailabilityZone" => String.t(),
         "RegisteredBy" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "InstanceType" => String.t(),
         "InstanceId" => String.t(),
         "Tenancy" => String.t(),
@@ -1667,7 +1667,7 @@ defmodule AWS.OpsWorks do
         "PrivateIp" => String.t(),
         "Architecture" => list(any()),
         "InstallUpdatesOnBoot" => boolean(),
-        "LayerIds" => list(String.t()()),
+        "LayerIds" => list(String.t()),
         "Arn" => String.t(),
         "EcsClusterArn" => String.t(),
         "SshHostDsaKeyFingerprint" => String.t(),
@@ -1773,7 +1773,7 @@ defmodule AWS.OpsWorks do
       
       describe_raid_arrays_request() :: %{
         optional("InstanceId") => String.t(),
-        optional("RaidArrayIds") => list(String.t()()),
+        optional("RaidArrayIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -1792,13 +1792,13 @@ defmodule AWS.OpsWorks do
         optional("CustomInstanceProfileArn") => String.t(),
         optional("CustomJson") => String.t(),
         optional("CustomRecipes") => recipes(),
-        optional("CustomSecurityGroupIds") => list(String.t()()),
+        optional("CustomSecurityGroupIds") => list(String.t()),
         optional("EnableAutoHealing") => boolean(),
         optional("InstallUpdatesOnBoot") => boolean(),
         optional("LifecycleEventConfiguration") => lifecycle_event_configuration(),
-        optional("Packages") => list(String.t()()),
+        optional("Packages") => list(String.t()),
         optional("UseEbsOptimizedInstances") => boolean(),
-        optional("VolumeConfigurations") => list(volume_configuration()()),
+        optional("VolumeConfigurations") => list(volume_configuration()),
         required("Name") => String.t(),
         required("Shortname") => String.t(),
         required("StackId") => String.t(),
@@ -1813,7 +1813,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_ecs_clusters_result() :: %{
-        "EcsClusters" => list(ecs_cluster()()),
+        "EcsClusters" => list(ecs_cluster()),
         "NextToken" => String.t()
       }
       
@@ -1847,7 +1847,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_time_based_auto_scaling_result() :: %{
-        "TimeBasedAutoScalingConfigurations" => list(time_based_auto_scaling_configuration()())
+        "TimeBasedAutoScalingConfigurations" => list(time_based_auto_scaling_configuration())
       }
       
   """
@@ -1871,7 +1871,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_layers_request() :: %{
-        optional("LayerIds") => list(String.t()()),
+        optional("LayerIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -1896,11 +1896,11 @@ defmodule AWS.OpsWorks do
       update_app_request() :: %{
         optional("AppSource") => source(),
         optional("Attributes") => map(),
-        optional("DataSources") => list(data_source()()),
+        optional("DataSources") => list(data_source()),
         optional("Description") => String.t(),
-        optional("Domains") => list(String.t()()),
+        optional("Domains") => list(String.t()),
         optional("EnableSsl") => boolean(),
-        optional("Environment") => list(environment_variable()()),
+        optional("Environment") => list(environment_variable()),
         optional("Name") => String.t(),
         optional("SslConfiguration") => ssl_configuration(),
         optional("Type") => list(any()),
@@ -1973,7 +1973,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_instances_result() :: %{
-        "Instances" => list(instance()())
+        "Instances" => list(instance())
       }
       
   """
@@ -2003,7 +2003,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_load_based_auto_scaling_result() :: %{
-        "LoadBasedAutoScalingConfigurations" => list(load_based_auto_scaling_configuration()())
+        "LoadBasedAutoScalingConfigurations" => list(load_based_auto_scaling_configuration())
       }
       
   """
@@ -2062,7 +2062,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_volumes_result() :: %{
-        "Volumes" => list(volume()())
+        "Volumes" => list(volume())
       }
       
   """
@@ -2209,7 +2209,7 @@ defmodule AWS.OpsWorks do
       
       describe_deployments_request() :: %{
         optional("AppId") => String.t(),
-        optional("DeploymentIds") => list(String.t()()),
+        optional("DeploymentIds") => list(String.t()),
         optional("StackId") => String.t()
       }
       
@@ -2232,7 +2232,7 @@ defmodule AWS.OpsWorks do
   ## Example:
       
       describe_service_errors_result() :: %{
-        "ServiceErrors" => list(service_error()())
+        "ServiceErrors" => list(service_error())
       }
       
   """
@@ -2499,7 +2499,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, assign_instance_errors()}
   def assign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignInstance", input, options)
   end
@@ -2526,7 +2527,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, assign_volume_errors()}
   def assign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignVolume", input, options)
   end
@@ -2552,7 +2554,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, associate_elastic_ip_errors()}
   def associate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateElasticIp", input, options)
   end
@@ -2581,7 +2584,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, attach_elastic_load_balancer_errors()}
   def attach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachElasticLoadBalancer", input, options)
   end
@@ -2603,7 +2607,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, clone_stack_errors()}
   def clone_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloneStack", input, options)
   end
@@ -2625,7 +2630,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_app_errors()}
   def create_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApp", input, options)
   end
@@ -2648,7 +2654,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -2671,7 +2678,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstance", input, options)
   end
@@ -2704,7 +2712,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_layer_errors()}
   def create_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLayer", input, options)
   end
@@ -2725,7 +2734,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_stack_errors()}
   def create_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStack", input, options)
   end
@@ -2744,7 +2754,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, create_user_profile_errors()}
   def create_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserProfile", input, options)
   end
@@ -2764,7 +2775,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_app_errors()}
   def delete_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApp", input, options)
   end
@@ -2790,7 +2802,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -2814,7 +2827,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_layer_errors()}
   def delete_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLayer", input, options)
   end
@@ -2837,7 +2851,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_stack_errors()}
   def delete_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStack", input, options)
   end
@@ -2856,7 +2871,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, delete_user_profile_errors()}
   def delete_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserProfile", input, options)
   end
@@ -2882,7 +2898,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_ecs_cluster_errors()}
   def deregister_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterEcsCluster", input, options)
   end
@@ -2905,7 +2922,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_elastic_ip_errors()}
   def deregister_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterElasticIp", input, options)
   end
@@ -2929,7 +2947,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
@@ -2949,7 +2968,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_rds_db_instance_errors()}
   def deregister_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterRdsDbInstance", input, options)
   end
@@ -2972,7 +2992,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, deregister_volume_errors()}
   def deregister_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterVolume", input, options)
   end
@@ -2990,7 +3011,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_agent_versions_errors()}
   def describe_agent_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgentVersions", input, options)
   end
@@ -3013,7 +3035,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_apps_errors()}
   def describe_apps(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApps", input, options)
   end
@@ -3035,7 +3058,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_commands_errors()}
   def describe_commands(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCommands", input, options)
   end
@@ -3057,7 +3081,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_deployments_errors()}
   def describe_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeployments", input, options)
   end
@@ -3085,7 +3110,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_ecs_clusters_errors()}
   def describe_ecs_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEcsClusters", input, options)
   end
@@ -3107,7 +3133,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_elastic_ips_errors()}
   def describe_elastic_ips(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticIps", input, options)
   end
@@ -3129,7 +3156,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_elastic_load_balancers_errors()}
   def describe_elastic_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticLoadBalancers", input, options)
   end
@@ -3151,7 +3179,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -3173,7 +3202,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_layers_errors()}
   def describe_layers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLayers", input, options)
   end
@@ -3199,7 +3229,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_load_based_auto_scaling_errors()}
   def describe_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBasedAutoScaling", input, options)
   end
@@ -3218,7 +3249,8 @@ defmodule AWS.OpsWorks do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMyUserProfile", input, options)
   end
@@ -3231,7 +3263,8 @@ defmodule AWS.OpsWorks do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_operating_systems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOperatingSystems", input, options)
   end
@@ -3251,7 +3284,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_permissions_errors()}
   def describe_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePermissions", input, options)
   end
@@ -3273,7 +3307,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_raid_arrays_errors()}
   def describe_raid_arrays(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRaidArrays", input, options)
   end
@@ -3295,7 +3330,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_rds_db_instances_errors()}
   def describe_rds_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRdsDbInstances", input, options)
   end
@@ -3317,7 +3353,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_service_errors_errors()}
   def describe_service_errors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceErrors", input, options)
   end
@@ -3341,7 +3378,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stack_provisioning_parameters_errors()}
   def describe_stack_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackProvisioningParameters", input, options)
   end
@@ -3363,7 +3401,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stack_summary_errors()}
   def describe_stack_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStackSummary", input, options)
   end
@@ -3383,7 +3422,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_stacks_errors()}
   def describe_stacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStacks", input, options)
   end
@@ -3409,7 +3449,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_time_based_auto_scaling_errors()}
   def describe_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTimeBasedAutoScaling", input, options)
   end
@@ -3428,7 +3469,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_user_profiles_errors()}
   def describe_user_profiles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserProfiles", input, options)
   end
@@ -3450,7 +3492,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -3470,7 +3513,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, detach_elastic_load_balancer_errors()}
   def detach_elastic_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachElasticLoadBalancer", input, options)
   end
@@ -3493,7 +3537,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, disassociate_elastic_ip_errors()}
   def disassociate_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateElasticIp", input, options)
   end
@@ -3514,7 +3559,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, get_hostname_suggestion_errors()}
   def get_hostname_suggestion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHostnameSuggestion", input, options)
   end
@@ -3531,7 +3577,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, grant_access_errors()}
   def grant_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GrantAccess", input, options)
   end
@@ -3545,7 +3592,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -3568,7 +3616,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, reboot_instance_errors()}
   def reboot_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootInstance", input, options)
   end
@@ -3598,7 +3647,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_ecs_cluster_errors()}
   def register_ecs_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterEcsCluster", input, options)
   end
@@ -3623,7 +3673,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_elastic_ip_errors()}
   def register_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterElasticIp", input, options)
   end
@@ -3666,7 +3717,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstance", input, options)
   end
@@ -3686,7 +3738,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_rds_db_instance_errors()}
   def register_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterRdsDbInstance", input, options)
   end
@@ -3711,7 +3764,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, register_volume_errors()}
   def register_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterVolume", input, options)
   end
@@ -3741,7 +3795,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_load_based_auto_scaling_errors()}
   def set_load_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLoadBasedAutoScaling", input, options)
   end
@@ -3764,7 +3819,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_permission_errors()}
   def set_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPermission", input, options)
   end
@@ -3788,7 +3844,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, set_time_based_auto_scaling_errors()}
   def set_time_based_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTimeBasedAutoScaling", input, options)
   end
@@ -3811,7 +3868,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, start_instance_errors()}
   def start_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstance", input, options)
   end
@@ -3831,7 +3889,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, start_stack_errors()}
   def start_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartStack", input, options)
   end
@@ -3857,7 +3916,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, stop_instance_errors()}
   def stop_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInstance", input, options)
   end
@@ -3877,7 +3937,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, stop_stack_errors()}
   def stop_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStack", input, options)
   end
@@ -3896,7 +3957,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3922,7 +3984,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, unassign_instance_errors()}
   def unassign_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignInstance", input, options)
   end
@@ -3945,7 +4008,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, unassign_volume_errors()}
   def unassign_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignVolume", input, options)
   end
@@ -3959,7 +4023,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3979,7 +4044,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_app_errors()}
   def update_app(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApp", input, options)
   end
@@ -4001,7 +4067,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_elastic_ip_errors()}
   def update_elastic_ip(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateElasticIp", input, options)
   end
@@ -4021,7 +4088,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstance", input, options)
   end
@@ -4041,7 +4109,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_layer_errors()}
   def update_layer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLayer", input, options)
   end
@@ -4061,7 +4130,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_my_user_profile_errors()}
   def update_my_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMyUserProfile", input, options)
   end
@@ -4081,7 +4151,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_rds_db_instance_errors()}
   def update_rds_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRdsDbInstance", input, options)
   end
@@ -4101,7 +4172,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_stack_errors()}
   def update_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStack", input, options)
   end
@@ -4120,7 +4192,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_user_profile_errors()}
   def update_user_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserProfile", input, options)
   end
@@ -4143,7 +4216,8 @@ defmodule AWS.OpsWorks do
           | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVolume", input, options)
   end

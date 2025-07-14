@@ -35,7 +35,7 @@ defmodule AWS.Repostspace do
   ## Example:
 
       batch_add_role_input() :: %{
-        required("accessorIds") => list(String.t()()),
+        required("accessorIds") => list(String.t()),
         required("role") => list(any())
       }
 
@@ -47,8 +47,8 @@ defmodule AWS.Repostspace do
   ## Example:
 
       batch_add_role_output() :: %{
-        "addedAccessorIds" => list(String.t()()),
-        "errors" => list(batch_error()())
+        "addedAccessorIds" => list(String.t()),
+        "errors" => list(batch_error())
       }
 
   """
@@ -72,7 +72,7 @@ defmodule AWS.Repostspace do
   ## Example:
 
       batch_remove_role_input() :: %{
-        required("accessorIds") => list(String.t()()),
+        required("accessorIds") => list(String.t()),
         required("role") => list(any())
       }
 
@@ -84,8 +84,8 @@ defmodule AWS.Repostspace do
   ## Example:
 
       batch_remove_role_output() :: %{
-        "errors" => list(batch_error()()),
-        "removedAccessorIds" => list(String.t()())
+        "errors" => list(batch_error()),
+        "removedAccessorIds" => list(String.t())
       }
 
   """
@@ -172,7 +172,7 @@ defmodule AWS.Repostspace do
         "customerRoleArn" => String.t(),
         "deleteDateTime" => [non_neg_integer()],
         "description" => String.t(),
-        "groupAdmins" => list(String.t()()),
+        "groupAdmins" => list(String.t()),
         "name" => String.t(),
         "randomDomain" => String.t(),
         "roles" => map(),
@@ -180,7 +180,7 @@ defmodule AWS.Repostspace do
         "status" => String.t(),
         "storageLimit" => float(),
         "tier" => list(any()),
-        "userAdmins" => list(String.t()()),
+        "userAdmins" => list(String.t()),
         "userCount" => integer(),
         "userKMSKey" => String.t(),
         "vanityDomain" => String.t(),
@@ -220,7 +220,7 @@ defmodule AWS.Repostspace do
 
       list_spaces_output() :: %{
         "nextToken" => [String.t()],
-        "spaces" => list(space_data()())
+        "spaces" => list(space_data())
       }
 
   """
@@ -273,7 +273,7 @@ defmodule AWS.Repostspace do
   ## Example:
 
       send_invites_input() :: %{
-        required("accessorIds") => list(String.t()()),
+        required("accessorIds") => list(String.t()),
         required("body") => String.t(),
         required("title") => String.t()
       }
@@ -361,7 +361,7 @@ defmodule AWS.Repostspace do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -394,7 +394,7 @@ defmodule AWS.Repostspace do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }

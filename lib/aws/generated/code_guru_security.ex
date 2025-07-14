@@ -31,7 +31,7 @@ defmodule AWS.CodeGuruSecurity do
 
       list_scans_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(scan_summary()())
+        "summaries" => list(scan_summary())
       }
 
   """
@@ -150,7 +150,7 @@ defmodule AWS.CodeGuruSecurity do
 
       remediation() :: %{
         "recommendation" => recommendation(),
-        "suggestedFixes" => list(suggested_fix()())
+        "suggestedFixes" => list(suggested_fix())
       }
 
   """
@@ -234,11 +234,11 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       metrics_summary() :: %{
-        "categoriesWithMostFindings" => list(category_with_finding_num()()),
+        "categoriesWithMostFindings" => list(category_with_finding_num()),
         "date" => [non_neg_integer()],
         "openFindings" => finding_metrics_value_per_severity(),
-        "scansWithMostOpenCriticalFindings" => list(scan_name_with_finding_num()()),
-        "scansWithMostOpenFindings" => list(scan_name_with_finding_num()())
+        "scansWithMostOpenCriticalFindings" => list(scan_name_with_finding_num()),
+        "scansWithMostOpenFindings" => list(scan_name_with_finding_num())
       }
 
   """
@@ -260,7 +260,7 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -283,7 +283,7 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       list_findings_metrics_response() :: %{
-        "findingsMetrics" => list(account_findings_metric()()),
+        "findingsMetrics" => list(account_findings_metric()),
         "nextToken" => String.t()
       }
 
@@ -295,8 +295,8 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       batch_get_findings_response() :: %{
-        "failedFindings" => list(batch_get_findings_error()()),
-        "findings" => list(finding()())
+        "failedFindings" => list(batch_get_findings_error()),
+        "findings" => list(finding())
       }
 
   """
@@ -349,7 +349,7 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       get_findings_response() :: %{
-        "findings" => list(finding()()),
+        "findings" => list(finding()),
         "nextToken" => String.t()
       }
 
@@ -469,7 +469,7 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       batch_get_findings_request() :: %{
-        required("findingIdentifiers") => list(finding_identifier()())
+        required("findingIdentifiers") => list(finding_identifier())
       }
 
   """
@@ -544,7 +544,7 @@ defmodule AWS.CodeGuruSecurity do
 
       validation_exception() :: %{
         "errorCode" => [String.t()],
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -566,7 +566,7 @@ defmodule AWS.CodeGuruSecurity do
   ## Example:
 
       file_path() :: %{
-        "codeSnippet" => list(code_line()()),
+        "codeSnippet" => list(code_line()),
         "endLine" => [integer()],
         "name" => [String.t()],
         "path" => [String.t()],

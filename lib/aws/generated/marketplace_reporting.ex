@@ -107,7 +107,7 @@ defmodule AWS.MarketplaceReporting do
 
       get_buyer_dashboard_input() :: %{
         required("dashboardIdentifier") => String.t(),
-        required("embeddingDomains") => list(String.t()())
+        required("embeddingDomains") => list(String.t())
       }
 
   """
@@ -120,7 +120,7 @@ defmodule AWS.MarketplaceReporting do
       get_buyer_dashboard_output() :: %{
         "dashboardIdentifier" => String.t(),
         "embedUrl" => [String.t()],
-        "embeddingDomains" => list(String.t()())
+        "embeddingDomains" => list(String.t())
       }
 
   """

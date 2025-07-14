@@ -134,7 +134,7 @@ defmodule AWS.EntityResolution do
 
       update_schema_mapping_output() :: %{
         "description" => String.t(),
-        "mappedInputFields" => list(schema_input_attribute()()),
+        "mappedInputFields" => list(schema_input_attribute()),
         "schemaArn" => String.t(),
         "schemaName" => String.t()
       }
@@ -170,9 +170,9 @@ defmodule AWS.EntityResolution do
 
       add_policy_statement_input() :: %{
         optional("condition") => String.t(),
-        required("action") => list(String.t()()),
+        required("action") => list(String.t()),
         required("effect") => list(any()),
-        required("principal") => list(String.t()())
+        required("principal") => list(String.t())
       }
 
   """
@@ -184,7 +184,7 @@ defmodule AWS.EntityResolution do
 
       update_schema_mapping_input() :: %{
         optional("description") => String.t(),
-        required("mappedInputFields") => list(schema_input_attribute()())
+        required("mappedInputFields") => list(schema_input_attribute())
       }
 
   """
@@ -206,8 +206,8 @@ defmodule AWS.EntityResolution do
       update_matching_workflow_input() :: %{
         optional("description") => String.t(),
         optional("incrementalRunConfig") => incremental_run_config(),
-        required("inputSourceConfig") => list(input_source()()),
-        required("outputSourceConfig") => list(output_source()()),
+        required("inputSourceConfig") => list(input_source()),
+        required("outputSourceConfig") => list(output_source()),
         required("resolutionTechniques") => resolution_techniques(),
         required("roleArn") => [String.t()]
       }
@@ -236,7 +236,7 @@ defmodule AWS.EntityResolution do
 
       list_schema_mappings_output() :: %{
         "nextToken" => String.t(),
-        "schemaList" => list(schema_mapping_summary()())
+        "schemaList" => list(schema_mapping_summary())
       }
 
   """
@@ -338,7 +338,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       list_id_namespaces_output() :: %{
-        "idNamespaceSummaries" => list(id_namespace_summary()()),
+        "idNamespaceSummaries" => list(id_namespace_summary()),
         "nextToken" => String.t()
       }
 
@@ -364,7 +364,7 @@ defmodule AWS.EntityResolution do
 
       create_schema_mapping_output() :: %{
         "description" => String.t(),
-        "mappedInputFields" => list(schema_input_attribute()()),
+        "mappedInputFields" => list(schema_input_attribute()),
         "schemaArn" => String.t(),
         "schemaName" => String.t()
       }
@@ -379,8 +379,8 @@ defmodule AWS.EntityResolution do
       update_matching_workflow_output() :: %{
         "description" => String.t(),
         "incrementalRunConfig" => incremental_run_config(),
-        "inputSourceConfig" => list(input_source()()),
-        "outputSourceConfig" => list(output_source()()),
+        "inputSourceConfig" => list(input_source()),
+        "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
         "roleArn" => [String.t()],
         "workflowName" => String.t()
@@ -394,7 +394,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       list_id_mapping_jobs_output() :: %{
-        "jobs" => list(job_summary()()),
+        "jobs" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -423,8 +423,8 @@ defmodule AWS.EntityResolution do
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
         "idMappingTechniques" => id_mapping_techniques(),
-        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t(),
         "tags" => map(),
         "updatedAt" => [non_neg_integer()],
@@ -479,7 +479,7 @@ defmodule AWS.EntityResolution do
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
         "hasWorkflows" => [boolean()],
-        "mappedInputFields" => list(schema_input_attribute()()),
+        "mappedInputFields" => list(schema_input_attribute()),
         "schemaArn" => String.t(),
         "schemaName" => String.t(),
         "tags" => map(),
@@ -497,7 +497,7 @@ defmodule AWS.EntityResolution do
         "attributeMatchingModel" => list(any()),
         "recordMatchingModels" => list(list(any())()),
         "ruleDefinitionTypes" => list(list(any())()),
-        "rules" => list(rule()())
+        "rules" => list(rule())
       }
 
   """
@@ -534,8 +534,8 @@ defmodule AWS.EntityResolution do
       create_matching_workflow_output() :: %{
         "description" => String.t(),
         "incrementalRunConfig" => incremental_run_config(),
-        "inputSourceConfig" => list(input_source()()),
-        "outputSourceConfig" => list(output_source()()),
+        "inputSourceConfig" => list(input_source()),
+        "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
         "roleArn" => [String.t()],
         "workflowArn" => String.t(),
@@ -576,9 +576,9 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       batch_delete_unique_id_output() :: %{
-        "deleted" => list(deleted_unique_id()()),
-        "disconnectedUniqueIds" => list(String.t()()),
-        "errors" => list(delete_unique_id_error()()),
+        "deleted" => list(deleted_unique_id()),
+        "disconnectedUniqueIds" => list(String.t()),
+        "errors" => list(delete_unique_id_error()),
         "status" => list(any())
       }
 
@@ -626,7 +626,7 @@ defmodule AWS.EntityResolution do
 
       batch_delete_unique_id_input() :: %{
         optional("inputSource") => [String.t()],
-        required("uniqueIds") => list(String.t()())
+        required("uniqueIds") => list(String.t())
       }
 
   """
@@ -680,7 +680,7 @@ defmodule AWS.EntityResolution do
 
       generate_match_id_input() :: %{
         optional("processingType") => list(any()),
-        required("records") => list(record()())
+        required("records") => list(record())
       }
 
   """
@@ -692,7 +692,7 @@ defmodule AWS.EntityResolution do
 
       list_id_mapping_workflows_output() :: %{
         "nextToken" => String.t(),
-        "workflowSummaries" => list(id_mapping_workflow_summary()())
+        "workflowSummaries" => list(id_mapping_workflow_summary())
       }
 
   """
@@ -721,11 +721,11 @@ defmodule AWS.EntityResolution do
 
       create_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
-        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
         optional("roleArn") => String.t(),
         optional("tags") => map(),
         required("idMappingTechniques") => id_mapping_techniques(),
-        required("inputSourceConfig") => list(id_mapping_workflow_input_source()()),
+        required("inputSourceConfig") => list(id_mapping_workflow_input_source()),
         required("workflowName") => String.t()
       }
 
@@ -738,7 +738,7 @@ defmodule AWS.EntityResolution do
 
       list_matching_workflows_output() :: %{
         "nextToken" => String.t(),
-        "workflowSummaries" => list(matching_workflow_summary()())
+        "workflowSummaries" => list(matching_workflow_summary())
       }
 
   """
@@ -752,8 +752,8 @@ defmodule AWS.EntityResolution do
         optional("description") => String.t(),
         optional("incrementalRunConfig") => incremental_run_config(),
         optional("tags") => map(),
-        required("inputSourceConfig") => list(input_source()()),
-        required("outputSourceConfig") => list(output_source()()),
+        required("inputSourceConfig") => list(input_source()),
+        required("outputSourceConfig") => list(output_source()),
         required("resolutionTechniques") => resolution_techniques(),
         required("roleArn") => [String.t()],
         required("workflowName") => String.t()
@@ -797,7 +797,7 @@ defmodule AWS.EntityResolution do
         "errorDetails" => error_details(),
         "jobId" => String.t(),
         "metrics" => id_mapping_job_metrics(),
-        "outputSourceConfig" => list(id_mapping_job_output_source()()),
+        "outputSourceConfig" => list(id_mapping_job_output_source()),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
@@ -824,7 +824,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       start_id_mapping_job_input() :: %{
-        optional("outputSourceConfig") => list(id_mapping_job_output_source()())
+        optional("outputSourceConfig") => list(id_mapping_job_output_source())
       }
 
   """
@@ -837,8 +837,8 @@ defmodule AWS.EntityResolution do
       update_id_mapping_workflow_output() :: %{
         "description" => String.t(),
         "idMappingTechniques" => id_mapping_techniques(),
-        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t(),
         "workflowArn" => String.t(),
         "workflowName" => String.t()
@@ -938,7 +938,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       rule() :: %{
-        "matchingKeys" => list(String.t()()),
+        "matchingKeys" => list(String.t()),
         "ruleName" => [String.t()]
       }
 
@@ -972,7 +972,7 @@ defmodule AWS.EntityResolution do
       match_group() :: %{
         "matchId" => [String.t()],
         "matchRule" => [String.t()],
-        "records" => list(matched_record()())
+        "records" => list(matched_record())
       }
 
   """
@@ -1008,8 +1008,8 @@ defmodule AWS.EntityResolution do
       create_id_mapping_workflow_output() :: %{
         "description" => String.t(),
         "idMappingTechniques" => id_mapping_techniques(),
-        "inputSourceConfig" => list(id_mapping_workflow_input_source()()),
-        "outputSourceConfig" => list(id_mapping_workflow_output_source()()),
+        "inputSourceConfig" => list(id_mapping_workflow_input_source()),
+        "outputSourceConfig" => list(id_mapping_workflow_output_source()),
         "roleArn" => String.t(),
         "workflowArn" => String.t(),
         "workflowName" => String.t()
@@ -1024,10 +1024,10 @@ defmodule AWS.EntityResolution do
 
       update_id_mapping_workflow_input() :: %{
         optional("description") => String.t(),
-        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()()),
+        optional("outputSourceConfig") => list(id_mapping_workflow_output_source()),
         optional("roleArn") => String.t(),
         required("idMappingTechniques") => id_mapping_techniques(),
-        required("inputSourceConfig") => list(id_mapping_workflow_input_source()())
+        required("inputSourceConfig") => list(id_mapping_workflow_input_source())
       }
 
   """
@@ -1055,10 +1055,10 @@ defmodule AWS.EntityResolution do
       get_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
-        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
         "idNamespaceArn" => String.t(),
         "idNamespaceName" => String.t(),
-        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "inputSourceConfig" => list(id_namespace_input_source()),
         "roleArn" => String.t(),
         "tags" => map(),
         "type" => list(any()),
@@ -1075,7 +1075,7 @@ defmodule AWS.EntityResolution do
       create_schema_mapping_input() :: %{
         optional("description") => String.t(),
         optional("tags") => map(),
-        required("mappedInputFields") => list(schema_input_attribute()()),
+        required("mappedInputFields") => list(schema_input_attribute()),
         required("schemaName") => String.t()
       }
 
@@ -1088,8 +1088,8 @@ defmodule AWS.EntityResolution do
 
       create_id_namespace_input() :: %{
         optional("description") => String.t(),
-        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()()),
-        optional("inputSourceConfig") => list(id_namespace_input_source()()),
+        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()),
+        optional("inputSourceConfig") => list(id_namespace_input_source()),
         optional("roleArn") => String.t(),
         optional("tags") => map(),
         required("idNamespaceName") => String.t(),
@@ -1104,7 +1104,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       provider_intermediate_data_access_configuration() :: %{
-        "awsAccountIds" => list(String.t()()),
+        "awsAccountIds" => list(String.t()),
         "requiredBucketActions" => list([String.t()]())
       }
 
@@ -1139,8 +1139,8 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       generate_match_id_output() :: %{
-        "failedRecords" => list(failed_record()()),
-        "matchGroups" => list(match_group()())
+        "failedRecords" => list(failed_record()),
+        "matchGroups" => list(match_group())
       }
 
   """
@@ -1152,8 +1152,8 @@ defmodule AWS.EntityResolution do
 
       update_id_namespace_input() :: %{
         optional("description") => String.t(),
-        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()()),
-        optional("inputSourceConfig") => list(id_namespace_input_source()()),
+        optional("idMappingWorkflowProperties") => list(id_namespace_id_mapping_workflow_properties()),
+        optional("inputSourceConfig") => list(id_namespace_input_source()),
         optional("roleArn") => String.t()
       }
 
@@ -1165,7 +1165,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1298,7 +1298,7 @@ defmodule AWS.EntityResolution do
       output_source() :: %{
         "KMSArn" => String.t(),
         "applyNormalization" => [boolean()],
-        "output" => list(output_attribute()()),
+        "output" => list(output_attribute()),
         "outputS3Path" => String.t()
       }
 
@@ -1345,7 +1345,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       provider_component_schema() :: %{
-        "providerSchemaAttributes" => list(provider_schema_attribute()()),
+        "providerSchemaAttributes" => list(provider_schema_attribute()),
         "schemas" => list(list([String.t()]())())
       }
 
@@ -1372,7 +1372,7 @@ defmodule AWS.EntityResolution do
       id_namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
-        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_metadata()()),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_metadata()),
         "idNamespaceArn" => String.t(),
         "idNamespaceName" => String.t(),
         "type" => list(any()),
@@ -1388,7 +1388,7 @@ defmodule AWS.EntityResolution do
 
       start_id_mapping_job_output() :: %{
         "jobId" => String.t(),
-        "outputSourceConfig" => list(id_mapping_job_output_source()())
+        "outputSourceConfig" => list(id_mapping_job_output_source())
       }
 
   """
@@ -1402,8 +1402,8 @@ defmodule AWS.EntityResolution do
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
         "incrementalRunConfig" => incremental_run_config(),
-        "inputSourceConfig" => list(input_source()()),
-        "outputSourceConfig" => list(output_source()()),
+        "inputSourceConfig" => list(input_source()),
+        "outputSourceConfig" => list(output_source()),
         "resolutionTechniques" => resolution_techniques(),
         "roleArn" => [String.t()],
         "tags" => map(),
@@ -1466,7 +1466,7 @@ defmodule AWS.EntityResolution do
         "errorDetails" => error_details(),
         "jobId" => String.t(),
         "metrics" => job_metrics(),
-        "outputSourceConfig" => list(job_output_source()()),
+        "outputSourceConfig" => list(job_output_source()),
         "startTime" => [non_neg_integer()],
         "status" => list(any())
       }
@@ -1481,7 +1481,7 @@ defmodule AWS.EntityResolution do
       rule_based_properties() :: %{
         "attributeMatchingModel" => list(any()),
         "matchPurpose" => list(any()),
-        "rules" => list(rule()())
+        "rules" => list(rule())
       }
 
   """
@@ -1494,10 +1494,10 @@ defmodule AWS.EntityResolution do
       create_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
-        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
         "idNamespaceArn" => String.t(),
         "idNamespaceName" => String.t(),
-        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "inputSourceConfig" => list(id_namespace_input_source()),
         "roleArn" => String.t(),
         "tags" => map(),
         "type" => list(any()),
@@ -1515,7 +1515,7 @@ defmodule AWS.EntityResolution do
         "attributeMatchingModel" => list(any()),
         "recordMatchingModel" => list(any()),
         "ruleDefinitionType" => list(any()),
-        "rules" => list(rule()())
+        "rules" => list(rule())
       }
 
   """
@@ -1528,10 +1528,10 @@ defmodule AWS.EntityResolution do
       update_id_namespace_output() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t(),
-        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()()),
+        "idMappingWorkflowProperties" => list(id_namespace_id_mapping_workflow_properties()),
         "idNamespaceArn" => String.t(),
         "idNamespaceName" => String.t(),
-        "inputSourceConfig" => list(id_namespace_input_source()()),
+        "inputSourceConfig" => list(id_namespace_input_source()),
         "roleArn" => String.t(),
         "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
@@ -1590,7 +1590,7 @@ defmodule AWS.EntityResolution do
   ## Example:
 
       list_matching_jobs_output() :: %{
-        "jobs" => list(job_summary()()),
+        "jobs" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1603,7 +1603,7 @@ defmodule AWS.EntityResolution do
 
       list_provider_services_output() :: %{
         "nextToken" => String.t(),
-        "providerServiceSummaries" => list(provider_service_summary()())
+        "providerServiceSummaries" => list(provider_service_summary())
       }
 
   """

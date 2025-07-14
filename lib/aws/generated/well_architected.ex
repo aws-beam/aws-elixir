@@ -41,7 +41,7 @@ defmodule AWS.WellArchitected do
         "ProfileArn" => String.t(),
         "ProfileDescription" => String.t(),
         "ProfileName" => String.t(),
-        "ProfileQuestions" => list(profile_question()()),
+        "ProfileQuestions" => list(profile_question()),
         "ProfileVersion" => String.t(),
         "ShareInvitationId" => String.t(),
         "Tags" => map(),
@@ -60,7 +60,7 @@ defmodule AWS.WellArchitected do
         optional("IsApplicable") => boolean(),
         optional("Notes") => String.t(),
         optional("Reason") => list(any()),
-        optional("SelectedChoices") => list(String.t()())
+        optional("SelectedChoices") => list(String.t())
       }
 
   """
@@ -73,11 +73,11 @@ defmodule AWS.WellArchitected do
       profile_question() :: %{
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
-        "QuestionChoices" => list(profile_choice()()),
+        "QuestionChoices" => list(profile_choice()),
         "QuestionDescription" => String.t(),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t(),
-        "SelectedChoiceIds" => list(String.t()())
+        "SelectedChoiceIds" => list(String.t())
       }
 
   """
@@ -101,7 +101,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_lenses_output() :: %{
-        "LensSummaries" => list(lens_summary()()),
+        "LensSummaries" => list(lens_summary()),
         "NextToken" => String.t()
       }
 
@@ -124,7 +124,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       question_metric() :: %{
-        "BestPractices" => list(best_practice()()),
+        "BestPractices" => list(best_practice()),
         "QuestionId" => String.t(),
         "Risk" => list(any())
       }
@@ -157,9 +157,9 @@ defmodule AWS.WellArchitected do
         "LensVersion" => String.t(),
         "NextToken" => String.t(),
         "Notes" => String.t(),
-        "PillarReviewSummaries" => list(pillar_review_summary()()),
+        "PillarReviewSummaries" => list(pillar_review_summary()),
         "PrioritizedRiskCounts" => map(),
-        "Profiles" => list(workload_profile()()),
+        "Profiles" => list(workload_profile()),
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
@@ -208,10 +208,10 @@ defmodule AWS.WellArchitected do
 
       workload_summary() :: %{
         "ImprovementStatus" => list(any()),
-        "Lenses" => list(String.t()()),
+        "Lenses" => list(String.t()),
         "Owner" => String.t(),
         "PrioritizedRiskCounts" => map(),
-        "Profiles" => list(workload_profile()()),
+        "Profiles" => list(workload_profile()),
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer(),
         "WorkloadArn" => String.t(),
@@ -227,7 +227,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_lens_review_improvements_output() :: %{
-        "ImprovementSummaries" => list(improvement_summary()()),
+        "ImprovementSummaries" => list(improvement_summary()),
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
         "MilestoneNumber" => integer(),
@@ -311,7 +311,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       jira_selected_question_configuration() :: %{
-        "SelectedPillars" => list(selected_pillar()())
+        "SelectedPillars" => list(selected_pillar())
       }
 
   """
@@ -322,7 +322,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_check_details_output() :: %{
-        "CheckDetails" => list(check_detail()()),
+        "CheckDetails" => list(check_detail()),
         "NextToken" => String.t()
       }
 
@@ -334,7 +334,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       associate_profiles_input() :: %{
-        required("ProfileArns") => list(String.t()())
+        required("ProfileArns") => list(String.t())
       }
 
   """
@@ -493,7 +493,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_lens_shares_output() :: %{
-        "LensShareSummaries" => list(lens_share_summary()()),
+        "LensShareSummaries" => list(lens_share_summary()),
         "NextToken" => String.t()
       }
 
@@ -559,7 +559,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_milestones_output() :: %{
-        "MilestoneSummaries" => list(milestone_summary()()),
+        "MilestoneSummaries" => list(milestone_summary()),
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
       }
@@ -635,7 +635,7 @@ defmodule AWS.WellArchitected do
 
       profile_question_update() :: %{
         "QuestionId" => String.t(),
-        "SelectedChoiceIds" => list(String.t()())
+        "SelectedChoiceIds" => list(String.t())
       }
 
   """
@@ -658,7 +658,7 @@ defmodule AWS.WellArchitected do
 
       list_profile_shares_output() :: %{
         "NextToken" => String.t(),
-        "ProfileShareSummaries" => list(profile_share_summary()())
+        "ProfileShareSummaries" => list(profile_share_summary())
       }
 
   """
@@ -690,7 +690,7 @@ defmodule AWS.WellArchitected do
         required("ClientRequestToken") => String.t(),
         required("ProfileDescription") => String.t(),
         required("ProfileName") => String.t(),
-        required("ProfileQuestions") => list(profile_question_update()())
+        required("ProfileQuestions") => list(profile_question_update())
       }
 
   """
@@ -713,7 +713,7 @@ defmodule AWS.WellArchitected do
 
       list_profiles_output() :: %{
         "NextToken" => String.t(),
-        "ProfileSummaries" => list(profile_summary()())
+        "ProfileSummaries" => list(profile_summary())
       }
 
   """
@@ -749,7 +749,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       associate_lenses_input() :: %{
-        required("LensAliases") => list(String.t()())
+        required("LensAliases") => list(String.t())
       }
 
   """
@@ -786,7 +786,7 @@ defmodule AWS.WellArchitected do
         "LensStatus" => list(any()),
         "LensVersion" => String.t(),
         "PrioritizedRiskCounts" => map(),
-        "Profiles" => list(workload_profile()()),
+        "Profiles" => list(workload_profile()),
         "RiskCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
@@ -801,7 +801,7 @@ defmodule AWS.WellArchitected do
       list_template_shares_output() :: %{
         "NextToken" => String.t(),
         "TemplateArn" => String.t(),
-        "TemplateShareSummaries" => list(template_share_summary()())
+        "TemplateShareSummaries" => list(template_share_summary())
       }
 
   """
@@ -824,8 +824,8 @@ defmodule AWS.WellArchitected do
 
       update_review_template_input() :: %{
         optional("Description") => String.t(),
-        optional("LensesToAssociate") => list(String.t()()),
-        optional("LensesToDisassociate") => list(String.t()()),
+        optional("LensesToAssociate") => list(String.t()),
+        optional("LensesToDisassociate") => list(String.t()),
         optional("Notes") => String.t(),
         optional("TemplateName") => String.t()
       }
@@ -890,7 +890,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       consolidated_report_metric() :: %{
-        "Lenses" => list(lens_metric()()),
+        "Lenses" => list(lens_metric()),
         "LensesAppliedCount" => integer(),
         "MetricType" => list(any()),
         "RiskCounts" => map(),
@@ -949,7 +949,7 @@ defmodule AWS.WellArchitected do
         optional("Tags") => map(),
         required("ClientRequestToken") => String.t(),
         required("Description") => String.t(),
-        required("Lenses") => list(String.t()()),
+        required("Lenses") => list(String.t()),
         required("TemplateName") => String.t()
       }
 
@@ -985,7 +985,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       disassociate_profiles_input() :: %{
-        required("ProfileArns") => list(String.t()())
+        required("ProfileArns") => list(String.t())
       }
 
   """
@@ -1009,7 +1009,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_review_template_answers_output() :: %{
-        "AnswerSummaries" => list(review_template_answer_summary()()),
+        "AnswerSummaries" => list(review_template_answer_summary()),
         "LensAlias" => String.t(),
         "NextToken" => String.t(),
         "TemplateArn" => String.t()
@@ -1023,10 +1023,10 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       workload() :: %{
-        "AccountIds" => list(String.t()()),
-        "Applications" => list(String.t()()),
+        "AccountIds" => list(String.t()),
+        "Applications" => list(String.t()),
         "ArchitecturalDesign" => String.t(),
-        "AwsRegions" => list(String.t()()),
+        "AwsRegions" => list(String.t()),
         "Description" => String.t(),
         "DiscoveryConfig" => workload_discovery_config(),
         "Environment" => list(any()),
@@ -1035,13 +1035,13 @@ defmodule AWS.WellArchitected do
         "IndustryType" => String.t(),
         "IsReviewOwnerUpdateAcknowledged" => boolean(),
         "JiraConfiguration" => workload_jira_configuration_output(),
-        "Lenses" => list(String.t()()),
-        "NonAwsRegions" => list(String.t()()),
+        "Lenses" => list(String.t()),
+        "NonAwsRegions" => list(String.t()),
         "Notes" => String.t(),
         "Owner" => String.t(),
-        "PillarPriorities" => list(String.t()()),
+        "PillarPriorities" => list(String.t()),
         "PrioritizedRiskCounts" => map(),
-        "Profiles" => list(workload_profile()()),
+        "Profiles" => list(workload_profile()),
         "ReviewOwner" => String.t(),
         "ReviewRestrictionDate" => non_neg_integer(),
         "RiskCounts" => map(),
@@ -1103,7 +1103,7 @@ defmodule AWS.WellArchitected do
 
       review_template_summary() :: %{
         "Description" => String.t(),
-        "Lenses" => list(String.t()()),
+        "Lenses" => list(String.t()),
         "Owner" => String.t(),
         "TemplateArn" => String.t(),
         "TemplateName" => String.t(),
@@ -1119,8 +1119,8 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       answer() :: %{
-        "ChoiceAnswers" => list(choice_answer()()),
-        "Choices" => list(choice()()),
+        "ChoiceAnswers" => list(choice_answer()),
+        "Choices" => list(choice()),
         "HelpfulResourceDisplayText" => String.t(),
         "HelpfulResourceUrl" => String.t(),
         "ImprovementPlanUrl" => String.t(),
@@ -1133,7 +1133,7 @@ defmodule AWS.WellArchitected do
         "QuestionTitle" => String.t(),
         "Reason" => list(any()),
         "Risk" => list(any()),
-        "SelectedChoices" => list(String.t()())
+        "SelectedChoices" => list(String.t())
       }
 
   """
@@ -1145,15 +1145,15 @@ defmodule AWS.WellArchitected do
 
       review_template_answer_summary() :: %{
         "AnswerStatus" => list(any()),
-        "ChoiceAnswerSummaries" => list(choice_answer_summary()()),
-        "Choices" => list(choice()()),
+        "ChoiceAnswerSummaries" => list(choice_answer_summary()),
+        "Choices" => list(choice()),
         "IsApplicable" => boolean(),
         "PillarId" => String.t(),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t(),
         "QuestionType" => list(any()),
         "Reason" => list(any()),
-        "SelectedChoices" => list(String.t()())
+        "SelectedChoices" => list(String.t())
       }
 
   """
@@ -1251,7 +1251,7 @@ defmodule AWS.WellArchitected do
 
       list_review_templates_output() :: %{
         "NextToken" => String.t(),
-        "ReviewTemplates" => list(review_template_summary()())
+        "ReviewTemplates" => list(review_template_summary())
       }
 
   """
@@ -1332,7 +1332,7 @@ defmodule AWS.WellArchitected do
         "LensVersion" => String.t(),
         "NextToken" => String.t(),
         "Notes" => String.t(),
-        "PillarReviewSummaries" => list(review_template_pillar_review_summary()()),
+        "PillarReviewSummaries" => list(review_template_pillar_review_summary()),
         "QuestionCounts" => map(),
         "UpdatedAt" => non_neg_integer()
       }
@@ -1405,7 +1405,7 @@ defmodule AWS.WellArchitected do
 
       review_template() :: %{
         "Description" => String.t(),
-        "Lenses" => list(String.t()()),
+        "Lenses" => list(String.t()),
         "Notes" => String.t(),
         "Owner" => String.t(),
         "QuestionCounts" => map(),
@@ -1427,7 +1427,7 @@ defmodule AWS.WellArchitected do
       list_workload_shares_output() :: %{
         "NextToken" => String.t(),
         "WorkloadId" => String.t(),
-        "WorkloadShareSummaries" => list(workload_share_summary()())
+        "WorkloadShareSummaries" => list(workload_share_summary())
       }
 
   """
@@ -1451,7 +1451,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       choice() :: %{
-        "AdditionalResources" => list(additional_resources()()),
+        "AdditionalResources" => list(additional_resources()),
         "ChoiceId" => String.t(),
         "Description" => String.t(),
         "HelpfulResource" => choice_content(),
@@ -1496,7 +1496,7 @@ defmodule AWS.WellArchitected do
         optional("IsApplicable") => boolean(),
         optional("Notes") => String.t(),
         optional("Reason") => list(any()),
-        optional("SelectedChoices") => list(String.t()())
+        optional("SelectedChoices") => list(String.t())
       }
 
   """
@@ -1508,7 +1508,7 @@ defmodule AWS.WellArchitected do
 
       pillar_metric() :: %{
         "PillarId" => String.t(),
-        "Questions" => list(question_metric()()),
+        "Questions" => list(question_metric()),
         "RiskCounts" => map()
       }
 
@@ -1643,7 +1643,7 @@ defmodule AWS.WellArchitected do
         "DifferenceStatus" => list(any()),
         "PillarId" => String.t(),
         "PillarName" => String.t(),
-        "QuestionDifferences" => list(question_difference()())
+        "QuestionDifferences" => list(question_difference())
       }
 
   """
@@ -1655,7 +1655,7 @@ defmodule AWS.WellArchitected do
 
       lens_metric() :: %{
         "LensArn" => String.t(),
-        "Pillars" => list(pillar_metric()()),
+        "Pillars" => list(pillar_metric()),
         "RiskCounts" => map()
       }
 
@@ -1693,7 +1693,7 @@ defmodule AWS.WellArchitected do
 
       list_share_invitations_output() :: %{
         "NextToken" => String.t(),
-        "ShareInvitationSummaries" => list(share_invitation_summary()())
+        "ShareInvitationSummaries" => list(share_invitation_summary())
       }
 
   """
@@ -1705,7 +1705,7 @@ defmodule AWS.WellArchitected do
 
       selected_pillar() :: %{
         "PillarId" => String.t(),
-        "SelectedQuestionIds" => list(String.t()())
+        "SelectedQuestionIds" => list(String.t())
       }
 
   """
@@ -1750,7 +1750,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       additional_resources() :: %{
-        "Content" => list(choice_content()()),
+        "Content" => list(choice_content()),
         "Type" => list(any())
       }
 
@@ -1763,7 +1763,7 @@ defmodule AWS.WellArchitected do
 
       list_notifications_output() :: %{
         "NextToken" => String.t(),
-        "NotificationSummaries" => list(notification_summary()())
+        "NotificationSummaries" => list(notification_summary())
       }
 
   """
@@ -1790,7 +1790,7 @@ defmodule AWS.WellArchitected do
       profile_template() :: %{
         "CreatedAt" => non_neg_integer(),
         "TemplateName" => String.t(),
-        "TemplateQuestions" => list(profile_template_question()()),
+        "TemplateQuestions" => list(profile_template_question()),
         "UpdatedAt" => non_neg_integer()
       }
 
@@ -1838,7 +1838,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1888,7 +1888,7 @@ defmodule AWS.WellArchitected do
 
       list_workloads_output() :: %{
         "NextToken" => String.t(),
-        "WorkloadSummaries" => list(workload_summary()())
+        "WorkloadSummaries" => list(workload_summary())
       }
 
   """
@@ -1926,7 +1926,7 @@ defmodule AWS.WellArchitected do
 
       list_profile_notifications_output() :: %{
         "NextToken" => String.t(),
-        "NotificationSummaries" => list(profile_notification_summary()())
+        "NotificationSummaries" => list(profile_notification_summary())
       }
 
   """
@@ -1938,7 +1938,7 @@ defmodule AWS.WellArchitected do
 
       improvement_summary() :: %{
         "ImprovementPlanUrl" => String.t(),
-        "ImprovementPlans" => list(choice_improvement_plan()()),
+        "ImprovementPlans" => list(choice_improvement_plan()),
         "JiraConfiguration" => jira_configuration(),
         "PillarId" => String.t(),
         "QuestionId" => String.t(),
@@ -1954,7 +1954,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_lens_reviews_output() :: %{
-        "LensReviewSummaries" => list(lens_review_summary()()),
+        "LensReviewSummaries" => list(lens_review_summary()),
         "MilestoneNumber" => integer(),
         "NextToken" => String.t(),
         "WorkloadId" => String.t()
@@ -1968,7 +1968,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       disassociate_lenses_input() :: %{
-        required("LensAliases") => list(String.t()())
+        required("LensAliases") => list(String.t())
       }
 
   """
@@ -2030,7 +2030,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
@@ -2077,25 +2077,25 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       create_workload_input() :: %{
-        optional("AccountIds") => list(String.t()()),
-        optional("Applications") => list(String.t()()),
+        optional("AccountIds") => list(String.t()),
+        optional("Applications") => list(String.t()),
         optional("ArchitecturalDesign") => String.t(),
-        optional("AwsRegions") => list(String.t()()),
+        optional("AwsRegions") => list(String.t()),
         optional("DiscoveryConfig") => workload_discovery_config(),
         optional("Industry") => String.t(),
         optional("IndustryType") => String.t(),
         optional("JiraConfiguration") => workload_jira_configuration_input(),
-        optional("NonAwsRegions") => list(String.t()()),
+        optional("NonAwsRegions") => list(String.t()),
         optional("Notes") => String.t(),
-        optional("PillarPriorities") => list(String.t()()),
-        optional("ProfileArns") => list(String.t()()),
+        optional("PillarPriorities") => list(String.t()),
+        optional("ProfileArns") => list(String.t()),
         optional("ReviewOwner") => String.t(),
-        optional("ReviewTemplateArns") => list(String.t()()),
+        optional("ReviewTemplateArns") => list(String.t()),
         optional("Tags") => map(),
         required("ClientRequestToken") => String.t(),
         required("Description") => String.t(),
         required("Environment") => list(any()),
-        required("Lenses") => list(String.t()()),
+        required("Lenses") => list(String.t()),
         required("WorkloadName") => String.t()
       }
 
@@ -2218,7 +2218,7 @@ defmodule AWS.WellArchitected do
 
       get_consolidated_report_output() :: %{
         "Base64String" => String.t(),
-        "Metrics" => list(consolidated_report_metric()()),
+        "Metrics" => list(consolidated_report_metric()),
         "NextToken" => String.t()
       }
 
@@ -2342,7 +2342,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       version_differences() :: %{
-        "PillarDifferences" => list(pillar_difference()())
+        "PillarDifferences" => list(pillar_difference())
       }
 
   """
@@ -2368,7 +2368,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_check_summaries_output() :: %{
-        "CheckSummaries" => list(check_summary()()),
+        "CheckSummaries" => list(check_summary()),
         "NextToken" => String.t()
       }
 
@@ -2400,7 +2400,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       list_answers_output() :: %{
-        "AnswerSummaries" => list(answer_summary()()),
+        "AnswerSummaries" => list(answer_summary()),
         "LensAlias" => String.t(),
         "LensArn" => String.t(),
         "MilestoneNumber" => integer(),
@@ -2492,10 +2492,10 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       update_workload_input() :: %{
-        optional("AccountIds") => list(String.t()()),
-        optional("Applications") => list(String.t()()),
+        optional("AccountIds") => list(String.t()),
+        optional("Applications") => list(String.t()),
         optional("ArchitecturalDesign") => String.t(),
-        optional("AwsRegions") => list(String.t()()),
+        optional("AwsRegions") => list(String.t()),
         optional("Description") => String.t(),
         optional("DiscoveryConfig") => workload_discovery_config(),
         optional("Environment") => list(any()),
@@ -2504,9 +2504,9 @@ defmodule AWS.WellArchitected do
         optional("IndustryType") => String.t(),
         optional("IsReviewOwnerUpdateAcknowledged") => boolean(),
         optional("JiraConfiguration") => workload_jira_configuration_input(),
-        optional("NonAwsRegions") => list(String.t()()),
+        optional("NonAwsRegions") => list(String.t()),
         optional("Notes") => String.t(),
-        optional("PillarPriorities") => list(String.t()()),
+        optional("PillarPriorities") => list(String.t()),
         optional("ReviewOwner") => String.t(),
         optional("WorkloadName") => String.t()
       }
@@ -2543,7 +2543,7 @@ defmodule AWS.WellArchitected do
       profile_template_question() :: %{
         "MaxSelectedChoices" => integer(),
         "MinSelectedChoices" => integer(),
-        "QuestionChoices" => list(profile_template_choice()()),
+        "QuestionChoices" => list(profile_template_choice()),
         "QuestionDescription" => String.t(),
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t()
@@ -2558,8 +2558,8 @@ defmodule AWS.WellArchitected do
 
       review_template_answer() :: %{
         "AnswerStatus" => list(any()),
-        "ChoiceAnswers" => list(choice_answer()()),
-        "Choices" => list(choice()()),
+        "ChoiceAnswers" => list(choice_answer()),
+        "Choices" => list(choice()),
         "HelpfulResourceDisplayText" => String.t(),
         "HelpfulResourceUrl" => String.t(),
         "ImprovementPlanUrl" => String.t(),
@@ -2570,7 +2570,7 @@ defmodule AWS.WellArchitected do
         "QuestionId" => String.t(),
         "QuestionTitle" => String.t(),
         "Reason" => list(any()),
-        "SelectedChoices" => list(String.t()())
+        "SelectedChoices" => list(String.t())
       }
 
   """
@@ -2582,7 +2582,7 @@ defmodule AWS.WellArchitected do
 
       update_profile_input() :: %{
         optional("ProfileDescription") => String.t(),
-        optional("ProfileQuestions") => list(profile_question_update()())
+        optional("ProfileQuestions") => list(profile_question_update())
       }
 
   """
@@ -2621,8 +2621,8 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       answer_summary() :: %{
-        "ChoiceAnswerSummaries" => list(choice_answer_summary()()),
-        "Choices" => list(choice()()),
+        "ChoiceAnswerSummaries" => list(choice_answer_summary()),
+        "Choices" => list(choice()),
         "IsApplicable" => boolean(),
         "JiraConfiguration" => jira_configuration(),
         "PillarId" => String.t(),
@@ -2631,7 +2631,7 @@ defmodule AWS.WellArchitected do
         "QuestionType" => list(any()),
         "Reason" => list(any()),
         "Risk" => list(any()),
-        "SelectedChoices" => list(String.t()())
+        "SelectedChoices" => list(String.t())
       }
 
   """

@@ -50,7 +50,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       tag_resource_request() :: %{
-        required("Tags") => list(tag()()),
+        required("Tags") => list(tag()),
         required("WorkspaceInstanceId") => String.t()
       }
       
@@ -134,7 +134,7 @@ defmodule AWS.WorkspacesInstances do
       
       create_workspace_instance_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ManagedInstance") => managed_instance_request()
       }
       
@@ -156,7 +156,7 @@ defmodule AWS.WorkspacesInstances do
       
       list_workspace_instances_response() :: %{
         "NextToken" => String.t(),
-        "WorkspaceInstances" => list(workspace_instance()())
+        "WorkspaceInstances" => list(workspace_instance())
       }
       
   """
@@ -205,7 +205,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()()),
+        required("TagKeys") => list(String.t()),
         required("WorkspaceInstanceId") => String.t()
       }
       
@@ -421,10 +421,10 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       get_workspace_instance_response() :: %{
-        "EC2InstanceErrors" => list(ec2_instance_error()()),
+        "EC2InstanceErrors" => list(ec2_instance_error()),
         "EC2ManagedInstance" => ec2_managed_instance(),
         "ProvisionState" => list(any()),
-        "WorkspaceInstanceErrors" => list(workspace_instance_error()()),
+        "WorkspaceInstanceErrors" => list(workspace_instance_error()),
         "WorkspaceInstanceId" => String.t()
       }
       
@@ -486,7 +486,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -510,7 +510,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       managed_instance_request() :: %{
-        "BlockDeviceMappings" => list(block_device_mapping_request()()),
+        "BlockDeviceMappings" => list(block_device_mapping_request()),
         "CapacityReservationSpecification" => capacity_reservation_specification(),
         "CpuOptions" => cpu_options_request(),
         "CreditSpecification" => credit_specification_request(),
@@ -524,23 +524,23 @@ defmodule AWS.WorkspacesInstances do
         "InstanceMarketOptions" => instance_market_options_request(),
         "InstanceType" => String.t(),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(instance_ipv6_address()()),
+        "Ipv6Addresses" => list(instance_ipv6_address()),
         "KernelId" => String.t(),
         "KeyName" => String.t(),
-        "LicenseSpecifications" => list(license_configuration_request()()),
+        "LicenseSpecifications" => list(license_configuration_request()),
         "MaintenanceOptions" => instance_maintenance_options_request(),
         "MetadataOptions" => instance_metadata_options_request(),
         "Monitoring" => run_instances_monitoring_enabled(),
-        "NetworkInterfaces" => list(instance_network_interface_specification()()),
+        "NetworkInterfaces" => list(instance_network_interface_specification()),
         "NetworkPerformanceOptions" => instance_network_performance_options_request(),
         "Placement" => placement(),
         "PrivateDnsNameOptions" => private_dns_name_options_request(),
         "PrivateIpAddress" => String.t(),
         "RamdiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SecurityGroups" => list(String.t()),
         "SubnetId" => String.t(),
-        "TagSpecifications" => list(tag_specification()()),
+        "TagSpecifications" => list(tag_specification()),
         "UserData" => String.t()
       }
       
@@ -677,7 +677,7 @@ defmodule AWS.WorkspacesInstances do
       
       tag_specification() :: %{
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -748,7 +748,7 @@ defmodule AWS.WorkspacesInstances do
         optional("KmsKeyId") => String.t(),
         optional("SizeInGB") => integer(),
         optional("SnapshotId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Throughput") => integer(),
         optional("VolumeType") => list(any()),
         required("AvailabilityZone") => String.t()
@@ -762,7 +762,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()()),
+        "FieldList" => list(validation_exception_field()),
         "Message" => [String.t()],
         "Reason" => list(any())
       }
@@ -814,7 +814,7 @@ defmodule AWS.WorkspacesInstances do
       
       list_regions_response() :: %{
         "NextToken" => String.t(),
-        "Regions" => list(region()())
+        "Regions" => list(region())
       }
       
   """
@@ -836,7 +836,7 @@ defmodule AWS.WorkspacesInstances do
   ## Example:
       
       list_instance_types_response() :: %{
-        "InstanceTypes" => list(instance_type_info()()),
+        "InstanceTypes" => list(instance_type_info()),
         "NextToken" => String.t()
       }
       
@@ -877,19 +877,19 @@ defmodule AWS.WorkspacesInstances do
         "Description" => String.t(),
         "DeviceIndex" => integer(),
         "EnaSrdSpecification" => ena_srd_specification_request(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "InterfaceType" => list(any()),
         "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()()),
+        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(instance_ipv6_address()()),
+        "Ipv6Addresses" => list(instance_ipv6_address()),
         "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()()),
+        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()),
         "NetworkCardIndex" => integer(),
         "NetworkInterfaceId" => String.t(),
         "PrimaryIpv6" => [boolean()],
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(private_ip_address_specification()()),
+        "PrivateIpAddresses" => list(private_ip_address_specification()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -1016,7 +1016,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, associate_volume_errors()}
   def associate_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVolume", input, options)
   end
@@ -1030,7 +1031,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -1045,7 +1047,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_workspace_instance_errors()}
   def create_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceInstance", input, options)
   end
@@ -1059,7 +1062,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -1073,7 +1077,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_workspace_instance_errors()}
   def delete_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceInstance", input, options)
   end
@@ -1087,7 +1092,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, disassociate_volume_errors()}
   def disassociate_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateVolume", input, options)
   end
@@ -1101,7 +1107,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, get_workspace_instance_errors()}
   def get_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkspaceInstance", input, options)
   end
@@ -1116,7 +1123,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_instance_types_errors()}
   def list_instance_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstanceTypes", input, options)
   end
@@ -1131,7 +1139,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_regions_errors()}
   def list_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegions", input, options)
   end
@@ -1145,7 +1154,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1159,7 +1169,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_workspace_instances_errors()}
   def list_workspace_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkspaceInstances", input, options)
   end
@@ -1173,7 +1184,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1187,7 +1199,8 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

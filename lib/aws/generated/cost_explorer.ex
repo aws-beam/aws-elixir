@@ -33,7 +33,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       create_anomaly_monitor_request() :: %{
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ResourceTags") => list(resource_tag()),
         required("AnomalyMonitor") => anomaly_monitor()
       }
       
@@ -77,7 +77,7 @@ defmodule AWS.CostExplorer do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Status") => list(any()),
-        optional("TagKeys") => list(String.t()()),
+        optional("TagKeys") => list(String.t()),
         optional("Type") => list(any())
       }
       
@@ -136,7 +136,7 @@ defmodule AWS.CostExplorer do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("ResourceTags") => list(resource_tag()())
+        required("ResourceTags") => list(resource_tag())
       }
       
   """
@@ -160,7 +160,7 @@ defmodule AWS.CostExplorer do
       
       get_savings_plans_utilization_details_response() :: %{
         "NextToken" => String.t(),
-        "SavingsPlansUtilizationDetails" => list(savings_plans_utilization_detail()()),
+        "SavingsPlansUtilizationDetails" => list(savings_plans_utilization_detail()),
         "TimePeriod" => date_interval(),
         "Total" => savings_plans_utilization_aggregates()
       }
@@ -173,10 +173,10 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_and_usage_response() :: %{
-        "DimensionValueAttributes" => list(dimension_values_with_attributes()()),
-        "GroupDefinitions" => list(group_definition()()),
+        "DimensionValueAttributes" => list(dimension_values_with_attributes()),
+        "GroupDefinitions" => list(group_definition()),
         "NextPageToken" => String.t(),
-        "ResultsByTime" => list(result_by_time()())
+        "ResultsByTime" => list(result_by_time())
       }
       
   """
@@ -187,7 +187,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_anomaly_subscriptions_response() :: %{
-        "AnomalySubscriptions" => list(anomaly_subscription()()),
+        "AnomalySubscriptions" => list(anomaly_subscription()),
         "NextPageToken" => String.t()
       }
       
@@ -210,7 +210,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       coverage_by_time() :: %{
-        "Groups" => list(reservation_coverage_group()()),
+        "Groups" => list(reservation_coverage_group()),
         "TimePeriod" => date_interval(),
         "Total" => coverage()
       }
@@ -239,7 +239,7 @@ defmodule AWS.CostExplorer do
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         optional("SearchString") => String.t(),
-        optional("SortBy") => list(sort_definition()()),
+        optional("SortBy") => list(sort_definition()),
         optional("TagKey") => String.t(),
         required("TimePeriod") => date_interval()
       }
@@ -253,8 +253,8 @@ defmodule AWS.CostExplorer do
       
       get_cost_and_usage_with_resources_request() :: %{
         optional("BillingViewArn") => String.t(),
-        optional("GroupBy") => list(group_definition()()),
-        optional("Metrics") => list(String.t()()),
+        optional("GroupBy") => list(group_definition()),
+        optional("Metrics") => list(String.t()),
         optional("NextPageToken") => String.t(),
         required("Filter") => expression(),
         required("Granularity") => list(any()),
@@ -269,7 +269,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       create_anomaly_subscription_request() :: %{
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ResourceTags") => list(resource_tag()),
         required("AnomalySubscription") => anomaly_subscription()
       }
       
@@ -310,8 +310,8 @@ defmodule AWS.CostExplorer do
       anomaly_subscription() :: %{
         "AccountId" => String.t(),
         "Frequency" => list(any()),
-        "MonitorArnList" => list(String.t()()),
-        "Subscribers" => list(subscriber()()),
+        "MonitorArnList" => list(String.t()),
+        "Subscribers" => list(subscriber()),
         "SubscriptionArn" => String.t(),
         "SubscriptionName" => String.t(),
         "Threshold" => float(),
@@ -326,7 +326,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_anomaly_monitors_response() :: %{
-        "AnomalyMonitors" => list(anomaly_monitor()()),
+        "AnomalyMonitors" => list(anomaly_monitor()),
         "NextPageToken" => String.t()
       }
       
@@ -358,7 +358,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_forecast_response() :: %{
-        "ForecastResultsByTime" => list(forecast_result()()),
+        "ForecastResultsByTime" => list(forecast_result()),
         "Total" => metric_value()
       }
       
@@ -386,11 +386,11 @@ defmodule AWS.CostExplorer do
       create_cost_category_definition_request() :: %{
         optional("DefaultValue") => String.t(),
         optional("EffectiveStart") => String.t(),
-        optional("ResourceTags") => list(resource_tag()()),
-        optional("SplitChargeRules") => list(cost_category_split_charge_rule()()),
+        optional("ResourceTags") => list(resource_tag()),
+        optional("SplitChargeRules") => list(cost_category_split_charge_rule()),
         required("Name") => String.t(),
         required("RuleVersion") => list(any()),
-        required("Rules") => list(cost_category_rule()())
+        required("Rules") => list(cost_category_rule())
       }
       
   """
@@ -401,10 +401,10 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_and_usage_with_resources_response() :: %{
-        "DimensionValueAttributes" => list(dimension_values_with_attributes()()),
-        "GroupDefinitions" => list(group_definition()()),
+        "DimensionValueAttributes" => list(dimension_values_with_attributes()),
+        "GroupDefinitions" => list(group_definition()),
         "NextPageToken" => String.t(),
-        "ResultsByTime" => list(result_by_time()())
+        "ResultsByTime" => list(result_by_time())
       }
       
   """
@@ -448,7 +448,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_comparison_drivers_response() :: %{
-        "CostComparisonDrivers" => list(cost_comparison_driver()()),
+        "CostComparisonDrivers" => list(cost_comparison_driver()),
         "NextPageToken" => String.t()
       }
       
@@ -462,7 +462,7 @@ defmodule AWS.CostExplorer do
       tag_values() :: %{
         "Key" => String.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -495,7 +495,7 @@ defmodule AWS.CostExplorer do
         "InstanceFamily" => String.t(),
         "LatestUsageTimestamp" => String.t(),
         "LookbackPeriodInDays" => list(any()),
-        "MetricsOverLookbackPeriod" => list(recommendation_detail_hourly_metrics()()),
+        "MetricsOverLookbackPeriod" => list(recommendation_detail_hourly_metrics()),
         "OfferingId" => String.t(),
         "PaymentOption" => list(any()),
         "Region" => String.t(),
@@ -590,7 +590,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       utilization_by_time() :: %{
-        "Groups" => list(reservation_utilization_group()()),
+        "Groups" => list(reservation_utilization_group()),
         "TimePeriod" => date_interval(),
         "Total" => reservation_aggregates()
       }
@@ -646,7 +646,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_cost_category_definitions_response() :: %{
-        "CostCategoryReferences" => list(cost_category_reference()()),
+        "CostCategoryReferences" => list(cost_category_reference()),
         "NextToken" => String.t()
       }
       
@@ -660,9 +660,9 @@ defmodule AWS.CostExplorer do
       get_reservation_coverage_request() :: %{
         optional("Filter") => expression(),
         optional("Granularity") => list(any()),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
-        optional("Metrics") => list(String.t()()),
+        optional("Metrics") => list(String.t()),
         optional("NextPageToken") => String.t(),
         optional("SortBy") => sort_definition(),
         required("TimePeriod") => date_interval()
@@ -711,7 +711,7 @@ defmodule AWS.CostExplorer do
       
       cost_category_split_charge_rule_parameter() :: %{
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -798,7 +798,7 @@ defmodule AWS.CostExplorer do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("ResourceTagKeys") => list(String.t()())
+        required("ResourceTagKeys") => list(String.t())
       }
       
   """
@@ -857,7 +857,7 @@ defmodule AWS.CostExplorer do
         "HourlyCommitmentToPurchase" => String.t(),
         "LatestUsageTimestamp" => String.t(),
         "LookbackPeriodInHours" => String.t(),
-        "MetricsOverLookbackPeriod" => list(recommendation_detail_hourly_metrics()()),
+        "MetricsOverLookbackPeriod" => list(recommendation_detail_hourly_metrics()),
         "UpfrontCost" => String.t()
       }
       
@@ -922,7 +922,7 @@ defmodule AWS.CostExplorer do
       get_reservation_utilization_response() :: %{
         "NextPageToken" => String.t(),
         "Total" => reservation_aggregates(),
-        "UtilizationsByTime" => list(utilization_by_time()())
+        "UtilizationsByTime" => list(utilization_by_time())
       }
       
   """
@@ -946,7 +946,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       cost_comparison_driver() :: %{
-        "CostDrivers" => list(cost_driver()()),
+        "CostDrivers" => list(cost_driver()),
         "CostSelector" => expression(),
         "Metrics" => map()
       }
@@ -1011,8 +1011,8 @@ defmodule AWS.CostExplorer do
       
       update_anomaly_subscription_request() :: %{
         optional("Frequency") => list(any()),
-        optional("MonitorArnList") => list(String.t()()),
-        optional("Subscribers") => list(subscriber()()),
+        optional("MonitorArnList") => list(String.t()),
+        optional("Subscribers") => list(subscriber()),
         optional("SubscriptionName") => String.t(),
         optional("Threshold") => float(),
         optional("ThresholdExpression") => expression(),
@@ -1067,9 +1067,9 @@ defmodule AWS.CostExplorer do
       get_savings_plans_coverage_request() :: %{
         optional("Filter") => expression(),
         optional("Granularity") => list(any()),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
-        optional("Metrics") => list(String.t()()),
+        optional("Metrics") => list(String.t()),
         optional("NextToken") => String.t(),
         optional("SortBy") => sort_definition(),
         required("TimePeriod") => date_interval()
@@ -1122,7 +1122,7 @@ defmodule AWS.CostExplorer do
       dimension_values() :: %{
         "Key" => list(any()),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1177,7 +1177,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_reservation_coverage_response() :: %{
-        "CoveragesByTime" => list(coverage_by_time()()),
+        "CoveragesByTime" => list(coverage_by_time()),
         "NextPageToken" => String.t(),
         "Total" => coverage()
       }
@@ -1191,9 +1191,9 @@ defmodule AWS.CostExplorer do
       
       cost_category_split_charge_rule() :: %{
         "Method" => list(any()),
-        "Parameters" => list(cost_category_split_charge_rule_parameter()()),
+        "Parameters" => list(cost_category_split_charge_rule_parameter()),
         "Source" => String.t(),
-        "Targets" => list(String.t()())
+        "Targets" => list(String.t())
       }
       
   """
@@ -1218,7 +1218,7 @@ defmodule AWS.CostExplorer do
         optional("GenerationStatus") => list(any()),
         optional("NextPageToken") => String.t(),
         optional("PageSize") => integer(),
-        optional("RecommendationIds") => list(String.t()())
+        optional("RecommendationIds") => list(String.t())
       }
       
   """
@@ -1231,10 +1231,10 @@ defmodule AWS.CostExplorer do
       get_cost_and_usage_request() :: %{
         optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("NextPageToken") => String.t(),
         required("Granularity") => list(any()),
-        required("Metrics") => list(String.t()()),
+        required("Metrics") => list(String.t()),
         required("TimePeriod") => date_interval()
       }
       
@@ -1246,7 +1246,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_usage_forecast_response() :: %{
-        "ForecastResultsByTime" => list(forecast_result()()),
+        "ForecastResultsByTime" => list(forecast_result()),
         "Total" => metric_value()
       }
       
@@ -1380,7 +1380,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_dimension_values_response() :: %{
-        "DimensionValues" => list(dimension_values_with_attributes()()),
+        "DimensionValues" => list(dimension_values_with_attributes()),
         "NextPageToken" => String.t(),
         "ReturnSize" => integer(),
         "TotalSize" => integer()
@@ -1400,8 +1400,8 @@ defmodule AWS.CostExplorer do
         "EffectiveStart" => String.t(),
         "Name" => String.t(),
         "NumberOfRules" => integer(),
-        "ProcessingStatus" => list(cost_category_processing_status()()),
-        "Values" => list(String.t()())
+        "ProcessingStatus" => list(cost_category_processing_status()),
+        "Values" => list(String.t())
       }
       
   """
@@ -1437,7 +1437,7 @@ defmodule AWS.CostExplorer do
         optional("MaxResults") => integer(),
         optional("MonitorArn") => String.t(),
         optional("NextPageToken") => String.t(),
-        optional("SubscriptionArnList") => list(String.t()())
+        optional("SubscriptionArnList") => list(String.t())
       }
       
   """
@@ -1462,7 +1462,7 @@ defmodule AWS.CostExplorer do
       get_tags_response() :: %{
         "NextPageToken" => String.t(),
         "ReturnSize" => integer(),
-        "Tags" => list(String.t()()),
+        "Tags" => list(String.t()),
         "TotalSize" => integer()
       }
       
@@ -1542,7 +1542,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_commitment_purchase_analyses_response() :: %{
-        "AnalysisSummaryList" => list(analysis_summary()()),
+        "AnalysisSummaryList" => list(analysis_summary()),
         "NextPageToken" => String.t()
       }
       
@@ -1554,7 +1554,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag()())
+        "ResourceTags" => list(resource_tag())
       }
       
   """
@@ -1593,7 +1593,7 @@ defmodule AWS.CostExplorer do
       
       result_by_time() :: %{
         "Estimated" => boolean(),
-        "Groups" => list(group()()),
+        "Groups" => list(group()),
         "TimePeriod" => date_interval(),
         "Total" => map()
       }
@@ -1627,7 +1627,7 @@ defmodule AWS.CostExplorer do
       get_cost_comparison_drivers_request() :: %{
         optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         required("BaselineTimePeriod") => date_interval(),
@@ -1643,7 +1643,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       update_cost_allocation_tags_status_request() :: %{
-        required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry()())
+        required("CostAllocationTagsStatus") => list(cost_allocation_tag_status_entry())
       }
       
   """
@@ -1713,10 +1713,10 @@ defmodule AWS.CostExplorer do
       update_cost_category_definition_request() :: %{
         optional("DefaultValue") => String.t(),
         optional("EffectiveStart") => String.t(),
-        optional("SplitChargeRules") => list(cost_category_split_charge_rule()()),
+        optional("SplitChargeRules") => list(cost_category_split_charge_rule()),
         required("CostCategoryArn") => String.t(),
         required("RuleVersion") => list(any()),
-        required("Rules") => list(cost_category_rule()())
+        required("Rules") => list(cost_category_rule())
       }
       
   """
@@ -1808,7 +1808,7 @@ defmodule AWS.CostExplorer do
         "ResourceId" => String.t(),
         "ResourceUtilization" => resource_utilization(),
         "SavingsPlansCoveredHoursInLookbackPeriod" => String.t(),
-        "Tags" => list(tag_values()()),
+        "Tags" => list(tag_values()),
         "TotalRunningHoursInLookbackPeriod" => String.t()
       }
       
@@ -1892,7 +1892,7 @@ defmodule AWS.CostExplorer do
         "Feedback" => list(any()),
         "Impact" => impact(),
         "MonitorArn" => String.t(),
-        "RootCauses" => list(root_cause()())
+        "RootCauses" => list(root_cause())
       }
       
   """
@@ -1942,7 +1942,7 @@ defmodule AWS.CostExplorer do
       
       get_savings_plans_coverage_response() :: %{
         "NextToken" => String.t(),
-        "SavingsPlansCoverages" => list(savings_plans_coverage()())
+        "SavingsPlansCoverages" => list(savings_plans_coverage())
       }
       
   """
@@ -1967,7 +1967,7 @@ defmodule AWS.CostExplorer do
       cost_category_values() :: %{
         "Key" => String.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1989,7 +1989,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       modify_recommendation_detail() :: %{
-        "TargetInstances" => list(target_instance()())
+        "TargetInstances" => list(target_instance())
       }
       
   """
@@ -2000,7 +2000,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       update_cost_allocation_tags_status_response() :: %{
-        "Errors" => list(update_cost_allocation_tags_status_error()())
+        "Errors" => list(update_cost_allocation_tags_status_error())
       }
       
   """
@@ -2014,7 +2014,7 @@ defmodule AWS.CostExplorer do
         "AccountScope" => list(any()),
         "LookbackPeriodInDays" => list(any()),
         "PaymentOption" => list(any()),
-        "RecommendationDetails" => list(reservation_purchase_recommendation_detail()()),
+        "RecommendationDetails" => list(reservation_purchase_recommendation_detail()),
         "RecommendationSummary" => reservation_purchase_recommendation_summary(),
         "ServiceSpecification" => service_specification(),
         "TermInYears" => list(any())
@@ -2065,7 +2065,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_approximate_usage_records_request() :: %{
-        optional("Services") => list(String.t()()),
+        optional("Services") => list(String.t()),
         required("ApproximationDimension") => list(any()),
         required("Granularity") => list(any())
       }
@@ -2100,7 +2100,7 @@ defmodule AWS.CostExplorer do
       
       get_anomaly_monitors_request() :: %{
         optional("MaxResults") => integer(),
-        optional("MonitorArnList") => list(String.t()()),
+        optional("MonitorArnList") => list(String.t()),
         optional("NextPageToken") => String.t()
       }
       
@@ -2112,7 +2112,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_anomalies_response() :: %{
-        "Anomalies" => list(anomaly()()),
+        "Anomalies" => list(anomaly()),
         "NextPageToken" => String.t()
       }
       
@@ -2124,7 +2124,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_and_usage_comparisons_response() :: %{
-        "CostAndUsageComparisons" => list(cost_and_usage_comparison()()),
+        "CostAndUsageComparisons" => list(cost_and_usage_comparison()),
         "NextPageToken" => String.t(),
         "TotalCostAndUsage" => map()
       }
@@ -2248,7 +2248,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       group() :: %{
-        "Keys" => list(String.t()()),
+        "Keys" => list(String.t()),
         "Metrics" => map()
       }
       
@@ -2289,11 +2289,11 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       expression() :: %{
-        "And" => list(expression()()),
+        "And" => list(expression()),
         "CostCategories" => cost_category_values(),
         "Dimensions" => dimension_values(),
         "Not" => expression(),
-        "Or" => list(expression()()),
+        "Or" => list(expression()),
         "Tags" => tag_values()
       }
       
@@ -2338,7 +2338,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_cost_allocation_tags_response() :: %{
-        "CostAllocationTags" => list(cost_allocation_tag()()),
+        "CostAllocationTags" => list(cost_allocation_tag()),
         "NextToken" => String.t()
       }
       
@@ -2355,10 +2355,10 @@ defmodule AWS.CostExplorer do
         "EffectiveEnd" => String.t(),
         "EffectiveStart" => String.t(),
         "Name" => String.t(),
-        "ProcessingStatus" => list(cost_category_processing_status()()),
+        "ProcessingStatus" => list(cost_category_processing_status()),
         "RuleVersion" => list(any()),
-        "Rules" => list(cost_category_rule()()),
-        "SplitChargeRules" => list(cost_category_split_charge_rule()())
+        "Rules" => list(cost_category_rule()),
+        "SplitChargeRules" => list(cost_category_split_charge_rule())
       }
       
   """
@@ -2380,7 +2380,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_cost_allocation_tag_backfill_history_response() :: %{
-        "BackfillRequests" => list(cost_allocation_tag_backfill_request()()),
+        "BackfillRequests" => list(cost_allocation_tag_backfill_request()),
         "NextToken" => String.t()
       }
       
@@ -2443,7 +2443,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_commitment_purchase_analyses_request() :: %{
-        optional("AnalysisIds") => list(String.t()()),
+        optional("AnalysisIds") => list(String.t()),
         optional("AnalysisStatus") => list(any()),
         optional("NextPageToken") => String.t(),
         optional("PageSize") => integer()
@@ -2461,8 +2461,8 @@ defmodule AWS.CostExplorer do
         "AccountScope" => list(any()),
         "AnalysisType" => list(any()),
         "LookBackTimePeriod" => date_interval(),
-        "SavingsPlansToAdd" => list(savings_plans()()),
-        "SavingsPlansToExclude" => list(String.t()())
+        "SavingsPlansToAdd" => list(savings_plans()),
+        "SavingsPlansToExclude" => list(String.t())
       }
       
   """
@@ -2475,7 +2475,7 @@ defmodule AWS.CostExplorer do
       get_reservation_purchase_recommendation_response() :: %{
         "Metadata" => reservation_purchase_recommendation_metadata(),
         "NextPageToken" => String.t(),
-        "Recommendations" => list(reservation_purchase_recommendation()())
+        "Recommendations" => list(reservation_purchase_recommendation())
       }
       
   """
@@ -2502,7 +2502,7 @@ defmodule AWS.CostExplorer do
       get_reservation_utilization_request() :: %{
         optional("Filter") => expression(),
         optional("Granularity") => list(any()),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         optional("SortBy") => sort_definition(),
@@ -2532,7 +2532,7 @@ defmodule AWS.CostExplorer do
       get_cost_and_usage_comparisons_request() :: %{
         optional("BillingViewArn") => String.t(),
         optional("Filter") => expression(),
-        optional("GroupBy") => list(group_definition()()),
+        optional("GroupBy") => list(group_definition()),
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         required("BaselineTimePeriod") => date_interval(),
@@ -2608,7 +2608,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_savings_plans_utilization_response() :: %{
-        "SavingsPlansUtilizationsByTime" => list(savings_plans_utilization_by_time()()),
+        "SavingsPlansUtilizationsByTime" => list(savings_plans_utilization_by_time()),
         "Total" => savings_plans_utilization_aggregates()
       }
       
@@ -2634,7 +2634,7 @@ defmodule AWS.CostExplorer do
         "Configuration" => rightsizing_recommendation_configuration(),
         "Metadata" => rightsizing_recommendation_metadata(),
         "NextPageToken" => String.t(),
-        "RightsizingRecommendations" => list(rightsizing_recommendation()()),
+        "RightsizingRecommendations" => list(rightsizing_recommendation()),
         "Summary" => rightsizing_recommendation_summary()
       }
       
@@ -2652,7 +2652,7 @@ defmodule AWS.CostExplorer do
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         optional("SearchString") => String.t(),
-        optional("SortBy") => list(sort_definition()()),
+        optional("SortBy") => list(sort_definition()),
         required("Dimension") => list(any()),
         required("TimePeriod") => date_interval()
       }
@@ -2668,7 +2668,7 @@ defmodule AWS.CostExplorer do
         "AccountScope" => list(any()),
         "LookbackPeriodInDays" => list(any()),
         "PaymentOption" => list(any()),
-        "SavingsPlansPurchaseRecommendationDetails" => list(savings_plans_purchase_recommendation_detail()()),
+        "SavingsPlansPurchaseRecommendationDetails" => list(savings_plans_purchase_recommendation_detail()),
         "SavingsPlansPurchaseRecommendationSummary" => savings_plans_purchase_recommendation_summary(),
         "SavingsPlansType" => list(any()),
         "TermInYears" => list(any())
@@ -2770,7 +2770,7 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       list_savings_plans_purchase_recommendation_generation_response() :: %{
-        "GenerationSummaryList" => list(generation_summary()()),
+        "GenerationSummaryList" => list(generation_summary()),
         "NextPageToken" => String.t()
       }
       
@@ -2788,7 +2788,7 @@ defmodule AWS.CostExplorer do
         optional("MaxResults") => integer(),
         optional("NextPageToken") => String.t(),
         optional("SearchString") => String.t(),
-        optional("SortBy") => list(sort_definition()()),
+        optional("SortBy") => list(sort_definition()),
         required("TimePeriod") => date_interval()
       }
       
@@ -2874,8 +2874,8 @@ defmodule AWS.CostExplorer do
   ## Example:
       
       get_cost_categories_response() :: %{
-        "CostCategoryNames" => list(String.t()()),
-        "CostCategoryValues" => list(String.t()()),
+        "CostCategoryNames" => list(String.t()),
+        "CostCategoryValues" => list(String.t()),
         "NextPageToken" => String.t(),
         "ReturnSize" => integer(),
         "TotalSize" => integer()
@@ -3108,7 +3108,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_monitor_errors()}
   def create_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAnomalyMonitor", input, options)
   end
@@ -3128,7 +3129,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_subscription_errors()}
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAnomalySubscription", input, options)
   end
@@ -3142,7 +3144,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_cost_category_definition_errors()}
   def create_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCostCategoryDefinition", input, options)
   end
@@ -3156,7 +3159,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_monitor_errors()}
   def delete_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyMonitor", input, options)
   end
@@ -3170,7 +3174,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_subscription_errors()}
   def delete_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnomalySubscription", input, options)
   end
@@ -3187,7 +3192,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_cost_category_definition_errors()}
   def delete_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCostCategoryDefinition", input, options)
   end
@@ -3213,7 +3219,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, describe_cost_category_definition_errors()}
   def describe_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCostCategoryDefinition", input, options)
   end
@@ -3232,7 +3239,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomalies_errors()}
   def get_anomalies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalies", input, options)
   end
@@ -3249,7 +3257,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_monitors_errors()}
   def get_anomaly_monitors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalyMonitors", input, options)
   end
@@ -3266,7 +3275,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_subscriptions_errors()}
   def get_anomaly_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnomalySubscriptions", input, options)
   end
@@ -3282,7 +3292,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_approximate_usage_records_errors()}
   def get_approximate_usage_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetApproximateUsageRecords", input, options)
   end
@@ -3301,7 +3312,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_commitment_purchase_analysis_errors()}
   def get_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCommitmentPurchaseAnalysis", input, options)
   end
@@ -3328,7 +3340,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_errors()}
   def get_cost_and_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsage", input, options)
   end
@@ -3348,7 +3361,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_comparisons_errors()}
   def get_cost_and_usage_comparisons(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageComparisons", input, options)
   end
@@ -3388,7 +3402,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_with_resources_errors()}
   def get_cost_and_usage_with_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageWithResources", input, options)
   end
@@ -3406,7 +3421,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_categories_errors()}
   def get_cost_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostCategories", input, options)
   end
@@ -3425,7 +3441,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_comparison_drivers_errors()}
   def get_cost_comparison_drivers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostComparisonDrivers", input, options)
   end
@@ -3441,7 +3458,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_forecast_errors()}
   def get_cost_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCostForecast", input, options)
   end
@@ -3459,7 +3477,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_dimension_values_errors()}
   def get_dimension_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDimensionValues", input, options)
   end
@@ -3523,7 +3542,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_coverage_errors()}
   def get_reservation_coverage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationCoverage", input, options)
   end
@@ -3572,7 +3592,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_purchase_recommendation_errors()}
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationPurchaseRecommendation", input, options)
   end
@@ -3592,7 +3613,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_utilization_errors()}
   def get_reservation_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservationUtilization", input, options)
   end
@@ -3615,7 +3637,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_rightsizing_recommendation_errors()}
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRightsizingRecommendation", input, options)
   end
@@ -3636,7 +3659,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plan_purchase_recommendation_details_errors()}
   def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3684,7 +3708,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_coverage_errors()}
   def get_savings_plans_coverage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansCoverage", input, options)
   end
@@ -3708,7 +3733,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_purchase_recommendation_errors()}
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansPurchaseRecommendation", input, options)
   end
@@ -3731,7 +3757,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_errors()}
   def get_savings_plans_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilization", input, options)
   end
@@ -3761,7 +3788,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_details_errors()}
   def get_savings_plans_utilization_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilizationDetails", input, options)
   end
@@ -3778,7 +3806,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -3793,7 +3822,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_usage_forecast_errors()}
   def get_usage_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUsageForecast", input, options)
   end
@@ -3811,7 +3841,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_commitment_purchase_analyses_errors()}
   def list_commitment_purchase_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommitmentPurchaseAnalyses", input, options)
   end
@@ -3830,7 +3861,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tag_backfill_history_errors()}
   def list_cost_allocation_tag_backfill_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTagBackfillHistory", input, options)
   end
@@ -3847,7 +3879,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tags_errors()}
   def list_cost_allocation_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTags", input, options)
   end
@@ -3872,7 +3905,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_category_definitions_errors()}
   def list_cost_category_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCostCategoryDefinitions", input, options)
   end
@@ -3896,7 +3930,8 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3918,7 +3953,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3932,7 +3968,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, provide_anomaly_feedback_errors()}
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
   end
@@ -3955,7 +3992,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_commitment_purchase_analysis_errors()}
   def start_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCommitmentPurchaseAnalysis", input, options)
   end
@@ -3979,7 +4017,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_cost_allocation_tag_backfill_errors()}
   def start_cost_allocation_tag_backfill(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCostAllocationTagBackfill", input, options)
   end
@@ -4011,7 +4050,8 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4043,7 +4083,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4060,7 +4101,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4077,7 +4119,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_monitor_errors()}
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAnomalyMonitor", input, options)
   end
@@ -4098,7 +4141,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_subscription_errors()}
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAnomalySubscription", input, options)
   end
@@ -4123,7 +4167,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_allocation_tags_status_errors()}
   def update_cost_allocation_tags_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCostAllocationTagsStatus", input, options)
   end
@@ -4142,7 +4187,8 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_category_definition_errors()}
   def update_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCostCategoryDefinition", input, options)
   end

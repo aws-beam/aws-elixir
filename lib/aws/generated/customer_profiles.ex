@@ -65,7 +65,7 @@ defmodule AWS.CustomerProfiles do
         "BusinessPhoneNumber" => String.t(),
         "EmailAddress" => String.t(),
         "FirstName" => String.t(),
-        "FoundByItems" => list(found_by_key_value()()),
+        "FoundByItems" => list(found_by_key_value()),
         "Gender" => list(any()),
         "GenderString" => String.t(),
         "HomePhoneNumber" => String.t(),
@@ -132,7 +132,7 @@ defmodule AWS.CustomerProfiles do
 
       event_trigger_limits() :: %{
         "EventExpiration" => float(),
-        "Periods" => list(period()())
+        "Periods" => list(period())
       }
 
   """
@@ -283,7 +283,7 @@ defmodule AWS.CustomerProfiles do
       task() :: %{
         "ConnectorOperator" => connector_operator(),
         "DestinationField" => String.t(),
-        "SourceFields" => list(String.t()()),
+        "SourceFields" => list(String.t()),
         "TaskProperties" => map(),
         "TaskType" => list(any())
       }
@@ -392,7 +392,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       attribute_details() :: %{
-        "Attributes" => list(attribute_item()()),
+        "Attributes" => list(attribute_item()),
         "Expression" => String.t()
       }
 
@@ -404,7 +404,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       detect_profile_object_type_response() :: %{
-        "DetectedProfileObjectTypes" => list(detected_profile_object_type()())
+        "DetectedProfileObjectTypes" => list(detected_profile_object_type())
       }
 
   """
@@ -557,7 +557,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       event_trigger_condition() :: %{
-        "EventTriggerDimensions" => list(event_trigger_dimension()()),
+        "EventTriggerDimensions" => list(event_trigger_dimension()),
         "LogicalOperator" => list(any())
       }
 
@@ -618,7 +618,7 @@ defmodule AWS.CustomerProfiles do
 
       object_filter() :: %{
         "KeyName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -658,7 +658,7 @@ defmodule AWS.CustomerProfiles do
 
       found_by_key_value() :: %{
         "KeyName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -749,7 +749,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       detect_profile_object_type_request() :: %{
-        required("Objects") => list(String.t()())
+        required("Objects") => list(String.t())
       }
 
   """
@@ -818,7 +818,7 @@ defmodule AWS.CustomerProfiles do
         "MatchId" => String.t(),
         "MatchType" => list(any()),
         "NextToken" => String.t(),
-        "ProfileIds" => list(String.t()()),
+        "ProfileIds" => list(String.t()),
         "RuleLevel" => integer()
       }
 
@@ -830,7 +830,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       put_integration_request() :: %{
-        optional("EventTriggerNames") => list(String.t()()),
+        optional("EventTriggerNames") => list(String.t()),
         optional("FlowDefinition") => flow_definition(),
         optional("ObjectTypeName") => String.t(),
         optional("ObjectTypeNames") => map(),
@@ -891,7 +891,7 @@ defmodule AWS.CustomerProfiles do
         "FlowName" => String.t(),
         "KmsArn" => String.t(),
         "SourceFlowConfig" => source_flow_config(),
-        "Tasks" => list(task()()),
+        "Tasks" => list(task()),
         "TriggerConfig" => trigger_config()
       }
 
@@ -915,7 +915,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_rule_based_matches_response() :: %{
-        "MatchIds" => list(String.t()()),
+        "MatchIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -941,7 +941,7 @@ defmodule AWS.CustomerProfiles do
 
       add_profile_key_response() :: %{
         "KeyName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -952,7 +952,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       filter_group() :: %{
-        "Dimensions" => list(filter_dimension()()),
+        "Dimensions" => list(filter_dimension()),
         "Type" => list(any())
       }
 
@@ -964,7 +964,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_identity_resolution_jobs_response() :: %{
-        "IdentityResolutionJobsList" => list(identity_resolution_job()()),
+        "IdentityResolutionJobsList" => list(identity_resolution_job()),
         "NextToken" => String.t()
       }
 
@@ -1000,7 +1000,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1011,7 +1011,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       matching_rule() :: %{
-        "Rule" => list(String.t()())
+        "Rule" => list(String.t())
       }
 
   """
@@ -1035,7 +1035,7 @@ defmodule AWS.CustomerProfiles do
       put_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
-        "EventTriggerNames" => list(String.t()()),
+        "EventTriggerNames" => list(String.t()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -1136,7 +1136,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_event_triggers_response() :: %{
-        "Items" => list(event_trigger_summary_item()()),
+        "Items" => list(event_trigger_summary_item()),
         "NextToken" => String.t()
       }
 
@@ -1321,7 +1321,7 @@ defmodule AWS.CustomerProfiles do
       get_integration_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
-        "EventTriggerNames" => list(String.t()()),
+        "EventTriggerNames" => list(String.t()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -1362,7 +1362,7 @@ defmodule AWS.CustomerProfiles do
       delete_profile_key_request() :: %{
         required("KeyName") => String.t(),
         required("ProfileId") => String.t(),
-        required("Values") => list(String.t()())
+        required("Values") => list(String.t())
       }
 
   """
@@ -1375,7 +1375,7 @@ defmodule AWS.CustomerProfiles do
       calculated_attribute_dimension() :: %{
         "ConditionOverrides" => condition_overrides(),
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1399,7 +1399,7 @@ defmodule AWS.CustomerProfiles do
       match_item() :: %{
         "ConfidenceScore" => float(),
         "MatchId" => String.t(),
-        "ProfileIds" => list(String.t()())
+        "ProfileIds" => list(String.t())
       }
 
   """
@@ -1473,7 +1473,7 @@ defmodule AWS.CustomerProfiles do
         "ConflictResolution" => conflict_resolution(),
         "Enabled" => boolean(),
         "ExportingConfig" => exporting_config(),
-        "MatchingRules" => list(matching_rule()()),
+        "MatchingRules" => list(matching_rule()),
         "MaxAllowedRuleLevelForMatching" => integer(),
         "MaxAllowedRuleLevelForMerging" => integer(),
         "Status" => list(any())
@@ -1510,7 +1510,7 @@ defmodule AWS.CustomerProfiles do
 
       additional_search_key() :: %{
         "KeyName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1545,7 +1545,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       segment_group_structure() :: %{
-        "Groups" => list(group()()),
+        "Groups" => list(group()),
         "Include" => list(any())
       }
 
@@ -1658,7 +1658,7 @@ defmodule AWS.CustomerProfiles do
         optional("EventTriggerLimits") => event_trigger_limits(),
         optional("SegmentFilter") => String.t(),
         optional("Tags") => map(),
-        required("EventTriggerConditions") => list(event_trigger_condition()()),
+        required("EventTriggerConditions") => list(event_trigger_condition()),
         required("ObjectTypeName") => String.t()
       }
 
@@ -1671,7 +1671,7 @@ defmodule AWS.CustomerProfiles do
 
       profile_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1682,9 +1682,9 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       batch_get_calculated_attribute_for_profile_response() :: %{
-        "CalculatedAttributeValues" => list(calculated_attribute_value()()),
+        "CalculatedAttributeValues" => list(calculated_attribute_value()),
         "ConditionOverrides" => condition_overrides(),
-        "Errors" => list(batch_get_calculated_attribute_for_profile_error()())
+        "Errors" => list(batch_get_calculated_attribute_for_profile_error())
       }
 
   """
@@ -1695,7 +1695,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_event_streams_response() :: %{
-        "Items" => list(event_stream_summary()()),
+        "Items" => list(event_stream_summary()),
         "NextToken" => String.t()
       }
 
@@ -1707,7 +1707,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_object_type_attributes_response() :: %{
-        "Items" => list(list_object_type_attribute_item()()),
+        "Items" => list(list_object_type_attribute_item()),
         "NextToken" => String.t()
       }
 
@@ -1719,7 +1719,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_profile_objects_response() :: %{
-        "Items" => list(list_profile_objects_item()()),
+        "Items" => list(list_profile_objects_item()),
         "NextToken" => String.t()
       }
 
@@ -1749,7 +1749,7 @@ defmodule AWS.CustomerProfiles do
       merge_profiles_request() :: %{
         optional("FieldSourceProfileIds") => field_source_profile_ids(),
         required("MainProfileId") => String.t(),
-        required("ProfileIdsToBeMerged") => list(String.t()())
+        required("ProfileIdsToBeMerged") => list(String.t())
       }
 
   """
@@ -1775,7 +1775,7 @@ defmodule AWS.CustomerProfiles do
       get_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
         "EventTriggerName" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
@@ -1792,7 +1792,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_domains_response() :: %{
-        "Items" => list(list_domain_item()()),
+        "Items" => list(list_domain_item()),
         "NextToken" => String.t()
       }
 
@@ -1883,8 +1883,8 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       batch_get_profile_response() :: %{
-        "Errors" => list(batch_get_profile_error()()),
-        "Profiles" => list(profile()())
+        "Errors" => list(batch_get_profile_error()),
+        "Profiles" => list(profile())
       }
 
   """
@@ -2081,7 +2081,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       event_trigger_dimension() :: %{
-        "ObjectAttributes" => list(object_attribute()())
+        "ObjectAttributes" => list(object_attribute())
       }
 
   """
@@ -2104,7 +2104,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       consolidation() :: %{
-        "MatchingAttributesList" => list(list(String.t()())())
+        "MatchingAttributesList" => list(list(String.t())())
       }
 
   """
@@ -2134,7 +2134,7 @@ defmodule AWS.CustomerProfiles do
         "ConflictResolution" => conflict_resolution(),
         "Enabled" => boolean(),
         "ExportingConfig" => exporting_config(),
-        "MatchingRules" => list(matching_rule()()),
+        "MatchingRules" => list(matching_rule()),
         "MaxAllowedRuleLevelForMatching" => integer(),
         "MaxAllowedRuleLevelForMerging" => integer()
       }
@@ -2147,7 +2147,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       object_type_key() :: %{
-        "FieldNames" => list(String.t()()),
+        "FieldNames" => list(String.t()),
         "StandardIdentifiers" => list(list(any())())
       }
 
@@ -2160,7 +2160,7 @@ defmodule AWS.CustomerProfiles do
 
       get_matches_response() :: %{
         "MatchGenerationDate" => non_neg_integer(),
-        "Matches" => list(match_item()()),
+        "Matches" => list(match_item()),
         "NextToken" => String.t(),
         "PotentialMatches" => integer()
       }
@@ -2184,7 +2184,7 @@ defmodule AWS.CustomerProfiles do
       update_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
         "EventTriggerName" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
@@ -2212,7 +2212,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       filter() :: %{
-        "Groups" => list(filter_group()()),
+        "Groups" => list(filter_group()),
         "Include" => list(any())
       }
 
@@ -2332,7 +2332,7 @@ defmodule AWS.CustomerProfiles do
 
       filter_attribute_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -2343,7 +2343,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       segment_group() :: %{
-        "Groups" => list(group()()),
+        "Groups" => list(group()),
         "Include" => list(any())
       }
 
@@ -2364,12 +2364,12 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       search_profiles_request() :: %{
-        optional("AdditionalSearchKeys") => list(additional_search_key()()),
+        optional("AdditionalSearchKeys") => list(additional_search_key()),
         optional("LogicalOperator") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("KeyName") => String.t(),
-        required("Values") => list(String.t()())
+        required("Values") => list(String.t())
       }
 
   """
@@ -2380,7 +2380,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_segment_definitions_response() :: %{
-        "Items" => list(segment_definition_item()()),
+        "Items" => list(segment_definition_item()),
         "NextToken" => String.t()
       }
 
@@ -2465,7 +2465,7 @@ defmodule AWS.CustomerProfiles do
       create_event_trigger_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EventTriggerConditions" => list(event_trigger_condition()()),
+        "EventTriggerConditions" => list(event_trigger_condition()),
         "EventTriggerLimits" => event_trigger_limits(),
         "EventTriggerName" => String.t(),
         "LastUpdatedAt" => non_neg_integer(),
@@ -2485,7 +2485,7 @@ defmodule AWS.CustomerProfiles do
         "ComparisonOperator" => list(any()),
         "FieldName" => String.t(),
         "Source" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -2530,7 +2530,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       get_workflow_steps_response() :: %{
-        "Items" => list(workflow_step_item()()),
+        "Items" => list(workflow_step_item()),
         "NextToken" => String.t(),
         "WorkflowId" => String.t(),
         "WorkflowType" => list(any())
@@ -2560,7 +2560,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_calculated_attributes_for_profile_response() :: %{
-        "Items" => list(list_calculated_attribute_for_profile_item()()),
+        "Items" => list(list_calculated_attribute_for_profile_item()),
         "NextToken" => String.t()
       }
 
@@ -2584,7 +2584,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       get_segment_membership_request() :: %{
-        required("ProfileIds") => list(String.t()())
+        required("ProfileIds") => list(String.t())
       }
 
   """
@@ -2640,7 +2640,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       search_profiles_response() :: %{
-        "Items" => list(profile()()),
+        "Items" => list(profile()),
         "NextToken" => String.t()
       }
 
@@ -2719,7 +2719,7 @@ defmodule AWS.CustomerProfiles do
 
       batch_get_calculated_attribute_for_profile_request() :: %{
         optional("ConditionOverrides") => condition_overrides(),
-        required("ProfileIds") => list(String.t()())
+        required("ProfileIds") => list(String.t())
       }
 
   """
@@ -2739,10 +2739,10 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       attribute_types_selector() :: %{
-        "Address" => list(String.t()()),
+        "Address" => list(String.t()),
         "AttributeMatchingModel" => list(any()),
-        "EmailAddress" => list(String.t()()),
-        "PhoneNumber" => list(String.t()())
+        "EmailAddress" => list(String.t()),
+        "PhoneNumber" => list(String.t())
       }
 
   """
@@ -2835,8 +2835,8 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       get_segment_membership_response() :: %{
-        "Failures" => list(profile_query_failures()()),
-        "Profiles" => list(profile_query_result()()),
+        "Failures" => list(profile_query_failures()),
+        "Profiles" => list(profile_query_result()),
         "SegmentDefinitionName" => String.t()
       }
 
@@ -2872,7 +2872,7 @@ defmodule AWS.CustomerProfiles do
 
       attribute_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -2883,8 +2883,8 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       group() :: %{
-        "Dimensions" => list(list()()),
-        "SourceSegments" => list(source_segment()()),
+        "Dimensions" => list(list()),
+        "SourceSegments" => list(source_segment()),
         "SourceType" => list(any()),
         "Type" => list(any())
       }
@@ -3010,7 +3010,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_upload_jobs_response() :: %{
-        "Items" => list(upload_job_item()()),
+        "Items" => list(upload_job_item()),
         "NextToken" => String.t()
       }
 
@@ -3022,7 +3022,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       batch_get_profile_request() :: %{
-        required("ProfileIds") => list(String.t()())
+        required("ProfileIds") => list(String.t())
       }
 
   """
@@ -3054,7 +3054,7 @@ defmodule AWS.CustomerProfiles do
 
       update_event_trigger_request() :: %{
         optional("Description") => String.t(),
-        optional("EventTriggerConditions") => list(event_trigger_condition()()),
+        optional("EventTriggerConditions") => list(event_trigger_condition()),
         optional("EventTriggerLimits") => event_trigger_limits(),
         optional("ObjectTypeName") => String.t(),
         optional("SegmentFilter") => String.t()
@@ -3165,7 +3165,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       appflow_integration() :: %{
-        "Batches" => list(batch()()),
+        "Batches" => list(batch()),
         "FlowDefinition" => flow_definition()
       }
 
@@ -3177,7 +3177,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_domain_layouts_response() :: %{
-        "Items" => list(layout_item()()),
+        "Items" => list(layout_item()),
         "NextToken" => String.t()
       }
 
@@ -3238,7 +3238,7 @@ defmodule AWS.CustomerProfiles do
       profile_attribute_values_response() :: %{
         "AttributeName" => String.t(),
         "DomainName" => String.t(),
-        "Items" => list(attribute_value_item()()),
+        "Items" => list(attribute_value_item()),
         "StatusCode" => integer()
       }
 
@@ -3263,7 +3263,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_calculated_attribute_definitions_response() :: %{
-        "Items" => list(list_calculated_attribute_definition_item()()),
+        "Items" => list(list_calculated_attribute_definition_item()),
         "NextToken" => String.t()
       }
 
@@ -3284,7 +3284,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_workflows_response() :: %{
-        "Items" => list(list_workflows_item()()),
+        "Items" => list(list_workflows_item()),
         "NextToken" => String.t()
       }
 
@@ -3309,7 +3309,7 @@ defmodule AWS.CustomerProfiles do
 
       extra_length_value_profile_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -3342,7 +3342,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_profile_object_type_templates_response() :: %{
-        "Items" => list(list_profile_object_type_template_item()()),
+        "Items" => list(list_profile_object_type_template_item()),
         "NextToken" => String.t()
       }
 
@@ -3365,7 +3365,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_account_integrations_response() :: %{
-        "Items" => list(list_integration_item()()),
+        "Items" => list(list_integration_item()),
         "NextToken" => String.t()
       }
 
@@ -3390,7 +3390,7 @@ defmodule AWS.CustomerProfiles do
       list_integration_item() :: %{
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t(),
-        "EventTriggerNames" => list(String.t()()),
+        "EventTriggerNames" => list(String.t()),
         "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t(),
@@ -3509,7 +3509,7 @@ defmodule AWS.CustomerProfiles do
       add_profile_key_request() :: %{
         required("KeyName") => String.t(),
         required("ProfileId") => String.t(),
-        required("Values") => list(String.t()())
+        required("Values") => list(String.t())
       }
 
   """
@@ -3601,7 +3601,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_profile_object_types_response() :: %{
-        "Items" => list(list_profile_object_type_item()()),
+        "Items" => list(list_profile_object_type_item()),
         "NextToken" => String.t()
       }
 
@@ -3622,7 +3622,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       list_integrations_response() :: %{
-        "Items" => list(list_integration_item()()),
+        "Items" => list(list_integration_item()),
         "NextToken" => String.t()
       }
 

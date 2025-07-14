@@ -147,8 +147,8 @@ defmodule AWS.VerifiedPermissions do
       
       is_authorized_output() :: %{
         "decision" => list(any()),
-        "determiningPolicies" => list(determining_policy_item()()),
-        "errors" => list(evaluation_error_item()())
+        "determiningPolicies" => list(determining_policy_item()),
+        "errors" => list(evaluation_error_item())
       }
       
   """
@@ -171,7 +171,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_identity_token_configuration() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -184,7 +184,7 @@ defmodule AWS.VerifiedPermissions do
       
       list_policy_templates_output() :: %{
         "nextToken" => String.t(),
-        "policyTemplates" => list(policy_template_item()())
+        "policyTemplates" => list(policy_template_item())
       }
       
   """
@@ -243,7 +243,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_access_token_configuration() :: %{
-        "audiences" => list(String.t()()),
+        "audiences" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -255,7 +255,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_access_token_configuration_detail() :: %{
-        "audiences" => list(String.t()()),
+        "audiences" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -349,7 +349,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       batch_get_policy_input() :: %{
-        required("requests") => list(batch_get_policy_input_item()())
+        required("requests") => list(batch_get_policy_input_item())
       }
       
   """
@@ -361,8 +361,8 @@ defmodule AWS.VerifiedPermissions do
       
       batch_is_authorized_with_token_output_item() :: %{
         "decision" => list(any()),
-        "determiningPolicies" => list(determining_policy_item()()),
-        "errors" => list(evaluation_error_item()()),
+        "determiningPolicies" => list(determining_policy_item()),
+        "errors" => list(evaluation_error_item()),
         "request" => batch_is_authorized_with_token_input_item()
       }
       
@@ -374,7 +374,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       policy_item() :: %{
-        "actions" => list(action_identifier()()),
+        "actions" => list(action_identifier()),
         "createdDate" => non_neg_integer(),
         "definition" => list(),
         "effect" => list(any()),
@@ -480,7 +480,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       batch_is_authorized_output() :: %{
-        "results" => list(batch_is_authorized_output_item()())
+        "results" => list(batch_is_authorized_output_item())
       }
       
   """
@@ -531,7 +531,7 @@ defmodule AWS.VerifiedPermissions do
       
       list_policies_output() :: %{
         "nextToken" => String.t(),
-        "policies" => list(policy_item()())
+        "policies" => list(policy_item())
       }
       
   """
@@ -544,7 +544,7 @@ defmodule AWS.VerifiedPermissions do
       put_schema_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "namespaces" => list(String.t()()),
+        "namespaces" => list(String.t()),
         "policyStoreId" => String.t()
       }
       
@@ -617,7 +617,7 @@ defmodule AWS.VerifiedPermissions do
       
       conflict_exception() :: %{
         "message" => [String.t()],
-        "resources" => list(resource_conflict()())
+        "resources" => list(resource_conflict())
       }
       
   """
@@ -641,7 +641,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       cognito_user_pool_configuration_item() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "groupConfiguration" => cognito_group_configuration_item(),
         "issuer" => String.t(),
         "userPoolArn" => String.t()
@@ -659,7 +659,7 @@ defmodule AWS.VerifiedPermissions do
         optional("entities") => list(),
         optional("identityToken") => String.t(),
         required("policyStoreId") => String.t(),
-        required("requests") => list(batch_is_authorized_with_token_input_item()())
+        required("requests") => list(batch_is_authorized_with_token_input_item())
       }
       
   """
@@ -698,7 +698,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       list_identity_sources_output() :: %{
-        "identitySources" => list(identity_source_item()()),
+        "identitySources" => list(identity_source_item()),
         "nextToken" => String.t()
       }
       
@@ -725,7 +725,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       identity_source_details() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "discoveryUrl" => String.t(),
         "openIdIssuer" => list(any()),
         "userPoolArn" => String.t()
@@ -782,7 +782,7 @@ defmodule AWS.VerifiedPermissions do
       get_schema_output() :: %{
         "createdDate" => non_neg_integer(),
         "lastUpdatedDate" => non_neg_integer(),
-        "namespaces" => list(String.t()()),
+        "namespaces" => list(String.t()),
         "policyStoreId" => String.t(),
         "schema" => String.t()
       }
@@ -824,7 +824,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       cognito_user_pool_configuration_detail() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "groupConfiguration" => cognito_group_configuration_detail(),
         "issuer" => String.t(),
         "userPoolArn" => String.t()
@@ -900,7 +900,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       identity_source_item_details() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "discoveryUrl" => String.t(),
         "openIdIssuer" => list(any()),
         "userPoolArn" => String.t()
@@ -958,7 +958,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_open_id_connect_identity_token_configuration() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -982,7 +982,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       cognito_user_pool_configuration() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "groupConfiguration" => cognito_group_configuration(),
         "userPoolArn" => String.t()
       }
@@ -1058,7 +1058,7 @@ defmodule AWS.VerifiedPermissions do
       batch_is_authorized_input() :: %{
         optional("entities") => list(),
         required("policyStoreId") => String.t(),
-        required("requests") => list(batch_is_authorized_input_item()())
+        required("requests") => list(batch_is_authorized_input_item())
       }
       
   """
@@ -1082,7 +1082,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_cognito_user_pool_configuration() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "groupConfiguration" => update_cognito_group_configuration(),
         "userPoolArn" => String.t()
       }
@@ -1110,8 +1110,8 @@ defmodule AWS.VerifiedPermissions do
       
       is_authorized_with_token_output() :: %{
         "decision" => list(any()),
-        "determiningPolicies" => list(determining_policy_item()()),
-        "errors" => list(evaluation_error_item()()),
+        "determiningPolicies" => list(determining_policy_item()),
+        "errors" => list(evaluation_error_item()),
         "principal" => entity_identifier()
       }
       
@@ -1160,7 +1160,7 @@ defmodule AWS.VerifiedPermissions do
       
       untag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -1252,7 +1252,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_access_token_configuration_item() :: %{
-        "audiences" => list(String.t()()),
+        "audiences" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -1264,7 +1264,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()]
       }
       
@@ -1303,8 +1303,8 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       batch_get_policy_output() :: %{
-        "errors" => list(batch_get_policy_error_item()()),
-        "results" => list(batch_get_policy_output_item()())
+        "errors" => list(batch_get_policy_error_item()),
+        "results" => list(batch_get_policy_output_item())
       }
       
   """
@@ -1315,7 +1315,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       create_policy_output() :: %{
-        "actions" => list(action_identifier()()),
+        "actions" => list(action_identifier()),
         "createdDate" => non_neg_integer(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
@@ -1381,7 +1381,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_open_id_connect_access_token_configuration() :: %{
-        "audiences" => list(String.t()()),
+        "audiences" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -1459,7 +1459,7 @@ defmodule AWS.VerifiedPermissions do
       
       batch_is_authorized_with_token_output() :: %{
         "principal" => entity_identifier(),
-        "results" => list(batch_is_authorized_with_token_output_item()())
+        "results" => list(batch_is_authorized_with_token_output_item())
       }
       
   """
@@ -1470,7 +1470,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       list_identity_sources_input() :: %{
-        optional("filters") => list(identity_source_filter()()),
+        optional("filters") => list(identity_source_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("policyStoreId") => String.t()
@@ -1485,8 +1485,8 @@ defmodule AWS.VerifiedPermissions do
       
       batch_is_authorized_output_item() :: %{
         "decision" => list(any()),
-        "determiningPolicies" => list(determining_policy_item()()),
-        "errors" => list(evaluation_error_item()()),
+        "determiningPolicies" => list(determining_policy_item()),
+        "errors" => list(evaluation_error_item()),
         "request" => batch_is_authorized_input_item()
       }
       
@@ -1498,7 +1498,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       update_policy_output() :: %{
-        "actions" => list(action_identifier()()),
+        "actions" => list(action_identifier()),
         "createdDate" => non_neg_integer(),
         "effect" => list(any()),
         "lastUpdatedDate" => non_neg_integer(),
@@ -1552,7 +1552,7 @@ defmodule AWS.VerifiedPermissions do
       entity_item() :: %{
         "attributes" => map(),
         "identifier" => entity_identifier(),
-        "parents" => list(entity_identifier()())
+        "parents" => list(entity_identifier())
       }
       
   """
@@ -1592,7 +1592,7 @@ defmodule AWS.VerifiedPermissions do
       
       list_policy_stores_output() :: %{
         "nextToken" => String.t(),
-        "policyStores" => list(policy_store_item()())
+        "policyStores" => list(policy_store_item())
       }
       
   """
@@ -1603,7 +1603,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_identity_token_configuration_item() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -1632,7 +1632,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       open_id_connect_identity_token_configuration_detail() :: %{
-        "clientIds" => list(String.t()()),
+        "clientIds" => list(String.t()),
         "principalIdClaim" => String.t()
       }
       
@@ -1644,7 +1644,7 @@ defmodule AWS.VerifiedPermissions do
   ## Example:
       
       get_policy_output() :: %{
-        "actions" => list(action_identifier()()),
+        "actions" => list(action_identifier()),
         "createdDate" => non_neg_integer(),
         "definition" => list(),
         "effect" => list(any()),
@@ -1771,7 +1771,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def batch_get_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetPolicy", input, options)
   end
@@ -1806,7 +1807,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, batch_is_authorized_errors()}
   def batch_is_authorized(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorized", input, options)
   end
@@ -1838,7 +1840,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, batch_is_authorized_with_token_errors()}
   def batch_is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchIsAuthorizedWithToken", input, options)
   end
@@ -1880,7 +1883,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_identity_source_errors()}
   def create_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIdentitySource", input, options)
   end
@@ -1913,7 +1917,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_errors()}
   def create_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicy", input, options)
   end
@@ -1936,7 +1941,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_store_errors()}
   def create_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicyStore", input, options)
   end
@@ -1962,7 +1968,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, create_policy_template_errors()}
   def create_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePolicyTemplate", input, options)
   end
@@ -1983,7 +1990,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_identity_source_errors()}
   def delete_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentitySource", input, options)
   end
@@ -2000,7 +2008,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -2017,7 +2026,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_store_errors()}
   def delete_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicyStore", input, options)
   end
@@ -2035,7 +2045,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, delete_policy_template_errors()}
   def delete_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicyTemplate", input, options)
   end
@@ -2049,7 +2060,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_identity_source_errors()}
   def get_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentitySource", input, options)
   end
@@ -2063,7 +2075,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -2077,7 +2090,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_store_errors()}
   def get_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicyStore", input, options)
   end
@@ -2092,7 +2106,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_policy_template_errors()}
   def get_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicyTemplate", input, options)
   end
@@ -2106,7 +2121,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, get_schema_errors()}
   def get_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSchema", input, options)
   end
@@ -2127,7 +2143,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, is_authorized_errors()}
   def is_authorized(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsAuthorized", input, options)
   end
@@ -2157,7 +2174,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, is_authorized_with_token_errors()}
   def is_authorized_with_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsAuthorizedWithToken", input, options)
   end
@@ -2172,7 +2190,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_identity_sources_errors()}
   def list_identity_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentitySources", input, options)
   end
@@ -2186,7 +2205,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -2200,7 +2220,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_policy_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicyStores", input, options)
   end
@@ -2214,7 +2235,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_policy_templates_errors()}
   def list_policy_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicyTemplates", input, options)
   end
@@ -2231,7 +2253,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2255,7 +2278,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, put_schema_errors()}
   def put_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSchema", input, options)
   end
@@ -2286,7 +2310,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2303,7 +2328,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2323,7 +2349,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_identity_source_errors()}
   def update_identity_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIdentitySource", input, options)
   end
@@ -2373,7 +2400,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_errors()}
   def update_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicy", input, options)
   end
@@ -2391,7 +2419,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_store_errors()}
   def update_policy_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicyStore", input, options)
   end
@@ -2415,7 +2444,8 @@ defmodule AWS.VerifiedPermissions do
           | {:error, term()}
           | {:error, update_policy_template_errors()}
   def update_policy_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePolicyTemplate", input, options)
   end

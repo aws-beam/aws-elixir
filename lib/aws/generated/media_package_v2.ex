@@ -125,12 +125,12 @@ defmodule AWS.MediaPackageV2 do
 
       create_origin_endpoint_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("DashManifests") => list(create_dash_manifest_configuration()()),
+        optional("DashManifests") => list(create_dash_manifest_configuration()),
         optional("Description") => String.t(),
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
-        optional("HlsManifests") => list(create_hls_manifest_configuration()()),
-        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
-        optional("MssManifests") => list(create_mss_manifest_configuration()()),
+        optional("HlsManifests") => list(create_hls_manifest_configuration()),
+        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
+        optional("MssManifests") => list(create_mss_manifest_configuration()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
         optional("Tags") => map(),
@@ -181,7 +181,7 @@ defmodule AWS.MediaPackageV2 do
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ETag" => String.t(),
-        "IngestEndpoints" => list(ingest_endpoint()()),
+        "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
@@ -251,14 +251,14 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(get_dash_manifest_configuration()()),
+        "DashManifests" => list(get_dash_manifest_configuration()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(get_hls_manifest_configuration()()),
-        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "HlsManifests" => list(get_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(get_mss_manifest_configuration()()),
+        "MssManifests" => list(get_mss_manifest_configuration()),
         "OriginEndpointName" => String.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
@@ -291,7 +291,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       create_dash_manifest_configuration() :: %{
-        "BaseUrls" => list(dash_base_url()()),
+        "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
         "DvbSettings" => dash_dvb_settings(),
@@ -331,13 +331,13 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       update_origin_endpoint_request() :: %{
-        optional("DashManifests") => list(create_dash_manifest_configuration()()),
+        optional("DashManifests") => list(create_dash_manifest_configuration()),
         optional("Description") => String.t(),
         optional("ETag") => String.t(),
         optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
-        optional("HlsManifests") => list(create_hls_manifest_configuration()()),
-        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()()),
-        optional("MssManifests") => list(create_mss_manifest_configuration()()),
+        optional("HlsManifests") => list(create_hls_manifest_configuration()),
+        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
+        optional("MssManifests") => list(create_mss_manifest_configuration()),
         optional("Segment") => segment(),
         optional("StartoverWindowSeconds") => [integer()],
         required("ContainerType") => list(any())
@@ -480,7 +480,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -520,7 +520,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_origin_endpoints_response() :: %{
-        "Items" => list(origin_endpoint_list_configuration()()),
+        "Items" => list(origin_endpoint_list_configuration()),
         "NextToken" => [String.t()]
       }
 
@@ -763,7 +763,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       dash_dvb_settings() :: %{
-        "ErrorMetrics" => list(dash_dvb_metrics_reporting()()),
+        "ErrorMetrics" => list(dash_dvb_metrics_reporting()),
         "FontDownload" => dash_dvb_font_download()
       }
 
@@ -894,7 +894,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       get_dash_manifest_configuration() :: %{
-        "BaseUrls" => list(dash_base_url()()),
+        "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
         "DvbSettings" => dash_dvb_settings(),
@@ -922,7 +922,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_channels_response() :: %{
-        "Items" => list(channel_list_configuration()()),
+        "Items" => list(channel_list_configuration()),
         "NextToken" => [String.t()]
       }
 
@@ -1034,7 +1034,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_channel_groups_response() :: %{
-        "Items" => list(channel_group_list_configuration()()),
+        "Items" => list(channel_group_list_configuration()),
         "NextToken" => [String.t()]
       }
 
@@ -1241,7 +1241,7 @@ defmodule AWS.MediaPackageV2 do
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ETag" => String.t(),
-        "IngestEndpoints" => list(ingest_endpoint()()),
+        "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
@@ -1292,7 +1292,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       list_harvest_jobs_response() :: %{
-        "Items" => list(harvest_job()()),
+        "Items" => list(harvest_job()),
         "NextToken" => [String.t()]
       }
 
@@ -1319,7 +1319,7 @@ defmodule AWS.MediaPackageV2 do
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ETag" => String.t(),
-        "IngestEndpoints" => list(ingest_endpoint()()),
+        "IngestEndpoints" => list(ingest_endpoint()),
         "InputSwitchConfiguration" => input_switch_configuration(),
         "InputType" => list(any()),
         "ModifiedAt" => [non_neg_integer()],
@@ -1340,13 +1340,13 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(list_dash_manifest_configuration()()),
+        "DashManifests" => list(list_dash_manifest_configuration()),
         "Description" => String.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(list_hls_manifest_configuration()()),
-        "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()()),
+        "HlsManifests" => list(list_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(list_mss_manifest_configuration()()),
+        "MssManifests" => list(list_mss_manifest_configuration()),
         "OriginEndpointName" => String.t()
       }
 
@@ -1435,9 +1435,9 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       harvested_manifests() :: %{
-        "DashManifests" => list(harvested_dash_manifest()()),
-        "HlsManifests" => list(harvested_hls_manifest()()),
-        "LowLatencyHlsManifests" => list(harvested_low_latency_hls_manifest()())
+        "DashManifests" => list(harvested_dash_manifest()),
+        "HlsManifests" => list(harvested_hls_manifest()),
+        "LowLatencyHlsManifests" => list(harvested_low_latency_hls_manifest())
       }
 
   """
@@ -1453,14 +1453,14 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(get_dash_manifest_configuration()()),
+        "DashManifests" => list(get_dash_manifest_configuration()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(get_hls_manifest_configuration()()),
-        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "HlsManifests" => list(get_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(get_mss_manifest_configuration()()),
+        "MssManifests" => list(get_mss_manifest_configuration()),
         "OriginEndpointName" => String.t(),
         "Segment" => segment(),
         "StartoverWindowSeconds" => [integer()],
@@ -1530,14 +1530,14 @@ defmodule AWS.MediaPackageV2 do
         "ChannelName" => String.t(),
         "ContainerType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(get_dash_manifest_configuration()()),
+        "DashManifests" => list(get_dash_manifest_configuration()),
         "Description" => String.t(),
         "ETag" => String.t(),
         "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(get_hls_manifest_configuration()()),
-        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()()),
+        "HlsManifests" => list(get_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
         "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(get_mss_manifest_configuration()()),
+        "MssManifests" => list(get_mss_manifest_configuration()),
         "OriginEndpointName" => String.t(),
         "ResetAt" => [non_neg_integer()],
         "Segment" => segment(),

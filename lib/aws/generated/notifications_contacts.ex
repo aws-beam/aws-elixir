@@ -162,7 +162,7 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       list_email_contacts_response() :: %{
-        "emailContacts" => list(email_contact()()),
+        "emailContacts" => list(email_contact()),
         "nextToken" => [String.t()]
       }
 
@@ -274,7 +274,7 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -294,7 +294,7 @@ defmodule AWS.NotificationsContacts do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }

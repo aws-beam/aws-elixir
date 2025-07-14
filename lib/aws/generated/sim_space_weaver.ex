@@ -74,7 +74,7 @@ defmodule AWS.SimSpaceWeaver do
 
       list_simulations_output() :: %{
         optional("NextToken") => String.t(),
-        optional("Simulations") => list(simulation_metadata()())
+        optional("Simulations") => list(simulation_metadata())
       }
 
   """
@@ -99,7 +99,7 @@ defmodule AWS.SimSpaceWeaver do
 
       simulation_app_endpoint_info() :: %{
         "Address" => String.t(),
-        "IngressPortMappings" => list(simulation_app_port_mapping()())
+        "IngressPortMappings" => list(simulation_app_port_mapping())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       logging_configuration() :: %{
-        "Destinations" => list(log_destination()())
+        "Destinations" => list(log_destination())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       list_apps_output() :: %{
-        optional("Apps") => list(simulation_app_metadata()()),
+        optional("Apps") => list(simulation_app_metadata()),
         optional("NextToken") => String.t()
       }
 
@@ -383,7 +383,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       launch_overrides() :: %{
-        "LaunchCommands" => list(String.t()())
+        "LaunchCommands" => list(String.t())
       }
 
   """
@@ -434,7 +434,7 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       untag_resource_input() :: %{
-        "TagKeys" => list(String.t()())
+        "TagKeys" => list(String.t())
       }
 
   """
@@ -551,8 +551,8 @@ defmodule AWS.SimSpaceWeaver do
   ## Example:
 
       live_simulation_state() :: %{
-        "Clocks" => list(simulation_clock()()),
-        "Domains" => list(domain()())
+        "Clocks" => list(simulation_clock()),
+        "Domains" => list(domain())
       }
 
   """

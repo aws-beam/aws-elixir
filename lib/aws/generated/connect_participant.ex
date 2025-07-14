@@ -122,7 +122,7 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       complete_attachment_upload_request() :: %{
-        required("AttachmentIds") => list(String.t()()),
+        required("AttachmentIds") => list(String.t()),
         required("ClientToken") => String.t(),
         required("ConnectionToken") => String.t()
       }
@@ -161,7 +161,7 @@ defmodule AWS.ConnectParticipant do
 
       item() :: %{
         "AbsoluteTime" => String.t(),
-        "Attachments" => list(attachment_item()()),
+        "Attachments" => list(attachment_item()),
         "ContactId" => String.t(),
         "Content" => String.t(),
         "ContentType" => String.t(),
@@ -194,7 +194,7 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       view_content() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "InputSchema" => String.t(),
         "Template" => String.t()
       }
@@ -319,7 +319,7 @@ defmodule AWS.ConnectParticipant do
 
       message_metadata() :: %{
         "MessageId" => String.t(),
-        "Receipts" => list(receipt()())
+        "Receipts" => list(receipt())
       }
 
   """
@@ -454,7 +454,7 @@ defmodule AWS.ConnectParticipant do
       get_transcript_response() :: %{
         "InitialContactId" => String.t(),
         "NextToken" => String.t(),
-        "Transcript" => list(item()())
+        "Transcript" => list(item())
       }
 
   """

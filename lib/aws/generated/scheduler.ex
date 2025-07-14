@@ -87,7 +87,7 @@ defmodule AWS.Scheduler do
   ## Example:
 
       list_tags_for_resource_output() :: %{
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -193,7 +193,7 @@ defmodule AWS.Scheduler do
 
       list_schedule_groups_output() :: %{
         optional("NextToken") => String.t(),
-        required("ScheduleGroups") => list(schedule_group_summary()())
+        required("ScheduleGroups") => list(schedule_group_summary())
       }
 
   """
@@ -271,7 +271,7 @@ defmodule AWS.Scheduler do
   ## Example:
 
       sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter()())
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
       }
 
   """
@@ -322,7 +322,7 @@ defmodule AWS.Scheduler do
   ## Example:
 
       tag_resource_input() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -458,7 +458,7 @@ defmodule AWS.Scheduler do
 
       list_schedules_output() :: %{
         optional("NextToken") => String.t(),
-        required("Schedules") => list(schedule_summary()())
+        required("Schedules") => list(schedule_summary())
       }
 
   """
@@ -469,7 +469,7 @@ defmodule AWS.Scheduler do
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -558,8 +558,8 @@ defmodule AWS.Scheduler do
 
       aws_vpc_configuration() :: %{
         "AssignPublicIp" => String.t(),
-        "SecurityGroups" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroups" => list(String.t()),
+        "Subnets" => list(String.t())
       }
 
   """
@@ -582,7 +582,7 @@ defmodule AWS.Scheduler do
 
       create_schedule_group_input() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -617,18 +617,18 @@ defmodule AWS.Scheduler do
   ## Example:
 
       ecs_parameters() :: %{
-        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "EnableECSManagedTags" => boolean(),
         "EnableExecuteCommand" => boolean(),
         "Group" => String.t(),
         "LaunchType" => String.t(),
         "NetworkConfiguration" => network_configuration(),
-        "PlacementConstraints" => list(placement_constraint()()),
-        "PlacementStrategy" => list(placement_strategy()()),
+        "PlacementConstraints" => list(placement_constraint()),
+        "PlacementStrategy" => list(placement_strategy()),
         "PlatformVersion" => String.t(),
         "PropagateTags" => String.t(),
         "ReferenceId" => String.t(),
-        "Tags" => list(map()()),
+        "Tags" => list(map()),
         "TaskCount" => integer(),
         "TaskDefinitionArn" => String.t()
       }

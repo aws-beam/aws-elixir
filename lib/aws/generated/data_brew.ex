@@ -21,7 +21,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       batch_delete_recipe_version_response() :: %{
-        "Errors" => list(recipe_version_error_detail()()),
+        "Errors" => list(recipe_version_error_detail()),
         "Name" => String.t()
       }
 
@@ -73,7 +73,7 @@ defmodule AWS.DataBrew do
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t(),
-        required("Rules") => list(rule()()),
+        required("Rules") => list(rule()),
         required("TargetArn") => String.t()
       }
 
@@ -133,7 +133,7 @@ defmodule AWS.DataBrew do
         optional("Description") => String.t(),
         optional("Tags") => map(),
         required("Name") => String.t(),
-        required("Steps") => list(recipe_step()())
+        required("Steps") => list(recipe_step())
       }
 
   """
@@ -156,7 +156,7 @@ defmodule AWS.DataBrew do
 
       list_recipes_response() :: %{
         "NextToken" => String.t(),
-        "Recipes" => list(recipe()())
+        "Recipes" => list(recipe())
       }
 
   """
@@ -176,7 +176,7 @@ defmodule AWS.DataBrew do
         optional("MaxRetries") => integer(),
         optional("Tags") => map(),
         optional("Timeout") => integer(),
-        optional("ValidationConfigurations") => list(validation_configuration()()),
+        optional("ValidationConfigurations") => list(validation_configuration()),
         required("DatasetName") => String.t(),
         required("Name") => String.t(),
         required("OutputLocation") => s3_location(),
@@ -193,8 +193,8 @@ defmodule AWS.DataBrew do
       describe_job_response() :: %{
         "CreateDate" => non_neg_integer(),
         "CreatedBy" => String.t(),
-        "DataCatalogOutputs" => list(data_catalog_output()()),
-        "DatabaseOutputs" => list(database_output()()),
+        "DataCatalogOutputs" => list(data_catalog_output()),
+        "DatabaseOutputs" => list(database_output()),
         "DatasetName" => String.t(),
         "EncryptionKeyArn" => String.t(),
         "EncryptionMode" => list(any()),
@@ -205,7 +205,7 @@ defmodule AWS.DataBrew do
         "MaxCapacity" => integer(),
         "MaxRetries" => integer(),
         "Name" => String.t(),
-        "Outputs" => list(output()()),
+        "Outputs" => list(output()),
         "ProfileConfiguration" => profile_configuration(),
         "ProjectName" => String.t(),
         "RecipeReference" => recipe_reference(),
@@ -214,7 +214,7 @@ defmodule AWS.DataBrew do
         "Tags" => map(),
         "Timeout" => integer(),
         "Type" => list(any()),
-        "ValidationConfigurations" => list(validation_configuration()())
+        "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
@@ -227,7 +227,7 @@ defmodule AWS.DataBrew do
       view_frame() :: %{
         "Analytics" => list(any()),
         "ColumnRange" => integer(),
-        "HiddenColumns" => list(String.t()()),
+        "HiddenColumns" => list(String.t()),
         "RowRange" => integer(),
         "StartColumnIndex" => integer(),
         "StartRowIndex" => integer()
@@ -263,8 +263,8 @@ defmodule AWS.DataBrew do
   ## Example:
 
       statistics_configuration() :: %{
-        "IncludedStatistics" => list(String.t()()),
-        "Overrides" => list(statistic_override()())
+        "IncludedStatistics" => list(String.t()),
+        "Overrides" => list(statistic_override())
       }
 
   """
@@ -277,8 +277,8 @@ defmodule AWS.DataBrew do
       job_run() :: %{
         "Attempt" => integer(),
         "CompletedOn" => non_neg_integer(),
-        "DataCatalogOutputs" => list(data_catalog_output()()),
-        "DatabaseOutputs" => list(database_output()()),
+        "DataCatalogOutputs" => list(data_catalog_output()),
+        "DatabaseOutputs" => list(database_output()),
         "DatasetName" => String.t(),
         "ErrorMessage" => String.t(),
         "ExecutionTime" => integer(),
@@ -286,13 +286,13 @@ defmodule AWS.DataBrew do
         "JobSample" => job_sample(),
         "LogGroupName" => String.t(),
         "LogSubscription" => list(any()),
-        "Outputs" => list(output()()),
+        "Outputs" => list(output()),
         "RecipeReference" => recipe_reference(),
         "RunId" => String.t(),
         "StartedBy" => String.t(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any()),
-        "ValidationConfigurations" => list(validation_configuration()())
+        "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
@@ -381,7 +381,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       batch_delete_recipe_version_request() :: %{
-        required("RecipeVersions") => list(String.t()())
+        required("RecipeVersions") => list(String.t())
       }
 
   """
@@ -394,8 +394,8 @@ defmodule AWS.DataBrew do
       describe_job_run_response() :: %{
         "Attempt" => integer(),
         "CompletedOn" => non_neg_integer(),
-        "DataCatalogOutputs" => list(data_catalog_output()()),
-        "DatabaseOutputs" => list(database_output()()),
+        "DataCatalogOutputs" => list(data_catalog_output()),
+        "DatabaseOutputs" => list(database_output()),
         "DatasetName" => String.t(),
         "ErrorMessage" => String.t(),
         "ExecutionTime" => integer(),
@@ -403,14 +403,14 @@ defmodule AWS.DataBrew do
         "JobSample" => job_sample(),
         "LogGroupName" => String.t(),
         "LogSubscription" => list(any()),
-        "Outputs" => list(output()()),
+        "Outputs" => list(output()),
         "ProfileConfiguration" => profile_configuration(),
         "RecipeReference" => recipe_reference(),
         "RunId" => String.t(),
         "StartedBy" => String.t(),
         "StartedOn" => non_neg_integer(),
         "State" => list(any()),
-        "ValidationConfigurations" => list(validation_configuration()())
+        "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
@@ -486,7 +486,7 @@ defmodule AWS.DataBrew do
         "LastModifiedDate" => non_neg_integer(),
         "Name" => String.t(),
         "ResourceArn" => String.t(),
-        "Rules" => list(rule()()),
+        "Rules" => list(rule()),
         "Tags" => map(),
         "TargetArn" => String.t()
       }
@@ -499,8 +499,8 @@ defmodule AWS.DataBrew do
   ## Example:
 
       entity_detector_configuration() :: %{
-        "AllowedStatistics" => list(allowed_statistics()()),
-        "EntityTypes" => list(String.t()())
+        "AllowedStatistics" => list(allowed_statistics()),
+        "EntityTypes" => list(String.t())
       }
 
   """
@@ -511,15 +511,15 @@ defmodule AWS.DataBrew do
   ## Example:
 
       create_recipe_job_request() :: %{
-        optional("DataCatalogOutputs") => list(data_catalog_output()()),
-        optional("DatabaseOutputs") => list(database_output()()),
+        optional("DataCatalogOutputs") => list(data_catalog_output()),
+        optional("DatabaseOutputs") => list(database_output()),
         optional("DatasetName") => String.t(),
         optional("EncryptionKeyArn") => String.t(),
         optional("EncryptionMode") => list(any()),
         optional("LogSubscription") => list(any()),
         optional("MaxCapacity") => integer(),
         optional("MaxRetries") => integer(),
-        optional("Outputs") => list(output()()),
+        optional("Outputs") => list(output()),
         optional("ProjectName") => String.t(),
         optional("RecipeReference") => recipe_reference(),
         optional("Tags") => map(),
@@ -556,7 +556,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       list_jobs_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextToken" => String.t()
       }
 
@@ -595,7 +595,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -619,7 +619,7 @@ defmodule AWS.DataBrew do
 
       list_schedules_response() :: %{
         "NextToken" => String.t(),
-        "Schedules" => list(schedule()())
+        "Schedules" => list(schedule())
       }
 
   """
@@ -638,7 +638,7 @@ defmodule AWS.DataBrew do
         optional("MaxCapacity") => integer(),
         optional("MaxRetries") => integer(),
         optional("Timeout") => integer(),
-        optional("ValidationConfigurations") => list(validation_configuration()()),
+        optional("ValidationConfigurations") => list(validation_configuration()),
         required("OutputLocation") => s3_location(),
         required("RoleArn") => String.t()
       }
@@ -688,7 +688,7 @@ defmodule AWS.DataBrew do
         "CreateDate" => non_neg_integer(),
         "CreatedBy" => String.t(),
         "CronExpression" => String.t(),
-        "JobNames" => list(String.t()()),
+        "JobNames" => list(String.t()),
         "LastModifiedBy" => String.t(),
         "LastModifiedDate" => non_neg_integer(),
         "Name" => String.t(),
@@ -878,7 +878,7 @@ defmodule AWS.DataBrew do
 
       list_rulesets_response() :: %{
         "NextToken" => String.t(),
-        "Rulesets" => list(ruleset_item()())
+        "Rulesets" => list(ruleset_item())
       }
 
   """
@@ -958,7 +958,7 @@ defmodule AWS.DataBrew do
         "PublishedDate" => non_neg_integer(),
         "RecipeVersion" => String.t(),
         "ResourceArn" => String.t(),
-        "Steps" => list(recipe_step()()),
+        "Steps" => list(recipe_step()),
         "Tags" => map()
       }
 
@@ -970,7 +970,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       list_job_runs_response() :: %{
-        "JobRuns" => list(job_run()()),
+        "JobRuns" => list(job_run()),
         "NextToken" => String.t()
       }
 
@@ -1019,7 +1019,7 @@ defmodule AWS.DataBrew do
         "PublishedDate" => non_neg_integer(),
         "RecipeVersion" => String.t(),
         "ResourceArn" => String.t(),
-        "Steps" => list(recipe_step()()),
+        "Steps" => list(recipe_step()),
         "Tags" => map()
       }
 
@@ -1044,7 +1044,7 @@ defmodule AWS.DataBrew do
 
       list_projects_response() :: %{
         "NextToken" => String.t(),
-        "Projects" => list(project()())
+        "Projects" => list(project())
       }
 
   """
@@ -1056,7 +1056,7 @@ defmodule AWS.DataBrew do
 
       list_recipe_versions_response() :: %{
         "NextToken" => String.t(),
-        "Recipes" => list(recipe()())
+        "Recipes" => list(recipe())
       }
 
   """
@@ -1174,7 +1174,7 @@ defmodule AWS.DataBrew do
 
       rule() :: %{
         "CheckExpression" => String.t(),
-        "ColumnSelectors" => list(column_selector()()),
+        "ColumnSelectors" => list(column_selector()),
         "Disabled" => boolean(),
         "Name" => String.t(),
         "SubstitutionMap" => map(),
@@ -1241,7 +1241,7 @@ defmodule AWS.DataBrew do
         "CreateDate" => non_neg_integer(),
         "CreatedBy" => String.t(),
         "CronExpression" => String.t(),
-        "JobNames" => list(String.t()()),
+        "JobNames" => list(String.t()),
         "LastModifiedBy" => String.t(),
         "LastModifiedDate" => non_neg_integer(),
         "Name" => String.t(),
@@ -1300,10 +1300,10 @@ defmodule AWS.DataBrew do
   ## Example:
 
       profile_configuration() :: %{
-        "ColumnStatisticsConfigurations" => list(column_statistics_configuration()()),
+        "ColumnStatisticsConfigurations" => list(column_statistics_configuration()),
         "DatasetStatisticsConfiguration" => statistics_configuration(),
         "EntityDetectorConfiguration" => entity_detector_configuration(),
-        "ProfileColumns" => list(column_selector()())
+        "ProfileColumns" => list(column_selector())
       }
 
   """
@@ -1315,7 +1315,7 @@ defmodule AWS.DataBrew do
 
       update_ruleset_request() :: %{
         optional("Description") => String.t(),
-        required("Rules") => list(rule()())
+        required("Rules") => list(rule())
       }
 
   """
@@ -1327,7 +1327,7 @@ defmodule AWS.DataBrew do
 
       recipe_step() :: %{
         "Action" => recipe_action(),
-        "ConditionExpressions" => list(condition_expression()())
+        "ConditionExpressions" => list(condition_expression())
       }
 
   """
@@ -1404,7 +1404,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       update_schedule_request() :: %{
-        optional("JobNames") => list(String.t()()),
+        optional("JobNames") => list(String.t()),
         required("CronExpression") => String.t()
       }
 
@@ -1438,7 +1438,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       column_statistics_configuration() :: %{
-        "Selectors" => list(column_selector()()),
+        "Selectors" => list(column_selector()),
         "Statistics" => statistics_configuration()
       }
 
@@ -1462,7 +1462,7 @@ defmodule AWS.DataBrew do
 
       update_recipe_request() :: %{
         optional("Description") => String.t(),
-        optional("Steps") => list(recipe_step()())
+        optional("Steps") => list(recipe_step())
       }
 
   """
@@ -1518,8 +1518,8 @@ defmodule AWS.DataBrew do
         "AccountId" => String.t(),
         "CreateDate" => non_neg_integer(),
         "CreatedBy" => String.t(),
-        "DataCatalogOutputs" => list(data_catalog_output()()),
-        "DatabaseOutputs" => list(database_output()()),
+        "DataCatalogOutputs" => list(data_catalog_output()),
+        "DatabaseOutputs" => list(database_output()),
         "DatasetName" => String.t(),
         "EncryptionKeyArn" => String.t(),
         "EncryptionMode" => list(any()),
@@ -1530,7 +1530,7 @@ defmodule AWS.DataBrew do
         "MaxCapacity" => integer(),
         "MaxRetries" => integer(),
         "Name" => String.t(),
-        "Outputs" => list(output()()),
+        "Outputs" => list(output()),
         "ProjectName" => String.t(),
         "RecipeReference" => recipe_reference(),
         "ResourceArn" => String.t(),
@@ -1538,7 +1538,7 @@ defmodule AWS.DataBrew do
         "Tags" => map(),
         "Timeout" => integer(),
         "Type" => list(any()),
-        "ValidationConfigurations" => list(validation_configuration()())
+        "ValidationConfigurations" => list(validation_configuration())
       }
 
   """
@@ -1565,14 +1565,14 @@ defmodule AWS.DataBrew do
   ## Example:
 
       update_recipe_job_request() :: %{
-        optional("DataCatalogOutputs") => list(data_catalog_output()()),
-        optional("DatabaseOutputs") => list(database_output()()),
+        optional("DataCatalogOutputs") => list(data_catalog_output()),
+        optional("DatabaseOutputs") => list(database_output()),
         optional("EncryptionKeyArn") => String.t(),
         optional("EncryptionMode") => list(any()),
         optional("LogSubscription") => list(any()),
         optional("MaxCapacity") => integer(),
         optional("MaxRetries") => integer(),
-        optional("Outputs") => list(output()()),
+        optional("Outputs") => list(output()),
         optional("Timeout") => integer(),
         required("RoleArn") => String.t()
       }
@@ -1585,7 +1585,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       create_schedule_request() :: %{
-        optional("JobNames") => list(String.t()()),
+        optional("JobNames") => list(String.t()),
         optional("Tags") => map(),
         required("CronExpression") => String.t(),
         required("Name") => String.t()
@@ -1687,8 +1687,8 @@ defmodule AWS.DataBrew do
 
       excel_options() :: %{
         "HeaderRow" => boolean(),
-        "SheetIndexes" => list(integer()()),
-        "SheetNames" => list(String.t()())
+        "SheetIndexes" => list(integer()),
+        "SheetNames" => list(String.t())
       }
 
   """
@@ -1699,7 +1699,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       allowed_statistics() :: %{
-        "Statistics" => list(String.t()())
+        "Statistics" => list(String.t())
       }
 
   """
@@ -1728,7 +1728,7 @@ defmodule AWS.DataBrew do
   ## Example:
 
       list_datasets_response() :: %{
-        "Datasets" => list(dataset()()),
+        "Datasets" => list(dataset()),
         "NextToken" => String.t()
       }
 
@@ -1862,7 +1862,7 @@ defmodule AWS.DataBrew do
         "Location" => s3_location(),
         "MaxOutputFiles" => integer(),
         "Overwrite" => boolean(),
-        "PartitionColumns" => list(String.t()())
+        "PartitionColumns" => list(String.t())
       }
 
   """

@@ -21,10 +21,10 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_targets_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TrafficMirrorTargetIds") => list(String.t()())
+        optional("TrafficMirrorTargetIds") => list(String.t())
       }
       
   """
@@ -53,10 +53,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_connects_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayAttachmentIds") => list(String.t()())
+        optional("TransitGatewayAttachmentIds") => list(String.t())
       }
       
   """
@@ -68,7 +68,7 @@ defmodule AWS.EC2 do
       
       verified_access_instance_open_vpn_client_configuration() :: %{
         "Config" => String.t(),
-        "Routes" => list(verified_access_instance_open_vpn_client_configuration_route()())
+        "Routes" => list(verified_access_instance_open_vpn_client_configuration_route())
       }
       
   """
@@ -80,7 +80,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_peering_attachments_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayPeeringAttachments" => list(transit_gateway_peering_attachment()())
+        "TransitGatewayPeeringAttachments" => list(transit_gateway_peering_attachment())
       }
       
   """
@@ -108,10 +108,10 @@ defmodule AWS.EC2 do
       stale_ip_permission() :: %{
         "FromPort" => integer(),
         "IpProtocol" => String.t(),
-        "IpRanges" => list(String.t()()),
-        "PrefixListIds" => list(String.t()()),
+        "IpRanges" => list(String.t()),
+        "PrefixListIds" => list(String.t()),
         "ToPort" => integer(),
-        "UserIdGroupPairs" => list(user_id_group_pair()())
+        "UserIdGroupPairs" => list(user_id_group_pair())
       }
       
   """
@@ -153,8 +153,8 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("CurrencyCode") => list(any()),
         optional("LimitPrice") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
-        required("HostIdSet") => list(String.t()()),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("HostIdSet") => list(String.t()),
         required("OfferingId") => String.t()
       }
       
@@ -179,7 +179,7 @@ defmodule AWS.EC2 do
       register_transit_gateway_multicast_group_members_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupIpAddress") => String.t(),
-        required("NetworkInterfaceIds") => list(String.t()()),
+        required("NetworkInterfaceIds") => list(String.t()),
         required("TransitGatewayMulticastDomainId") => String.t()
       }
       
@@ -208,13 +208,13 @@ defmodule AWS.EC2 do
         "AcceleratorNames" => list(list(any())()),
         "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
         "AcceleratorTypes" => list(list(any())()),
-        "AllowedInstanceTypes" => list(String.t()()),
+        "AllowedInstanceTypes" => list(String.t()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
         "BaselinePerformanceFactors" => baseline_performance_factors_request(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
-        "ExcludedInstanceTypes" => list(String.t()()),
+        "ExcludedInstanceTypes" => list(String.t()),
         "InstanceGenerations" => list(list(any())()),
         "LocalStorage" => list(any()),
         "LocalStorageTypes" => list(list(any())()),
@@ -238,7 +238,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_insights_access_scopes_result() :: %{
-        "NetworkInsightsAccessScopes" => list(network_insights_access_scope()()),
+        "NetworkInsightsAccessScopes" => list(network_insights_access_scope()),
         "NextToken" => String.t()
       }
       
@@ -284,8 +284,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       assign_private_ip_addresses_result() :: %{
-        "AssignedIpv4Prefixes" => list(ipv4_prefix_specification()()),
-        "AssignedPrivateIpAddresses" => list(assigned_private_ip_address()()),
+        "AssignedIpv4Prefixes" => list(ipv4_prefix_specification()),
+        "AssignedPrivateIpAddresses" => list(assigned_private_ip_address()),
         "NetworkInterfaceId" => String.t()
       }
       
@@ -310,7 +310,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       inference_accelerator_info() :: %{
-        "Accelerators" => list(inference_device_info()()),
+        "Accelerators" => list(inference_device_info()),
         "TotalInferenceMemoryInMiB" => integer()
       }
       
@@ -348,7 +348,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("Options") => transit_gateway_request_options(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -417,9 +417,9 @@ defmodule AWS.EC2 do
         "AmazonSideAsn" => float(),
         "AvailabilityZone" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => list(any()),
-        "VpcAttachments" => list(vpc_attachment()()),
+        "VpcAttachments" => list(vpc_attachment()),
         "VpnGatewayId" => String.t()
       }
       
@@ -446,7 +446,7 @@ defmodule AWS.EC2 do
       
       create_transit_gateway_connect_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Options") => create_transit_gateway_connect_request_options(),
         required("TransportTransitGatewayAttachmentId") => String.t()
       }
@@ -488,7 +488,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       byoip_cidr() :: %{
-        "AsnAssociations" => list(asn_association()()),
+        "AsnAssociations" => list(asn_association()),
         "Cidr" => String.t(),
         "Description" => String.t(),
         "NetworkBorderGroup" => String.t(),
@@ -504,7 +504,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_availability_zones_result() :: %{
-        "AvailabilityZones" => list(availability_zone()())
+        "AvailabilityZones" => list(availability_zone())
       }
       
   """
@@ -515,7 +515,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_resource_discoveries_result() :: %{
-        "IpamResourceDiscoveries" => list(ipam_resource_discovery()()),
+        "IpamResourceDiscoveries" => list(ipam_resource_discovery()),
         "NextToken" => String.t()
       }
       
@@ -538,7 +538,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_reserved_instances_listings_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("ReservedInstancesId") => String.t(),
         optional("ReservedInstancesListingId") => String.t()
       }
@@ -579,7 +579,7 @@ defmodule AWS.EC2 do
       scheduled_instance_recurrence() :: %{
         "Frequency" => String.t(),
         "Interval" => integer(),
-        "OccurrenceDaySet" => list(integer()()),
+        "OccurrenceDaySet" => list(integer()),
         "OccurrenceRelativeToEnd" => boolean(),
         "OccurrenceUnit" => String.t()
       }
@@ -593,10 +593,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_attachments_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayAttachmentIds") => list(String.t()())
+        optional("TransitGatewayAttachmentIds") => list(String.t())
       }
       
   """
@@ -620,7 +620,7 @@ defmodule AWS.EC2 do
       
       describe_snapshot_tier_status_result() :: %{
         "NextToken" => String.t(),
-        "SnapshotTierStatuses" => list(snapshot_tier_status()())
+        "SnapshotTierStatuses" => list(snapshot_tier_status())
       }
       
   """
@@ -634,15 +634,15 @@ defmodule AWS.EC2 do
         "DPDTimeoutAction" => String.t(),
         "DPDTimeoutSeconds" => integer(),
         "EnableTunnelLifecycleControl" => boolean(),
-        "IKEVersions" => list(i_k_e_versions_request_list_value()()),
+        "IKEVersions" => list(i_k_e_versions_request_list_value()),
         "LogOptions" => vpn_tunnel_log_options_specification(),
-        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()()),
-        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()()),
-        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()()),
+        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()),
+        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()),
+        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()),
         "Phase1LifetimeSeconds" => integer(),
-        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()()),
-        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()()),
-        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()()),
+        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()),
+        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()),
+        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()),
         "Phase2LifetimeSeconds" => integer(),
         "PreSharedKey" => String.t(),
         "RekeyFuzzPercentage" => integer(),
@@ -758,7 +758,7 @@ defmodule AWS.EC2 do
       create_transit_gateway_peering_attachment_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => create_transit_gateway_peering_attachment_request_options(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("PeerAccountId") => String.t(),
         required("PeerRegion") => String.t(),
         required("PeerTransitGatewayId") => String.t(),
@@ -797,7 +797,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_connections_result() :: %{
-        "Connections" => list(client_vpn_connection()()),
+        "Connections" => list(client_vpn_connection()),
         "NextToken" => String.t()
       }
       
@@ -859,18 +859,18 @@ defmodule AWS.EC2 do
         "Attachment" => instance_network_interface_attachment(),
         "ConnectionTrackingConfiguration" => connection_tracking_specification_response(),
         "Description" => String.t(),
-        "Groups" => list(group_identifier()()),
+        "Groups" => list(group_identifier()),
         "InterfaceType" => String.t(),
-        "Ipv4Prefixes" => list(instance_ipv4_prefix()()),
-        "Ipv6Addresses" => list(instance_ipv6_address()()),
-        "Ipv6Prefixes" => list(instance_ipv6_prefix()()),
+        "Ipv4Prefixes" => list(instance_ipv4_prefix()),
+        "Ipv6Addresses" => list(instance_ipv6_address()),
+        "Ipv6Prefixes" => list(instance_ipv6_prefix()),
         "MacAddress" => String.t(),
         "NetworkInterfaceId" => String.t(),
         "Operator" => operator_response(),
         "OwnerId" => String.t(),
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(instance_private_ip_address()()),
+        "PrivateIpAddresses" => list(instance_private_ip_address()),
         "SourceDestCheck" => boolean(),
         "Status" => list(any()),
         "SubnetId" => String.t(),
@@ -886,8 +886,8 @@ defmodule AWS.EC2 do
       
       describe_fast_launch_images_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("ImageIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("ImageIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -901,7 +901,7 @@ defmodule AWS.EC2 do
       
       instance_specification() :: %{
         "ExcludeBootVolume" => boolean(),
-        "ExcludeDataVolumeIds" => list(String.t()()),
+        "ExcludeDataVolumeIds" => list(String.t()),
         "InstanceId" => String.t()
       }
       
@@ -949,7 +949,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("LocalBgpAsn") => integer(),
         optional("LocalBgpAsnExtended") => float(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalGatewayId") => String.t()
       }
       
@@ -964,7 +964,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Force") => boolean(),
         optional("Hibernate") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -1001,7 +1001,7 @@ defmodule AWS.EC2 do
       
       describe_route_servers_result() :: %{
         "NextToken" => String.t(),
-        "RouteServers" => list(route_server()())
+        "RouteServers" => list(route_server())
       }
       
   """
@@ -1012,7 +1012,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       unmonitor_instances_result() :: %{
-        "InstanceMonitorings" => list(instance_monitoring()())
+        "InstanceMonitorings" => list(instance_monitoring())
       }
       
   """
@@ -1094,7 +1094,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_status_result() :: %{
-        "CapacityBlockStatuses" => list(capacity_block_status()()),
+        "CapacityBlockStatuses" => list(capacity_block_status()),
         "NextToken" => String.t()
       }
       
@@ -1107,7 +1107,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_route_tables_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayRouteTables" => list(transit_gateway_route_table()())
+        "TransitGatewayRouteTables" => list(transit_gateway_route_table())
       }
       
   """
@@ -1151,7 +1151,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       cpu_performance_factor() :: %{
-        "References" => list(performance_factor_reference()())
+        "References" => list(performance_factor_reference())
       }
       
   """
@@ -1197,7 +1197,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_address_transfers_result() :: %{
-        "AddressTransfers" => list(address_transfer()()),
+        "AddressTransfers" => list(address_transfer()),
         "NextToken" => String.t()
       }
       
@@ -1210,10 +1210,10 @@ defmodule AWS.EC2 do
       
       describe_service_link_virtual_interfaces_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ServiceLinkVirtualInterfaceIds") => list(String.t()())
+        optional("ServiceLinkVirtualInterfaceIds") => list(String.t())
       }
       
   """
@@ -1254,7 +1254,7 @@ defmodule AWS.EC2 do
         "AvailabilityZone" => String.t(),
         "AvailabilityZoneId" => String.t(),
         "AvailableInstanceCount" => integer(),
-        "CapacityAllocations" => list(capacity_allocation()()),
+        "CapacityAllocations" => list(capacity_allocation()),
         "CapacityBlockId" => String.t(),
         "CapacityReservationArn" => String.t(),
         "CapacityReservationFleetId" => String.t(),
@@ -1275,7 +1275,7 @@ defmodule AWS.EC2 do
         "ReservationType" => list(any()),
         "StartDate" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Tenancy" => list(any()),
         "TotalInstanceCount" => integer(),
         "UnusedReservationBillingOwnerId" => String.t()
@@ -1291,7 +1291,7 @@ defmodule AWS.EC2 do
       create_delegate_mac_volume_ownership_task_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InstanceId") => String.t(),
         required("MacCredentials") => String.t()
       }
@@ -1342,10 +1342,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       internet_gateway() :: %{
-        "Attachments" => list(internet_gateway_attachment()()),
+        "Attachments" => list(internet_gateway_attachment()),
         "InternetGatewayId" => String.t(),
         "OwnerId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1375,11 +1375,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       volume_status_item() :: %{
-        "Actions" => list(volume_status_action()()),
-        "AttachmentStatuses" => list(volume_status_attachment_status()()),
+        "Actions" => list(volume_status_action()),
+        "AttachmentStatuses" => list(volume_status_attachment_status()),
         "AvailabilityZone" => String.t(),
         "AvailabilityZoneId" => String.t(),
-        "Events" => list(volume_status_event()()),
+        "Events" => list(volume_status_event()),
         "OutpostArn" => String.t(),
         "VolumeId" => String.t(),
         "VolumeStatus" => volume_status_info()
@@ -1454,7 +1454,7 @@ defmodule AWS.EC2 do
       
       describe_spot_instance_requests_result() :: %{
         "NextToken" => String.t(),
-        "SpotInstanceRequests" => list(spot_instance_request()())
+        "SpotInstanceRequests" => list(spot_instance_request())
       }
       
   """
@@ -1476,12 +1476,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_acl() :: %{
-        "Associations" => list(network_acl_association()()),
-        "Entries" => list(network_acl_entry()()),
+        "Associations" => list(network_acl_association()),
+        "Entries" => list(network_acl_entry()),
         "IsDefault" => boolean(),
         "NetworkAclId" => String.t(),
         "OwnerId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -1494,7 +1494,7 @@ defmodule AWS.EC2 do
       
       search_transit_gateway_routes_result() :: %{
         "AdditionalRoutesAvailable" => boolean(),
-        "Routes" => list(transit_gateway_route()())
+        "Routes" => list(transit_gateway_route())
       }
       
   """
@@ -1534,7 +1534,7 @@ defmodule AWS.EC2 do
         "ResourceId" => String.t(),
         "ResourceOwnerId" => String.t(),
         "ResourceRegion" => String.t(),
-        "ResourceTags" => list(ipam_resource_tag()()),
+        "ResourceTags" => list(ipam_resource_tag()),
         "ResourceType" => list(any()),
         "SampleTime" => non_neg_integer(),
         "SubnetId" => String.t(),
@@ -1550,8 +1550,8 @@ defmodule AWS.EC2 do
       
       get_subnet_cidr_reservations_result() :: %{
         "NextToken" => String.t(),
-        "SubnetIpv4CidrReservations" => list(subnet_cidr_reservation()()),
-        "SubnetIpv6CidrReservations" => list(subnet_cidr_reservation()())
+        "SubnetIpv4CidrReservations" => list(subnet_cidr_reservation()),
+        "SubnetIpv6CidrReservations" => list(subnet_cidr_reservation())
       }
       
   """
@@ -1598,7 +1598,7 @@ defmodule AWS.EC2 do
         "MulticastSupport" => list(any()),
         "PropagationDefaultRouteTableId" => String.t(),
         "SecurityGroupReferencingSupport" => list(any()),
-        "TransitGatewayCidrBlocks" => list(String.t()()),
+        "TransitGatewayCidrBlocks" => list(String.t()),
         "VpnEcmpSupport" => list(any())
       }
       
@@ -1611,7 +1611,7 @@ defmodule AWS.EC2 do
       
       describe_managed_prefix_lists_result() :: %{
         "NextToken" => String.t(),
-        "PrefixLists" => list(managed_prefix_list()())
+        "PrefixLists" => list(managed_prefix_list())
       }
       
   """
@@ -1653,9 +1653,9 @@ defmodule AWS.EC2 do
       
       describe_instance_status_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludeAllInstances") => boolean(),
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1719,10 +1719,10 @@ defmodule AWS.EC2 do
         "CapacityReservationFleetId" => String.t(),
         "CreateTime" => non_neg_integer(),
         "EndDate" => non_neg_integer(),
-        "FleetCapacityReservations" => list(fleet_capacity_reservation()()),
+        "FleetCapacityReservations" => list(fleet_capacity_reservation()),
         "InstanceMatchCriteria" => list(any()),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Tenancy" => list(any()),
         "TotalFulfilledCapacity" => float(),
         "TotalTargetCapacity" => integer()
@@ -1764,7 +1764,7 @@ defmodule AWS.EC2 do
       
       authorize_security_group_egress_result() :: %{
         "Return" => boolean(),
-        "SecurityGroupRules" => list(security_group_rule()())
+        "SecurityGroupRules" => list(security_group_rule())
       }
       
   """
@@ -1776,7 +1776,7 @@ defmodule AWS.EC2 do
       
       import_instance_request() :: %{
         optional("Description") => String.t(),
-        optional("DiskImages") => list(disk_image()()),
+        optional("DiskImages") => list(disk_image()),
         optional("DryRun") => boolean(),
         optional("LaunchSpecification") => import_instance_launch_specification(),
         required("Platform") => list(any())
@@ -1805,7 +1805,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_types_result() :: %{
-        "InstanceTypes" => list(instance_type_info()()),
+        "InstanceTypes" => list(instance_type_info()),
         "NextToken" => String.t()
       }
       
@@ -1842,8 +1842,8 @@ defmodule AWS.EC2 do
       
       describe_egress_only_internet_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("EgressOnlyInternetGatewayIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("EgressOnlyInternetGatewayIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1914,7 +1914,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_launch_template_versions_result() :: %{
-        "LaunchTemplateVersions" => list(launch_template_version()()),
+        "LaunchTemplateVersions" => list(launch_template_version()),
         "NextToken" => String.t()
       }
       
@@ -1942,8 +1942,8 @@ defmodule AWS.EC2 do
       
       delete_tags_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Tags") => list(tag()()),
-        required("Resources") => list(String.t()())
+        optional("Tags") => list(tag()),
+        required("Resources") => list(String.t())
       }
       
   """
@@ -1965,7 +1965,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       target_groups_config() :: %{
-        "TargetGroups" => list(target_group()())
+        "TargetGroups" => list(target_group())
       }
       
   """
@@ -2003,7 +2003,7 @@ defmodule AWS.EC2 do
       
       deregister_instance_tag_attribute_request() :: %{
         "IncludeAllTagsOfInstance" => boolean(),
-        "InstanceTagKeys" => list(String.t()())
+        "InstanceTagKeys" => list(String.t())
       }
       
   """
@@ -2037,8 +2037,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_queued_reserved_instances_result() :: %{
-        "FailedQueuedPurchaseDeletions" => list(failed_queued_purchase_deletion()()),
-        "SuccessfulQueuedPurchaseDeletions" => list(successful_queued_purchase_deletion()())
+        "FailedQueuedPurchaseDeletions" => list(failed_queued_purchase_deletion()),
+        "SuccessfulQueuedPurchaseDeletions" => list(successful_queued_purchase_deletion())
       }
       
   """
@@ -2049,7 +2049,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateway_virtual_interface_groups_result() :: %{
-        "LocalGatewayVirtualInterfaceGroups" => list(local_gateway_virtual_interface_group()()),
+        "LocalGatewayVirtualInterfaceGroups" => list(local_gateway_virtual_interface_group()),
         "NextToken" => String.t()
       }
       
@@ -2074,7 +2074,7 @@ defmodule AWS.EC2 do
       
       get_managed_prefix_list_associations_result() :: %{
         "NextToken" => String.t(),
-        "PrefixListAssociations" => list(prefix_list_association()())
+        "PrefixListAssociations" => list(prefix_list_association())
       }
       
   """
@@ -2086,7 +2086,7 @@ defmodule AWS.EC2 do
       
       create_route_server_peer_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("BgpOptions") => route_server_bgp_options_request(),
         required("PeerAddress") => String.t(),
         required("RouteServerEndpointId") => String.t()
@@ -2121,12 +2121,12 @@ defmodule AWS.EC2 do
       
       path_component() :: %{
         "AclRule" => analysis_acl_rule(),
-        "AdditionalDetails" => list(additional_detail()()),
+        "AdditionalDetails" => list(additional_detail()),
         "AttachedTo" => analysis_component(),
         "Component" => analysis_component(),
         "DestinationVpc" => analysis_component(),
         "ElasticLoadBalancerListener" => analysis_component(),
-        "Explanations" => list(explanation()()),
+        "Explanations" => list(explanation()),
         "FirewallStatefulRule" => firewall_stateful_rule(),
         "FirewallStatelessRule" => firewall_stateless_rule(),
         "InboundHeader" => analysis_packet_header(),
@@ -2176,7 +2176,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       image_attribute() :: %{
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "BootMode" => attribute_value(),
         "DeregistrationProtection" => attribute_value(),
         "Description" => attribute_value(),
@@ -2184,8 +2184,8 @@ defmodule AWS.EC2 do
         "ImdsSupport" => attribute_value(),
         "KernelId" => attribute_value(),
         "LastLaunchedTime" => attribute_value(),
-        "LaunchPermissions" => list(launch_permission()()),
-        "ProductCodes" => list(product_code()()),
+        "LaunchPermissions" => list(launch_permission()),
+        "ProductCodes" => list(product_code()),
         "RamdiskId" => attribute_value(),
         "SriovNetSupport" => attribute_value(),
         "TpmSupport" => attribute_value(),
@@ -2250,7 +2250,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_transit_gateway_multicast_domain_associations_result() :: %{
-        "MulticastDomainAssociations" => list(transit_gateway_multicast_domain_association()()),
+        "MulticastDomainAssociations" => list(transit_gateway_multicast_domain_association()),
         "NextToken" => String.t()
       }
       
@@ -2289,7 +2289,7 @@ defmodule AWS.EC2 do
         "MostFrequentValue" => String.t(),
         "NumberOfMatchedAccounts" => integer(),
         "NumberOfUnmatchedAccounts" => integer(),
-        "RegionalSummaries" => list(regional_summary()())
+        "RegionalSummaries" => list(regional_summary())
       }
       
   """
@@ -2380,7 +2380,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_vpc_endpoints_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -2393,7 +2393,7 @@ defmodule AWS.EC2 do
       create_carrier_gateway_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -2406,7 +2406,7 @@ defmodule AWS.EC2 do
       
       transit_gateway_multicast_registered_group_sources() :: %{
         "GroupIpAddress" => String.t(),
-        "RegisteredNetworkInterfaceIds" => list(String.t()()),
+        "RegisteredNetworkInterfaceIds" => list(String.t()),
         "TransitGatewayMulticastDomainId" => String.t()
       }
       
@@ -2431,7 +2431,7 @@ defmodule AWS.EC2 do
       availability_zone() :: %{
         "GroupLongName" => String.t(),
         "GroupName" => String.t(),
-        "Messages" => list(availability_zone_message()()),
+        "Messages" => list(availability_zone_message()),
         "NetworkBorderGroup" => String.t(),
         "OptInStatus" => list(any()),
         "ParentZoneId" => String.t(),
@@ -2486,7 +2486,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       disassociate_nat_gateway_address_result() :: %{
-        "NatGatewayAddresses" => list(nat_gateway_address()()),
+        "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t()
       }
       
@@ -2564,7 +2564,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_addresses_attribute_request() :: %{
-        optional("AllocationIds") => list(String.t()()),
+        optional("AllocationIds") => list(String.t()),
         optional("Attribute") => list(any()),
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
@@ -2636,7 +2636,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       volume_status_info() :: %{
-        "Details" => list(volume_status_details()()),
+        "Details" => list(volume_status_details()),
         "Status" => list(any())
       }
       
@@ -2648,7 +2648,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_coip_pools_result() :: %{
-        "CoipPools" => list(coip_pool()()),
+        "CoipPools" => list(coip_pool()),
         "NextToken" => String.t()
       }
       
@@ -2676,8 +2676,8 @@ defmodule AWS.EC2 do
         "ClientToken" => String.t(),
         "CreateDate" => non_neg_integer(),
         "EffectiveDate" => non_neg_integer(),
-        "ModificationResults" => list(reserved_instances_modification_result()()),
-        "ReservedInstancesIds" => list(reserved_instances_id()()),
+        "ModificationResults" => list(reserved_instances_modification_result()),
+        "ReservedInstancesIds" => list(reserved_instances_id()),
         "ReservedInstancesModificationId" => String.t(),
         "Status" => String.t(),
         "StatusMessage" => String.t(),
@@ -2730,7 +2730,7 @@ defmodule AWS.EC2 do
       
       create_coip_pool_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalGatewayRouteTableId") => String.t()
       }
       
@@ -2765,9 +2765,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_status_request() :: %{
-        optional("CapacityBlockIds") => list(String.t()()),
+        optional("CapacityBlockIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2780,9 +2780,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_dhcp_options_request() :: %{
-        optional("DhcpOptionsIds") => list(String.t()()),
+        optional("DhcpOptionsIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2796,8 +2796,8 @@ defmodule AWS.EC2 do
       
       describe_vpc_classic_link_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("VpcIds") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("VpcIds") => list(String.t())
       }
       
   """
@@ -2809,7 +2809,7 @@ defmodule AWS.EC2 do
       
       describe_vpcs_result() :: %{
         "NextToken" => String.t(),
-        "Vpcs" => list(vpc()())
+        "Vpcs" => list(vpc())
       }
       
   """
@@ -2870,7 +2870,7 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_filter_rules_result() :: %{
         "NextToken" => String.t(),
-        "TrafficMirrorFilterRules" => list(traffic_mirror_filter_rule()())
+        "TrafficMirrorFilterRules" => list(traffic_mirror_filter_rule())
       }
       
   """
@@ -2897,16 +2897,16 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "FpgaImageGlobalId" => String.t(),
         "FpgaImageId" => String.t(),
-        "InstanceTypes" => list(String.t()()),
+        "InstanceTypes" => list(String.t()),
         "Name" => String.t(),
         "OwnerAlias" => String.t(),
         "OwnerId" => String.t(),
         "PciId" => pci_id(),
-        "ProductCodes" => list(product_code()()),
+        "ProductCodes" => list(product_code()),
         "Public" => boolean(),
         "ShellVersion" => String.t(),
         "State" => fpga_image_state(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpdateTime" => non_neg_integer()
       }
       
@@ -2922,7 +2922,7 @@ defmodule AWS.EC2 do
         optional("PeerOwnerId") => String.t(),
         optional("PeerRegion") => String.t(),
         optional("PeerVpcId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -2978,7 +2978,7 @@ defmodule AWS.EC2 do
         optional("Encrypted") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("RoleName") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -2999,7 +2999,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t(),
         "ResourceDiscoveryStatus" => list(any()),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3085,9 +3085,9 @@ defmodule AWS.EC2 do
         optional("LogFormat") => String.t(),
         optional("LogGroupName") => String.t(),
         optional("MaxAggregationInterval") => integer(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TrafficType") => list(any()),
-        required("ResourceIds") => list(String.t()()),
+        required("ResourceIds") => list(String.t()),
         required("ResourceType") => list(any())
       }
       
@@ -3110,7 +3110,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_verified_access_endpoint_cidr_options() :: %{
-        "PortRanges" => list(modify_verified_access_endpoint_port_range()())
+        "PortRanges" => list(modify_verified_access_endpoint_port_range())
       }
       
   """
@@ -3151,11 +3151,11 @@ defmodule AWS.EC2 do
         optional("ImdsSupport") => attribute_value(),
         optional("LaunchPermission") => launch_permission_modifications(),
         optional("OperationType") => list(any()),
-        optional("OrganizationArns") => list(String.t()()),
-        optional("OrganizationalUnitArns") => list(String.t()()),
-        optional("ProductCodes") => list(String.t()()),
-        optional("UserGroups") => list(String.t()()),
-        optional("UserIds") => list(String.t()()),
+        optional("OrganizationArns") => list(String.t()),
+        optional("OrganizationalUnitArns") => list(String.t()),
+        optional("ProductCodes") => list(String.t()),
+        optional("UserGroups") => list(String.t()),
+        optional("UserIds") => list(String.t()),
         optional("Value") => String.t(),
         required("ImageId") => String.t()
       }
@@ -3187,19 +3187,19 @@ defmodule AWS.EC2 do
         "DeviceIndex" => integer(),
         "EnaQueueCount" => integer(),
         "EnaSrdSpecification" => ena_srd_specification_request(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "InterfaceType" => String.t(),
         "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()()),
+        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(instance_ipv6_address_request()()),
+        "Ipv6Addresses" => list(instance_ipv6_address_request()),
         "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()()),
+        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()),
         "NetworkCardIndex" => integer(),
         "NetworkInterfaceId" => String.t(),
         "PrimaryIpv6" => boolean(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(private_ip_address_specification()()),
+        "PrivateIpAddresses" => list(private_ip_address_specification()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -3225,7 +3225,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       dns_servers_options_modify_structure() :: %{
-        "CustomDnsServers" => list(String.t()()),
+        "CustomDnsServers" => list(String.t()),
         "Enabled" => boolean()
       }
       
@@ -3238,7 +3238,7 @@ defmodule AWS.EC2 do
       
       describe_prefix_lists_result() :: %{
         "NextToken" => String.t(),
-        "PrefixLists" => list(prefix_list()())
+        "PrefixLists" => list(prefix_list())
       }
       
   """
@@ -3271,7 +3271,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_customer_gateways_result() :: %{
-        "CustomerGateways" => list(customer_gateway()())
+        "CustomerGateways" => list(customer_gateway())
       }
       
   """
@@ -3321,7 +3321,7 @@ defmodule AWS.EC2 do
         "ResourceName" => String.t(),
         "ResourceOwnerId" => String.t(),
         "ResourceRegion" => String.t(),
-        "ResourceTags" => list(ipam_resource_tag()()),
+        "ResourceTags" => list(ipam_resource_tag()),
         "ResourceType" => list(any()),
         "VpcId" => String.t()
       }
@@ -3376,8 +3376,8 @@ defmodule AWS.EC2 do
       
       revoke_security_group_egress_result() :: %{
         "Return" => boolean(),
-        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()()),
-        "UnknownIpPermissions" => list(ip_permission()())
+        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()),
+        "UnknownIpPermissions" => list(ip_permission())
       }
       
   """
@@ -3426,7 +3426,7 @@ defmodule AWS.EC2 do
       
       reboot_instances_request() :: %{
         optional("DryRun") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -3493,8 +3493,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateway_route_table_vpc_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayRouteTableVpcAssociationIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayRouteTableVpcAssociationIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3519,8 +3519,8 @@ defmodule AWS.EC2 do
       
       describe_store_image_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("ImageIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("ImageIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -3533,7 +3533,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_vpc_endpoint_connection_notification_request() :: %{
-        optional("ConnectionEvents") => list(String.t()()),
+        optional("ConnectionEvents") => list(String.t()),
         optional("ConnectionNotificationArn") => String.t(),
         optional("DryRun") => boolean(),
         required("ConnectionNotificationId") => String.t()
@@ -3548,7 +3548,7 @@ defmodule AWS.EC2 do
       
       terminate_instances_request() :: %{
         optional("DryRun") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -3584,7 +3584,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       access_scope_analysis_finding() :: %{
-        "FindingComponents" => list(path_component()()),
+        "FindingComponents" => list(path_component()),
         "FindingId" => String.t(),
         "NetworkInsightsAccessScopeAnalysisId" => String.t(),
         "NetworkInsightsAccessScopeId" => String.t()
@@ -3611,10 +3611,10 @@ defmodule AWS.EC2 do
       
       describe_scheduled_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ScheduledInstanceIds") => list(String.t()()),
+        optional("ScheduledInstanceIds") => list(String.t()),
         optional("SlotStartTimeRange") => slot_start_time_range_request()
       }
       
@@ -3730,12 +3730,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       route_table() :: %{
-        "Associations" => list(route_table_association()()),
+        "Associations" => list(route_table_association()),
         "OwnerId" => String.t(),
-        "PropagatingVgws" => list(propagating_vgw()()),
+        "PropagatingVgws" => list(propagating_vgw()),
         "RouteTableId" => String.t(),
-        "Routes" => list(route()()),
-        "Tags" => list(tag()()),
+        "Routes" => list(route()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -3786,12 +3786,12 @@ defmodule AWS.EC2 do
         optional("AcceptanceRequired") => boolean(),
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("GatewayLoadBalancerArns") => list(String.t()()),
-        optional("NetworkLoadBalancerArns") => list(String.t()()),
+        optional("GatewayLoadBalancerArns") => list(String.t()),
+        optional("NetworkLoadBalancerArns") => list(String.t()),
         optional("PrivateDnsName") => String.t(),
-        optional("SupportedIpAddressTypes") => list(String.t()()),
-        optional("SupportedRegions") => list(String.t()()),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("SupportedIpAddressTypes") => list(String.t()),
+        optional("SupportedRegions") => list(String.t()),
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -3820,7 +3820,7 @@ defmodule AWS.EC2 do
         "PeerTransitGatewayId" => String.t(),
         "PeeringAttachmentId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "TransitGatewayRouteTableAnnouncementId" => String.t(),
         "TransitGatewayRouteTableId" => String.t()
@@ -3895,7 +3895,7 @@ defmodule AWS.EC2 do
       
       unmonitor_instances_request() :: %{
         optional("DryRun") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -3987,7 +3987,7 @@ defmodule AWS.EC2 do
         optional("LaunchGroup") => String.t(),
         optional("LaunchSpecification") => request_spot_launch_specification(),
         optional("SpotPrice") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Type") => list(any()),
         optional("ValidFrom") => non_neg_integer(),
         optional("ValidUntil") => non_neg_integer()
@@ -4042,9 +4042,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_trunk_interface_associations_request() :: %{
-        optional("AssociationIds") => list(String.t()()),
+        optional("AssociationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4169,7 +4169,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       connection_notification() :: %{
-        "ConnectionEvents" => list(String.t()()),
+        "ConnectionEvents" => list(String.t()),
         "ConnectionNotificationArn" => String.t(),
         "ConnectionNotificationId" => String.t(),
         "ConnectionNotificationState" => list(any()),
@@ -4212,7 +4212,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_transit_gateway_route_table_associations_result() :: %{
-        "Associations" => list(transit_gateway_route_table_association()()),
+        "Associations" => list(transit_gateway_route_table_association()),
         "NextToken" => String.t()
       }
       
@@ -4237,15 +4237,15 @@ defmodule AWS.EC2 do
       vpc() :: %{
         "BlockPublicAccessStates" => block_public_access_states(),
         "CidrBlock" => String.t(),
-        "CidrBlockAssociationSet" => list(vpc_cidr_block_association()()),
+        "CidrBlockAssociationSet" => list(vpc_cidr_block_association()),
         "DhcpOptionsId" => String.t(),
         "EncryptionControl" => vpc_encryption_control(),
         "InstanceTenancy" => list(any()),
-        "Ipv6CidrBlockAssociationSet" => list(vpc_ipv6_cidr_block_association()()),
+        "Ipv6CidrBlockAssociationSet" => list(vpc_ipv6_cidr_block_association()),
         "IsDefault" => boolean(),
         "OwnerId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -4257,7 +4257,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_route_server_associations_result() :: %{
-        "RouteServerAssociations" => list(route_server_association()())
+        "RouteServerAssociations" => list(route_server_association())
       }
       
   """
@@ -4291,7 +4291,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_images_result() :: %{
-        "Images" => list(image()()),
+        "Images" => list(image()),
         "NextToken" => String.t()
       }
       
@@ -4347,7 +4347,7 @@ defmodule AWS.EC2 do
         "NotAfter" => non_neg_integer(),
         "State" => list(any()),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TokenName" => String.t(),
         "TokenValue" => String.t()
       }
@@ -4387,7 +4387,7 @@ defmodule AWS.EC2 do
       purchase_host_reservation_result() :: %{
         "ClientToken" => String.t(),
         "CurrencyCode" => list(any()),
-        "Purchase" => list(purchase()()),
+        "Purchase" => list(purchase()),
         "TotalHourlyPrice" => String.t(),
         "TotalUpfrontPrice" => String.t()
       }
@@ -4421,7 +4421,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t(),
         "PoolCount" => integer(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -4439,12 +4439,12 @@ defmodule AWS.EC2 do
         optional("OnDemandOptions") => on_demand_options_request(),
         optional("ReplaceUnhealthyInstances") => boolean(),
         optional("SpotOptions") => spot_options_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TerminateInstancesWithExpiration") => boolean(),
         optional("Type") => list(any()),
         optional("ValidFrom") => non_neg_integer(),
         optional("ValidUntil") => non_neg_integer(),
-        required("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()()),
+        required("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()),
         required("TargetCapacitySpecification") => target_capacity_specification_request()
       }
       
@@ -4469,8 +4469,8 @@ defmodule AWS.EC2 do
       
       describe_flow_logs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filter") => list(filter()()),
-        optional("FlowLogIds") => list(String.t()()),
+        optional("Filter") => list(filter()),
+        optional("FlowLogIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4569,7 +4569,7 @@ defmodule AWS.EC2 do
       assign_private_nat_gateway_address_request() :: %{
         optional("DryRun") => boolean(),
         optional("PrivateIpAddressCount") => integer(),
-        optional("PrivateIpAddresses") => list(String.t()()),
+        optional("PrivateIpAddresses") => list(String.t()),
         required("NatGatewayId") => String.t()
       }
       
@@ -4584,7 +4584,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("IpamId") => String.t()
       }
       
@@ -4649,7 +4649,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Location") => list(any()),
         optional("OutpostArn") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VolumeId") => String.t()
       }
       
@@ -4662,7 +4662,7 @@ defmodule AWS.EC2 do
       
       create_transit_gateway_route_table_announcement_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("PeeringAttachmentId") => String.t(),
         required("TransitGatewayRouteTableId") => String.t()
       }
@@ -4675,7 +4675,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       associate_nat_gateway_address_result() :: %{
-        "NatGatewayAddresses" => list(nat_gateway_address()()),
+        "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t()
       }
       
@@ -4705,7 +4705,7 @@ defmodule AWS.EC2 do
         "RouteServerId" => String.t(),
         "State" => list(any()),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -4790,7 +4790,7 @@ defmodule AWS.EC2 do
       
       disassociate_transit_gateway_multicast_domain_request() :: %{
         optional("DryRun") => boolean(),
-        required("SubnetIds") => list(String.t()()),
+        required("SubnetIds") => list(String.t()),
         required("TransitGatewayAttachmentId") => String.t(),
         required("TransitGatewayMulticastDomainId") => String.t()
       }
@@ -4811,14 +4811,14 @@ defmodule AWS.EC2 do
         "ImageId" => String.t(),
         "ImportTaskId" => String.t(),
         "KmsKeyId" => String.t(),
-        "LicenseSpecifications" => list(import_image_license_configuration_response()()),
+        "LicenseSpecifications" => list(import_image_license_configuration_response()),
         "LicenseType" => String.t(),
         "Platform" => String.t(),
         "Progress" => String.t(),
-        "SnapshotDetails" => list(snapshot_detail()()),
+        "SnapshotDetails" => list(snapshot_detail()),
         "Status" => String.t(),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UsageOperation" => String.t()
       }
       
@@ -4897,10 +4897,10 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoints_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcEndpointIds") => list(String.t()())
+        optional("VpcEndpointIds") => list(String.t())
       }
       
   """
@@ -4948,9 +4948,9 @@ defmodule AWS.EC2 do
       
       describe_network_insights_paths_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInsightsPathIds") => list(String.t()()),
+        optional("NetworkInsightsPathIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -4985,7 +4985,7 @@ defmodule AWS.EC2 do
       
       get_host_reservation_purchase_preview_result() :: %{
         "CurrencyCode" => list(any()),
-        "Purchase" => list(purchase()()),
+        "Purchase" => list(purchase()),
         "TotalHourlyPrice" => String.t(),
         "TotalUpfrontPrice" => String.t()
       }
@@ -4998,7 +4998,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       search_transit_gateway_multicast_groups_result() :: %{
-        "MulticastGroups" => list(transit_gateway_multicast_group()()),
+        "MulticastGroups" => list(transit_gateway_multicast_group()),
         "NextToken" => String.t()
       }
       
@@ -5022,9 +5022,9 @@ defmodule AWS.EC2 do
       
       assign_ipv6_addresses_request() :: %{
         optional("Ipv6AddressCount") => integer(),
-        optional("Ipv6Addresses") => list(String.t()()),
+        optional("Ipv6Addresses") => list(String.t()),
         optional("Ipv6PrefixCount") => integer(),
-        optional("Ipv6Prefixes") => list(String.t()()),
+        optional("Ipv6Prefixes") => list(String.t()),
         required("NetworkInterfaceId") => String.t()
       }
       
@@ -5048,14 +5048,14 @@ defmodule AWS.EC2 do
       
       describe_images_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ExecutableUsers") => list(String.t()()),
-        optional("Filters") => list(filter()()),
-        optional("ImageIds") => list(String.t()()),
+        optional("ExecutableUsers") => list(String.t()),
+        optional("Filters") => list(filter()),
+        optional("ImageIds") => list(String.t()),
         optional("IncludeDeprecated") => boolean(),
         optional("IncludeDisabled") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("Owners") => list(String.t()())
+        optional("Owners") => list(String.t())
       }
       
   """
@@ -5095,8 +5095,8 @@ defmodule AWS.EC2 do
         "InstanceEventWindowId" => String.t(),
         "Name" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
-        "TimeRanges" => list(instance_event_window_time_range()())
+        "Tags" => list(tag()),
+        "TimeRanges" => list(instance_event_window_time_range())
       }
       
   """
@@ -5128,7 +5128,7 @@ defmodule AWS.EC2 do
         optional("Encrypted") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("SnapshotCopyCompletionDurationMinutes") => float(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Name") => String.t(),
         required("SourceImageId") => String.t(),
         required("SourceRegion") => String.t()
@@ -5166,7 +5166,7 @@ defmodule AWS.EC2 do
       
       describe_security_group_references_request() :: %{
         optional("DryRun") => boolean(),
-        required("GroupId") => list(String.t()())
+        required("GroupId") => list(String.t())
       }
       
   """
@@ -5178,7 +5178,7 @@ defmodule AWS.EC2 do
       
       describe_security_group_vpc_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -5192,7 +5192,7 @@ defmodule AWS.EC2 do
       
       describe_security_groups_result() :: %{
         "NextToken" => String.t(),
-        "SecurityGroups" => list(security_group()())
+        "SecurityGroups" => list(security_group())
       }
       
   """
@@ -5206,7 +5206,7 @@ defmodule AWS.EC2 do
         optional("Context") => String.t(),
         optional("DryRun") => boolean(),
         optional("ExcessCapacityTerminationPolicy") => list(any()),
-        optional("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()()),
+        optional("LaunchTemplateConfigs") => list(fleet_launch_template_config_request()),
         optional("TargetCapacitySpecification") => target_capacity_specification_request(),
         required("FleetId") => String.t()
       }
@@ -5253,7 +5253,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_attachments_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayAttachments" => list(transit_gateway_attachment()())
+        "TransitGatewayAttachments" => list(transit_gateway_attachment())
       }
       
   """
@@ -5269,7 +5269,7 @@ defmodule AWS.EC2 do
         "SpotFleetRequestConfig" => spot_fleet_request_config_data(),
         "SpotFleetRequestId" => String.t(),
         "SpotFleetRequestState" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -5281,7 +5281,7 @@ defmodule AWS.EC2 do
       
       describe_store_image_tasks_result() :: %{
         "NextToken" => String.t(),
-        "StoreImageTaskResults" => list(store_image_task_result()())
+        "StoreImageTaskResults" => list(store_image_task_result())
       }
       
   """
@@ -5306,7 +5306,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_key_pairs_result() :: %{
-        "KeyPairs" => list(key_pair_info()())
+        "KeyPairs" => list(key_pair_info())
       }
       
   """
@@ -5365,8 +5365,8 @@ defmodule AWS.EC2 do
       
       describe_internet_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InternetGatewayIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InternetGatewayIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -5421,8 +5421,8 @@ defmodule AWS.EC2 do
       
       disable_fast_snapshot_restores_request() :: %{
         optional("DryRun") => boolean(),
-        required("AvailabilityZones") => list(String.t()()),
-        required("SourceSnapshotIds") => list(String.t()())
+        required("AvailabilityZones") => list(String.t()),
+        required("SourceSnapshotIds") => list(String.t())
       }
       
   """
@@ -5465,7 +5465,7 @@ defmodule AWS.EC2 do
         "PrefixListName" => String.t(),
         "State" => list(any()),
         "StateMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Version" => float()
       }
       
@@ -5501,8 +5501,8 @@ defmodule AWS.EC2 do
       
       unassign_ipv6_addresses_result() :: %{
         "NetworkInterfaceId" => String.t(),
-        "UnassignedIpv6Addresses" => list(String.t()()),
-        "UnassignedIpv6Prefixes" => list(String.t()())
+        "UnassignedIpv6Addresses" => list(String.t()),
+        "UnassignedIpv6Prefixes" => list(String.t())
       }
       
   """
@@ -5540,16 +5540,16 @@ defmodule AWS.EC2 do
         optional("ClientData") => client_data(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("DiskContainers") => list(image_disk_container()()),
+        optional("DiskContainers") => list(image_disk_container()),
         optional("DryRun") => boolean(),
         optional("Encrypted") => boolean(),
         optional("Hypervisor") => String.t(),
         optional("KmsKeyId") => String.t(),
-        optional("LicenseSpecifications") => list(import_image_license_configuration_request()()),
+        optional("LicenseSpecifications") => list(import_image_license_configuration_request()),
         optional("LicenseType") => String.t(),
         optional("Platform") => String.t(),
         optional("RoleName") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("UsageOperation") => String.t()
       }
       
@@ -5562,7 +5562,7 @@ defmodule AWS.EC2 do
       
       delete_vpc_endpoint_service_configurations_request() :: %{
         optional("DryRun") => boolean(),
-        required("ServiceIds") => list(String.t()())
+        required("ServiceIds") => list(String.t())
       }
       
   """
@@ -5574,10 +5574,10 @@ defmodule AWS.EC2 do
       
       describe_volumes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VolumeIds") => list(String.t()())
+        optional("VolumeIds") => list(String.t())
       }
       
   """
@@ -5591,7 +5591,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MaxDrainDurationSeconds") => integer(),
         required("NatGatewayId") => String.t(),
-        required("PrivateIpAddresses") => list(String.t()())
+        required("PrivateIpAddresses") => list(String.t())
       }
       
   """
@@ -5614,7 +5614,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_policy_table_entries_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayPolicyTableId") => String.t()
@@ -5663,7 +5663,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_transit_gateway_policy_table_entries_result() :: %{
-        "TransitGatewayPolicyTableEntries" => list(transit_gateway_policy_table_entry()())
+        "TransitGatewayPolicyTableEntries" => list(transit_gateway_policy_table_entry())
       }
       
   """
@@ -5699,20 +5699,20 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_interface() :: %{
-        "AssociatedSubnets" => list(String.t()()),
+        "AssociatedSubnets" => list(String.t()),
         "Association" => network_interface_association(),
         "Attachment" => network_interface_attachment(),
         "AvailabilityZone" => String.t(),
         "ConnectionTrackingConfiguration" => connection_tracking_configuration(),
         "DenyAllIgwTraffic" => boolean(),
         "Description" => String.t(),
-        "Groups" => list(group_identifier()()),
+        "Groups" => list(group_identifier()),
         "InterfaceType" => list(any()),
-        "Ipv4Prefixes" => list(ipv4_prefix_specification()()),
+        "Ipv4Prefixes" => list(ipv4_prefix_specification()),
         "Ipv6Address" => String.t(),
-        "Ipv6Addresses" => list(network_interface_ipv6_address()()),
+        "Ipv6Addresses" => list(network_interface_ipv6_address()),
         "Ipv6Native" => boolean(),
-        "Ipv6Prefixes" => list(ipv6_prefix_specification()()),
+        "Ipv6Prefixes" => list(ipv6_prefix_specification()),
         "MacAddress" => String.t(),
         "NetworkInterfaceId" => String.t(),
         "Operator" => operator_response(),
@@ -5720,7 +5720,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t(),
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(network_interface_private_ip_address()()),
+        "PrivateIpAddresses" => list(network_interface_private_ip_address()),
         "PublicDnsName" => String.t(),
         "PublicIpDnsNameOptions" => public_ip_dns_name_options(),
         "RequesterId" => String.t(),
@@ -5728,7 +5728,7 @@ defmodule AWS.EC2 do
         "SourceDestCheck" => boolean(),
         "Status" => list(any()),
         "SubnetId" => String.t(),
-        "TagSet" => list(tag()()),
+        "TagSet" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -5753,7 +5753,7 @@ defmodule AWS.EC2 do
       
       create_local_gateway_route_table_vpc_association_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalGatewayRouteTableId") => String.t(),
         required("VpcId") => String.t()
       }
@@ -5792,7 +5792,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("Resources") => list(String.t()())
+        optional("Resources") => list(String.t())
       }
       
   """
@@ -5809,7 +5809,7 @@ defmodule AWS.EC2 do
         "ImportVolume" => import_volume_task_details(),
         "State" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -5844,10 +5844,10 @@ defmodule AWS.EC2 do
       
       describe_route_server_endpoints_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RouteServerEndpointIds") => list(String.t()())
+        optional("RouteServerEndpointIds") => list(String.t())
       }
       
   """
@@ -5888,7 +5888,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_scopes_result() :: %{
-        "IpamScopes" => list(ipam_scope()()),
+        "IpamScopes" => list(ipam_scope()),
         "NextToken" => String.t()
       }
       
@@ -5900,7 +5900,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_aws_network_performance_data_result() :: %{
-        "DataResponses" => list(data_response()()),
+        "DataResponses" => list(data_response()),
         "NextToken" => String.t()
       }
       
@@ -5922,7 +5922,7 @@ defmodule AWS.EC2 do
         "DefaultForAz" => boolean(),
         "EnableDns64" => boolean(),
         "EnableLniAtDeviceIndex" => integer(),
-        "Ipv6CidrBlockAssociationSet" => list(subnet_ipv6_cidr_block_association()()),
+        "Ipv6CidrBlockAssociationSet" => list(subnet_ipv6_cidr_block_association()),
         "Ipv6Native" => boolean(),
         "MapCustomerOwnedIpOnLaunch" => boolean(),
         "MapPublicIpOnLaunch" => boolean(),
@@ -5932,7 +5932,7 @@ defmodule AWS.EC2 do
         "State" => list(any()),
         "SubnetArn" => String.t(),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => String.t(),
         "VpcId" => String.t()
       }
@@ -5971,7 +5971,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_nat_gateways_result() :: %{
-        "NatGateways" => list(nat_gateway()()),
+        "NatGateways" => list(nat_gateway()),
         "NextToken" => String.t()
       }
       
@@ -5987,7 +5987,7 @@ defmodule AWS.EC2 do
         "MacModificationTaskId" => String.t(),
         "MacSystemIntegrityProtectionConfig" => mac_system_integrity_protection_configuration(),
         "StartTime" => non_neg_integer(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskState" => list(any()),
         "TaskType" => list(any())
       }
@@ -6000,7 +6000,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_groups_for_capacity_reservation_result() :: %{
-        "CapacityReservationGroups" => list(capacity_reservation_group()()),
+        "CapacityReservationGroups" => list(capacity_reservation_group()),
         "NextToken" => String.t()
       }
       
@@ -6076,7 +6076,7 @@ defmodule AWS.EC2 do
         "ResourceId" => String.t(),
         "ResourceOwnerId" => String.t(),
         "ResourceType" => list(any()),
-        "Subnets" => list(subnet_association()()),
+        "Subnets" => list(subnet_association()),
         "TransitGatewayAttachmentId" => String.t(),
         "TransitGatewayMulticastDomainId" => String.t()
       }
@@ -6101,7 +6101,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_discovered_resource_cidrs_result() :: %{
-        "IpamDiscoveredResourceCidrs" => list(ipam_discovered_resource_cidr()()),
+        "IpamDiscoveredResourceCidrs" => list(ipam_discovered_resource_cidr()),
         "NextToken" => String.t()
       }
       
@@ -6114,10 +6114,10 @@ defmodule AWS.EC2 do
       
       describe_moving_addresses_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PublicIps") => list(String.t()())
+        optional("PublicIps") => list(String.t())
       }
       
   """
@@ -6198,11 +6198,11 @@ defmodule AWS.EC2 do
         optional("AvailabilityZone") => String.t(),
         optional("DryRun") => boolean(),
         optional("EndTime") => non_neg_integer(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("InstanceTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ProductDescriptions") => list(String.t()()),
+        optional("ProductDescriptions") => list(String.t()),
         optional("StartTime") => non_neg_integer()
       }
       
@@ -6238,9 +6238,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_target_networks_request() :: %{
-        optional("AssociationIds") => list(String.t()()),
+        optional("AssociationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ClientVpnEndpointId") => String.t()
@@ -6260,7 +6260,7 @@ defmodule AWS.EC2 do
         "RdsDbInstanceArn" => String.t(),
         "RdsDbProxyArn" => String.t(),
         "RdsEndpoint" => String.t(),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -6271,7 +6271,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_spot_fleet_instances_response() :: %{
-        "ActiveInstances" => list(active_instance()()),
+        "ActiveInstances" => list(active_instance()),
         "NextToken" => String.t(),
         "SpotFleetRequestId" => String.t()
       }
@@ -6319,7 +6319,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       deregister_image_result() :: %{
-        "DeleteSnapshotResults" => list(delete_snapshot_return_code()()),
+        "DeleteSnapshotResults" => list(delete_snapshot_return_code()),
         "Return" => boolean()
       }
       
@@ -6384,8 +6384,8 @@ defmodule AWS.EC2 do
       
       create_flow_logs_result() :: %{
         "ClientToken" => String.t(),
-        "FlowLogIds" => list(String.t()()),
-        "Unsuccessful" => list(unsuccessful_item()())
+        "FlowLogIds" => list(String.t()),
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -6397,7 +6397,7 @@ defmodule AWS.EC2 do
       
       capacity_block_status() :: %{
         "CapacityBlockId" => String.t(),
-        "CapacityReservationStatuses" => list(capacity_reservation_status()()),
+        "CapacityReservationStatuses" => list(capacity_reservation_status()),
         "InterconnectStatus" => list(any()),
         "TotalAvailableCapacity" => integer(),
         "TotalCapacity" => integer(),
@@ -6437,7 +6437,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_placement_groups_result() :: %{
-        "PlacementGroups" => list(placement_group()())
+        "PlacementGroups" => list(placement_group())
       }
       
   """
@@ -6479,7 +6479,7 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_filters_result() :: %{
         "NextToken" => String.t(),
-        "TrafficMirrorFilters" => list(traffic_mirror_filter()())
+        "TrafficMirrorFilters" => list(traffic_mirror_filter())
       }
       
   """
@@ -6585,7 +6585,7 @@ defmodule AWS.EC2 do
       create_route_table_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -6646,7 +6646,7 @@ defmodule AWS.EC2 do
       
       start_network_insights_access_scope_analysis_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("ClientToken") => String.t(),
         required("NetworkInsightsAccessScopeId") => String.t()
       }
@@ -6687,7 +6687,7 @@ defmodule AWS.EC2 do
         "TransitGatewayRouteTable" => analysis_component(),
         "LoadBalancerListenerPort" => integer(),
         "LoadBalancerArn" => String.t(),
-        "PortRanges" => list(port_range()()),
+        "PortRanges" => list(port_range()),
         "ComponentAccount" => String.t(),
         "Vpc" => analysis_component(),
         "RouteTable" => analysis_component(),
@@ -6717,24 +6717,24 @@ defmodule AWS.EC2 do
         "ExplanationCode" => String.t(),
         "LoadBalancerTarget" => analysis_load_balancer_target(),
         "Port" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "SecurityGroupRule" => analysis_security_group_rule(),
         "VpnGateway" => analysis_component(),
         "VpnConnection" => analysis_component(),
         "RouteTableRoute" => analysis_route_table_route(),
-        "Protocols" => list(String.t()()),
-        "Cidrs" => list(String.t()()),
+        "Protocols" => list(String.t()),
+        "Cidrs" => list(String.t()),
         "LoadBalancerTargetGroup" => analysis_component(),
-        "Addresses" => list(String.t()()),
+        "Addresses" => list(String.t()),
         "InternetGateway" => analysis_component(),
         "Acl" => analysis_component(),
         "SubnetRouteTable" => analysis_component(),
         "NetworkInterface" => analysis_component(),
         "DestinationVpc" => analysis_component(),
         "VpcPeeringConnection" => analysis_component(),
-        "LoadBalancerTargetGroups" => list(analysis_component()()),
-        "AvailabilityZoneIds" => list(String.t()()),
-        "SecurityGroups" => list(analysis_component()()),
+        "LoadBalancerTargetGroups" => list(analysis_component()),
+        "AvailabilityZoneIds" => list(String.t()),
+        "SecurityGroups" => list(analysis_component()),
         "FirewallStatelessRule" => firewall_stateless_rule(),
         "TransitGatewayAttachment" => analysis_component()
       }
@@ -6749,7 +6749,7 @@ defmodule AWS.EC2 do
       disassociate_nat_gateway_address_request() :: %{
         optional("DryRun") => boolean(),
         optional("MaxDrainDurationSeconds") => integer(),
-        required("AssociationIds") => list(String.t()()),
+        required("AssociationIds") => list(String.t()),
         required("NatGatewayId") => String.t()
       }
       
@@ -6768,7 +6768,7 @@ defmodule AWS.EC2 do
         "SpreadLevel" => list(any()),
         "State" => list(any()),
         "Strategy" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -6803,7 +6803,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_vpc_endpoint_connection_notifications_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -6815,10 +6815,10 @@ defmodule AWS.EC2 do
       
       describe_route_servers_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RouteServerIds") => list(String.t()())
+        optional("RouteServerIds") => list(String.t())
       }
       
   """
@@ -6963,9 +6963,9 @@ defmodule AWS.EC2 do
       
       describe_placement_groups_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("GroupIds") => list(String.t()()),
-        optional("GroupNames") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("GroupIds") => list(String.t()),
+        optional("GroupNames") => list(String.t())
       }
       
   """
@@ -6993,7 +6993,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_insights_access_scope_analyses_result() :: %{
-        "NetworkInsightsAccessScopeAnalyses" => list(network_insights_access_scope_analysis()()),
+        "NetworkInsightsAccessScopeAnalyses" => list(network_insights_access_scope_analysis()),
         "NextToken" => String.t()
       }
       
@@ -7009,12 +7009,12 @@ defmodule AWS.EC2 do
         "DeleteOnTermination" => boolean(),
         "Description" => String.t(),
         "DeviceIndex" => integer(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(scheduled_instances_ipv6_address()()),
+        "Ipv6Addresses" => list(scheduled_instances_ipv6_address()),
         "NetworkInterfaceId" => String.t(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddressConfigs" => list(scheduled_instances_private_ip_address_config()()),
+        "PrivateIpAddressConfigs" => list(scheduled_instances_private_ip_address_config()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -7086,7 +7086,7 @@ defmodule AWS.EC2 do
       
       create_security_group_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VpcId") => String.t(),
         required("Description") => String.t(),
         required("GroupName") => String.t()
@@ -7101,7 +7101,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_connections_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -7126,7 +7126,7 @@ defmodule AWS.EC2 do
       
       delete_flow_logs_request() :: %{
         optional("DryRun") => boolean(),
-        required("FlowLogIds") => list(String.t()())
+        required("FlowLogIds") => list(String.t())
       }
       
   """
@@ -7164,7 +7164,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_network_insights_access_scope_analysis_findings_result() :: %{
-        "AnalysisFindings" => list(access_scope_analysis_finding()()),
+        "AnalysisFindings" => list(access_scope_analysis_finding()),
         "AnalysisStatus" => list(any()),
         "NetworkInsightsAccessScopeAnalysisId" => String.t(),
         "NextToken" => String.t()
@@ -7179,10 +7179,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_peering_attachments_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayAttachmentIds") => list(String.t()())
+        optional("TransitGatewayAttachmentIds") => list(String.t())
       }
       
   """
@@ -7193,7 +7193,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_security_group_references_result() :: %{
-        "SecurityGroupReferenceSet" => list(security_group_reference()())
+        "SecurityGroupReferenceSet" => list(security_group_reference())
       }
       
   """
@@ -7261,7 +7261,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_managed_prefix_list_entries_result() :: %{
-        "Entries" => list(prefix_list_entry()()),
+        "Entries" => list(prefix_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -7273,9 +7273,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_reserved_instances_modifications_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("NextToken") => String.t(),
-        optional("ReservedInstancesModificationIds") => list(String.t()())
+        optional("ReservedInstancesModificationIds") => list(String.t())
       }
       
   """
@@ -7303,7 +7303,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_hosts_result() :: %{
-        "Hosts" => list(host()()),
+        "Hosts" => list(host()),
         "NextToken" => String.t()
       }
       
@@ -7315,7 +7315,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservation_billing_requests_result() :: %{
-        "CapacityReservationBillingRequests" => list(capacity_reservation_billing_request()()),
+        "CapacityReservationBillingRequests" => list(capacity_reservation_billing_request()),
         "NextToken" => String.t()
       }
       
@@ -7339,7 +7339,7 @@ defmodule AWS.EC2 do
       
       transit_gateway_multicast_registered_group_members() :: %{
         "GroupIpAddress" => String.t(),
-        "RegisteredNetworkInterfaceIds" => list(String.t()()),
+        "RegisteredNetworkInterfaceIds" => list(String.t()),
         "TransitGatewayMulticastDomainId" => String.t()
       }
       
@@ -7417,9 +7417,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservation_billing_requests_request() :: %{
-        optional("CapacityReservationIds") => list(String.t()()),
+        optional("CapacityReservationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Role") => list(any())
@@ -7516,7 +7516,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_reserved_instances_listings_result() :: %{
-        "ReservedInstancesListings" => list(reserved_instances_listing()())
+        "ReservedInstancesListings" => list(reserved_instances_listing())
       }
       
   """
@@ -7527,19 +7527,19 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_vpc_endpoint_request() :: %{
-        optional("AddRouteTableIds") => list(String.t()()),
-        optional("AddSecurityGroupIds") => list(String.t()()),
-        optional("AddSubnetIds") => list(String.t()()),
+        optional("AddRouteTableIds") => list(String.t()),
+        optional("AddSecurityGroupIds") => list(String.t()),
+        optional("AddSubnetIds") => list(String.t()),
         optional("DnsOptions") => dns_options_specification(),
         optional("DryRun") => boolean(),
         optional("IpAddressType") => list(any()),
         optional("PolicyDocument") => String.t(),
         optional("PrivateDnsEnabled") => boolean(),
-        optional("RemoveRouteTableIds") => list(String.t()()),
-        optional("RemoveSecurityGroupIds") => list(String.t()()),
-        optional("RemoveSubnetIds") => list(String.t()()),
+        optional("RemoveRouteTableIds") => list(String.t()),
+        optional("RemoveSecurityGroupIds") => list(String.t()),
+        optional("RemoveSubnetIds") => list(String.t()),
         optional("ResetPolicy") => boolean(),
-        optional("SubnetConfigurations") => list(subnet_configuration()()),
+        optional("SubnetConfigurations") => list(subnet_configuration()),
         required("VpcEndpointId") => String.t()
       }
       
@@ -7577,7 +7577,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       image_criterion() :: %{
-        "ImageProviders" => list(String.t()())
+        "ImageProviders" => list(String.t())
       }
       
   """
@@ -7603,7 +7603,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       disable_fast_snapshot_restore_error_item() :: %{
-        "FastSnapshotRestoreStateErrors" => list(disable_fast_snapshot_restore_state_error_item()()),
+        "FastSnapshotRestoreStateErrors" => list(disable_fast_snapshot_restore_state_error_item()),
         "SnapshotId" => String.t()
       }
       
@@ -7617,7 +7617,7 @@ defmodule AWS.EC2 do
       create_subnet_cidr_reservation_request() :: %{
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Cidr") => String.t(),
         required("ReservationType") => list(any()),
         required("SubnetId") => String.t()
@@ -7632,7 +7632,7 @@ defmodule AWS.EC2 do
       
       cancel_spot_instance_requests_request() :: %{
         optional("DryRun") => boolean(),
-        required("SpotInstanceRequestIds") => list(String.t()())
+        required("SpotInstanceRequestIds") => list(String.t())
       }
       
   """
@@ -7645,7 +7645,7 @@ defmodule AWS.EC2 do
       access_scope_path_request() :: %{
         "Destination" => path_statement_request(),
         "Source" => path_statement_request(),
-        "ThroughResources" => list(through_resources_statement_request()())
+        "ThroughResources" => list(through_resources_statement_request())
       }
       
   """
@@ -7657,7 +7657,7 @@ defmodule AWS.EC2 do
       
       describe_reserved_instances_modifications_result() :: %{
         "NextToken" => String.t(),
-        "ReservedInstancesModifications" => list(reserved_instances_modification()())
+        "ReservedInstancesModifications" => list(reserved_instances_modification())
       }
       
   """
@@ -7672,7 +7672,7 @@ defmodule AWS.EC2 do
         "DefaultAssociationRouteTable" => boolean(),
         "DefaultPropagationRouteTable" => boolean(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "TransitGatewayRouteTableId" => String.t()
       }
@@ -7686,7 +7686,7 @@ defmodule AWS.EC2 do
       
       get_coip_pool_usage_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("PoolId") => String.t()
@@ -7728,7 +7728,7 @@ defmodule AWS.EC2 do
         "AllocationDefaultNetmaskLength" => integer(),
         "AllocationMaxNetmaskLength" => integer(),
         "AllocationMinNetmaskLength" => integer(),
-        "AllocationResourceTags" => list(ipam_resource_tag()()),
+        "AllocationResourceTags" => list(ipam_resource_tag()),
         "AutoImport" => boolean(),
         "AwsService" => list(any()),
         "Description" => String.t(),
@@ -7747,7 +7747,7 @@ defmodule AWS.EC2 do
         "SourceResource" => ipam_pool_source_resource(),
         "State" => list(any()),
         "StateMessage" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -7831,7 +7831,7 @@ defmodule AWS.EC2 do
       
       describe_stale_security_groups_result() :: %{
         "NextToken" => String.t(),
-        "StaleSecurityGroupSet" => list(stale_security_group()())
+        "StaleSecurityGroupSet" => list(stale_security_group())
       }
       
   """
@@ -7880,10 +7880,10 @@ defmodule AWS.EC2 do
       
       describe_managed_prefix_lists_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PrefixListIds") => list(String.t()())
+        optional("PrefixListIds") => list(String.t())
       }
       
   """
@@ -7920,9 +7920,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       classic_link_instance() :: %{
-        "Groups" => list(group_identifier()()),
+        "Groups" => list(group_identifier()),
         "InstanceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -7945,8 +7945,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       cancel_spot_fleet_requests_response() :: %{
-        "SuccessfulFleetRequests" => list(cancel_spot_fleet_requests_success_item()()),
-        "UnsuccessfulFleetRequests" => list(cancel_spot_fleet_requests_error_item()())
+        "SuccessfulFleetRequests" => list(cancel_spot_fleet_requests_success_item()),
+        "UnsuccessfulFleetRequests" => list(cancel_spot_fleet_requests_error_item())
       }
       
   """
@@ -7971,8 +7971,8 @@ defmodule AWS.EC2 do
       
       describe_vpc_block_public_access_exclusions_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ExclusionIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("ExclusionIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -7986,14 +7986,14 @@ defmodule AWS.EC2 do
       
       modify_network_interface_attribute_request() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
-        optional("AssociatedSubnetIds") => list(String.t()()),
+        optional("AssociatedSubnetIds") => list(String.t()),
         optional("Attachment") => network_interface_attachment_changes(),
         optional("ConnectionTrackingSpecification") => connection_tracking_specification_request(),
         optional("Description") => attribute_value(),
         optional("DryRun") => boolean(),
         optional("EnaSrdSpecification") => ena_srd_specification(),
         optional("EnablePrimaryIpv6") => boolean(),
-        optional("Groups") => list(String.t()()),
+        optional("Groups") => list(String.t()),
         optional("SourceDestCheck") => attribute_boolean_value(),
         required("NetworkInterfaceId") => String.t()
       }
@@ -8007,9 +8007,9 @@ defmodule AWS.EC2 do
       
       describe_nat_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filter") => list(filter()()),
+        optional("Filter") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NatGatewayIds") => list(String.t()()),
+        optional("NatGatewayIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -8033,10 +8033,10 @@ defmodule AWS.EC2 do
       
       traffic_mirror_filter() :: %{
         "Description" => String.t(),
-        "EgressFilterRules" => list(traffic_mirror_filter_rule()()),
-        "IngressFilterRules" => list(traffic_mirror_filter_rule()()),
+        "EgressFilterRules" => list(traffic_mirror_filter_rule()),
+        "IngressFilterRules" => list(traffic_mirror_filter_rule()),
         "NetworkServices" => list(list(any())()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrafficMirrorFilterId" => String.t()
       }
       
@@ -8051,12 +8051,12 @@ defmodule AWS.EC2 do
         "AvailabilityZone" => String.t(),
         "AvailabilityZoneId" => String.t(),
         "CapacityBlockId" => String.t(),
-        "CapacityReservationIds" => list(String.t()()),
+        "CapacityReservationIds" => list(String.t()),
         "CreateDate" => non_neg_integer(),
         "EndDate" => non_neg_integer(),
         "StartDate" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UltraserverType" => String.t()
       }
       
@@ -8070,7 +8070,7 @@ defmodule AWS.EC2 do
       modify_security_group_rules_request() :: %{
         optional("DryRun") => boolean(),
         required("GroupId") => String.t(),
-        required("SecurityGroupRules") => list(security_group_rule_update()())
+        required("SecurityGroupRules") => list(security_group_rule_update())
       }
       
   """
@@ -8081,9 +8081,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_bundle_tasks_request() :: %{
-        optional("BundleIds") => list(String.t()()),
+        optional("BundleIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()())
+        optional("Filters") => list(filter())
       }
       
   """
@@ -8120,8 +8120,8 @@ defmodule AWS.EC2 do
       
       describe_instance_credit_specifications_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -8145,7 +8145,7 @@ defmodule AWS.EC2 do
         optional("Ipv6IpamPoolId") => String.t(),
         optional("Ipv6NetmaskLength") => integer(),
         optional("Ipv6Pool") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -8157,7 +8157,7 @@ defmodule AWS.EC2 do
       
       describe_replace_root_volume_tasks_result() :: %{
         "NextToken" => String.t(),
-        "ReplaceRootVolumeTasks" => list(replace_root_volume_task()())
+        "ReplaceRootVolumeTasks" => list(replace_root_volume_task())
       }
       
   """
@@ -8181,7 +8181,7 @@ defmodule AWS.EC2 do
       
       get_ipam_discovered_accounts_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("DiscoveryRegion") => String.t(),
@@ -8208,21 +8208,21 @@ defmodule AWS.EC2 do
   ## Example:
       
       run_instances_request() :: %{
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("CreditSpecification") => credit_specification_request(),
         optional("MetadataOptions") => instance_metadata_options_request(),
         optional("EnablePrimaryIpv6") => boolean(),
-        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("ClientToken") => String.t(),
         optional("InstanceInitiatedShutdownBehavior") => list(any()),
-        optional("LicenseSpecifications") => list(license_configuration_request()()),
+        optional("LicenseSpecifications") => list(license_configuration_request()),
         optional("Ipv6AddressCount") => integer(),
         optional("PrivateIpAddress") => String.t(),
-        optional("Ipv6Addresses") => list(instance_ipv6_address()()),
+        optional("Ipv6Addresses") => list(instance_ipv6_address()),
         optional("Monitoring") => run_instances_monitoring_enabled(),
         optional("KernelId") => String.t(),
         optional("RamdiskId") => String.t(),
-        optional("ElasticGpuSpecification") => list(elastic_gpu_specification()()),
+        optional("ElasticGpuSpecification") => list(elastic_gpu_specification()),
         required("MinCount") => integer(),
         optional("HibernationOptions") => hibernation_options_request(),
         optional("MaintenanceOptions") => instance_maintenance_options_request(),
@@ -8238,7 +8238,7 @@ defmodule AWS.EC2 do
         optional("CpuOptions") => cpu_options_request(),
         optional("NetworkPerformanceOptions") => instance_network_performance_options_request(),
         optional("DryRun") => boolean(),
-        optional("SecurityGroups") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
         optional("Placement") => placement(),
         optional("PrivateDnsNameOptions") => private_dns_name_options_request(),
         optional("SubnetId") => String.t(),
@@ -8248,9 +8248,9 @@ defmodule AWS.EC2 do
         optional("LaunchTemplate") => launch_template_specification(),
         optional("InstanceMarketOptions") => instance_market_options_request(),
         required("MaxCount") => integer(),
-        optional("NetworkInterfaces") => list(instance_network_interface_specification()()),
-        optional("TagSpecifications") => list(tag_specification()()),
-        optional("ElasticInferenceAccelerators") => list(elastic_inference_accelerator()())
+        optional("NetworkInterfaces") => list(instance_network_interface_specification()),
+        optional("TagSpecifications") => list(tag_specification()),
+        optional("ElasticInferenceAccelerators") => list(elastic_inference_accelerator())
       }
       
   """
@@ -8267,7 +8267,7 @@ defmodule AWS.EC2 do
         "ElasticGpuState" => list(any()),
         "ElasticGpuType" => String.t(),
         "InstanceId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -8367,7 +8367,7 @@ defmodule AWS.EC2 do
         "RuleNumber" => integer(),
         "SourceCidrBlock" => String.t(),
         "SourcePortRange" => traffic_mirror_port_range(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrafficDirection" => list(any()),
         "TrafficMirrorFilterId" => String.t(),
         "TrafficMirrorFilterRuleId" => String.t()
@@ -8393,7 +8393,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservations_result() :: %{
-        "CapacityReservations" => list(capacity_reservation()()),
+        "CapacityReservations" => list(capacity_reservation()),
         "NextToken" => String.t()
       }
       
@@ -8406,7 +8406,7 @@ defmodule AWS.EC2 do
       
       describe_fleet_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("FleetId") => String.t()
@@ -8448,7 +8448,7 @@ defmodule AWS.EC2 do
       describe_vpc_classic_link_dns_support_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcIds") => list(String.t()())
+        optional("VpcIds") => list(String.t())
       }
       
   """
@@ -8460,7 +8460,7 @@ defmodule AWS.EC2 do
       
       get_ipam_discovered_resource_cidrs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("IpamResourceDiscoveryId") => String.t(),
@@ -8529,7 +8529,7 @@ defmodule AWS.EC2 do
       
       search_local_gateway_routes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("LocalGatewayRouteTableId") => String.t()
@@ -8584,7 +8584,7 @@ defmodule AWS.EC2 do
         "GroupName" => String.t(),
         "InstanceId" => String.t(),
         "InstanceType" => String.t(),
-        "NetworkNodes" => list(String.t()()),
+        "NetworkNodes" => list(String.t()),
         "ZoneId" => String.t()
       }
       
@@ -8618,7 +8618,7 @@ defmodule AWS.EC2 do
         "SseType" => list(any()),
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeId" => String.t(),
         "VolumeSize" => integer()
       }
@@ -8669,10 +8669,10 @@ defmodule AWS.EC2 do
         "LoadBalancerOptions" => verified_access_endpoint_load_balancer_options(),
         "NetworkInterfaceOptions" => verified_access_endpoint_eni_options(),
         "RdsOptions" => verified_access_endpoint_rds_options(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "SseSpecification" => verified_access_sse_specification_response(),
         "Status" => verified_access_endpoint_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerifiedAccessEndpointId" => String.t(),
         "VerifiedAccessGroupId" => String.t(),
         "VerifiedAccessInstanceId" => String.t()
@@ -8715,7 +8715,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_verified_access_instance_logging_configurations_result() :: %{
-        "LoggingConfigurations" => list(verified_access_instance_logging_configuration()()),
+        "LoggingConfigurations" => list(verified_access_instance_logging_configuration()),
         "NextToken" => String.t()
       }
       
@@ -8730,7 +8730,7 @@ defmodule AWS.EC2 do
       
       describe_scheduled_instance_availability_result() :: %{
         "NextToken" => String.t(),
-        "ScheduledInstanceAvailabilitySet" => list(scheduled_instance_availability()())
+        "ScheduledInstanceAvailabilitySet" => list(scheduled_instance_availability())
       }
       
   """
@@ -8820,7 +8820,7 @@ defmodule AWS.EC2 do
         "ConnectPeerConfiguration" => transit_gateway_connect_peer_configuration(),
         "CreationTime" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayAttachmentId" => String.t(),
         "TransitGatewayConnectPeerId" => String.t()
       }
@@ -8844,7 +8844,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_status_result() :: %{
-        "InstanceStatuses" => list(instance_status()()),
+        "InstanceStatuses" => list(instance_status()),
         "NextToken" => String.t()
       }
       
@@ -8858,7 +8858,7 @@ defmodule AWS.EC2 do
       create_verified_access_endpoint_eni_options() :: %{
         "NetworkInterfaceId" => String.t(),
         "Port" => integer(),
-        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()),
         "Protocol" => list(any())
       }
       
@@ -8878,7 +8878,7 @@ defmodule AWS.EC2 do
         "IpamId" => String.t(),
         "IpamRegion" => String.t(),
         "MeteredAccount" => list(any()),
-        "OperatingRegions" => list(ipam_operating_region()()),
+        "OperatingRegions" => list(ipam_operating_region()),
         "OwnerId" => String.t(),
         "PrivateDefaultScopeId" => String.t(),
         "PublicDefaultScopeId" => String.t(),
@@ -8886,7 +8886,7 @@ defmodule AWS.EC2 do
         "ScopeCount" => integer(),
         "State" => list(any()),
         "StateMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Tier" => list(any())
       }
       
@@ -8898,7 +8898,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_egress_only_internet_gateways_result() :: %{
-        "EgressOnlyInternetGateways" => list(egress_only_internet_gateway()()),
+        "EgressOnlyInternetGateways" => list(egress_only_internet_gateway()),
         "NextToken" => String.t()
       }
       
@@ -8911,8 +8911,8 @@ defmodule AWS.EC2 do
       
       vpc_peering_connection_vpc_info() :: %{
         "CidrBlock" => String.t(),
-        "CidrBlockSet" => list(cidr_block()()),
-        "Ipv6CidrBlockSet" => list(ipv6_cidr_block()()),
+        "CidrBlockSet" => list(cidr_block()),
+        "Ipv6CidrBlockSet" => list(ipv6_cidr_block()),
         "OwnerId" => String.t(),
         "PeeringOptions" => vpc_peering_connection_options_description(),
         "Region" => String.t(),
@@ -8934,14 +8934,14 @@ defmodule AWS.EC2 do
         "ImageId" => String.t(),
         "ImportTaskId" => String.t(),
         "KmsKeyId" => String.t(),
-        "LicenseSpecifications" => list(import_image_license_configuration_response()()),
+        "LicenseSpecifications" => list(import_image_license_configuration_response()),
         "LicenseType" => String.t(),
         "Platform" => String.t(),
         "Progress" => String.t(),
-        "SnapshotDetails" => list(snapshot_detail()()),
+        "SnapshotDetails" => list(snapshot_detail()),
         "Status" => String.t(),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UsageOperation" => String.t()
       }
       
@@ -9024,8 +9024,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_hosts_request() :: %{
-        optional("Filter") => list(filter()()),
-        optional("HostIds") => list(String.t()()),
+        optional("Filter") => list(filter()),
+        optional("HostIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -9044,7 +9044,7 @@ defmodule AWS.EC2 do
         optional("GatewayLoadBalancerEndpointId") => String.t(),
         optional("NetworkInterfaceId") => String.t(),
         optional("NetworkLoadBalancerArn") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -9056,7 +9056,7 @@ defmodule AWS.EC2 do
       
       purchase_capacity_block_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("CapacityBlockOfferingId") => String.t(),
         required("InstancePlatform") => list(any())
       }
@@ -9072,7 +9072,7 @@ defmodule AWS.EC2 do
         optional("CronExpression") => String.t(),
         optional("DryRun") => boolean(),
         optional("Name") => String.t(),
-        optional("TimeRanges") => list(instance_event_window_time_range_request()()),
+        optional("TimeRanges") => list(instance_event_window_time_range_request()),
         required("InstanceEventWindowId") => String.t()
       }
       
@@ -9117,7 +9117,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       neuron_info() :: %{
-        "NeuronDevices" => list(neuron_device_info()()),
+        "NeuronDevices" => list(neuron_device_info()),
         "TotalNeuronDeviceMemoryInMiB" => integer()
       }
       
@@ -9153,7 +9153,7 @@ defmodule AWS.EC2 do
       
       spot_fleet_tag_specification() :: %{
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -9164,8 +9164,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_hosts_result() :: %{
-        "Successful" => list(String.t()()),
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Successful" => list(String.t()),
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -9188,7 +9188,7 @@ defmodule AWS.EC2 do
       
       get_vpn_connection_device_types_result() :: %{
         "NextToken" => String.t(),
-        "VpnConnectionDeviceTypes" => list(vpn_connection_device_type()())
+        "VpnConnectionDeviceTypes" => list(vpn_connection_device_type())
       }
       
   """
@@ -9199,8 +9199,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       cancel_capacity_reservation_fleets_result() :: %{
-        "FailedFleetCancellations" => list(failed_capacity_reservation_fleet_cancellation_result()()),
-        "SuccessfulFleetCancellations" => list(capacity_reservation_fleet_cancellation_state()())
+        "FailedFleetCancellations" => list(failed_capacity_reservation_fleet_cancellation_result()),
+        "SuccessfulFleetCancellations" => list(capacity_reservation_fleet_cancellation_state())
       }
       
   """
@@ -9211,11 +9211,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       analysis_packet_header() :: %{
-        "DestinationAddresses" => list(String.t()()),
-        "DestinationPortRanges" => list(port_range()()),
+        "DestinationAddresses" => list(String.t()),
+        "DestinationPortRanges" => list(port_range()),
         "Protocol" => String.t(),
-        "SourceAddresses" => list(String.t()()),
-        "SourcePortRanges" => list(port_range()())
+        "SourceAddresses" => list(String.t()),
+        "SourcePortRanges" => list(port_range())
       }
       
   """
@@ -9255,7 +9255,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Location") => list(any()),
         optional("OutpostArn") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InstanceSpecification") => instance_specification()
       }
       
@@ -9269,8 +9269,8 @@ defmodule AWS.EC2 do
       assign_private_ip_addresses_request() :: %{
         optional("AllowReassignment") => boolean(),
         optional("Ipv4PrefixCount") => integer(),
-        optional("Ipv4Prefixes") => list(String.t()()),
-        optional("PrivateIpAddresses") => list(String.t()()),
+        optional("Ipv4Prefixes") => list(String.t()),
+        optional("PrivateIpAddresses") => list(String.t()),
         optional("SecondaryPrivateIpAddressCount") => integer(),
         required("NetworkInterfaceId") => String.t()
       }
@@ -9299,8 +9299,8 @@ defmodule AWS.EC2 do
       
       describe_classic_link_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -9326,7 +9326,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_discovered_public_addresses_result() :: %{
-        "IpamDiscoveredPublicAddresses" => list(ipam_discovered_public_address()()),
+        "IpamDiscoveredPublicAddresses" => list(ipam_discovered_public_address()),
         "NextToken" => String.t(),
         "OldestSampleTime" => non_neg_integer()
       }
@@ -9353,7 +9353,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       assign_private_nat_gateway_address_result() :: %{
-        "NatGatewayAddresses" => list(nat_gateway_address()()),
+        "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t()
       }
       
@@ -9377,10 +9377,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_route_table_announcements_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayRouteTableAnnouncementIds") => list(String.t()())
+        optional("TransitGatewayRouteTableAnnouncementIds") => list(String.t())
       }
       
   """
@@ -9395,7 +9395,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("RoleName") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("DiskImageFormat") => list(any()),
         required("ImageId") => String.t(),
         required("S3ExportLocation") => export_task_s3_location_request()
@@ -9409,7 +9409,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_identity_id_format_result() :: %{
-        "Statuses" => list(id_format()())
+        "Statuses" => list(id_format())
       }
       
   """
@@ -9432,9 +9432,9 @@ defmodule AWS.EC2 do
       
       modify_verified_access_endpoint_load_balancer_options() :: %{
         "Port" => integer(),
-        "PortRanges" => list(modify_verified_access_endpoint_port_range()()),
+        "PortRanges" => list(modify_verified_access_endpoint_port_range()),
         "Protocol" => list(any()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -9445,12 +9445,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_managed_prefix_list_request() :: %{
-        optional("AddEntries") => list(add_prefix_list_entry()()),
+        optional("AddEntries") => list(add_prefix_list_entry()),
         optional("CurrentVersion") => float(),
         optional("DryRun") => boolean(),
         optional("MaxEntries") => integer(),
         optional("PrefixListName") => String.t(),
-        optional("RemoveEntries") => list(remove_prefix_list_entry()()),
+        optional("RemoveEntries") => list(remove_prefix_list_entry()),
         required("PrefixListId") => String.t()
       }
       
@@ -9515,8 +9515,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_insights_access_scope_content() :: %{
-        "ExcludePaths" => list(access_scope_path()()),
-        "MatchPaths" => list(access_scope_path()()),
+        "ExcludePaths" => list(access_scope_path()),
+        "MatchPaths" => list(access_scope_path()),
         "NetworkInsightsAccessScopeId" => String.t()
       }
       
@@ -9551,13 +9551,13 @@ defmodule AWS.EC2 do
       
       modify_instance_attribute_request() :: %{
         optional("Attribute") => list(any()),
-        optional("BlockDeviceMappings") => list(instance_block_device_mapping_specification()()),
+        optional("BlockDeviceMappings") => list(instance_block_device_mapping_specification()),
         optional("DisableApiStop") => attribute_boolean_value(),
         optional("DisableApiTermination") => attribute_boolean_value(),
         optional("DryRun") => boolean(),
         optional("EbsOptimized") => attribute_boolean_value(),
         optional("EnaSupport") => attribute_boolean_value(),
-        optional("Groups") => list(String.t()()),
+        optional("Groups") => list(String.t()),
         optional("InstanceInitiatedShutdownBehavior") => attribute_value(),
         optional("InstanceType") => attribute_value(),
         optional("Kernel") => attribute_value(),
@@ -9577,7 +9577,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_import_snapshot_tasks_result() :: %{
-        "ImportSnapshotTasks" => list(import_snapshot_task()()),
+        "ImportSnapshotTasks" => list(import_snapshot_task()),
         "NextToken" => String.t()
       }
       
@@ -9616,10 +9616,10 @@ defmodule AWS.EC2 do
       
       describe_verified_access_instance_logging_configurations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedAccessInstanceIds") => list(String.t()())
+        optional("VerifiedAccessInstanceIds") => list(String.t())
       }
       
   """
@@ -9708,7 +9708,7 @@ defmodule AWS.EC2 do
       
       describe_route_server_endpoints_result() :: %{
         "NextToken" => String.t(),
-        "RouteServerEndpoints" => list(route_server_endpoint()())
+        "RouteServerEndpoints" => list(route_server_endpoint())
       }
       
   """
@@ -9732,7 +9732,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_flow_logs_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -9765,7 +9765,7 @@ defmodule AWS.EC2 do
       
       describe_security_group_rules_result() :: %{
         "NextToken" => String.t(),
-        "SecurityGroupRules" => list(security_group_rule()())
+        "SecurityGroupRules" => list(security_group_rule())
       }
       
   """
@@ -9776,7 +9776,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_moving_addresses_result() :: %{
-        "MovingAddressStatuses" => list(moving_address_status()()),
+        "MovingAddressStatuses" => list(moving_address_status()),
         "NextToken" => String.t()
       }
       
@@ -9827,7 +9827,7 @@ defmodule AWS.EC2 do
       
       get_subnet_cidr_reservations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("SubnetId") => String.t()
@@ -9842,10 +9842,10 @@ defmodule AWS.EC2 do
       
       describe_coip_pools_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PoolIds") => list(String.t()())
+        optional("PoolIds") => list(String.t())
       }
       
   """
@@ -9857,7 +9857,7 @@ defmodule AWS.EC2 do
       
       describe_route_tables_result() :: %{
         "NextToken" => String.t(),
-        "RouteTables" => list(route_table()())
+        "RouteTables" => list(route_table())
       }
       
   """
@@ -9893,7 +9893,7 @@ defmodule AWS.EC2 do
       
       get_security_groups_for_vpc_result() :: %{
         "NextToken" => String.t(),
-        "SecurityGroupForVpcs" => list(security_group_for_vpc()())
+        "SecurityGroupForVpcs" => list(security_group_for_vpc())
       }
       
   """
@@ -9936,19 +9936,19 @@ defmodule AWS.EC2 do
         "DeviceIndex" => integer(),
         "EnaQueueCount" => integer(),
         "EnaSrdSpecification" => launch_template_ena_srd_specification(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "InterfaceType" => String.t(),
         "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(ipv4_prefix_specification_response()()),
+        "Ipv4Prefixes" => list(ipv4_prefix_specification_response()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(instance_ipv6_address()()),
+        "Ipv6Addresses" => list(instance_ipv6_address()),
         "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(ipv6_prefix_specification_response()()),
+        "Ipv6Prefixes" => list(ipv6_prefix_specification_response()),
         "NetworkCardIndex" => integer(),
         "NetworkInterfaceId" => String.t(),
         "PrimaryIpv6" => boolean(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(private_ip_address_specification()()),
+        "PrivateIpAddresses" => list(private_ip_address_specification()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -10023,8 +10023,8 @@ defmodule AWS.EC2 do
       
       get_reserved_instances_exchange_quote_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TargetConfigurations") => list(target_configuration_request()()),
-        required("ReservedInstanceIds") => list(String.t()())
+        optional("TargetConfigurations") => list(target_configuration_request()),
+        required("ReservedInstanceIds") => list(String.t())
       }
       
   """
@@ -10040,11 +10040,11 @@ defmodule AWS.EC2 do
         "IpamResourceDiscoveryId" => String.t(),
         "IpamResourceDiscoveryRegion" => String.t(),
         "IsDefault" => boolean(),
-        "OperatingRegions" => list(ipam_operating_region()()),
-        "OrganizationalUnitExclusions" => list(ipam_organizational_unit_exclusion()()),
+        "OperatingRegions" => list(ipam_operating_region()),
+        "OrganizationalUnitExclusions" => list(ipam_organizational_unit_exclusion()),
         "OwnerId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -10056,8 +10056,8 @@ defmodule AWS.EC2 do
       
       enable_fast_snapshot_restores_request() :: %{
         optional("DryRun") => boolean(),
-        required("AvailabilityZones") => list(String.t()()),
-        required("SourceSnapshotIds") => list(String.t()())
+        required("AvailabilityZones") => list(String.t()),
+        required("SourceSnapshotIds") => list(String.t())
       }
       
   """
@@ -10069,7 +10069,7 @@ defmodule AWS.EC2 do
       
       delete_vpc_endpoints_request() :: %{
         optional("DryRun") => boolean(),
-        required("VpcEndpointIds") => list(String.t()())
+        required("VpcEndpointIds") => list(String.t())
       }
       
   """
@@ -10081,7 +10081,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateways_result() :: %{
         "NextToken" => String.t(),
-        "TransitGateways" => list(transit_gateway()())
+        "TransitGateways" => list(transit_gateway())
       }
       
   """
@@ -10120,7 +10120,7 @@ defmodule AWS.EC2 do
       
       describe_principal_id_format_result() :: %{
         "NextToken" => String.t(),
-        "Principals" => list(principal_id_format()())
+        "Principals" => list(principal_id_format())
       }
       
   """
@@ -10168,7 +10168,7 @@ defmodule AWS.EC2 do
       
       describe_spot_price_history_result() :: %{
         "NextToken" => String.t(),
-        "SpotPriceHistory" => list(spot_price()())
+        "SpotPriceHistory" => list(spot_price())
       }
       
   """
@@ -10190,7 +10190,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateway_virtual_interfaces_result() :: %{
-        "LocalGatewayVirtualInterfaces" => list(local_gateway_virtual_interface()()),
+        "LocalGatewayVirtualInterfaces" => list(local_gateway_virtual_interface()),
         "NextToken" => String.t()
       }
       
@@ -10202,10 +10202,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_addresses_request() :: %{
-        optional("AllocationIds") => list(String.t()()),
+        optional("AllocationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("PublicIps") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("PublicIps") => list(String.t())
       }
       
   """
@@ -10216,13 +10216,13 @@ defmodule AWS.EC2 do
   ## Example:
       
       outpost_lag() :: %{
-        "LocalGatewayVirtualInterfaceIds" => list(String.t()()),
+        "LocalGatewayVirtualInterfaceIds" => list(String.t()),
         "OutpostArn" => String.t(),
         "OutpostLagId" => String.t(),
         "OwnerId" => String.t(),
-        "ServiceLinkVirtualInterfaceIds" => list(String.t()()),
+        "ServiceLinkVirtualInterfaceIds" => list(String.t()),
         "State" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -10241,12 +10241,12 @@ defmodule AWS.EC2 do
         "GatewayAssociationState" => list(any()),
         "Options" => vpn_connection_options(),
         "PreSharedKeyArn" => String.t(),
-        "Routes" => list(vpn_static_route()()),
+        "Routes" => list(vpn_static_route()),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "Type" => list(any()),
-        "VgwTelemetry" => list(vgw_telemetry()()),
+        "VgwTelemetry" => list(vgw_telemetry()),
         "VpnConnectionId" => String.t(),
         "VpnGatewayId" => String.t()
       }
@@ -10281,7 +10281,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       available_capacity() :: %{
-        "AvailableInstanceCapacity" => list(instance_capacity()()),
+        "AvailableInstanceCapacity" => list(instance_capacity()),
         "AvailableVCpus" => integer()
       }
       
@@ -10294,7 +10294,7 @@ defmodule AWS.EC2 do
       
       get_ipam_pool_cidrs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("IpamPoolId") => String.t()
@@ -10309,10 +10309,10 @@ defmodule AWS.EC2 do
       
       describe_spot_instance_requests_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SpotInstanceRequestIds") => list(String.t()())
+        optional("SpotInstanceRequestIds") => list(String.t())
       }
       
   """
@@ -10335,7 +10335,7 @@ defmodule AWS.EC2 do
       
       launch_template_tag_specification_request() :: %{
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -10388,7 +10388,7 @@ defmodule AWS.EC2 do
         "ReplaceRootVolumeTaskId" => String.t(),
         "SnapshotId" => String.t(),
         "StartTime" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskState" => list(any())
       }
       
@@ -10402,7 +10402,7 @@ defmodule AWS.EC2 do
       target_network() :: %{
         "AssociationId" => String.t(),
         "ClientVpnEndpointId" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "Status" => association_status(),
         "TargetNetworkId" => String.t(),
         "VpcId" => String.t()
@@ -10442,7 +10442,7 @@ defmodule AWS.EC2 do
       
       modify_verified_access_endpoint_eni_options() :: %{
         "Port" => integer(),
-        "PortRanges" => list(modify_verified_access_endpoint_port_range()()),
+        "PortRanges" => list(modify_verified_access_endpoint_port_range()),
         "Protocol" => list(any())
       }
       
@@ -10493,7 +10493,7 @@ defmodule AWS.EC2 do
       
       search_transit_gateway_multicast_groups_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayMulticastDomainId") => String.t()
@@ -10509,7 +10509,7 @@ defmodule AWS.EC2 do
       start_declarative_policies_report_request() :: %{
         optional("DryRun") => boolean(),
         optional("S3Prefix") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("S3Bucket") => String.t(),
         required("TargetId") => String.t()
       }
@@ -10548,7 +10548,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_trunk_interface_associations_result() :: %{
-        "InterfaceAssociations" => list(trunk_interface_association()()),
+        "InterfaceAssociations" => list(trunk_interface_association()),
         "NextToken" => String.t()
       }
       
@@ -10561,7 +10561,7 @@ defmodule AWS.EC2 do
       
       create_internet_gateway_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -10572,7 +10572,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_reserved_instances_result() :: %{
-        "ReservedInstances" => list(reserved_instances()())
+        "ReservedInstances" => list(reserved_instances())
       }
       
   """
@@ -10595,7 +10595,7 @@ defmodule AWS.EC2 do
       
       spot_fleet_launch_specification() :: %{
         "AddressingType" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => iam_instance_profile_specification(),
         "ImageId" => String.t(),
@@ -10604,13 +10604,13 @@ defmodule AWS.EC2 do
         "KernelId" => String.t(),
         "KeyName" => String.t(),
         "Monitoring" => spot_fleet_monitoring(),
-        "NetworkInterfaces" => list(instance_network_interface_specification()()),
+        "NetworkInterfaces" => list(instance_network_interface_specification()),
         "Placement" => spot_placement(),
         "RamdiskId" => String.t(),
-        "SecurityGroups" => list(group_identifier()()),
+        "SecurityGroups" => list(group_identifier()),
         "SpotPrice" => String.t(),
         "SubnetId" => String.t(),
-        "TagSpecifications" => list(spot_fleet_tag_specification()()),
+        "TagSpecifications" => list(spot_fleet_tag_specification()),
         "UserData" => String.t(),
         "WeightedCapacity" => float()
       }
@@ -10634,7 +10634,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_authorization_rules_result() :: %{
-        "AuthorizationRules" => list(authorization_rule()()),
+        "AuthorizationRules" => list(authorization_rule()),
         "NextToken" => String.t()
       }
       
@@ -10681,7 +10681,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fleet_instances_result() :: %{
-        "ActiveInstances" => list(active_instance()()),
+        "ActiveInstances" => list(active_instance()),
         "FleetId" => String.t(),
         "NextToken" => String.t()
       }
@@ -10725,8 +10725,8 @@ defmodule AWS.EC2 do
       
       describe_instance_connect_endpoints_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceConnectEndpointIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceConnectEndpointIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -10740,8 +10740,8 @@ defmodule AWS.EC2 do
       
       create_tags_request() :: %{
         optional("DryRun") => boolean(),
-        required("Resources") => list(String.t()()),
-        required("Tags") => list(tag()())
+        required("Resources") => list(String.t()),
+        required("Tags") => list(tag())
       }
       
   """
@@ -10771,7 +10771,7 @@ defmodule AWS.EC2 do
         "RequesterTgwInfo" => peering_tgw_info(),
         "State" => list(any()),
         "Status" => peering_attachment_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayAttachmentId" => String.t()
       }
       
@@ -10786,8 +10786,8 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("GroupId") => String.t(),
         optional("GroupName") => String.t(),
-        optional("IpPermissions") => list(ip_permission()()),
-        optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
+        optional("IpPermissions") => list(ip_permission()),
+        optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description())
       }
       
   """
@@ -10800,7 +10800,7 @@ defmodule AWS.EC2 do
       verified_access_endpoint_eni_options() :: %{
         "NetworkInterfaceId" => String.t(),
         "Port" => integer(),
-        "PortRanges" => list(verified_access_endpoint_port_range()()),
+        "PortRanges" => list(verified_access_endpoint_port_range()),
         "Protocol" => list(any())
       }
       
@@ -10896,8 +10896,8 @@ defmodule AWS.EC2 do
       describe_regions_request() :: %{
         optional("AllRegions") => boolean(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("RegionNames") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("RegionNames") => list(String.t())
       }
       
   """
@@ -10919,7 +10919,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       run_scheduled_instances_result() :: %{
-        "InstanceIdSet" => list(String.t()())
+        "InstanceIdSet" => list(String.t())
       }
       
   """
@@ -10931,7 +10931,7 @@ defmodule AWS.EC2 do
       
       request_spot_launch_specification() :: %{
         "AddressingType" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => iam_instance_profile_specification(),
         "ImageId" => String.t(),
@@ -10939,11 +10939,11 @@ defmodule AWS.EC2 do
         "KernelId" => String.t(),
         "KeyName" => String.t(),
         "Monitoring" => run_instances_monitoring_enabled(),
-        "NetworkInterfaces" => list(instance_network_interface_specification()()),
+        "NetworkInterfaces" => list(instance_network_interface_specification()),
         "Placement" => spot_placement(),
         "RamdiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SecurityGroups" => list(String.t()),
         "SubnetId" => String.t(),
         "UserData" => String.t()
       }
@@ -10957,10 +10957,10 @@ defmodule AWS.EC2 do
       
       describe_verified_access_endpoints_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedAccessEndpointIds") => list(String.t()()),
+        optional("VerifiedAccessEndpointIds") => list(String.t()),
         optional("VerifiedAccessGroupId") => String.t(),
         optional("VerifiedAccessInstanceId") => String.t()
       }
@@ -10987,10 +10987,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_policy_tables_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayPolicyTableIds") => list(String.t()())
+        optional("TransitGatewayPolicyTableIds") => list(String.t())
       }
       
   """
@@ -11024,18 +11024,18 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_attribute() :: %{
-        "BlockDeviceMappings" => list(instance_block_device_mapping()()),
+        "BlockDeviceMappings" => list(instance_block_device_mapping()),
         "DisableApiStop" => attribute_boolean_value(),
         "DisableApiTermination" => attribute_boolean_value(),
         "EbsOptimized" => attribute_boolean_value(),
         "EnaSupport" => attribute_boolean_value(),
         "EnclaveOptions" => enclave_options(),
-        "Groups" => list(group_identifier()()),
+        "Groups" => list(group_identifier()),
         "InstanceId" => String.t(),
         "InstanceInitiatedShutdownBehavior" => attribute_value(),
         "InstanceType" => attribute_value(),
         "KernelId" => attribute_value(),
-        "ProductCodes" => list(product_code()()),
+        "ProductCodes" => list(product_code()),
         "RamdiskId" => attribute_value(),
         "RootDeviceName" => attribute_value(),
         "SourceDestCheck" => attribute_boolean_value(),
@@ -11051,7 +11051,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_credit_specifications_result() :: %{
-        "InstanceCreditSpecifications" => list(instance_credit_specification()()),
+        "InstanceCreditSpecifications" => list(instance_credit_specification()),
         "NextToken" => String.t()
       }
       
@@ -11124,7 +11124,7 @@ defmodule AWS.EC2 do
       create_network_acl_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -11136,7 +11136,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_vpc_endpoint_connection_notifications_result() :: %{
-        "ConnectionNotificationSet" => list(connection_notification()()),
+        "ConnectionNotificationSet" => list(connection_notification()),
         "NextToken" => String.t()
       }
       
@@ -11148,7 +11148,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_pools_result() :: %{
-        "IpamPools" => list(ipam_pool()()),
+        "IpamPools" => list(ipam_pool()),
         "NextToken" => String.t()
       }
       
@@ -11227,7 +11227,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Protocol") => integer(),
         optional("SourcePortRange") => traffic_mirror_port_range_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("DestinationCidrBlock") => String.t(),
         required("RuleAction") => list(any()),
         required("RuleNumber") => integer(),
@@ -11245,9 +11245,9 @@ defmodule AWS.EC2 do
       
       describe_network_interfaces_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInterfaceIds") => list(String.t()()),
+        optional("NetworkInterfaceIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -11310,7 +11310,7 @@ defmodule AWS.EC2 do
         "AssociatePublicIpAddress" => boolean(),
         "Attachment" => network_interface_attachment(),
         "Description" => attribute_value(),
-        "Groups" => list(group_identifier()()),
+        "Groups" => list(group_identifier()),
         "NetworkInterfaceId" => String.t(),
         "SourceDestCheck" => attribute_boolean_value()
       }
@@ -11339,10 +11339,10 @@ defmodule AWS.EC2 do
       
       describe_reserved_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("OfferingClass") => list(any()),
         optional("OfferingType") => list(any()),
-        optional("ReservedInstancesIds") => list(String.t()())
+        optional("ReservedInstancesIds") => list(String.t())
       }
       
   """
@@ -11353,7 +11353,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_bundle_tasks_result() :: %{
-        "BundleTasks" => list(bundle_task()())
+        "BundleTasks" => list(bundle_task())
       }
       
   """
@@ -11444,7 +11444,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_vpn_connections_result() :: %{
-        "VpnConnections" => list(vpn_connection()())
+        "VpnConnections" => list(vpn_connection())
       }
       
   """
@@ -11456,7 +11456,7 @@ defmodule AWS.EC2 do
       
       terminate_client_vpn_connections_result() :: %{
         "ClientVpnEndpointId" => String.t(),
-        "ConnectionStatuses" => list(terminate_connection_status()()),
+        "ConnectionStatuses" => list(terminate_connection_status()),
         "Username" => String.t()
       }
       
@@ -11483,10 +11483,10 @@ defmodule AWS.EC2 do
       
       describe_replace_root_volume_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ReplaceRootVolumeTaskIds") => list(String.t()())
+        optional("ReplaceRootVolumeTaskIds") => list(String.t())
       }
       
   """
@@ -11522,7 +11522,7 @@ defmodule AWS.EC2 do
       
       vpc_classic_link() :: %{
         "ClassicLinkEnabled" => boolean(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -11547,7 +11547,7 @@ defmodule AWS.EC2 do
       
       describe_public_ipv4_pools_result() :: %{
         "NextToken" => String.t(),
-        "PublicIpv4Pools" => list(public_ipv4_pool()())
+        "PublicIpv4Pools" => list(public_ipv4_pool())
       }
       
   """
@@ -11588,7 +11588,7 @@ defmodule AWS.EC2 do
       
       delete_queued_reserved_instances_request() :: %{
         optional("DryRun") => boolean(),
-        required("ReservedInstancesIds") => list(String.t()())
+        required("ReservedInstancesIds") => list(String.t())
       }
       
   """
@@ -11666,7 +11666,7 @@ defmodule AWS.EC2 do
       create_ipam_external_resource_verification_token_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("IpamId") => String.t()
       }
       
@@ -11691,7 +11691,7 @@ defmodule AWS.EC2 do
       modify_spot_fleet_request_request() :: %{
         optional("Context") => String.t(),
         optional("ExcessCapacityTerminationPolicy") => list(any()),
-        optional("LaunchTemplateConfigs") => list(launch_template_config()()),
+        optional("LaunchTemplateConfigs") => list(launch_template_config()),
         optional("OnDemandTargetCapacity") => integer(),
         optional("TargetCapacity") => integer(),
         required("SpotFleetRequestId") => String.t()
@@ -11742,7 +11742,7 @@ defmodule AWS.EC2 do
         optional("OutpostArn") => String.t(),
         optional("PlacementGroupArn") => String.t(),
         optional("StartDate") => non_neg_integer(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Tenancy") => list(any()),
         required("InstanceCount") => integer(),
         required("InstancePlatform") => list(any()),
@@ -11757,7 +11757,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_insights_analyses_result() :: %{
-        "NetworkInsightsAnalyses" => list(network_insights_analysis()()),
+        "NetworkInsightsAnalyses" => list(network_insights_analysis()),
         "NextToken" => String.t()
       }
       
@@ -11789,10 +11789,10 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_sessions_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TrafficMirrorSessionIds") => list(String.t()())
+        optional("TrafficMirrorSessionIds") => list(String.t())
       }
       
   """
@@ -11856,7 +11856,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fleets_instances() :: %{
-        "InstanceIds" => list(String.t()()),
+        "InstanceIds" => list(String.t()),
         "InstanceType" => list(any()),
         "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
         "Lifecycle" => list(any()),
@@ -11872,7 +11872,7 @@ defmodule AWS.EC2 do
       
       accept_address_transfer_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Address") => String.t()
       }
       
@@ -11907,9 +11907,9 @@ defmodule AWS.EC2 do
       
       describe_security_groups_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("GroupIds") => list(String.t()()),
-        optional("GroupNames") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("GroupIds") => list(String.t()),
+        optional("GroupNames") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -12013,9 +12013,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservations_request() :: %{
-        optional("CapacityReservationIds") => list(String.t()()),
+        optional("CapacityReservationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -12044,7 +12044,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides() :: %{
         "AvailabilityZone" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping_response()()),
+        "BlockDeviceMappings" => list(block_device_mapping_response()),
         "ImageId" => String.t(),
         "InstanceRequirements" => instance_requirements(),
         "InstanceType" => list(any()),
@@ -12063,7 +12063,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_spot_fleet_request_history_response() :: %{
-        "HistoryRecords" => list(history_record()()),
+        "HistoryRecords" => list(history_record()),
         "LastEvaluatedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "SpotFleetRequestId" => String.t(),
@@ -12079,7 +12079,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_route_table_announcements_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayRouteTableAnnouncements" => list(transit_gateway_route_table_announcement()())
+        "TransitGatewayRouteTableAnnouncements" => list(transit_gateway_route_table_announcement())
       }
       
   """
@@ -12103,7 +12103,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_export_tasks_result() :: %{
-        "ExportTasks" => list(export_task()())
+        "ExportTasks" => list(export_task())
       }
       
   """
@@ -12139,7 +12139,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_classic_link_dns_support_result() :: %{
         "NextToken" => String.t(),
-        "Vpcs" => list(classic_link_dns_support()())
+        "Vpcs" => list(classic_link_dns_support())
       }
       
   """
@@ -12173,7 +12173,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_dhcp_options_result() :: %{
-        "DhcpOptions" => list(dhcp_options()()),
+        "DhcpOptions" => list(dhcp_options()),
         "NextToken" => String.t()
       }
       
@@ -12190,7 +12190,7 @@ defmodule AWS.EC2 do
         optional("PartitionCount") => integer(),
         optional("SpreadLevel") => list(any()),
         optional("Strategy") => list(any()),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -12201,7 +12201,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_transit_gateway_options() :: %{
-        "AddTransitGatewayCidrBlocks" => list(String.t()()),
+        "AddTransitGatewayCidrBlocks" => list(String.t()),
         "AmazonSideAsn" => float(),
         "AssociationDefaultRouteTableId" => String.t(),
         "AutoAcceptSharedAttachments" => list(any()),
@@ -12209,7 +12209,7 @@ defmodule AWS.EC2 do
         "DefaultRouteTablePropagation" => list(any()),
         "DnsSupport" => list(any()),
         "PropagationDefaultRouteTableId" => String.t(),
-        "RemoveTransitGatewayCidrBlocks" => list(String.t()()),
+        "RemoveTransitGatewayCidrBlocks" => list(String.t()),
         "SecurityGroupReferencingSupport" => list(any()),
         "VpnEcmpSupport" => list(any())
       }
@@ -12234,7 +12234,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       nitro_tpm_info() :: %{
-        "SupportedVersions" => list(String.t()())
+        "SupportedVersions" => list(String.t())
       }
       
   """
@@ -12261,10 +12261,10 @@ defmodule AWS.EC2 do
         optional("ConnectivityType") => list(any()),
         optional("DryRun") => boolean(),
         optional("PrivateIpAddress") => String.t(),
-        optional("SecondaryAllocationIds") => list(String.t()()),
+        optional("SecondaryAllocationIds") => list(String.t()),
         optional("SecondaryPrivateIpAddressCount") => integer(),
-        optional("SecondaryPrivateIpAddresses") => list(String.t()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("SecondaryPrivateIpAddresses") => list(String.t()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("SubnetId") => String.t()
       }
       
@@ -12302,8 +12302,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_export_tasks_request() :: %{
-        optional("ExportTaskIds") => list(String.t()()),
-        optional("Filters") => list(filter()())
+        optional("ExportTaskIds") => list(String.t()),
+        optional("Filters") => list(filter())
       }
       
   """
@@ -12339,7 +12339,7 @@ defmodule AWS.EC2 do
       access_scope_path() :: %{
         "Destination" => path_statement(),
         "Source" => path_statement(),
-        "ThroughResources" => list(through_resources_statement()())
+        "ThroughResources" => list(through_resources_statement())
       }
       
   """
@@ -12385,11 +12385,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       allocate_ipam_pool_cidr_request() :: %{
-        optional("AllowedCidrs") => list(String.t()()),
+        optional("AllowedCidrs") => list(String.t()),
         optional("Cidr") => String.t(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("DisallowedCidrs") => list(String.t()()),
+        optional("DisallowedCidrs") => list(String.t()),
         optional("DryRun") => boolean(),
         optional("NetmaskLength") => integer(),
         optional("PreviewNextCidr") => boolean(),
@@ -12405,10 +12405,10 @@ defmodule AWS.EC2 do
       
       describe_locked_snapshots_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SnapshotIds") => list(String.t()())
+        optional("SnapshotIds") => list(String.t())
       }
       
   """
@@ -12419,7 +12419,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_mac_hosts_result() :: %{
-        "MacHosts" => list(mac_host()()),
+        "MacHosts" => list(mac_host()),
         "NextToken" => String.t()
       }
       
@@ -12431,7 +12431,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_reserved_instances_listing_result() :: %{
-        "ReservedInstancesListings" => list(reserved_instances_listing()())
+        "ReservedInstancesListings" => list(reserved_instances_listing())
       }
       
   """
@@ -12443,9 +12443,9 @@ defmodule AWS.EC2 do
       
       describe_launch_templates_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LaunchTemplateIds") => list(String.t()()),
-        optional("LaunchTemplateNames") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LaunchTemplateIds") => list(String.t()),
+        optional("LaunchTemplateNames") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -12492,7 +12492,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_route_server_propagations_result() :: %{
-        "RouteServerPropagations" => list(route_server_propagation()())
+        "RouteServerPropagations" => list(route_server_propagation())
       }
       
   """
@@ -12504,7 +12504,7 @@ defmodule AWS.EC2 do
       
       associate_transit_gateway_multicast_domain_request() :: %{
         optional("DryRun") => boolean(),
-        required("SubnetIds") => list(String.t()()),
+        required("SubnetIds") => list(String.t()),
         required("TransitGatewayAttachmentId") => String.t(),
         required("TransitGatewayMulticastDomainId") => String.t()
       }
@@ -12567,8 +12567,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       unassign_ipv6_addresses_request() :: %{
-        optional("Ipv6Addresses") => list(String.t()()),
-        optional("Ipv6Prefixes") => list(String.t()()),
+        optional("Ipv6Addresses") => list(String.t()),
+        optional("Ipv6Prefixes") => list(String.t()),
         required("NetworkInterfaceId") => String.t()
       }
       
@@ -12581,10 +12581,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_connect_peers_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayConnectPeerIds") => list(String.t()())
+        optional("TransitGatewayConnectPeerIds") => list(String.t())
       }
       
   """
@@ -12595,7 +12595,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_host_reservation_offerings_request() :: %{
-        optional("Filter") => list(filter()()),
+        optional("Filter") => list(filter()),
         optional("MaxDuration") => integer(),
         optional("MaxResults") => integer(),
         optional("MinDuration") => integer(),
@@ -12612,7 +12612,7 @@ defmodule AWS.EC2 do
       
       get_ipam_discovered_public_addresses_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AddressRegion") => String.t(),
@@ -12627,7 +12627,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       unassign_private_nat_gateway_address_result() :: %{
-        "NatGatewayAddresses" => list(nat_gateway_address()()),
+        "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t()
       }
       
@@ -12680,7 +12680,7 @@ defmodule AWS.EC2 do
         optional("IpamPoolId") => String.t(),
         optional("NetworkBorderGroup") => String.t(),
         optional("PublicIpv4Pool") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -12704,12 +12704,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_image_request() :: %{
-        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("NoReboot") => boolean(),
         optional("SnapshotLocation") => list(any()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InstanceId") => String.t(),
         required("Name") => String.t()
       }
@@ -12748,10 +12748,10 @@ defmodule AWS.EC2 do
       
       describe_volumes_modifications_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VolumeIds") => list(String.t()())
+        optional("VolumeIds") => list(String.t())
       }
       
   """
@@ -12784,7 +12784,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_extension_offerings_result() :: %{
-        "CapacityBlockExtensionOfferings" => list(capacity_block_extension_offering()()),
+        "CapacityBlockExtensionOfferings" => list(capacity_block_extension_offering()),
         "NextToken" => String.t()
       }
       
@@ -12797,10 +12797,10 @@ defmodule AWS.EC2 do
       
       describe_security_group_rules_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SecurityGroupRuleIds") => list(String.t()())
+        optional("SecurityGroupRuleIds") => list(String.t())
       }
       
   """
@@ -12812,9 +12812,9 @@ defmodule AWS.EC2 do
       
       verified_access_endpoint_cidr_options() :: %{
         "Cidr" => String.t(),
-        "PortRanges" => list(verified_access_endpoint_port_range()()),
+        "PortRanges" => list(verified_access_endpoint_port_range()),
         "Protocol" => list(any()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -12836,7 +12836,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       ipam_public_address_tags() :: %{
-        "EipTags" => list(ipam_public_address_tag()())
+        "EipTags" => list(ipam_public_address_tag())
       }
       
   """
@@ -12848,7 +12848,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_config() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification(),
-        "Overrides" => list(fleet_launch_template_overrides()())
+        "Overrides" => list(fleet_launch_template_overrides())
       }
       
   """
@@ -12897,7 +12897,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       allocate_hosts_request() :: %{
-        optional("AssetIds") => list(String.t()()),
+        optional("AssetIds") => list(String.t()),
         optional("AutoPlacement") => list(any()),
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneId") => String.t(),
@@ -12908,7 +12908,7 @@ defmodule AWS.EC2 do
         optional("InstanceType") => String.t(),
         optional("OutpostArn") => String.t(),
         optional("Quantity") => integer(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -12940,7 +12940,7 @@ defmodule AWS.EC2 do
         "OidcOptions" => oidc_options(),
         "PolicyReferenceName" => String.t(),
         "SseSpecification" => verified_access_sse_specification_response(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrustProviderType" => list(any()),
         "UserTrustProviderType" => list(any()),
         "VerifiedAccessTrustProviderId" => String.t()
@@ -12967,8 +12967,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -12982,8 +12982,8 @@ defmodule AWS.EC2 do
       
       describe_ipam_pools_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamPoolIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamPoolIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -13046,7 +13046,7 @@ defmodule AWS.EC2 do
         "SnapshotId" => String.t(),
         "Status" => list(any()),
         "StorageTier" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeId" => String.t()
       }
       
@@ -13058,10 +13058,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       dhcp_options() :: %{
-        "DhcpConfigurations" => list(dhcp_configuration()()),
+        "DhcpConfigurations" => list(dhcp_configuration()),
         "DhcpOptionsId" => String.t(),
         "OwnerId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -13073,7 +13073,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_policy_tables_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayPolicyTables" => list(transit_gateway_policy_table()())
+        "TransitGatewayPolicyTables" => list(transit_gateway_policy_table())
       }
       
   """
@@ -13154,7 +13154,7 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_targets_result() :: %{
         "NextToken" => String.t(),
-        "TrafficMirrorTargets" => list(traffic_mirror_target()())
+        "TrafficMirrorTargets" => list(traffic_mirror_target())
       }
       
   """
@@ -13218,7 +13218,7 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "ImportTaskId" => String.t(),
         "SnapshotTaskDetail" => snapshot_task_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -13268,7 +13268,7 @@ defmodule AWS.EC2 do
       
       delete_vpc_endpoint_connection_notifications_request() :: %{
         optional("DryRun") => boolean(),
-        required("ConnectionNotificationIds") => list(String.t()())
+        required("ConnectionNotificationIds") => list(String.t())
       }
       
   """
@@ -13447,7 +13447,7 @@ defmodule AWS.EC2 do
         "ResourceConfigurationGroupArn" => String.t(),
         "ServiceNetworkArn" => String.t(),
         "ServiceNetworkName" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcEndpointId" => String.t()
       }
       
@@ -13541,8 +13541,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       resource_statement_request() :: %{
-        "ResourceTypes" => list(String.t()()),
-        "Resources" => list(String.t()())
+        "ResourceTypes" => list(String.t()),
+        "Resources" => list(String.t())
       }
       
   """
@@ -13660,7 +13660,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_resource_discovery_associations_result() :: %{
-        "IpamResourceDiscoveryAssociations" => list(ipam_resource_discovery_association()()),
+        "IpamResourceDiscoveryAssociations" => list(ipam_resource_discovery_association()),
         "NextToken" => String.t()
       }
       
@@ -13768,9 +13768,9 @@ defmodule AWS.EC2 do
       coip_pool() :: %{
         "LocalGatewayRouteTableId" => String.t(),
         "PoolArn" => String.t(),
-        "PoolCidrs" => list(String.t()()),
+        "PoolCidrs" => list(String.t()),
         "PoolId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -13805,8 +13805,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_fleets_result() :: %{
-        "SuccessfulFleetDeletions" => list(delete_fleet_success_item()()),
-        "UnsuccessfulFleetDeletions" => list(delete_fleet_error_item()())
+        "SuccessfulFleetDeletions" => list(delete_fleet_success_item()),
+        "UnsuccessfulFleetDeletions" => list(delete_fleet_error_item())
       }
       
   """
@@ -13891,7 +13891,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_vpc_classic_link_result() :: %{
-        "Vpcs" => list(vpc_classic_link()())
+        "Vpcs" => list(vpc_classic_link())
       }
       
   """
@@ -13987,8 +13987,8 @@ defmodule AWS.EC2 do
         optional("CronExpression") => String.t(),
         optional("DryRun") => boolean(),
         optional("Name") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
-        optional("TimeRanges") => list(instance_event_window_time_range_request()())
+        optional("TagSpecifications") => list(tag_specification()),
+        optional("TimeRanges") => list(instance_event_window_time_range_request())
       }
       
   """
@@ -14026,10 +14026,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayIds") => list(String.t()())
+        optional("TransitGatewayIds") => list(String.t())
       }
       
   """
@@ -14087,17 +14087,17 @@ defmodule AWS.EC2 do
       
       modify_vpc_endpoint_service_configuration_request() :: %{
         optional("AcceptanceRequired") => boolean(),
-        optional("AddGatewayLoadBalancerArns") => list(String.t()()),
-        optional("AddNetworkLoadBalancerArns") => list(String.t()()),
-        optional("AddSupportedIpAddressTypes") => list(String.t()()),
-        optional("AddSupportedRegions") => list(String.t()()),
+        optional("AddGatewayLoadBalancerArns") => list(String.t()),
+        optional("AddNetworkLoadBalancerArns") => list(String.t()),
+        optional("AddSupportedIpAddressTypes") => list(String.t()),
+        optional("AddSupportedRegions") => list(String.t()),
         optional("DryRun") => boolean(),
         optional("PrivateDnsName") => String.t(),
-        optional("RemoveGatewayLoadBalancerArns") => list(String.t()()),
-        optional("RemoveNetworkLoadBalancerArns") => list(String.t()()),
+        optional("RemoveGatewayLoadBalancerArns") => list(String.t()),
+        optional("RemoveNetworkLoadBalancerArns") => list(String.t()),
         optional("RemovePrivateDnsName") => boolean(),
-        optional("RemoveSupportedIpAddressTypes") => list(String.t()()),
-        optional("RemoveSupportedRegions") => list(String.t()()),
+        optional("RemoveSupportedIpAddressTypes") => list(String.t()),
+        optional("RemoveSupportedRegions") => list(String.t()),
         required("ServiceId") => String.t()
       }
       
@@ -14158,12 +14158,12 @@ defmodule AWS.EC2 do
         "OfferingClass" => list(any()),
         "OfferingType" => list(any()),
         "ProductDescription" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedInstancesId" => String.t(),
         "Scope" => list(any()),
         "Start" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UsagePrice" => float()
       }
       
@@ -14177,7 +14177,7 @@ defmodule AWS.EC2 do
       associate_ipam_resource_discovery_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("IpamId") => String.t(),
         required("IpamResourceDiscoveryId") => String.t()
       }
@@ -14249,7 +14249,7 @@ defmodule AWS.EC2 do
       
       mac_host() :: %{
         "HostId" => String.t(),
-        "MacOSLatestSupportedVersions" => list(String.t()())
+        "MacOSLatestSupportedVersions" => list(String.t())
       }
       
   """
@@ -14261,7 +14261,7 @@ defmodule AWS.EC2 do
       
       describe_volumes_modifications_result() :: %{
         "NextToken" => String.t(),
-        "VolumesModifications" => list(volume_modification()())
+        "VolumesModifications" => list(volume_modification())
       }
       
   """
@@ -14288,7 +14288,7 @@ defmodule AWS.EC2 do
       create_restore_image_task_request() :: %{
         optional("DryRun") => boolean(),
         optional("Name") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Bucket") => String.t(),
         required("ObjectKey") => String.t()
       }
@@ -14329,11 +14329,11 @@ defmodule AWS.EC2 do
       ip_permission() :: %{
         "FromPort" => integer(),
         "IpProtocol" => String.t(),
-        "IpRanges" => list(ip_range()()),
-        "Ipv6Ranges" => list(ipv6_range()()),
-        "PrefixListIds" => list(prefix_list_id()()),
+        "IpRanges" => list(ip_range()),
+        "Ipv6Ranges" => list(ipv6_range()),
+        "PrefixListIds" => list(prefix_list_id()),
         "ToPort" => integer(),
-        "UserIdGroupPairs" => list(user_id_group_pair()())
+        "UserIdGroupPairs" => list(user_id_group_pair())
       }
       
   """
@@ -14344,7 +14344,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_classic_link_instances_result() :: %{
-        "Instances" => list(classic_link_instance()()),
+        "Instances" => list(classic_link_instance()),
         "NextToken" => String.t()
       }
       
@@ -14376,9 +14376,9 @@ defmodule AWS.EC2 do
       
       describe_network_insights_access_scopes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInsightsAccessScopeIds") => list(String.t()()),
+        optional("NetworkInsightsAccessScopeIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -14404,8 +14404,8 @@ defmodule AWS.EC2 do
       
       describe_ipam_resource_discoveries_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamResourceDiscoveryIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamResourceDiscoveryIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -14490,7 +14490,7 @@ defmodule AWS.EC2 do
       create_egress_only_internet_gateway_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -14503,7 +14503,7 @@ defmodule AWS.EC2 do
       
       accept_transit_gateway_multicast_domain_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         optional("TransitGatewayAttachmentId") => String.t(),
         optional("TransitGatewayMulticastDomainId") => String.t()
       }
@@ -14517,7 +14517,7 @@ defmodule AWS.EC2 do
       
       describe_spot_fleet_requests_response() :: %{
         "NextToken" => String.t(),
-        "SpotFleetRequestConfigs" => list(spot_fleet_request_config()())
+        "SpotFleetRequestConfigs" => list(spot_fleet_request_config())
       }
       
   """
@@ -14553,7 +14553,7 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_sessions_result() :: %{
         "NextToken" => String.t(),
-        "TrafficMirrorSessions" => list(traffic_mirror_session()())
+        "TrafficMirrorSessions" => list(traffic_mirror_session())
       }
       
   """
@@ -14564,7 +14564,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       media_accelerator_info() :: %{
-        "Accelerators" => list(media_device_info()()),
+        "Accelerators" => list(media_device_info()),
         "TotalMediaMemoryInMiB" => integer()
       }
       
@@ -14663,9 +14663,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       egress_only_internet_gateway() :: %{
-        "Attachments" => list(internet_gateway_attachment()()),
+        "Attachments" => list(internet_gateway_attachment()),
         "EgressOnlyInternetGatewayId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -14676,7 +14676,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_host_reservations_result() :: %{
-        "HostReservationSet" => list(host_reservation()()),
+        "HostReservationSet" => list(host_reservation()),
         "NextToken" => String.t()
       }
       
@@ -14702,7 +14702,7 @@ defmodule AWS.EC2 do
       
       rule_group_rule_options_pair() :: %{
         "RuleGroupArn" => String.t(),
-        "RuleOptions" => list(rule_option()())
+        "RuleOptions" => list(rule_option())
       }
       
   """
@@ -14714,8 +14714,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateway_virtual_interface_groups_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayVirtualInterfaceGroupIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayVirtualInterfaceGroupIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -14750,7 +14750,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_addresses_attribute_result() :: %{
-        "Addresses" => list(address_attribute()()),
+        "Addresses" => list(address_attribute()),
         "NextToken" => String.t()
       }
       
@@ -14813,7 +14813,7 @@ defmodule AWS.EC2 do
       
       export_transit_gateway_routes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         required("S3Bucket") => String.t(),
         required("TransitGatewayRouteTableId") => String.t()
       }
@@ -14826,8 +14826,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       resource_statement() :: %{
-        "ResourceTypes" => list(String.t()()),
-        "Resources" => list(String.t()())
+        "ResourceTypes" => list(String.t()),
+        "Resources" => list(String.t())
       }
       
   """
@@ -14839,8 +14839,8 @@ defmodule AWS.EC2 do
       
       describe_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -14889,13 +14889,13 @@ defmodule AWS.EC2 do
   ## Example:
       
       packet_header_statement() :: %{
-        "DestinationAddresses" => list(String.t()()),
-        "DestinationPorts" => list(String.t()()),
-        "DestinationPrefixLists" => list(String.t()()),
+        "DestinationAddresses" => list(String.t()),
+        "DestinationPorts" => list(String.t()),
+        "DestinationPrefixLists" => list(String.t()),
         "Protocols" => list(list(any())()),
-        "SourceAddresses" => list(String.t()()),
-        "SourcePorts" => list(String.t()()),
-        "SourcePrefixLists" => list(String.t()())
+        "SourceAddresses" => list(String.t()),
+        "SourcePorts" => list(String.t()),
+        "SourcePrefixLists" => list(String.t())
       }
       
   """
@@ -14934,7 +14934,7 @@ defmodule AWS.EC2 do
         "OutpostArn" => String.t(),
         "OwnerId" => String.t(),
         "State" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -14945,7 +14945,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_vpn_gateways_result() :: %{
-        "VpnGateways" => list(vpn_gateway()())
+        "VpnGateways" => list(vpn_gateway())
       }
       
   """
@@ -14971,7 +14971,7 @@ defmodule AWS.EC2 do
         "CreatedDate" => non_neg_integer(),
         "NetworkInsightsAccessScopeArn" => String.t(),
         "NetworkInsightsAccessScopeId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpdatedDate" => non_neg_integer()
       }
       
@@ -15007,7 +15007,7 @@ defmodule AWS.EC2 do
       
       describe_client_vpn_routes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ClientVpnEndpointId") => String.t()
@@ -15092,7 +15092,7 @@ defmodule AWS.EC2 do
       
       create_transit_gateway_route_table_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("TransitGatewayId") => String.t()
       }
       
@@ -15145,7 +15145,7 @@ defmodule AWS.EC2 do
         "Source" => String.t(),
         "SourceArn" => String.t(),
         "SourceIp" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -15170,7 +15170,7 @@ defmodule AWS.EC2 do
         "DestinationCidrBlock" => String.t(),
         "PrefixListId" => String.t(),
         "State" => list(any()),
-        "TransitGatewayAttachments" => list(transit_gateway_route_attachment()()),
+        "TransitGatewayAttachments" => list(transit_gateway_route_attachment()),
         "TransitGatewayRouteTableAnnouncementId" => String.t(),
         "Type" => list(any())
       }
@@ -15196,7 +15196,7 @@ defmodule AWS.EC2 do
       
       describe_verified_access_endpoints_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedAccessEndpoints" => list(verified_access_endpoint()())
+        "VerifiedAccessEndpoints" => list(verified_access_endpoint())
       }
       
   """
@@ -15207,7 +15207,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_addresses_result() :: %{
-        "Addresses" => list(address()())
+        "Addresses" => list(address())
       }
       
   """
@@ -15262,10 +15262,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_multicast_domains_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayMulticastDomainIds") => list(String.t()())
+        optional("TransitGatewayMulticastDomainIds") => list(String.t())
       }
       
   """
@@ -15394,8 +15394,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       reservation() :: %{
-        "Groups" => list(group_identifier()()),
-        "Instances" => list(instance()()),
+        "Groups" => list(group_identifier()),
+        "Instances" => list(instance()),
         "OwnerId" => String.t(),
         "RequesterId" => String.t(),
         "ReservationId" => String.t()
@@ -15410,27 +15410,27 @@ defmodule AWS.EC2 do
       
       vpc_endpoint() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DnsEntries" => list(dns_entry()()),
+        "DnsEntries" => list(dns_entry()),
         "DnsOptions" => dns_options(),
         "FailureReason" => String.t(),
-        "Groups" => list(security_group_identifier()()),
+        "Groups" => list(security_group_identifier()),
         "IpAddressType" => list(any()),
-        "Ipv4Prefixes" => list(subnet_ip_prefixes()()),
-        "Ipv6Prefixes" => list(subnet_ip_prefixes()()),
+        "Ipv4Prefixes" => list(subnet_ip_prefixes()),
+        "Ipv6Prefixes" => list(subnet_ip_prefixes()),
         "LastError" => last_error(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceIds" => list(String.t()),
         "OwnerId" => String.t(),
         "PolicyDocument" => String.t(),
         "PrivateDnsEnabled" => boolean(),
         "RequesterManaged" => boolean(),
         "ResourceConfigurationArn" => String.t(),
-        "RouteTableIds" => list(String.t()()),
+        "RouteTableIds" => list(String.t()),
         "ServiceName" => String.t(),
         "ServiceNetworkArn" => String.t(),
         "ServiceRegion" => String.t(),
         "State" => list(any()),
-        "SubnetIds" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SubnetIds" => list(String.t()),
+        "Tags" => list(tag()),
         "VpcEndpointId" => String.t(),
         "VpcEndpointType" => list(any()),
         "VpcId" => String.t()
@@ -15487,38 +15487,38 @@ defmodule AWS.EC2 do
   ## Example:
       
       response_launch_template_data() :: %{
-        "LicenseSpecifications" => list(launch_template_license_configuration()()),
-        "ElasticGpuSpecifications" => list(elastic_gpu_specification_response()()),
+        "LicenseSpecifications" => list(launch_template_license_configuration()),
+        "ElasticGpuSpecifications" => list(elastic_gpu_specification_response()),
         "InstanceInitiatedShutdownBehavior" => list(any()),
         "DisableApiStop" => boolean(),
         "RamDiskId" => String.t(),
         "ImageId" => String.t(),
-        "BlockDeviceMappings" => list(launch_template_block_device_mapping()()),
-        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()()),
+        "BlockDeviceMappings" => list(launch_template_block_device_mapping()),
+        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification()),
         "Monitoring" => launch_templates_monitoring(),
         "NetworkPerformanceOptions" => launch_template_network_performance_options(),
         "PrivateDnsNameOptions" => launch_template_private_dns_name_options(),
         "InstanceRequirements" => instance_requirements(),
         "CreditSpecification" => credit_specification(),
         "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_response(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "InstanceType" => list(any()),
         "KernelId" => String.t(),
         "Placement" => launch_template_placement(),
-        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator_response()()),
+        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator_response()),
         "DisableApiTermination" => boolean(),
         "EnclaveOptions" => launch_template_enclave_options(),
         "CpuOptions" => launch_template_cpu_options(),
         "IamInstanceProfile" => launch_template_iam_instance_profile_specification(),
         "HibernationOptions" => launch_template_hibernation_options(),
         "InstanceMarketOptions" => launch_template_instance_market_options(),
-        "TagSpecifications" => list(launch_template_tag_specification()()),
+        "TagSpecifications" => list(launch_template_tag_specification()),
         "MetadataOptions" => launch_template_instance_metadata_options(),
         "UserData" => String.t(),
         "EbsOptimized" => boolean(),
         "KeyName" => String.t(),
         "Operator" => operator_response(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "MaintenanceOptions" => launch_template_instance_maintenance_options()
       }
       
@@ -15531,7 +15531,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_service_configurations_result() :: %{
         "NextToken" => String.t(),
-        "ServiceConfigurations" => list(service_configuration()())
+        "ServiceConfigurations" => list(service_configuration())
       }
       
   """
@@ -15571,7 +15571,7 @@ defmodule AWS.EC2 do
       reject_vpc_endpoint_connections_request() :: %{
         optional("DryRun") => boolean(),
         required("ServiceId") => String.t(),
-        required("VpcEndpointIds") => list(String.t()())
+        required("VpcEndpointIds") => list(String.t())
       }
       
   """
@@ -15611,7 +15611,7 @@ defmodule AWS.EC2 do
         "LogGroupName" => String.t(),
         "MaxAggregationInterval" => integer(),
         "ResourceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrafficType" => list(any())
       }
       
@@ -15624,10 +15624,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_vpc_attachments_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayAttachmentIds") => list(String.t()())
+        optional("TransitGatewayAttachmentIds") => list(String.t())
       }
       
   """
@@ -15639,7 +15639,7 @@ defmodule AWS.EC2 do
       
       describe_verified_access_instances_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedAccessInstances" => list(verified_access_instance()())
+        "VerifiedAccessInstances" => list(verified_access_instance())
       }
       
   """
@@ -15665,7 +15665,7 @@ defmodule AWS.EC2 do
       
       describe_snapshots_result() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -15676,9 +15676,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_event_window_association_target() :: %{
-        "DedicatedHostIds" => list(String.t()()),
-        "InstanceIds" => list(String.t()()),
-        "Tags" => list(tag()())
+        "DedicatedHostIds" => list(String.t()),
+        "InstanceIds" => list(String.t()),
+        "Tags" => list(tag())
       }
       
   """
@@ -15691,8 +15691,8 @@ defmodule AWS.EC2 do
       import_instance_launch_specification() :: %{
         "AdditionalInfo" => String.t(),
         "Architecture" => list(any()),
-        "GroupIds" => list(String.t()()),
-        "GroupNames" => list(String.t()()),
+        "GroupIds" => list(String.t()),
+        "GroupNames" => list(String.t()),
         "InstanceInitiatedShutdownBehavior" => list(any()),
         "InstanceType" => list(any()),
         "Monitoring" => boolean(),
@@ -15729,7 +15729,7 @@ defmodule AWS.EC2 do
         "Reason" => String.t(),
         "ResourceArn" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -15741,7 +15741,7 @@ defmodule AWS.EC2 do
       
       launch_template_config() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification(),
-        "Overrides" => list(launch_template_overrides()())
+        "Overrides" => list(launch_template_overrides())
       }
       
   """
@@ -15784,9 +15784,9 @@ defmodule AWS.EC2 do
         "Marketplace" => boolean(),
         "OfferingClass" => list(any()),
         "OfferingType" => list(any()),
-        "PricingDetails" => list(pricing_detail()()),
+        "PricingDetails" => list(pricing_detail()),
         "ProductDescription" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedInstancesOfferingId" => String.t(),
         "Scope" => list(any()),
         "UsagePrice" => float()
@@ -15813,7 +15813,7 @@ defmodule AWS.EC2 do
       create_local_gateway_route_table_request() :: %{
         optional("DryRun") => boolean(),
         optional("Mode") => list(any()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalGatewayId") => String.t()
       }
       
@@ -15840,11 +15840,11 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "GroupId" => String.t(),
         "GroupName" => String.t(),
-        "IpPermissions" => list(ip_permission()()),
-        "IpPermissionsEgress" => list(ip_permission()()),
+        "IpPermissions" => list(ip_permission()),
+        "IpPermissionsEgress" => list(ip_permission()),
         "OwnerId" => String.t(),
         "SecurityGroupArn" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -15867,7 +15867,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       scheduled_instances_launch_specification() :: %{
-        "BlockDeviceMappings" => list(scheduled_instances_block_device_mapping()()),
+        "BlockDeviceMappings" => list(scheduled_instances_block_device_mapping()),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => scheduled_instances_iam_instance_profile(),
         "ImageId" => String.t(),
@@ -15875,10 +15875,10 @@ defmodule AWS.EC2 do
         "KernelId" => String.t(),
         "KeyName" => String.t(),
         "Monitoring" => scheduled_instances_monitoring(),
-        "NetworkInterfaces" => list(scheduled_instances_network_interface()()),
+        "NetworkInterfaces" => list(scheduled_instances_network_interface()),
         "Placement" => scheduled_instances_placement(),
         "RamdiskId" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "SubnetId" => String.t(),
         "UserData" => String.t()
       }
@@ -15917,7 +15917,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_internet_gateways_result() :: %{
-        "InternetGateways" => list(internet_gateway()()),
+        "InternetGateways" => list(internet_gateway()),
         "NextToken" => String.t()
       }
       
@@ -16028,7 +16028,7 @@ defmodule AWS.EC2 do
         "PeerAddress" => String.t(),
         "PeerBgpAsn" => integer(),
         "PeerBgpAsnExtended" => float(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Vlan" => integer()
       }
       
@@ -16040,7 +16040,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_byoip_cidrs_result() :: %{
-        "ByoipCidrs" => list(byoip_cidr()()),
+        "ByoipCidrs" => list(byoip_cidr()),
         "NextToken" => String.t()
       }
       
@@ -16063,7 +16063,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_status_summary() :: %{
-        "Details" => list(instance_status_details()()),
+        "Details" => list(instance_status_details()),
         "Status" => list(any())
       }
       
@@ -16097,7 +16097,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fast_snapshot_restores_result() :: %{
-        "FastSnapshotRestores" => list(describe_fast_snapshot_restore_success_item()()),
+        "FastSnapshotRestores" => list(describe_fast_snapshot_restore_success_item()),
         "NextToken" => String.t()
       }
       
@@ -16180,7 +16180,7 @@ defmodule AWS.EC2 do
       
       list_snapshots_in_recycle_bin_result() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(snapshot_recycle_bin_info()())
+        "Snapshots" => list(snapshot_recycle_bin_info())
       }
       
   """
@@ -16192,7 +16192,7 @@ defmodule AWS.EC2 do
       
       describe_volume_status_result() :: %{
         "NextToken" => String.t(),
-        "VolumeStatuses" => list(volume_status_item()())
+        "VolumeStatuses" => list(volume_status_item())
       }
       
   """
@@ -16275,12 +16275,12 @@ defmodule AWS.EC2 do
         "DeleteTime" => non_neg_integer(),
         "FailureCode" => String.t(),
         "FailureMessage" => String.t(),
-        "NatGatewayAddresses" => list(nat_gateway_address()()),
+        "NatGatewayAddresses" => list(nat_gateway_address()),
         "NatGatewayId" => String.t(),
         "ProvisionedBandwidth" => provisioned_bandwidth(),
         "State" => list(any()),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -16305,7 +16305,7 @@ defmodule AWS.EC2 do
       
       get_verified_access_endpoint_targets_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedAccessEndpointTargets" => list(verified_access_endpoint_target()())
+        "VerifiedAccessEndpointTargets" => list(verified_access_endpoint_target())
       }
       
   """
@@ -16354,7 +16354,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_route_table_propagations_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayRouteTablePropagations" => list(transit_gateway_route_table_propagation()())
+        "TransitGatewayRouteTablePropagations" => list(transit_gateway_route_table_propagation())
       }
       
   """
@@ -16415,7 +16415,7 @@ defmodule AWS.EC2 do
       
       describe_instance_type_offerings_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LocationType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -16446,10 +16446,10 @@ defmodule AWS.EC2 do
       
       describe_route_server_peers_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RouteServerPeerIds") => list(String.t()())
+        optional("RouteServerPeerIds") => list(String.t())
       }
       
   """
@@ -16461,7 +16461,7 @@ defmodule AWS.EC2 do
       
       describe_verified_access_trust_providers_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedAccessTrustProviders" => list(verified_access_trust_provider()())
+        "VerifiedAccessTrustProviders" => list(verified_access_trust_provider())
       }
       
   """
@@ -16504,7 +16504,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_prefix_list_references_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayPrefixListReferences" => list(transit_gateway_prefix_list_reference()())
+        "TransitGatewayPrefixListReferences" => list(transit_gateway_prefix_list_reference())
       }
       
   """
@@ -16533,7 +16533,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("PacketLength") => integer(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VirtualNetworkId") => integer(),
         required("NetworkInterfaceId") => String.t(),
         required("SessionNumber") => integer(),
@@ -16564,7 +16564,7 @@ defmodule AWS.EC2 do
         "CarrierGatewayId" => String.t(),
         "OwnerId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -16587,7 +16587,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       reject_vpc_endpoint_connections_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -16599,7 +16599,7 @@ defmodule AWS.EC2 do
       
       describe_scheduled_instances_result() :: %{
         "NextToken" => String.t(),
-        "ScheduledInstanceSet" => list(scheduled_instance()())
+        "ScheduledInstanceSet" => list(scheduled_instance())
       }
       
   """
@@ -16640,7 +16640,7 @@ defmodule AWS.EC2 do
         "NetworkInterfaceId" => String.t(),
         "PublicIpv4PoolId" => String.t(),
         "SampleTime" => non_neg_integer(),
-        "SecurityGroups" => list(ipam_public_address_security_group()()),
+        "SecurityGroups" => list(ipam_public_address_security_group()),
         "Service" => list(any()),
         "ServiceResource" => String.t(),
         "SubnetId" => String.t(),
@@ -16672,7 +16672,7 @@ defmodule AWS.EC2 do
         "KeyMaterial" => String.t(),
         "KeyName" => String.t(),
         "KeyPairId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -16684,8 +16684,8 @@ defmodule AWS.EC2 do
       
       describe_ipam_external_resource_verification_tokens_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamExternalResourceVerificationTokenIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamExternalResourceVerificationTokenIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -16699,10 +16699,10 @@ defmodule AWS.EC2 do
       
       describe_vpc_peering_connections_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcPeeringConnectionIds") => list(String.t()())
+        optional("VpcPeeringConnectionIds") => list(String.t())
       }
       
   """
@@ -16714,7 +16714,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_vpc_attachments_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayVpcAttachments" => list(transit_gateway_vpc_attachment()())
+        "TransitGatewayVpcAttachments" => list(transit_gateway_vpc_attachment())
       }
       
   """
@@ -16726,7 +16726,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_attachment_propagations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayAttachmentId") => String.t()
@@ -16763,7 +16763,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_vpc_endpoint_service_configurations_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -16800,7 +16800,7 @@ defmodule AWS.EC2 do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -16818,7 +16818,7 @@ defmodule AWS.EC2 do
         "LocalGatewayVirtualInterfaceGroupId" => String.t(),
         "OwnerId" => String.t(),
         "State" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -16898,7 +16898,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_connect_peers_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayConnectPeers" => list(transit_gateway_connect_peer()())
+        "TransitGatewayConnectPeers" => list(transit_gateway_connect_peer())
       }
       
   """
@@ -16923,9 +16923,9 @@ defmodule AWS.EC2 do
       create_transit_gateway_connect_peer_request() :: %{
         optional("BgpOptions") => transit_gateway_connect_request_bgp_options(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TransitGatewayAddress") => String.t(),
-        required("InsideCidrBlocks") => list(String.t()()),
+        required("InsideCidrBlocks") => list(String.t()),
         required("PeerAddress") => String.t(),
         required("TransitGatewayAttachmentId") => String.t()
       }
@@ -16949,8 +16949,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       transit_gateway_connect_peer_configuration() :: %{
-        "BgpConfigurations" => list(transit_gateway_attachment_bgp_configuration()()),
-        "InsideCidrBlocks" => list(String.t()()),
+        "BgpConfigurations" => list(transit_gateway_attachment_bgp_configuration()),
+        "InsideCidrBlocks" => list(String.t()),
         "PeerAddress" => String.t(),
         "Protocol" => list(any()),
         "TransitGatewayAddress" => String.t()
@@ -17002,11 +17002,11 @@ defmodule AWS.EC2 do
         optional("CidrIp") => String.t(),
         optional("DryRun") => boolean(),
         optional("FromPort") => integer(),
-        optional("IpPermissions") => list(ip_permission()()),
+        optional("IpPermissions") => list(ip_permission()),
         optional("IpProtocol") => String.t(),
         optional("SourceSecurityGroupName") => String.t(),
         optional("SourceSecurityGroupOwnerId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("ToPort") => integer(),
         required("GroupId") => String.t()
       }
@@ -17020,7 +17020,7 @@ defmodule AWS.EC2 do
       
       describe_outpost_lags_result() :: %{
         "NextToken" => String.t(),
-        "OutpostLags" => list(outpost_lag()())
+        "OutpostLags" => list(outpost_lag())
       }
       
   """
@@ -17032,7 +17032,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_connections_result() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointConnections" => list(vpc_endpoint_connection()())
+        "VpcEndpointConnections" => list(vpc_endpoint_connection())
       }
       
   """
@@ -17048,9 +17048,9 @@ defmodule AWS.EC2 do
         optional("FromPort") => integer(),
         optional("GroupId") => String.t(),
         optional("GroupName") => String.t(),
-        optional("IpPermissions") => list(ip_permission()()),
+        optional("IpPermissions") => list(ip_permission()),
         optional("IpProtocol") => String.t(),
-        optional("SecurityGroupRuleIds") => list(String.t()()),
+        optional("SecurityGroupRuleIds") => list(String.t()),
         optional("SourceSecurityGroupName") => String.t(),
         optional("SourceSecurityGroupOwnerId") => String.t(),
         optional("ToPort") => integer()
@@ -17078,9 +17078,9 @@ defmodule AWS.EC2 do
         optional("AnalysisStartTimeBegin") => non_neg_integer(),
         optional("AnalysisStartTimeEnd") => non_neg_integer(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInsightsAccessScopeAnalysisIds") => list(String.t()()),
+        optional("NetworkInsightsAccessScopeAnalysisIds") => list(String.t()),
         optional("NetworkInsightsAccessScopeId") => String.t(),
         optional("NextToken") => String.t()
       }
@@ -17094,20 +17094,20 @@ defmodule AWS.EC2 do
       
       service_detail() :: %{
         "AcceptanceRequired" => boolean(),
-        "AvailabilityZones" => list(String.t()()),
-        "BaseEndpointDnsNames" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "BaseEndpointDnsNames" => list(String.t()),
         "ManagesVpcEndpoints" => boolean(),
         "Owner" => String.t(),
         "PayerResponsibility" => list(any()),
         "PrivateDnsName" => String.t(),
         "PrivateDnsNameVerificationState" => list(any()),
-        "PrivateDnsNames" => list(private_dns_details()()),
+        "PrivateDnsNames" => list(private_dns_details()),
         "ServiceId" => String.t(),
         "ServiceName" => String.t(),
         "ServiceRegion" => String.t(),
-        "ServiceType" => list(service_type_detail()()),
+        "ServiceType" => list(service_type_detail()),
         "SupportedIpAddressTypes" => list(list(any())()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcEndpointPolicySupported" => boolean()
       }
       
@@ -17135,7 +17135,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_connects_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayConnects" => list(transit_gateway_connect()())
+        "TransitGatewayConnects" => list(transit_gateway_connect())
       }
       
   """
@@ -17183,10 +17183,10 @@ defmodule AWS.EC2 do
       
       describe_subnets_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SubnetIds") => list(String.t()())
+        optional("SubnetIds") => list(String.t())
       }
       
   """
@@ -17244,9 +17244,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservation_fleets_request() :: %{
-        optional("CapacityReservationFleetIds") => list(String.t()()),
+        optional("CapacityReservationFleetIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -17259,8 +17259,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       assign_ipv6_addresses_result() :: %{
-        "AssignedIpv6Addresses" => list(String.t()()),
-        "AssignedIpv6Prefixes" => list(String.t()()),
+        "AssignedIpv6Addresses" => list(String.t()),
+        "AssignedIpv6Prefixes" => list(String.t()),
         "NetworkInterfaceId" => String.t()
       }
       
@@ -17285,7 +17285,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_coip_pool_usage_result() :: %{
-        "CoipAddressUsages" => list(coip_address_usage()()),
+        "CoipAddressUsages" => list(coip_address_usage()),
         "CoipPoolId" => String.t(),
         "LocalGatewayRouteTableId" => String.t(),
         "NextToken" => String.t()
@@ -17318,7 +17318,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_route_table_propagations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayRouteTableId") => String.t()
@@ -17381,7 +17381,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_route_table_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayRouteTableId") => String.t()
@@ -17408,7 +17408,7 @@ defmodule AWS.EC2 do
       
       create_local_gateway_route_table_virtual_interface_group_association_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalGatewayRouteTableId") => String.t(),
         required("LocalGatewayVirtualInterfaceGroupId") => String.t()
       }
@@ -17423,9 +17423,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_extension_history_request() :: %{
-        optional("CapacityReservationIds") => list(String.t()()),
+        optional("CapacityReservationIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -17451,7 +17451,7 @@ defmodule AWS.EC2 do
         "Ipv6Supported" => boolean(),
         "MaximumNetworkCards" => integer(),
         "MaximumNetworkInterfaces" => integer(),
-        "NetworkCards" => list(network_card_info()()),
+        "NetworkCards" => list(network_card_info()),
         "NetworkPerformance" => String.t()
       }
       
@@ -17487,13 +17487,13 @@ defmodule AWS.EC2 do
         "HostProperties" => host_properties(),
         "HostRecovery" => list(any()),
         "HostReservationId" => String.t(),
-        "Instances" => list(host_instance()()),
+        "Instances" => list(host_instance()),
         "MemberOfServiceLinkedResourceGroup" => boolean(),
         "OutpostArn" => String.t(),
         "OwnerId" => String.t(),
         "ReleaseTime" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -17507,7 +17507,7 @@ defmodule AWS.EC2 do
         optional("AvailabilityZone") => String.t(),
         optional("AvailabilityZoneId") => String.t(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludeMarketplace") => boolean(),
         optional("InstanceTenancy") => list(any()),
         optional("InstanceType") => list(any()),
@@ -17519,7 +17519,7 @@ defmodule AWS.EC2 do
         optional("OfferingClass") => list(any()),
         optional("OfferingType") => list(any()),
         optional("ProductDescription") => list(any()),
-        optional("ReservedInstancesOfferingIds") => list(String.t()())
+        optional("ReservedInstancesOfferingIds") => list(String.t())
       }
       
   """
@@ -17530,7 +17530,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_target_networks_result() :: %{
-        "ClientVpnTargetNetworks" => list(target_network()()),
+        "ClientVpnTargetNetworks" => list(target_network()),
         "NextToken" => String.t()
       }
       
@@ -17545,15 +17545,15 @@ defmodule AWS.EC2 do
         "DPDTimeoutAction" => String.t(),
         "DPDTimeoutSeconds" => integer(),
         "EnableTunnelLifecycleControl" => boolean(),
-        "IKEVersions" => list(i_k_e_versions_request_list_value()()),
+        "IKEVersions" => list(i_k_e_versions_request_list_value()),
         "LogOptions" => vpn_tunnel_log_options_specification(),
-        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()()),
-        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()()),
-        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()()),
+        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()),
+        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()),
+        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()),
         "Phase1LifetimeSeconds" => integer(),
-        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()()),
-        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()()),
-        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()()),
+        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()),
+        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()),
+        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()),
         "Phase2LifetimeSeconds" => integer(),
         "PreSharedKey" => String.t(),
         "RekeyFuzzPercentage" => integer(),
@@ -17584,7 +17584,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_block_public_access_exclusions_result() :: %{
         "NextToken" => String.t(),
-        "VpcBlockPublicAccessExclusions" => list(vpc_block_public_access_exclusion()())
+        "VpcBlockPublicAccessExclusions" => list(vpc_block_public_access_exclusion())
       }
       
   """
@@ -17595,7 +17595,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       allocate_hosts_result() :: %{
-        "HostIds" => list(String.t()())
+        "HostIds" => list(String.t())
       }
       
   """
@@ -17607,8 +17607,8 @@ defmodule AWS.EC2 do
       
       describe_mac_modification_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("MacModificationTaskIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("MacModificationTaskIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -17622,10 +17622,10 @@ defmodule AWS.EC2 do
       
       describe_verified_access_instances_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedAccessInstanceIds") => list(String.t()())
+        optional("VerifiedAccessInstanceIds") => list(String.t())
       }
       
   """
@@ -17661,7 +17661,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_acls_result() :: %{
-        "NetworkAcls" => list(network_acl()()),
+        "NetworkAcls" => list(network_acl()),
         "NextToken" => String.t()
       }
       
@@ -17699,7 +17699,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateway_route_table_vpc_associations_result() :: %{
-        "LocalGatewayRouteTableVpcAssociations" => list(local_gateway_route_table_vpc_association()()),
+        "LocalGatewayRouteTableVpcAssociations" => list(local_gateway_route_table_vpc_association()),
         "NextToken" => String.t()
       }
       
@@ -17723,7 +17723,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       accept_vpc_endpoint_connections_result() :: %{
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -17877,7 +17877,7 @@ defmodule AWS.EC2 do
       
       copy_snapshot_result() :: %{
         "SnapshotId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -17912,8 +17912,8 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_services_result() :: %{
         "NextToken" => String.t(),
-        "ServiceDetails" => list(service_detail()()),
-        "ServiceNames" => list(String.t()())
+        "ServiceDetails" => list(service_detail()),
+        "ServiceNames" => list(String.t())
       }
       
   """
@@ -17955,7 +17955,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("IpAddress") => String.t(),
         optional("PublicIp") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Type") => list(any())
       }
       
@@ -17967,8 +17967,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_mac_hosts_request() :: %{
-        optional("Filters") => list(filter()()),
-        optional("HostIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("HostIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -18004,7 +18004,7 @@ defmodule AWS.EC2 do
         "InstanceExportDetails" => instance_export_details(),
         "State" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -18020,8 +18020,8 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("EnablePrivateGua") => boolean(),
         optional("MeteredAccount") => list(any()),
-        optional("OperatingRegions") => list(add_ipam_operating_region()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("OperatingRegions") => list(add_ipam_operating_region()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Tier") => list(any())
       }
       
@@ -18068,7 +18068,7 @@ defmodule AWS.EC2 do
       deregister_transit_gateway_multicast_group_sources_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupIpAddress") => String.t(),
-        optional("NetworkInterfaceIds") => list(String.t()()),
+        optional("NetworkInterfaceIds") => list(String.t()),
         optional("TransitGatewayMulticastDomainId") => String.t()
       }
       
@@ -18092,9 +18092,9 @@ defmodule AWS.EC2 do
       
       describe_network_acls_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkAclIds") => list(String.t()()),
+        optional("NetworkAclIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -18145,7 +18145,7 @@ defmodule AWS.EC2 do
       create_security_group_result() :: %{
         "GroupId" => String.t(),
         "SecurityGroupArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -18158,8 +18158,8 @@ defmodule AWS.EC2 do
       create_transit_gateway_vpc_attachment_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => create_transit_gateway_vpc_attachment_request_options(),
-        optional("TagSpecifications") => list(tag_specification()()),
-        required("SubnetIds") => list(String.t()()),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("SubnetIds") => list(String.t()),
         required("TransitGatewayId") => String.t(),
         required("VpcId") => String.t()
       }
@@ -18196,8 +18196,8 @@ defmodule AWS.EC2 do
       
       describe_instance_image_metadata_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -18210,7 +18210,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipams_result() :: %{
-        "Ipams" => list(ipam()()),
+        "Ipams" => list(ipam()),
         "NextToken" => String.t()
       }
       
@@ -18258,7 +18258,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_flow_logs_result() :: %{
-        "FlowLogs" => list(flow_log()()),
+        "FlowLogs" => list(flow_log()),
         "NextToken" => String.t()
       }
       
@@ -18273,16 +18273,16 @@ defmodule AWS.EC2 do
         "DpdTimeoutAction" => String.t(),
         "DpdTimeoutSeconds" => integer(),
         "EnableTunnelLifecycleControl" => boolean(),
-        "IkeVersions" => list(i_k_e_versions_list_value()()),
+        "IkeVersions" => list(i_k_e_versions_list_value()),
         "LogOptions" => vpn_tunnel_log_options(),
         "OutsideIpAddress" => String.t(),
-        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_list_value()()),
-        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_list_value()()),
-        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_list_value()()),
+        "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_list_value()),
+        "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_list_value()),
+        "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_list_value()),
         "Phase1LifetimeSeconds" => integer(),
-        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_list_value()()),
-        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_list_value()()),
-        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_list_value()()),
+        "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_list_value()),
+        "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_list_value()),
+        "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_list_value()),
         "Phase2LifetimeSeconds" => integer(),
         "PreSharedKey" => String.t(),
         "RekeyFuzzPercentage" => integer(),
@@ -18304,8 +18304,8 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("GroupId") => String.t(),
         optional("GroupName") => String.t(),
-        optional("IpPermissions") => list(ip_permission()()),
-        optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description()())
+        optional("IpPermissions") => list(ip_permission()),
+        optional("SecurityGroupRuleDescriptions") => list(security_group_rule_description())
       }
       
   """
@@ -18318,7 +18318,7 @@ defmodule AWS.EC2 do
       apply_security_groups_to_client_vpn_target_network_request() :: %{
         optional("DryRun") => boolean(),
         required("ClientVpnEndpointId") => String.t(),
-        required("SecurityGroupIds") => list(String.t()()),
+        required("SecurityGroupIds") => list(String.t()),
         required("VpcId") => String.t()
       }
       
@@ -18342,11 +18342,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       route_server_route() :: %{
-        "AsPaths" => list(String.t()()),
+        "AsPaths" => list(String.t()),
         "Med" => integer(),
         "NextHopIp" => String.t(),
         "Prefix" => String.t(),
-        "RouteInstallationDetails" => list(route_server_route_installation_detail()()),
+        "RouteInstallationDetails" => list(route_server_route_installation_detail()),
         "RouteServerEndpointId" => String.t(),
         "RouteServerPeerId" => String.t(),
         "RouteStatus" => list(any())
@@ -18361,7 +18361,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_service_permissions_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ServiceId") => String.t()
@@ -18456,7 +18456,7 @@ defmodule AWS.EC2 do
         optional("AmazonSideAsn") => float(),
         optional("AvailabilityZone") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("Type") => list(any())
       }
       
@@ -18488,7 +18488,7 @@ defmodule AWS.EC2 do
         "StartDate" => non_neg_integer(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "WarningMessage" => String.t()
       }
       
@@ -18512,8 +18512,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       delete_launch_template_versions_result() :: %{
-        "SuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_success_item()()),
-        "UnsuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_error_item()())
+        "SuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_success_item()),
+        "UnsuccessfullyDeletedLaunchTemplateVersions" => list(delete_launch_template_versions_response_error_item())
       }
       
   """
@@ -18541,7 +18541,7 @@ defmodule AWS.EC2 do
       
       describe_volume_attribute_result() :: %{
         "AutoEnableIO" => attribute_boolean_value(),
-        "ProductCodes" => list(product_code()()),
+        "ProductCodes" => list(product_code()),
         "VolumeId" => String.t()
       }
       
@@ -18553,7 +18553,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_topology_result() :: %{
-        "Instances" => list(instance_topology()()),
+        "Instances" => list(instance_topology()),
         "NextToken" => String.t()
       }
       
@@ -18565,7 +18565,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       verified_access_instance_custom_sub_domain() :: %{
-        "Nameservers" => list(String.t()()),
+        "Nameservers" => list(String.t()),
         "SubDomain" => String.t()
       }
       
@@ -18589,7 +18589,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fast_launch_images_result() :: %{
-        "FastLaunchImages" => list(describe_fast_launch_images_success_item()()),
+        "FastLaunchImages" => list(describe_fast_launch_images_success_item()),
         "NextToken" => String.t()
       }
       
@@ -18601,7 +18601,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       fpga_info() :: %{
-        "Fpgas" => list(fpga_device_info()()),
+        "Fpgas" => list(fpga_device_info()),
         "TotalFpgaMemoryInMiB" => integer()
       }
       
@@ -18613,8 +18613,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_volume_permission_modifications() :: %{
-        "Add" => list(create_volume_permission()()),
-        "Remove" => list(create_volume_permission()())
+        "Add" => list(create_volume_permission()),
+        "Remove" => list(create_volume_permission())
       }
       
   """
@@ -18656,14 +18656,14 @@ defmodule AWS.EC2 do
         optional("PolicyDocument") => String.t(),
         optional("PrivateDnsEnabled") => boolean(),
         optional("ResourceConfigurationArn") => String.t(),
-        optional("RouteTableIds") => list(String.t()()),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("RouteTableIds") => list(String.t()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("ServiceName") => String.t(),
         optional("ServiceNetworkArn") => String.t(),
         optional("ServiceRegion") => String.t(),
-        optional("SubnetConfigurations") => list(subnet_configuration()()),
-        optional("SubnetIds") => list(String.t()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("SubnetConfigurations") => list(subnet_configuration()),
+        optional("SubnetIds") => list(String.t()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VpcEndpointType") => list(any()),
         required("VpcId") => String.t()
       }
@@ -18692,7 +18692,7 @@ defmodule AWS.EC2 do
         "NetworkInterfaceId" => String.t(),
         "NetworkLoadBalancerArn" => String.t(),
         "OwnerId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrafficMirrorTargetId" => String.t(),
         "Type" => list(any())
       }
@@ -18717,7 +18717,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_extension_history_result() :: %{
-        "CapacityBlockExtensions" => list(capacity_block_extension()()),
+        "CapacityBlockExtensions" => list(capacity_block_extension()),
         "NextToken" => String.t()
       }
       
@@ -18741,7 +18741,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_mac_modification_tasks_result() :: %{
-        "MacModificationTasks" => list(mac_modification_task()()),
+        "MacModificationTasks" => list(mac_modification_task()),
         "NextToken" => String.t()
       }
       
@@ -18762,7 +18762,7 @@ defmodule AWS.EC2 do
         "S3ExportLocation" => export_task_s3_location(),
         "Status" => String.t(),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -18774,7 +18774,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_associations_result() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointAssociations" => list(vpc_endpoint_association()())
+        "VpcEndpointAssociations" => list(vpc_endpoint_association())
       }
       
   """
@@ -18811,7 +18811,7 @@ defmodule AWS.EC2 do
       create_capacity_reservation_by_splitting_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InstanceCount") => integer(),
         required("SourceCapacityReservationId") => String.t()
       }
@@ -18837,12 +18837,12 @@ defmodule AWS.EC2 do
       
       vpc_endpoint_connection() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "DnsEntries" => list(dns_entry()()),
-        "GatewayLoadBalancerArns" => list(String.t()()),
+        "DnsEntries" => list(dns_entry()),
+        "GatewayLoadBalancerArns" => list(String.t()),
         "IpAddressType" => list(any()),
-        "NetworkLoadBalancerArns" => list(String.t()()),
+        "NetworkLoadBalancerArns" => list(String.t()),
         "ServiceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcEndpointConnectionId" => String.t(),
         "VpcEndpointId" => String.t(),
         "VpcEndpointOwner" => String.t(),
@@ -18920,7 +18920,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_attachment_propagations_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayAttachmentPropagations" => list(transit_gateway_attachment_propagation()())
+        "TransitGatewayAttachmentPropagations" => list(transit_gateway_attachment_propagation())
       }
       
   """
@@ -18931,7 +18931,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_endpoints_result() :: %{
-        "ClientVpnEndpoints" => list(client_vpn_endpoint()()),
+        "ClientVpnEndpoints" => list(client_vpn_endpoint()),
         "NextToken" => String.t()
       }
       
@@ -19045,7 +19045,7 @@ defmodule AWS.EC2 do
       
       describe_security_group_vpc_associations_result() :: %{
         "NextToken" => String.t(),
-        "SecurityGroupVpcAssociations" => list(security_group_vpc_association()())
+        "SecurityGroupVpcAssociations" => list(security_group_vpc_association())
       }
       
   """
@@ -19068,7 +19068,7 @@ defmodule AWS.EC2 do
       
       describe_fleet_history_result() :: %{
         "FleetId" => String.t(),
-        "HistoryRecords" => list(history_record_entry()()),
+        "HistoryRecords" => list(history_record_entry()),
         "LastEvaluatedTime" => non_neg_integer(),
         "NextToken" => String.t(),
         "StartTime" => non_neg_integer()
@@ -19123,8 +19123,8 @@ defmodule AWS.EC2 do
       
       associate_nat_gateway_address_request() :: %{
         optional("DryRun") => boolean(),
-        optional("PrivateIpAddresses") => list(String.t()()),
-        required("AllocationIds") => list(String.t()()),
+        optional("PrivateIpAddresses") => list(String.t()),
+        required("AllocationIds") => list(String.t()),
         required("NatGatewayId") => String.t()
       }
       
@@ -19140,7 +19140,7 @@ defmodule AWS.EC2 do
         "PrincipalType" => list(any()),
         "ServiceId" => String.t(),
         "ServicePermissionId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -19156,9 +19156,9 @@ defmodule AWS.EC2 do
         "OutputReservedInstancesWillExpireAt" => non_neg_integer(),
         "PaymentDue" => String.t(),
         "ReservedInstanceValueRollup" => reservation_value(),
-        "ReservedInstanceValueSet" => list(reserved_instance_reservation_value()()),
+        "ReservedInstanceValueSet" => list(reserved_instance_reservation_value()),
         "TargetConfigurationValueRollup" => reservation_value(),
-        "TargetConfigurationValueSet" => list(target_reservation_value()()),
+        "TargetConfigurationValueSet" => list(target_reservation_value()),
         "ValidationFailureReason" => String.t()
       }
       
@@ -19188,7 +19188,7 @@ defmodule AWS.EC2 do
         "ResourceOwnerId" => String.t(),
         "ResourceType" => list(any()),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayAttachmentId" => String.t(),
         "TransitGatewayId" => String.t(),
         "TransitGatewayOwnerId" => String.t()
@@ -19203,8 +19203,8 @@ defmodule AWS.EC2 do
       
       describe_vpn_connections_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("VpnConnectionIds") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("VpnConnectionIds") => list(String.t())
       }
       
   """
@@ -19232,38 +19232,38 @@ defmodule AWS.EC2 do
   ## Example:
       
       request_launch_template_data() :: %{
-        "LicenseSpecifications" => list(launch_template_license_configuration_request()()),
-        "ElasticGpuSpecifications" => list(elastic_gpu_specification()()),
+        "LicenseSpecifications" => list(launch_template_license_configuration_request()),
+        "ElasticGpuSpecifications" => list(elastic_gpu_specification()),
         "InstanceInitiatedShutdownBehavior" => list(any()),
         "DisableApiStop" => boolean(),
         "RamDiskId" => String.t(),
         "ImageId" => String.t(),
-        "BlockDeviceMappings" => list(launch_template_block_device_mapping_request()()),
-        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()()),
+        "BlockDeviceMappings" => list(launch_template_block_device_mapping_request()),
+        "NetworkInterfaces" => list(launch_template_instance_network_interface_specification_request()),
         "Monitoring" => launch_templates_monitoring_request(),
         "NetworkPerformanceOptions" => launch_template_network_performance_options_request(),
         "PrivateDnsNameOptions" => launch_template_private_dns_name_options_request(),
         "InstanceRequirements" => instance_requirements_request(),
         "CreditSpecification" => credit_specification_request(),
         "CapacityReservationSpecification" => launch_template_capacity_reservation_specification_request(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "InstanceType" => list(any()),
         "KernelId" => String.t(),
         "Placement" => launch_template_placement_request(),
-        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator()()),
+        "ElasticInferenceAccelerators" => list(launch_template_elastic_inference_accelerator()),
         "DisableApiTermination" => boolean(),
         "EnclaveOptions" => launch_template_enclave_options_request(),
         "CpuOptions" => launch_template_cpu_options_request(),
         "IamInstanceProfile" => launch_template_iam_instance_profile_specification_request(),
         "HibernationOptions" => launch_template_hibernation_options_request(),
         "InstanceMarketOptions" => launch_template_instance_market_options_request(),
-        "TagSpecifications" => list(launch_template_tag_specification_request()()),
+        "TagSpecifications" => list(launch_template_tag_specification_request()),
         "MetadataOptions" => launch_template_instance_metadata_options_request(),
         "UserData" => String.t(),
         "EbsOptimized" => boolean(),
         "KeyName" => String.t(),
         "Operator" => operator_request(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "MaintenanceOptions" => launch_template_instance_maintenance_options_request()
       }
       
@@ -19275,7 +19275,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       purchase_scheduled_instances_result() :: %{
-        "ScheduledInstanceSet" => list(scheduled_instance()())
+        "ScheduledInstanceSet" => list(scheduled_instance())
       }
       
   """
@@ -19305,7 +19305,7 @@ defmodule AWS.EC2 do
         "KeyFingerprint" => String.t(),
         "KeyName" => String.t(),
         "KeyPairId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -19346,7 +19346,7 @@ defmodule AWS.EC2 do
         optional("DisconnectOnSessionTimeout") => boolean(),
         optional("DnsServers") => dns_servers_options_modify_structure(),
         optional("DryRun") => boolean(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SelfServicePortal") => list(any()),
         optional("ServerCertificateArn") => String.t(),
         optional("SessionTimeoutHours") => integer(),
@@ -19365,8 +19365,8 @@ defmodule AWS.EC2 do
       
       register_image_request() :: %{
         optional("Architecture") => list(any()),
-        optional("BillingProducts") => list(String.t()()),
-        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("BillingProducts") => list(String.t()),
+        optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("BootMode") => list(any()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
@@ -19377,7 +19377,7 @@ defmodule AWS.EC2 do
         optional("RamdiskId") => String.t(),
         optional("RootDeviceName") => String.t(),
         optional("SriovNetSupport") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TpmSupport") => list(any()),
         optional("UefiData") => String.t(),
         optional("VirtualizationType") => String.t(),
@@ -19415,7 +19415,7 @@ defmodule AWS.EC2 do
       
       launch_specification() :: %{
         "AddressingType" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => iam_instance_profile_specification(),
         "ImageId" => String.t(),
@@ -19423,10 +19423,10 @@ defmodule AWS.EC2 do
         "KernelId" => String.t(),
         "KeyName" => String.t(),
         "Monitoring" => run_instances_monitoring_enabled(),
-        "NetworkInterfaces" => list(instance_network_interface_specification()()),
+        "NetworkInterfaces" => list(instance_network_interface_specification()),
         "Placement" => spot_placement(),
         "RamdiskId" => String.t(),
-        "SecurityGroups" => list(group_identifier()()),
+        "SecurityGroups" => list(group_identifier()),
         "SubnetId" => String.t(),
         "UserData" => String.t()
       }
@@ -19490,8 +19490,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateway_virtual_interfaces_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayVirtualInterfaceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayVirtualInterfaceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -19508,7 +19508,7 @@ defmodule AWS.EC2 do
         "Options" => transit_gateway_multicast_domain_options(),
         "OwnerId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "TransitGatewayMulticastDomainArn" => String.t(),
         "TransitGatewayMulticastDomainId" => String.t()
@@ -19529,7 +19529,7 @@ defmodule AWS.EC2 do
         "S3ExportLocation" => export_task_s3_location(),
         "Status" => String.t(),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -19544,7 +19544,7 @@ defmodule AWS.EC2 do
         "BranchInterfaceId" => String.t(),
         "GreKey" => integer(),
         "InterfaceProtocol" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrunkInterfaceId" => String.t(),
         "VlanId" => integer()
       }
@@ -19568,7 +19568,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_conversion_tasks_result() :: %{
-        "ConversionTasks" => list(conversion_task()())
+        "ConversionTasks" => list(conversion_task())
       }
       
   """
@@ -19617,7 +19617,7 @@ defmodule AWS.EC2 do
       
       tag_specification() :: %{
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -19630,7 +19630,7 @@ defmodule AWS.EC2 do
       get_route_server_routing_database_result() :: %{
         "AreRoutesPersisted" => boolean(),
         "NextToken" => String.t(),
-        "Routes" => list(route_server_route()())
+        "Routes" => list(route_server_route())
       }
       
   """
@@ -19676,14 +19676,14 @@ defmodule AWS.EC2 do
   ## Example:
       
       firewall_stateful_rule() :: %{
-        "DestinationPorts" => list(port_range()()),
-        "Destinations" => list(String.t()()),
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(String.t()),
         "Direction" => String.t(),
         "Protocol" => String.t(),
         "RuleAction" => String.t(),
         "RuleGroupArn" => String.t(),
-        "SourcePorts" => list(port_range()()),
-        "Sources" => list(String.t()())
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(String.t())
       }
       
   """
@@ -19747,7 +19747,7 @@ defmodule AWS.EC2 do
         "State" => list(any()),
         "StateMessage" => String.t(),
         "StorageTier" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransferType" => list(any()),
         "VolumeId" => String.t(),
         "VolumeSize" => integer()
@@ -19779,7 +19779,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("LogsStorageLocation") => storage_location(),
         optional("Name") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InputStorageLocation") => storage_location()
       }
       
@@ -19793,9 +19793,9 @@ defmodule AWS.EC2 do
       describe_availability_zones_request() :: %{
         optional("AllAvailabilityZones") => boolean(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("ZoneIds") => list(String.t()()),
-        optional("ZoneNames") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("ZoneIds") => list(String.t()),
+        optional("ZoneNames") => list(String.t())
       }
       
   """
@@ -19844,13 +19844,13 @@ defmodule AWS.EC2 do
       image() :: %{
         "SriovNetSupport" => String.t(),
         "RootDeviceName" => String.t(),
-        "ProductCodes" => list(product_code()()),
-        "Tags" => list(tag()()),
+        "ProductCodes" => list(product_code()),
+        "Tags" => list(tag()),
         "CreationDate" => String.t(),
         "ImageAllowed" => boolean(),
         "OwnerId" => String.t(),
         "ImageId" => String.t(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "TpmSupport" => list(any()),
         "Public" => boolean(),
         "LastLaunchedTime" => String.t(),
@@ -19888,7 +19888,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_block_offerings_result() :: %{
-        "CapacityBlockOfferings" => list(capacity_block_offering()()),
+        "CapacityBlockOfferings" => list(capacity_block_offering()),
         "NextToken" => String.t()
       }
       
@@ -19912,9 +19912,9 @@ defmodule AWS.EC2 do
       
       create_network_insights_access_scope_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ExcludePaths") => list(access_scope_path_request()()),
-        optional("MatchPaths") => list(access_scope_path_request()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("ExcludePaths") => list(access_scope_path_request()),
+        optional("MatchPaths") => list(access_scope_path_request()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("ClientToken") => String.t()
       }
       
@@ -19926,8 +19926,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       disable_fast_snapshot_restores_result() :: %{
-        "Successful" => list(disable_fast_snapshot_restore_success_item()()),
-        "Unsuccessful" => list(disable_fast_snapshot_restore_error_item()())
+        "Successful" => list(disable_fast_snapshot_restore_success_item()),
+        "Unsuccessful" => list(disable_fast_snapshot_restore_error_item())
       }
       
   """
@@ -19956,7 +19956,7 @@ defmodule AWS.EC2 do
         "KeyPairId" => String.t(),
         "KeyType" => list(any()),
         "PublicKey" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -19967,7 +19967,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_address_transfers_request() :: %{
-        optional("AllocationIds") => list(String.t()()),
+        optional("AllocationIds") => list(String.t()),
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -20098,7 +20098,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_multicast_domain_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayMulticastDomainId") => String.t()
@@ -20117,7 +20117,7 @@ defmodule AWS.EC2 do
         "Options" => transit_gateway_options(),
         "OwnerId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayArn" => String.t(),
         "TransitGatewayId" => String.t()
       }
@@ -20179,8 +20179,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       launch_permission_modifications() :: %{
-        "Add" => list(launch_permission()()),
-        "Remove" => list(launch_permission()())
+        "Add" => list(launch_permission()),
+        "Remove" => list(launch_permission())
       }
       
   """
@@ -20191,8 +20191,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       client_vpn_endpoint() :: %{
-        "AssociatedTargetNetworks" => list(associated_target_network()()),
-        "AuthenticationOptions" => list(client_vpn_authentication()()),
+        "AssociatedTargetNetworks" => list(associated_target_network()),
+        "AuthenticationOptions" => list(client_vpn_authentication()),
         "ClientCidrBlock" => String.t(),
         "ClientConnectOptions" => client_connect_response_options(),
         "ClientLoginBannerOptions" => client_login_banner_response_options(),
@@ -20204,14 +20204,14 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "DisconnectOnSessionTimeout" => boolean(),
         "DnsName" => String.t(),
-        "DnsServers" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
+        "DnsServers" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
         "SelfServicePortalUrl" => String.t(),
         "ServerCertificateArn" => String.t(),
         "SessionTimeoutHours" => integer(),
         "SplitTunnel" => boolean(),
         "Status" => client_vpn_endpoint_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransportProtocol" => list(any()),
         "VpcId" => String.t(),
         "VpnPort" => integer(),
@@ -20229,9 +20229,9 @@ defmodule AWS.EC2 do
         optional("Attribute") => list(any()),
         optional("CreateVolumePermission") => create_volume_permission_modifications(),
         optional("DryRun") => boolean(),
-        optional("GroupNames") => list(String.t()()),
+        optional("GroupNames") => list(String.t()),
         optional("OperationType") => list(any()),
-        optional("UserIds") => list(String.t()()),
+        optional("UserIds") => list(String.t()),
         required("SnapshotId") => String.t()
       }
       
@@ -20255,7 +20255,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       list_images_in_recycle_bin_result() :: %{
-        "Images" => list(image_recycle_bin_info()()),
+        "Images" => list(image_recycle_bin_info()),
         "NextToken" => String.t()
       }
       
@@ -20292,7 +20292,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_aws_network_performance_data_request() :: %{
-        optional("DataQueries") => list(data_query()()),
+        optional("DataQueries") => list(data_query()),
         optional("DryRun") => boolean(),
         optional("EndTime") => non_neg_integer(),
         optional("MaxResults") => integer(),
@@ -20308,7 +20308,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_conversion_tasks_request() :: %{
-        optional("ConversionTaskIds") => list(String.t()()),
+        optional("ConversionTaskIds") => list(String.t()),
         optional("DryRun") => boolean()
       }
       
@@ -20384,8 +20384,8 @@ defmodule AWS.EC2 do
       
       create_dhcp_options_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
-        required("DhcpConfigurations") => list(new_dhcp_configuration()())
+        optional("TagSpecifications") => list(tag_specification()),
+        required("DhcpConfigurations") => list(new_dhcp_configuration())
       }
       
   """
@@ -20416,19 +20416,19 @@ defmodule AWS.EC2 do
         "AmiLaunchIndex" => integer(),
         "PublicDnsName" => String.t(),
         "RootDeviceName" => String.t(),
-        "ElasticGpuAssociations" => list(elastic_gpu_association()()),
-        "ProductCodes" => list(product_code()()),
-        "Tags" => list(tag()()),
+        "ElasticGpuAssociations" => list(elastic_gpu_association()),
+        "ProductCodes" => list(product_code()),
+        "Tags" => list(tag()),
         "LaunchTime" => non_neg_integer(),
         "SubnetId" => String.t(),
         "CapacityReservationId" => String.t(),
         "InstanceLifecycle" => list(any()),
         "ImageId" => String.t(),
-        "BlockDeviceMappings" => list(instance_block_device_mapping()()),
+        "BlockDeviceMappings" => list(instance_block_device_mapping()),
         "TpmSupport" => String.t(),
         "UsageOperationUpdateTime" => non_neg_integer(),
-        "Licenses" => list(license_configuration()()),
-        "NetworkInterfaces" => list(instance_network_interface()()),
+        "Licenses" => list(license_configuration()),
+        "NetworkInterfaces" => list(instance_network_interface()),
         "StateTransitionReason" => String.t(),
         "Monitoring" => monitoring(),
         "SpotInstanceRequestId" => String.t(),
@@ -20462,13 +20462,13 @@ defmodule AWS.EC2 do
         "SourceDestCheck" => boolean(),
         "Architecture" => list(any()),
         "MetadataOptions" => instance_metadata_options_response(),
-        "ElasticInferenceAcceleratorAssociations" => list(elastic_inference_accelerator_association()()),
+        "ElasticInferenceAcceleratorAssociations" => list(elastic_inference_accelerator_association()),
         "ClientToken" => String.t(),
         "EbsOptimized" => boolean(),
         "KeyName" => String.t(),
         "CapacityBlockId" => String.t(),
         "Operator" => operator_response(),
-        "SecurityGroups" => list(group_identifier()()),
+        "SecurityGroups" => list(group_identifier()),
         "Ipv6Address" => String.t(),
         "MaintenanceOptions" => instance_maintenance_options(),
         "Platform" => list(any())
@@ -20494,9 +20494,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_fleet_result() :: %{
-        "Errors" => list(create_fleet_error()()),
+        "Errors" => list(create_fleet_error()),
         "FleetId" => String.t(),
-        "Instances" => list(create_fleet_instance()())
+        "Instances" => list(create_fleet_instance())
       }
       
   """
@@ -20518,7 +20518,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       volume() :: %{
-        "Attachments" => list(volume_attachment()()),
+        "Attachments" => list(volume_attachment()),
         "AvailabilityZone" => String.t(),
         "CreateTime" => non_neg_integer(),
         "Encrypted" => boolean(),
@@ -20532,7 +20532,7 @@ defmodule AWS.EC2 do
         "SnapshotId" => String.t(),
         "SseType" => list(any()),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Throughput" => integer(),
         "VolumeId" => String.t(),
         "VolumeInitializationRate" => integer(),
@@ -20550,8 +20550,8 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
         optional("PreserveClientIp") => boolean(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("SubnetId") => String.t()
       }
       
@@ -20564,7 +20564,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_prefix_list_references_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayRouteTableId") => String.t()
@@ -20579,7 +20579,7 @@ defmodule AWS.EC2 do
       
       get_ipam_pool_allocations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IpamPoolAllocationId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -20600,9 +20600,9 @@ defmodule AWS.EC2 do
         "LocalGatewayId" => String.t(),
         "LocalGatewayVirtualInterfaceGroupArn" => String.t(),
         "LocalGatewayVirtualInterfaceGroupId" => String.t(),
-        "LocalGatewayVirtualInterfaceIds" => list(String.t()()),
+        "LocalGatewayVirtualInterfaceIds" => list(String.t()),
         "OwnerId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -20662,10 +20662,10 @@ defmodule AWS.EC2 do
       
       describe_verified_access_trust_providers_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedAccessTrustProviderIds") => list(String.t()())
+        optional("VerifiedAccessTrustProviderIds") => list(String.t())
       }
       
   """
@@ -20690,7 +20690,7 @@ defmodule AWS.EC2 do
       
       list_images_in_recycle_bin_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ImageIds") => list(String.t()()),
+        optional("ImageIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -20704,7 +20704,7 @@ defmodule AWS.EC2 do
       
       instance_tag_notification_attribute() :: %{
         "IncludeAllTagsOfInstance" => boolean(),
-        "InstanceTagKeys" => list(String.t()())
+        "InstanceTagKeys" => list(String.t())
       }
       
   """
@@ -20727,7 +20727,7 @@ defmodule AWS.EC2 do
       
       import_key_pair_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("KeyName") => String.t(),
         required("PublicKeyMaterial") => binary()
       }
@@ -20741,7 +20741,7 @@ defmodule AWS.EC2 do
       
       search_local_gateway_routes_result() :: %{
         "NextToken" => String.t(),
-        "Routes" => list(local_gateway_route()())
+        "Routes" => list(local_gateway_route())
       }
       
   """
@@ -20764,7 +20764,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_carrier_gateways_result() :: %{
-        "CarrierGateways" => list(carrier_gateway()()),
+        "CarrierGateways" => list(carrier_gateway()),
         "NextToken" => String.t()
       }
       
@@ -20783,7 +20783,7 @@ defmodule AWS.EC2 do
         "SnsNotificationsEnabled" => boolean(),
         "SnsTopicArn" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -20796,13 +20796,13 @@ defmodule AWS.EC2 do
       reserved_instances_listing() :: %{
         "ClientToken" => String.t(),
         "CreateDate" => non_neg_integer(),
-        "InstanceCounts" => list(instance_count()()),
-        "PriceSchedules" => list(price_schedule()()),
+        "InstanceCounts" => list(instance_count()),
+        "PriceSchedules" => list(price_schedule()),
         "ReservedInstancesId" => String.t(),
         "ReservedInstancesListingId" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpdateDate" => non_neg_integer()
       }
       
@@ -20828,7 +20828,7 @@ defmodule AWS.EC2 do
       
       describe_service_link_virtual_interfaces_result() :: %{
         "NextToken" => String.t(),
-        "ServiceLinkVirtualInterfaces" => list(service_link_virtual_interface()())
+        "ServiceLinkVirtualInterfaces" => list(service_link_virtual_interface())
       }
       
   """
@@ -20890,9 +20890,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_interface_permissions_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInterfacePermissionIds") => list(String.t()()),
+        optional("NetworkInterfacePermissionIds") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -20930,8 +20930,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_instance_credit_specification_result() :: %{
-        "SuccessfulInstanceCreditSpecifications" => list(successful_instance_credit_specification_item()()),
-        "UnsuccessfulInstanceCreditSpecifications" => list(unsuccessful_instance_credit_specification_item()())
+        "SuccessfulInstanceCreditSpecifications" => list(successful_instance_credit_specification_item()),
+        "UnsuccessfulInstanceCreditSpecifications" => list(unsuccessful_instance_credit_specification_item())
       }
       
   """
@@ -20945,7 +20945,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ReportIds") => list(String.t()())
+        optional("ReportIds") => list(String.t())
       }
       
   """
@@ -20959,7 +20959,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("LaunchTemplateId") => String.t(),
         optional("LaunchTemplateName") => String.t(),
-        required("Versions") => list(String.t()())
+        required("Versions") => list(String.t())
       }
       
   """
@@ -20983,10 +20983,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_public_ipv4_pools_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PoolIds") => list(String.t()())
+        optional("PoolIds") => list(String.t())
       }
       
   """
@@ -20998,7 +20998,7 @@ defmodule AWS.EC2 do
       
       describe_locked_snapshots_result() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(locked_snapshots_info()())
+        "Snapshots" => list(locked_snapshots_info())
       }
       
   """
@@ -21012,7 +21012,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("KeyFormat") => list(any()),
         optional("KeyType") => list(any()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("KeyName") => String.t()
       }
       
@@ -21092,7 +21092,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateways_result() :: %{
-        "LocalGateways" => list(local_gateway()()),
+        "LocalGateways" => list(local_gateway()),
         "NextToken" => String.t()
       }
       
@@ -21104,12 +21104,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_ipam_resource_discovery_request() :: %{
-        optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
-        optional("AddOrganizationalUnitExclusions") => list(add_ipam_organizational_unit_exclusion()()),
+        optional("AddOperatingRegions") => list(add_ipam_operating_region()),
+        optional("AddOrganizationalUnitExclusions") => list(add_ipam_organizational_unit_exclusion()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
-        optional("RemoveOrganizationalUnitExclusions") => list(remove_ipam_organizational_unit_exclusion()()),
+        optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()),
+        optional("RemoveOrganizationalUnitExclusions") => list(remove_ipam_organizational_unit_exclusion()),
         required("IpamResourceDiscoveryId") => String.t()
       }
       
@@ -21121,7 +21121,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_byoasn_result() :: %{
-        "Byoasns" => list(byoasn()()),
+        "Byoasns" => list(byoasn()),
         "NextToken" => String.t()
       }
       
@@ -21158,7 +21158,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       validation_warning() :: %{
-        "Errors" => list(validation_error()())
+        "Errors" => list(validation_error())
       }
       
   """
@@ -21170,7 +21170,7 @@ defmodule AWS.EC2 do
       
       register_instance_tag_attribute_request() :: %{
         "IncludeAllTagsOfInstance" => boolean(),
-        "InstanceTagKeys" => list(String.t()())
+        "InstanceTagKeys" => list(String.t())
       }
       
   """
@@ -21215,7 +21215,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       deprovision_public_ipv4_pool_cidr_result() :: %{
-        "DeprovisionedAddresses" => list(String.t()()),
+        "DeprovisionedAddresses" => list(String.t()),
         "PoolId" => String.t()
       }
       
@@ -21229,7 +21229,7 @@ defmodule AWS.EC2 do
       search_transit_gateway_routes_request() :: %{
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
-        required("Filters") => list(filter()()),
+        required("Filters") => list(filter()),
         required("TransitGatewayRouteTableId") => String.t()
       }
       
@@ -21254,7 +21254,7 @@ defmodule AWS.EC2 do
       
       describe_client_vpn_authorization_rules_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ClientVpnEndpointId") => String.t()
@@ -21280,8 +21280,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateway_route_table_virtual_interface_group_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -21297,9 +21297,9 @@ defmodule AWS.EC2 do
       
       create_verified_access_endpoint_cidr_options() :: %{
         "Cidr" => String.t(),
-        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()),
         "Protocol" => list(any()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -21311,10 +21311,10 @@ defmodule AWS.EC2 do
       
       describe_vpcs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcIds") => list(String.t()())
+        optional("VpcIds") => list(String.t())
       }
       
   """
@@ -21325,7 +21325,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_transit_gateway_policy_table_associations_result() :: %{
-        "Associations" => list(transit_gateway_policy_table_association()()),
+        "Associations" => list(transit_gateway_policy_table_association()),
         "NextToken" => String.t()
       }
       
@@ -21337,7 +21337,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_import_image_tasks_result() :: %{
-        "ImportImageTasks" => list(import_image_task()()),
+        "ImportImageTasks" => list(import_image_task()),
         "NextToken" => String.t()
       }
       
@@ -21376,7 +21376,7 @@ defmodule AWS.EC2 do
         "CreationTime" => non_neg_integer(),
         "Options" => transit_gateway_connect_options(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayAttachmentId" => String.t(),
         "TransitGatewayId" => String.t(),
         "TransportTransitGatewayAttachmentId" => String.t()
@@ -21402,7 +21402,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_fleet_instance() :: %{
-        "InstanceIds" => list(String.t()()),
+        "InstanceIds" => list(String.t()),
         "InstanceType" => list(any()),
         "LaunchTemplateAndOverrides" => launch_template_and_overrides_response(),
         "Lifecycle" => list(any()),
@@ -21480,7 +21480,7 @@ defmodule AWS.EC2 do
         optional("OutpostArn") => String.t(),
         optional("Size") => integer(),
         optional("SnapshotId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Throughput") => integer(),
         optional("VolumeInitializationRate") => integer(),
         optional("VolumeType") => list(any()),
@@ -21495,7 +21495,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_account_attributes_result() :: %{
-        "AccountAttributes" => list(account_attribute()())
+        "AccountAttributes" => list(account_attribute())
       }
       
   """
@@ -21519,8 +21519,8 @@ defmodule AWS.EC2 do
       
       describe_ipam_resource_discovery_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamResourceDiscoveryAssociationIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamResourceDiscoveryAssociationIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -21534,9 +21534,9 @@ defmodule AWS.EC2 do
       
       ipv6_pool() :: %{
         "Description" => String.t(),
-        "PoolCidrBlocks" => list(pool_cidr_block()()),
+        "PoolCidrBlocks" => list(pool_cidr_block()),
         "PoolId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -21596,11 +21596,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       start_network_insights_analysis_request() :: %{
-        optional("AdditionalAccounts") => list(String.t()()),
+        optional("AdditionalAccounts") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("FilterInArns") => list(String.t()()),
-        optional("FilterOutArns") => list(String.t()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("FilterInArns") => list(String.t()),
+        optional("FilterOutArns") => list(String.t()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("ClientToken") => String.t(),
         required("NetworkInsightsPathId") => String.t()
       }
@@ -21618,11 +21618,11 @@ defmodule AWS.EC2 do
         optional("FromPort") => integer(),
         optional("GroupId") => String.t(),
         optional("GroupName") => String.t(),
-        optional("IpPermissions") => list(ip_permission()()),
+        optional("IpPermissions") => list(ip_permission()),
         optional("IpProtocol") => String.t(),
         optional("SourceSecurityGroupName") => String.t(),
         optional("SourceSecurityGroupOwnerId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("ToPort") => integer()
       }
       
@@ -21646,7 +21646,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipv6_pools_result() :: %{
-        "Ipv6Pools" => list(ipv6_pool()()),
+        "Ipv6Pools" => list(ipv6_pool()),
         "NextToken" => String.t()
       }
       
@@ -21671,10 +21671,10 @@ defmodule AWS.EC2 do
       
       describe_route_tables_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RouteTableIds") => list(String.t()())
+        optional("RouteTableIds") => list(String.t())
       }
       
   """
@@ -21710,9 +21710,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_event_window_disassociation_request() :: %{
-        "DedicatedHostIds" => list(String.t()()),
-        "InstanceIds" => list(String.t()()),
-        "InstanceTags" => list(tag()())
+        "DedicatedHostIds" => list(String.t()),
+        "InstanceIds" => list(String.t()),
+        "InstanceTags" => list(tag())
       }
       
   """
@@ -21736,7 +21736,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateway_route_table_virtual_interface_group_associations_result() :: %{
-        "LocalGatewayRouteTableVirtualInterfaceGroupAssociations" => list(local_gateway_route_table_virtual_interface_group_association()()),
+        "LocalGatewayRouteTableVirtualInterfaceGroupAssociations" => list(local_gateway_route_table_virtual_interface_group_association()),
         "NextToken" => String.t()
       }
       
@@ -21778,7 +21778,7 @@ defmodule AWS.EC2 do
       
       attach_classic_link_vpc_request() :: %{
         optional("DryRun") => boolean(),
-        required("Groups") => list(String.t()()),
+        required("Groups") => list(String.t()),
         required("InstanceId") => String.t(),
         required("VpcId") => String.t()
       }
@@ -21807,13 +21807,13 @@ defmodule AWS.EC2 do
         "AcceleratorNames" => list(list(any())()),
         "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b(),
         "AcceleratorTypes" => list(list(any())()),
-        "AllowedInstanceTypes" => list(String.t()()),
+        "AllowedInstanceTypes" => list(String.t()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps(),
         "BaselinePerformanceFactors" => baseline_performance_factors(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
-        "ExcludedInstanceTypes" => list(String.t()()),
+        "ExcludedInstanceTypes" => list(String.t()),
         "InstanceGenerations" => list(list(any())()),
         "LocalStorage" => list(any()),
         "LocalStorageTypes" => list(list(any())()),
@@ -21864,18 +21864,18 @@ defmodule AWS.EC2 do
         "ClientToken" => String.t(),
         "Context" => String.t(),
         "CreateTime" => non_neg_integer(),
-        "Errors" => list(describe_fleet_error()()),
+        "Errors" => list(describe_fleet_error()),
         "ExcessCapacityTerminationPolicy" => list(any()),
         "FleetId" => String.t(),
         "FleetState" => list(any()),
         "FulfilledCapacity" => float(),
         "FulfilledOnDemandCapacity" => float(),
-        "Instances" => list(describe_fleets_instances()()),
-        "LaunchTemplateConfigs" => list(fleet_launch_template_config()()),
+        "Instances" => list(describe_fleets_instances()),
+        "LaunchTemplateConfigs" => list(fleet_launch_template_config()),
         "OnDemandOptions" => on_demand_options(),
         "ReplaceUnhealthyInstances" => boolean(),
         "SpotOptions" => spot_options(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetCapacitySpecification" => target_capacity_specification(),
         "TerminateInstancesWithExpiration" => boolean(),
         "Type" => list(any()),
@@ -21904,7 +21904,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_allowed_images_settings_result() :: %{
-        "ImageCriteria" => list(image_criterion()()),
+        "ImageCriteria" => list(image_criterion()),
         "ManagedBy" => list(any()),
         "State" => String.t()
       }
@@ -21919,7 +21919,7 @@ defmodule AWS.EC2 do
       create_reserved_instances_listing_request() :: %{
         required("ClientToken") => String.t(),
         required("InstanceCount") => integer(),
-        required("PriceSchedules") => list(price_schedule_specification()()),
+        required("PriceSchedules") => list(price_schedule_specification()),
         required("ReservedInstancesId") => String.t()
       }
       
@@ -21939,7 +21939,7 @@ defmodule AWS.EC2 do
         optional("Encrypted") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("PresignedUrl") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("SourceRegion") => String.t(),
         required("SourceSnapshotId") => String.t()
       }
@@ -21953,7 +21953,7 @@ defmodule AWS.EC2 do
       
       describe_declarative_policies_reports_result() :: %{
         "NextToken" => String.t(),
-        "Reports" => list(declarative_policies_report()())
+        "Reports" => list(declarative_policies_report())
       }
       
   """
@@ -21978,7 +21978,7 @@ defmodule AWS.EC2 do
       create_transit_gateway_multicast_domain_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => create_transit_gateway_multicast_domain_request_options(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("TransitGatewayId") => String.t()
       }
       
@@ -22025,10 +22025,10 @@ defmodule AWS.EC2 do
       
       describe_verified_access_groups_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VerifiedAccessGroupIds") => list(String.t()()),
+        optional("VerifiedAccessGroupIds") => list(String.t()),
         optional("VerifiedAccessInstanceId") => String.t()
       }
       
@@ -22043,8 +22043,8 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("OperatingRegions") => list(add_ipam_operating_region()()),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("OperatingRegions") => list(add_ipam_operating_region()),
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -22099,8 +22099,8 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "GroupId" => String.t(),
         "GroupName" => String.t(),
-        "StaleIpPermissions" => list(stale_ip_permission()()),
-        "StaleIpPermissionsEgress" => list(stale_ip_permission()()),
+        "StaleIpPermissions" => list(stale_ip_permission()),
+        "StaleIpPermissionsEgress" => list(stale_ip_permission()),
         "VpcId" => String.t()
       }
       
@@ -22161,9 +22161,9 @@ defmodule AWS.EC2 do
         optional("NetworkInterfaceOptions") => create_verified_access_endpoint_eni_options(),
         optional("PolicyDocument") => String.t(),
         optional("RdsOptions") => create_verified_access_endpoint_rds_options(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SseSpecification") => verified_access_sse_specification_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("AttachmentType") => list(any()),
         required("EndpointType") => list(any()),
         required("VerifiedAccessGroupId") => String.t()
@@ -22203,7 +22203,7 @@ defmodule AWS.EC2 do
       register_transit_gateway_multicast_group_sources_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupIpAddress") => String.t(),
-        required("NetworkInterfaceIds") => list(String.t()()),
+        required("NetworkInterfaceIds") => list(String.t()),
         required("TransitGatewayMulticastDomainId") => String.t()
       }
       
@@ -22227,7 +22227,7 @@ defmodule AWS.EC2 do
       
       describe_fast_snapshot_restores_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -22294,7 +22294,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_config_request() :: %{
         "LaunchTemplateSpecification" => fleet_launch_template_specification_request(),
-        "Overrides" => list(fleet_launch_template_overrides_request()())
+        "Overrides" => list(fleet_launch_template_overrides_request())
       }
       
   """
@@ -22380,7 +22380,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fpga_images_result() :: %{
-        "FpgaImages" => list(fpga_image()()),
+        "FpgaImages" => list(fpga_image()),
         "NextToken" => String.t()
       }
       
@@ -22405,7 +22405,7 @@ defmodule AWS.EC2 do
       modify_instance_credit_specification_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        required("InstanceCreditSpecifications") => list(instance_credit_specification_request()())
+        required("InstanceCreditSpecifications") => list(instance_credit_specification_request())
       }
       
   """
@@ -22479,9 +22479,9 @@ defmodule AWS.EC2 do
       verified_access_endpoint_load_balancer_options() :: %{
         "LoadBalancerArn" => String.t(),
         "Port" => integer(),
-        "PortRanges" => list(verified_access_endpoint_port_range()()),
+        "PortRanges" => list(verified_access_endpoint_port_range()),
         "Protocol" => list(any()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -22509,7 +22509,7 @@ defmodule AWS.EC2 do
       
       describe_reserved_instances_offerings_result() :: %{
         "NextToken" => String.t(),
-        "ReservedInstancesOfferings" => list(reserved_instances_offering()())
+        "ReservedInstancesOfferings" => list(reserved_instances_offering())
       }
       
   """
@@ -22534,11 +22534,11 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_services_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ServiceNames") => list(String.t()()),
-        optional("ServiceRegions") => list(String.t()())
+        optional("ServiceNames") => list(String.t()),
+        optional("ServiceRegions") => list(String.t())
       }
       
   """
@@ -22566,7 +22566,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_interface_permissions_result() :: %{
-        "NetworkInterfacePermissions" => list(network_interface_permission()()),
+        "NetworkInterfacePermissions" => list(network_interface_permission()),
         "NextToken" => String.t()
       }
       
@@ -22591,7 +22591,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       start_instances_result() :: %{
-        "StartingInstances" => list(instance_state_change()())
+        "StartingInstances" => list(instance_state_change())
       }
       
   """
@@ -22640,8 +22640,8 @@ defmodule AWS.EC2 do
       create_managed_prefix_list_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("Entries") => list(add_prefix_list_entry()()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("Entries") => list(add_prefix_list_entry()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("AddressFamily") => String.t(),
         required("MaxEntries") => integer(),
         required("PrefixListName") => String.t()
@@ -22655,8 +22655,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       enable_fast_snapshot_restores_result() :: %{
-        "Successful" => list(enable_fast_snapshot_restore_success_item()()),
-        "Unsuccessful" => list(enable_fast_snapshot_restore_error_item()())
+        "Successful" => list(enable_fast_snapshot_restore_success_item()),
+        "Unsuccessful" => list(enable_fast_snapshot_restore_error_item())
       }
       
   """
@@ -22679,7 +22679,7 @@ defmodule AWS.EC2 do
         "RouteServerPeerId" => String.t(),
         "State" => list(any()),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -22693,7 +22693,7 @@ defmodule AWS.EC2 do
       deregister_transit_gateway_multicast_group_members_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupIpAddress") => String.t(),
-        optional("NetworkInterfaceIds") => list(String.t()()),
+        optional("NetworkInterfaceIds") => list(String.t()),
         optional("TransitGatewayMulticastDomainId") => String.t()
       }
       
@@ -22742,8 +22742,8 @@ defmodule AWS.EC2 do
       
       describe_ipam_scopes_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamScopeIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamScopeIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -22780,10 +22780,10 @@ defmodule AWS.EC2 do
       
       describe_outpost_lags_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OutpostLagIds") => list(String.t()())
+        optional("OutpostLagIds") => list(String.t())
       }
       
   """
@@ -22826,7 +22826,7 @@ defmodule AWS.EC2 do
         "ReservationType" => list(any()),
         "SubnetCidrReservationId" => String.t(),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -22837,9 +22837,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_event_window_association_request() :: %{
-        "DedicatedHostIds" => list(String.t()()),
-        "InstanceIds" => list(String.t()()),
-        "InstanceTags" => list(tag()())
+        "DedicatedHostIds" => list(String.t()),
+        "InstanceIds" => list(String.t()),
+        "InstanceTags" => list(tag())
       }
       
   """
@@ -22884,8 +22884,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_iam_instance_profile_associations_request() :: %{
-        optional("AssociationIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("AssociationIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -22969,10 +22969,10 @@ defmodule AWS.EC2 do
       
       describe_ipv6_pools_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PoolIds") => list(String.t()())
+        optional("PoolIds") => list(String.t())
       }
       
   """
@@ -23002,7 +23002,7 @@ defmodule AWS.EC2 do
         optional("FilterAtDestination") => path_request_filter(),
         optional("FilterAtSource") => path_request_filter(),
         optional("SourceIp") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("ClientToken") => String.t(),
         required("Protocol") => list(any()),
         required("Source") => String.t()
@@ -23097,7 +23097,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SnapshotIds") => list(String.t()())
+        optional("SnapshotIds") => list(String.t())
       }
       
   """
@@ -23139,9 +23139,9 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("EndDate") => non_neg_integer(),
         optional("InstanceMatchCriteria") => list(any()),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Tenancy") => list(any()),
-        required("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()()),
+        required("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()),
         required("TotalTargetCapacity") => integer()
       }
       
@@ -23154,7 +23154,7 @@ defmodule AWS.EC2 do
       
       launch_template_tag_specification() :: %{
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -23193,7 +23193,7 @@ defmodule AWS.EC2 do
         "AvailableInstanceCount" => integer(),
         "CapacityReservationId" => String.t(),
         "InstanceType" => String.t(),
-        "InstanceUsages" => list(instance_usage()()),
+        "InstanceUsages" => list(instance_usage()),
         "NextToken" => String.t(),
         "State" => list(any()),
         "TotalInstanceCount" => integer()
@@ -23213,7 +23213,7 @@ defmodule AWS.EC2 do
         "S3Prefix" => String.t(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetId" => String.t()
       }
       
@@ -23267,7 +23267,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("ServiceId") => String.t(),
         optional("VpcEndpointId") => String.t(),
-        required("ConnectionEvents") => list(String.t()()),
+        required("ConnectionEvents") => list(String.t()),
         required("ConnectionNotificationArn") => String.t()
       }
       
@@ -23310,7 +23310,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MacCredentials") => String.t(),
         optional("MacSystemIntegrityProtectionConfiguration") => mac_system_integrity_protection_configuration_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("InstanceId") => String.t(),
         required("MacSystemIntegrityProtectionStatus") => list(any())
       }
@@ -23328,7 +23328,7 @@ defmodule AWS.EC2 do
         optional("AllocationDefaultNetmaskLength") => integer(),
         optional("AllocationMaxNetmaskLength") => integer(),
         optional("AllocationMinNetmaskLength") => integer(),
-        optional("AllocationResourceTags") => list(request_ipam_resource_tag()()),
+        optional("AllocationResourceTags") => list(request_ipam_resource_tag()),
         optional("AutoImport") => boolean(),
         optional("AwsService") => list(any()),
         optional("ClientToken") => String.t(),
@@ -23339,7 +23339,7 @@ defmodule AWS.EC2 do
         optional("PubliclyAdvertisable") => boolean(),
         optional("SourceIpamPoolId") => String.t(),
         optional("SourceResource") => ipam_pool_source_resource_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("AddressFamily") => list(any()),
         required("IpamScopeId") => String.t()
       }
@@ -23352,7 +23352,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       prefix_list() :: %{
-        "Cidrs" => list(String.t()()),
+        "Cidrs" => list(String.t()),
         "PrefixListId" => String.t(),
         "PrefixListName" => String.t()
       }
@@ -23469,7 +23469,7 @@ defmodule AWS.EC2 do
         "LaunchTemplateId" => String.t(),
         "LaunchTemplateName" => String.t(),
         "Operator" => operator_response(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -23494,7 +23494,7 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "InstanceId" => String.t(),
         "Platform" => list(any()),
-        "Volumes" => list(import_instance_volume_detail_item()())
+        "Volumes" => list(import_instance_volume_detail_item())
       }
       
   """
@@ -23539,19 +23539,19 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("EnablePrimaryIpv6") => boolean(),
-        optional("Groups") => list(String.t()()),
+        optional("Groups") => list(String.t()),
         optional("InterfaceType") => list(any()),
         optional("Ipv4PrefixCount") => integer(),
-        optional("Ipv4Prefixes") => list(ipv4_prefix_specification_request()()),
+        optional("Ipv4Prefixes") => list(ipv4_prefix_specification_request()),
         optional("Ipv6AddressCount") => integer(),
-        optional("Ipv6Addresses") => list(instance_ipv6_address()()),
+        optional("Ipv6Addresses") => list(instance_ipv6_address()),
         optional("Ipv6PrefixCount") => integer(),
-        optional("Ipv6Prefixes") => list(ipv6_prefix_specification_request()()),
+        optional("Ipv6Prefixes") => list(ipv6_prefix_specification_request()),
         optional("Operator") => operator_request(),
         optional("PrivateIpAddress") => String.t(),
-        optional("PrivateIpAddresses") => list(private_ip_address_specification()()),
+        optional("PrivateIpAddresses") => list(private_ip_address_specification()),
         optional("SecondaryPrivateIpAddressCount") => integer(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("SubnetId") => String.t()
       }
       
@@ -23564,11 +23564,11 @@ defmodule AWS.EC2 do
       
       describe_fpga_images_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("FpgaImageIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("FpgaImageIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("Owners") => list(String.t()())
+        optional("Owners") => list(String.t())
       }
       
   """
@@ -23622,7 +23622,7 @@ defmodule AWS.EC2 do
       
       describe_client_vpn_connections_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ClientVpnEndpointId") => String.t()
@@ -23669,7 +23669,7 @@ defmodule AWS.EC2 do
       
       account_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(account_attribute_value()())
+        "AttributeValues" => list(account_attribute_value())
       }
       
   """
@@ -23692,7 +23692,7 @@ defmodule AWS.EC2 do
       
       describe_route_server_peers_result() :: %{
         "NextToken" => String.t(),
-        "RouteServerPeers" => list(route_server_peer()())
+        "RouteServerPeers" => list(route_server_peer())
       }
       
   """
@@ -23736,7 +23736,7 @@ defmodule AWS.EC2 do
       
       describe_launch_template_versions_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LaunchTemplateId") => String.t(),
         optional("LaunchTemplateName") => String.t(),
         optional("MaxResults") => integer(),
@@ -23744,7 +23744,7 @@ defmodule AWS.EC2 do
         optional("MinVersion") => String.t(),
         optional("NextToken") => String.t(),
         optional("ResolveAlias") => boolean(),
-        optional("Versions") => list(String.t()())
+        optional("Versions") => list(String.t())
       }
       
   """
@@ -23777,9 +23777,9 @@ defmodule AWS.EC2 do
         optional("CidrIp") => String.t(),
         optional("DryRun") => boolean(),
         optional("FromPort") => integer(),
-        optional("IpPermissions") => list(ip_permission()()),
+        optional("IpPermissions") => list(ip_permission()),
         optional("IpProtocol") => String.t(),
-        optional("SecurityGroupRuleIds") => list(String.t()()),
+        optional("SecurityGroupRuleIds") => list(String.t()),
         optional("SourceSecurityGroupName") => String.t(),
         optional("SourceSecurityGroupOwnerId") => String.t(),
         optional("ToPort") => integer(),
@@ -23795,7 +23795,7 @@ defmodule AWS.EC2 do
       
       describe_aws_network_performance_metric_subscriptions_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -23809,8 +23809,8 @@ defmodule AWS.EC2 do
       
       modify_reserved_instances_request() :: %{
         optional("ClientToken") => String.t(),
-        required("ReservedInstancesIds") => list(String.t()()),
-        required("TargetConfigurations") => list(reserved_instances_configuration()())
+        required("ReservedInstancesIds") => list(String.t()),
+        required("TargetConfigurations") => list(reserved_instances_configuration())
       }
       
   """
@@ -23846,7 +23846,7 @@ defmodule AWS.EC2 do
       start_instances_request() :: %{
         optional("AdditionalInfo") => String.t(),
         optional("DryRun") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -23857,9 +23857,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_carrier_gateways_request() :: %{
-        optional("CarrierGatewayIds") => list(String.t()()),
+        optional("CarrierGatewayIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -23872,7 +23872,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_snapshots_result() :: %{
-        "Snapshots" => list(snapshot_info()())
+        "Snapshots" => list(snapshot_info())
       }
       
   """
@@ -23883,7 +23883,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_associated_enclave_certificate_iam_roles_result() :: %{
-        "AssociatedRoles" => list(associated_role()())
+        "AssociatedRoles" => list(associated_role())
       }
       
   """
@@ -23899,7 +23899,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("ImageId") => String.t(),
         optional("SnapshotId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VolumeInitializationRate") => float(),
         required("InstanceId") => String.t()
       }
@@ -23928,7 +23928,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_pool_allocations_result() :: %{
-        "IpamPoolAllocations" => list(ipam_pool_allocation()()),
+        "IpamPoolAllocations" => list(ipam_pool_allocation()),
         "NextToken" => String.t()
       }
       
@@ -23940,7 +23940,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       transit_gateway_multicast_deregistered_group_sources() :: %{
-        "DeregisteredNetworkInterfaceIds" => list(String.t()()),
+        "DeregisteredNetworkInterfaceIds" => list(String.t()),
         "GroupIpAddress" => String.t(),
         "TransitGatewayMulticastDomainId" => String.t()
       }
@@ -23953,7 +23953,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_type_offerings_result() :: %{
-        "InstanceTypeOfferings" => list(instance_type_offering()()),
+        "InstanceTypeOfferings" => list(instance_type_offering()),
         "NextToken" => String.t()
       }
       
@@ -23994,7 +23994,7 @@ defmodule AWS.EC2 do
       create_route_server_endpoint_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("RouteServerId") => String.t(),
         required("SubnetId") => String.t()
       }
@@ -24007,7 +24007,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       enable_fast_snapshot_restore_error_item() :: %{
-        "FastSnapshotRestoreStateErrors" => list(enable_fast_snapshot_restore_state_error_item()()),
+        "FastSnapshotRestoreStateErrors" => list(enable_fast_snapshot_restore_state_error_item()),
         "SnapshotId" => String.t()
       }
       
@@ -24021,9 +24021,9 @@ defmodule AWS.EC2 do
       fpga_image_attribute() :: %{
         "Description" => String.t(),
         "FpgaImageId" => String.t(),
-        "LoadPermissions" => list(load_permission()()),
+        "LoadPermissions" => list(load_permission()),
         "Name" => String.t(),
-        "ProductCodes" => list(product_code()())
+        "ProductCodes" => list(product_code())
       }
       
   """
@@ -24081,7 +24081,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_connect_endpoints_result() :: %{
-        "InstanceConnectEndpoints" => list(ec2_instance_connect_endpoint()()),
+        "InstanceConnectEndpoints" => list(ec2_instance_connect_endpoint()),
         "NextToken" => String.t()
       }
       
@@ -24093,7 +24093,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_launch_templates_result() :: %{
-        "LaunchTemplates" => list(launch_template()()),
+        "LaunchTemplates" => list(launch_template()),
         "NextToken" => String.t()
       }
       
@@ -24140,8 +24140,8 @@ defmodule AWS.EC2 do
       
       describe_ipams_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("IpamIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("IpamIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -24191,7 +24191,7 @@ defmodule AWS.EC2 do
       
       describe_instances_result() :: %{
         "NextToken" => String.t(),
-        "Reservations" => list(reservation()())
+        "Reservations" => list(reservation())
       }
       
   """
@@ -24204,7 +24204,7 @@ defmodule AWS.EC2 do
       describe_vpc_endpoint_connection_notifications_request() :: %{
         optional("ConnectionNotificationId") => String.t(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -24241,8 +24241,8 @@ defmodule AWS.EC2 do
       
       describe_elastic_gpus_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ElasticGpuIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("ElasticGpuIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -24285,12 +24285,12 @@ defmodule AWS.EC2 do
       
       describe_snapshots_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OwnerIds") => list(String.t()()),
-        optional("RestorableByUserIds") => list(String.t()()),
-        optional("SnapshotIds") => list(String.t()())
+        optional("OwnerIds") => list(String.t()),
+        optional("RestorableByUserIds") => list(String.t()),
+        optional("SnapshotIds") => list(String.t())
       }
       
   """
@@ -24325,7 +24325,7 @@ defmodule AWS.EC2 do
       
       dhcp_configuration() :: %{
         "Key" => String.t(),
-        "Values" => list(attribute_value()())
+        "Values" => list(attribute_value())
       }
       
   """
@@ -24336,7 +24336,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       classic_load_balancers_config() :: %{
-        "ClassicLoadBalancers" => list(classic_load_balancer()())
+        "ClassicLoadBalancers" => list(classic_load_balancer())
       }
       
   """
@@ -24451,7 +24451,7 @@ defmodule AWS.EC2 do
       
       describe_host_reservation_offerings_result() :: %{
         "NextToken" => String.t(),
-        "OfferingSet" => list(host_offering()())
+        "OfferingSet" => list(host_offering())
       }
       
   """
@@ -24521,8 +24521,8 @@ defmodule AWS.EC2 do
       
       describe_vpn_gateways_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("VpnGatewayIds") => list(String.t()())
+        optional("Filters") => list(filter()),
+        optional("VpnGatewayIds") => list(String.t())
       }
       
   """
@@ -24545,8 +24545,8 @@ defmodule AWS.EC2 do
       
       describe_export_image_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ExportImageTaskIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("ExportImageTaskIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -24559,12 +24559,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_ipam_request() :: %{
-        optional("AddOperatingRegions") => list(add_ipam_operating_region()()),
+        optional("AddOperatingRegions") => list(add_ipam_operating_region()),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("EnablePrivateGua") => boolean(),
         optional("MeteredAccount") => list(any()),
-        optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()()),
+        optional("RemoveOperatingRegions") => list(remove_ipam_operating_region()),
         optional("Tier") => list(any()),
         required("IpamId") => String.t()
       }
@@ -24585,7 +24585,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t(),
         "State" => String.t(),
         "StateReason" => state_reason(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -24597,7 +24597,7 @@ defmodule AWS.EC2 do
       
       describe_snapshot_tier_status_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -24610,7 +24610,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_reservation_fleets_result() :: %{
-        "CapacityReservationFleets" => list(capacity_reservation_fleet()()),
+        "CapacityReservationFleets" => list(capacity_reservation_fleet()),
         "NextToken" => String.t()
       }
       
@@ -24622,7 +24622,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_vpc_endpoint_service_permissions_result() :: %{
-        "AllowedPrincipals" => list(allowed_principal()()),
+        "AllowedPrincipals" => list(allowed_principal()),
         "NextToken" => String.t()
       }
       
@@ -24635,7 +24635,7 @@ defmodule AWS.EC2 do
       
       get_spot_placement_scores_result() :: %{
         "NextToken" => String.t(),
-        "SpotPlacementScores" => list(spot_placement_score()())
+        "SpotPlacementScores" => list(spot_placement_score())
       }
       
   """
@@ -24659,11 +24659,11 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_filter_rules_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("TrafficMirrorFilterId") => String.t(),
-        optional("TrafficMirrorFilterRuleIds") => list(String.t()())
+        optional("TrafficMirrorFilterRuleIds") => list(String.t())
       }
       
   """
@@ -24757,7 +24757,7 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "ImportTaskId" => String.t(),
         "SnapshotTaskDetail" => snapshot_task_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -24791,7 +24791,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       cpu_performance_factor_request() :: %{
-        "References" => list(performance_factor_reference_request()())
+        "References" => list(performance_factor_reference_request())
       }
       
   """
@@ -24814,7 +24814,7 @@ defmodule AWS.EC2 do
       
       reject_transit_gateway_multicast_domain_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         optional("TransitGatewayAttachmentId") => String.t(),
         optional("TransitGatewayMulticastDomainId") => String.t()
       }
@@ -24884,7 +24884,7 @@ defmodule AWS.EC2 do
       
       get_ipam_resource_cidrs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IpamPoolId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -24906,7 +24906,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("PeerBgpAsn") => integer(),
         optional("PeerBgpAsnExtended") => float(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("LocalAddress") => String.t(),
         required("LocalGatewayVirtualInterfaceGroupId") => String.t(),
         required("OutpostLagId") => String.t(),
@@ -24949,7 +24949,7 @@ defmodule AWS.EC2 do
       
       describe_subnets_result() :: %{
         "NextToken" => String.t(),
-        "Subnets" => list(subnet()())
+        "Subnets" => list(subnet())
       }
       
   """
@@ -24972,10 +24972,10 @@ defmodule AWS.EC2 do
       
       describe_prefix_lists_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PrefixListIds") => list(String.t()())
+        optional("PrefixListIds") => list(String.t())
       }
       
   """
@@ -24999,9 +24999,9 @@ defmodule AWS.EC2 do
       
       describe_instance_topology_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("GroupNames") => list(String.t()()),
-        optional("InstanceIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("GroupNames") => list(String.t()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -25068,9 +25068,9 @@ defmodule AWS.EC2 do
       public_ipv4_pool() :: %{
         "Description" => String.t(),
         "NetworkBorderGroup" => String.t(),
-        "PoolAddressRanges" => list(public_ipv4_pool_range()()),
+        "PoolAddressRanges" => list(public_ipv4_pool_range()),
         "PoolId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TotalAddressCount" => integer(),
         "TotalAvailableAddressCount" => integer()
       }
@@ -25085,10 +25085,10 @@ defmodule AWS.EC2 do
       additional_detail() :: %{
         "AdditionalDetailType" => String.t(),
         "Component" => analysis_component(),
-        "LoadBalancers" => list(analysis_component()()),
-        "RuleGroupRuleOptionsPairs" => list(rule_group_rule_options_pair()()),
-        "RuleGroupTypePairs" => list(rule_group_type_pair()()),
-        "RuleOptions" => list(rule_option()()),
+        "LoadBalancers" => list(analysis_component()),
+        "RuleGroupRuleOptionsPairs" => list(rule_group_rule_options_pair()),
+        "RuleGroupTypePairs" => list(rule_group_type_pair()),
+        "RuleOptions" => list(rule_option()),
         "ServiceName" => String.t(),
         "VpcEndpointService" => analysis_component()
       }
@@ -25151,7 +25151,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_event_windows_result() :: %{
-        "InstanceEventWindows" => list(instance_event_window()()),
+        "InstanceEventWindows" => list(instance_event_window()),
         "NextToken" => String.t()
       }
       
@@ -25222,9 +25222,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_customer_gateways_request() :: %{
-        optional("CustomerGatewayIds") => list(String.t()()),
+        optional("CustomerGatewayIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()())
+        optional("Filters") => list(filter())
       }
       
   """
@@ -25235,7 +25235,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       apply_security_groups_to_client_vpn_target_network_result() :: %{
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t())
       }
       
   """
@@ -25259,7 +25259,7 @@ defmodule AWS.EC2 do
       
       describe_aws_network_performance_metric_subscriptions_result() :: %{
         "NextToken" => String.t(),
-        "Subscriptions" => list(subscription()())
+        "Subscriptions" => list(subscription())
       }
       
   """
@@ -25279,7 +25279,7 @@ defmodule AWS.EC2 do
         "StaticRoutesOnly" => boolean(),
         "TransportTransitGatewayAttachmentId" => String.t(),
         "TunnelInsideIpVersion" => list(any()),
-        "TunnelOptions" => list(tunnel_option()())
+        "TunnelOptions" => list(tunnel_option())
       }
       
   """
@@ -25290,7 +25290,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_fleets_result() :: %{
-        "Fleets" => list(fleet_data()()),
+        "Fleets" => list(fleet_data()),
         "NextToken" => String.t()
       }
       
@@ -25318,7 +25318,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_export_image_tasks_result() :: %{
-        "ExportImageTasks" => list(export_image_task()()),
+        "ExportImageTasks" => list(export_image_task()),
         "NextToken" => String.t()
       }
       
@@ -25353,10 +25353,10 @@ defmodule AWS.EC2 do
       
       describe_volume_status_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VolumeIds") => list(String.t()())
+        optional("VolumeIds") => list(String.t())
       }
       
   """
@@ -25385,7 +25385,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("PolicyDocument") => String.t(),
         optional("SseSpecification") => verified_access_sse_specification_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VerifiedAccessInstanceId") => String.t()
       }
       
@@ -25397,22 +25397,22 @@ defmodule AWS.EC2 do
   ## Example:
       
       network_insights_analysis() :: %{
-        "AdditionalAccounts" => list(String.t()()),
-        "AlternatePathHints" => list(alternate_path_hint()()),
-        "Explanations" => list(explanation()()),
-        "FilterInArns" => list(String.t()()),
-        "FilterOutArns" => list(String.t()()),
-        "ForwardPathComponents" => list(path_component()()),
+        "AdditionalAccounts" => list(String.t()),
+        "AlternatePathHints" => list(alternate_path_hint()),
+        "Explanations" => list(explanation()),
+        "FilterInArns" => list(String.t()),
+        "FilterOutArns" => list(String.t()),
+        "ForwardPathComponents" => list(path_component()),
         "NetworkInsightsAnalysisArn" => String.t(),
         "NetworkInsightsAnalysisId" => String.t(),
         "NetworkInsightsPathId" => String.t(),
         "NetworkPathFound" => boolean(),
-        "ReturnPathComponents" => list(path_component()()),
+        "ReturnPathComponents" => list(path_component()),
         "StartDate" => non_neg_integer(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
-        "SuggestedAccounts" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SuggestedAccounts" => list(String.t()),
+        "Tags" => list(tag()),
         "WarningMessage" => String.t()
       }
       
@@ -25436,8 +25436,8 @@ defmodule AWS.EC2 do
       
       describe_import_snapshot_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("ImportTaskIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("ImportTaskIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -25455,7 +25455,7 @@ defmodule AWS.EC2 do
         optional("PersistRoutes") => list(any()),
         optional("PersistRoutesDuration") => float(),
         optional("SnsNotificationsEnabled") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("AmazonSideAsn") => float()
       }
       
@@ -25479,7 +25479,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       release_hosts_request() :: %{
-        required("HostIds") => list(String.t()())
+        required("HostIds") => list(String.t())
       }
       
   """
@@ -25527,7 +25527,7 @@ defmodule AWS.EC2 do
       
       describe_volumes_result() :: %{
         "NextToken" => String.t(),
-        "Volumes" => list(volume()())
+        "Volumes" => list(volume())
       }
       
   """
@@ -25574,7 +25574,7 @@ defmodule AWS.EC2 do
       
       describe_tags_result() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag_description()())
+        "Tags" => list(tag_description())
       }
       
   """
@@ -25587,7 +25587,7 @@ defmodule AWS.EC2 do
       instance_status() :: %{
         "AttachedEbsStatus" => ebs_status_summary(),
         "AvailabilityZone" => String.t(),
-        "Events" => list(instance_status_event()()),
+        "Events" => list(instance_status_event()),
         "InstanceId" => String.t(),
         "InstanceState" => instance_state(),
         "InstanceStatus" => instance_status_summary(),
@@ -25628,10 +25628,10 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_route_tables_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayRouteTableIds") => list(String.t()())
+        optional("TransitGatewayRouteTableIds") => list(String.t())
       }
       
   """
@@ -25643,7 +25643,7 @@ defmodule AWS.EC2 do
       
       principal_id_format() :: %{
         "Arn" => String.t(),
-        "Statuses" => list(id_format()())
+        "Statuses" => list(id_format())
       }
       
   """
@@ -25666,7 +25666,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_resource_cidrs_result() :: %{
-        "IpamResourceCidrs" => list(ipam_resource_cidr()()),
+        "IpamResourceCidrs" => list(ipam_resource_cidr()),
         "NextToken" => String.t()
       }
       
@@ -25705,10 +25705,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_transit_gateway_vpc_attachment_request() :: %{
-        optional("AddSubnetIds") => list(String.t()()),
+        optional("AddSubnetIds") => list(String.t()),
         optional("DryRun") => boolean(),
         optional("Options") => modify_transit_gateway_vpc_attachment_request_options(),
-        optional("RemoveSubnetIds") => list(String.t()()),
+        optional("RemoveSubnetIds") => list(String.t()),
         required("TransitGatewayAttachmentId") => String.t()
       }
       
@@ -25733,7 +25733,7 @@ defmodule AWS.EC2 do
       
       cancel_capacity_reservation_fleets_request() :: %{
         optional("DryRun") => boolean(),
-        required("CapacityReservationFleetIds") => list(String.t()())
+        required("CapacityReservationFleetIds") => list(String.t())
       }
       
   """
@@ -25757,7 +25757,7 @@ defmodule AWS.EC2 do
       accept_vpc_endpoint_connections_request() :: %{
         optional("DryRun") => boolean(),
         required("ServiceId") => String.t(),
-        required("VpcEndpointIds") => list(String.t()())
+        required("VpcEndpointIds") => list(String.t())
       }
       
   """
@@ -25768,7 +25768,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_aggregate_id_format_result() :: %{
-        "Statuses" => list(id_format()()),
+        "Statuses" => list(id_format()),
         "UseLongIdsAggregated" => boolean()
       }
       
@@ -25805,7 +25805,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_regions_result() :: %{
-        "Regions" => list(region()())
+        "Regions" => list(region())
       }
       
   """
@@ -25878,8 +25878,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_host_reservations_request() :: %{
-        optional("Filter") => list(filter()()),
-        optional("HostReservationIdSet") => list(String.t()()),
+        optional("Filter") => list(filter()),
+        optional("HostReservationIdSet") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -25893,7 +25893,7 @@ defmodule AWS.EC2 do
       
       create_transit_gateway_policy_table_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("TransitGatewayId") => String.t()
       }
       
@@ -25906,10 +25906,10 @@ defmodule AWS.EC2 do
       
       describe_traffic_mirror_filters_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TrafficMirrorFilterIds") => list(String.t()())
+        optional("TrafficMirrorFilterIds") => list(String.t())
       }
       
   """
@@ -25921,7 +25921,7 @@ defmodule AWS.EC2 do
       
       describe_tags_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -25963,8 +25963,8 @@ defmodule AWS.EC2 do
       
       revoke_security_group_ingress_result() :: %{
         "Return" => boolean(),
-        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()()),
-        "UnknownIpPermissions" => list(ip_permission()())
+        "RevokedSecurityGroupRules" => list(revoked_security_group_rule()),
+        "UnknownIpPermissions" => list(ip_permission())
       }
       
   """
@@ -25976,7 +25976,7 @@ defmodule AWS.EC2 do
       
       fleet_launch_template_overrides_request() :: %{
         "AvailabilityZone" => String.t(),
-        "BlockDeviceMappings" => list(fleet_block_device_mapping_request()()),
+        "BlockDeviceMappings" => list(fleet_block_device_mapping_request()),
         "ImageId" => String.t(),
         "InstanceRequirements" => instance_requirements_request(),
         "InstanceType" => list(any()),
@@ -26082,7 +26082,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_host_reservation_purchase_preview_request() :: %{
-        required("HostIdSet") => list(String.t()()),
+        required("HostIdSet") => list(String.t()),
         required("OfferingId") => String.t()
       }
       
@@ -26094,7 +26094,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_elastic_gpus_result() :: %{
-        "ElasticGpuSet" => list(elastic_gpus()()),
+        "ElasticGpuSet" => list(elastic_gpus()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
@@ -26107,7 +26107,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_blocks_result() :: %{
-        "CapacityBlocks" => list(capacity_block()()),
+        "CapacityBlocks" => list(capacity_block()),
         "NextToken" => String.t()
       }
       
@@ -26121,9 +26121,9 @@ defmodule AWS.EC2 do
       create_verified_access_endpoint_load_balancer_options() :: %{
         "LoadBalancerArn" => String.t(),
         "Port" => integer(),
-        "PortRanges" => list(create_verified_access_endpoint_port_range()()),
+        "PortRanges" => list(create_verified_access_endpoint_port_range()),
         "Protocol" => list(any()),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -26168,7 +26168,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       request_spot_instances_result() :: %{
-        "SpotInstanceRequests" => list(spot_instance_request()())
+        "SpotInstanceRequests" => list(spot_instance_request())
       }
       
   """
@@ -26213,7 +26213,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       purchase_capacity_block_result() :: %{
-        "CapacityBlocks" => list(capacity_block()()),
+        "CapacityBlocks" => list(capacity_block()),
         "CapacityReservation" => capacity_reservation()
       }
       
@@ -26232,7 +26232,7 @@ defmodule AWS.EC2 do
         "DnsSupport" => list(any()),
         "MulticastSupport" => list(any()),
         "SecurityGroupReferencingSupport" => list(any()),
-        "TransitGatewayCidrBlocks" => list(String.t()()),
+        "TransitGatewayCidrBlocks" => list(String.t()),
         "VpnEcmpSupport" => list(any())
       }
       
@@ -26254,7 +26254,7 @@ defmodule AWS.EC2 do
         "EgressPackets" => String.t(),
         "IngressBytes" => String.t(),
         "IngressPackets" => String.t(),
-        "PostureComplianceStatuses" => list(String.t()()),
+        "PostureComplianceStatuses" => list(String.t()),
         "Status" => client_vpn_connection_status(),
         "Timestamp" => String.t(),
         "Username" => String.t()
@@ -26286,10 +26286,10 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_service_configurations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ServiceIds") => list(String.t()())
+        optional("ServiceIds") => list(String.t())
       }
       
   """
@@ -26313,10 +26313,10 @@ defmodule AWS.EC2 do
       get_spot_placement_scores_request() :: %{
         optional("DryRun") => boolean(),
         optional("InstanceRequirementsWithMetadata") => instance_requirements_with_metadata_request(),
-        optional("InstanceTypes") => list(String.t()()),
+        optional("InstanceTypes") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RegionNames") => list(String.t()()),
+        optional("RegionNames") => list(String.t()),
         optional("SingleAvailabilityZone") => boolean(),
         optional("TargetCapacityUnitType") => list(any()),
         required("TargetCapacity") => integer()
@@ -26331,8 +26331,8 @@ defmodule AWS.EC2 do
       
       describe_import_image_tasks_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("ImportTaskIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("ImportTaskIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -26346,7 +26346,7 @@ defmodule AWS.EC2 do
       
       describe_client_vpn_routes_result() :: %{
         "NextToken" => String.t(),
-        "Routes" => list(client_vpn_route()())
+        "Routes" => list(client_vpn_route())
       }
       
   """
@@ -26369,13 +26369,13 @@ defmodule AWS.EC2 do
   ## Example:
       
       packet_header_statement_request() :: %{
-        "DestinationAddresses" => list(String.t()()),
-        "DestinationPorts" => list(String.t()()),
-        "DestinationPrefixLists" => list(String.t()()),
+        "DestinationAddresses" => list(String.t()),
+        "DestinationPorts" => list(String.t()),
+        "DestinationPrefixLists" => list(String.t()),
         "Protocols" => list(list(any())()),
-        "SourceAddresses" => list(String.t()()),
-        "SourcePorts" => list(String.t()()),
-        "SourcePrefixLists" => list(String.t()())
+        "SourceAddresses" => list(String.t()),
+        "SourcePorts" => list(String.t()),
+        "SourcePrefixLists" => list(String.t())
       }
       
   """
@@ -26416,7 +26416,7 @@ defmodule AWS.EC2 do
         "ExpirationTime" => non_neg_integer(),
         "RequesterVpcInfo" => vpc_peering_connection_vpc_info(),
         "Status" => vpc_peering_connection_state_reason(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcPeeringConnectionId" => String.t()
       }
       
@@ -26468,7 +26468,7 @@ defmodule AWS.EC2 do
       
       create_store_image_task_request() :: %{
         optional("DryRun") => boolean(),
-        optional("S3ObjectTags") => list(s3_object_tag()()),
+        optional("S3ObjectTags") => list(s3_object_tag()),
         required("Bucket") => String.t(),
         required("ImageId") => String.t()
       }
@@ -26517,8 +26517,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       release_hosts_result() :: %{
-        "Successful" => list(String.t()()),
-        "Unsuccessful" => list(unsuccessful_item()())
+        "Successful" => list(String.t()),
+        "Unsuccessful" => list(unsuccessful_item())
       }
       
   """
@@ -26556,7 +26556,7 @@ defmodule AWS.EC2 do
       create_public_ipv4_pool_request() :: %{
         optional("DryRun") => boolean(),
         optional("NetworkBorderGroup") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -26571,7 +26571,7 @@ defmodule AWS.EC2 do
         "CurrencyCode" => list(any()),
         "Duration" => integer(),
         "End" => non_neg_integer(),
-        "HostIdSet" => list(String.t()()),
+        "HostIdSet" => list(String.t()),
         "HostReservationId" => String.t(),
         "HourlyPrice" => String.t(),
         "InstanceFamily" => String.t(),
@@ -26579,7 +26579,7 @@ defmodule AWS.EC2 do
         "PaymentOption" => list(any()),
         "Start" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpfrontPrice" => String.t()
       }
       
@@ -26592,10 +26592,10 @@ defmodule AWS.EC2 do
       
       describe_key_pairs_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludePublicKey") => boolean(),
-        optional("KeyNames") => list(String.t()()),
-        optional("KeyPairIds") => list(String.t()())
+        optional("KeyNames") => list(String.t()),
+        optional("KeyPairIds") => list(String.t())
       }
       
   """
@@ -26653,7 +26653,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_address_history_result() :: %{
-        "HistoryRecords" => list(ipam_address_history_record()()),
+        "HistoryRecords" => list(ipam_address_history_record()),
         "NextToken" => String.t()
       }
       
@@ -26706,7 +26706,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("EndTime") => non_neg_integer(),
         optional("StartTime") => non_neg_integer(),
-        required("Instances") => list(String.t()()),
+        required("Instances") => list(String.t()),
         required("ReasonCodes") => list(list(any())()),
         required("Status") => list(any())
       }
@@ -26727,7 +26727,7 @@ defmodule AWS.EC2 do
         "Operator" => operator_response(),
         "OwnerId" => String.t(),
         "State" => instance_state(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "ZoneId" => String.t()
       }
       
@@ -26752,7 +26752,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       integrate_services() :: %{
-        "AthenaIntegrations" => list(athena_integration()())
+        "AthenaIntegrations" => list(athena_integration())
       }
       
   """
@@ -26783,7 +26783,7 @@ defmodule AWS.EC2 do
         optional("NativeApplicationOidcOptions") => create_verified_access_native_application_oidc_options(),
         optional("OidcOptions") => create_verified_access_trust_provider_oidc_options(),
         optional("SseSpecification") => verified_access_sse_specification_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("UserTrustProviderType") => list(any()),
         required("PolicyReferenceName") => String.t(),
         required("TrustProviderType") => list(any())
@@ -26812,7 +26812,7 @@ defmodule AWS.EC2 do
         "PublicIpv4Pool" => String.t(),
         "ServiceManaged" => list(any()),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -26873,7 +26873,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -26902,7 +26902,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SpotFleetRequestIds") => list(String.t()())
+        optional("SpotFleetRequestIds") => list(String.t())
       }
       
   """
@@ -26920,7 +26920,7 @@ defmodule AWS.EC2 do
         "DeviceName" => String.t(),
         "IpAddress" => String.t(),
         "State" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => String.t()
       }
       
@@ -26943,7 +26943,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_declarative_policies_report_summary_result() :: %{
-        "AttributeSummaries" => list(attribute_summary()()),
+        "AttributeSummaries" => list(attribute_summary()),
         "EndTime" => non_neg_integer(),
         "NumberOfAccounts" => integer(),
         "NumberOfFailedAccounts" => integer(),
@@ -27004,8 +27004,8 @@ defmodule AWS.EC2 do
         "CreationTime" => non_neg_integer(),
         "Options" => transit_gateway_vpc_attachment_options(),
         "State" => list(any()),
-        "SubnetIds" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SubnetIds" => list(String.t()),
+        "Tags" => list(tag()),
         "TransitGatewayAttachmentId" => String.t(),
         "TransitGatewayId" => String.t(),
         "VpcId" => String.t(),
@@ -27055,8 +27055,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_snapshot_attribute_result() :: %{
-        "CreateVolumePermissions" => list(create_volume_permission()()),
-        "ProductCodes" => list(product_code()()),
+        "CreateVolumePermissions" => list(create_volume_permission()),
+        "ProductCodes" => list(product_code()),
         "SnapshotId" => String.t()
       }
       
@@ -27081,7 +27081,7 @@ defmodule AWS.EC2 do
       
       describe_transit_gateway_multicast_domains_result() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayMulticastDomains" => list(transit_gateway_multicast_domain()())
+        "TransitGatewayMulticastDomains" => list(transit_gateway_multicast_domain())
       }
       
   """
@@ -27098,7 +27098,7 @@ defmodule AWS.EC2 do
         "LastUpdatedTime" => String.t(),
         "Owner" => String.t(),
         "SseSpecification" => verified_access_sse_specification_response(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerifiedAccessGroupArn" => String.t(),
         "VerifiedAccessGroupId" => String.t(),
         "VerifiedAccessInstanceId" => String.t()
@@ -27113,7 +27113,7 @@ defmodule AWS.EC2 do
       
       cancel_spot_fleet_requests_request() :: %{
         optional("DryRun") => boolean(),
-        required("SpotFleetRequestIds") => list(String.t()()),
+        required("SpotFleetRequestIds") => list(String.t()),
         required("TerminateInstances") => boolean()
       }
       
@@ -27203,7 +27203,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       ebs_status_summary() :: %{
-        "Details" => list(ebs_status_details()()),
+        "Details" => list(ebs_status_details()),
         "Status" => list(any())
       }
       
@@ -27229,7 +27229,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       instance_storage_info() :: %{
-        "Disks" => list(disk_info()()),
+        "Disks" => list(disk_info()),
         "EncryptionSupport" => list(any()),
         "NvmeSupport" => list(any()),
         "TotalSizeInGB" => float()
@@ -27243,7 +27243,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_iam_instance_profile_associations_result() :: %{
-        "IamInstanceProfileAssociations" => list(iam_instance_profile_association()()),
+        "IamInstanceProfileAssociations" => list(iam_instance_profile_association()),
         "NextToken" => String.t()
       }
       
@@ -27267,7 +27267,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_local_gateway_route_tables_result() :: %{
-        "LocalGatewayRouteTables" => list(local_gateway_route_table()()),
+        "LocalGatewayRouteTables" => list(local_gateway_route_table()),
         "NextToken" => String.t()
       }
       
@@ -27292,7 +27292,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       stop_instances_result() :: %{
-        "StoppingInstances" => list(instance_state_change()())
+        "StoppingInstances" => list(instance_state_change())
       }
       
   """
@@ -27303,7 +27303,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       image_criterion_request() :: %{
-        "ImageProviders" => list(String.t()())
+        "ImageProviders" => list(String.t())
       }
       
   """
@@ -27355,7 +27355,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_interfaces_result() :: %{
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "NextToken" => String.t()
       }
       
@@ -27375,8 +27375,8 @@ defmodule AWS.EC2 do
         "IamFleetRole" => String.t(),
         "InstanceInterruptionBehavior" => list(any()),
         "InstancePoolsToUseCount" => integer(),
-        "LaunchSpecifications" => list(spot_fleet_launch_specification()()),
-        "LaunchTemplateConfigs" => list(launch_template_config()()),
+        "LaunchSpecifications" => list(spot_fleet_launch_specification()),
+        "LaunchTemplateConfigs" => list(launch_template_config()),
         "LoadBalancersConfig" => load_balancers_config(),
         "OnDemandAllocationStrategy" => list(any()),
         "OnDemandFulfilledCapacity" => float(),
@@ -27386,7 +27386,7 @@ defmodule AWS.EC2 do
         "SpotMaintenanceStrategies" => spot_maintenance_strategies(),
         "SpotMaxTotalPrice" => String.t(),
         "SpotPrice" => String.t(),
-        "TagSpecifications" => list(tag_specification()()),
+        "TagSpecifications" => list(tag_specification()),
         "TargetCapacity" => integer(),
         "TargetCapacityUnitType" => list(any()),
         "TerminateInstancesWithExpiration" => boolean(),
@@ -27416,7 +27416,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_ipam_pool_request() :: %{
-        optional("AddAllocationResourceTags") => list(request_ipam_resource_tag()()),
+        optional("AddAllocationResourceTags") => list(request_ipam_resource_tag()),
         optional("AllocationDefaultNetmaskLength") => integer(),
         optional("AllocationMaxNetmaskLength") => integer(),
         optional("AllocationMinNetmaskLength") => integer(),
@@ -27424,7 +27424,7 @@ defmodule AWS.EC2 do
         optional("ClearAllocationDefaultNetmaskLength") => boolean(),
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
-        optional("RemoveAllocationResourceTags") => list(request_ipam_resource_tag()()),
+        optional("RemoveAllocationResourceTags") => list(request_ipam_resource_tag()),
         required("IpamPoolId") => String.t()
       }
       
@@ -27441,7 +27441,7 @@ defmodule AWS.EC2 do
         "OwnerId" => String.t(),
         "PacketLength" => integer(),
         "SessionNumber" => integer(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrafficMirrorFilterId" => String.t(),
         "TrafficMirrorSessionId" => String.t(),
         "TrafficMirrorTargetId" => String.t(),
@@ -27456,7 +27456,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_instance_image_metadata_result() :: %{
-        "InstanceImageMetadata" => list(instance_image_metadata()()),
+        "InstanceImageMetadata" => list(instance_image_metadata()),
         "NextToken" => String.t()
       }
       
@@ -27469,7 +27469,7 @@ defmodule AWS.EC2 do
       
       delete_fleets_request() :: %{
         optional("DryRun") => boolean(),
-        required("FleetIds") => list(String.t()()),
+        required("FleetIds") => list(String.t()),
         required("TerminateInstances") => boolean()
       }
       
@@ -27481,7 +27481,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       terminate_instances_result() :: %{
-        "TerminatingInstances" => list(instance_state_change()())
+        "TerminatingInstances" => list(instance_state_change())
       }
       
   """
@@ -27528,7 +27528,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_vpc_endpoint_service_permissions_result() :: %{
-        "AddedPrincipals" => list(added_principal()()),
+        "AddedPrincipals" => list(added_principal()),
         "ReturnValue" => boolean()
       }
       
@@ -27554,7 +27554,7 @@ defmodule AWS.EC2 do
       transit_gateway_policy_table() :: %{
         "CreationTime" => non_neg_integer(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TransitGatewayId" => String.t(),
         "TransitGatewayPolicyTableId" => String.t()
       }
@@ -27568,8 +27568,8 @@ defmodule AWS.EC2 do
       
       accept_reserved_instances_exchange_quote_request() :: %{
         optional("DryRun") => boolean(),
-        optional("TargetConfigurations") => list(target_configuration_request()()),
-        required("ReservedInstanceIds") => list(String.t()())
+        optional("TargetConfigurations") => list(target_configuration_request()),
+        required("ReservedInstanceIds") => list(String.t())
       }
       
   """
@@ -27581,8 +27581,8 @@ defmodule AWS.EC2 do
       
       describe_local_gateway_route_tables_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("LocalGatewayRouteTableIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("LocalGatewayRouteTableIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -27608,7 +27608,7 @@ defmodule AWS.EC2 do
       
       describe_instance_types_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("InstanceTypes") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -27623,7 +27623,7 @@ defmodule AWS.EC2 do
       
       export_verified_access_instance_client_configuration_result() :: %{
         "DeviceTrustProviders" => list(list(any())()),
-        "OpenVpnConfigurations" => list(verified_access_instance_open_vpn_client_configuration()()),
+        "OpenVpnConfigurations" => list(verified_access_instance_open_vpn_client_configuration()),
         "Region" => String.t(),
         "UserTrustProvider" => verified_access_instance_user_trust_provider_client_configuration(),
         "VerifiedAccessInstanceId" => String.t(),
@@ -27700,17 +27700,17 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("DisconnectOnSessionTimeout") => boolean(),
-        optional("DnsServers") => list(String.t()()),
+        optional("DnsServers") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SelfServicePortal") => list(any()),
         optional("SessionTimeoutHours") => integer(),
         optional("SplitTunnel") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TransportProtocol") => list(any()),
         optional("VpcId") => String.t(),
         optional("VpnPort") => integer(),
-        required("AuthenticationOptions") => list(client_vpn_authentication_request()()),
+        required("AuthenticationOptions") => list(client_vpn_authentication_request()),
         required("ClientCidrBlock") => String.t(),
         required("ConnectionLogOptions") => connection_log_options(),
         required("ServerCertificateArn") => String.t()
@@ -27794,7 +27794,7 @@ defmodule AWS.EC2 do
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
         optional("Operator") => operator_request(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VersionDescription") => String.t(),
         required("LaunchTemplateData") => request_launch_template_data(),
         required("LaunchTemplateName") => String.t()
@@ -27817,7 +27817,7 @@ defmodule AWS.EC2 do
         "StaticRoutesOnly" => boolean(),
         "TransportTransitGatewayAttachmentId" => String.t(),
         "TunnelInsideIpVersion" => list(any()),
-        "TunnelOptions" => list(vpn_tunnel_options_specification()())
+        "TunnelOptions" => list(vpn_tunnel_options_specification())
       }
       
   """
@@ -27828,7 +27828,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       transit_gateway_multicast_deregistered_group_members() :: %{
-        "DeregisteredNetworkInterfaceIds" => list(String.t()()),
+        "DeregisteredNetworkInterfaceIds" => list(String.t()),
         "GroupIpAddress" => String.t(),
         "TransitGatewayMulticastDomainId" => String.t()
       }
@@ -27842,7 +27842,7 @@ defmodule AWS.EC2 do
       
       authorize_security_group_ingress_result() :: %{
         "Return" => boolean(),
-        "SecurityGroupRules" => list(security_group_rule()())
+        "SecurityGroupRules" => list(security_group_rule())
       }
       
   """
@@ -27858,7 +27858,7 @@ defmodule AWS.EC2 do
         "GroupName" => String.t(),
         "OwnerId" => String.t(),
         "PrimaryVpcId" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -27875,9 +27875,9 @@ defmodule AWS.EC2 do
         "CreateTime" => non_neg_integer(),
         "EndDate" => non_neg_integer(),
         "InstanceMatchCriteria" => list(any()),
-        "InstanceTypeSpecifications" => list(fleet_capacity_reservation()()),
+        "InstanceTypeSpecifications" => list(fleet_capacity_reservation()),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Tenancy" => list(any()),
         "TotalFulfilledCapacity" => float(),
         "TotalTargetCapacity" => integer()
@@ -27891,7 +27891,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_discovered_accounts_result() :: %{
-        "IpamDiscoveredAccounts" => list(ipam_discovered_account()()),
+        "IpamDiscoveredAccounts" => list(ipam_discovered_account()),
         "NextToken" => String.t()
       }
       
@@ -27964,14 +27964,14 @@ defmodule AWS.EC2 do
   ## Example:
       
       firewall_stateless_rule() :: %{
-        "DestinationPorts" => list(port_range()()),
-        "Destinations" => list(String.t()()),
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(String.t()),
         "Priority" => integer(),
-        "Protocols" => list(integer()()),
+        "Protocols" => list(integer()),
         "RuleAction" => String.t(),
         "RuleGroupArn" => String.t(),
-        "SourcePorts" => list(port_range()()),
-        "Sources" => list(String.t()())
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(String.t())
       }
       
   """
@@ -28008,7 +28008,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_ipam_pool_cidrs_result() :: %{
-        "IpamPoolCidrs" => list(ipam_pool_cidr()()),
+        "IpamPoolCidrs" => list(ipam_pool_cidr()),
         "NextToken" => String.t()
       }
       
@@ -28068,7 +28068,7 @@ defmodule AWS.EC2 do
       
       describe_scheduled_instance_availability_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("MaxSlotDurationInHours") => integer(),
         optional("MinSlotDurationInHours") => integer(),
@@ -28099,7 +28099,7 @@ defmodule AWS.EC2 do
       
       replace_image_criteria_in_allowed_images_settings_request() :: %{
         optional("DryRun") => boolean(),
-        optional("ImageCriteria") => list(image_criterion_request()())
+        optional("ImageCriteria") => list(image_criterion_request())
       }
       
   """
@@ -28110,7 +28110,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_network_insights_paths_result() :: %{
-        "NetworkInsightsPaths" => list(network_insights_path()()),
+        "NetworkInsightsPaths" => list(network_insights_path()),
         "NextToken" => String.t()
       }
       
@@ -28125,7 +28125,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("Options") => vpn_connection_options_specification(),
         optional("PreSharedKeyStorage") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("TransitGatewayId") => String.t(),
         optional("VpnGatewayId") => String.t(),
         required("CustomerGatewayId") => String.t(),
@@ -28223,7 +28223,7 @@ defmodule AWS.EC2 do
       
       create_instance_export_task_request() :: %{
         optional("Description") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("ExportToS3Task") => export_to_s3_task_specification(),
         required("InstanceId") => String.t(),
         required("TargetEnvironment") => list(any())
@@ -28321,7 +28321,7 @@ defmodule AWS.EC2 do
         "PeerBgpAsn" => float(),
         "ServiceLinkVirtualInterfaceArn" => String.t(),
         "ServiceLinkVirtualInterfaceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Vlan" => integer()
       }
       
@@ -28339,7 +28339,7 @@ defmodule AWS.EC2 do
         "LocalGatewayRouteTableVpcAssociationId" => String.t(),
         "OwnerId" => String.t(),
         "State" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -28365,7 +28365,7 @@ defmodule AWS.EC2 do
       scheduled_instance_recurrence_request() :: %{
         "Frequency" => String.t(),
         "Interval" => integer(),
-        "OccurrenceDays" => list(integer()()),
+        "OccurrenceDays" => list(integer()),
         "OccurrenceRelativeToEnd" => boolean(),
         "OccurrenceUnit" => String.t()
       }
@@ -28403,7 +28403,7 @@ defmodule AWS.EC2 do
         "ReferencedGroupInfo" => referenced_security_group(),
         "SecurityGroupRuleArn" => String.t(),
         "SecurityGroupRuleId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "ToPort" => integer()
       }
       
@@ -28416,8 +28416,8 @@ defmodule AWS.EC2 do
       
       describe_fleets_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("FleetIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("FleetIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -28431,7 +28431,7 @@ defmodule AWS.EC2 do
       
       describe_verified_access_groups_result() :: %{
         "NextToken" => String.t(),
-        "VerifiedAccessGroups" => list(verified_access_group()())
+        "VerifiedAccessGroups" => list(verified_access_group())
       }
       
   """
@@ -28442,9 +28442,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_vpc_endpoint_service_permissions_request() :: %{
-        optional("AddAllowedPrincipals") => list(String.t()()),
+        optional("AddAllowedPrincipals") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("RemoveAllowedPrincipals") => list(String.t()()),
+        optional("RemoveAllowedPrincipals") => list(String.t()),
         required("ServiceId") => String.t()
       }
       
@@ -28524,8 +28524,8 @@ defmodule AWS.EC2 do
       
       describe_instance_event_windows_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
-        optional("InstanceEventWindowIds") => list(String.t()()),
+        optional("Filters") => list(filter()),
+        optional("InstanceEventWindowIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -28601,8 +28601,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       load_permission_modifications() :: %{
-        "Add" => list(load_permission_request()()),
-        "Remove" => list(load_permission_request()())
+        "Add" => list(load_permission_request()),
+        "Remove" => list(load_permission_request())
       }
       
   """
@@ -28625,7 +28625,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       subnet_ip_prefixes() :: %{
-        "IpPrefixes" => list(String.t()()),
+        "IpPrefixes" => list(String.t()),
         "SubnetId" => String.t()
       }
       
@@ -28638,7 +28638,7 @@ defmodule AWS.EC2 do
       
       rule_option() :: %{
         "Keyword" => String.t(),
-        "Settings" => list(String.t()())
+        "Settings" => list(String.t())
       }
       
   """
@@ -28661,9 +28661,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_client_vpn_endpoints_request() :: %{
-        optional("ClientVpnEndpointIds") => list(String.t()()),
+        optional("ClientVpnEndpointIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -28677,7 +28677,7 @@ defmodule AWS.EC2 do
       
       monitor_instances_request() :: %{
         optional("DryRun") => boolean(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -28790,7 +28790,7 @@ defmodule AWS.EC2 do
         "SpotPrice" => String.t(),
         "State" => list(any()),
         "Status" => spot_instance_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => list(any()),
         "ValidFrom" => non_neg_integer(),
         "ValidUntil" => non_neg_integer()
@@ -28831,7 +28831,7 @@ defmodule AWS.EC2 do
       purchase_scheduled_instances_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DryRun") => boolean(),
-        required("PurchaseRequests") => list(purchase_request()())
+        required("PurchaseRequests") => list(purchase_request())
       }
       
   """
@@ -28842,7 +28842,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_ipam_external_resource_verification_tokens_result() :: %{
-        "IpamExternalResourceVerificationTokens" => list(ipam_external_resource_verification_token()()),
+        "IpamExternalResourceVerificationTokens" => list(ipam_external_resource_verification_token()),
         "NextToken" => String.t()
       }
       
@@ -28878,7 +28878,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       cancel_spot_instance_requests_result() :: %{
-        "CancelledSpotInstanceRequests" => list(cancelled_spot_instance_request()())
+        "CancelledSpotInstanceRequests" => list(cancelled_spot_instance_request())
       }
       
   """
@@ -28889,7 +28889,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       cancel_reserved_instances_listing_result() :: %{
-        "ReservedInstancesListings" => list(reserved_instances_listing()())
+        "ReservedInstancesListings" => list(reserved_instances_listing())
       }
       
   """
@@ -28963,11 +28963,11 @@ defmodule AWS.EC2 do
       
       service_configuration() :: %{
         "AcceptanceRequired" => boolean(),
-        "AvailabilityZones" => list(String.t()()),
-        "BaseEndpointDnsNames" => list(String.t()()),
-        "GatewayLoadBalancerArns" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "BaseEndpointDnsNames" => list(String.t()),
+        "GatewayLoadBalancerArns" => list(String.t()),
         "ManagesVpcEndpoints" => boolean(),
-        "NetworkLoadBalancerArns" => list(String.t()()),
+        "NetworkLoadBalancerArns" => list(String.t()),
         "PayerResponsibility" => list(any()),
         "PrivateDnsName" => String.t(),
         "PrivateDnsNameConfiguration" => private_dns_name_configuration(),
@@ -28975,10 +28975,10 @@ defmodule AWS.EC2 do
         "ServiceId" => String.t(),
         "ServiceName" => String.t(),
         "ServiceState" => list(any()),
-        "ServiceType" => list(service_type_detail()()),
+        "ServiceType" => list(service_type_detail()),
         "SupportedIpAddressTypes" => list(list(any())()),
-        "SupportedRegions" => list(supported_region_detail()()),
-        "Tags" => list(tag()())
+        "SupportedRegions" => list(supported_region_detail()),
+        "Tags" => list(tag())
       }
       
   """
@@ -29018,7 +29018,7 @@ defmodule AWS.EC2 do
         optional("HostRecovery") => list(any()),
         optional("InstanceFamily") => String.t(),
         optional("InstanceType") => String.t(),
-        required("HostIds") => list(String.t()())
+        required("HostIds") => list(String.t())
       }
       
   """
@@ -29042,7 +29042,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoints_result() :: %{
         "NextToken" => String.t(),
-        "VpcEndpoints" => list(vpc_endpoint()())
+        "VpcEndpoints" => list(vpc_endpoint())
       }
       
   """
@@ -29069,9 +29069,9 @@ defmodule AWS.EC2 do
         "Description" => String.t(),
         "FipsEnabled" => boolean(),
         "LastUpdatedTime" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerifiedAccessInstanceId" => String.t(),
-        "VerifiedAccessTrustProviders" => list(verified_access_trust_provider_condensed()())
+        "VerifiedAccessTrustProviders" => list(verified_access_trust_provider_condensed())
       }
       
   """
@@ -29139,7 +29139,7 @@ defmodule AWS.EC2 do
         optional("Ipv6Native") => boolean(),
         optional("Ipv6NetmaskLength") => integer(),
         optional("OutpostArn") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t()
       }
       
@@ -29151,7 +29151,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       monitor_instances_result() :: %{
-        "InstanceMonitorings" => list(instance_monitoring()())
+        "InstanceMonitorings" => list(instance_monitoring())
       }
       
   """
@@ -29166,7 +29166,7 @@ defmodule AWS.EC2 do
         optional("ResourceExclusions") => vpc_encryption_control_exclusions(),
         optional("State") => list(any()),
         optional("StateMessage") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcEncryptionControlId") => String.t(),
         optional("VpcId") => String.t()
       }
@@ -29197,14 +29197,14 @@ defmodule AWS.EC2 do
         "FipsDnsName" => String.t(),
         "InstanceConnectEndpointArn" => String.t(),
         "InstanceConnectEndpointId" => String.t(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceIds" => list(String.t()),
         "OwnerId" => String.t(),
         "PreserveClientIp" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "State" => list(any()),
         "StateMessage" => String.t(),
         "SubnetId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -29242,7 +29242,7 @@ defmodule AWS.EC2 do
       create_vpc_block_public_access_exclusion_request() :: %{
         optional("DryRun") => boolean(),
         optional("SubnetId") => String.t(),
-        optional("TagSpecifications") => list(tag_specification()()),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("VpcId") => String.t(),
         required("InternetGatewayExclusionMode") => list(any())
       }
@@ -29305,7 +29305,7 @@ defmodule AWS.EC2 do
       
       describe_vpc_peering_connections_result() :: %{
         "NextToken" => String.t(),
-        "VpcPeeringConnections" => list(vpc_peering_connection()())
+        "VpcPeeringConnections" => list(vpc_peering_connection())
       }
       
   """
@@ -29317,7 +29317,7 @@ defmodule AWS.EC2 do
       
       get_security_groups_for_vpc_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("VpcId") => String.t()
@@ -29360,7 +29360,7 @@ defmodule AWS.EC2 do
         optional("Description") => String.t(),
         optional("DryRun") => boolean(),
         optional("FIPSEnabled") => boolean(),
-        optional("TagSpecifications") => list(tag_specification()())
+        optional("TagSpecifications") => list(tag_specification())
       }
       
   """
@@ -29372,7 +29372,7 @@ defmodule AWS.EC2 do
       
       get_transit_gateway_policy_table_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TransitGatewayPolicyTableId") => String.t()
@@ -29401,7 +29401,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_associated_ipv6_pool_cidrs_result() :: %{
-        "Ipv6CidrAssociations" => list(ipv6_cidr_association()()),
+        "Ipv6CidrAssociations" => list(ipv6_cidr_association()),
         "NextToken" => String.t()
       }
       
@@ -29469,10 +29469,10 @@ defmodule AWS.EC2 do
       
       describe_vpc_endpoint_associations_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VpcEndpointIds") => list(String.t()())
+        optional("VpcEndpointIds") => list(String.t())
       }
       
   """
@@ -29489,7 +29489,7 @@ defmodule AWS.EC2 do
         "RdsDbInstanceArn" => String.t(),
         "RdsDbProxyArn" => String.t(),
         "RdsEndpoint" => String.t(),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -29520,19 +29520,19 @@ defmodule AWS.EC2 do
         "DeviceIndex" => integer(),
         "EnaQueueCount" => integer(),
         "EnaSrdSpecification" => ena_srd_specification_request(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "InterfaceType" => String.t(),
         "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()()),
+        "Ipv4Prefixes" => list(ipv4_prefix_specification_request()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(instance_ipv6_address()()),
+        "Ipv6Addresses" => list(instance_ipv6_address()),
         "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()()),
+        "Ipv6Prefixes" => list(ipv6_prefix_specification_request()),
         "NetworkCardIndex" => integer(),
         "NetworkInterfaceId" => String.t(),
         "PrimaryIpv6" => boolean(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(private_ip_address_specification()()),
+        "PrivateIpAddresses" => list(private_ip_address_specification()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -29557,7 +29557,7 @@ defmodule AWS.EC2 do
       
       get_route_server_routing_database_request() :: %{
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("RouteServerId") => String.t()
@@ -29584,7 +29584,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_id_format_result() :: %{
-        "Statuses" => list(id_format()())
+        "Statuses" => list(id_format())
       }
       
   """
@@ -29595,8 +29595,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       unassign_private_ip_addresses_request() :: %{
-        optional("Ipv4Prefixes") => list(String.t()()),
-        optional("PrivateIpAddresses") => list(String.t()()),
+        optional("Ipv4Prefixes") => list(String.t()),
+        optional("PrivateIpAddresses") => list(String.t()),
         required("NetworkInterfaceId") => String.t()
       }
       
@@ -29613,7 +29613,7 @@ defmodule AWS.EC2 do
         optional("DryRun") => boolean(),
         optional("MultiRegion") => boolean(),
         optional("NetworkBorderGroup") => String.t(),
-        optional("PoolTagSpecifications") => list(tag_specification()()),
+        optional("PoolTagSpecifications") => list(tag_specification()),
         optional("PubliclyAdvertisable") => boolean(),
         required("Cidr") => String.t()
       }
@@ -29644,9 +29644,9 @@ defmodule AWS.EC2 do
         optional("LoadPermission") => load_permission_modifications(),
         optional("Name") => String.t(),
         optional("OperationType") => list(any()),
-        optional("ProductCodes") => list(String.t()()),
-        optional("UserGroups") => list(String.t()()),
-        optional("UserIds") => list(String.t()()),
+        optional("ProductCodes") => list(String.t()),
+        optional("UserGroups") => list(String.t()),
+        optional("UserIds") => list(String.t()),
         required("FpgaImageId") => String.t()
       }
       
@@ -29661,7 +29661,7 @@ defmodule AWS.EC2 do
         "Destination" => String.t(),
         "Id" => String.t(),
         "Metric" => list(any()),
-        "MetricPoints" => list(metric_point()()),
+        "MetricPoints" => list(metric_point()),
         "Period" => list(any()),
         "Source" => String.t(),
         "Statistic" => list(any())
@@ -29675,9 +29675,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       describe_capacity_blocks_request() :: %{
-        optional("CapacityBlockIds") => list(String.t()()),
+        optional("CapacityBlockIds") => list(String.t()),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -29739,8 +29739,8 @@ defmodule AWS.EC2 do
         "DefaultCores" => integer(),
         "DefaultThreadsPerCore" => integer(),
         "DefaultVCpus" => integer(),
-        "ValidCores" => list(integer()()),
-        "ValidThreadsPerCore" => list(integer()())
+        "ValidCores" => list(integer()),
+        "ValidThreadsPerCore" => list(integer())
       }
       
   """
@@ -29751,7 +29751,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       get_instance_types_from_instance_requirements_result() :: %{
-        "InstanceTypes" => list(instance_type_info_from_instance_requirements()()),
+        "InstanceTypes" => list(instance_type_info_from_instance_requirements()),
         "NextToken" => String.t()
       }
       
@@ -29789,9 +29789,9 @@ defmodule AWS.EC2 do
         optional("AnalysisEndTime") => non_neg_integer(),
         optional("AnalysisStartTime") => non_neg_integer(),
         optional("DryRun") => boolean(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
-        optional("NetworkInsightsAnalysisIds") => list(String.t()()),
+        optional("NetworkInsightsAnalysisIds") => list(String.t()),
         optional("NetworkInsightsPathId") => String.t(),
         optional("NextToken") => String.t()
       }
@@ -29805,7 +29805,7 @@ defmodule AWS.EC2 do
       
       new_dhcp_configuration() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -29816,7 +29816,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       gpu_info() :: %{
-        "Gpus" => list(gpu_device_info()()),
+        "Gpus" => list(gpu_device_info()),
         "TotalGpuMemoryInMiB" => integer()
       }
       
@@ -29840,7 +29840,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       purchase_capacity_block_extension_result() :: %{
-        "CapacityBlockExtensions" => list(capacity_block_extension()())
+        "CapacityBlockExtensions" => list(capacity_block_extension())
       }
       
   """
@@ -29875,7 +29875,7 @@ defmodule AWS.EC2 do
       purchase() :: %{
         "CurrencyCode" => list(any()),
         "Duration" => integer(),
-        "HostIdSet" => list(String.t()()),
+        "HostIdSet" => list(String.t()),
         "HostReservationId" => String.t(),
         "HourlyPrice" => String.t(),
         "InstanceFamily" => String.t(),
@@ -29917,7 +29917,7 @@ defmodule AWS.EC2 do
       modify_verified_access_endpoint_rds_options() :: %{
         "Port" => integer(),
         "RdsEndpoint" => String.t(),
-        "SubnetIds" => list(String.t()())
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -29979,7 +29979,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_address_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAddressTransfer", input, options)
   end
@@ -30001,7 +30002,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -30025,7 +30027,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptReservedInstancesExchangeQuote", input, options)
   end
@@ -30046,7 +30049,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -30072,7 +30076,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptTransitGatewayPeeringAttachment", input, options)
   end
@@ -30094,7 +30099,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptTransitGatewayVpcAttachment", input, options)
   end
@@ -30107,7 +30113,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptVpcEndpointConnections", input, options)
   end
@@ -30129,7 +30136,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def accept_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptVpcPeeringConnection", input, options)
   end
@@ -30162,7 +30170,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdvertiseByoipCidr", input, options)
   end
@@ -30202,7 +30211,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateAddress", input, options)
   end
@@ -30220,7 +30230,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateHosts", input, options)
   end
@@ -30243,7 +30254,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def allocate_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateIpamPoolCidr", input, options)
   end
@@ -30264,7 +30276,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def apply_security_groups_to_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -30302,7 +30315,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_ipv6_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignIpv6Addresses", input, options)
   end
@@ -30345,7 +30359,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_private_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignPrivateIpAddresses", input, options)
   end
@@ -30366,7 +30381,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def assign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignPrivateNatGatewayAddress", input, options)
   end
@@ -30407,7 +30423,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAddress", input, options)
   end
@@ -30431,7 +30448,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCapacityReservationBillingOwner", input, options)
   end
@@ -30459,7 +30477,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateClientVpnTargetNetwork", input, options)
   end
@@ -30482,7 +30501,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDhcpOptions", input, options)
   end
@@ -30525,7 +30545,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEnclaveCertificateIamRole", input, options)
   end
@@ -30541,7 +30562,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_iam_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateIamInstanceProfile", input, options)
   end
@@ -30560,7 +30582,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateInstanceEventWindow", input, options)
   end
@@ -30582,7 +30605,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateIpamByoasn", input, options)
   end
@@ -30602,7 +30626,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateIpamResourceDiscovery", input, options)
   end
@@ -30636,7 +30661,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateNatGatewayAddress", input, options)
   end
@@ -30655,7 +30681,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_route_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateRouteServer", input, options)
   end
@@ -30681,7 +30708,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateRouteTable", input, options)
   end
@@ -30714,7 +30742,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_security_group_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSecurityGroupVpc", input, options)
   end
@@ -30730,7 +30759,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSubnetCidrBlock", input, options)
   end
@@ -30753,7 +30783,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayMulticastDomain", input, options)
   end
@@ -30771,7 +30802,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayPolicyTable", input, options)
   end
@@ -30792,7 +30824,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTransitGatewayRouteTable", input, options)
   end
@@ -30812,7 +30845,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_trunk_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTrunkInterface", input, options)
   end
@@ -30838,7 +30872,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def associate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVpcCidrBlock", input, options)
   end
@@ -30868,7 +30903,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_classic_link_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachClassicLinkVpc", input, options)
   end
@@ -30887,7 +30923,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachInternetGateway", input, options)
   end
@@ -30900,7 +30937,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_network_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachNetworkInterface", input, options)
   end
@@ -30918,7 +30956,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachVerifiedAccessTrustProvider", input, options)
   end
@@ -30968,7 +31007,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachVolume", input, options)
   end
@@ -30988,7 +31028,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def attach_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachVpnGateway", input, options)
   end
@@ -31007,7 +31048,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_client_vpn_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeClientVpnIngress", input, options)
   end
@@ -31046,7 +31088,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_security_group_egress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeSecurityGroupEgress", input, options)
   end
@@ -31090,7 +31133,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def authorize_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeSecurityGroupIngress", input, options)
   end
@@ -31111,7 +31155,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def bundle_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BundleInstance", input, options)
   end
@@ -31124,7 +31169,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_bundle_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelBundleTask", input, options)
   end
@@ -31166,7 +31212,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCapacityReservation", input, options)
   end
@@ -31198,7 +31245,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCapacityReservationFleets", input, options)
   end
@@ -31217,7 +31265,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_conversion_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelConversionTask", input, options)
   end
@@ -31242,7 +31291,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_declarative_policies_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDeclarativePoliciesReport", input, options)
   end
@@ -31260,7 +31310,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -31278,7 +31329,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_image_launch_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelImageLaunchPermission", input, options)
   end
@@ -31291,7 +31343,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_import_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelImportTask", input, options)
   end
@@ -31312,7 +31365,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_reserved_instances_listing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelReservedInstancesListing", input, options)
   end
@@ -31340,7 +31394,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_spot_fleet_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSpotFleetRequests", input, options)
   end
@@ -31356,7 +31411,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def cancel_spot_instance_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelSpotInstanceRequests", input, options)
   end
@@ -31374,7 +31430,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def confirm_product_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmProductInstance", input, options)
   end
@@ -31387,7 +31444,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_fpga_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyFpgaImage", input, options)
   end
@@ -31421,7 +31479,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyImage", input, options)
   end
@@ -31471,7 +31530,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -31517,7 +31577,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservation", input, options)
   end
@@ -31540,7 +31601,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation_by_splitting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservationBySplitting", input, options)
   end
@@ -31562,7 +31624,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservationFleet", input, options)
   end
@@ -31578,7 +31641,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_carrier_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCarrierGateway", input, options)
   end
@@ -31596,7 +31660,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClientVpnEndpoint", input, options)
   end
@@ -31613,7 +31678,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_client_vpn_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateClientVpnRoute", input, options)
   end
@@ -31627,7 +31693,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_coip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCoipCidr", input, options)
   end
@@ -31640,7 +31707,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_coip_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCoipPool", input, options)
   end
@@ -31677,7 +31745,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_customer_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomerGateway", input, options)
   end
@@ -31695,7 +31764,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_default_subnet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDefaultSubnet", input, options)
   end
@@ -31718,7 +31788,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_default_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDefaultVpc", input, options)
   end
@@ -31736,7 +31807,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_delegate_mac_volume_ownership_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDelegateMacVolumeOwnershipTask", input, options)
   end
@@ -31811,7 +31883,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDhcpOptions", input, options)
   end
@@ -31835,7 +31908,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEgressOnlyInternetGateway", input, options)
   end
@@ -31858,7 +31932,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -31890,7 +31965,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_flow_logs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlowLogs", input, options)
   end
@@ -31910,7 +31986,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_fpga_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFpgaImage", input, options)
   end
@@ -31950,7 +32027,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateImage", input, options)
   end
@@ -31973,7 +32051,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceConnectEndpoint", input, options)
   end
@@ -32015,7 +32094,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceEventWindow", input, options)
   end
@@ -32034,7 +32114,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_instance_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInstanceExportTask", input, options)
   end
@@ -32054,7 +32135,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInternetGateway", input, options)
   end
@@ -32076,7 +32158,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpam", input, options)
   end
@@ -32098,7 +32181,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -32125,7 +32209,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpamPool", input, options)
   end
@@ -32141,7 +32226,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpamResourceDiscovery", input, options)
   end
@@ -32164,7 +32250,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIpamScope", input, options)
   end
@@ -32197,7 +32284,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateKeyPair", input, options)
   end
@@ -32227,7 +32315,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_launch_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLaunchTemplate", input, options)
   end
@@ -32260,7 +32349,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_launch_template_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLaunchTemplateVersion", input, options)
   end
@@ -32284,7 +32374,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayRoute", input, options)
   end
@@ -32302,7 +32393,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayRouteTable", input, options)
   end
@@ -32325,7 +32417,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -32348,7 +32441,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -32371,7 +32465,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayVirtualInterface", input, options)
   end
@@ -32388,7 +32483,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocalGatewayVirtualInterfaceGroup", input, options)
   end
@@ -32459,7 +32555,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -32481,7 +32578,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateManagedPrefixList", input, options)
   end
@@ -32528,7 +32626,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_nat_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNatGateway", input, options)
   end
@@ -32548,7 +32647,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkAcl", input, options)
   end
@@ -32579,7 +32679,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkAclEntry", input, options)
   end
@@ -32603,7 +32704,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_insights_access_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkInsightsAccessScope", input, options)
   end
@@ -32621,7 +32723,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_insights_path(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkInsightsPath", input, options)
   end
@@ -32642,7 +32745,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkInterface", input, options)
   end
@@ -32665,7 +32769,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_network_interface_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNetworkInterfacePermission", input, options)
   end
@@ -32693,7 +32798,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_placement_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlacementGroup", input, options)
   end
@@ -32712,7 +32818,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_public_ipv4_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePublicIpv4Pool", input, options)
   end
@@ -32733,7 +32840,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_replace_root_volume_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplaceRootVolumeTask", input, options)
   end
@@ -32783,7 +32891,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_reserved_instances_listing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReservedInstancesListing", input, options)
   end
@@ -32807,7 +32916,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_restore_image_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRestoreImageTask", input, options)
   end
@@ -32847,7 +32957,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRoute", input, options)
   end
@@ -32885,7 +32996,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRouteServer", input, options)
   end
@@ -32905,7 +33017,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRouteServerEndpoint", input, options)
   end
@@ -32935,7 +33048,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_server_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRouteServerPeer", input, options)
   end
@@ -32955,7 +33069,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRouteTable", input, options)
   end
@@ -32997,7 +33112,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSecurityGroup", input, options)
   end
@@ -33062,7 +33178,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -33101,7 +33218,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshots", input, options)
   end
@@ -33124,7 +33242,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSpotDatafeedSubscription", input, options)
   end
@@ -33145,7 +33264,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_store_image_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStoreImageTask", input, options)
   end
@@ -33193,7 +33313,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_subnet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnet", input, options)
   end
@@ -33211,7 +33332,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetCidrReservation", input, options)
   end
@@ -33240,7 +33362,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -33262,7 +33385,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorFilter", input, options)
   end
@@ -33283,7 +33407,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorFilterRule", input, options)
   end
@@ -33310,7 +33435,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorSession", input, options)
   end
@@ -33334,7 +33460,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_traffic_mirror_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrafficMirrorTarget", input, options)
   end
@@ -33372,7 +33499,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGateway", input, options)
   end
@@ -33391,7 +33519,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_connect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayConnect", input, options)
   end
@@ -33416,7 +33545,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayConnectPeer", input, options)
   end
@@ -33438,7 +33568,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayMulticastDomain", input, options)
   end
@@ -33464,7 +33595,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPeeringAttachment", input, options)
   end
@@ -33481,7 +33613,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPolicyTable", input, options)
   end
@@ -33499,7 +33632,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayPrefixListReference", input, options)
   end
@@ -33512,7 +33646,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayRoute", input, options)
   end
@@ -33529,7 +33664,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayRouteTable", input, options)
   end
@@ -33546,7 +33682,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -33576,7 +33713,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitGatewayVpcAttachment", input, options)
   end
@@ -33590,7 +33728,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessEndpoint", input, options)
   end
@@ -33611,7 +33750,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessGroup", input, options)
   end
@@ -33626,7 +33766,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessInstance", input, options)
   end
@@ -33650,7 +33791,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVerifiedAccessTrustProvider", input, options)
   end
@@ -33683,7 +33825,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -33718,7 +33861,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpc", input, options)
   end
@@ -33743,7 +33887,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcBlockPublicAccessExclusion", input, options)
   end
@@ -33763,7 +33908,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpoint", input, options)
   end
@@ -33788,7 +33934,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointConnectionNotification", input, options)
   end
@@ -33825,7 +33972,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointServiceConfiguration", input, options)
   end
@@ -33860,7 +34008,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
@@ -33900,7 +34049,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpnConnection", input, options)
   end
@@ -33922,7 +34072,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_connection_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpnConnectionRoute", input, options)
   end
@@ -33943,7 +34094,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpnGateway", input, options)
   end
@@ -33961,7 +34113,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_carrier_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCarrierGateway", input, options)
   end
@@ -33977,7 +34130,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClientVpnEndpoint", input, options)
   end
@@ -33996,7 +34150,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_client_vpn_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteClientVpnRoute", input, options)
   end
@@ -34010,7 +34165,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_coip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCoipCidr", input, options)
   end
@@ -34023,7 +34179,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_coip_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCoipPool", input, options)
   end
@@ -34039,7 +34196,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_customer_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomerGateway", input, options)
   end
@@ -34056,7 +34214,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDhcpOptions", input, options)
   end
@@ -34073,7 +34232,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_egress_only_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEgressOnlyInternetGateway", input, options)
   end
@@ -34127,7 +34287,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleets", input, options)
   end
@@ -34140,7 +34301,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_flow_logs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlowLogs", input, options)
   end
@@ -34153,7 +34315,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_fpga_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFpgaImage", input, options)
   end
@@ -34170,7 +34333,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_instance_connect_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceConnectEndpoint", input, options)
   end
@@ -34186,7 +34350,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInstanceEventWindow", input, options)
   end
@@ -34202,7 +34367,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInternetGateway", input, options)
   end
@@ -34221,7 +34387,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpam", input, options)
   end
@@ -34243,7 +34410,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_external_resource_verification_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -34272,7 +34440,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpamPool", input, options)
   end
@@ -34288,7 +34457,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpamResourceDiscovery", input, options)
   end
@@ -34306,7 +34476,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIpamScope", input, options)
   end
@@ -34319,7 +34490,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteKeyPair", input, options)
   end
@@ -34335,7 +34507,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_launch_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLaunchTemplate", input, options)
   end
@@ -34364,7 +34537,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_launch_template_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLaunchTemplateVersions", input, options)
   end
@@ -34377,7 +34551,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayRoute", input, options)
   end
@@ -34395,7 +34570,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayRouteTable", input, options)
   end
@@ -34418,7 +34594,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -34441,7 +34618,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_route_table_vpc_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -34464,7 +34642,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterface", input, options)
   end
@@ -34481,7 +34660,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_local_gateway_virtual_interface_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocalGatewayVirtualInterfaceGroup", input, options)
   end
@@ -34496,7 +34676,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteManagedPrefixList", input, options)
   end
@@ -34514,7 +34695,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_nat_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNatGateway", input, options)
   end
@@ -34530,7 +34712,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkAcl", input, options)
   end
@@ -34544,7 +34727,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkAclEntry", input, options)
   end
@@ -34561,7 +34745,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_access_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAccessScope", input, options)
   end
@@ -34578,7 +34763,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAccessScopeAnalysis", input, options)
   end
@@ -34595,7 +34781,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsAnalysis", input, options)
   end
@@ -34608,7 +34795,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_insights_path(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInsightsPath", input, options)
   end
@@ -34624,7 +34812,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInterface", input, options)
   end
@@ -34647,7 +34836,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_network_interface_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInterfacePermission", input, options)
   end
@@ -34666,7 +34856,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_placement_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlacementGroup", input, options)
   end
@@ -34683,7 +34874,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_public_ipv4_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePublicIpv4Pool", input, options)
   end
@@ -34700,7 +34892,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_queued_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQueuedReservedInstances", input, options)
   end
@@ -34713,7 +34906,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRoute", input, options)
   end
@@ -34751,7 +34945,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRouteServer", input, options)
   end
@@ -34768,7 +34963,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRouteServerEndpoint", input, options)
   end
@@ -34795,7 +34991,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_server_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRouteServerPeer", input, options)
   end
@@ -34811,7 +35008,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRouteTable", input, options)
   end
@@ -34830,7 +35028,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSecurityGroup", input, options)
   end
@@ -34861,7 +35060,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -34878,7 +35078,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpotDatafeedSubscription", input, options)
   end
@@ -34894,7 +35095,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_subnet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnet", input, options)
   end
@@ -34907,7 +35109,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_subnet_cidr_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetCidrReservation", input, options)
   end
@@ -34926,7 +35129,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -34942,7 +35146,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorFilter", input, options)
   end
@@ -34959,7 +35164,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorFilterRule", input, options)
   end
@@ -34972,7 +35178,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorSession", input, options)
   end
@@ -34988,7 +35195,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_traffic_mirror_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrafficMirrorTarget", input, options)
   end
@@ -35001,7 +35209,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGateway", input, options)
   end
@@ -35017,7 +35226,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_connect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayConnect", input, options)
   end
@@ -35034,7 +35244,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_connect_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayConnectPeer", input, options)
   end
@@ -35051,7 +35262,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayMulticastDomain", input, options)
   end
@@ -35068,7 +35280,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPeeringAttachment", input, options)
   end
@@ -35085,7 +35298,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPolicyTable", input, options)
   end
@@ -35103,7 +35317,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayPrefixListReference", input, options)
   end
@@ -35116,7 +35331,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayRoute", input, options)
   end
@@ -35138,7 +35354,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayRouteTable", input, options)
   end
@@ -35155,7 +35372,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_route_table_announcement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -35178,7 +35396,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayVpcAttachment", input, options)
   end
@@ -35191,7 +35410,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessEndpoint", input, options)
   end
@@ -35204,7 +35424,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessGroup", input, options)
   end
@@ -35217,7 +35438,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessInstance", input, options)
   end
@@ -35234,7 +35456,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedAccessTrustProvider", input, options)
   end
@@ -35256,7 +35479,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -35282,7 +35506,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpc", input, options)
   end
@@ -35307,7 +35532,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcBlockPublicAccessExclusion", input, options)
   end
@@ -35324,7 +35550,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointConnectionNotifications", input, options)
   end
@@ -35346,7 +35573,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointServiceConfigurations", input, options)
   end
@@ -35370,7 +35598,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpoints", input, options)
   end
@@ -35389,7 +35618,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
@@ -35421,7 +35651,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpnConnection", input, options)
   end
@@ -35439,7 +35670,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_connection_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpnConnectionRoute", input, options)
   end
@@ -35459,7 +35691,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpnGateway", input, options)
   end
@@ -35479,7 +35712,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionByoipCidr", input, options)
   end
@@ -35499,7 +35733,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionIpamByoasn", input, options)
   end
@@ -35516,7 +35751,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionIpamPoolCidr", input, options)
   end
@@ -35533,7 +35769,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deprovision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionPublicIpv4PoolCidr", input, options)
   end
@@ -35588,7 +35825,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterImage", input, options)
   end
@@ -35606,7 +35844,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -35630,7 +35869,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -35654,7 +35894,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def deregister_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -35710,7 +35951,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -35737,7 +35979,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_address_transfers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddressTransfers", input, options)
   end
@@ -35751,7 +35994,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
@@ -35766,7 +36010,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_addresses_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddressesAttribute", input, options)
   end
@@ -35800,7 +36045,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_aggregate_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAggregateIdFormat", input, options)
   end
@@ -35824,7 +36070,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_availability_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityZones", input, options)
   end
@@ -35845,7 +36092,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -35876,7 +36124,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_bundle_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBundleTasks", input, options)
   end
@@ -35893,7 +36142,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_byoip_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeByoipCidrs", input, options)
   end
@@ -35912,7 +36162,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_extension_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockExtensionHistory", input, options)
   end
@@ -35931,7 +36182,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_extension_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockExtensionOfferings", input, options)
   end
@@ -35956,7 +36208,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockOfferings", input, options)
   end
@@ -35970,7 +36223,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_block_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlockStatus", input, options)
   end
@@ -35984,7 +36238,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_blocks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityBlocks", input, options)
   end
@@ -36005,7 +36260,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservation_billing_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -36028,7 +36284,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservation_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservationFleets", input, options)
   end
@@ -36045,7 +36302,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_capacity_reservations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservations", input, options)
   end
@@ -36058,7 +36316,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_carrier_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCarrierGateways", input, options)
   end
@@ -36077,7 +36336,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_classic_link_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClassicLinkInstances", input, options)
   end
@@ -36094,7 +36354,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_authorization_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnAuthorizationRules", input, options)
   end
@@ -36109,7 +36370,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnConnections", input, options)
   end
@@ -36122,7 +36384,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnEndpoints", input, options)
   end
@@ -36135,7 +36398,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnRoutes", input, options)
   end
@@ -36152,7 +36416,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_client_vpn_target_networks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClientVpnTargetNetworks", input, options)
   end
@@ -36166,7 +36431,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_coip_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCoipPools", input, options)
   end
@@ -36185,7 +36451,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_conversion_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConversionTasks", input, options)
   end
@@ -36202,7 +36469,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_customer_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomerGateways", input, options)
   end
@@ -36233,7 +36501,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_declarative_policies_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeclarativePoliciesReports", input, options)
   end
@@ -36255,7 +36524,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_dhcp_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDhcpOptions", input, options)
   end
@@ -36277,7 +36547,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_egress_only_internet_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEgressOnlyInternetGateways", input, options)
   end
@@ -36293,7 +36564,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_elastic_gpus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeElasticGpus", input, options)
   end
@@ -36306,7 +36578,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_export_image_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportImageTasks", input, options)
   end
@@ -36320,7 +36593,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -36333,7 +36607,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fast_launch_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFastLaunchImages", input, options)
   end
@@ -36346,7 +36621,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFastSnapshotRestores", input, options)
   end
@@ -36369,7 +36645,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleet_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetHistory", input, options)
   end
@@ -36390,7 +36667,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleet_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetInstances", input, options)
   end
@@ -36410,7 +36688,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleets", input, options)
   end
@@ -36428,7 +36707,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_flow_logs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowLogs", input, options)
   end
@@ -36441,7 +36721,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFpgaImageAttribute", input, options)
   end
@@ -36459,7 +36740,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_fpga_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFpgaImages", input, options)
   end
@@ -36485,7 +36767,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_host_reservation_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHostReservationOfferings", input, options)
   end
@@ -36499,7 +36782,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_host_reservations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHostReservations", input, options)
   end
@@ -36518,7 +36802,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHosts", input, options)
   end
@@ -36535,7 +36820,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_iam_instance_profile_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIamInstanceProfileAssociations", input, options)
   end
@@ -36578,7 +36864,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdFormat", input, options)
   end
@@ -36618,7 +36905,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_identity_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdentityIdFormat", input, options)
   end
@@ -36639,7 +36927,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageAttribute", input, options)
   end
@@ -36694,7 +36983,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -36708,7 +36998,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_import_image_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImportImageTasks", input, options)
   end
@@ -36721,7 +37012,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_import_snapshot_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImportSnapshotTasks", input, options)
   end
@@ -36737,7 +37029,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceAttribute", input, options)
   end
@@ -36755,7 +37048,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_connect_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceConnectEndpoints", input, options)
   end
@@ -36802,7 +37096,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_credit_specifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceCreditSpecifications", input, options)
   end
@@ -36821,7 +37116,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -36855,7 +37151,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_event_windows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceEventWindows", input, options)
   end
@@ -36906,7 +37203,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_image_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceImageMetadata", input, options)
   end
@@ -36966,7 +37264,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceStatus", input, options)
   end
@@ -37006,7 +37305,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_topology(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTopology", input, options)
   end
@@ -37028,7 +37328,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_type_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTypeOfferings", input, options)
   end
@@ -37044,7 +37345,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instance_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceTypes", input, options)
   end
@@ -37103,7 +37405,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -37121,7 +37424,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_internet_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInternetGateways", input, options)
   end
@@ -37138,7 +37442,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpamByoasn", input, options)
   end
@@ -37164,7 +37469,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37183,7 +37489,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpamPools", input, options)
   end
@@ -37203,7 +37510,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_resource_discoveries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpamResourceDiscoveries", input, options)
   end
@@ -37223,7 +37531,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_resource_discovery_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37242,7 +37551,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipam_scopes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpamScopes", input, options)
   end
@@ -37258,7 +37568,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpams", input, options)
   end
@@ -37271,7 +37582,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_ipv6_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIpv6Pools", input, options)
   end
@@ -37287,7 +37599,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_key_pairs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeKeyPairs", input, options)
   end
@@ -37310,7 +37623,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_launch_template_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLaunchTemplateVersions", input, options)
   end
@@ -37323,7 +37637,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_launch_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLaunchTemplates", input, options)
   end
@@ -37346,7 +37661,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37374,7 +37690,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37400,7 +37717,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_route_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocalGatewayRouteTables", input, options)
   end
@@ -37417,7 +37735,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_virtual_interface_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37440,7 +37759,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateway_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocalGatewayVirtualInterfaces", input, options)
   end
@@ -37456,7 +37776,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_local_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocalGateways", input, options)
   end
@@ -37469,7 +37790,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_locked_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLockedSnapshots", input, options)
   end
@@ -37483,7 +37805,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_mac_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMacHosts", input, options)
   end
@@ -37502,7 +37825,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_mac_modification_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMacModificationTasks", input, options)
   end
@@ -37518,7 +37842,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_managed_prefix_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedPrefixLists", input, options)
   end
@@ -37537,7 +37862,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_moving_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMovingAddresses", input, options)
   end
@@ -37554,7 +37880,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_nat_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNatGateways", input, options)
   end
@@ -37575,7 +37902,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkAcls", input, options)
   end
@@ -37592,7 +37920,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_access_scope_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -37615,7 +37944,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_access_scopes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsAccessScopes", input, options)
   end
@@ -37632,7 +37962,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsAnalyses", input, options)
   end
@@ -37645,7 +37976,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_insights_paths(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInsightsPaths", input, options)
   end
@@ -37665,7 +37997,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfaceAttribute", input, options)
   end
@@ -37682,7 +38015,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interface_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfacePermissions", input, options)
   end
@@ -37705,7 +38039,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_network_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfaces", input, options)
   end
@@ -37720,7 +38055,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_outpost_lags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOutpostLags", input, options)
   end
@@ -37743,7 +38079,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_placement_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePlacementGroups", input, options)
   end
@@ -37760,7 +38097,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_prefix_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePrefixLists", input, options)
   end
@@ -37795,7 +38133,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_principal_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePrincipalIdFormat", input, options)
   end
@@ -37808,7 +38147,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_public_ipv4_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePublicIpv4Pools", input, options)
   end
@@ -37833,7 +38173,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegions", input, options)
   end
@@ -37854,7 +38195,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_replace_root_volume_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplaceRootVolumeTasks", input, options)
   end
@@ -37875,7 +38217,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstances", input, options)
   end
@@ -37925,7 +38268,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_listings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesListings", input, options)
   end
@@ -37958,7 +38302,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesModifications", input, options)
   end
@@ -37995,7 +38340,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_reserved_instances_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedInstancesOfferings", input, options)
   end
@@ -38015,7 +38361,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_server_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouteServerEndpoints", input, options)
   end
@@ -38045,7 +38392,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_server_peers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouteServerPeers", input, options)
   end
@@ -38083,7 +38431,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouteServers", input, options)
   end
@@ -38109,7 +38458,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_route_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouteTables", input, options)
   end
@@ -38135,7 +38485,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_scheduled_instance_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledInstanceAvailability", input, options)
   end
@@ -38148,7 +38499,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledInstances", input, options)
   end
@@ -38167,7 +38519,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_references(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupReferences", input, options)
   end
@@ -38180,7 +38533,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupRules", input, options)
   end
@@ -38198,7 +38552,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_group_vpc_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroupVpcAssociations", input, options)
   end
@@ -38211,7 +38566,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSecurityGroups", input, options)
   end
@@ -38228,7 +38584,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_service_link_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceLinkVirtualInterfaces", input, options)
   end
@@ -38247,7 +38604,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotAttribute", input, options)
   end
@@ -38260,7 +38618,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshot_tier_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotTierStatus", input, options)
   end
@@ -38341,7 +38700,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -38362,7 +38722,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_datafeed_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotDatafeedSubscription", input, options)
   end
@@ -38375,7 +38736,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetInstances", input, options)
   end
@@ -38402,7 +38764,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_request_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetRequestHistory", input, options)
   end
@@ -38419,7 +38782,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_fleet_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotFleetRequests", input, options)
   end
@@ -38453,7 +38817,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_instance_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotInstanceRequests", input, options)
   end
@@ -38475,7 +38840,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_spot_price_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpotPriceHistory", input, options)
   end
@@ -38501,7 +38867,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_stale_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStaleSecurityGroups", input, options)
   end
@@ -38535,7 +38902,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_store_image_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStoreImageTasks", input, options)
   end
@@ -38557,7 +38925,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnets", input, options)
   end
@@ -38581,7 +38950,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -38598,7 +38968,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_filter_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorFilterRules", input, options)
   end
@@ -38611,7 +38982,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_filters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorFilters", input, options)
   end
@@ -38631,7 +39003,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorSessions", input, options)
   end
@@ -38644,7 +39017,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_traffic_mirror_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficMirrorTargets", input, options)
   end
@@ -38665,7 +39039,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayAttachments", input, options)
   end
@@ -38682,7 +39057,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_connect_peers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayConnectPeers", input, options)
   end
@@ -38699,7 +39075,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_connects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayConnects", input, options)
   end
@@ -38716,7 +39093,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_multicast_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayMulticastDomains", input, options)
   end
@@ -38733,7 +39111,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_peering_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayPeeringAttachments", input, options)
   end
@@ -38750,7 +39129,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_policy_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayPolicyTables", input, options)
   end
@@ -38767,7 +39147,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_route_table_announcements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -38793,7 +39174,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_route_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayRouteTables", input, options)
   end
@@ -38813,7 +39195,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateway_vpc_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGatewayVpcAttachments", input, options)
   end
@@ -38829,7 +39212,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_transit_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTransitGateways", input, options)
   end
@@ -38846,7 +39230,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_trunk_interface_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrunkInterfaceAssociations", input, options)
   end
@@ -38863,7 +39248,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessEndpoints", input, options)
   end
@@ -38876,7 +39262,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessGroups", input, options)
   end
@@ -38897,7 +39284,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -38920,7 +39308,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessInstances", input, options)
   end
@@ -38937,7 +39326,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_verified_access_trust_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVerifiedAccessTrustProviders", input, options)
   end
@@ -38956,7 +39346,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volume_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumeAttribute", input, options)
   end
@@ -39022,7 +39413,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volume_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumeStatus", input, options)
   end
@@ -39049,7 +39441,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -39068,7 +39461,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_volumes_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumesModifications", input, options)
   end
@@ -39083,7 +39477,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcAttribute", input, options)
   end
@@ -39108,7 +39503,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_block_public_access_exclusions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcBlockPublicAccessExclusions", input, options)
   end
@@ -39131,7 +39527,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcBlockPublicAccessOptions", input, options)
   end
@@ -39147,7 +39544,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcClassicLink", input, options)
   end
@@ -39175,7 +39573,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcClassicLinkDnsSupport", input, options)
   end
@@ -39194,7 +39593,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointAssociations", input, options)
   end
@@ -39212,7 +39612,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_connection_notifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -39237,7 +39638,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointConnections", input, options)
   end
@@ -39255,7 +39657,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_service_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServiceConfigurations", input, options)
   end
@@ -39276,7 +39679,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServicePermissions", input, options)
   end
@@ -39299,7 +39703,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoint_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointServices", input, options)
   end
@@ -39317,7 +39722,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpoints", input, options)
   end
@@ -39339,7 +39745,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
@@ -39356,7 +39763,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpcs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcs", input, options)
   end
@@ -39373,7 +39781,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpnConnections", input, options)
   end
@@ -39390,7 +39799,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_vpn_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpnGateways", input, options)
   end
@@ -39410,7 +39820,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_classic_link_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachClassicLinkVpc", input, options)
   end
@@ -39428,7 +39839,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_internet_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachInternetGateway", input, options)
   end
@@ -39441,7 +39853,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_network_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachNetworkInterface", input, options)
   end
@@ -39459,7 +39872,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachVerifiedAccessTrustProvider", input, options)
   end
@@ -39498,7 +39912,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachVolume", input, options)
   end
@@ -39520,7 +39935,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def detach_vpn_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachVpnGateway", input, options)
   end
@@ -39536,7 +39952,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_address_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAddressTransfer", input, options)
   end
@@ -39568,7 +39985,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAllowedImagesSettings", input, options)
   end
@@ -39589,7 +40007,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -39623,7 +40042,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableEbsEncryptionByDefault", input, options)
   end
@@ -39648,7 +40068,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_fast_launch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableFastLaunch", input, options)
   end
@@ -39662,7 +40083,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableFastSnapshotRestores", input, options)
   end
@@ -39697,7 +40119,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableImage", input, options)
   end
@@ -39731,7 +40154,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_block_public_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableImageBlockPublicAccess", input, options)
   end
@@ -39748,7 +40172,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_deprecation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableImageDeprecation", input, options)
   end
@@ -39777,7 +40202,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableImageDeregistrationProtection", input, options)
   end
@@ -39797,7 +40223,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableIpamOrganizationAdminAccount", input, options)
   end
@@ -39843,7 +40270,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_route_server_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableRouteServerPropagation", input, options)
   end
@@ -39863,7 +40291,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_serial_console_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSerialConsoleAccess", input, options)
   end
@@ -39903,7 +40332,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableSnapshotBlockPublicAccess", input, options)
   end
@@ -39922,7 +40352,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -39943,7 +40374,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableVgwRoutePropagation", input, options)
   end
@@ -39961,7 +40393,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableVpcClassicLink", input, options)
   end
@@ -39987,7 +40420,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableVpcClassicLinkDnsSupport", input, options)
   end
@@ -40016,7 +40450,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAddress", input, options)
   end
@@ -40038,7 +40473,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_capacity_reservation_billing_owner(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40076,7 +40512,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_client_vpn_target_network(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateClientVpnTargetNetwork", input, options)
   end
@@ -40102,7 +40539,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_enclave_certificate_iam_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEnclaveCertificateIamRole", input, options)
   end
@@ -40122,7 +40560,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_iam_instance_profile(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateIamInstanceProfile", input, options)
   end
@@ -40142,7 +40581,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateInstanceEventWindow", input, options)
   end
@@ -40161,7 +40601,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateIpamByoasn", input, options)
   end
@@ -40181,7 +40622,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateIpamResourceDiscovery", input, options)
   end
@@ -40215,7 +40657,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateNatGatewayAddress", input, options)
   end
@@ -40234,7 +40677,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_route_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateRouteServer", input, options)
   end
@@ -40253,7 +40697,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateRouteTable", input, options)
   end
@@ -40273,7 +40718,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_security_group_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSecurityGroupVpc", input, options)
   end
@@ -40290,7 +40736,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_subnet_cidr_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSubnetCidrBlock", input, options)
   end
@@ -40307,7 +40754,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_multicast_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40330,7 +40778,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_policy_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTransitGatewayPolicyTable", input, options)
   end
@@ -40347,7 +40796,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_transit_gateway_route_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTransitGatewayRouteTable", input, options)
   end
@@ -40361,7 +40811,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_trunk_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTrunkInterface", input, options)
   end
@@ -40383,7 +40834,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def disassociate_vpc_cidr_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateVpcCidrBlock", input, options)
   end
@@ -40399,7 +40851,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_address_transfer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAddressTransfer", input, options)
   end
@@ -40448,7 +40901,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAllowedImagesSettings", input, options)
   end
@@ -40465,7 +40919,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_aws_network_performance_metric_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40507,7 +40962,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableEbsEncryptionByDefault", input, options)
   end
@@ -40535,7 +40991,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_fast_launch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableFastLaunch", input, options)
   end
@@ -40558,7 +41015,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_fast_snapshot_restores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableFastSnapshotRestores", input, options)
   end
@@ -40585,7 +41043,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableImage", input, options)
   end
@@ -40617,7 +41076,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_block_public_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableImageBlockPublicAccess", input, options)
   end
@@ -40634,7 +41094,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_deprecation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableImageDeprecation", input, options)
   end
@@ -40662,7 +41123,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_image_deregistration_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableImageDeregistrationProtection", input, options)
   end
@@ -40683,7 +41145,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_ipam_organization_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableIpamOrganizationAdminAccount", input, options)
   end
@@ -40708,7 +41171,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_reachability_analyzer_organization_sharing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40734,7 +41198,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_route_server_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableRouteServerPropagation", input, options)
   end
@@ -40752,7 +41217,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_serial_console_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSerialConsoleAccess", input, options)
   end
@@ -40795,7 +41261,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_snapshot_block_public_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableSnapshotBlockPublicAccess", input, options)
   end
@@ -40813,7 +41280,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_transit_gateway_route_table_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40834,7 +41302,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vgw_route_propagation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableVgwRoutePropagation", input, options)
   end
@@ -40849,7 +41318,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_volume_i_o(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableVolumeIO", input, options)
   end
@@ -40872,7 +41342,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vpc_classic_link(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableVpcClassicLink", input, options)
   end
@@ -40902,7 +41373,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def enable_vpc_classic_link_dns_support(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableVpcClassicLinkDnsSupport", input, options)
   end
@@ -40924,7 +41396,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -40953,7 +41426,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_client_vpn_client_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportClientVpnClientConfiguration", input, options)
   end
@@ -40971,7 +41445,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportImage", input, options)
   end
@@ -40994,7 +41469,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def export_transit_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportTransitGatewayRoutes", input, options)
   end
@@ -41015,7 +41491,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -41036,7 +41513,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_active_vpn_tunnel_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetActiveVpnTunnelStatus", input, options)
   end
@@ -41062,7 +41540,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAllowedImagesSettings", input, options)
   end
@@ -41086,7 +41565,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_associated_enclave_certificate_iam_roles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssociatedEnclaveCertificateIamRoles", input, options)
   end
@@ -41100,7 +41580,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_associated_ipv6_pool_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssociatedIpv6PoolCidrs", input, options)
   end
@@ -41117,7 +41598,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_aws_network_performance_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAwsNetworkPerformanceData", input, options)
   end
@@ -41136,7 +41618,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_capacity_reservation_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCapacityReservationUsage", input, options)
   end
@@ -41149,7 +41632,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_coip_pool_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCoipPoolUsage", input, options)
   end
@@ -41173,7 +41657,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_console_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConsoleOutput", input, options)
   end
@@ -41192,7 +41677,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_console_screenshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConsoleScreenshot", input, options)
   end
@@ -41222,7 +41708,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_declarative_policies_report_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeclarativePoliciesReportSummary", input, options)
   end
@@ -41245,7 +41732,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_default_credit_specification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDefaultCreditSpecification", input, options)
   end
@@ -41266,7 +41754,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEbsDefaultKmsKeyId", input, options)
   end
@@ -41284,7 +41773,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ebs_encryption_by_default(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEbsEncryptionByDefault", input, options)
   end
@@ -41324,7 +41814,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_flow_logs_integration_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFlowLogsIntegrationTemplate", input, options)
   end
@@ -41341,7 +41832,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_groups_for_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupsForCapacityReservation", input, options)
   end
@@ -41366,7 +41858,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_host_reservation_purchase_preview(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHostReservationPurchasePreview", input, options)
   end
@@ -41388,7 +41881,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_image_block_public_access_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetImageBlockPublicAccessState", input, options)
   end
@@ -41407,7 +41901,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceMetadataDefaults", input, options)
   end
@@ -41421,7 +41916,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_tpm_ek_pub(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceTpmEkPub", input, options)
   end
@@ -41457,7 +41953,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_types_from_instance_requirements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceTypesFromInstanceRequirements", input, options)
   end
@@ -41491,7 +41988,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_instance_uefi_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceUefiData", input, options)
   end
@@ -41507,7 +42005,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_address_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamAddressHistory", input, options)
   end
@@ -41525,7 +42024,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredAccounts", input, options)
   end
@@ -41542,7 +42042,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_public_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredPublicAddresses", input, options)
   end
@@ -41563,7 +42064,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_discovered_resource_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamDiscoveredResourceCidrs", input, options)
   end
@@ -41585,7 +42087,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_pool_allocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamPoolAllocations", input, options)
   end
@@ -41598,7 +42101,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_pool_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamPoolCidrs", input, options)
   end
@@ -41616,7 +42120,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_ipam_resource_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIpamResourceCidrs", input, options)
   end
@@ -41641,7 +42146,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_launch_template_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLaunchTemplateData", input, options)
   end
@@ -41659,7 +42165,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_prefix_list_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetManagedPrefixListAssociations", input, options)
   end
@@ -41672,7 +42179,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_prefix_list_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetManagedPrefixListEntries", input, options)
   end
@@ -41693,7 +42201,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -41716,7 +42225,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_network_insights_access_scope_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNetworkInsightsAccessScopeContent", input, options)
   end
@@ -41751,7 +42261,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_password_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPasswordData", input, options)
   end
@@ -41774,7 +42285,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_reserved_instances_exchange_quote(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetReservedInstancesExchangeQuote", input, options)
   end
@@ -41793,7 +42305,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRouteServerAssociations", input, options)
   end
@@ -41832,7 +42345,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_propagations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRouteServerPropagations", input, options)
   end
@@ -41878,7 +42392,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_route_server_routing_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRouteServerRoutingDatabase", input, options)
   end
@@ -41892,7 +42407,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_security_groups_for_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSecurityGroupsForVpc", input, options)
   end
@@ -41916,7 +42432,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_serial_console_access_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSerialConsoleAccessStatus", input, options)
   end
@@ -41939,7 +42456,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_snapshot_block_public_access_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshotBlockPublicAccessState", input, options)
   end
@@ -41964,7 +42482,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_spot_placement_scores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSpotPlacementScores", input, options)
   end
@@ -41977,7 +42496,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_subnet_cidr_reservations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubnetCidrReservations", input, options)
   end
@@ -41995,7 +42515,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_attachment_propagations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayAttachmentPropagations", input, options)
   end
@@ -42013,7 +42534,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_multicast_domain_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -42036,7 +42558,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_policy_table_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPolicyTableAssociations", input, options)
   end
@@ -42053,7 +42576,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_policy_table_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPolicyTableEntries", input, options)
   end
@@ -42071,7 +42595,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_prefix_list_references(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayPrefixListReferences", input, options)
   end
@@ -42089,7 +42614,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_route_table_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayRouteTableAssociations", input, options)
   end
@@ -42107,7 +42633,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_transit_gateway_route_table_propagations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTransitGatewayRouteTablePropagations", input, options)
   end
@@ -42124,7 +42651,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessEndpointPolicy", input, options)
   end
@@ -42141,7 +42669,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_endpoint_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessEndpointTargets", input, options)
   end
@@ -42158,7 +42687,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_verified_access_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVerifiedAccessGroupPolicy", input, options)
   end
@@ -42177,7 +42707,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_connection_device_sample_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -42202,7 +42733,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_connection_device_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVpnConnectionDeviceTypes", input, options)
   end
@@ -42219,7 +42751,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_vpn_tunnel_replacement_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVpnTunnelReplacementStatus", input, options)
   end
@@ -42247,7 +42780,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -42289,7 +42823,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportImage", input, options)
   end
@@ -42320,7 +42855,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportInstance", input, options)
   end
@@ -42341,7 +42877,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_key_pair(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportKeyPair", input, options)
   end
@@ -42358,7 +42895,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportSnapshot", input, options)
   end
@@ -42383,7 +42921,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def import_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportVolume", input, options)
   end
@@ -42400,7 +42939,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_images_in_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImagesInRecycleBin", input, options)
   end
@@ -42413,7 +42953,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_snapshots_in_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSnapshotsInRecycleBin", input, options)
   end
@@ -42450,7 +42991,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def lock_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LockSnapshot", input, options)
   end
@@ -42465,7 +43007,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_address_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAddressAttribute", input, options)
   end
@@ -42478,7 +43021,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_availability_zone_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyAvailabilityZoneGroup", input, options)
   end
@@ -42531,7 +43075,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
@@ -42557,7 +43102,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_capacity_reservation_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservationFleet", input, options)
   end
@@ -42572,7 +43118,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_client_vpn_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyClientVpnEndpoint", input, options)
   end
@@ -42611,7 +43158,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_default_credit_specification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDefaultCreditSpecification", input, options)
   end
@@ -42640,7 +43188,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEbsDefaultKmsKeyId", input, options)
   end
@@ -42693,7 +43242,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyFleet", input, options)
   end
@@ -42706,7 +43256,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyFpgaImageAttribute", input, options)
   end
@@ -42732,7 +43283,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyHosts", input, options)
   end
@@ -42782,7 +43334,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIdFormat", input, options)
   end
@@ -42830,7 +43383,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_identity_id_format(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIdentityIdFormat", input, options)
   end
@@ -42856,7 +43410,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyImageAttribute", input, options)
   end
@@ -42886,7 +43441,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceAttribute", input, options)
   end
@@ -42908,7 +43464,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_capacity_reservation_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -42942,7 +43499,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_cpu_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceCpuOptions", input, options)
   end
@@ -42968,7 +43526,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_credit_specification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceCreditSpecification", input, options)
   end
@@ -42985,7 +43544,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_event_start_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceEventStartTime", input, options)
   end
@@ -43012,7 +43572,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_event_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceEventWindow", input, options)
   end
@@ -43039,7 +43600,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_maintenance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMaintenanceOptions", input, options)
   end
@@ -43066,7 +43628,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_metadata_defaults(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMetadataDefaults", input, options)
   end
@@ -43096,7 +43659,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_metadata_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceMetadataOptions", input, options)
   end
@@ -43114,7 +43678,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_network_performance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstanceNetworkPerformanceOptions", input, options)
   end
@@ -43155,7 +43720,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_instance_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyInstancePlacement", input, options)
   end
@@ -43168,7 +43734,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpam", input, options)
   end
@@ -43184,7 +43751,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpamPool", input, options)
   end
@@ -43206,7 +43774,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_resource_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpamResourceCidr", input, options)
   end
@@ -43222,7 +43791,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_resource_discovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpamResourceDiscovery", input, options)
   end
@@ -43235,7 +43805,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_ipam_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpamScope", input, options)
   end
@@ -43253,7 +43824,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_launch_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLaunchTemplate", input, options)
   end
@@ -43266,7 +43838,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_local_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLocalGatewayRoute", input, options)
   end
@@ -43287,7 +43860,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_managed_prefix_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyManagedPrefixList", input, options)
   end
@@ -43309,7 +43883,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyNetworkInterfaceAttribute", input, options)
   end
@@ -43322,7 +43897,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_private_dns_name_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyPrivateDnsNameOptions", input, options)
   end
@@ -43342,7 +43918,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_public_ip_dns_name_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyPublicIpDnsNameOptions", input, options)
   end
@@ -43364,7 +43941,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_reserved_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReservedInstances", input, options)
   end
@@ -43402,7 +43980,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_route_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyRouteServer", input, options)
   end
@@ -43415,7 +43994,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_security_group_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySecurityGroupRules", input, options)
   end
@@ -43445,7 +44025,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySnapshotAttribute", input, options)
   end
@@ -43465,7 +44046,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_snapshot_tier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySnapshotTier", input, options)
   end
@@ -43519,7 +44101,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_spot_fleet_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySpotFleetRequest", input, options)
   end
@@ -43557,7 +44140,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_subnet_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifySubnetAttribute", input, options)
   end
@@ -43581,7 +44165,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_filter_network_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorFilterNetworkServices", input, options)
   end
@@ -43601,7 +44186,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_filter_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorFilterRule", input, options)
   end
@@ -43614,7 +44200,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_traffic_mirror_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrafficMirrorSession", input, options)
   end
@@ -43631,7 +44218,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTransitGateway", input, options)
   end
@@ -43649,7 +44237,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway_prefix_list_reference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTransitGatewayPrefixListReference", input, options)
   end
@@ -43666,7 +44255,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTransitGatewayVpcAttachment", input, options)
   end
@@ -43680,7 +44270,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessEndpoint", input, options)
   end
@@ -43697,7 +44288,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_endpoint_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessEndpointPolicy", input, options)
   end
@@ -43710,7 +44302,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessGroup", input, options)
   end
@@ -43727,7 +44320,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_group_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessGroupPolicy", input, options)
   end
@@ -43741,7 +44335,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessInstance", input, options)
   end
@@ -43763,7 +44358,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -43787,7 +44383,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_verified_access_trust_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVerifiedAccessTrustProvider", input, options)
   end
@@ -43826,7 +44423,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVolume", input, options)
   end
@@ -43851,7 +44449,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_volume_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVolumeAttribute", input, options)
   end
@@ -43864,7 +44463,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcAttribute", input, options)
   end
@@ -43887,7 +44487,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_block_public_access_exclusion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcBlockPublicAccessExclusion", input, options)
   end
@@ -43910,7 +44511,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_block_public_access_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcBlockPublicAccessOptions", input, options)
   end
@@ -43928,7 +44530,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpoint", input, options)
   end
@@ -43949,7 +44552,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_connection_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointConnectionNotification", input, options)
   end
@@ -43970,7 +44574,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointServiceConfiguration", input, options)
   end
@@ -43987,7 +44592,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_payer_responsibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44021,7 +44627,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_endpoint_service_permissions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointServicePermissions", input, options)
   end
@@ -44059,7 +44666,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_peering_connection_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcPeeringConnectionOptions", input, options)
   end
@@ -44085,7 +44693,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpc_tenancy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpcTenancy", input, options)
   end
@@ -44149,7 +44758,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpnConnection", input, options)
   end
@@ -44168,7 +44778,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_connection_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpnConnectionOptions", input, options)
   end
@@ -44181,7 +44792,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_tunnel_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpnTunnelCertificate", input, options)
   end
@@ -44202,7 +44814,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_vpn_tunnel_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyVpnTunnelOptions", input, options)
   end
@@ -44222,7 +44835,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def monitor_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MonitorInstances", input, options)
   end
@@ -44248,7 +44862,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_address_to_vpc(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveAddressToVpc", input, options)
   end
@@ -44266,7 +44881,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_byoip_cidr_to_ipam(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveByoipCidrToIpam", input, options)
   end
@@ -44308,7 +44924,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def move_capacity_reservation_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MoveCapacityReservationInstances", input, options)
   end
@@ -44346,7 +44963,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionByoipCidr", input, options)
   end
@@ -44364,7 +44982,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_ipam_byoasn(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionIpamByoasn", input, options)
   end
@@ -44383,7 +45002,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_ipam_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionIpamPoolCidr", input, options)
   end
@@ -44399,7 +45019,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def provision_public_ipv4_pool_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionPublicIpv4PoolCidr", input, options)
   end
@@ -44417,7 +45038,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_capacity_block(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseCapacityBlock", input, options)
   end
@@ -44437,7 +45059,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_capacity_block_extension(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseCapacityBlockExtension", input, options)
   end
@@ -44457,7 +45080,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_host_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseHostReservation", input, options)
   end
@@ -44490,7 +45114,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_reserved_instances_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedInstancesOffering", input, options)
   end
@@ -44517,7 +45142,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def purchase_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseScheduledInstances", input, options)
   end
@@ -44544,7 +45170,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reboot_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootInstances", input, options)
   end
@@ -44631,7 +45258,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterImage", input, options)
   end
@@ -44652,7 +45280,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_instance_event_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44687,7 +45316,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_transit_gateway_multicast_group_members(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44723,7 +45353,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def register_transit_gateway_multicast_group_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44751,7 +45382,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_capacity_reservation_billing_ownership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44779,7 +45411,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -44802,7 +45435,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectTransitGatewayPeeringAttachment", input, options)
   end
@@ -44824,7 +45458,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_transit_gateway_vpc_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectTransitGatewayVpcAttachment", input, options)
   end
@@ -44837,7 +45472,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_vpc_endpoint_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectVpcEndpointConnections", input, options)
   end
@@ -44857,7 +45493,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reject_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectVpcPeeringConnection", input, options)
   end
@@ -44890,7 +45527,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseAddress", input, options)
   end
@@ -44918,7 +45556,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseHosts", input, options)
   end
@@ -44942,7 +45581,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def release_ipam_pool_allocation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseIpamPoolAllocation", input, options)
   end
@@ -44967,7 +45607,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_iam_instance_profile_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceIamInstanceProfileAssociation", input, options)
   end
@@ -44995,7 +45636,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_image_criteria_in_allowed_images_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -45021,7 +45663,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_network_acl_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceNetworkAclAssociation", input, options)
   end
@@ -45038,7 +45681,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_network_acl_entry(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceNetworkAclEntry", input, options)
   end
@@ -45061,7 +45705,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceRoute", input, options)
   end
@@ -45085,7 +45730,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_route_table_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceRouteTableAssociation", input, options)
   end
@@ -45098,7 +45744,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_transit_gateway_route(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceTransitGatewayRoute", input, options)
   end
@@ -45111,7 +45758,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def replace_vpn_tunnel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReplaceVpnTunnel", input, options)
   end
@@ -45133,7 +45781,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def report_instance_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReportInstanceStatus", input, options)
   end
@@ -45186,7 +45835,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_spot_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestSpotFleet", input, options)
   end
@@ -45210,7 +45860,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_spot_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestSpotInstances", input, options)
   end
@@ -45225,7 +45876,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_address_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetAddressAttribute", input, options)
   end
@@ -45246,7 +45898,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_ebs_default_kms_key_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetEbsDefaultKmsKeyId", input, options)
   end
@@ -45262,7 +45915,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_fpga_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetFpgaImageAttribute", input, options)
   end
@@ -45275,7 +45929,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_image_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetImageAttribute", input, options)
   end
@@ -45300,7 +45955,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_instance_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetInstanceAttribute", input, options)
   end
@@ -45320,7 +45976,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_network_interface_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetNetworkInterfaceAttribute", input, options)
   end
@@ -45337,7 +45994,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def reset_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetSnapshotAttribute", input, options)
   end
@@ -45356,7 +46014,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_address_to_classic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreAddressToClassic", input, options)
   end
@@ -45374,7 +46033,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_image_from_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreImageFromRecycleBin", input, options)
   end
@@ -45392,7 +46052,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_managed_prefix_list_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreManagedPrefixListVersion", input, options)
   end
@@ -45413,7 +46074,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_snapshot_from_recycle_bin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreSnapshotFromRecycleBin", input, options)
   end
@@ -45436,7 +46098,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restore_snapshot_tier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreSnapshotTier", input, options)
   end
@@ -45449,7 +46112,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_client_vpn_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeClientVpnIngress", input, options)
   end
@@ -45488,7 +46152,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_security_group_egress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeSecurityGroupEgress", input, options)
   end
@@ -45533,7 +46198,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def revoke_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeSecurityGroupIngress", input, options)
   end
@@ -45604,7 +46270,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def run_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunInstances", input, options)
   end
@@ -45628,7 +46295,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def run_scheduled_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RunScheduledInstances", input, options)
   end
@@ -45641,7 +46309,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_local_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchLocalGatewayRoutes", input, options)
   end
@@ -45659,7 +46328,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_transit_gateway_multicast_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTransitGatewayMulticastGroups", input, options)
   end
@@ -45672,7 +46342,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def search_transit_gateway_routes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchTransitGatewayRoutes", input, options)
   end
@@ -45709,7 +46380,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def send_diagnostic_interrupt(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendDiagnosticInterrupt", input, options)
   end
@@ -45782,7 +46454,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_declarative_policies_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDeclarativePoliciesReport", input, options)
   end
@@ -45824,7 +46497,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstances", input, options)
   end
@@ -45841,7 +46515,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_network_insights_access_scope_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNetworkInsightsAccessScopeAnalysis", input, options)
   end
@@ -45857,7 +46532,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def start_network_insights_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartNetworkInsightsAnalysis", input, options)
   end
@@ -45886,7 +46562,8 @@ defmodule AWS.EC2 do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -45952,7 +46629,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def stop_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopInstances", input, options)
   end
@@ -45972,7 +46650,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def terminate_client_vpn_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateClientVpnConnections", input, options)
   end
@@ -46060,7 +46739,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def terminate_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateInstances", input, options)
   end
@@ -46075,7 +46755,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_ipv6_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignIpv6Addresses", input, options)
   end
@@ -46089,7 +46770,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_private_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignPrivateIpAddresses", input, options)
   end
@@ -46124,7 +46806,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unassign_private_nat_gateway_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnassignPrivateNatGatewayAddress", input, options)
   end
@@ -46142,7 +46825,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unlock_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnlockSnapshot", input, options)
   end
@@ -46160,7 +46844,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def unmonitor_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnmonitorInstances", input, options)
   end
@@ -46184,7 +46869,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_security_group_rule_descriptions_egress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -46214,7 +46900,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_security_group_rule_descriptions_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -46241,7 +46928,8 @@ defmodule AWS.EC2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "WithdrawByoipCidr", input, options)
   end

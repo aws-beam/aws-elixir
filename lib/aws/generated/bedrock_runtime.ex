@@ -25,7 +25,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       list_async_invokes_response() :: %{
-        "asyncInvokeSummaries" => list(async_invoke_summary()()),
+        "asyncInvokeSummaries" => list(async_invoke_summary()),
         "nextToken" => String.t()
       }
 
@@ -61,7 +61,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_content_policy_assessment() :: %{
-        "filters" => list(guardrail_content_filter()())
+        "filters" => list(guardrail_content_filter())
       }
 
   """
@@ -89,9 +89,9 @@ defmodule AWS.BedrockRuntime do
       apply_guardrail_response() :: %{
         "action" => list(any()),
         "actionReason" => [String.t()],
-        "assessments" => list(guardrail_assessment()()),
+        "assessments" => list(guardrail_assessment()),
         "guardrailCoverage" => guardrail_coverage(),
-        "outputs" => list(guardrail_output_content()()),
+        "outputs" => list(guardrail_output_content()),
         "usage" => guardrail_usage()
       }
 
@@ -144,7 +144,7 @@ defmodule AWS.BedrockRuntime do
 
       inference_configuration() :: %{
         "maxTokens" => [integer()],
-        "stopSequences" => list(String.t()()),
+        "stopSequences" => list(String.t()),
         "temperature" => [float()],
         "topP" => [float()]
       }
@@ -167,7 +167,7 @@ defmodule AWS.BedrockRuntime do
 
       apply_guardrail_request() :: %{
         optional("outputScope") => list(any()),
-        required("content") => list(list()()),
+        required("content") => list(list()),
         required("source") => list(any())
       }
 
@@ -183,11 +183,11 @@ defmodule AWS.BedrockRuntime do
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
         optional("guardrailConfig") => guardrail_configuration(),
         optional("inferenceConfig") => inference_configuration(),
-        optional("messages") => list(message()()),
+        optional("messages") => list(message()),
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
-        optional("system") => list(list()()),
+        optional("system") => list(list()),
         optional("toolConfig") => tool_configuration()
       }
 
@@ -201,7 +201,7 @@ defmodule AWS.BedrockRuntime do
       guardrail_trace_assessment() :: %{
         "actionReason" => [String.t()],
         "inputAssessment" => map(),
-        "modelOutput" => list(String.t()()),
+        "modelOutput" => list(String.t()),
         "outputAssessments" => map()
       }
 
@@ -214,7 +214,7 @@ defmodule AWS.BedrockRuntime do
 
       citation() :: %{
         "location" => list(),
-        "sourceContent" => list(list()()),
+        "sourceContent" => list(list()),
         "title" => [String.t()]
       }
 
@@ -226,8 +226,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       citations_content_block() :: %{
-        "citations" => list(citation()()),
-        "content" => list(list()())
+        "citations" => list(citation()),
+        "content" => list(list())
       }
 
   """
@@ -442,8 +442,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_word_policy_assessment() :: %{
-        "customWords" => list(guardrail_custom_word()()),
-        "managedWordLists" => list(guardrail_managed_word()())
+        "customWords" => list(guardrail_custom_word()),
+        "managedWordLists" => list(guardrail_managed_word())
       }
 
   """
@@ -455,7 +455,7 @@ defmodule AWS.BedrockRuntime do
 
       start_async_invoke_request() :: %{
         optional("clientRequestToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("modelId") => String.t(),
         required("modelInput") => any(),
         required("outputDataConfig") => list()
@@ -566,8 +566,8 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_sensitive_information_policy_assessment() :: %{
-        "piiEntities" => list(guardrail_pii_entity_filter()()),
-        "regexes" => list(guardrail_regex_filter()())
+        "piiEntities" => list(guardrail_pii_entity_filter()),
+        "regexes" => list(guardrail_regex_filter())
       }
 
   """
@@ -782,7 +782,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_contextual_grounding_policy_assessment() :: %{
-        "filters" => list(guardrail_contextual_grounding_filter()())
+        "filters" => list(guardrail_contextual_grounding_filter())
       }
 
   """
@@ -898,7 +898,7 @@ defmodule AWS.BedrockRuntime do
 
       tool_configuration() :: %{
         "toolChoice" => list(),
-        "tools" => list(list()())
+        "tools" => list(list())
       }
 
   """
@@ -913,11 +913,11 @@ defmodule AWS.BedrockRuntime do
         optional("additionalModelResponseFieldPaths") => list([String.t()]()),
         optional("guardrailConfig") => guardrail_stream_configuration(),
         optional("inferenceConfig") => inference_configuration(),
-        optional("messages") => list(message()()),
+        optional("messages") => list(message()),
         optional("performanceConfig") => performance_configuration(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
-        optional("system") => list(list()()),
+        optional("system") => list(list()),
         optional("toolConfig") => tool_configuration()
       }
 
@@ -929,7 +929,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       tool_result_block() :: %{
-        "content" => list(list()()),
+        "content" => list(list()),
         "status" => list(any()),
         "toolUseId" => String.t()
       }
@@ -981,7 +981,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       guardrail_topic_policy_assessment() :: %{
-        "topics" => list(guardrail_topic()())
+        "topics" => list(guardrail_topic())
       }
 
   """
@@ -1244,7 +1244,7 @@ defmodule AWS.BedrockRuntime do
 
       citations_delta() :: %{
         "location" => list(),
-        "sourceContent" => list(citation_source_content_delta()()),
+        "sourceContent" => list(citation_source_content_delta()),
         "title" => [String.t()]
       }
 
@@ -1256,7 +1256,7 @@ defmodule AWS.BedrockRuntime do
   ## Example:
 
       message() :: %{
-        "content" => list(list()()),
+        "content" => list(list()),
         "role" => list(any())
       }
 

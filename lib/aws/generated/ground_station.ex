@@ -98,7 +98,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_configs_response() :: %{
-        "configList" => list(config_list_item()()),
+        "configList" => list(config_list_item()),
         "nextToken" => String.t()
       }
 
@@ -208,7 +208,7 @@ defmodule AWS.GroundStation do
       describe_contact_response() :: %{
         "contactId" => String.t(),
         "contactStatus" => list(any()),
-        "dataflowList" => list(dataflow_detail()()),
+        "dataflowList" => list(dataflow_detail()),
         "endTime" => [non_neg_integer()],
         "errorMessage" => [String.t()],
         "groundStation" => [String.t()],
@@ -454,7 +454,7 @@ defmodule AWS.GroundStation do
       agent_details() :: %{
         "agentCpuCores" => list([integer()]()),
         "agentVersion" => String.t(),
-        "componentVersions" => list(component_version()()),
+        "componentVersions" => list(component_version()),
         "instanceId" => String.t(),
         "instanceType" => String.t(),
         "reservedCpuCores" => list([integer()]())
@@ -495,7 +495,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t()())
+        "tagKeys" => list(String.t())
       }
 
   """
@@ -530,7 +530,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_dataflow_endpoint_groups_response() :: %{
-        "dataflowEndpointGroupList" => list(dataflow_endpoint_list_item()()),
+        "dataflowEndpointGroupList" => list(dataflow_endpoint_list_item()),
         "nextToken" => String.t()
       }
 
@@ -543,7 +543,7 @@ defmodule AWS.GroundStation do
 
       satellite_list_item() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
-        "groundStations" => list(String.t()()),
+        "groundStations" => list(String.t()),
         "noradSatelliteID" => integer(),
         "satelliteArn" => String.t(),
         "satelliteId" => String.t()
@@ -628,7 +628,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_mission_profiles_response() :: %{
-        "missionProfileList" => list(mission_profile_list_item()()),
+        "missionProfileList" => list(mission_profile_list_item()),
         "nextToken" => String.t()
       }
 
@@ -745,7 +745,7 @@ defmodule AWS.GroundStation do
 
       update_agent_status_request() :: %{
         required("aggregateStatus") => aggregate_status(),
-        required("componentStatuses") => list(component_status_data()()),
+        required("componentStatuses") => list(component_status_data()),
         required("taskId") => String.t()
       }
 
@@ -761,7 +761,7 @@ defmodule AWS.GroundStation do
         "contactPrePassDurationSeconds" => integer(),
         "dataflowEndpointGroupArn" => String.t(),
         "dataflowEndpointGroupId" => String.t(),
-        "endpointsDetails" => list(endpoint_details()()),
+        "endpointsDetails" => list(endpoint_details()),
         "tags" => map()
       }
 
@@ -879,7 +879,7 @@ defmodule AWS.GroundStation do
 
       component_version() :: %{
         "componentType" => String.t(),
-        "versions" => list(String.t()())
+        "versions" => list(String.t())
       }
 
   """
@@ -903,7 +903,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_ephemerides_response() :: %{
-        optional("ephemerides") => list(ephemeris_item()()),
+        optional("ephemerides") => list(ephemeris_item()),
         optional("nextToken") => String.t()
       }
 
@@ -1003,7 +1003,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_contacts_response() :: %{
-        "contactList" => list(contact_data()()),
+        "contactList" => list(contact_data()),
         "nextToken" => String.t()
       }
 
@@ -1049,7 +1049,7 @@ defmodule AWS.GroundStation do
 
       get_satellite_response() :: %{
         "currentEphemeris" => ephemeris_meta_data(),
-        "groundStations" => list(String.t()()),
+        "groundStations" => list(String.t()),
         "noradSatelliteID" => integer(),
         "satelliteArn" => String.t(),
         "satelliteId" => String.t()
@@ -1073,7 +1073,7 @@ defmodule AWS.GroundStation do
 
       list_satellites_response() :: %{
         "nextToken" => String.t(),
-        "satellites" => list(satellite_list_item()())
+        "satellites" => list(satellite_list_item())
       }
 
   """
@@ -1117,7 +1117,7 @@ defmodule AWS.GroundStation do
 
       t_l_e_ephemeris() :: %{
         "s3Object" => s3_object(),
-        "tleData" => list(t_l_e_data()())
+        "tleData" => list(t_l_e_data())
       }
 
   """
@@ -1253,7 +1253,7 @@ defmodule AWS.GroundStation do
   ## Example:
 
       list_ground_stations_response() :: %{
-        "groundStationList" => list(ground_station_data()()),
+        "groundStationList" => list(ground_station_data()),
         "nextToken" => String.t()
       }
 
@@ -1267,7 +1267,7 @@ defmodule AWS.GroundStation do
       get_mission_profile_response() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t()())()),
+        "dataflowEdges" => list(list(String.t())()),
         "minimumViableContactDurationSeconds" => integer(),
         "missionProfileArn" => String.t(),
         "missionProfileId" => String.t(),
@@ -1299,9 +1299,9 @@ defmodule AWS.GroundStation do
   ## Example:
 
       discovery_data() :: %{
-        "capabilityArns" => list(String.t()()),
-        "privateIpAddresses" => list(String.t()()),
-        "publicIpAddresses" => list(String.t()())
+        "capabilityArns" => list(String.t()),
+        "privateIpAddresses" => list(String.t()),
+        "publicIpAddresses" => list(String.t())
       }
 
   """
@@ -1346,7 +1346,7 @@ defmodule AWS.GroundStation do
       create_dataflow_endpoint_group_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "endpointDetails" => list(endpoint_details()()),
+        "endpointDetails" => list(endpoint_details()),
         "tags" => map()
       }
 
@@ -1390,7 +1390,7 @@ defmodule AWS.GroundStation do
       create_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t()())()),
+        "dataflowEdges" => list(list(String.t())()),
         "minimumViableContactDurationSeconds" => integer(),
         "name" => String.t(),
         "streamsKmsKey" => list(),
@@ -1409,7 +1409,7 @@ defmodule AWS.GroundStation do
       update_mission_profile_request() :: %{
         "contactPostPassDurationSeconds" => integer(),
         "contactPrePassDurationSeconds" => integer(),
-        "dataflowEdges" => list(list(String.t()())()),
+        "dataflowEdges" => list(list(String.t())()),
         "minimumViableContactDurationSeconds" => integer(),
         "name" => String.t(),
         "streamsKmsKey" => list(),

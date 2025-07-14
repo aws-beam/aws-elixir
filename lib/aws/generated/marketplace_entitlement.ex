@@ -76,7 +76,7 @@ defmodule AWS.MarketplaceEntitlement do
   ## Example:
       
       get_entitlements_result() :: %{
-        "Entitlements" => list(entitlement()()),
+        "Entitlements" => list(entitlement()),
         "NextToken" => String.t()
       }
       
@@ -155,7 +155,8 @@ defmodule AWS.MarketplaceEntitlement do
           | {:error, term()}
           | {:error, get_entitlements_errors()}
   def get_entitlements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntitlements", input, options)
   end

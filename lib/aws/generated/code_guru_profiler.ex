@@ -52,7 +52,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       list_findings_reports_response() :: %{
-        "findingsReportSummaries" => list(findings_report_summary()()),
+        "findingsReportSummaries" => list(findings_report_summary()),
         "nextToken" => String.t()
       }
 
@@ -237,7 +237,7 @@ defmodule AWS.CodeGuruProfiler do
 
       list_profile_times_response() :: %{
         "nextToken" => String.t(),
-        "profileTimes" => list(profile_time()())
+        "profileTimes" => list(profile_time())
       }
 
   """
@@ -257,11 +257,11 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       get_recommendations_response() :: %{
-        "anomalies" => list(anomaly()()),
+        "anomalies" => list(anomaly()),
         "profileEndTime" => non_neg_integer(),
         "profileStartTime" => non_neg_integer(),
         "profilingGroupName" => String.t(),
-        "recommendations" => list(recommendation()())
+        "recommendations" => list(recommendation())
       }
 
   """
@@ -389,7 +389,7 @@ defmodule AWS.CodeGuruProfiler do
 
       get_findings_report_account_summary_response() :: %{
         "nextToken" => String.t(),
-        "reportSummaries" => list(findings_report_summary()())
+        "reportSummaries" => list(findings_report_summary())
       }
 
   """
@@ -441,7 +441,7 @@ defmodule AWS.CodeGuruProfiler do
         "endTime" => non_neg_integer(),
         "pattern" => pattern(),
         "startTime" => non_neg_integer(),
-        "topMatches" => list(match()())
+        "topMatches" => list(match())
       }
 
   """
@@ -502,7 +502,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       put_permission_request() :: %{
-        "principals" => list(String.t()()),
+        "principals" => list(String.t()),
         "revisionId" => String.t()
       }
 
@@ -559,7 +559,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       notification_configuration() :: %{
-        "channels" => list(channel()())
+        "channels" => list(channel())
       }
 
   """
@@ -620,7 +620,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       anomaly() :: %{
-        "instances" => list(anomaly_instance()()),
+        "instances" => list(anomaly_instance()),
         "metric" => metric(),
         "reason" => [String.t()]
       }
@@ -673,8 +673,8 @@ defmodule AWS.CodeGuruProfiler do
 
       list_profiling_groups_response() :: %{
         "nextToken" => String.t(),
-        "profilingGroupNames" => list(String.t()()),
-        "profilingGroups" => list(profiling_group_description()())
+        "profilingGroupNames" => list(String.t()),
+        "profilingGroups" => list(profiling_group_description())
       }
 
   """
@@ -685,7 +685,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       add_notification_channels_request() :: %{
-        "channels" => list(channel()())
+        "channels" => list(channel())
       }
 
   """
@@ -752,7 +752,7 @@ defmodule AWS.CodeGuruProfiler do
 
       batch_get_frame_metric_data_request() :: %{
         "endTime" => non_neg_integer(),
-        "frameMetrics" => list(frame_metric()()),
+        "frameMetrics" => list(frame_metric()),
         "period" => String.t(),
         "startTime" => non_neg_integer(),
         "targetResolution" => String.t()
@@ -766,7 +766,7 @@ defmodule AWS.CodeGuruProfiler do
   ## Example:
 
       channel() :: %{
-        "eventPublishers" => list(String.t()()),
+        "eventPublishers" => list(String.t()),
         "id" => String.t(),
         "uri" => String.t()
       }
@@ -780,8 +780,8 @@ defmodule AWS.CodeGuruProfiler do
 
       batch_get_frame_metric_data_response() :: %{
         "endTime" => non_neg_integer(),
-        "endTimes" => list(timestamp_structure()()),
-        "frameMetricData" => list(frame_metric_datum()()),
+        "endTimes" => list(timestamp_structure()),
+        "frameMetricData" => list(frame_metric_datum()),
         "resolution" => String.t(),
         "startTime" => non_neg_integer(),
         "unprocessedEndTimes" => map()
@@ -821,7 +821,7 @@ defmodule AWS.CodeGuruProfiler do
 
       frame_metric_datum() :: %{
         "frameMetric" => frame_metric(),
-        "values" => list(float()())
+        "values" => list(float())
       }
 
   """

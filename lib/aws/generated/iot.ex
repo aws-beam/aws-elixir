@@ -40,7 +40,7 @@ defmodule AWS.IoT do
   ## Example:
 
       get_buckets_aggregation_response() :: %{
-        "buckets" => list(bucket()()),
+        "buckets" => list(bucket()),
         "totalCount" => integer()
       }
 
@@ -76,7 +76,7 @@ defmodule AWS.IoT do
 
       list_sbom_validation_results_response() :: %{
         "nextToken" => String.t(),
-        "validationResultSummaries" => list(sbom_validation_result_summary()())
+        "validationResultSummaries" => list(sbom_validation_result_summary())
       }
 
   """
@@ -142,7 +142,7 @@ defmodule AWS.IoT do
       list_thing_registration_task_reports_response() :: %{
         "nextToken" => String.t(),
         "reportType" => list(any()),
-        "resourceLinks" => list(String.t()())
+        "resourceLinks" => list(String.t())
       }
 
   """
@@ -169,7 +169,7 @@ defmodule AWS.IoT do
         "description" => String.t(),
         "displayName" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
-        "mandatoryParameters" => list(command_parameter()()),
+        "mandatoryParameters" => list(command_parameter()),
         "namespace" => list(any()),
         "payload" => command_payload(),
         "pendingDeletion" => boolean(),
@@ -231,7 +231,7 @@ defmodule AWS.IoT do
 
       list_provisioning_template_versions_response() :: %{
         "nextToken" => String.t(),
-        "versions" => list(provisioning_template_version_summary()())
+        "versions" => list(provisioning_template_version_summary())
       }
 
   """
@@ -296,7 +296,7 @@ defmodule AWS.IoT do
   ## Example:
 
       topic_rule() :: %{
-        "actions" => list(action()()),
+        "actions" => list(action()),
         "awsIotSqlVersion" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
@@ -428,7 +428,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_policy_versions_response() :: %{
-        "policyVersions" => list(policy_version()())
+        "policyVersions" => list(policy_version())
       }
 
   """
@@ -440,7 +440,7 @@ defmodule AWS.IoT do
 
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -518,8 +518,8 @@ defmodule AWS.IoT do
   ## Example:
 
       thing_group_indexing_configuration() :: %{
-        "customFields" => list(field()()),
-        "managedFields" => list(field()()),
+        "customFields" => list(field()),
+        "managedFields" => list(field()),
         "thingGroupIndexingMode" => list(any())
       }
 
@@ -600,7 +600,7 @@ defmodule AWS.IoT do
       detect_mitigation_actions_task_target() :: %{
         "behaviorName" => String.t(),
         "securityProfileName" => String.t(),
-        "violationIds" => list(String.t()())
+        "violationIds" => list(String.t())
       }
 
   """
@@ -648,7 +648,7 @@ defmodule AWS.IoT do
 
       list_principal_things_v2_response() :: %{
         "nextToken" => String.t(),
-        "principalThingObjects" => list(principal_thing_object()())
+        "principalThingObjects" => list(principal_thing_object())
       }
 
   """
@@ -685,7 +685,7 @@ defmodule AWS.IoT do
         "domainType" => list(any()),
         "lastStatusChangeDate" => non_neg_integer(),
         "serverCertificateConfig" => server_certificate_config(),
-        "serverCertificates" => list(server_certificate_summary()()),
+        "serverCertificates" => list(server_certificate_summary()),
         "serviceType" => list(any()),
         "tlsConfig" => tls_config()
       }
@@ -778,7 +778,7 @@ defmodule AWS.IoT do
 
       list_topic_rules_response() :: %{
         "nextToken" => String.t(),
-        "rules" => list(topic_rule_list_item()())
+        "rules" => list(topic_rule_list_item())
       }
 
   """
@@ -809,7 +809,7 @@ defmodule AWS.IoT do
         "nonCompliantResource" => non_compliant_resource(),
         "reasonForNonCompliance" => String.t(),
         "reasonForNonComplianceCode" => String.t(),
-        "relatedResources" => list(related_resource()()),
+        "relatedResources" => list(related_resource()),
         "severity" => list(any()),
         "taskId" => String.t(),
         "taskStartTime" => non_neg_integer()
@@ -958,7 +958,7 @@ defmodule AWS.IoT do
   ## Example:
 
       test_authorization_response() :: %{
-        "authResults" => list(auth_result()())
+        "authResults" => list(auth_result())
       }
 
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_commands_response() :: %{
-        "commands" => list(command_summary()()),
+        "commands" => list(command_summary()),
         "nextToken" => String.t()
       }
 
@@ -1068,7 +1068,7 @@ defmodule AWS.IoT do
 
       list_policies_response() :: %{
         "nextMarker" => String.t(),
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -1106,7 +1106,7 @@ defmodule AWS.IoT do
   ## Example:
 
       get_percentiles_response() :: %{
-        "percentiles" => list(percent_pair()())
+        "percentiles" => list(percent_pair())
       }
 
   """
@@ -1217,7 +1217,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_topic_rule_destinations_response() :: %{
-        "destinationSummaries" => list(topic_rule_destination_summary()()),
+        "destinationSummaries" => list(topic_rule_destination_summary()),
         "nextToken" => String.t()
       }
 
@@ -1230,7 +1230,7 @@ defmodule AWS.IoT do
 
       list_detect_mitigation_actions_tasks_response() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(detect_mitigation_actions_task_summary()())
+        "tasks" => list(detect_mitigation_actions_task_summary())
       }
 
   """
@@ -1379,7 +1379,7 @@ defmodule AWS.IoT do
   ## Example:
 
       mqtt5_configuration() :: %{
-        "propagatingAttributes" => list(propagating_attribute()())
+        "propagatingAttributes" => list(propagating_attribute())
       }
 
   """
@@ -1486,10 +1486,10 @@ defmodule AWS.IoT do
   ## Example:
 
       describe_security_profile_response() :: %{
-        "additionalMetricsToRetain" => list(String.t()()),
-        "additionalMetricsToRetainV2" => list(metric_to_retain()()),
+        "additionalMetricsToRetain" => list(String.t()),
+        "additionalMetricsToRetainV2" => list(metric_to_retain()),
         "alertTargets" => map(),
-        "behaviors" => list(behavior()()),
+        "behaviors" => list(behavior()),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "metricsExportConfig" => metrics_export_config(),
@@ -1554,7 +1554,7 @@ defmodule AWS.IoT do
 
       create_certificate_provider_request() :: %{
         optional("clientToken") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("accountDefaultForOperations") => list(list(any())()),
         required("lambdaFunctionArn") => String.t()
       }
@@ -1590,7 +1590,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_audit_findings_response() :: %{
-        "findings" => list(audit_finding()()),
+        "findings" => list(audit_finding()),
         "nextToken" => String.t()
       }
 
@@ -1603,7 +1603,7 @@ defmodule AWS.IoT do
 
       list_attached_policies_response() :: %{
         "nextMarker" => String.t(),
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -1614,10 +1614,10 @@ defmodule AWS.IoT do
   ## Example:
 
       thing_indexing_configuration() :: %{
-        "customFields" => list(field()()),
+        "customFields" => list(field()),
         "deviceDefenderIndexingMode" => list(any()),
         "filter" => indexing_filter(),
-        "managedFields" => list(field()()),
+        "managedFields" => list(field()),
         "namedShadowIndexingMode" => list(any()),
         "thingConnectivityIndexingMode" => list(any()),
         "thingIndexingMode" => list(any())
@@ -1631,10 +1631,10 @@ defmodule AWS.IoT do
   ## Example:
 
       update_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t()()),
-        optional("additionalMetricsToRetainV2") => list(metric_to_retain()()),
+        optional("additionalMetricsToRetain") => list(String.t()),
+        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
         optional("alertTargets") => map(),
-        optional("behaviors") => list(behavior()()),
+        optional("behaviors") => list(behavior()),
         optional("deleteAdditionalMetricsToRetain") => boolean(),
         optional("deleteAlertTargets") => boolean(),
         optional("deleteBehaviors") => boolean(),
@@ -1655,7 +1655,7 @@ defmodule AWS.IoT do
         optional("description") => String.t(),
         optional("indexName") => String.t(),
         optional("queryVersion") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("unit") => list(any()),
         required("aggregationField") => String.t(),
         required("aggregationType") => aggregation_type(),
@@ -1772,7 +1772,7 @@ defmodule AWS.IoT do
         "entryId" => String.t(),
         "propertyAlias" => String.t(),
         "propertyId" => String.t(),
-        "propertyValues" => list(asset_property_value()())
+        "propertyValues" => list(asset_property_value())
       }
 
   """
@@ -1783,7 +1783,7 @@ defmodule AWS.IoT do
   ## Example:
 
       get_effective_policies_response() :: %{
-        "effectivePolicies" => list(effective_policy()())
+        "effectivePolicies" => list(effective_policy())
       }
 
   """
@@ -1808,7 +1808,7 @@ defmodule AWS.IoT do
 
       list_policy_principals_response() :: %{
         "nextMarker" => String.t(),
-        "principals" => list(String.t()())
+        "principals" => list(String.t())
       }
 
   """
@@ -1830,7 +1830,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_domain_configurations_response() :: %{
-        "domainConfigurations" => list(domain_configuration_summary()()),
+        "domainConfigurations" => list(domain_configuration_summary()),
         "nextMarker" => String.t()
       }
 
@@ -1842,7 +1842,7 @@ defmodule AWS.IoT do
   ## Example:
 
       create_policy_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("policyDocument") => String.t()
       }
 
@@ -1931,7 +1931,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_fleet_metrics_response() :: %{
-        "fleetMetrics" => list(fleet_metric_name_and_arn()()),
+        "fleetMetrics" => list(fleet_metric_name_and_arn()),
         "nextToken" => String.t()
       }
 
@@ -1976,7 +1976,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_ca_certificates_response() :: %{
-        "certificates" => list(ca_certificate()()),
+        "certificates" => list(ca_certificate()),
         "nextMarker" => String.t()
       }
 
@@ -2063,7 +2063,7 @@ defmodule AWS.IoT do
 
       add_things_to_thing_group_params() :: %{
         "overrideDynamicGroups" => boolean(),
-        "thingGroupNames" => list(String.t()())
+        "thingGroupNames" => list(String.t())
       }
 
   """
@@ -2087,7 +2087,7 @@ defmodule AWS.IoT do
 
       list_things_in_thing_group_response() :: %{
         "nextToken" => String.t(),
-        "things" => list(String.t()())
+        "things" => list(String.t())
       }
 
   """
@@ -2177,7 +2177,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_jobs_response() :: %{
-        "jobs" => list(job_summary()()),
+        "jobs" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2190,7 +2190,7 @@ defmodule AWS.IoT do
 
       list_security_profiles_for_target_response() :: %{
         "nextToken" => String.t(),
-        "securityProfileTargetMappings" => list(security_profile_target_mapping()())
+        "securityProfileTargetMappings" => list(security_profile_target_mapping())
       }
 
   """
@@ -2203,7 +2203,7 @@ defmodule AWS.IoT do
       create_job_request() :: %{
         optional("abortConfig") => abort_config(),
         optional("description") => String.t(),
-        optional("destinationPackageVersions") => list(String.t()()),
+        optional("destinationPackageVersions") => list(String.t()),
         optional("document") => String.t(),
         optional("documentParameters") => map(),
         optional("documentSource") => String.t(),
@@ -2213,10 +2213,10 @@ defmodule AWS.IoT do
         optional("namespaceId") => String.t(),
         optional("presignedUrlConfig") => presigned_url_config(),
         optional("schedulingConfig") => scheduling_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("targetSelection") => list(any()),
         optional("timeoutConfig") => timeout_config(),
-        required("targets") => list(String.t()())
+        required("targets") => list(String.t())
       }
 
   """
@@ -2265,7 +2265,7 @@ defmodule AWS.IoT do
         "messageExpiry" => String.t(),
         "payloadFormatIndicator" => String.t(),
         "responseTopic" => String.t(),
-        "userProperties" => list(user_property()())
+        "userProperties" => list(user_property())
       }
 
   """
@@ -2303,7 +2303,7 @@ defmodule AWS.IoT do
 
       list_provisioning_templates_response() :: %{
         "nextToken" => String.t(),
-        "templates" => list(provisioning_template_summary()())
+        "templates" => list(provisioning_template_summary())
       }
 
   """
@@ -2362,7 +2362,7 @@ defmodule AWS.IoT do
       associate_targets_with_job_request() :: %{
         optional("comment") => String.t(),
         optional("namespaceId") => String.t(),
-        required("targets") => list(String.t()())
+        required("targets") => list(String.t())
       }
 
   """
@@ -2468,7 +2468,7 @@ defmodule AWS.IoT do
         optional("dayOfMonth") => String.t(),
         optional("dayOfWeek") => list(any()),
         optional("frequency") => list(any()),
-        optional("targetCheckNames") => list(String.t()())
+        optional("targetCheckNames") => list(String.t())
       }
 
   """
@@ -2480,7 +2480,7 @@ defmodule AWS.IoT do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -2556,7 +2556,7 @@ defmodule AWS.IoT do
 
       timestream_action() :: %{
         "databaseName" => String.t(),
-        "dimensions" => list(timestream_dimension()()),
+        "dimensions" => list(timestream_dimension()),
         "roleArn" => String.t(),
         "tableName" => String.t(),
         "timestamp" => timestream_timestamp()
@@ -2611,7 +2611,7 @@ defmodule AWS.IoT do
         optional("enableCachingForHttp") => boolean(),
         optional("signingDisabled") => boolean(),
         optional("status") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("tokenKeyName") => String.t(),
         optional("tokenSigningPublicKeys") => map(),
         required("authorizerFunctionArn") => String.t()
@@ -2692,11 +2692,11 @@ defmodule AWS.IoT do
         optional("awsJobTimeoutConfig") => aws_job_timeout_config(),
         optional("description") => String.t(),
         optional("protocols") => list(list(any())()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("targetSelection") => list(any()),
-        required("files") => list(ota_update_file()()),
+        required("files") => list(ota_update_file()),
         required("roleArn") => String.t(),
-        required("targets") => list(String.t()())
+        required("targets") => list(String.t())
       }
 
   """
@@ -2720,7 +2720,7 @@ defmodule AWS.IoT do
 
       create_role_alias_request() :: %{
         optional("credentialDurationSeconds") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("roleArn") => String.t()
       }
 
@@ -2885,7 +2885,7 @@ defmodule AWS.IoT do
 
       create_billing_group_request() :: %{
         optional("billingGroupProperties") => billing_group_properties(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -3001,7 +3001,7 @@ defmodule AWS.IoT do
         optional("includeOnlyActiveViolations") => boolean(),
         optional("includeSuppressedAlerts") => boolean(),
         optional("violationEventOccurrenceRange") => violation_event_occurrence_range(),
-        required("actions") => list(String.t()()),
+        required("actions") => list(String.t()),
         required("clientRequestToken") => String.t(),
         required("target") => detect_mitigation_actions_task_target()
       }
@@ -3063,7 +3063,7 @@ defmodule AWS.IoT do
       get_percentiles_request() :: %{
         optional("aggregationField") => String.t(),
         optional("indexName") => String.t(),
-        optional("percents") => list(float()()),
+        optional("percents") => list(float()),
         optional("queryVersion") => String.t(),
         required("queryString") => String.t()
       }
@@ -3156,7 +3156,7 @@ defmodule AWS.IoT do
         "numberOfRemovedThings" => integer(),
         "numberOfSucceededThings" => integer(),
         "numberOfTimedOutThings" => integer(),
-        "processingTargets" => list(String.t()())
+        "processingTargets" => list(String.t())
       }
 
   """
@@ -3210,8 +3210,8 @@ defmodule AWS.IoT do
   ## Example:
 
       indexing_filter() :: %{
-        "geoLocations" => list(geo_location_target()()),
-        "namedShadowNames" => list(String.t()())
+        "geoLocations" => list(geo_location_target()),
+        "namedShadowNames" => list(String.t())
       }
 
   """
@@ -3280,8 +3280,8 @@ defmodule AWS.IoT do
 
       create_stream_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
-        required("files") => list(stream_file()()),
+        optional("tags") => list(tag()),
+        required("files") => list(stream_file()),
         required("roleArn") => String.t()
       }
 
@@ -3309,7 +3309,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_v2_logging_levels_response() :: %{
-        "logTargetConfigurations" => list(log_target_configuration()()),
+        "logTargetConfigurations" => list(log_target_configuration()),
         "nextToken" => String.t()
       }
 
@@ -3363,9 +3363,9 @@ defmodule AWS.IoT do
       create_scheduled_audit_request() :: %{
         optional("dayOfMonth") => String.t(),
         optional("dayOfWeek") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("frequency") => list(any()),
-        required("targetCheckNames") => list(String.t()())
+        required("targetCheckNames") => list(String.t())
       }
 
   """
@@ -3425,7 +3425,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_active_violations_response() :: %{
-        "activeViolations" => list(active_violation()()),
+        "activeViolations" => list(active_violation()),
         "nextToken" => String.t()
       }
 
@@ -3455,11 +3455,11 @@ defmodule AWS.IoT do
       create_command_request() :: %{
         optional("description") => String.t(),
         optional("displayName") => String.t(),
-        optional("mandatoryParameters") => list(command_parameter()()),
+        optional("mandatoryParameters") => list(command_parameter()),
         optional("namespace") => list(any()),
         optional("payload") => command_payload(),
         optional("roleArn") => String.t(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -3500,7 +3500,7 @@ defmodule AWS.IoT do
 
       list_targets_for_policy_response() :: %{
         "nextMarker" => String.t(),
-        "targets" => list(String.t()())
+        "targets" => list(String.t())
       }
 
   """
@@ -3687,13 +3687,13 @@ defmodule AWS.IoT do
   ## Example:
 
       create_security_profile_request() :: %{
-        optional("additionalMetricsToRetain") => list(String.t()()),
-        optional("additionalMetricsToRetainV2") => list(metric_to_retain()()),
+        optional("additionalMetricsToRetain") => list(String.t()),
+        optional("additionalMetricsToRetainV2") => list(metric_to_retain()),
         optional("alertTargets") => map(),
-        optional("behaviors") => list(behavior()()),
+        optional("behaviors") => list(behavior()),
         optional("metricsExportConfig") => metrics_export_config(),
         optional("securityProfileDescription") => String.t(),
-        optional("tags") => list(tag()())
+        optional("tags") => list(tag())
       }
 
   """
@@ -3742,7 +3742,7 @@ defmodule AWS.IoT do
 
       list_things_in_billing_group_response() :: %{
         "nextToken" => String.t(),
-        "things" => list(String.t()())
+        "things" => list(String.t())
       }
 
   """
@@ -4069,7 +4069,7 @@ defmodule AWS.IoT do
 
       create_thing_group_request() :: %{
         optional("parentGroupName") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("thingGroupProperties") => thing_group_properties()
       }
 
@@ -4082,7 +4082,7 @@ defmodule AWS.IoT do
 
       list_scheduled_audits_response() :: %{
         "nextToken" => String.t(),
-        "scheduledAudits" => list(scheduled_audit_metadata()())
+        "scheduledAudits" => list(scheduled_audit_metadata())
       }
 
   """
@@ -4115,7 +4115,7 @@ defmodule AWS.IoT do
 
       list_thing_types_response() :: %{
         "nextToken" => String.t(),
-        "thingTypes" => list(thing_type_definition()())
+        "thingTypes" => list(thing_type_definition())
       }
 
   """
@@ -4127,7 +4127,7 @@ defmodule AWS.IoT do
 
       list_security_profiles_response() :: %{
         "nextToken" => String.t(),
-        "securityProfileIdentifiers" => list(security_profile_identifier()())
+        "securityProfileIdentifiers" => list(security_profile_identifier())
       }
 
   """
@@ -4139,7 +4139,7 @@ defmodule AWS.IoT do
 
       list_streams_response() :: %{
         "nextToken" => String.t(),
-        "streams" => list(stream_summary()())
+        "streams" => list(stream_summary())
       }
 
   """
@@ -4154,7 +4154,7 @@ defmodule AWS.IoT do
         optional("certificateMode") => list(any()),
         optional("registrationConfig") => registration_config(),
         optional("setAsActive") => boolean(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("verificationCertificate") => String.t(),
         required("caCertificate") => String.t()
       }
@@ -4310,7 +4310,7 @@ defmodule AWS.IoT do
 
       list_principal_things_response() :: %{
         "nextToken" => String.t(),
-        "things" => list(String.t()())
+        "things" => list(String.t())
       }
 
   """
@@ -4401,7 +4401,7 @@ defmodule AWS.IoT do
   ## Example:
 
       abort_config() :: %{
-        "criteriaList" => list(abort_criteria()())
+        "criteriaList" => list(abort_criteria())
       }
 
   """
@@ -4424,7 +4424,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_metric_values_response() :: %{
-        "metricDatumList" => list(metric_datum()()),
+        "metricDatumList" => list(metric_datum()),
         "nextToken" => String.t()
       }
 
@@ -4470,7 +4470,7 @@ defmodule AWS.IoT do
   ## Example:
 
       allowed() :: %{
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -4481,7 +4481,7 @@ defmodule AWS.IoT do
   ## Example:
 
       update_dimension_request() :: %{
-        required("stringValues") => list(String.t()())
+        required("stringValues") => list(String.t())
       }
 
   """
@@ -4602,7 +4602,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_job_executions_for_job_response() :: %{
-        "executionSummaries" => list(job_execution_summary_for_job()()),
+        "executionSummaries" => list(job_execution_summary_for_job()),
         "nextToken" => String.t()
       }
 
@@ -4651,7 +4651,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_certificate_providers_response() :: %{
-        "certificateProviders" => list(certificate_provider_summary()()),
+        "certificateProviders" => list(certificate_provider_summary()),
         "nextToken" => String.t()
       }
 
@@ -4750,7 +4750,7 @@ defmodule AWS.IoT do
   ## Example:
 
       aws_job_abort_config() :: %{
-        "abortCriteriaList" => list(aws_job_abort_criteria()())
+        "abortCriteriaList" => list(aws_job_abort_criteria())
       }
 
   """
@@ -4773,7 +4773,7 @@ defmodule AWS.IoT do
 
       managed_job_template_summary() :: %{
         "description" => String.t(),
-        "environments" => list(String.t()()),
+        "environments" => list(String.t()),
         "templateArn" => String.t(),
         "templateName" => String.t(),
         "templateVersion" => String.t()
@@ -4835,7 +4835,7 @@ defmodule AWS.IoT do
 
       list_tags_for_resource_response() :: %{
         "nextToken" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -4857,7 +4857,7 @@ defmodule AWS.IoT do
       create_dynamic_thing_group_request() :: %{
         optional("indexName") => String.t(),
         optional("queryVersion") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("thingGroupProperties") => thing_group_properties(),
         required("queryString") => String.t()
       }
@@ -4923,7 +4923,7 @@ defmodule AWS.IoT do
 
       auth_info() :: %{
         "actionType" => list(any()),
-        "resources" => list(String.t()())
+        "resources" => list(String.t())
       }
 
   """
@@ -4946,14 +4946,14 @@ defmodule AWS.IoT do
         "abortConfig" => abort_config(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "destinationPackageVersions" => list(String.t()()),
+        "destinationPackageVersions" => list(String.t()),
         "document" => String.t(),
         "documentSource" => String.t(),
         "jobExecutionsRetryConfig" => job_executions_retry_config(),
         "jobExecutionsRolloutConfig" => job_executions_rollout_config(),
         "jobTemplateArn" => String.t(),
         "jobTemplateId" => String.t(),
-        "maintenanceWindows" => list(maintenance_window()()),
+        "maintenanceWindows" => list(maintenance_window()),
         "presignedUrlConfig" => presigned_url_config(),
         "timeoutConfig" => timeout_config()
       }
@@ -5118,7 +5118,7 @@ defmodule AWS.IoT do
 
       list_audit_tasks_response() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(audit_task_metadata()())
+        "tasks" => list(audit_task_metadata())
       }
 
   """
@@ -5236,7 +5236,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_indices_response() :: %{
-        "indexNames" => list(String.t()()),
+        "indexNames" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -5290,7 +5290,7 @@ defmodule AWS.IoT do
   ## Example:
 
       job_executions_retry_config() :: %{
-        "criteriaList" => list(retry_criteria()())
+        "criteriaList" => list(retry_criteria())
       }
 
   """
@@ -5303,7 +5303,7 @@ defmodule AWS.IoT do
       kafka_action() :: %{
         "clientProperties" => map(),
         "destinationArn" => String.t(),
-        "headers" => list(kafka_action_header()()),
+        "headers" => list(kafka_action_header()),
         "key" => String.t(),
         "partition" => String.t(),
         "topic" => String.t()
@@ -5477,7 +5477,7 @@ defmodule AWS.IoT do
 
       update_stream_request() :: %{
         optional("description") => String.t(),
-        optional("files") => list(stream_file()()),
+        optional("files") => list(stream_file()),
         optional("roleArn") => String.t()
       }
 
@@ -5601,7 +5601,7 @@ defmodule AWS.IoT do
   ## Example:
 
       create_mitigation_action_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("actionParams") => mitigation_action_params(),
         required("roleArn") => String.t()
       }
@@ -5679,8 +5679,8 @@ defmodule AWS.IoT do
 
       search_index_response() :: %{
         "nextToken" => String.t(),
-        "thingGroups" => list(thing_group_document()()),
-        "things" => list(thing_document()())
+        "thingGroups" => list(thing_group_document()),
+        "things" => list(thing_document())
       }
 
   """
@@ -5785,7 +5785,7 @@ defmodule AWS.IoT do
       thing_group_metadata() :: %{
         "creationDate" => non_neg_integer(),
         "parentGroupName" => String.t(),
-        "rootToParentThingGroups" => list(group_name_and_arn()())
+        "rootToParentThingGroups" => list(group_name_and_arn())
       }
 
   """
@@ -5859,7 +5859,7 @@ defmodule AWS.IoT do
 
       list_ota_updates_response() :: %{
         "nextToken" => String.t(),
-        "otaUpdates" => list(ota_update_summary()())
+        "otaUpdates" => list(ota_update_summary())
       }
 
   """
@@ -6111,7 +6111,7 @@ defmodule AWS.IoT do
 
       list_things_response() :: %{
         "nextToken" => String.t(),
-        "things" => list(thing_attribute()())
+        "things" => list(thing_attribute())
       }
 
   """
@@ -6183,7 +6183,7 @@ defmodule AWS.IoT do
 
       create_custom_metric_request() :: %{
         optional("displayName") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("clientRequestToken") => String.t(),
         required("metricType") => list(any())
       }
@@ -6208,7 +6208,7 @@ defmodule AWS.IoT do
 
       list_thing_groups_for_thing_response() :: %{
         "nextToken" => String.t(),
-        "thingGroups" => list(group_name_and_arn()())
+        "thingGroups" => list(group_name_and_arn())
       }
 
   """
@@ -6296,7 +6296,7 @@ defmodule AWS.IoT do
 
       list_violation_events_response() :: %{
         "nextToken" => String.t(),
-        "violationEvents" => list(violation_event()())
+        "violationEvents" => list(violation_event())
       }
 
   """
@@ -6353,7 +6353,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_authorizers_response() :: %{
-        "authorizers" => list(authorizer_summary()()),
+        "authorizers" => list(authorizer_summary()),
         "nextMarker" => String.t()
       }
 
@@ -6378,7 +6378,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_job_executions_for_thing_response() :: %{
-        "executionSummaries" => list(job_execution_summary_for_thing()()),
+        "executionSummaries" => list(job_execution_summary_for_thing()),
         "nextToken" => String.t()
       }
 
@@ -6437,7 +6437,7 @@ defmodule AWS.IoT do
   ## Example:
 
       detect_mitigation_actions_task_summary() :: %{
-        "actionsDefinition" => list(mitigation_action()()),
+        "actionsDefinition" => list(mitigation_action()),
         "onlyActiveViolationsIncluded" => boolean(),
         "suppressedAlertsIncluded" => boolean(),
         "target" => detect_mitigation_actions_task_target(),
@@ -6487,7 +6487,7 @@ defmodule AWS.IoT do
 
       list_thing_registration_tasks_response() :: %{
         "nextToken" => String.t(),
-        "taskIds" => list(String.t()())
+        "taskIds" => list(String.t())
       }
 
   """
@@ -6510,7 +6510,7 @@ defmodule AWS.IoT do
 
       thing_group_document() :: %{
         "attributes" => map(),
-        "parentGroupNames" => list(String.t()()),
+        "parentGroupNames" => list(String.t()),
         "thingGroupDescription" => String.t(),
         "thingGroupId" => String.t(),
         "thingGroupName" => String.t()
@@ -6525,15 +6525,15 @@ defmodule AWS.IoT do
 
       create_job_template_request() :: %{
         optional("abortConfig") => abort_config(),
-        optional("destinationPackageVersions") => list(String.t()()),
+        optional("destinationPackageVersions") => list(String.t()),
         optional("document") => String.t(),
         optional("documentSource") => String.t(),
         optional("jobArn") => String.t(),
         optional("jobExecutionsRetryConfig") => job_executions_retry_config(),
         optional("jobExecutionsRolloutConfig") => job_executions_rollout_config(),
-        optional("maintenanceWindows") => list(maintenance_window()()),
+        optional("maintenanceWindows") => list(maintenance_window()),
         optional("presignedUrlConfig") => presigned_url_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("timeoutConfig") => timeout_config(),
         required("description") => String.t()
       }
@@ -6622,7 +6622,7 @@ defmodule AWS.IoT do
         "connectivity" => thing_connectivity(),
         "deviceDefender" => String.t(),
         "shadow" => String.t(),
-        "thingGroupNames" => list(String.t()()),
+        "thingGroupNames" => list(String.t()),
         "thingId" => String.t(),
         "thingName" => String.t(),
         "thingTypeName" => String.t()
@@ -6668,7 +6668,7 @@ defmodule AWS.IoT do
 
       list_related_resources_for_audit_finding_response() :: %{
         "nextToken" => String.t(),
-        "relatedResources" => list(related_resource()())
+        "relatedResources" => list(related_resource())
       }
 
   """
@@ -6893,7 +6893,7 @@ defmodule AWS.IoT do
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "name" => String.t(),
-        "stringValues" => list(String.t()()),
+        "stringValues" => list(String.t()),
         "type" => list(any())
       }
 
@@ -6906,7 +6906,7 @@ defmodule AWS.IoT do
 
       list_audit_mitigation_actions_tasks_response() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(audit_mitigation_actions_task_metadata()())
+        "tasks" => list(audit_mitigation_actions_task_metadata())
       }
 
   """
@@ -6955,8 +6955,8 @@ defmodule AWS.IoT do
 
       update_thing_groups_for_thing_request() :: %{
         optional("overrideDynamicGroups") => boolean(),
-        optional("thingGroupsToAdd") => list(String.t()()),
-        optional("thingGroupsToRemove") => list(String.t()()),
+        optional("thingGroupsToAdd") => list(String.t()),
+        optional("thingGroupsToRemove") => list(String.t()),
         optional("thingName") => String.t()
       }
 
@@ -6969,7 +6969,7 @@ defmodule AWS.IoT do
 
       list_thing_groups_response() :: %{
         "nextToken" => String.t(),
-        "thingGroups" => list(group_name_and_arn()())
+        "thingGroups" => list(group_name_and_arn())
       }
 
   """
@@ -7011,7 +7011,7 @@ defmodule AWS.IoT do
 
       list_principal_policies_response() :: %{
         "nextMarker" => String.t(),
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -7104,7 +7104,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_dimensions_response() :: %{
-        "dimensionNames" => list(String.t()()),
+        "dimensionNames" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -7169,7 +7169,7 @@ defmodule AWS.IoT do
   ## Example:
 
       describe_audit_mitigation_actions_task_response() :: %{
-        "actionsDefinition" => list(mitigation_action()()),
+        "actionsDefinition" => list(mitigation_action()),
         "auditCheckToActionsMapping" => map(),
         "endTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
@@ -7230,12 +7230,12 @@ defmodule AWS.IoT do
   ## Example:
 
       metric_value() :: %{
-        "cidrs" => list(String.t()()),
+        "cidrs" => list(String.t()),
         "count" => float(),
         "number" => float(),
-        "numbers" => list(float()()),
-        "ports" => list(integer()()),
-        "strings" => list(String.t()())
+        "numbers" => list(float()),
+        "ports" => list(integer()),
+        "strings" => list(String.t())
       }
 
   """
@@ -7248,7 +7248,7 @@ defmodule AWS.IoT do
       http_action() :: %{
         "auth" => http_authorization(),
         "confirmationUrl" => String.t(),
-        "headers" => list(http_action_header()()),
+        "headers" => list(http_action_header()),
         "url" => String.t()
       }
 
@@ -7284,7 +7284,7 @@ defmodule AWS.IoT do
 
       validate_security_profile_behaviors_response() :: %{
         "valid" => boolean(),
-        "validationErrors" => list(validation_error()())
+        "validationErrors" => list(validation_error())
       }
 
   """
@@ -7412,7 +7412,7 @@ defmodule AWS.IoT do
 
       list_thing_principals_v2_response() :: %{
         "nextToken" => String.t(),
-        "thingPrincipalObjects" => list(thing_principal_object()())
+        "thingPrincipalObjects" => list(thing_principal_object())
       }
 
   """
@@ -7423,7 +7423,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_audit_mitigation_actions_executions_response() :: %{
-        "actionsExecutions" => list(audit_mitigation_action_execution_metadata()()),
+        "actionsExecutions" => list(audit_mitigation_action_execution_metadata()),
         "nextToken" => String.t()
       }
 
@@ -7440,7 +7440,7 @@ defmodule AWS.IoT do
         "completedAt" => non_neg_integer(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "destinationPackageVersions" => list(String.t()()),
+        "destinationPackageVersions" => list(String.t()),
         "documentParameters" => map(),
         "forceCanceled" => boolean(),
         "isConcurrent" => boolean(),
@@ -7454,11 +7454,11 @@ defmodule AWS.IoT do
         "namespaceId" => String.t(),
         "presignedUrlConfig" => presigned_url_config(),
         "reasonCode" => String.t(),
-        "scheduledJobRollouts" => list(scheduled_job_rollout()()),
+        "scheduledJobRollouts" => list(scheduled_job_rollout()),
         "schedulingConfig" => scheduling_config(),
         "status" => list(any()),
         "targetSelection" => list(any()),
-        "targets" => list(String.t()()),
+        "targets" => list(String.t()),
         "timeoutConfig" => timeout_config()
       }
 
@@ -7550,7 +7550,7 @@ defmodule AWS.IoT do
 
       list_thing_principals_response() :: %{
         "nextToken" => String.t(),
-        "principals" => list(String.t()())
+        "principals" => list(String.t())
       }
 
   """
@@ -7722,12 +7722,12 @@ defmodule AWS.IoT do
         "errorInfo" => error_info(),
         "lastModifiedDate" => non_neg_integer(),
         "otaUpdateArn" => String.t(),
-        "otaUpdateFiles" => list(ota_update_file()()),
+        "otaUpdateFiles" => list(ota_update_file()),
         "otaUpdateId" => String.t(),
         "otaUpdateStatus" => list(any()),
         "protocols" => list(list(any())()),
         "targetSelection" => list(any()),
-        "targets" => list(String.t()())
+        "targets" => list(String.t())
       }
 
   """
@@ -7739,7 +7739,7 @@ defmodule AWS.IoT do
 
       get_behavior_model_training_summaries_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(behavior_model_training_summary()())
+        "summaries" => list(behavior_model_training_summary())
       }
 
   """
@@ -7800,7 +7800,7 @@ defmodule AWS.IoT do
       scheduling_config() :: %{
         "endBehavior" => list(any()),
         "endTime" => String.t(),
-        "maintenanceWindows" => list(maintenance_window()()),
+        "maintenanceWindows" => list(maintenance_window()),
         "startTime" => String.t()
       }
 
@@ -7858,7 +7858,7 @@ defmodule AWS.IoT do
         optional("description") => String.t(),
         optional("enabled") => boolean(),
         optional("preProvisioningHook") => provisioning_hook(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("type") => list(any()),
         required("provisioningRoleArn") => String.t(),
         required("templateBody") => String.t(),
@@ -7916,7 +7916,7 @@ defmodule AWS.IoT do
   ## Example:
 
       validate_security_profile_behaviors_request() :: %{
-        required("behaviors") => list(behavior()())
+        required("behaviors") => list(behavior())
       }
 
   """
@@ -7972,7 +7972,7 @@ defmodule AWS.IoT do
 
       list_role_aliases_response() :: %{
         "nextMarker" => String.t(),
-        "roleAliases" => list(String.t()())
+        "roleAliases" => list(String.t())
       }
 
   """
@@ -7998,7 +7998,7 @@ defmodule AWS.IoT do
 
       list_audit_suppressions_response() :: %{
         "nextToken" => String.t(),
-        "suppressions" => list(audit_suppression()())
+        "suppressions" => list(audit_suppression())
       }
 
   """
@@ -8064,7 +8064,7 @@ defmodule AWS.IoT do
   ## Example:
 
       implicit_deny() :: %{
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -8085,8 +8085,8 @@ defmodule AWS.IoT do
 
       vpc_destination_summary() :: %{
         "roleArn" => String.t(),
-        "securityGroups" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroups" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -8131,7 +8131,7 @@ defmodule AWS.IoT do
   ## Example:
 
       iot_site_wise_action() :: %{
-        "putAssetPropertyValueEntries" => list(put_asset_property_value_entry()()),
+        "putAssetPropertyValueEntries" => list(put_asset_property_value_entry()),
         "roleArn" => String.t()
       }
 
@@ -8159,7 +8159,7 @@ defmodule AWS.IoT do
         "frequency" => list(any()),
         "scheduledAuditArn" => String.t(),
         "scheduledAuditName" => String.t(),
-        "targetCheckNames" => list(String.t()())
+        "targetCheckNames" => list(String.t())
       }
 
   """
@@ -8179,7 +8179,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_billing_groups_response() :: %{
-        "billingGroups" => list(group_name_and_arn()()),
+        "billingGroups" => list(group_name_and_arn()),
         "nextToken" => String.t()
       }
 
@@ -8251,7 +8251,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_command_executions_response() :: %{
-        "commandExecutions" => list(command_execution_summary()()),
+        "commandExecutions" => list(command_execution_summary()),
         "nextToken" => String.t()
       }
 
@@ -8274,7 +8274,7 @@ defmodule AWS.IoT do
       test_invoke_authorizer_response() :: %{
         "disconnectAfterInSeconds" => integer(),
         "isAuthenticated" => boolean(),
-        "policyDocuments" => list(String.t()()),
+        "policyDocuments" => list(String.t()),
         "principalId" => String.t(),
         "refreshAfterInSeconds" => integer()
       }
@@ -8422,7 +8422,7 @@ defmodule AWS.IoT do
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "name" => String.t(),
-        "stringValues" => list(String.t()()),
+        "stringValues" => list(String.t()),
         "type" => list(any())
       }
 
@@ -8498,7 +8498,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_detect_mitigation_actions_executions_response() :: %{
-        "actionsExecutions" => list(detect_mitigation_action_execution()()),
+        "actionsExecutions" => list(detect_mitigation_action_execution()),
         "nextToken" => String.t()
       }
 
@@ -8510,7 +8510,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_job_templates_response() :: %{
-        "jobTemplates" => list(job_template_summary()()),
+        "jobTemplates" => list(job_template_summary()),
         "nextToken" => String.t()
       }
 
@@ -8555,7 +8555,7 @@ defmodule AWS.IoT do
       stream_info() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "files" => list(stream_file()()),
+        "files" => list(stream_file()),
         "lastUpdatedAt" => non_neg_integer(),
         "roleArn" => String.t(),
         "streamArn" => String.t(),
@@ -8571,7 +8571,7 @@ defmodule AWS.IoT do
   ## Example:
 
       topic_rule_payload() :: %{
-        "actions" => list(action()()),
+        "actions" => list(action()),
         "awsIotSqlVersion" => String.t(),
         "description" => String.t(),
         "errorAction" => action(),
@@ -8596,7 +8596,7 @@ defmodule AWS.IoT do
   ## Example:
 
       explicit_deny() :: %{
-        "policies" => list(policy()())
+        "policies" => list(policy())
       }
 
   """
@@ -8639,7 +8639,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_mitigation_actions_response() :: %{
-        "actionIdentifiers" => list(mitigation_action_identifier()()),
+        "actionIdentifiers" => list(mitigation_action_identifier()),
         "nextToken" => String.t()
       }
 
@@ -8701,7 +8701,7 @@ defmodule AWS.IoT do
 
       list_outgoing_certificates_response() :: %{
         "nextMarker" => String.t(),
-        "outgoingCertificates" => list(outgoing_certificate()())
+        "outgoingCertificates" => list(outgoing_certificate())
       }
 
   """
@@ -8712,7 +8712,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_custom_metrics_response() :: %{
-        "metricNames" => list(String.t()()),
+        "metricNames" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -8724,9 +8724,9 @@ defmodule AWS.IoT do
   ## Example:
 
       create_dimension_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("clientRequestToken") => String.t(),
-        required("stringValues") => list(String.t()()),
+        required("stringValues") => list(String.t()),
         required("type") => list(any())
       }
 
@@ -8803,7 +8803,7 @@ defmodule AWS.IoT do
       audit_mitigation_actions_task_target() :: %{
         "auditCheckToReasonCodeFilter" => map(),
         "auditTaskId" => String.t(),
-        "findingIds" => list(String.t()())
+        "findingIds" => list(String.t())
       }
 
   """
@@ -8856,8 +8856,8 @@ defmodule AWS.IoT do
 
       vpc_destination_configuration() :: %{
         "roleArn" => String.t(),
-        "securityGroups" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroups" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -8961,10 +8961,10 @@ defmodule AWS.IoT do
         optional("authorizerConfig") => authorizer_config(),
         optional("clientCertificateConfig") => client_certificate_config(),
         optional("domainName") => String.t(),
-        optional("serverCertificateArns") => list(String.t()()),
+        optional("serverCertificateArns") => list(String.t()),
         optional("serverCertificateConfig") => server_certificate_config(),
         optional("serviceType") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("tlsConfig") => tls_config(),
         optional("validationCertificateArn") => String.t()
       }
@@ -8986,10 +8986,10 @@ defmodule AWS.IoT do
   ## Example:
 
       update_security_profile_response() :: %{
-        "additionalMetricsToRetain" => list(String.t()()),
-        "additionalMetricsToRetainV2" => list(metric_to_retain()()),
+        "additionalMetricsToRetain" => list(String.t()),
+        "additionalMetricsToRetainV2" => list(metric_to_retain()),
         "alertTargets" => map(),
-        "behaviors" => list(behavior()()),
+        "behaviors" => list(behavior()),
         "creationDate" => non_neg_integer(),
         "lastModifiedDate" => non_neg_integer(),
         "metricsExportConfig" => metrics_export_config(),
@@ -9064,7 +9064,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_managed_job_templates_response() :: %{
-        "managedJobTemplates" => list(managed_job_template_summary()()),
+        "managedJobTemplates" => list(managed_job_template_summary()),
         "nextToken" => String.t()
       }
 
@@ -9148,7 +9148,7 @@ defmodule AWS.IoT do
   ## Example:
 
       start_on_demand_audit_task_request() :: %{
-        required("targetCheckNames") => list(String.t()())
+        required("targetCheckNames") => list(String.t())
       }
 
   """
@@ -9193,7 +9193,7 @@ defmodule AWS.IoT do
 
       list_packages_response() :: %{
         "nextToken" => String.t(),
-        "packageSummaries" => list(package_summary()())
+        "packageSummaries" => list(package_summary())
       }
 
   """
@@ -9275,7 +9275,7 @@ defmodule AWS.IoT do
 
       list_targets_for_security_profile_response() :: %{
         "nextToken" => String.t(),
-        "securityProfileTargets" => list(security_profile_target()())
+        "securityProfileTargets" => list(security_profile_target())
       }
 
   """
@@ -9344,7 +9344,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_certificates_by_ca_response() :: %{
-        "certificates" => list(certificate()()),
+        "certificates" => list(certificate()),
         "nextMarker" => String.t()
       }
 
@@ -9357,7 +9357,7 @@ defmodule AWS.IoT do
 
       thing_type_properties() :: %{
         "mqtt5Configuration" => mqtt5_configuration(),
-        "searchableAttributes" => list(String.t()()),
+        "searchableAttributes" => list(String.t()),
         "thingTypeDescription" => String.t()
       }
 
@@ -9401,7 +9401,7 @@ defmodule AWS.IoT do
         "authDecision" => list(any()),
         "authInfo" => auth_info(),
         "denied" => denied(),
-        "missingContextValues" => list(String.t()())
+        "missingContextValues" => list(String.t())
       }
 
   """
@@ -9433,7 +9433,7 @@ defmodule AWS.IoT do
   ## Example:
 
       list_certificates_response() :: %{
-        "certificates" => list(certificate()()),
+        "certificates" => list(certificate()),
         "nextMarker" => String.t()
       }
 
@@ -9461,10 +9461,10 @@ defmodule AWS.IoT do
       test_authorization_request() :: %{
         optional("clientId") => String.t(),
         optional("cognitoIdentityPoolId") => String.t(),
-        optional("policyNamesToAdd") => list(String.t()()),
-        optional("policyNamesToSkip") => list(String.t()()),
+        optional("policyNamesToAdd") => list(String.t()),
+        optional("policyNamesToSkip") => list(String.t()),
         optional("principal") => String.t(),
-        required("authInfos") => list(auth_info()())
+        required("authInfos") => list(auth_info())
       }
 
   """
@@ -9503,7 +9503,7 @@ defmodule AWS.IoT do
 
       aggregation_type() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -9537,8 +9537,8 @@ defmodule AWS.IoT do
       describe_managed_job_template_response() :: %{
         "description" => String.t(),
         "document" => String.t(),
-        "documentParameters" => list(document_parameter()()),
-        "environments" => list(String.t()()),
+        "documentParameters" => list(document_parameter()),
+        "environments" => list(String.t()),
         "templateArn" => String.t(),
         "templateName" => String.t(),
         "templateVersion" => String.t()
@@ -9552,7 +9552,7 @@ defmodule AWS.IoT do
   ## Example:
 
       create_thing_type_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("thingTypeProperties") => thing_type_properties()
       }
 
@@ -9601,7 +9601,7 @@ defmodule AWS.IoT do
 
       list_package_versions_response() :: %{
         "nextToken" => String.t(),
-        "packageVersionSummaries" => list(package_version_summary()())
+        "packageVersionSummaries" => list(package_version_summary())
       }
 
   """
@@ -9718,8 +9718,8 @@ defmodule AWS.IoT do
 
       vpc_destination_properties() :: %{
         "roleArn" => String.t(),
-        "securityGroups" => list(String.t()()),
-        "subnetIds" => list(String.t()()),
+        "securityGroups" => list(String.t()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 

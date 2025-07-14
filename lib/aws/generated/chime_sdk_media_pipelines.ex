@@ -53,7 +53,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -131,9 +131,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       create_media_concatenation_pipeline_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
-        required("Sinks") => list(concatenation_sink()()),
-        required("Sources") => list(concatenation_source()())
+        optional("Tags") => list(tag()),
+        required("Sinks") => list(concatenation_sink()),
+        required("Sources") => list(concatenation_source())
       }
 
   """
@@ -228,7 +228,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       create_media_pipeline_kinesis_video_stream_pool_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("PoolName") => String.t(),
         required("StreamConfiguration") => kinesis_video_stream_configuration()
       }
@@ -259,7 +259,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       list_media_pipeline_kinesis_video_stream_pools_response() :: %{
-        "KinesisVideoStreamPools" => list(kinesis_video_stream_pool_summary()()),
+        "KinesisVideoStreamPools" => list(kinesis_video_stream_pool_summary()),
         "NextToken" => String.t()
       }
 
@@ -300,8 +300,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       selected_video_streams() :: %{
-        "AttendeeIds" => list(String.t()()),
-        "ExternalUserIds" => list(String.t()())
+        "AttendeeIds" => list(String.t()),
+        "ExternalUserIds" => list(String.t())
       }
 
   """
@@ -506,7 +506,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       list_media_capture_pipelines_response() :: %{
-        "MediaCapturePipelines" => list(media_capture_pipeline_summary()()),
+        "MediaCapturePipelines" => list(media_capture_pipeline_summary()),
         "NextToken" => String.t()
       }
 
@@ -555,7 +555,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -677,7 +677,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_insights_pipeline_configuration() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "Elements" => list(media_insights_pipeline_configuration_element()()),
+        "Elements" => list(media_insights_pipeline_configuration_element()),
         "MediaInsightsPipelineConfigurationArn" => String.t(),
         "MediaInsightsPipelineConfigurationId" => String.t(),
         "MediaInsightsPipelineConfigurationName" => String.t(),
@@ -769,8 +769,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
         "CreatedTimestamp" => non_neg_integer(),
         "MediaPipelineArn" => String.t(),
         "MediaPipelineId" => String.t(),
-        "Sinks" => list(concatenation_sink()()),
-        "Sources" => list(concatenation_source()()),
+        "Sinks" => list(concatenation_sink()),
+        "Sources" => list(concatenation_source()),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
@@ -795,7 +795,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       amazon_transcribe_call_analytics_processor_configuration() :: %{
-        "CallAnalyticsStreamCategories" => list(String.t()()),
+        "CallAnalyticsStreamCategories" => list(String.t()),
         "ContentIdentificationType" => list(any()),
         "ContentRedactionType" => list(any()),
         "EnablePartialResultsStabilization" => boolean(),
@@ -907,7 +907,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       update_media_insights_pipeline_configuration_request() :: %{
         optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
-        required("Elements") => list(media_insights_pipeline_configuration_element()()),
+        required("Elements") => list(media_insights_pipeline_configuration_element()),
         required("ResourceAccessRoleArn") => String.t()
       }
 
@@ -969,8 +969,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
         "CreatedTimestamp" => non_neg_integer(),
         "MediaPipelineArn" => String.t(),
         "MediaPipelineId" => String.t(),
-        "Sinks" => list(live_connector_sink_configuration()()),
-        "Sources" => list(live_connector_source_configuration()()),
+        "Sinks" => list(live_connector_sink_configuration()),
+        "Sources" => list(live_connector_source_configuration()),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
@@ -983,7 +983,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       list_media_pipelines_response() :: %{
-        "MediaPipelines" => list(media_pipeline_summary()()),
+        "MediaPipelines" => list(media_pipeline_summary()),
         "NextToken" => String.t()
       }
 
@@ -1065,9 +1065,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       create_media_live_connector_pipeline_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
-        required("Sinks") => list(live_connector_sink_configuration()()),
-        required("Sources") => list(live_connector_source_configuration()())
+        optional("Tags") => list(tag()),
+        required("Sinks") => list(live_connector_sink_configuration()),
+        required("Sources") => list(live_connector_source_configuration())
       }
 
   """
@@ -1115,7 +1115,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1216,7 +1216,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
       kinesis_video_stream_source_runtime_configuration() :: %{
         "MediaEncoding" => list(any()),
         "MediaSampleRate" => integer(),
-        "Streams" => list(stream_configuration()())
+        "Streams" => list(stream_configuration())
       }
 
   """
@@ -1228,7 +1228,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       media_insights_pipeline() :: %{
         "CreatedTimestamp" => non_neg_integer(),
-        "ElementStatuses" => list(media_insights_pipeline_element_status()()),
+        "ElementStatuses" => list(media_insights_pipeline_element_status()),
         "KinesisVideoStreamRecordingSourceRuntimeConfiguration" => kinesis_video_stream_recording_source_runtime_configuration(),
         "KinesisVideoStreamSourceRuntimeConfiguration" => kinesis_video_stream_source_runtime_configuration(),
         "MediaInsightsPipelineConfigurationArn" => String.t(),
@@ -1262,8 +1262,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
         "CreatedTimestamp" => non_neg_integer(),
         "MediaPipelineArn" => String.t(),
         "MediaPipelineId" => String.t(),
-        "Sinks" => list(media_stream_sink()()),
-        "Sources" => list(media_stream_source()()),
+        "Sinks" => list(media_stream_sink()),
+        "Sources" => list(media_stream_source()),
         "Status" => list(any()),
         "UpdatedTimestamp" => non_neg_integer()
       }
@@ -1333,7 +1333,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       list_media_insights_pipeline_configurations_response() :: %{
-        "MediaInsightsPipelineConfigurations" => list(media_insights_pipeline_configuration_summary()()),
+        "MediaInsightsPipelineConfigurations" => list(media_insights_pipeline_configuration_summary()),
         "NextToken" => String.t()
       }
 
@@ -1390,7 +1390,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         optional("ClientRequestToken") => String.t(),
         optional("SinkIamRoleArn") => String.t(),
         optional("SseAwsKeyManagementParams") => sse_aws_key_management_params(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SinkArn") => String.t(),
         required("SinkType") => list(any()),
         required("SourceArn") => String.t(),
@@ -1421,7 +1421,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
         optional("KinesisVideoStreamSourceRuntimeConfiguration") => kinesis_video_stream_source_runtime_configuration(),
         optional("MediaInsightsRuntimeMetadata") => map(),
         optional("S3RecordingSinkRuntimeConfiguration") => s3_recording_sink_runtime_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("MediaInsightsPipelineConfigurationArn") => String.t()
       }
 
@@ -1456,7 +1456,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       kinesis_video_stream_recording_source_runtime_configuration() :: %{
         "FragmentSelector" => fragment_selector(),
-        "Streams" => list(recording_stream_configuration()())
+        "Streams" => list(recording_stream_configuration())
       }
 
   """
@@ -1544,9 +1544,9 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       create_media_stream_pipeline_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
-        required("Sinks") => list(media_stream_sink()()),
-        required("Sources") => list(media_stream_source()())
+        optional("Tags") => list(tag()),
+        required("Sinks") => list(media_stream_sink()),
+        required("Sources") => list(media_stream_source())
       }
 
   """
@@ -1557,7 +1557,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       keyword_match_configuration() :: %{
-        "Keywords" => list(String.t()()),
+        "Keywords" => list(String.t()),
         "Negate" => boolean(),
         "RuleName" => String.t()
       }
@@ -1610,7 +1610,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
 
       real_time_alert_configuration() :: %{
         "Disabled" => boolean(),
-        "Rules" => list(real_time_alert_rule()())
+        "Rules" => list(real_time_alert_rule())
       }
 
   """
@@ -1643,8 +1643,8 @@ defmodule AWS.ChimeSDKMediaPipelines do
       create_media_insights_pipeline_configuration_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("RealTimeAlertConfiguration") => real_time_alert_configuration(),
-        optional("Tags") => list(tag()()),
-        required("Elements") => list(media_insights_pipeline_configuration_element()()),
+        optional("Tags") => list(tag()),
+        required("Elements") => list(media_insights_pipeline_configuration_element()),
         required("MediaInsightsPipelineConfigurationName") => String.t(),
         required("ResourceAccessRoleArn") => String.t()
       }
@@ -1785,7 +1785,7 @@ defmodule AWS.ChimeSDKMediaPipelines do
   ## Example:
 
       stream_channel_definition() :: %{
-        "ChannelDefinitions" => list(channel_definition()()),
+        "ChannelDefinitions" => list(channel_definition()),
         "NumberOfChannels" => integer()
       }
 

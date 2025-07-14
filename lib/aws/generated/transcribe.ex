@@ -36,7 +36,7 @@ defmodule AWS.Transcribe do
       list_vocabularies_response() :: %{
         "NextToken" => String.t(),
         "Status" => list(any()),
-        "Vocabularies" => list(vocabulary_info()())
+        "Vocabularies" => list(vocabulary_info())
       }
       
   """
@@ -85,7 +85,7 @@ defmodule AWS.Transcribe do
         "IdentifyMultipleLanguages" => boolean(),
         "JobExecutionSettings" => job_execution_settings(),
         "LanguageCode" => list(any()),
-        "LanguageCodes" => list(language_code_item()()),
+        "LanguageCodes" => list(language_code_item()),
         "LanguageIdSettings" => map(),
         "LanguageOptions" => list(list(any())()),
         "Media" => media(),
@@ -95,8 +95,8 @@ defmodule AWS.Transcribe do
         "Settings" => settings(),
         "StartTime" => non_neg_integer(),
         "Subtitles" => subtitles_output(),
-        "Tags" => list(tag()()),
-        "ToxicityDetection" => list(toxicity_detection_settings()()),
+        "Tags" => list(tag()),
+        "ToxicityDetection" => list(toxicity_detection_settings()),
         "Transcript" => transcript(),
         "TranscriptionJobName" => String.t(),
         "TranscriptionJobStatus" => list(any())
@@ -165,9 +165,9 @@ defmodule AWS.Transcribe do
       
       create_vocabulary_filter_request() :: %{
         optional("DataAccessRoleArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VocabularyFilterFileUri") => String.t(),
-        optional("Words") => list(String.t()()),
+        optional("Words") => list(String.t()),
         required("LanguageCode") => list(any())
       }
       
@@ -179,7 +179,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -210,7 +210,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_medical_transcription_jobs_response() :: %{
-        "MedicalTranscriptionJobSummaries" => list(medical_transcription_job_summary()()),
+        "MedicalTranscriptionJobSummaries" => list(medical_transcription_job_summary()),
         "NextToken" => String.t(),
         "Status" => list(any())
       }
@@ -396,7 +396,7 @@ defmodule AWS.Transcribe do
       update_vocabulary_filter_request() :: %{
         optional("DataAccessRoleArn") => String.t(),
         optional("VocabularyFilterFileUri") => String.t(),
-        optional("Words") => list(String.t()())
+        optional("Words") => list(String.t())
       }
       
   """
@@ -432,11 +432,11 @@ defmodule AWS.Transcribe do
         "IdentifyLanguage" => boolean(),
         "IdentifyMultipleLanguages" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageCodes" => list(language_code_item()()),
+        "LanguageCodes" => list(language_code_item()),
         "ModelSettings" => model_settings(),
         "OutputLocationType" => list(any()),
         "StartTime" => non_neg_integer(),
-        "ToxicityDetection" => list(toxicity_detection_settings()()),
+        "ToxicityDetection" => list(toxicity_detection_settings()),
         "TranscriptionJobName" => String.t(),
         "TranscriptionJobStatus" => list(any())
       }
@@ -466,7 +466,7 @@ defmodule AWS.Transcribe do
         "CallAnalyticsJobDetails" => call_analytics_job_details(),
         "CallAnalyticsJobName" => String.t(),
         "CallAnalyticsJobStatus" => list(any()),
-        "ChannelDefinitions" => list(channel_definition()()),
+        "ChannelDefinitions" => list(channel_definition()),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "DataAccessRoleArn" => String.t(),
@@ -478,7 +478,7 @@ defmodule AWS.Transcribe do
         "MediaSampleRateHertz" => integer(),
         "Settings" => call_analytics_job_settings(),
         "StartTime" => non_neg_integer(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Transcript" => transcript()
       }
       
@@ -528,7 +528,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -539,7 +539,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       call_analytics_job_details() :: %{
-        "Skipped" => list(call_analytics_skipped_feature()())
+        "Skipped" => list(call_analytics_skipped_feature())
       }
       
   """
@@ -550,7 +550,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_medical_scribe_jobs_response() :: %{
-        "MedicalScribeJobSummaries" => list(medical_scribe_job_summary()()),
+        "MedicalScribeJobSummaries" => list(medical_scribe_job_summary()),
         "NextToken" => String.t(),
         "Status" => list(any())
       }
@@ -573,7 +573,7 @@ defmodule AWS.Transcribe do
       
       update_vocabulary_request() :: %{
         optional("DataAccessRoleArn") => String.t(),
-        optional("Phrases") => list(String.t()()),
+        optional("Phrases") => list(String.t()),
         optional("VocabularyFileUri") => String.t(),
         required("LanguageCode") => list(any())
       }
@@ -590,7 +590,7 @@ defmodule AWS.Transcribe do
         "Negate" => boolean(),
         "ParticipantRole" => list(any()),
         "RelativeTimeRange" => relative_time_range(),
-        "Targets" => list(String.t()()),
+        "Targets" => list(String.t()),
         "TranscriptFilterType" => list(any())
       }
       
@@ -603,8 +603,8 @@ defmodule AWS.Transcribe do
       
       create_vocabulary_request() :: %{
         optional("DataAccessRoleArn") => String.t(),
-        optional("Phrases") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("Phrases") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("VocabularyFileUri") => String.t(),
         required("LanguageCode") => list(any())
       }
@@ -626,7 +626,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       create_language_model_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("BaseModelName") => list(any()),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any())
@@ -640,7 +640,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_call_analytics_categories_response() :: %{
-        "Categories" => list(category_properties()()),
+        "Categories" => list(category_properties()),
         "NextToken" => String.t()
       }
       
@@ -677,12 +677,12 @@ defmodule AWS.Transcribe do
   ## Example:
       
       start_call_analytics_job_request() :: %{
-        optional("ChannelDefinitions") => list(channel_definition()()),
+        optional("ChannelDefinitions") => list(channel_definition()),
         optional("DataAccessRoleArn") => String.t(),
         optional("OutputEncryptionKMSKeyId") => String.t(),
         optional("OutputLocation") => String.t(),
         optional("Settings") => call_analytics_job_settings(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Media") => media()
       }
       
@@ -730,7 +730,7 @@ defmodule AWS.Transcribe do
         "Settings" => medical_transcription_setting(),
         "Specialty" => list(any()),
         "StartTime" => non_neg_integer(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Transcript" => medical_transcript(),
         "TranscriptionJobStatus" => list(any()),
         "Type" => list(any())
@@ -748,8 +748,8 @@ defmodule AWS.Transcribe do
         "CreateTime" => non_neg_integer(),
         "InputType" => list(any()),
         "LastUpdateTime" => non_neg_integer(),
-        "Rules" => list(list()()),
-        "Tags" => list(tag()())
+        "Rules" => list(list()),
+        "Tags" => list(tag())
       }
       
   """
@@ -931,7 +931,7 @@ defmodule AWS.Transcribe do
       list_medical_vocabularies_response() :: %{
         "NextToken" => String.t(),
         "Status" => list(any()),
-        "Vocabularies" => list(vocabulary_info()())
+        "Vocabularies" => list(vocabulary_info())
       }
       
   """
@@ -973,7 +973,7 @@ defmodule AWS.Transcribe do
       list_transcription_jobs_response() :: %{
         "NextToken" => String.t(),
         "Status" => list(any()),
-        "TranscriptionJobSummaries" => list(transcription_job_summary()())
+        "TranscriptionJobSummaries" => list(transcription_job_summary())
       }
       
   """
@@ -985,7 +985,7 @@ defmodule AWS.Transcribe do
       
       list_tags_for_resource_response() :: %{
         "ResourceArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -996,7 +996,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       medical_scribe_job() :: %{
-        "ChannelDefinitions" => list(medical_scribe_channel_definition()()),
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "CompletionTime" => non_neg_integer(),
         "CreationTime" => non_neg_integer(),
         "DataAccessRoleArn" => String.t(),
@@ -1008,7 +1008,7 @@ defmodule AWS.Transcribe do
         "MedicalScribeOutput" => medical_scribe_output(),
         "Settings" => medical_scribe_settings(),
         "StartTime" => non_neg_integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1100,7 +1100,7 @@ defmodule AWS.Transcribe do
       
       update_call_analytics_category_request() :: %{
         optional("InputType") => list(any()),
-        required("Rules") => list(list()())
+        required("Rules") => list(list())
       }
       
   """
@@ -1118,7 +1118,7 @@ defmodule AWS.Transcribe do
         optional("OutputEncryptionKMSKeyId") => String.t(),
         optional("OutputKey") => String.t(),
         optional("Settings") => medical_transcription_setting(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("LanguageCode") => list(any()),
         required("Media") => media(),
         required("OutputBucketName") => String.t(),
@@ -1143,7 +1143,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_call_analytics_jobs_response() :: %{
-        "CallAnalyticsJobSummaries" => list(call_analytics_job_summary()()),
+        "CallAnalyticsJobSummaries" => list(call_analytics_job_summary()),
         "NextToken" => String.t(),
         "Status" => list(any())
       }
@@ -1179,7 +1179,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       list_language_models_response() :: %{
-        "Models" => list(language_model()()),
+        "Models" => list(language_model()),
         "NextToken" => String.t()
       }
       
@@ -1349,10 +1349,10 @@ defmodule AWS.Transcribe do
   ## Example:
       
       start_medical_scribe_job_request() :: %{
-        optional("ChannelDefinitions") => list(medical_scribe_channel_definition()()),
+        optional("ChannelDefinitions") => list(medical_scribe_channel_definition()),
         optional("KMSEncryptionContext") => map(),
         optional("OutputEncryptionKMSKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DataAccessRoleArn") => String.t(),
         required("Media") => media(),
         required("OutputBucketName") => String.t(),
@@ -1452,7 +1452,7 @@ defmodule AWS.Transcribe do
       
       list_vocabulary_filters_response() :: %{
         "NextToken" => String.t(),
-        "VocabularyFilters" => list(vocabulary_filter_info()())
+        "VocabularyFilters" => list(vocabulary_filter_info())
       }
       
   """
@@ -1537,7 +1537,7 @@ defmodule AWS.Transcribe do
   ## Example:
       
       create_medical_vocabulary_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("LanguageCode") => list(any()),
         required("VocabularyFileUri") => String.t()
       }
@@ -1606,8 +1606,8 @@ defmodule AWS.Transcribe do
         optional("OutputKey") => String.t(),
         optional("Settings") => settings(),
         optional("Subtitles") => subtitles(),
-        optional("Tags") => list(tag()()),
-        optional("ToxicityDetection") => list(toxicity_detection_settings()()),
+        optional("Tags") => list(tag()),
+        optional("ToxicityDetection") => list(toxicity_detection_settings()),
         required("Media") => media()
       }
       
@@ -1631,8 +1631,8 @@ defmodule AWS.Transcribe do
       
       create_call_analytics_category_request() :: %{
         optional("InputType") => list(any()),
-        optional("Tags") => list(tag()()),
-        required("Rules") => list(list()())
+        optional("Tags") => list(tag()),
+        required("Rules") => list(list())
       }
       
   """
@@ -1679,7 +1679,7 @@ defmodule AWS.Transcribe do
       subtitles_output() :: %{
         "Formats" => list(list(any())()),
         "OutputStartIndex" => integer(),
-        "SubtitleFileUris" => list(String.t()())
+        "SubtitleFileUris" => list(String.t())
       }
       
   """
@@ -1966,7 +1966,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_call_analytics_category_errors()}
   def create_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCallAnalyticsCategory", input, options)
   end
@@ -1995,7 +1996,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_language_model_errors()}
   def create_language_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLanguageModel", input, options)
   end
@@ -2026,7 +2028,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_medical_vocabulary_errors()}
   def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMedicalVocabulary", input, options)
   end
@@ -2056,7 +2059,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_vocabulary_errors()}
   def create_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVocabulary", input, options)
   end
@@ -2084,7 +2088,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_vocabulary_filter_errors()}
   def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVocabularyFilter", input, options)
   end
@@ -2102,7 +2107,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_call_analytics_category_errors()}
   def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCallAnalyticsCategory", input, options)
   end
@@ -2120,7 +2126,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_call_analytics_job_errors()}
   def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCallAnalyticsJob", input, options)
   end
@@ -2138,7 +2145,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_language_model_errors()}
   def delete_language_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLanguageModel", input, options)
   end
@@ -2156,7 +2164,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_scribe_job_errors()}
   def delete_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMedicalScribeJob", input, options)
   end
@@ -2178,7 +2187,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_transcription_job_errors()}
   def delete_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMedicalTranscriptionJob", input, options)
   end
@@ -2196,7 +2206,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_vocabulary_errors()}
   def delete_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMedicalVocabulary", input, options)
   end
@@ -2214,7 +2225,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_transcription_job_errors()}
   def delete_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTranscriptionJob", input, options)
   end
@@ -2232,7 +2244,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_vocabulary_errors()}
   def delete_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVocabulary", input, options)
   end
@@ -2250,7 +2263,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_vocabulary_filter_errors()}
   def delete_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVocabularyFilter", input, options)
   end
@@ -2275,7 +2289,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, describe_language_model_errors()}
   def describe_language_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLanguageModel", input, options)
   end
@@ -2291,7 +2306,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_call_analytics_category_errors()}
   def get_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCallAnalyticsCategory", input, options)
   end
@@ -2321,7 +2337,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_call_analytics_job_errors()}
   def get_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCallAnalyticsJob", input, options)
   end
@@ -2345,7 +2362,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_scribe_job_errors()}
   def get_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMedicalScribeJob", input, options)
   end
@@ -2368,7 +2386,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_transcription_job_errors()}
   def get_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMedicalTranscriptionJob", input, options)
   end
@@ -2389,7 +2408,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_vocabulary_errors()}
   def get_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMedicalVocabulary", input, options)
   end
@@ -2416,7 +2436,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_transcription_job_errors()}
   def get_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTranscriptionJob", input, options)
   end
@@ -2438,7 +2459,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_vocabulary_errors()}
   def get_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVocabulary", input, options)
   end
@@ -2454,7 +2476,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_vocabulary_filter_errors()}
   def get_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVocabularyFilter", input, options)
   end
@@ -2473,7 +2496,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_call_analytics_categories_errors()}
   def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCallAnalyticsCategories", input, options)
   end
@@ -2493,7 +2517,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_call_analytics_jobs_errors()}
   def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCallAnalyticsJobs", input, options)
   end
@@ -2513,7 +2538,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_language_models_errors()}
   def list_language_models(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLanguageModels", input, options)
   end
@@ -2533,7 +2559,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_scribe_jobs_errors()}
   def list_medical_scribe_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMedicalScribeJobs", input, options)
   end
@@ -2553,7 +2580,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_transcription_jobs_errors()}
   def list_medical_transcription_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMedicalTranscriptionJobs", input, options)
   end
@@ -2574,7 +2602,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_vocabularies_errors()}
   def list_medical_vocabularies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMedicalVocabularies", input, options)
   end
@@ -2592,7 +2621,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2612,7 +2642,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_transcription_jobs_errors()}
   def list_transcription_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTranscriptionJobs", input, options)
   end
@@ -2632,7 +2663,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_vocabularies_errors()}
   def list_vocabularies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVocabularies", input, options)
   end
@@ -2652,7 +2684,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_vocabulary_filters_errors()}
   def list_vocabulary_filters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVocabularyFilters", input, options)
   end
@@ -2725,7 +2758,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_call_analytics_job_errors()}
   def start_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCallAnalyticsJob", input, options)
   end
@@ -2790,7 +2824,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_medical_scribe_job_errors()}
   def start_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMedicalScribeJob", input, options)
   end
@@ -2854,7 +2889,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_medical_transcription_job_errors()}
   def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMedicalTranscriptionJob", input, options)
   end
@@ -2903,7 +2939,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_transcription_job_errors()}
   def start_transcription_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTranscriptionJob", input, options)
   end
@@ -2921,7 +2958,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2938,7 +2976,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2960,7 +2999,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_call_analytics_category_errors()}
   def update_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCallAnalyticsCategory", input, options)
   end
@@ -2979,7 +3019,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_medical_vocabulary_errors()}
   def update_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMedicalVocabulary", input, options)
   end
@@ -2998,7 +3039,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_vocabulary_errors()}
   def update_vocabulary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVocabulary", input, options)
   end
@@ -3016,7 +3058,8 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_vocabulary_filter_errors()}
   def update_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVocabularyFilter", input, options)
   end

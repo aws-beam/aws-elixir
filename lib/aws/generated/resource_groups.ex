@@ -62,7 +62,7 @@ defmodule AWS.ResourceGroups do
 
       resource_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -73,7 +73,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       list_tag_sync_tasks_input() :: %{
-        optional("Filters") => list(list_tag_sync_tasks_filter()()),
+        optional("Filters") => list(list_tag_sync_tasks_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -114,7 +114,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       create_group_input() :: %{
-        optional("Configuration") => list(group_configuration_item()()),
+        optional("Configuration") => list(group_configuration_item()),
         optional("Criticality") => integer(),
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
@@ -155,7 +155,7 @@ defmodule AWS.ResourceGroups do
 
       list_grouping_statuses_output() :: %{
         "Group" => String.t(),
-        "GroupingStatuses" => list(grouping_statuses_item()()),
+        "GroupingStatuses" => list(grouping_statuses_item()),
         "NextToken" => String.t()
       }
 
@@ -326,7 +326,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       untag_input() :: %{
-        required("Keys") => list(String.t()())
+        required("Keys") => list(String.t())
       }
 
   """
@@ -348,7 +348,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       put_group_configuration_input() :: %{
-        optional("Configuration") => list(group_configuration_item()()),
+        optional("Configuration") => list(group_configuration_item()),
         optional("Group") => String.t()
       }
 
@@ -360,8 +360,8 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       list_groups_output() :: %{
-        "GroupIdentifiers" => list(group_identifier()()),
-        "Groups" => list(group()()),
+        "GroupIdentifiers" => list(group_identifier()),
+        "Groups" => list(group()),
         "NextToken" => String.t()
       }
 
@@ -418,9 +418,9 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       group_resources_output() :: %{
-        "Failed" => list(failed_resource()()),
-        "Pending" => list(pending_resource()()),
-        "Succeeded" => list(String.t()())
+        "Failed" => list(failed_resource()),
+        "Pending" => list(pending_resource()),
+        "Succeeded" => list(String.t())
       }
 
   """
@@ -443,7 +443,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       list_grouping_statuses_input() :: %{
-        optional("Filters") => list(list_grouping_statuses_filter()()),
+        optional("Filters") => list(list_grouping_statuses_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("Group") => String.t()
@@ -458,7 +458,7 @@ defmodule AWS.ResourceGroups do
 
       group_configuration_parameter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -483,9 +483,9 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       ungroup_resources_output() :: %{
-        "Failed" => list(failed_resource()()),
-        "Pending" => list(pending_resource()()),
-        "Succeeded" => list(String.t()())
+        "Failed" => list(failed_resource()),
+        "Pending" => list(pending_resource()),
+        "Succeeded" => list(String.t())
       }
 
   """
@@ -541,7 +541,7 @@ defmodule AWS.ResourceGroups do
 
       group_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -553,7 +553,7 @@ defmodule AWS.ResourceGroups do
 
       group_resources_input() :: %{
         required("Group") => String.t(),
-        required("ResourceArns") => list(String.t()())
+        required("ResourceArns") => list(String.t())
       }
 
   """
@@ -565,8 +565,8 @@ defmodule AWS.ResourceGroups do
 
       search_resources_output() :: %{
         "NextToken" => String.t(),
-        "QueryErrors" => list(query_error()()),
-        "ResourceIdentifiers" => list(resource_identifier()())
+        "QueryErrors" => list(query_error()),
+        "ResourceIdentifiers" => list(resource_identifier())
       }
 
   """
@@ -578,9 +578,9 @@ defmodule AWS.ResourceGroups do
 
       list_group_resources_output() :: %{
         "NextToken" => String.t(),
-        "QueryErrors" => list(query_error()()),
-        "ResourceIdentifiers" => list(resource_identifier()()),
-        "Resources" => list(list_group_resources_item()())
+        "QueryErrors" => list(query_error()),
+        "ResourceIdentifiers" => list(resource_identifier()),
+        "Resources" => list(list_group_resources_item())
       }
 
   """
@@ -680,7 +680,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       list_group_resources_input() :: %{
-        optional("Filters") => list(resource_filter()()),
+        optional("Filters") => list(resource_filter()),
         optional("Group") => String.t(),
         optional("GroupName") => String.t(),
         optional("MaxResults") => integer(),
@@ -800,7 +800,7 @@ defmodule AWS.ResourceGroups do
 
       ungroup_resources_input() :: %{
         required("Group") => String.t(),
-        required("ResourceArns") => list(String.t()())
+        required("ResourceArns") => list(String.t())
       }
 
   """
@@ -811,7 +811,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       list_groups_input() :: %{
-        optional("Filters") => list(group_filter()()),
+        optional("Filters") => list(group_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -825,7 +825,7 @@ defmodule AWS.ResourceGroups do
 
       list_grouping_statuses_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -837,7 +837,7 @@ defmodule AWS.ResourceGroups do
 
       untag_output() :: %{
         "Arn" => String.t(),
-        "Keys" => list(String.t()())
+        "Keys" => list(String.t())
       }
 
   """
@@ -883,9 +883,9 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       group_configuration() :: %{
-        "Configuration" => list(group_configuration_item()()),
+        "Configuration" => list(group_configuration_item()),
         "FailureReason" => String.t(),
-        "ProposedConfiguration" => list(group_configuration_item()()),
+        "ProposedConfiguration" => list(group_configuration_item()),
         "Status" => list(any())
       }
 
@@ -910,7 +910,7 @@ defmodule AWS.ResourceGroups do
 
       list_tag_sync_tasks_output() :: %{
         "NextToken" => String.t(),
-        "TagSyncTasks" => list(tag_sync_task_item()())
+        "TagSyncTasks" => list(tag_sync_task_item())
       }
 
   """
@@ -930,7 +930,7 @@ defmodule AWS.ResourceGroups do
   ## Example:
 
       group_configuration_item() :: %{
-        "Parameters" => list(group_configuration_parameter()()),
+        "Parameters" => list(group_configuration_parameter()),
         "Type" => String.t()
       }
 

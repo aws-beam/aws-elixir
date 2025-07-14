@@ -73,7 +73,7 @@ defmodule AWS.MediaPackage do
         optional("StartoverWindowSeconds") => integer(),
         optional("Tags") => map(),
         optional("TimeDelaySeconds") => integer(),
-        optional("Whitelist") => list(String.t()()),
+        optional("Whitelist") => list(String.t()),
         required("ChannelId") => String.t(),
         required("Id") => String.t()
       }
@@ -129,7 +129,7 @@ defmodule AWS.MediaPackage do
         "Tags" => map(),
         "TimeDelaySeconds" => integer(),
         "Url" => String.t(),
-        "Whitelist" => list(String.t()())
+        "Whitelist" => list(String.t())
       }
 
   """
@@ -179,7 +179,7 @@ defmodule AWS.MediaPackage do
         optional("Origination") => list(any()),
         optional("StartoverWindowSeconds") => integer(),
         optional("TimeDelaySeconds") => integer(),
-        optional("Whitelist") => list(String.t()())
+        optional("Whitelist") => list(String.t())
       }
 
   """
@@ -206,7 +206,7 @@ defmodule AWS.MediaPackage do
         "Tags" => map(),
         "TimeDelaySeconds" => integer(),
         "Url" => String.t(),
-        "Whitelist" => list(String.t()())
+        "Whitelist" => list(String.t())
       }
 
   """
@@ -274,7 +274,7 @@ defmodule AWS.MediaPackage do
         "Tags" => map(),
         "TimeDelaySeconds" => integer(),
         "Url" => String.t(),
-        "Whitelist" => list(String.t()())
+        "Whitelist" => list(String.t())
       }
 
   """
@@ -303,7 +303,7 @@ defmodule AWS.MediaPackage do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -345,7 +345,7 @@ defmodule AWS.MediaPackage do
   ## Example:
 
       hls_ingest() :: %{
-        "IngestEndpoints" => list(ingest_endpoint()())
+        "IngestEndpoints" => list(ingest_endpoint())
       }
 
   """
@@ -366,7 +366,7 @@ defmodule AWS.MediaPackage do
 
       list_origin_endpoints_response() :: %{
         "NextToken" => String.t(),
-        "OriginEndpoints" => list(origin_endpoint()())
+        "OriginEndpoints" => list(origin_endpoint())
       }
 
   """
@@ -420,7 +420,7 @@ defmodule AWS.MediaPackage do
 
       cmaf_package() :: %{
         "Encryption" => cmaf_encryption(),
-        "HlsManifests" => list(hls_manifest()()),
+        "HlsManifests" => list(hls_manifest()),
         "SegmentDurationSeconds" => integer(),
         "SegmentPrefix" => String.t(),
         "StreamSelection" => stream_selection()
@@ -453,7 +453,7 @@ defmodule AWS.MediaPackage do
 
       cmaf_package_create_or_update_parameters() :: %{
         "Encryption" => cmaf_encryption(),
-        "HlsManifests" => list(hls_manifest_create_or_update_parameters()()),
+        "HlsManifests" => list(hls_manifest_create_or_update_parameters()),
         "SegmentDurationSeconds" => integer(),
         "SegmentPrefix" => String.t(),
         "StreamSelection" => stream_selection()
@@ -491,7 +491,7 @@ defmodule AWS.MediaPackage do
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "ResourceId" => String.t(),
         "RoleArn" => String.t(),
-        "SystemIds" => list(String.t()()),
+        "SystemIds" => list(String.t()),
         "Url" => String.t()
       }
 
@@ -600,7 +600,7 @@ defmodule AWS.MediaPackage do
   ## Example:
 
       list_channels_response() :: %{
-        "Channels" => list(channel()()),
+        "Channels" => list(channel()),
         "NextToken" => String.t()
       }
 
@@ -843,7 +843,7 @@ defmodule AWS.MediaPackage do
   ## Example:
 
       list_harvest_jobs_response() :: %{
-        "HarvestJobs" => list(harvest_job()()),
+        "HarvestJobs" => list(harvest_job()),
         "NextToken" => String.t()
       }
 
@@ -900,7 +900,7 @@ defmodule AWS.MediaPackage do
         "Tags" => map(),
         "TimeDelaySeconds" => integer(),
         "Url" => String.t(),
-        "Whitelist" => list(String.t()())
+        "Whitelist" => list(String.t())
       }
 
   """

@@ -25,7 +25,7 @@ defmodule AWS.Location do
 
       list_geofence_collections_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_geofence_collections_response_entry()())
+        required("Entries") => list(list_geofence_collections_response_entry())
       }
 
   """
@@ -75,7 +75,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_update_device_position_response() :: %{
-        required("Errors") => list(batch_update_device_position_error()())
+        required("Errors") => list(batch_update_device_position_error())
       }
 
   """
@@ -87,7 +87,7 @@ defmodule AWS.Location do
 
       list_device_positions_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_device_positions_response_entry()())
+        required("Entries") => list(list_device_positions_response_entry())
       }
 
   """
@@ -120,7 +120,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_put_geofence_request() :: %{
-        required("Entries") => list(batch_put_geofence_request_entry()())
+        required("Entries") => list(batch_put_geofence_request_entry())
       }
 
   """
@@ -185,7 +185,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_delete_geofence_response() :: %{
-        required("Errors") => list(batch_delete_geofence_error()())
+        required("Errors") => list(batch_delete_geofence_error())
       }
 
   """
@@ -344,7 +344,7 @@ defmodule AWS.Location do
 
       list_keys_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_keys_response_entry()())
+        required("Entries") => list(list_keys_response_entry())
       }
 
   """
@@ -355,7 +355,7 @@ defmodule AWS.Location do
   ## Example:
 
       calculate_route_response() :: %{
-        "Legs" => list(leg()()),
+        "Legs" => list(leg()),
         "Summary" => calculate_route_summary()
       }
 
@@ -396,7 +396,7 @@ defmodule AWS.Location do
   ## Example:
 
       search_place_index_for_position_response() :: %{
-        required("Results") => list(search_for_position_result()()),
+        required("Results") => list(search_for_position_result()),
         required("Summary") => search_place_index_for_position_summary()
       }
 
@@ -425,7 +425,7 @@ defmodule AWS.Location do
 
       list_trackers_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_trackers_response_entry()())
+        required("Entries") => list(list_trackers_response_entry())
       }
 
   """
@@ -528,9 +528,9 @@ defmodule AWS.Location do
   ## Example:
 
       search_for_suggestions_result() :: %{
-        "Categories" => list(String.t()()),
+        "Categories" => list(String.t()),
         "PlaceId" => String.t(),
-        "SupplementalCategories" => list(String.t()()),
+        "SupplementalCategories" => list(String.t()),
         "Text" => [String.t()]
       }
 
@@ -554,8 +554,8 @@ defmodule AWS.Location do
         "BiasPosition" => list([float()]()),
         "DataSource" => [String.t()],
         "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t()()),
-        "FilterCountries" => list(String.t()()),
+        "FilterCategories" => list(String.t()),
+        "FilterCountries" => list(String.t()),
         "Language" => String.t(),
         "MaxResults" => integer(),
         "ResultBBox" => list([float()]()),
@@ -582,7 +582,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_evaluate_geofences_request() :: %{
-        required("DevicePositionUpdates") => list(device_position_update()())
+        required("DevicePositionUpdates") => list(device_position_update())
       }
 
   """
@@ -594,7 +594,7 @@ defmodule AWS.Location do
 
       list_geofences_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_geofence_response_entry()())
+        required("Entries") => list(list_geofence_response_entry())
       }
 
   """
@@ -850,7 +850,7 @@ defmodule AWS.Location do
   ## Example:
 
       search_place_index_for_text_response() :: %{
-        required("Results") => list(search_for_text_result()()),
+        required("Results") => list(search_for_text_result()),
         required("Summary") => search_place_index_for_text_summary()
       }
 
@@ -930,7 +930,7 @@ defmodule AWS.Location do
         "Ipv4Address" => [String.t()],
         "Position" => list([float()]()),
         "SampleTime" => non_neg_integer(),
-        "WiFiAccessPoints" => list(wi_fi_access_point()())
+        "WiFiAccessPoints" => list(wi_fi_access_point())
       }
 
   """
@@ -977,7 +977,7 @@ defmodule AWS.Location do
   ## Example:
 
       map_configuration_update() :: %{
-        "CustomLayers" => list(String.t()()),
+        "CustomLayers" => list(String.t()),
         "PoliticalView" => String.t()
       }
 
@@ -1026,7 +1026,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_get_device_position_request() :: %{
-        required("DeviceIds") => list(String.t()())
+        required("DeviceIds") => list(String.t())
       }
 
   """
@@ -1134,8 +1134,8 @@ defmodule AWS.Location do
       search_place_index_for_text_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t()()),
-        optional("FilterCountries") => list(String.t()()),
+        optional("FilterCategories") => list(String.t()),
+        optional("FilterCountries") => list(String.t()),
         optional("Key") => String.t(),
         optional("Language") => String.t(),
         optional("MaxResults") => integer(),
@@ -1230,8 +1230,8 @@ defmodule AWS.Location do
         "BiasPosition" => list([float()]()),
         "DataSource" => [String.t()],
         "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t()()),
-        "FilterCountries" => list(String.t()()),
+        "FilterCategories" => list(String.t()),
+        "FilterCountries" => list(String.t()),
         "Language" => String.t(),
         "MaxResults" => [integer()],
         "Text" => String.t()
@@ -1290,7 +1290,7 @@ defmodule AWS.Location do
 
       get_device_position_history_response() :: %{
         optional("NextToken") => String.t(),
-        required("DevicePositions") => list(device_position()())
+        required("DevicePositions") => list(device_position())
       }
 
   """
@@ -1301,7 +1301,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_evaluate_geofences_response() :: %{
-        required("Errors") => list(batch_evaluate_geofences_error()())
+        required("Errors") => list(batch_evaluate_geofences_error())
       }
 
   """
@@ -1341,9 +1341,9 @@ defmodule AWS.Location do
   ## Example:
 
       api_key_restrictions() :: %{
-        "AllowActions" => list(String.t()()),
-        "AllowReferers" => list(String.t()()),
-        "AllowResources" => list(String.t()())
+        "AllowActions" => list(String.t()),
+        "AllowReferers" => list(String.t()),
+        "AllowResources" => list(String.t())
       }
 
   """
@@ -1379,7 +1379,7 @@ defmodule AWS.Location do
 
       list_place_indexes_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_place_indexes_response_entry()())
+        required("Entries") => list(list_place_indexes_response_entry())
       }
 
   """
@@ -1403,7 +1403,7 @@ defmodule AWS.Location do
 
       list_maps_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_maps_response_entry()())
+        required("Entries") => list(list_maps_response_entry())
       }
 
   """
@@ -1563,7 +1563,7 @@ defmodule AWS.Location do
   ## Example:
 
       calculate_route_matrix_response() :: %{
-        "RouteMatrix" => list(list(route_matrix_entry()())()),
+        "RouteMatrix" => list(list(route_matrix_entry())()),
         "SnappedDeparturePositions" => list(list([float()]())()),
         "SnappedDestinationPositions" => list(list([float()]())()),
         "Summary" => calculate_route_matrix_summary()
@@ -1612,7 +1612,7 @@ defmodule AWS.Location do
   ## Example:
 
       validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()()),
+        "FieldList" => list(validation_exception_field()),
         "Message" => [String.t()],
         "Reason" => String.t()
       }
@@ -1634,8 +1634,8 @@ defmodule AWS.Location do
   ## Example:
 
       batch_put_geofence_response() :: %{
-        required("Errors") => list(batch_put_geofence_error()()),
-        required("Successes") => list(batch_put_geofence_success()())
+        required("Errors") => list(batch_put_geofence_error()),
+        required("Successes") => list(batch_put_geofence_success())
       }
 
   """
@@ -1669,8 +1669,8 @@ defmodule AWS.Location do
   ## Example:
 
       batch_get_device_position_response() :: %{
-        required("DevicePositions") => list(device_position()()),
-        required("Errors") => list(batch_get_device_position_error()())
+        required("DevicePositions") => list(device_position()),
+        required("Errors") => list(batch_get_device_position_error())
       }
 
   """
@@ -1732,7 +1732,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_update_device_position_request() :: %{
-        required("Updates") => list(device_position_update()())
+        required("Updates") => list(device_position_update())
       }
 
   """
@@ -1762,7 +1762,7 @@ defmodule AWS.Location do
         "LocalId" => lte_local_id(),
         "Mcc" => [integer()],
         "Mnc" => [integer()],
-        "NetworkMeasurements" => list(lte_network_measurements()()),
+        "NetworkMeasurements" => list(lte_network_measurements()),
         "NrCapable" => [boolean()],
         "Rsrp" => integer(),
         "Rsrq" => float(),
@@ -1778,7 +1778,7 @@ defmodule AWS.Location do
   ## Example:
 
       cell_signals() :: %{
-        "LteCellDetails" => list(lte_cell_details()())
+        "LteCellDetails" => list(lte_cell_details())
       }
 
   """
@@ -1803,7 +1803,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_delete_geofence_request() :: %{
-        required("GeofenceIds") => list(String.t()())
+        required("GeofenceIds") => list(String.t())
       }
 
   """
@@ -1860,7 +1860,7 @@ defmodule AWS.Location do
   ## Example:
 
       map_configuration() :: %{
-        "CustomLayers" => list(String.t()()),
+        "CustomLayers" => list(String.t()),
         "PoliticalView" => String.t(),
         "Style" => String.t()
       }
@@ -1932,7 +1932,7 @@ defmodule AWS.Location do
 
       list_tracker_consumers_response() :: %{
         optional("NextToken") => String.t(),
-        required("ConsumerArns") => list(String.t()())
+        required("ConsumerArns") => list(String.t())
       }
 
   """
@@ -2078,7 +2078,7 @@ defmodule AWS.Location do
 
       list_route_calculators_response() :: %{
         optional("NextToken") => String.t(),
-        required("Entries") => list(list_route_calculators_response_entry()())
+        required("Entries") => list(list_route_calculators_response_entry())
       }
 
   """
@@ -2148,8 +2148,8 @@ defmodule AWS.Location do
       search_place_index_for_suggestions_request() :: %{
         optional("BiasPosition") => list([float()]()),
         optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t()()),
-        optional("FilterCountries") => list(String.t()()),
+        optional("FilterCategories") => list(String.t()),
+        optional("FilterCountries") => list(String.t()),
         optional("Key") => String.t(),
         optional("Language") => String.t(),
         optional("MaxResults") => [integer()],
@@ -2164,7 +2164,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_delete_device_position_history_response() :: %{
-        required("Errors") => list(batch_delete_device_position_history_error()())
+        required("Errors") => list(batch_delete_device_position_history_error())
       }
 
   """
@@ -2184,7 +2184,7 @@ defmodule AWS.Location do
   ## Example:
 
       search_place_index_for_suggestions_response() :: %{
-        required("Results") => list(search_for_suggestions_result()()),
+        required("Results") => list(search_for_suggestions_result()),
         required("Summary") => search_place_index_for_suggestions_summary()
       }
 
@@ -2212,7 +2212,7 @@ defmodule AWS.Location do
         "EndPosition" => list([float()]()),
         "Geometry" => leg_geometry(),
         "StartPosition" => list([float()]()),
-        "Steps" => list(step()())
+        "Steps" => list(step())
       }
 
   """
@@ -2224,7 +2224,7 @@ defmodule AWS.Location do
 
       place() :: %{
         "AddressNumber" => [String.t()],
-        "Categories" => list(String.t()()),
+        "Categories" => list(String.t()),
         "Country" => [String.t()],
         "Geometry" => place_geometry(),
         "Interpolated" => [boolean()],
@@ -2236,7 +2236,7 @@ defmodule AWS.Location do
         "Street" => [String.t()],
         "SubMunicipality" => [String.t()],
         "SubRegion" => [String.t()],
-        "SupplementalCategories" => list(String.t()()),
+        "SupplementalCategories" => list(String.t()),
         "TimeZone" => time_zone(),
         "UnitNumber" => [String.t()],
         "UnitType" => [String.t()]
@@ -2377,7 +2377,7 @@ defmodule AWS.Location do
 
       forecast_geofence_events_response() :: %{
         "DistanceUnit" => String.t(),
-        "ForecastedEvents" => list(forecasted_event()()),
+        "ForecastedEvents" => list(forecasted_event()),
         "NextToken" => String.t(),
         "SpeedUnit" => String.t()
       }
@@ -2390,7 +2390,7 @@ defmodule AWS.Location do
   ## Example:
 
       batch_delete_device_position_history_request() :: %{
-        required("DeviceIds") => list(String.t()())
+        required("DeviceIds") => list(String.t())
       }
 
   """

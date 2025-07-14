@@ -80,7 +80,7 @@ defmodule AWS.S3Outposts do
         "CustomerOwnedIpv4Pool" => String.t(),
         "EndpointArn" => String.t(),
         "FailedReason" => failed_reason(),
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "OutpostsId" => String.t(),
         "SecurityGroupId" => String.t(),
         "Status" => list(any()),
@@ -131,7 +131,7 @@ defmodule AWS.S3Outposts do
   ## Example:
 
       list_endpoints_result() :: %{
-        "Endpoints" => list(endpoint()()),
+        "Endpoints" => list(endpoint()),
         "NextToken" => String.t()
       }
 
@@ -156,7 +156,7 @@ defmodule AWS.S3Outposts do
 
       list_outposts_with_s3_result() :: %{
         "NextToken" => String.t(),
-        "Outposts" => list(outpost()())
+        "Outposts" => list(outpost())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.S3Outposts do
   ## Example:
 
       list_shared_endpoints_result() :: %{
-        "Endpoints" => list(endpoint()()),
+        "Endpoints" => list(endpoint()),
         "NextToken" => String.t()
       }
 

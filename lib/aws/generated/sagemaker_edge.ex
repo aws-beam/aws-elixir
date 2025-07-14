@@ -59,7 +59,7 @@ defmodule AWS.SagemakerEdge do
 
       deployment_result() :: %{
         "DeploymentEndTime" => non_neg_integer(),
-        "DeploymentModels" => list(deployment_model()()),
+        "DeploymentModels" => list(deployment_model()),
         "DeploymentName" => String.t(),
         "DeploymentStartTime" => non_neg_integer(),
         "DeploymentStatus" => String.t(),
@@ -74,7 +74,7 @@ defmodule AWS.SagemakerEdge do
   ## Example:
 
       edge_deployment() :: %{
-        "Definitions" => list(definition()()),
+        "Definitions" => list(definition()),
         "DeploymentName" => String.t(),
         "FailureHandlingPolicy" => list(any()),
         "Type" => list(any())
@@ -114,7 +114,7 @@ defmodule AWS.SagemakerEdge do
   ## Example:
 
       get_deployments_result() :: %{
-        "Deployments" => list(edge_deployment()())
+        "Deployments" => list(edge_deployment())
       }
 
   """
@@ -162,7 +162,7 @@ defmodule AWS.SagemakerEdge do
       model() :: %{
         "LatestInference" => non_neg_integer(),
         "LatestSampleTime" => non_neg_integer(),
-        "ModelMetrics" => list(edge_metric()()),
+        "ModelMetrics" => list(edge_metric()),
         "ModelName" => String.t(),
         "ModelVersion" => String.t()
       }
@@ -175,9 +175,9 @@ defmodule AWS.SagemakerEdge do
   ## Example:
 
       send_heartbeat_request() :: %{
-        optional("AgentMetrics") => list(edge_metric()()),
+        optional("AgentMetrics") => list(edge_metric()),
         optional("DeploymentResult") => deployment_result(),
-        optional("Models") => list(model()()),
+        optional("Models") => list(model()),
         required("AgentVersion") => String.t(),
         required("DeviceFleetName") => String.t(),
         required("DeviceName") => String.t()

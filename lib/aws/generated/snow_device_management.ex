@@ -31,7 +31,7 @@ defmodule AWS.SnowDeviceManagement do
   ## Example:
 
       list_devices_output() :: %{
-        optional("devices") => list(device_summary()()),
+        optional("devices") => list(device_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -43,7 +43,7 @@ defmodule AWS.SnowDeviceManagement do
   ## Example:
 
       list_executions_output() :: %{
-        optional("executions") => list(execution_summary()()),
+        optional("executions") => list(execution_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -55,7 +55,7 @@ defmodule AWS.SnowDeviceManagement do
   ## Example:
 
       describe_device_ec2_output() :: %{
-        optional("instances") => list(instance_summary()())
+        optional("instances") => list(instance_summary())
       }
 
   """
@@ -218,7 +218,7 @@ defmodule AWS.SnowDeviceManagement do
 
       list_tasks_output() :: %{
         optional("nextToken") => String.t(),
-        optional("tasks") => list(task_summary()())
+        optional("tasks") => list(task_summary())
       }
 
   """
@@ -252,14 +252,14 @@ defmodule AWS.SnowDeviceManagement do
 
       describe_device_output() :: %{
         optional("associatedWithJob") => [String.t()],
-        optional("deviceCapacities") => list(capacity()()),
+        optional("deviceCapacities") => list(capacity()),
         optional("deviceState") => String.t(),
         optional("deviceType") => [String.t()],
         optional("lastReachedOutAt") => [non_neg_integer()],
         optional("lastUpdatedAt") => [non_neg_integer()],
         optional("managedDeviceArn") => [String.t()],
         optional("managedDeviceId") => String.t(),
-        optional("physicalNetworkInterfaces") => list(physical_network_interface()()),
+        optional("physicalNetworkInterfaces") => list(physical_network_interface()),
         optional("software") => software_information(),
         optional("tags") => map()
       }
@@ -379,7 +379,7 @@ defmodule AWS.SnowDeviceManagement do
 
       instance() :: %{
         "amiLaunchIndex" => [integer()],
-        "blockDeviceMappings" => list(instance_block_device_mapping()()),
+        "blockDeviceMappings" => list(instance_block_device_mapping()),
         "cpuOptions" => cpu_options(),
         "createdAt" => [non_neg_integer()],
         "imageId" => [String.t()],
@@ -388,7 +388,7 @@ defmodule AWS.SnowDeviceManagement do
         "privateIpAddress" => [String.t()],
         "publicIpAddress" => [String.t()],
         "rootDeviceName" => [String.t()],
-        "securityGroups" => list(security_group_identifier()()),
+        "securityGroups" => list(security_group_identifier()),
         "state" => instance_state(),
         "updatedAt" => [non_neg_integer()]
       }
@@ -433,7 +433,7 @@ defmodule AWS.SnowDeviceManagement do
 
       list_device_resources_output() :: %{
         optional("nextToken") => String.t(),
-        optional("resources") => list(resource_summary()())
+        optional("resources") => list(resource_summary())
       }
 
   """

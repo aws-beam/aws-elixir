@@ -18,7 +18,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_graph_snapshots_output() :: %{
-        "graphSnapshots" => list(graph_snapshot_summary()()),
+        "graphSnapshots" => list(graph_snapshot_summary()),
         "nextToken" => String.t()
       }
 
@@ -79,7 +79,7 @@ defmodule AWS.NeptuneGraph do
 
       create_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcEndpointId" => String.t(),
         "vpcId" => String.t()
       }
@@ -233,7 +233,7 @@ defmodule AWS.NeptuneGraph do
 
       delete_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcEndpointId" => String.t(),
         "vpcId" => String.t()
       }
@@ -299,7 +299,7 @@ defmodule AWS.NeptuneGraph do
 
       list_export_tasks_output() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(export_task_summary()())
+        "tasks" => list(export_task_summary())
       }
 
   """
@@ -365,7 +365,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_queries_output() :: %{
-        "queries" => list(query_summary()())
+        "queries" => list(query_summary())
       }
 
   """
@@ -470,9 +470,9 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       create_private_graph_endpoint_input() :: %{
-        optional("subnetIds") => list(String.t()()),
+        optional("subnetIds") => list(String.t()),
         optional("vpcId") => String.t(),
-        optional("vpcSecurityGroupIds") => list(String.t()())
+        optional("vpcSecurityGroupIds") => list(String.t())
       }
 
   """
@@ -494,7 +494,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       list_graphs_output() :: %{
-        "graphs" => list(graph_summary()()),
+        "graphs" => list(graph_summary()),
         "nextToken" => String.t()
       }
 
@@ -664,11 +664,11 @@ defmodule AWS.NeptuneGraph do
 
       graph_data_summary() :: %{
         "edgeLabels" => list([String.t()]()),
-        "edgeProperties" => list(map()()),
-        "edgeStructures" => list(edge_structure()()),
+        "edgeProperties" => list(map()),
+        "edgeStructures" => list(edge_structure()),
         "nodeLabels" => list([String.t()]()),
-        "nodeProperties" => list(map()()),
-        "nodeStructures" => list(node_structure()()),
+        "nodeProperties" => list(map()),
+        "nodeStructures" => list(node_structure()),
         "numEdgeLabels" => [float()],
         "numEdgeProperties" => [float()],
         "numEdges" => [float()],
@@ -807,7 +807,7 @@ defmodule AWS.NeptuneGraph do
 
       get_private_graph_endpoint_output() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcEndpointId" => String.t(),
         "vpcId" => String.t()
       }
@@ -956,7 +956,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1094,7 +1094,7 @@ defmodule AWS.NeptuneGraph do
 
       list_import_tasks_output() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(import_task_summary()())
+        "tasks" => list(import_task_summary())
       }
 
   """
@@ -1142,7 +1142,7 @@ defmodule AWS.NeptuneGraph do
 
       list_private_graph_endpoints_output() :: %{
         "nextToken" => String.t(),
-        "privateGraphEndpoints" => list(private_graph_endpoint_summary()())
+        "privateGraphEndpoints" => list(private_graph_endpoint_summary())
       }
 
   """
@@ -1180,7 +1180,7 @@ defmodule AWS.NeptuneGraph do
 
       private_graph_endpoint_summary() :: %{
         "status" => list(any()),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcEndpointId" => String.t(),
         "vpcId" => String.t()
       }

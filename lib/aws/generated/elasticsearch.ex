@@ -88,7 +88,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_domain_auto_tunes_response() :: %{
-        "AutoTunes" => list(auto_tune()()),
+        "AutoTunes" => list(auto_tune()),
         "NextToken" => String.t()
       }
 
@@ -100,7 +100,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       get_compatible_elasticsearch_versions_response() :: %{
-        "CompatibleElasticsearchVersions" => list(compatible_versions_map()())
+        "CompatibleElasticsearchVersions" => list(compatible_versions_map())
       }
 
   """
@@ -112,7 +112,7 @@ defmodule AWS.Elasticsearch do
 
       list_vpc_endpoints_for_domain_response() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
@@ -123,7 +123,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_elasticsearch_domains_request() :: %{
-        required("DomainNames") => list(String.t()())
+        required("DomainNames") => list(String.t())
       }
 
   """
@@ -159,7 +159,7 @@ defmodule AWS.Elasticsearch do
 
       compatible_versions_map() :: %{
         "SourceVersion" => String.t(),
-        "TargetVersions" => list(String.t()())
+        "TargetVersions" => list(String.t())
       }
 
   """
@@ -192,7 +192,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_outbound_cross_cluster_search_connections_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -331,7 +331,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_vpc_endpoints_request() :: %{
-        required("VpcEndpointIds") => list(String.t()())
+        required("VpcEndpointIds") => list(String.t())
       }
 
   """
@@ -415,7 +415,7 @@ defmodule AWS.Elasticsearch do
 
       list_vpc_endpoints_response() :: %{
         "NextToken" => String.t(),
-        "VpcEndpointSummaryList" => list(vpc_endpoint_summary()())
+        "VpcEndpointSummaryList" => list(vpc_endpoint_summary())
       }
 
   """
@@ -426,9 +426,9 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       vpc_derived_info() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VPCId" => String.t()
       }
 
@@ -476,7 +476,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_tags_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
 
   """
@@ -488,7 +488,7 @@ defmodule AWS.Elasticsearch do
 
       storage_type_limit() :: %{
         "LimitName" => String.t(),
-        "LimitValues" => list(String.t()())
+        "LimitValues" => list(String.t())
       }
 
   """
@@ -570,7 +570,7 @@ defmodule AWS.Elasticsearch do
 
       storage_type() :: %{
         "StorageSubTypeName" => String.t(),
-        "StorageTypeLimits" => list(storage_type_limit()()),
+        "StorageTypeLimits" => list(storage_type_limit()),
         "StorageTypeName" => String.t()
       }
 
@@ -606,7 +606,7 @@ defmodule AWS.Elasticsearch do
         optional("LogPublishingOptions") => map(),
         optional("NodeToNodeEncryptionOptions") => node_to_node_encryption_options(),
         optional("SnapshotOptions") => snapshot_options(),
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         optional("VPCOptions") => vpc_options(),
         required("DomainName") => String.t()
       }
@@ -620,7 +620,7 @@ defmodule AWS.Elasticsearch do
 
       additional_limit() :: %{
         "LimitName" => String.t(),
-        "LimitValues" => list(String.t()())
+        "LimitValues" => list(String.t())
       }
 
   """
@@ -693,7 +693,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_inbound_cross_cluster_search_connections_response() :: %{
-        "CrossClusterSearchConnections" => list(inbound_cross_cluster_search_connection()()),
+        "CrossClusterSearchConnections" => list(inbound_cross_cluster_search_connection()),
         "NextToken" => String.t()
       }
 
@@ -718,7 +718,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_packages_for_domain_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "DomainPackageDetailsList" => list(domain_package_details()),
         "NextToken" => String.t()
       }
 
@@ -731,12 +731,12 @@ defmodule AWS.Elasticsearch do
 
       change_progress_status_details() :: %{
         "ChangeId" => String.t(),
-        "ChangeProgressStages" => list(change_progress_stage()()),
-        "CompletedProperties" => list(String.t()()),
+        "ChangeProgressStages" => list(change_progress_stage()),
+        "CompletedProperties" => list(String.t()),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
-        "PendingProperties" => list(String.t()()),
+        "PendingProperties" => list(String.t()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "TotalNumberOfStages" => integer()
@@ -762,7 +762,7 @@ defmodule AWS.Elasticsearch do
 
       add_tags_request() :: %{
         required("ARN") => String.t(),
-        required("TagList") => list(tag()())
+        required("TagList") => list(tag())
       }
 
   """
@@ -774,7 +774,7 @@ defmodule AWS.Elasticsearch do
 
       describe_reserved_elasticsearch_instance_offerings_response() :: %{
         "NextToken" => String.t(),
-        "ReservedElasticsearchInstanceOfferings" => list(reserved_elasticsearch_instance_offering()())
+        "ReservedElasticsearchInstanceOfferings" => list(reserved_elasticsearch_instance_offering())
       }
 
   """
@@ -786,7 +786,7 @@ defmodule AWS.Elasticsearch do
 
       upgrade_history() :: %{
         "StartTimestamp" => non_neg_integer(),
-        "StepsList" => list(upgrade_step_item()()),
+        "StepsList" => list(upgrade_step_item()),
         "UpgradeName" => String.t(),
         "UpgradeStatus" => list(any())
       }
@@ -846,7 +846,7 @@ defmodule AWS.Elasticsearch do
 
       describe_packages_response() :: %{
         "NextToken" => String.t(),
-        "PackageDetailsList" => list(package_details()())
+        "PackageDetailsList" => list(package_details())
       }
 
   """
@@ -920,8 +920,8 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       cancel_domain_config_change_response() :: %{
-        "CancelledChangeIds" => list(String.t()()),
-        "CancelledChangeProperties" => list(cancelled_change_property()()),
+        "CancelledChangeIds" => list(String.t()),
+        "CancelledChangeProperties" => list(cancelled_change_property()),
         "DryRun" => boolean()
       }
 
@@ -957,7 +957,7 @@ defmodule AWS.Elasticsearch do
 
       get_upgrade_history_response() :: %{
         "NextToken" => String.t(),
-        "UpgradeHistories" => list(upgrade_history()())
+        "UpgradeHistories" => list(upgrade_history())
       }
 
   """
@@ -1023,8 +1023,8 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_vpc_endpoints_response() :: %{
-        "VpcEndpointErrors" => list(vpc_endpoint_error()()),
-        "VpcEndpoints" => list(vpc_endpoint()())
+        "VpcEndpointErrors" => list(vpc_endpoint_error()),
+        "VpcEndpoints" => list(vpc_endpoint())
       }
 
   """
@@ -1047,7 +1047,7 @@ defmodule AWS.Elasticsearch do
 
       describe_packages_filter() :: %{
         "Name" => list(any()),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
 
   """
@@ -1119,7 +1119,7 @@ defmodule AWS.Elasticsearch do
       get_package_version_history_response() :: %{
         "NextToken" => String.t(),
         "PackageID" => String.t(),
-        "PackageVersionHistoryList" => list(package_version_history()())
+        "PackageVersionHistoryList" => list(package_version_history())
       }
 
   """
@@ -1229,7 +1229,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_domain_names_response() :: %{
-        "DomainNames" => list(domain_info()())
+        "DomainNames" => list(domain_info())
       }
 
   """
@@ -1246,7 +1246,7 @@ defmodule AWS.Elasticsearch do
         "ElasticsearchInstanceType" => list(any()),
         "FixedPrice" => float(),
         "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservationName" => String.t(),
         "ReservedElasticsearchInstanceId" => String.t(),
         "ReservedElasticsearchInstanceOfferingId" => String.t(),
@@ -1284,7 +1284,7 @@ defmodule AWS.Elasticsearch do
         "ElasticsearchVersion" => elasticsearch_version_status(),
         "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
         "LogPublishingOptions" => log_publishing_options_status(),
-        "ModifyingProperties" => list(modifying_properties()()),
+        "ModifyingProperties" => list(modifying_properties()),
         "NodeToNodeEncryptionOptions" => node_to_node_encryption_options_status(),
         "SnapshotOptions" => snapshot_options_status(),
         "VPCOptions" => vpc_derived_info_status()
@@ -1299,7 +1299,7 @@ defmodule AWS.Elasticsearch do
 
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1319,7 +1319,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_outbound_cross_cluster_search_connections_response() :: %{
-        "CrossClusterSearchConnections" => list(outbound_cross_cluster_search_connection()()),
+        "CrossClusterSearchConnections" => list(outbound_cross_cluster_search_connection()),
         "NextToken" => String.t()
       }
 
@@ -1441,7 +1441,7 @@ defmodule AWS.Elasticsearch do
 
       auto_tune_options_input() :: %{
         "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()())
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule())
       }
 
   """
@@ -1763,7 +1763,7 @@ defmodule AWS.Elasticsearch do
 
       auto_tune_options() :: %{
         "DesiredState" => list(any()),
-        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()()),
+        "MaintenanceSchedules" => list(auto_tune_maintenance_schedule()),
         "RollbackOnDisable" => list(any())
       }
 
@@ -1795,7 +1795,7 @@ defmodule AWS.Elasticsearch do
         "Endpoint" => String.t(),
         "Endpoints" => map(),
         "LogPublishingOptions" => map(),
-        "ModifyingProperties" => list(modifying_properties()()),
+        "ModifyingProperties" => list(modifying_properties()),
         "NodeToNodeEncryptionOptions" => node_to_node_encryption_options(),
         "Processing" => boolean(),
         "ServiceSoftwareOptions" => service_software_options(),
@@ -1877,9 +1877,9 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       limits() :: %{
-        "AdditionalLimits" => list(additional_limit()()),
+        "AdditionalLimits" => list(additional_limit()),
         "InstanceLimits" => instance_limits(),
-        "StorageTypes" => list(storage_type()())
+        "StorageTypes" => list(storage_type())
       }
 
   """
@@ -1913,8 +1913,8 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       vpc_options() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -1948,7 +1948,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_inbound_cross_cluster_search_connections_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2040,7 +2040,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_elasticsearch_versions_response() :: %{
-        "ElasticsearchVersions" => list(String.t()()),
+        "ElasticsearchVersions" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -2076,7 +2076,7 @@ defmodule AWS.Elasticsearch do
 
       remove_tags_request() :: %{
         required("ARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -2110,7 +2110,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_packages_request() :: %{
-        optional("Filters") => list(describe_packages_filter()()),
+        optional("Filters") => list(describe_packages_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2136,7 +2136,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       upgrade_step_item() :: %{
-        "Issues" => list(String.t()()),
+        "Issues" => list(String.t()),
         "ProgressPercent" => float(),
         "UpgradeStep" => list(any()),
         "UpgradeStepStatus" => list(any())
@@ -2200,7 +2200,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_vpc_endpoint_access_response() :: %{
-        "AuthorizedPrincipalList" => list(authorized_principal()()),
+        "AuthorizedPrincipalList" => list(authorized_principal()),
         "NextToken" => String.t()
       }
 
@@ -2213,7 +2213,7 @@ defmodule AWS.Elasticsearch do
 
       describe_reserved_elasticsearch_instances_response() :: %{
         "NextToken" => String.t(),
-        "ReservedElasticsearchInstances" => list(reserved_elasticsearch_instance()())
+        "ReservedElasticsearchInstances" => list(reserved_elasticsearch_instance())
       }
 
   """
@@ -2288,7 +2288,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       describe_elasticsearch_domains_response() :: %{
-        "DomainStatusList" => list(elasticsearch_domain_status()())
+        "DomainStatusList" => list(elasticsearch_domain_status())
       }
 
   """
@@ -2353,7 +2353,7 @@ defmodule AWS.Elasticsearch do
   ## Example:
 
       list_domains_for_package_response() :: %{
-        "DomainPackageDetailsList" => list(domain_package_details()()),
+        "DomainPackageDetailsList" => list(domain_package_details()),
         "NextToken" => String.t()
       }
 
@@ -2381,7 +2381,7 @@ defmodule AWS.Elasticsearch do
         "ElasticsearchInstanceType" => list(any()),
         "FixedPrice" => float(),
         "PaymentOption" => list(any()),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedElasticsearchInstanceOfferingId" => String.t(),
         "UsagePrice" => float()
       }

@@ -66,7 +66,7 @@ defmodule AWS.BedrockDataAutomation do
 
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -314,7 +314,7 @@ defmodule AWS.BedrockDataAutomation do
 
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -468,7 +468,7 @@ defmodule AWS.BedrockDataAutomation do
         optional("overrideConfiguration") => override_configuration(),
         optional("projectDescription") => String.t(),
         optional("projectStage") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("projectName") => String.t(),
         required("standardOutputConfiguration") => standard_output_configuration()
       }
@@ -481,7 +481,7 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -745,7 +745,7 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t()
       }
 
@@ -827,7 +827,7 @@ defmodule AWS.BedrockDataAutomation do
         optional("blueprintStage") => list(any()),
         optional("clientToken") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("blueprintName") => String.t(),
         required("schema") => String.t(),
         required("type") => list(any())
@@ -841,7 +841,7 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       list_blueprints_response() :: %{
-        "blueprints" => list(blueprint_summary()()),
+        "blueprints" => list(blueprint_summary()),
         "nextToken" => String.t()
       }
 
@@ -888,7 +888,7 @@ defmodule AWS.BedrockDataAutomation do
   ## Example:
 
       custom_output_configuration() :: %{
-        "blueprints" => list(blueprint_item()())
+        "blueprints" => list(blueprint_item())
       }
 
   """
@@ -920,7 +920,7 @@ defmodule AWS.BedrockDataAutomation do
 
       list_data_automation_projects_response() :: %{
         "nextToken" => String.t(),
-        "projects" => list(data_automation_project_summary()())
+        "projects" => list(data_automation_project_summary())
       }
 
   """

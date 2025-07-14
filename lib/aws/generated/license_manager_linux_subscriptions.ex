@@ -148,7 +148,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       list_linux_subscription_instances_request() :: %{
-        "Filters" => list(filter()()),
+        "Filters" => list(filter()),
         "MaxResults" => integer(),
         "NextToken" => [String.t()]
       }
@@ -161,7 +161,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       list_linux_subscription_instances_response() :: %{
-        optional("Instances") => list(instance()()),
+        optional("Instances") => list(instance()),
         optional("NextToken") => [String.t()]
       }
 
@@ -173,7 +173,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
   ## Example:
 
       list_linux_subscriptions_request() :: %{
-        "Filters" => list(filter()()),
+        "Filters" => list(filter()),
         "MaxResults" => integer(),
         "NextToken" => [String.t()]
       }
@@ -187,7 +187,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       list_linux_subscriptions_response() :: %{
         optional("NextToken") => [String.t()],
-        optional("Subscriptions") => list(subscription()())
+        optional("Subscriptions") => list(subscription())
       }
 
   """
@@ -200,7 +200,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
       list_registered_subscription_providers_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
-        optional("SubscriptionProviderSources") => list(String.t()())
+        optional("SubscriptionProviderSources") => list(String.t())
       }
 
   """
@@ -212,7 +212,7 @@ defmodule AWS.LicenseManagerLinuxSubscriptions do
 
       list_registered_subscription_providers_response() :: %{
         "NextToken" => [String.t()],
-        "RegisteredSubscriptionProviders" => list(registered_subscription_provider()())
+        "RegisteredSubscriptionProviders" => list(registered_subscription_provider())
       }
 
   """

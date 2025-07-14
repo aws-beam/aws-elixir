@@ -198,7 +198,7 @@ defmodule AWS.MWAA do
   ## Example:
 
       update_network_configuration_input() :: %{
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t())
       }
 
   """
@@ -247,7 +247,7 @@ defmodule AWS.MWAA do
   ## Example:
 
       metric_datum() :: %{
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "MetricName" => [String.t()],
         "StatisticValues" => statistic_set(),
         "Timestamp" => [non_neg_integer()],
@@ -354,7 +354,7 @@ defmodule AWS.MWAA do
 
       list_environments_output() :: %{
         optional("NextToken") => String.t(),
-        required("Environments") => list(String.t()())
+        required("Environments") => list(String.t())
       }
 
   """
@@ -484,8 +484,8 @@ defmodule AWS.MWAA do
   ## Example:
 
       network_configuration() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -507,7 +507,7 @@ defmodule AWS.MWAA do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -594,7 +594,7 @@ defmodule AWS.MWAA do
   ## Example:
 
       publish_metrics_input() :: %{
-        "MetricData" => list(metric_datum()())
+        "MetricData" => list(metric_datum())
       }
 
   """

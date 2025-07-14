@@ -97,7 +97,7 @@ defmodule AWS.Identitystore do
       
       list_group_memberships_for_member_response() :: %{
         optional("NextToken") => String.t(),
-        required("GroupMemberships") => list(group_membership()())
+        required("GroupMemberships") => list(group_membership())
       }
       
   """
@@ -134,7 +134,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       is_member_in_groups_request() :: %{
-        required("GroupIds") => list(String.t()()),
+        required("GroupIds") => list(String.t()),
         required("IdentityStoreId") => String.t(),
         required("MemberId") => list()
       }
@@ -149,7 +149,7 @@ defmodule AWS.Identitystore do
       update_group_request() :: %{
         required("GroupId") => String.t(),
         required("IdentityStoreId") => String.t(),
-        required("Operations") => list(attribute_operation()())
+        required("Operations") => list(attribute_operation())
       }
       
   """
@@ -213,7 +213,7 @@ defmodule AWS.Identitystore do
       
       list_users_response() :: %{
         optional("NextToken") => String.t(),
-        required("Users") => list(user()())
+        required("Users") => list(user())
       }
       
   """
@@ -288,7 +288,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       is_member_in_groups_response() :: %{
-        required("Results") => list(group_membership_existence_result()())
+        required("Results") => list(group_membership_existence_result())
       }
       
   """
@@ -359,14 +359,14 @@ defmodule AWS.Identitystore do
   ## Example:
       
       describe_user_response() :: %{
-        optional("Addresses") => list(address()()),
+        optional("Addresses") => list(address()),
         optional("DisplayName") => String.t(),
-        optional("Emails") => list(email()()),
-        optional("ExternalIds") => list(external_id()()),
+        optional("Emails") => list(email()),
+        optional("ExternalIds") => list(external_id()),
         optional("Locale") => String.t(),
         optional("Name") => name(),
         optional("NickName") => String.t(),
-        optional("PhoneNumbers") => list(phone_number()()),
+        optional("PhoneNumbers") => list(phone_number()),
         optional("PreferredLanguage") => String.t(),
         optional("ProfileUrl") => String.t(),
         optional("Timezone") => String.t(),
@@ -442,7 +442,7 @@ defmodule AWS.Identitystore do
       
       update_user_request() :: %{
         required("IdentityStoreId") => String.t(),
-        required("Operations") => list(attribute_operation()()),
+        required("Operations") => list(attribute_operation()),
         required("UserId") => String.t()
       }
       
@@ -506,7 +506,7 @@ defmodule AWS.Identitystore do
       group() :: %{
         "Description" => String.t(),
         "DisplayName" => String.t(),
-        "ExternalIds" => list(external_id()()),
+        "ExternalIds" => list(external_id()),
         "GroupId" => String.t(),
         "IdentityStoreId" => String.t()
       }
@@ -519,15 +519,15 @@ defmodule AWS.Identitystore do
   ## Example:
       
       user() :: %{
-        "Addresses" => list(address()()),
+        "Addresses" => list(address()),
         "DisplayName" => String.t(),
-        "Emails" => list(email()()),
-        "ExternalIds" => list(external_id()()),
+        "Emails" => list(email()),
+        "ExternalIds" => list(external_id()),
         "IdentityStoreId" => String.t(),
         "Locale" => String.t(),
         "Name" => name(),
         "NickName" => String.t(),
-        "PhoneNumbers" => list(phone_number()()),
+        "PhoneNumbers" => list(phone_number()),
         "PreferredLanguage" => String.t(),
         "ProfileUrl" => String.t(),
         "Timezone" => String.t(),
@@ -569,7 +569,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_users_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("IdentityStoreId") => String.t()
@@ -585,7 +585,7 @@ defmodule AWS.Identitystore do
       describe_group_response() :: %{
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
-        optional("ExternalIds") => list(external_id()()),
+        optional("ExternalIds") => list(external_id()),
         required("GroupId") => String.t(),
         required("IdentityStoreId") => String.t()
       }
@@ -623,7 +623,7 @@ defmodule AWS.Identitystore do
       
       list_group_memberships_response() :: %{
         optional("NextToken") => String.t(),
-        required("GroupMemberships") => list(group_membership()())
+        required("GroupMemberships") => list(group_membership())
       }
       
   """
@@ -635,7 +635,7 @@ defmodule AWS.Identitystore do
       
       list_groups_response() :: %{
         optional("NextToken") => String.t(),
-        required("Groups") => list(group()())
+        required("Groups") => list(group())
       }
       
   """
@@ -664,7 +664,7 @@ defmodule AWS.Identitystore do
   ## Example:
       
       list_groups_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("IdentityStoreId") => String.t()
@@ -735,13 +735,13 @@ defmodule AWS.Identitystore do
   ## Example:
       
       create_user_request() :: %{
-        optional("Addresses") => list(address()()),
+        optional("Addresses") => list(address()),
         optional("DisplayName") => String.t(),
-        optional("Emails") => list(email()()),
+        optional("Emails") => list(email()),
         optional("Locale") => String.t(),
         optional("Name") => name(),
         optional("NickName") => String.t(),
-        optional("PhoneNumbers") => list(phone_number()()),
+        optional("PhoneNumbers") => list(phone_number()),
         optional("PreferredLanguage") => String.t(),
         optional("ProfileUrl") => String.t(),
         optional("Timezone") => String.t(),
@@ -857,7 +857,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -874,7 +875,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_membership_errors()}
   def create_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroupMembership", input, options)
   end
@@ -888,7 +890,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -902,7 +905,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -916,7 +920,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroupMembership", input, options)
   end
@@ -930,7 +935,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -951,7 +957,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -972,7 +979,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroupMembership", input, options)
   end
@@ -993,7 +1001,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -1013,7 +1022,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_id_errors()}
   def get_group_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupId", input, options)
   end
@@ -1033,7 +1043,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_membership_id_errors()}
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupMembershipId", input, options)
   end
@@ -1053,7 +1064,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_user_id_errors()}
   def get_user_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserId", input, options)
   end
@@ -1074,7 +1086,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, is_member_in_groups_errors()}
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsMemberInGroups", input, options)
   end
@@ -1095,7 +1108,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMemberships", input, options)
   end
@@ -1120,7 +1134,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_for_member_errors()}
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMembershipsForMember", input, options)
   end
@@ -1144,7 +1159,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -1168,7 +1184,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -1183,7 +1200,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -1198,7 +1216,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

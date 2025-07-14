@@ -27,8 +27,8 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       get_session_response() :: %{
-        "interpretations" => list(interpretation()()),
-        "messages" => list(message()()),
+        "interpretations" => list(interpretation()),
+        "messages" => list(message()),
         "sessionId" => String.t(),
         "sessionState" => session_state()
       }
@@ -41,7 +41,7 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       put_session_request() :: %{
-        optional("messages") => list(message()()),
+        optional("messages") => list(message()),
         optional("requestAttributes") => map(),
         optional("responseContentType") => String.t(),
         required("sessionState") => session_state()
@@ -94,7 +94,7 @@ defmodule AWS.LexRuntimeV2 do
         "shape" => list(any()),
         "subSlots" => map(),
         "value" => value(),
-        "values" => list(slot()())
+        "values" => list(slot())
       }
 
   """
@@ -146,7 +146,7 @@ defmodule AWS.LexRuntimeV2 do
       value() :: %{
         "interpretedValue" => String.t(),
         "originalValue" => String.t(),
-        "resolvedValues" => list(String.t()())
+        "resolvedValues" => list(String.t())
       }
 
   """
@@ -194,7 +194,7 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       image_response_card() :: %{
-        "buttons" => list(button()()),
+        "buttons" => list(button()),
         "imageUrl" => String.t(),
         "subtitle" => String.t(),
         "title" => String.t()
@@ -285,7 +285,7 @@ defmodule AWS.LexRuntimeV2 do
       intent_result_event() :: %{
         "eventId" => String.t(),
         "inputMode" => list(any()),
-        "interpretations" => list(interpretation()()),
+        "interpretations" => list(interpretation()),
         "recognizedBotMember" => recognized_bot_member(),
         "requestAttributes" => map(),
         "sessionId" => String.t(),
@@ -315,7 +315,7 @@ defmodule AWS.LexRuntimeV2 do
 
       text_response_event() :: %{
         "eventId" => String.t(),
-        "messages" => list(message()())
+        "messages" => list(message())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       session_state() :: %{
-        "activeContexts" => list(active_context()()),
+        "activeContexts" => list(active_context()),
         "dialogAction" => dialog_action(),
         "intent" => intent(),
         "originatingRequestId" => String.t(),
@@ -378,8 +378,8 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       recognize_text_response() :: %{
-        "interpretations" => list(interpretation()()),
-        "messages" => list(message()()),
+        "interpretations" => list(interpretation()),
+        "messages" => list(message()),
         "recognizedBotMember" => recognized_bot_member(),
         "requestAttributes" => map(),
         "sessionId" => String.t(),
@@ -478,7 +478,7 @@ defmodule AWS.LexRuntimeV2 do
         "requestAttributes" => map(),
         "responseContentType" => String.t(),
         "sessionState" => session_state(),
-        "welcomeMessages" => list(message()())
+        "welcomeMessages" => list(message())
       }
 
   """
@@ -595,7 +595,7 @@ defmodule AWS.LexRuntimeV2 do
   ## Example:
 
       runtime_hint_details() :: %{
-        "runtimeHintValues" => list(runtime_hint_value()()),
+        "runtimeHintValues" => list(runtime_hint_value()),
         "subSlotHints" => map()
       }
 

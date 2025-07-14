@@ -143,7 +143,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -165,7 +165,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       edge_override() :: %{
-        "EdgeSets" => list(list(String.t()())()),
+        "EdgeSets" => list(list(String.t())()),
         "UseEdge" => String.t()
       }
 
@@ -188,7 +188,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_devices_request() :: %{
-        optional("DeviceIds") => list(String.t()()),
+        optional("DeviceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SiteId") => String.t()
@@ -224,7 +224,7 @@ defmodule AWS.NetworkManager do
 
       get_transit_gateway_connect_peer_associations_response() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association()())
+        "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association())
       }
 
   """
@@ -237,7 +237,7 @@ defmodule AWS.NetworkManager do
       get_transit_gateway_connect_peer_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayConnectPeerArns") => list(String.t()())
+        optional("TransitGatewayConnectPeerArns") => list(String.t())
       }
 
   """
@@ -272,7 +272,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_network_resource_counts_response() :: %{
-        "NetworkResourceCounts" => list(network_resource_count()()),
+        "NetworkResourceCounts" => list(network_resource_count()),
         "NextToken" => String.t()
       }
 
@@ -305,8 +305,8 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       service_insertion_segments() :: %{
-        "SendTo" => list(String.t()()),
-        "SendVia" => list(String.t()())
+        "SendTo" => list(String.t()),
+        "SendVia" => list(String.t())
       }
 
   """
@@ -380,7 +380,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_network_resources_response() :: %{
-        "NetworkResources" => list(network_resource()()),
+        "NetworkResources" => list(network_resource()),
         "NextToken" => String.t()
       }
 
@@ -403,7 +403,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_connect_peer_associations_request() :: %{
-        optional("ConnectPeerIds") => list(String.t()()),
+        optional("ConnectPeerIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -417,7 +417,7 @@ defmodule AWS.NetworkManager do
 
       create_global_network_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -441,7 +441,7 @@ defmodule AWS.NetworkManager do
       vpc_attachment() :: %{
         "Attachment" => attachment(),
         "Options" => vpc_options(),
-        "SubnetArns" => list(String.t()())
+        "SubnetArns" => list(String.t())
       }
 
   """
@@ -479,7 +479,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_core_network_change_events_response() :: %{
-        "CoreNetworkChangeEvents" => list(core_network_change_event()()),
+        "CoreNetworkChangeEvents" => list(core_network_change_event()),
         "NextToken" => String.t()
       }
 
@@ -491,7 +491,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_core_network_change_set_response() :: %{
-        "CoreNetworkChanges" => list(core_network_change()()),
+        "CoreNetworkChanges" => list(core_network_change()),
         "NextToken" => String.t()
       }
 
@@ -504,7 +504,7 @@ defmodule AWS.NetworkManager do
 
       get_network_resource_relationships_response() :: %{
         "NextToken" => String.t(),
-        "Relationships" => list(relationship()())
+        "Relationships" => list(relationship())
       }
 
   """
@@ -548,7 +548,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       describe_global_networks_response() :: %{
-        "GlobalNetworks" => list(global_network()()),
+        "GlobalNetworks" => list(global_network()),
         "NextToken" => String.t()
       }
 
@@ -560,7 +560,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_network_telemetry_response() :: %{
-        "NetworkTelemetry" => list(network_telemetry()()),
+        "NetworkTelemetry" => list(network_telemetry()),
         "NextToken" => String.t()
       }
 
@@ -587,9 +587,9 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       connect_peer_configuration() :: %{
-        "BgpConfigurations" => list(connect_peer_bgp_configuration()()),
+        "BgpConfigurations" => list(connect_peer_bgp_configuration()),
         "CoreNetworkAddress" => String.t(),
-        "InsideCidrBlocks" => list(String.t()()),
+        "InsideCidrBlocks" => list(String.t()),
         "PeerAddress" => String.t(),
         "Protocol" => list(any())
       }
@@ -603,7 +603,7 @@ defmodule AWS.NetworkManager do
 
       create_transit_gateway_route_table_attachment_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("PeeringId") => String.t(),
         required("TransitGatewayRouteTableArn") => String.t()
       }
@@ -616,7 +616,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_connections_request() :: %{
-        optional("ConnectionIds") => list(String.t()()),
+        optional("ConnectionIds") => list(String.t()),
         optional("DeviceId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -656,7 +656,7 @@ defmodule AWS.NetworkManager do
 
       create_site_to_site_vpn_attachment_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t(),
         required("VpnConnectionArn") => String.t()
       }
@@ -672,7 +672,7 @@ defmodule AWS.NetworkManager do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("PolicyDocument") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("GlobalNetworkId") => String.t()
       }
 
@@ -686,7 +686,7 @@ defmodule AWS.NetworkManager do
       proposed_network_function_group_change() :: %{
         "AttachmentPolicyRuleNumber" => integer(),
         "NetworkFunctionGroupName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -719,8 +719,8 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
-        "EdgeLocations" => list(String.t()()),
-        "LastModificationErrors" => list(attachment_error()()),
+        "EdgeLocations" => list(String.t()),
+        "LastModificationErrors" => list(attachment_error()),
         "NetworkFunctionGroupName" => String.t(),
         "OwnerAccountId" => String.t(),
         "ProposedNetworkFunctionGroupChange" => proposed_network_function_group_change(),
@@ -728,7 +728,7 @@ defmodule AWS.NetworkManager do
         "ResourceArn" => String.t(),
         "SegmentName" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpdatedAt" => non_neg_integer()
       }
 
@@ -793,7 +793,7 @@ defmodule AWS.NetworkManager do
         "Provider" => String.t(),
         "SiteId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => String.t()
       }
 
@@ -863,9 +863,9 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       update_vpc_attachment_request() :: %{
-        optional("AddSubnetArns") => list(String.t()()),
+        optional("AddSubnetArns") => list(String.t()),
         optional("Options") => vpc_options(),
-        optional("RemoveSubnetArns") => list(String.t()())
+        optional("RemoveSubnetArns") => list(String.t())
       }
 
   """
@@ -887,7 +887,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       describe_global_networks_request() :: %{
-        optional("GlobalNetworkIds") => list(String.t()()),
+        optional("GlobalNetworkIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -901,7 +901,7 @@ defmodule AWS.NetworkManager do
 
       route_analysis_path() :: %{
         "CompletionStatus" => route_analysis_completion(),
-        "Path" => list(path_component()())
+        "Path" => list(path_component())
       }
 
   """
@@ -912,7 +912,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_connections_response() :: %{
-        "Connections" => list(connection()()),
+        "Connections" => list(connection()),
         "NextToken" => String.t()
       }
 
@@ -925,12 +925,12 @@ defmodule AWS.NetworkManager do
 
       get_network_routes_request() :: %{
         optional("DestinationFilters") => map(),
-        optional("ExactCidrMatches") => list(String.t()()),
-        optional("LongestPrefixMatches") => list(String.t()()),
-        optional("PrefixListIds") => list(String.t()()),
+        optional("ExactCidrMatches") => list(String.t()),
+        optional("LongestPrefixMatches") => list(String.t()),
+        optional("PrefixListIds") => list(String.t()),
         optional("States") => list(list(any())()),
-        optional("SubnetOfMatches") => list(String.t()()),
-        optional("SupernetOfMatches") => list(String.t()()),
+        optional("SubnetOfMatches") => list(String.t()),
+        optional("SupernetOfMatches") => list(String.t()),
         optional("Types") => list(list(any())()),
         required("RouteTableIdentifier") => route_table_identifier()
       }
@@ -954,7 +954,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -977,7 +977,7 @@ defmodule AWS.NetworkManager do
 
       get_network_routes_response() :: %{
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
-        "NetworkRoutes" => list(network_route()()),
+        "NetworkRoutes" => list(network_route()),
         "RouteTableArn" => String.t(),
         "RouteTableTimestamp" => non_neg_integer(),
         "RouteTableType" => list(any())
@@ -1034,7 +1034,7 @@ defmodule AWS.NetworkManager do
       create_site_request() :: %{
         optional("Description") => String.t(),
         optional("Location") => location(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
 
   """
@@ -1068,10 +1068,10 @@ defmodule AWS.NetworkManager do
 
       create_direct_connect_gateway_attachment_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t(),
         required("DirectConnectGatewayArn") => String.t(),
-        required("EdgeLocations") => list(String.t()())
+        required("EdgeLocations") => list(String.t())
       }
 
   """
@@ -1095,7 +1095,7 @@ defmodule AWS.NetworkManager do
       get_transit_gateway_registrations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TransitGatewayArns") => list(String.t()())
+        optional("TransitGatewayArns") => list(String.t())
       }
 
   """
@@ -1143,7 +1143,7 @@ defmodule AWS.NetworkManager do
       core_network_edge() :: %{
         "Asn" => float(),
         "EdgeLocation" => String.t(),
-        "InsideCidrBlocks" => list(String.t()())
+        "InsideCidrBlocks" => list(String.t())
       }
 
   """
@@ -1211,7 +1211,7 @@ defmodule AWS.NetworkManager do
 
       create_connect_attachment_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t(),
         required("EdgeLocation") => String.t(),
         required("Options") => connect_attachment_options(),
@@ -1288,7 +1288,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       when_sent_to() :: %{
-        "WhenSentToSegmentsList" => list(String.t()())
+        "WhenSentToSegmentsList" => list(String.t())
       }
 
   """
@@ -1300,7 +1300,7 @@ defmodule AWS.NetworkManager do
 
       create_transit_gateway_peering_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t(),
         required("TransitGatewayArn") => String.t()
       }
@@ -1341,13 +1341,13 @@ defmodule AWS.NetworkManager do
         "Cidr" => String.t(),
         "DestinationIdentifier" => String.t(),
         "DnsSupport" => boolean(),
-        "EdgeLocations" => list(String.t()()),
-        "InsideCidrBlocks" => list(String.t()()),
+        "EdgeLocations" => list(String.t()),
+        "InsideCidrBlocks" => list(String.t()),
         "NetworkFunctionGroupName" => String.t(),
         "SecurityGroupReferencingSupport" => boolean(),
         "SegmentName" => String.t(),
-        "ServiceInsertionActions" => list(service_insertion_action()()),
-        "SharedSegments" => list(String.t()()),
+        "ServiceInsertionActions" => list(service_insertion_action()),
+        "SharedSegments" => list(String.t()),
         "VpnEcmpSupport" => boolean()
       }
 
@@ -1426,7 +1426,7 @@ defmodule AWS.NetworkManager do
       create_link_request() :: %{
         optional("Description") => String.t(),
         optional("Provider") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Type") => String.t(),
         required("Bandwidth") => bandwidth(),
         required("SiteId") => String.t()
@@ -1452,7 +1452,7 @@ defmodule AWS.NetworkManager do
 
       network_route() :: %{
         "DestinationCidrBlock" => String.t(),
-        "Destinations" => list(network_route_destination()()),
+        "Destinations" => list(network_route_destination()),
         "PrefixListId" => String.t(),
         "State" => list(any()),
         "Type" => list(any())
@@ -1559,7 +1559,7 @@ defmodule AWS.NetworkManager do
         "GlobalNetworkId" => String.t(),
         "LinkId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1618,7 +1618,7 @@ defmodule AWS.NetworkManager do
       get_sites_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SiteIds") => list(String.t()())
+        optional("SiteIds") => list(String.t())
       }
 
   """
@@ -1654,7 +1654,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_connect_peer_associations_response() :: %{
-        "ConnectPeerAssociations" => list(connect_peer_association()()),
+        "ConnectPeerAssociations" => list(connect_peer_association()),
         "NextToken" => String.t()
       }
 
@@ -1670,13 +1670,13 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
-        "LastModificationErrors" => list(peering_error()()),
+        "LastModificationErrors" => list(peering_error()),
         "OwnerAccountId" => String.t(),
         "PeeringId" => String.t(),
         "PeeringType" => list(any()),
         "ResourceArn" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1755,7 +1755,7 @@ defmodule AWS.NetworkManager do
         "SiteArn" => String.t(),
         "SiteId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1770,12 +1770,12 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "Edges" => list(core_network_edge()()),
+        "Edges" => list(core_network_edge()),
         "GlobalNetworkId" => String.t(),
-        "NetworkFunctionGroups" => list(core_network_network_function_group()()),
-        "Segments" => list(core_network_segment()()),
+        "NetworkFunctionGroups" => list(core_network_network_function_group()),
+        "Segments" => list(core_network_segment()),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1815,7 +1815,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
 
   """
@@ -1945,7 +1945,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_core_networks_response() :: %{
-        "CoreNetworks" => list(core_network_summary()()),
+        "CoreNetworks" => list(core_network_summary()),
         "NextToken" => String.t()
       }
 
@@ -1964,7 +1964,7 @@ defmodule AWS.NetworkManager do
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
         "SubnetArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2011,7 +2011,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       core_network_policy_exception() :: %{
-        "Errors" => list(core_network_policy_error()()),
+        "Errors" => list(core_network_policy_error()),
         "Message" => String.t()
       }
 
@@ -2037,7 +2037,7 @@ defmodule AWS.NetworkManager do
         "GlobalNetworkArn" => String.t(),
         "GlobalNetworkId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2059,7 +2059,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_links_response() :: %{
-        "Links" => list(link()()),
+        "Links" => list(link()),
         "NextToken" => String.t()
       }
 
@@ -2096,9 +2096,9 @@ defmodule AWS.NetworkManager do
       create_vpc_attachment_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Options") => vpc_options(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t(),
-        required("SubnetArns") => list(String.t()()),
+        required("SubnetArns") => list(String.t()),
         required("VpcArn") => String.t()
       }
 
@@ -2127,7 +2127,7 @@ defmodule AWS.NetworkManager do
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "PolicyDocument" => String.t(),
-        "PolicyErrors" => list(core_network_policy_error()()),
+        "PolicyErrors" => list(core_network_policy_error()),
         "PolicyVersionId" => integer()
       }
 
@@ -2184,7 +2184,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_link_associations_response() :: %{
-        "LinkAssociations" => list(link_association()()),
+        "LinkAssociations" => list(link_association()),
         "NextToken" => String.t()
       }
 
@@ -2215,7 +2215,7 @@ defmodule AWS.NetworkManager do
         optional("Model") => String.t(),
         optional("SerialNumber") => String.t(),
         optional("SiteId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Type") => String.t(),
         optional("Vendor") => String.t()
       }
@@ -2239,7 +2239,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       update_direct_connect_gateway_attachment_request() :: %{
-        optional("EdgeLocations") => list(String.t()())
+        optional("EdgeLocations") => list(String.t())
       }
 
   """
@@ -2371,7 +2371,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_devices_response() :: %{
-        "Devices" => list(device()()),
+        "Devices" => list(device()),
         "NextToken" => String.t()
       }
 
@@ -2519,7 +2519,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
@@ -2552,9 +2552,9 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       core_network_segment() :: %{
-        "EdgeLocations" => list(String.t()()),
+        "EdgeLocations" => list(String.t()),
         "Name" => String.t(),
-        "SharedSegments" => list(String.t()())
+        "SharedSegments" => list(String.t())
       }
 
   """
@@ -2579,7 +2579,7 @@ defmodule AWS.NetworkManager do
       proposed_segment_change() :: %{
         "AttachmentPolicyRuleNumber" => integer(),
         "SegmentName" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2623,7 +2623,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       core_network_network_function_group() :: %{
-        "EdgeLocations" => list(String.t()()),
+        "EdgeLocations" => list(String.t()),
         "Name" => String.t(),
         "Segments" => service_insertion_segments()
       }
@@ -2636,7 +2636,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_customer_gateway_associations_request() :: %{
-        optional("CustomerGatewayArns") => list(String.t()()),
+        optional("CustomerGatewayArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2660,7 +2660,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_customer_gateway_associations_response() :: %{
-        "CustomerGatewayAssociations" => list(customer_gateway_association()()),
+        "CustomerGatewayAssociations" => list(customer_gateway_association()),
         "NextToken" => String.t()
       }
 
@@ -2696,7 +2696,7 @@ defmodule AWS.NetworkManager do
         "ResourceArn" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2826,10 +2826,10 @@ defmodule AWS.NetworkManager do
         "CoreNetworkId" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "EdgeLocation" => String.t(),
-        "LastModificationErrors" => list(connect_peer_error()()),
+        "LastModificationErrors" => list(connect_peer_error()),
         "State" => list(any()),
         "SubnetArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -2853,7 +2853,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_links_request() :: %{
-        optional("LinkIds") => list(String.t()()),
+        optional("LinkIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Provider") => String.t(),
@@ -2916,7 +2916,7 @@ defmodule AWS.NetworkManager do
         "SerialNumber" => String.t(),
         "SiteId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => String.t(),
         "Vendor" => String.t()
       }
@@ -2982,7 +2982,7 @@ defmodule AWS.NetworkManager do
         "GlobalNetworkId" => String.t(),
         "OwnerAccountId" => String.t(),
         "State" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -3002,7 +3002,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_core_network_policy_versions_response() :: %{
-        "CoreNetworkPolicyVersions" => list(core_network_policy_version()()),
+        "CoreNetworkPolicyVersions" => list(core_network_policy_version()),
         "NextToken" => String.t()
       }
 
@@ -3014,7 +3014,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_connect_peers_response() :: %{
-        "ConnectPeers" => list(connect_peer_summary()()),
+        "ConnectPeers" => list(connect_peer_summary()),
         "NextToken" => String.t()
       }
 
@@ -3027,7 +3027,7 @@ defmodule AWS.NetworkManager do
 
       list_peerings_response() :: %{
         "NextToken" => String.t(),
-        "Peerings" => list(peering()())
+        "Peerings" => list(peering())
       }
 
   """
@@ -3079,7 +3079,7 @@ defmodule AWS.NetworkManager do
 
       get_sites_response() :: %{
         "NextToken" => String.t(),
-        "Sites" => list(site()())
+        "Sites" => list(site())
       }
 
   """
@@ -3111,7 +3111,7 @@ defmodule AWS.NetworkManager do
 
       get_transit_gateway_registrations_response() :: %{
         "NextToken" => String.t(),
-        "TransitGatewayRegistrations" => list(transit_gateway_registration()())
+        "TransitGatewayRegistrations" => list(transit_gateway_registration())
       }
 
   """
@@ -3147,7 +3147,7 @@ defmodule AWS.NetworkManager do
         optional("ConnectedLinkId") => String.t(),
         optional("Description") => String.t(),
         optional("LinkId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConnectedDeviceId") => String.t(),
         required("DeviceId") => String.t()
       }
@@ -3160,7 +3160,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       list_attachments_response() :: %{
-        "Attachments" => list(attachment()()),
+        "Attachments" => list(attachment()),
         "NextToken" => String.t()
       }
 
@@ -3209,7 +3209,7 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       organization_status() :: %{
-        "AccountStatusList" => list(account_status()()),
+        "AccountStatusList" => list(account_status()),
         "OrganizationAwsServiceAccessStatus" => String.t(),
         "OrganizationId" => String.t(),
         "SLRDeploymentStatus" => String.t()
@@ -3223,8 +3223,8 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       via() :: %{
-        "NetworkFunctionGroups" => list(network_function_group()()),
-        "WithEdgeOverrides" => list(edge_override()())
+        "NetworkFunctionGroups" => list(network_function_group()),
+        "WithEdgeOverrides" => list(edge_override())
       }
 
   """
@@ -3238,9 +3238,9 @@ defmodule AWS.NetworkManager do
         optional("BgpOptions") => bgp_options(),
         optional("ClientToken") => String.t(),
         optional("CoreNetworkAddress") => String.t(),
-        optional("InsideCidrBlocks") => list(String.t()()),
+        optional("InsideCidrBlocks") => list(String.t()),
         optional("SubnetArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConnectAttachmentId") => String.t(),
         required("PeerAddress") => String.t()
       }

@@ -122,7 +122,7 @@ defmodule AWS.OAM do
   ## Example:
 
       list_links_output() :: %{
-        "Items" => list(list_links_item()()),
+        "Items" => list(list_links_item()),
         "NextToken" => [String.t()]
       }
 
@@ -147,7 +147,7 @@ defmodule AWS.OAM do
   ## Example:
 
       list_attached_links_output() :: %{
-        "Items" => list(list_attached_links_item()()),
+        "Items" => list(list_attached_links_item()),
         "NextToken" => [String.t()]
       }
 
@@ -423,7 +423,7 @@ defmodule AWS.OAM do
   ## Example:
 
       list_sinks_output() :: %{
-        "Items" => list(list_sinks_item()()),
+        "Items" => list(list_sinks_item()),
         "NextToken" => [String.t()]
       }
 
@@ -435,7 +435,7 @@ defmodule AWS.OAM do
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """

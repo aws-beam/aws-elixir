@@ -22,7 +22,7 @@ defmodule AWS.Polly do
       synthesize_speech_input() :: %{
         optional("Engine") => list(any()),
         optional("LanguageCode") => list(any()),
-        optional("LexiconNames") => list(String.t()()),
+        optional("LexiconNames") => list(String.t()),
         optional("SampleRate") => String.t(),
         optional("SpeechMarkTypes") => list(list(any())()),
         optional("TextType") => list(any()),
@@ -51,7 +51,7 @@ defmodule AWS.Polly do
 
       describe_voices_output() :: %{
         "NextToken" => String.t(),
-        "Voices" => list(voice()())
+        "Voices" => list(voice())
       }
 
   """
@@ -117,7 +117,7 @@ defmodule AWS.Polly do
   ## Example:
 
       list_lexicons_output() :: %{
-        "Lexicons" => list(lexicon_description()()),
+        "Lexicons" => list(lexicon_description()),
         "NextToken" => String.t()
       }
 
@@ -166,7 +166,7 @@ defmodule AWS.Polly do
 
       list_speech_synthesis_tasks_output() :: %{
         "NextToken" => String.t(),
-        "SynthesisTasks" => list(synthesis_task()())
+        "SynthesisTasks" => list(synthesis_task())
       }
 
   """
@@ -322,7 +322,7 @@ defmodule AWS.Polly do
         "CreationTime" => non_neg_integer(),
         "Engine" => list(any()),
         "LanguageCode" => list(any()),
-        "LexiconNames" => list(String.t()()),
+        "LexiconNames" => list(String.t()),
         "OutputFormat" => list(any()),
         "OutputUri" => String.t(),
         "RequestCharacters" => integer(),
@@ -480,7 +480,7 @@ defmodule AWS.Polly do
       start_speech_synthesis_task_input() :: %{
         optional("Engine") => list(any()),
         optional("LanguageCode") => list(any()),
-        optional("LexiconNames") => list(String.t()()),
+        optional("LexiconNames") => list(String.t()),
         optional("OutputS3KeyPrefix") => String.t(),
         optional("SampleRate") => String.t(),
         optional("SnsTopicArn") => String.t(),

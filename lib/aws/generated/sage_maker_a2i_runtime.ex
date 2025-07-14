@@ -189,7 +189,7 @@ defmodule AWS.SageMakerA2IRuntime do
   ## Example:
 
       list_human_loops_response() :: %{
-        "HumanLoopSummaries" => list(human_loop_summary()()),
+        "HumanLoopSummaries" => list(human_loop_summary()),
         "NextToken" => String.t()
       }
 

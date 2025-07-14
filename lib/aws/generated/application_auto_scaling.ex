@@ -161,7 +161,7 @@ defmodule AWS.ApplicationAutoScaling do
       describe_scaling_policies_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("PolicyNames") => list(String.t()()),
+        optional("PolicyNames") => list(String.t()),
         optional("ResourceId") => String.t(),
         optional("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
@@ -246,7 +246,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       get_predictive_scaling_forecast_response() :: %{
         "CapacityForecast" => capacity_forecast(),
-        "LoadForecast" => list(load_forecast()()),
+        "LoadForecast" => list(load_forecast()),
         "UpdateTime" => non_neg_integer()
       }
       
@@ -271,7 +271,7 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       scaling_policy() :: %{
-        "Alarms" => list(alarm()()),
+        "Alarms" => list(alarm()),
         "CreationTime" => non_neg_integer(),
         "PolicyARN" => String.t(),
         "PolicyName" => String.t(),
@@ -304,7 +304,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scheduled_actions_response() :: %{
         "NextToken" => String.t(),
-        "ScheduledActions" => list(scheduled_action()())
+        "ScheduledActions" => list(scheduled_action())
       }
       
   """
@@ -319,7 +319,7 @@ defmodule AWS.ApplicationAutoScaling do
         optional("NextToken") => String.t(),
         optional("ResourceId") => String.t(),
         optional("ScalableDimension") => list(any()),
-        optional("ScheduledActionNames") => list(String.t()()),
+        optional("ScheduledActionNames") => list(String.t()),
         required("ServiceNamespace") => list(any())
       }
       
@@ -332,7 +332,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -355,9 +355,9 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       customized_metric_specification() :: %{
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "MetricName" => String.t(),
-        "Metrics" => list(target_tracking_metric_data_query()()),
+        "Metrics" => list(target_tracking_metric_data_query()),
         "Namespace" => String.t(),
         "Statistic" => list(any()),
         "Unit" => String.t()
@@ -372,7 +372,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scaling_activities_response() :: %{
         "NextToken" => String.t(),
-        "ScalingActivities" => list(scaling_activity()())
+        "ScalingActivities" => list(scaling_activity())
       }
       
   """
@@ -409,8 +409,8 @@ defmodule AWS.ApplicationAutoScaling do
       
       load_forecast() :: %{
         "MetricSpecification" => predictive_scaling_metric_specification(),
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
@@ -483,7 +483,7 @@ defmodule AWS.ApplicationAutoScaling do
         "Description" => String.t(),
         "Details" => String.t(),
         "EndTime" => non_neg_integer(),
-        "NotScaledReasons" => list(not_scaled_reason()()),
+        "NotScaledReasons" => list(not_scaled_reason()),
         "ResourceId" => String.t(),
         "ScalableDimension" => list(any()),
         "ServiceNamespace" => list(any()),
@@ -533,7 +533,7 @@ defmodule AWS.ApplicationAutoScaling do
         "Cooldown" => integer(),
         "MetricAggregationType" => list(any()),
         "MinAdjustmentMagnitude" => integer(),
-        "StepAdjustments" => list(step_adjustment()())
+        "StepAdjustments" => list(step_adjustment())
       }
       
   """
@@ -560,7 +560,7 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       target_tracking_metric() :: %{
-        "Dimensions" => list(target_tracking_metric_dimension()()),
+        "Dimensions" => list(target_tracking_metric_dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
@@ -585,7 +585,7 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       predictive_scaling_customized_metric_specification() :: %{
-        "MetricDataQueries" => list(predictive_scaling_metric_data_query()())
+        "MetricDataQueries" => list(predictive_scaling_metric_data_query())
       }
       
   """
@@ -596,7 +596,7 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       put_scaling_policy_response() :: %{
-        "Alarms" => list(alarm()()),
+        "Alarms" => list(alarm()),
         "PolicyARN" => String.t()
       }
       
@@ -637,7 +637,7 @@ defmodule AWS.ApplicationAutoScaling do
       describe_scalable_targets_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceIds") => list(String.t()()),
+        optional("ResourceIds") => list(String.t()),
         optional("ScalableDimension") => list(any()),
         required("ServiceNamespace") => list(any())
       }
@@ -651,7 +651,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scaling_policies_response() :: %{
         "NextToken" => String.t(),
-        "ScalingPolicies" => list(scaling_policy()())
+        "ScalingPolicies" => list(scaling_policy())
       }
       
   """
@@ -758,7 +758,7 @@ defmodule AWS.ApplicationAutoScaling do
       predictive_scaling_policy_configuration() :: %{
         "MaxCapacityBreachBehavior" => list(any()),
         "MaxCapacityBuffer" => integer(),
-        "MetricSpecifications" => list(predictive_scaling_metric_specification()()),
+        "MetricSpecifications" => list(predictive_scaling_metric_specification()),
         "Mode" => list(any()),
         "SchedulingBufferTime" => integer()
       }
@@ -882,7 +882,7 @@ defmodule AWS.ApplicationAutoScaling do
       
       describe_scalable_targets_response() :: %{
         "NextToken" => String.t(),
-        "ScalableTargets" => list(scalable_target()())
+        "ScalableTargets" => list(scalable_target())
       }
       
   """
@@ -908,8 +908,8 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       capacity_forecast() :: %{
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
@@ -934,7 +934,7 @@ defmodule AWS.ApplicationAutoScaling do
   ## Example:
       
       predictive_scaling_metric() :: %{
-        "Dimensions" => list(predictive_scaling_metric_dimension()()),
+        "Dimensions" => list(predictive_scaling_metric_dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
@@ -1096,7 +1096,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
@@ -1114,7 +1115,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -1136,7 +1138,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, deregister_scalable_target_errors()}
   def deregister_scalable_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterScalableTarget", input, options)
   end
@@ -1153,7 +1156,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scalable_targets_errors()}
   def describe_scalable_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalableTargets", input, options)
   end
@@ -1175,7 +1179,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
@@ -1197,7 +1202,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
@@ -1218,7 +1224,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -1244,7 +1251,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
@@ -1262,7 +1270,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1324,7 +1333,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -1365,7 +1375,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, put_scheduled_action_errors()}
   def put_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScheduledAction", input, options)
   end
@@ -1436,7 +1447,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, register_scalable_target_errors()}
   def register_scalable_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterScalableTarget", input, options)
   end
@@ -1473,7 +1485,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1490,7 +1503,8 @@ defmodule AWS.ApplicationAutoScaling do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

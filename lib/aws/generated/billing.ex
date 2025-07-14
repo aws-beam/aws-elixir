@@ -23,7 +23,7 @@ defmodule AWS.Billing do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("resourceTags") => list(resource_tag()())
+        required("resourceTags") => list(resource_tag())
       }
       
   """
@@ -35,7 +35,7 @@ defmodule AWS.Billing do
       
       list_billing_views_request() :: %{
         optional("activeTimeRange") => active_time_range(),
-        optional("arns") => list(String.t()()),
+        optional("arns") => list(String.t()),
         optional("billingViewTypes") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -76,7 +76,7 @@ defmodule AWS.Billing do
       
       list_source_views_for_billing_view_response() :: %{
         "nextToken" => String.t(),
-        "sourceViews" => list(String.t()())
+        "sourceViews" => list(String.t())
       }
       
   """
@@ -108,7 +108,7 @@ defmodule AWS.Billing do
       
       tag_values() :: %{
         "key" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -143,7 +143,7 @@ defmodule AWS.Billing do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("resourceTagKeys") => list(String.t()())
+        required("resourceTagKeys") => list(String.t())
       }
       
   """
@@ -157,9 +157,9 @@ defmodule AWS.Billing do
         optional("clientToken") => String.t(),
         optional("dataFilterExpression") => expression(),
         optional("description") => String.t(),
-        optional("resourceTags") => list(resource_tag()()),
+        optional("resourceTags") => list(resource_tag()),
         required("name") => String.t(),
-        required("sourceViews") => list(String.t()())
+        required("sourceViews") => list(String.t())
       }
       
   """
@@ -197,7 +197,7 @@ defmodule AWS.Billing do
       
       dimension_values() :: %{
         "key" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -248,7 +248,7 @@ defmodule AWS.Billing do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "resourceTags" => list(resource_tag()())
+        "resourceTags" => list(resource_tag())
       }
       
   """
@@ -370,7 +370,7 @@ defmodule AWS.Billing do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -428,7 +428,7 @@ defmodule AWS.Billing do
   ## Example:
       
       list_billing_views_response() :: %{
-        "billingViews" => list(billing_view_list_element()()),
+        "billingViews" => list(billing_view_list_element()),
         "nextToken" => String.t()
       }
       
@@ -545,7 +545,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, create_billing_view_errors()}
   def create_billing_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBillingView", input, options)
   end
@@ -559,7 +560,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, delete_billing_view_errors()}
   def delete_billing_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBillingView", input, options)
   end
@@ -573,7 +575,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, get_billing_view_errors()}
   def get_billing_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBillingView", input, options)
   end
@@ -588,7 +591,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -607,7 +611,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, list_billing_views_errors()}
   def list_billing_views(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillingViews", input, options)
   end
@@ -626,7 +631,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, list_source_views_for_billing_view_errors()}
   def list_source_views_for_billing_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceViewsForBillingView", input, options)
   end
@@ -640,7 +646,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -655,7 +662,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -672,7 +680,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -686,7 +695,8 @@ defmodule AWS.Billing do
           | {:error, term()}
           | {:error, update_billing_view_errors()}
   def update_billing_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBillingView", input, options)
   end

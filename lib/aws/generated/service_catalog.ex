@@ -95,7 +95,7 @@ defmodule AWS.ServiceCatalog do
       copy_product_input() :: %{
         optional("AcceptLanguage") => String.t(),
         optional("CopyOptions") => list(list(any())()),
-        optional("SourceProvisioningArtifactIdentifiers") => list(map()()),
+        optional("SourceProvisioningArtifactIdentifiers") => list(map()),
         optional("TargetProductId") => String.t(),
         optional("TargetProductName") => String.t(),
         required("IdempotencyToken") => String.t(),
@@ -154,7 +154,7 @@ defmodule AWS.ServiceCatalog do
       
       list_provisioning_artifacts_for_service_action_output() :: %{
         "NextPageToken" => String.t(),
-        "ProvisioningArtifactViews" => list(provisioning_artifact_view()())
+        "ProvisioningArtifactViews" => list(provisioning_artifact_view())
       }
       
   """
@@ -262,7 +262,7 @@ defmodule AWS.ServiceCatalog do
       
       parameter_constraints() :: %{
         "AllowedPattern" => String.t(),
-        "AllowedValues" => list(String.t()()),
+        "AllowedValues" => list(String.t()),
         "ConstraintDescription" => String.t(),
         "MaxLength" => String.t(),
         "MaxValue" => String.t(),
@@ -319,10 +319,10 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_product_output() :: %{
-        "Budgets" => list(budget_detail()()),
-        "LaunchPaths" => list(launch_path()()),
+        "Budgets" => list(budget_detail()),
+        "LaunchPaths" => list(launch_path()),
         "ProductViewSummary" => product_view_summary(),
-        "ProvisioningArtifacts" => list(provisioning_artifact()())
+        "ProvisioningArtifacts" => list(provisioning_artifact())
       }
       
   """
@@ -334,7 +334,7 @@ defmodule AWS.ServiceCatalog do
       
       get_provisioned_product_outputs_output() :: %{
         "NextPageToken" => String.t(),
-        "Outputs" => list(record_output()())
+        "Outputs" => list(record_output())
       }
       
   """
@@ -382,13 +382,13 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_provisioning_parameters_output() :: %{
-        "ConstraintSummaries" => list(constraint_summary()()),
-        "ProvisioningArtifactOutputKeys" => list(provisioning_artifact_output()()),
-        "ProvisioningArtifactOutputs" => list(provisioning_artifact_output()()),
-        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()()),
+        "ConstraintSummaries" => list(constraint_summary()),
+        "ProvisioningArtifactOutputKeys" => list(provisioning_artifact_output()),
+        "ProvisioningArtifactOutputs" => list(provisioning_artifact_output()),
+        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
         "ProvisioningArtifactPreferences" => provisioning_artifact_preferences(),
-        "TagOptions" => list(tag_option_summary()()),
-        "UsageInstructions" => list(usage_instruction()())
+        "TagOptions" => list(tag_option_summary()),
+        "UsageInstructions" => list(usage_instruction())
       }
       
   """
@@ -420,7 +420,7 @@ defmodule AWS.ServiceCatalog do
       
       describe_product_view_output() :: %{
         "ProductViewSummary" => product_view_summary(),
-        "ProvisioningArtifacts" => list(provisioning_artifact()())
+        "ProvisioningArtifacts" => list(provisioning_artifact())
       }
       
   """
@@ -518,8 +518,8 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       share_details() :: %{
-        "ShareErrors" => list(share_error()()),
-        "SuccessfulShares" => list(String.t()())
+        "ShareErrors" => list(share_error()),
+        "SuccessfulShares" => list(String.t())
       }
       
   """
@@ -598,10 +598,10 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_portfolio_output() :: %{
-        "Budgets" => list(budget_detail()()),
+        "Budgets" => list(budget_detail()),
         "PortfolioDetail" => portfolio_detail(),
-        "TagOptions" => list(tag_option_detail()()),
-        "Tags" => list(tag()())
+        "TagOptions" => list(tag_option_detail()),
+        "Tags" => list(tag())
       }
       
   """
@@ -613,7 +613,7 @@ defmodule AWS.ServiceCatalog do
       
       list_organization_portfolio_access_output() :: %{
         "NextPageToken" => String.t(),
-        "OrganizationNodes" => list(organization_node()())
+        "OrganizationNodes" => list(organization_node())
       }
       
   """
@@ -625,7 +625,7 @@ defmodule AWS.ServiceCatalog do
       
       search_products_as_admin_output() :: %{
         "NextPageToken" => String.t(),
-        "ProductViewDetails" => list(product_view_detail()())
+        "ProductViewDetails" => list(product_view_detail())
       }
       
   """
@@ -719,7 +719,7 @@ defmodule AWS.ServiceCatalog do
       
       batch_disassociate_service_action_from_provisioning_artifact_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        required("ServiceActionAssociations") => list(service_action_association()())
+        required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
@@ -791,7 +791,7 @@ defmodule AWS.ServiceCatalog do
       
       update_portfolio_output() :: %{
         "PortfolioDetail" => portfolio_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -815,7 +815,7 @@ defmodule AWS.ServiceCatalog do
       describe_provisioning_artifact_output() :: %{
         "Info" => map(),
         "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()()),
+        "ProvisioningArtifactParameters" => list(provisioning_artifact_parameter()),
         "Status" => list(any())
       }
       
@@ -864,7 +864,7 @@ defmodule AWS.ServiceCatalog do
       
       list_principals_for_portfolio_output() :: %{
         "NextPageToken" => String.t(),
-        "Principals" => list(principal()())
+        "Principals" => list(principal())
       }
       
   """
@@ -899,7 +899,7 @@ defmodule AWS.ServiceCatalog do
       
       batch_associate_service_action_with_provisioning_artifact_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        required("ServiceActionAssociations") => list(service_action_association()())
+        required("ServiceActionAssociations") => list(service_action_association())
       }
       
   """
@@ -968,7 +968,7 @@ defmodule AWS.ServiceCatalog do
       
       update_product_output() :: %{
         "ProductViewDetail" => product_view_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1091,9 +1091,9 @@ defmodule AWS.ServiceCatalog do
         optional("ProvisionedProductName") => String.t(),
         optional("ProvisioningArtifactId") => String.t(),
         optional("ProvisioningArtifactName") => String.t(),
-        optional("ProvisioningParameters") => list(update_provisioning_parameter()()),
+        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
         optional("ProvisioningPreferences") => update_provisioning_preferences(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("UpdateToken") => String.t()
       }
       
@@ -1146,7 +1146,7 @@ defmodule AWS.ServiceCatalog do
       
       list_accepted_portfolio_shares_output() :: %{
         "NextPageToken" => String.t(),
-        "PortfolioDetails" => list(portfolio_detail()())
+        "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
@@ -1186,7 +1186,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_budgets_for_resource_output() :: %{
-        "Budgets" => list(budget_detail()()),
+        "Budgets" => list(budget_detail()),
         "NextPageToken" => String.t()
       }
       
@@ -1320,7 +1320,7 @@ defmodule AWS.ServiceCatalog do
         "ProvisioningArtifactName" => String.t(),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => String.t(),
         "UserArn" => String.t(),
         "UserArnSession" => String.t()
@@ -1351,7 +1351,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       batch_associate_service_action_with_provisioning_artifact_output() :: %{
-        "FailedServiceActionAssociations" => list(failed_service_action_association()())
+        "FailedServiceActionAssociations" => list(failed_service_action_association())
       }
       
   """
@@ -1365,7 +1365,7 @@ defmodule AWS.ServiceCatalog do
       
       create_portfolio_output() :: %{
         "PortfolioDetail" => portfolio_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1440,7 +1440,7 @@ defmodule AWS.ServiceCatalog do
       
       list_portfolios_output() :: %{
         "NextPageToken" => String.t(),
-        "PortfolioDetails" => list(portfolio_detail()())
+        "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
@@ -1453,7 +1453,7 @@ defmodule AWS.ServiceCatalog do
       describe_record_output() :: %{
         "NextPageToken" => String.t(),
         "RecordDetail" => record_detail(),
-        "RecordOutputs" => list(record_output()())
+        "RecordOutputs" => list(record_output())
       }
       
   """
@@ -1476,7 +1476,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_provisioned_product_output() :: %{
-        "CloudWatchDashboards" => list(cloud_watch_dashboard()()),
+        "CloudWatchDashboards" => list(cloud_watch_dashboard()),
         "ProvisionedProductDetail" => provisioned_product_detail()
       }
       
@@ -1490,7 +1490,7 @@ defmodule AWS.ServiceCatalog do
       create_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DisplayName") => String.t(),
         required("IdempotencyToken") => String.t(),
         required("ProviderName") => String.t()
@@ -1516,10 +1516,10 @@ defmodule AWS.ServiceCatalog do
       
       create_provisioned_product_plan_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()()),
+        optional("NotificationArns") => list(String.t()),
         optional("PathId") => String.t(),
-        optional("ProvisioningParameters") => list(update_provisioning_parameter()()),
-        optional("Tags") => list(tag()()),
+        optional("ProvisioningParameters") => list(update_provisioning_parameter()),
+        optional("Tags") => list(tag()),
         required("IdempotencyToken") => String.t(),
         required("PlanName") => String.t(),
         required("PlanType") => list(any()),
@@ -1549,7 +1549,7 @@ defmodule AWS.ServiceCatalog do
       
       list_provisioned_product_plans_output() :: %{
         "NextPageToken" => String.t(),
-        "ProvisionedProductPlans" => list(provisioned_product_plan_summary()())
+        "ProvisionedProductPlans" => list(provisioned_product_plan_summary())
       }
       
   """
@@ -1599,7 +1599,7 @@ defmodule AWS.ServiceCatalog do
       
       list_service_actions_for_provisioning_artifact_output() :: %{
         "NextPageToken" => String.t(),
-        "ServiceActionSummaries" => list(service_action_summary()())
+        "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
@@ -1625,7 +1625,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       share_error() :: %{
-        "Accounts" => list(String.t()()),
+        "Accounts" => list(String.t()),
         "Error" => String.t(),
         "Message" => String.t()
       }
@@ -1674,7 +1674,7 @@ defmodule AWS.ServiceCatalog do
       
       describe_portfolio_shares_output() :: %{
         "NextPageToken" => String.t(),
-        "PortfolioShareDetails" => list(portfolio_share_detail()())
+        "PortfolioShareDetails" => list(portfolio_share_detail())
       }
       
   """
@@ -1721,16 +1721,16 @@ defmodule AWS.ServiceCatalog do
       
       provision_product_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        optional("NotificationArns") => list(String.t()()),
+        optional("NotificationArns") => list(String.t()),
         optional("PathId") => String.t(),
         optional("PathName") => String.t(),
         optional("ProductId") => String.t(),
         optional("ProductName") => String.t(),
         optional("ProvisioningArtifactId") => String.t(),
         optional("ProvisioningArtifactName") => String.t(),
-        optional("ProvisioningParameters") => list(provisioning_parameter()()),
+        optional("ProvisioningParameters") => list(provisioning_parameter()),
         optional("ProvisioningPreferences") => provisioning_preferences(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ProvisionToken") => String.t(),
         required("ProvisionedProductName") => String.t()
       }
@@ -1743,7 +1743,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_launch_paths_output() :: %{
-        "LaunchPathSummaries" => list(launch_path_summary()()),
+        "LaunchPathSummaries" => list(launch_path_summary()),
         "NextPageToken" => String.t()
       }
       
@@ -1757,7 +1757,7 @@ defmodule AWS.ServiceCatalog do
       describe_provisioned_product_plan_output() :: %{
         "NextPageToken" => String.t(),
         "ProvisionedProductPlanDetails" => provisioned_product_plan_details(),
-        "ResourceChanges" => list(resource_change()())
+        "ResourceChanges" => list(resource_change())
       }
       
   """
@@ -1780,7 +1780,7 @@ defmodule AWS.ServiceCatalog do
       
       list_resources_for_tag_option_output() :: %{
         "PageToken" => String.t(),
-        "ResourceDetails" => list(resource_detail()())
+        "ResourceDetails" => list(resource_detail())
       }
       
   """
@@ -1819,7 +1819,7 @@ defmodule AWS.ServiceCatalog do
       create_product_output() :: %{
         "ProductViewDetail" => product_view_detail(),
         "ProvisioningArtifactDetail" => provisioning_artifact_detail(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1845,7 +1845,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       batch_disassociate_service_action_from_provisioning_artifact_output() :: %{
-        "FailedServiceActionAssociations" => list(failed_service_action_association()())
+        "FailedServiceActionAssociations" => list(failed_service_action_association())
       }
       
   """
@@ -1866,7 +1866,7 @@ defmodule AWS.ServiceCatalog do
         optional("SupportDescription") => String.t(),
         optional("SupportEmail") => String.t(),
         optional("SupportUrl") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IdempotencyToken") => String.t(),
         required("Name") => String.t(),
         required("Owner") => String.t(),
@@ -1989,7 +1989,7 @@ defmodule AWS.ServiceCatalog do
       
       list_provisioning_artifacts_output() :: %{
         "NextPageToken" => String.t(),
-        "ProvisioningArtifactDetails" => list(provisioning_artifact_detail()())
+        "ProvisioningArtifactDetails" => list(provisioning_artifact_detail())
       }
       
   """
@@ -2000,7 +2000,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       execution_parameter() :: %{
-        "DefaultValues" => list(String.t()()),
+        "DefaultValues" => list(String.t()),
         "Name" => String.t(),
         "Type" => String.t()
       }
@@ -2059,13 +2059,13 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       update_provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()()),
+        "StackSetAccounts" => list(String.t()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
         "StackSetOperationType" => list(any()),
-        "StackSetRegions" => list(String.t()())
+        "StackSetRegions" => list(String.t())
       }
       
   """
@@ -2098,7 +2098,7 @@ defmodule AWS.ServiceCatalog do
       
       list_tag_options_output() :: %{
         "PageToken" => String.t(),
-        "TagOptionDetails" => list(tag_option_detail()())
+        "TagOptionDetails" => list(tag_option_detail())
       }
       
   """
@@ -2217,7 +2217,7 @@ defmodule AWS.ServiceCatalog do
       
       notify_update_provisioned_product_engine_workflow_result_input() :: %{
         optional("FailureReason") => String.t(),
-        optional("Outputs") => list(record_output()()),
+        optional("Outputs") => list(record_output()),
         required("IdempotencyToken") => String.t(),
         required("RecordId") => String.t(),
         required("Status") => list(any()),
@@ -2232,7 +2232,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_portfolio_access_output() :: %{
-        "AccountIds" => list(String.t()()),
+        "AccountIds" => list(String.t()),
         "NextPageToken" => String.t()
       }
       
@@ -2294,7 +2294,7 @@ defmodule AWS.ServiceCatalog do
       
       list_service_actions_output() :: %{
         "NextPageToken" => String.t(),
-        "ServiceActionSummaries" => list(service_action_summary()())
+        "ServiceActionSummaries" => list(service_action_summary())
       }
       
   """
@@ -2329,7 +2329,7 @@ defmodule AWS.ServiceCatalog do
       
       list_portfolios_for_product_output() :: %{
         "NextPageToken" => String.t(),
-        "PortfolioDetails" => list(portfolio_detail()())
+        "PortfolioDetails" => list(portfolio_detail())
       }
       
   """
@@ -2341,11 +2341,11 @@ defmodule AWS.ServiceCatalog do
       
       update_portfolio_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        optional("AddTags") => list(tag()()),
+        optional("AddTags") => list(tag()),
         optional("Description") => String.t(),
         optional("DisplayName") => String.t(),
         optional("ProviderName") => String.t(),
-        optional("RemoveTags") => list(String.t()()),
+        optional("RemoveTags") => list(String.t()),
         required("Id") => String.t()
       }
       
@@ -2385,7 +2385,7 @@ defmodule AWS.ServiceCatalog do
       
       tag_option_summary() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2396,7 +2396,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       list_constraints_for_portfolio_output() :: %{
-        "ConstraintDetails" => list(constraint_detail()()),
+        "ConstraintDetails" => list(constraint_detail()),
         "NextPageToken" => String.t()
       }
       
@@ -2637,7 +2637,7 @@ defmodule AWS.ServiceCatalog do
       search_products_output() :: %{
         "NextPageToken" => String.t(),
         "ProductViewAggregations" => map(),
-        "ProductViewSummaries" => list(product_view_summary()())
+        "ProductViewSummaries" => list(product_view_summary())
       }
       
   """
@@ -2648,8 +2648,8 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       provisioning_artifact_preferences() :: %{
-        "StackSetAccounts" => list(String.t()()),
-        "StackSetRegions" => list(String.t()())
+        "StackSetAccounts" => list(String.t()),
+        "StackSetRegions" => list(String.t())
       }
       
   """
@@ -2747,7 +2747,7 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_service_action_execution_parameters_output() :: %{
-        "ServiceActionParameters" => list(execution_parameter()())
+        "ServiceActionParameters" => list(execution_parameter())
       }
       
   """
@@ -2759,7 +2759,7 @@ defmodule AWS.ServiceCatalog do
       
       get_provisioned_product_outputs_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        optional("OutputKeys") => list(String.t()()),
+        optional("OutputKeys") => list(String.t()),
         optional("PageSize") => integer(),
         optional("PageToken") => String.t(),
         optional("ProvisionedProductId") => String.t(),
@@ -2789,7 +2789,7 @@ defmodule AWS.ServiceCatalog do
       
       search_provisioned_products_output() :: %{
         "NextPageToken" => String.t(),
-        "ProvisionedProducts" => list(provisioned_product_attribute()()),
+        "ProvisionedProducts" => list(provisioned_product_attribute()),
         "TotalResultsCount" => integer()
       }
       
@@ -2826,7 +2826,7 @@ defmodule AWS.ServiceCatalog do
       
       notify_provision_product_engine_workflow_result_input() :: %{
         optional("FailureReason") => String.t(),
-        optional("Outputs") => list(record_output()()),
+        optional("Outputs") => list(record_output()),
         optional("ResourceIdentifier") => engine_workflow_resource_identifier(),
         required("IdempotencyToken") => String.t(),
         required("RecordId") => String.t(),
@@ -2863,9 +2863,9 @@ defmodule AWS.ServiceCatalog do
         "ProvisionedProductName" => String.t(),
         "ProvisionedProductType" => String.t(),
         "ProvisioningArtifactId" => String.t(),
-        "RecordErrors" => list(record_error()()),
+        "RecordErrors" => list(record_error()),
         "RecordId" => String.t(),
-        "RecordTags" => list(record_tag()()),
+        "RecordTags" => list(record_tag()),
         "RecordType" => String.t(),
         "Status" => list(any()),
         "UpdatedTime" => non_neg_integer()
@@ -2952,7 +2952,7 @@ defmodule AWS.ServiceCatalog do
       
       list_stack_instances_for_provisioned_product_output() :: %{
         "NextPageToken" => String.t(),
-        "StackInstances" => list(stack_instance()())
+        "StackInstances" => list(stack_instance())
       }
       
   """
@@ -2990,7 +2990,7 @@ defmodule AWS.ServiceCatalog do
       
       scan_provisioned_products_output() :: %{
         "NextPageToken" => String.t(),
-        "ProvisionedProducts" => list(provisioned_product_detail()())
+        "ProvisionedProducts" => list(provisioned_product_detail())
       }
       
   """
@@ -3061,7 +3061,7 @@ defmodule AWS.ServiceCatalog do
       
       list_record_history_output() :: %{
         "NextPageToken" => String.t(),
-        "RecordDetails" => list(record_detail()())
+        "RecordDetails" => list(record_detail())
       }
       
   """
@@ -3073,7 +3073,7 @@ defmodule AWS.ServiceCatalog do
       
       resource_change() :: %{
         "Action" => list(any()),
-        "Details" => list(resource_change_detail()()),
+        "Details" => list(resource_change_detail()),
         "LogicalResourceId" => String.t(),
         "PhysicalResourceId" => String.t(),
         "Replacement" => list(any()),
@@ -3101,10 +3101,10 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       launch_path_summary() :: %{
-        "ConstraintSummaries" => list(constraint_summary()()),
+        "ConstraintSummaries" => list(constraint_summary()),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3152,11 +3152,11 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       describe_product_as_admin_output() :: %{
-        "Budgets" => list(budget_detail()()),
+        "Budgets" => list(budget_detail()),
         "ProductViewDetail" => product_view_detail(),
-        "ProvisioningArtifactSummaries" => list(provisioning_artifact_summary()()),
-        "TagOptions" => list(tag_option_detail()()),
-        "Tags" => list(tag()())
+        "ProvisioningArtifactSummaries" => list(provisioning_artifact_summary()),
+        "TagOptions" => list(tag_option_detail()),
+        "Tags" => list(tag())
       }
       
   """
@@ -3168,12 +3168,12 @@ defmodule AWS.ServiceCatalog do
       
       update_product_input() :: %{
         optional("AcceptLanguage") => String.t(),
-        optional("AddTags") => list(tag()()),
+        optional("AddTags") => list(tag()),
         optional("Description") => String.t(),
         optional("Distributor") => String.t(),
         optional("Name") => String.t(),
         optional("Owner") => String.t(),
-        optional("RemoveTags") => list(String.t()()),
+        optional("RemoveTags") => list(String.t()),
         optional("SourceConnection") => source_connection(),
         optional("SupportDescription") => String.t(),
         optional("SupportEmail") => String.t(),
@@ -3205,7 +3205,7 @@ defmodule AWS.ServiceCatalog do
       
       provisioned_product_plan_details() :: %{
         "CreatedTime" => non_neg_integer(),
-        "NotificationArns" => list(String.t()()),
+        "NotificationArns" => list(String.t()),
         "PathId" => String.t(),
         "PlanId" => String.t(),
         "PlanName" => String.t(),
@@ -3214,10 +3214,10 @@ defmodule AWS.ServiceCatalog do
         "ProvisionProductId" => String.t(),
         "ProvisionProductName" => String.t(),
         "ProvisioningArtifactId" => String.t(),
-        "ProvisioningParameters" => list(update_provisioning_parameter()()),
+        "ProvisioningParameters" => list(update_provisioning_parameter()),
         "Status" => list(any()),
         "StatusMessage" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UpdatedTime" => non_neg_integer()
       }
       
@@ -3244,12 +3244,12 @@ defmodule AWS.ServiceCatalog do
   ## Example:
       
       provisioning_preferences() :: %{
-        "StackSetAccounts" => list(String.t()()),
+        "StackSetAccounts" => list(String.t()),
         "StackSetFailureToleranceCount" => integer(),
         "StackSetFailureTolerancePercentage" => integer(),
         "StackSetMaxConcurrencyCount" => integer(),
         "StackSetMaxConcurrencyPercentage" => integer(),
-        "StackSetRegions" => list(String.t()())
+        "StackSetRegions" => list(String.t())
       }
       
   """
@@ -3653,7 +3653,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, accept_portfolio_share_errors()}
   def accept_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptPortfolioShare", input, options)
   end
@@ -3667,7 +3668,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_budget_with_resource_errors()}
   def associate_budget_with_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateBudgetWithResource", input, options)
   end
@@ -3710,7 +3712,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_principal_with_portfolio_errors()}
   def associate_principal_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociatePrincipalWithPortfolio", input, options)
   end
@@ -3726,7 +3729,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_product_with_portfolio_errors()}
   def associate_product_with_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProductWithPortfolio", input, options)
   end
@@ -3748,7 +3752,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3772,7 +3777,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, associate_tag_option_with_resource_errors()}
   def associate_tag_option_with_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateTagOptionWithResource", input, options)
   end
@@ -3794,7 +3800,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3823,7 +3830,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3853,7 +3861,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, copy_product_errors()}
   def copy_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyProduct", input, options)
   end
@@ -3869,7 +3878,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_constraint_errors()}
   def create_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConstraint", input, options)
   end
@@ -3885,7 +3895,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_errors()}
   def create_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePortfolio", input, options)
   end
@@ -3934,7 +3945,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_portfolio_share_errors()}
   def create_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePortfolioShare", input, options)
   end
@@ -3955,7 +3967,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_product_errors()}
   def create_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProduct", input, options)
   end
@@ -3983,7 +3996,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioned_product_plan_errors()}
   def create_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProvisionedProductPlan", input, options)
   end
@@ -4006,7 +4020,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_provisioning_artifact_errors()}
   def create_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProvisioningArtifact", input, options)
   end
@@ -4020,7 +4035,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_service_action_errors()}
   def create_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServiceAction", input, options)
   end
@@ -4034,7 +4050,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, create_tag_option_errors()}
   def create_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTagOption", input, options)
   end
@@ -4050,7 +4067,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_constraint_errors()}
   def delete_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConstraint", input, options)
   end
@@ -4069,7 +4087,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_errors()}
   def delete_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePortfolio", input, options)
   end
@@ -4091,7 +4110,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_portfolio_share_errors()}
   def delete_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePortfolioShare", input, options)
   end
@@ -4110,7 +4130,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_product_errors()}
   def delete_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProduct", input, options)
   end
@@ -4124,7 +4145,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioned_product_plan_errors()}
   def delete_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProvisionedProductPlan", input, options)
   end
@@ -4145,7 +4167,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_provisioning_artifact_errors()}
   def delete_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProvisioningArtifact", input, options)
   end
@@ -4159,7 +4182,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_service_action_errors()}
   def delete_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceAction", input, options)
   end
@@ -4175,7 +4199,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, delete_tag_option_errors()}
   def delete_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTagOption", input, options)
   end
@@ -4189,7 +4214,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_constraint_errors()}
   def describe_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConstraint", input, options)
   end
@@ -4203,7 +4229,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_copy_product_status_errors()}
   def describe_copy_product_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCopyProductStatus", input, options)
   end
@@ -4219,7 +4246,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_errors()}
   def describe_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolio", input, options)
   end
@@ -4236,7 +4264,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_share_status_errors()}
   def describe_portfolio_share_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShareStatus", input, options)
   end
@@ -4258,7 +4287,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_portfolio_shares_errors()}
   def describe_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePortfolioShares", input, options)
   end
@@ -4278,7 +4308,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_errors()}
   def describe_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProduct", input, options)
   end
@@ -4294,7 +4325,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_as_admin_errors()}
   def describe_product_as_admin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProductAsAdmin", input, options)
   end
@@ -4308,7 +4340,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_product_view_errors()}
   def describe_product_view(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProductView", input, options)
   end
@@ -4322,7 +4355,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_errors()}
   def describe_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProduct", input, options)
   end
@@ -4340,7 +4374,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioned_product_plan_errors()}
   def describe_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisionedProductPlan", input, options)
   end
@@ -4355,7 +4390,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_artifact_errors()}
   def describe_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningArtifact", input, options)
   end
@@ -4380,7 +4416,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_provisioning_parameters_errors()}
   def describe_provisioning_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProvisioningParameters", input, options)
   end
@@ -4404,7 +4441,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_record_errors()}
   def describe_record(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecord", input, options)
   end
@@ -4418,7 +4456,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_errors()}
   def describe_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceAction", input, options)
   end
@@ -4437,7 +4476,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_service_action_execution_parameters_errors()}
   def describe_service_action_execution_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceActionExecutionParameters", input, options)
   end
@@ -4451,7 +4491,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, describe_tag_option_errors()}
   def describe_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTagOption", input, options)
   end
@@ -4487,7 +4528,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disable_aws_organizations_access_errors()}
   def disable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableAWSOrganizationsAccess", input, options)
   end
@@ -4505,7 +4547,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_budget_from_resource_errors()}
   def disassociate_budget_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateBudgetFromResource", input, options)
   end
@@ -4550,7 +4593,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_principal_from_portfolio_errors()}
   def disassociate_principal_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociatePrincipalFromPortfolio", input, options)
   end
@@ -4570,7 +4614,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_product_from_portfolio_errors()}
   def disassociate_product_from_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateProductFromPortfolio", input, options)
   end
@@ -4593,7 +4638,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4617,7 +4663,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, disassociate_tag_option_from_resource_errors()}
   def disassociate_tag_option_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateTagOptionFromResource", input, options)
   end
@@ -4657,7 +4704,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, enable_aws_organizations_access_errors()}
   def enable_aws_organizations_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableAWSOrganizationsAccess", input, options)
   end
@@ -4672,7 +4720,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_plan_errors()}
   def execute_provisioned_product_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductPlan", input, options)
   end
@@ -4690,7 +4739,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, execute_provisioned_product_service_action_errors()}
   def execute_provisioned_product_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteProvisionedProductServiceAction", input, options)
   end
@@ -4711,7 +4761,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_aws_organizations_access_status_errors()}
   def get_aws_organizations_access_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAWSOrganizationsAccessStatus", input, options)
   end
@@ -4727,7 +4778,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, get_provisioned_product_outputs_errors()}
   def get_provisioned_product_outputs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProvisionedProductOutputs", input, options)
   end
@@ -4773,7 +4825,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, import_as_provisioned_product_errors()}
   def import_as_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportAsProvisionedProduct", input, options)
   end
@@ -4792,7 +4845,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_accepted_portfolio_shares_errors()}
   def list_accepted_portfolio_shares(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAcceptedPortfolioShares", input, options)
   end
@@ -4806,7 +4860,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_budgets_for_resource_errors()}
   def list_budgets_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBudgetsForResource", input, options)
   end
@@ -4820,7 +4875,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_constraints_for_portfolio_errors()}
   def list_constraints_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConstraintsForPortfolio", input, options)
   end
@@ -4856,7 +4912,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_launch_paths_errors()}
   def list_launch_paths(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLaunchPaths", input, options)
   end
@@ -4881,7 +4938,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_organization_portfolio_access_errors()}
   def list_organization_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOrganizationPortfolioAccess", input, options)
   end
@@ -4899,7 +4957,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolio_access_errors()}
   def list_portfolio_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfolioAccess", input, options)
   end
@@ -4913,7 +4972,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_errors()}
   def list_portfolios(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfolios", input, options)
   end
@@ -4927,7 +4987,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_portfolios_for_product_errors()}
   def list_portfolios_for_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPortfoliosForProduct", input, options)
   end
@@ -4942,7 +5003,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_principals_for_portfolio_errors()}
   def list_principals_for_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPrincipalsForPortfolio", input, options)
   end
@@ -4957,7 +5019,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioned_product_plans_errors()}
   def list_provisioned_product_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProvisionedProductPlans", input, options)
   end
@@ -4972,7 +5035,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_errors()}
   def list_provisioning_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProvisioningArtifacts", input, options)
   end
@@ -4991,7 +5055,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_provisioning_artifacts_for_service_action_errors()}
   def list_provisioning_artifacts_for_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5011,7 +5076,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_record_history_errors()}
   def list_record_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecordHistory", input, options)
   end
@@ -5025,7 +5091,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_resources_for_tag_option_errors()}
   def list_resources_for_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesForTagOption", input, options)
   end
@@ -5039,7 +5106,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_errors()}
   def list_service_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceActions", input, options)
   end
@@ -5058,7 +5126,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_service_actions_for_provisioning_artifact_errors()}
   def list_service_actions_for_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5086,7 +5155,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_stack_instances_for_provisioned_product_errors()}
   def list_stack_instances_for_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStackInstancesForProvisionedProduct", input, options)
   end
@@ -5100,7 +5170,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, list_tag_options_errors()}
   def list_tag_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagOptions", input, options)
   end
@@ -5120,7 +5191,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, notify_provision_product_engine_workflow_result_errors()}
   def notify_provision_product_engine_workflow_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5150,7 +5222,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5180,7 +5253,8 @@ defmodule AWS.ServiceCatalog do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5232,7 +5306,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, provision_product_errors()}
   def provision_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionProduct", input, options)
   end
@@ -5246,7 +5321,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, reject_portfolio_share_errors()}
   def reject_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectPortfolioShare", input, options)
   end
@@ -5262,7 +5338,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, scan_provisioned_products_errors()}
   def scan_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ScanProvisionedProducts", input, options)
   end
@@ -5276,7 +5353,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_errors()}
   def search_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProducts", input, options)
   end
@@ -5290,7 +5368,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_products_as_admin_errors()}
   def search_products_as_admin(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProductsAsAdmin", input, options)
   end
@@ -5305,7 +5384,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, search_provisioned_products_errors()}
   def search_provisioned_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchProvisionedProducts", input, options)
   end
@@ -5324,7 +5404,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, terminate_provisioned_product_errors()}
   def terminate_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateProvisionedProduct", input, options)
   end
@@ -5338,7 +5419,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_constraint_errors()}
   def update_constraint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConstraint", input, options)
   end
@@ -5354,7 +5436,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_errors()}
   def update_portfolio(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePortfolio", input, options)
   end
@@ -5400,7 +5483,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_portfolio_share_errors()}
   def update_portfolio_share(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePortfolioShare", input, options)
   end
@@ -5414,7 +5498,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_product_errors()}
   def update_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProduct", input, options)
   end
@@ -5435,7 +5520,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_errors()}
   def update_provisioned_product(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProduct", input, options)
   end
@@ -5453,7 +5539,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioned_product_properties_errors()}
   def update_provisioned_product_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisionedProductProperties", input, options)
   end
@@ -5471,7 +5558,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_provisioning_artifact_errors()}
   def update_provisioning_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProvisioningArtifact", input, options)
   end
@@ -5485,7 +5573,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_service_action_errors()}
   def update_service_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAction", input, options)
   end
@@ -5499,7 +5588,8 @@ defmodule AWS.ServiceCatalog do
           | {:error, term()}
           | {:error, update_tag_option_errors()}
   def update_tag_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTagOption", input, options)
   end

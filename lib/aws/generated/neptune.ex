@@ -47,13 +47,13 @@ defmodule AWS.Neptune do
   ## Example:
       
       restore_db_cluster_from_snapshot_message() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DBClusterParameterGroupName") => String.t(),
         optional("DBSubnetGroupName") => String.t(),
         optional("DatabaseName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EngineVersion") => String.t(),
         optional("KmsKeyId") => String.t(),
@@ -61,8 +61,8 @@ defmodule AWS.Neptune do
         optional("Port") => integer(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("Engine") => String.t(),
         required("SnapshotIdentifier") => String.t()
@@ -99,7 +99,7 @@ defmodule AWS.Neptune do
       
       db_parameter_group_details() :: %{
         optional("Marker") => String.t(),
-        optional("Parameters") => list(parameter()())
+        optional("Parameters") => list(parameter())
       }
       
   """
@@ -121,7 +121,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       event_subscriptions_message() :: %{
-        "EventSubscriptionsList" => list(event_subscription()()),
+        "EventSubscriptionsList" => list(event_subscription()),
         "Marker" => String.t()
       }
       
@@ -219,7 +219,7 @@ defmodule AWS.Neptune do
       
       db_cluster_snapshot() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "DBClusterIdentifier" => String.t(),
         "DBClusterSnapshotArn" => String.t(),
@@ -273,7 +273,7 @@ defmodule AWS.Neptune do
       modify_db_subnet_group_message() :: %{
         optional("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -284,7 +284,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_subnet_group_message() :: %{
-        "DBSubnetGroups" => list(db_subnet_group()()),
+        "DBSubnetGroups" => list(db_subnet_group()),
         "Marker" => String.t()
       }
       
@@ -296,7 +296,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_db_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("Source") => String.t(),
@@ -311,7 +311,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       resource_pending_maintenance_actions() :: %{
-        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()()),
+        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
         "ResourceIdentifier" => String.t()
       }
       
@@ -323,7 +323,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       event_categories_map() :: %{
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "SourceType" => String.t()
       }
       
@@ -393,7 +393,7 @@ defmodule AWS.Neptune do
       
       describe_db_instances_message() :: %{
         optional("DBInstanceIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -417,7 +417,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBParameterGroupFamily") => String.t(),
         required("DBParameterGroupName") => String.t(),
         required("Description") => String.t()
@@ -431,7 +431,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterParameterGroupName") => String.t(),
         required("DBParameterGroupFamily") => String.t(),
         required("Description") => String.t()
@@ -457,7 +457,7 @@ defmodule AWS.Neptune do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("SnsTopicArn") => String.t(),
         optional("SourceType") => String.t(),
         required("SubscriptionName") => String.t()
@@ -471,7 +471,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       copy_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterParameterGroupIdentifier") => String.t(),
         required("TargetDBClusterParameterGroupDescription") => String.t(),
         required("TargetDBClusterParameterGroupIdentifier") => String.t()
@@ -485,7 +485,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_pending_maintenance_actions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ResourceIdentifier") => String.t()
@@ -501,7 +501,7 @@ defmodule AWS.Neptune do
       describe_orderable_db_instance_options_message() :: %{
         optional("DBInstanceClass") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LicenseModel") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -517,8 +517,8 @@ defmodule AWS.Neptune do
   ## Example:
       
       pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()()),
-        "LogTypesToEnable" => list(String.t()())
+        "LogTypesToDisable" => list(String.t()),
+        "LogTypesToEnable" => list(String.t())
       }
       
   """
@@ -543,7 +543,7 @@ defmodule AWS.Neptune do
       engine_defaults() :: %{
         "DBParameterGroupFamily" => String.t(),
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -576,8 +576,8 @@ defmodule AWS.Neptune do
   ## Example:
       
       cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t()()),
-        "EnableLogTypes" => list(String.t()())
+        "DisableLogTypes" => list(String.t()),
+        "EnableLogTypes" => list(String.t())
       }
       
   """
@@ -637,10 +637,10 @@ defmodule AWS.Neptune do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "EventSubscriptionArn" => String.t(),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
@@ -656,7 +656,7 @@ defmodule AWS.Neptune do
       global_cluster_member() :: %{
         "DBClusterArn" => String.t(),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t()())
+        "Readers" => list(String.t())
       }
       
   """
@@ -667,8 +667,8 @@ defmodule AWS.Neptune do
   ## Example:
       
       modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()()),
-        optional("ValuesToRemove") => list(String.t()()),
+        optional("ValuesToAdd") => list(String.t()),
+        optional("ValuesToRemove") => list(String.t()),
         required("AttributeName") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -707,7 +707,7 @@ defmodule AWS.Neptune do
         optional("DBClusterParameterGroupName") => String.t(),
         optional("DBSubnetGroupName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
@@ -716,9 +716,9 @@ defmodule AWS.Neptune do
         optional("RestoreType") => String.t(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UseLatestRestorableTime") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("SourceDBClusterIdentifier") => String.t()
       }
@@ -749,8 +749,8 @@ defmodule AWS.Neptune do
         "DBClusterIdentifier" => String.t(),
         "Endpoint" => String.t(),
         "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()()),
-        "StaticMembers" => list(String.t()()),
+        "ExcludedMembers" => list(String.t()),
+        "StaticMembers" => list(String.t()),
         "Status" => String.t()
       }
       
@@ -787,7 +787,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_cluster_snapshot_message() :: %{
-        "DBClusterSnapshots" => list(db_cluster_snapshot()()),
+        "DBClusterSnapshots" => list(db_cluster_snapshot()),
         "Marker" => String.t()
       }
       
@@ -810,7 +810,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         required("ResourceName") => String.t()
       }
       
@@ -824,7 +824,7 @@ defmodule AWS.Neptune do
       describe_db_cluster_snapshots_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
         optional("DBClusterSnapshotIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
         optional("Marker") => String.t(),
@@ -853,7 +853,7 @@ defmodule AWS.Neptune do
         optional("CopyTagsToSnapshot") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
         optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
         optional("EngineVersion") => String.t(),
@@ -865,14 +865,14 @@ defmodule AWS.Neptune do
         required("DBClusterIdentifier") => String.t(),
         optional("Port") => integer(),
         optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()()),
+        optional("DBSecurityGroups") => list(String.t()),
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         required("DBInstanceClass") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("StorageEncrypted") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("DBParameterGroupName") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
@@ -882,7 +882,7 @@ defmodule AWS.Neptune do
         optional("PreferredMaintenanceWindow") => String.t(),
         required("Engine") => String.t(),
         optional("TdeCredentialArn") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -950,17 +950,17 @@ defmodule AWS.Neptune do
       db_instance() :: %{
         "LatestRestorableTime" => non_neg_integer(),
         "DBName" => String.t(),
-        "StatusInfos" => list(db_instance_status_info()()),
+        "StatusInfos" => list(db_instance_status_info()),
         "Engine" => String.t(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "MultiAZ" => boolean(),
         "CACertificateIdentifier" => String.t(),
         "Timezone" => String.t(),
         "PreferredMaintenanceWindow" => String.t(),
         "Iops" => integer(),
         "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t()()),
-        "OptionGroupMemberships" => list(option_group_membership()()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t()),
+        "OptionGroupMemberships" => list(option_group_membership()),
         "PreferredBackupWindow" => String.t(),
         "PendingModifiedValues" => pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
@@ -971,13 +971,13 @@ defmodule AWS.Neptune do
         "AvailabilityZone" => String.t(),
         "CopyTagsToSnapshot" => boolean(),
         "DBInstanceClass" => String.t(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t()()),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t()),
         "EnhancedMonitoringResourceArn" => String.t(),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "AutoMinorVersionUpgrade" => boolean(),
         "DBInstanceArn" => String.t(),
         "DbiResourceId" => String.t(),
-        "DBParameterGroups" => list(db_parameter_group_status()()),
+        "DBParameterGroups" => list(db_parameter_group_status()),
         "DBInstanceStatus" => String.t(),
         "TdeCredentialArn" => String.t(),
         "PerformanceInsightsKMSKeyId" => String.t(),
@@ -989,14 +989,14 @@ defmodule AWS.Neptune do
         "StorageType" => String.t(),
         "DBSubnetGroup" => db_subnet_group(),
         "InstanceCreateTime" => non_neg_integer(),
-        "DomainMemberships" => list(domain_membership()()),
+        "DomainMemberships" => list(domain_membership()),
         "DbInstancePort" => integer(),
         "SecondaryAvailabilityZone" => String.t(),
         "PubliclyAccessible" => boolean(),
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
         "StorageEncrypted" => boolean(),
-        "DBSecurityGroups" => list(db_security_group_membership()()),
+        "DBSecurityGroups" => list(db_security_group_membership()),
         "Endpoint" => endpoint(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
         "CharacterSetName" => String.t(),
@@ -1068,7 +1068,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_cluster_message() :: %{
-        "DBClusters" => list(db_cluster()()),
+        "DBClusters" => list(db_cluster()),
         "Marker" => String.t()
       }
       
@@ -1091,7 +1091,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_engine_default_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBParameterGroupFamily") => String.t()
@@ -1164,7 +1164,7 @@ defmodule AWS.Neptune do
         optional("DefaultOnly") => boolean(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("ListSupportedCharacterSets") => boolean(),
         optional("ListSupportedTimezones") => boolean(),
         optional("Marker") => String.t(),
@@ -1201,7 +1201,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_cluster_endpoint_message() :: %{
-        "DBClusterEndpoints" => list(db_cluster_endpoint()()),
+        "DBClusterEndpoints" => list(db_cluster_endpoint()),
         "Marker" => String.t()
       }
       
@@ -1256,8 +1256,8 @@ defmodule AWS.Neptune do
         "DBClusterIdentifier" => String.t(),
         "Endpoint" => String.t(),
         "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()()),
-        "StaticMembers" => list(String.t()()),
+        "ExcludedMembers" => list(String.t()),
+        "StaticMembers" => list(String.t()),
         "Status" => String.t()
       }
       
@@ -1329,7 +1329,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       reset_db_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("DBParameterGroupName") => String.t()
       }
@@ -1343,10 +1343,10 @@ defmodule AWS.Neptune do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
-        optional("SourceIds") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnsTopicArn") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -1372,7 +1372,7 @@ defmodule AWS.Neptune do
       describe_db_cluster_endpoints_message() :: %{
         optional("DBClusterEndpointIdentifier") => String.t(),
         optional("DBClusterIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1397,7 +1397,7 @@ defmodule AWS.Neptune do
       
       orderable_db_instance_options_message() :: %{
         "Marker" => String.t(),
-        "OrderableDBInstanceOptions" => list(orderable_db_instance_option()())
+        "OrderableDBInstanceOptions" => list(orderable_db_instance_option())
       }
       
   """
@@ -1419,7 +1419,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_event_subscriptions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SubscriptionName") => String.t()
@@ -1444,9 +1444,9 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_cluster_endpoint_message() :: %{
-        optional("ExcludedMembers") => list(String.t()()),
-        optional("StaticMembers") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("ExcludedMembers") => list(String.t()),
+        optional("StaticMembers") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("DBClusterEndpointIdentifier") => String.t(),
         required("DBClusterIdentifier") => String.t(),
         required("EndpointType") => String.t()
@@ -1472,7 +1472,7 @@ defmodule AWS.Neptune do
       
       db_cluster_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t()())
+        "AttributeValues" => list(String.t())
       }
       
   """
@@ -1518,7 +1518,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       orderable_db_instance_option() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "DBInstanceClass" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
@@ -1560,7 +1560,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_cluster_parameter_groups_message() :: %{
-        "DBClusterParameterGroups" => list(db_cluster_parameter_group()()),
+        "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -1573,7 +1573,7 @@ defmodule AWS.Neptune do
       
       describe_db_cluster_parameter_groups_message() :: %{
         optional("DBClusterParameterGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1622,7 +1622,7 @@ defmodule AWS.Neptune do
         optional("CopyTags") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("PreSignedUrl") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterSnapshotIdentifier") => String.t(),
         required("TargetDBClusterSnapshotIdentifier") => String.t()
       }
@@ -1641,7 +1641,7 @@ defmodule AWS.Neptune do
         "FailoverState" => failover_state(),
         "GlobalClusterArn" => String.t(),
         "GlobalClusterIdentifier" => String.t(),
-        "GlobalClusterMembers" => list(global_cluster_member()()),
+        "GlobalClusterMembers" => list(global_cluster_member()),
         "GlobalClusterResourceId" => String.t(),
         "Status" => String.t(),
         "StorageEncrypted" => boolean()
@@ -1689,7 +1689,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       global_clusters_message() :: %{
-        "GlobalClusters" => list(global_cluster()()),
+        "GlobalClusters" => list(global_cluster()),
         "Marker" => String.t()
       }
       
@@ -1761,7 +1761,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_db_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("Source") => String.t(),
@@ -1798,7 +1798,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_engine_version_message() :: %{
-        "DBEngineVersions" => list(db_engine_version()()),
+        "DBEngineVersions" => list(db_engine_version()),
         "Marker" => String.t()
       }
       
@@ -1842,13 +1842,13 @@ defmodule AWS.Neptune do
         "DefaultCharacterSet" => character_set(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
-        "ExportableLogTypes" => list(String.t()()),
-        "SupportedCharacterSets" => list(character_set()()),
-        "SupportedTimezones" => list(timezone()()),
+        "ExportableLogTypes" => list(String.t()),
+        "SupportedCharacterSets" => list(character_set()),
+        "SupportedTimezones" => list(timezone()),
         "SupportsGlobalDatabases" => boolean(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
         "SupportsReadReplica" => boolean(),
-        "ValidUpgradeTarget" => list(upgrade_target()())
+        "ValidUpgradeTarget" => list(upgrade_target())
       }
       
   """
@@ -1901,7 +1901,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_cluster_snapshot_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterIdentifier") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -1938,7 +1938,7 @@ defmodule AWS.Neptune do
       
       describe_db_clusters_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1976,8 +1976,8 @@ defmodule AWS.Neptune do
         "DBClusterIdentifier" => String.t(),
         "Endpoint" => String.t(),
         "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()()),
-        "StaticMembers" => list(String.t()()),
+        "ExcludedMembers" => list(String.t()),
+        "StaticMembers" => list(String.t()),
         "Status" => String.t()
       }
       
@@ -2001,7 +2001,7 @@ defmodule AWS.Neptune do
       
       describe_db_parameter_groups_message() :: %{
         optional("DBParameterGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -2015,7 +2015,7 @@ defmodule AWS.Neptune do
       
       modify_db_parameter_group_message() :: %{
         required("DBParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -2039,7 +2039,7 @@ defmodule AWS.Neptune do
       
       modify_db_cluster_parameter_group_message() :: %{
         required("DBClusterParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -2086,7 +2086,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_cluster_message() :: %{
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("BackupRetentionPeriod") => integer(),
         optional("CharacterSetName") => String.t(),
         optional("CopyTagsToSnapshot") => boolean(),
@@ -2094,7 +2094,7 @@ defmodule AWS.Neptune do
         optional("DBSubnetGroupName") => String.t(),
         optional("DatabaseName") => String.t(),
         optional("DeletionProtection") => boolean(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("EngineVersion") => String.t(),
         optional("GlobalClusterIdentifier") => String.t(),
@@ -2110,8 +2110,8 @@ defmodule AWS.Neptune do
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageEncrypted") => boolean(),
         optional("StorageType") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t(),
         required("Engine") => String.t()
       }
@@ -2124,9 +2124,9 @@ defmodule AWS.Neptune do
   ## Example:
       
       valid_storage_options() :: %{
-        "IopsToStorageRatio" => list(double_range()()),
-        "ProvisionedIops" => list(range()()),
-        "StorageSize" => list(range()()),
+        "IopsToStorageRatio" => list(double_range()),
+        "ProvisionedIops" => list(range()),
+        "StorageSize" => list(range()),
         "StorageType" => String.t()
       }
       
@@ -2138,7 +2138,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_parameter_groups_message() :: %{
-        "DBParameterGroups" => list(db_parameter_group()()),
+        "DBParameterGroups" => list(db_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -2151,7 +2151,7 @@ defmodule AWS.Neptune do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2173,7 +2173,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       valid_db_instance_modifications_message() :: %{
-        "Storage" => list(valid_storage_options()())
+        "Storage" => list(valid_storage_options())
       }
       
   """
@@ -2257,7 +2257,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       events_message() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -2291,7 +2291,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       reset_db_cluster_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("DBClusterParameterGroupName") => String.t()
       }
@@ -2417,7 +2417,7 @@ defmodule AWS.Neptune do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "Message" => String.t(),
         "SourceArn" => String.t(),
         "SourceIdentifier" => String.t(),
@@ -2443,7 +2443,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_instance_message() :: %{
-        "DBInstances" => list(db_instance()()),
+        "DBInstances" => list(db_instance()),
         "Marker" => String.t()
       }
       
@@ -2455,7 +2455,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_engine_default_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBParameterGroupFamily") => String.t()
@@ -2469,7 +2469,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       tag_list_message() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -2484,7 +2484,7 @@ defmodule AWS.Neptune do
         "DBClusterParameterGroup" => String.t(),
         "LatestRestorableTime" => non_neg_integer(),
         "Engine" => String.t(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "MultiAZ" => boolean(),
         "EarliestRestorableTime" => non_neg_integer(),
         "DatabaseName" => String.t(),
@@ -2494,31 +2494,31 @@ defmodule AWS.Neptune do
         "PendingModifiedValues" => cluster_pending_modified_values(),
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
-        "ReadReplicaIdentifiers" => list(String.t()()),
+        "ReadReplicaIdentifiers" => list(String.t()),
         "CopyTagsToSnapshot" => boolean(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "PercentProgress" => String.t(),
         "ReplicationSourceIdentifier" => String.t(),
         "Port" => integer(),
         "DBClusterArn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "CrossAccountClone" => boolean(),
         "MasterUsername" => String.t(),
         "DbClusterResourceId" => String.t(),
-        "DBClusterMembers" => list(db_cluster_member()()),
+        "DBClusterMembers" => list(db_cluster_member()),
         "ReaderEndpoint" => String.t(),
         "AutomaticRestartTime" => non_neg_integer(),
         "DBClusterIdentifier" => String.t(),
         "DeletionProtection" => boolean(),
         "StorageType" => String.t(),
         "DBSubnetGroup" => String.t(),
-        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()()),
+        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()),
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
         "HostedZoneId" => String.t(),
-        "AssociatedRoles" => list(db_cluster_role()()),
+        "AssociatedRoles" => list(db_cluster_role()),
         "GlobalClusterIdentifier" => String.t(),
         "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
         "StorageEncrypted" => boolean(),
@@ -2569,7 +2569,7 @@ defmodule AWS.Neptune do
       
       add_tags_to_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -2580,7 +2580,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       event_categories_message() :: %{
-        "EventCategoriesMapList" => list(event_categories_map()())
+        "EventCategoriesMapList" => list(event_categories_map())
       }
       
   """
@@ -2624,10 +2624,10 @@ defmodule AWS.Neptune do
   ## Example:
       
       create_db_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -2700,8 +2700,8 @@ defmodule AWS.Neptune do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("EventCategories") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SourceIdentifier") => String.t(),
@@ -2761,7 +2761,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       db_cluster_snapshot_attributes_result() :: %{
-        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()()),
+        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
         "DBClusterSnapshotIdentifier" => String.t()
       }
       
@@ -2868,7 +2868,7 @@ defmodule AWS.Neptune do
       
       describe_db_subnet_groups_message() :: %{
         optional("DBSubnetGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -2908,7 +2908,7 @@ defmodule AWS.Neptune do
         "DBSubnetGroupDescription" => String.t(),
         "DBSubnetGroupName" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(subnet()()),
+        "Subnets" => list(subnet()),
         "VpcId" => String.t()
       }
       
@@ -2980,7 +2980,7 @@ defmodule AWS.Neptune do
       
       remove_tags_from_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -3020,7 +3020,7 @@ defmodule AWS.Neptune do
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t()
       }
       
@@ -3032,7 +3032,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       describe_event_categories_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("SourceType") => String.t()
       }
       
@@ -3115,8 +3115,8 @@ defmodule AWS.Neptune do
       
       modify_db_cluster_endpoint_message() :: %{
         optional("EndpointType") => String.t(),
-        optional("ExcludedMembers") => list(String.t()()),
-        optional("StaticMembers") => list(String.t()()),
+        optional("ExcludedMembers") => list(String.t()),
+        optional("StaticMembers") => list(String.t()),
         required("DBClusterEndpointIdentifier") => String.t()
       }
       
@@ -3147,8 +3147,8 @@ defmodule AWS.Neptune do
         "DBClusterIdentifier" => String.t(),
         "Endpoint" => String.t(),
         "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()()),
-        "StaticMembers" => list(String.t()()),
+        "ExcludedMembers" => list(String.t()),
+        "StaticMembers" => list(String.t()),
         "Status" => String.t()
       }
       
@@ -3205,12 +3205,12 @@ defmodule AWS.Neptune do
         optional("CloudwatchLogsExportConfiguration") => cloudwatch_logs_export_configuration(),
         optional("Iops") => integer(),
         optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()()),
+        optional("DBSecurityGroups") => list(String.t()),
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("ApplyImmediately") => boolean(),
         optional("DBParameterGroupName") => String.t(),
@@ -3289,7 +3289,7 @@ defmodule AWS.Neptune do
       
       db_cluster_parameter_group_details() :: %{
         optional("Marker") => String.t(),
-        optional("Parameters") => list(parameter()())
+        optional("Parameters") => list(parameter())
       }
       
   """
@@ -3312,7 +3312,7 @@ defmodule AWS.Neptune do
       
       pending_maintenance_actions_message() :: %{
         "Marker" => String.t(),
-        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions()())
+        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
@@ -3356,7 +3356,7 @@ defmodule AWS.Neptune do
   ## Example:
       
       copy_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBParameterGroupIdentifier") => String.t(),
         required("TargetDBParameterGroupDescription") => String.t(),
         required("TargetDBParameterGroupIdentifier") => String.t()
@@ -3753,7 +3753,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBCluster", input, options)
   end
@@ -3771,7 +3772,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -3790,7 +3792,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3809,7 +3812,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -3823,7 +3827,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -3842,7 +3847,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -3856,7 +3862,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBParameterGroup", input, options)
   end
@@ -3880,7 +3887,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -3895,7 +3903,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterEndpoint", input, options)
   end
@@ -3939,7 +3948,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -3953,7 +3963,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -3967,7 +3978,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -4008,7 +4020,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBParameterGroup", input, options)
   end
@@ -4025,7 +4038,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -4068,7 +4082,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -4092,7 +4107,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -4115,7 +4131,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -4129,7 +4146,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterEndpoint", input, options)
   end
@@ -4150,7 +4168,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -4170,7 +4189,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -4205,7 +4225,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -4222,7 +4243,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBParameterGroup", input, options)
   end
@@ -4239,7 +4261,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -4253,7 +4276,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -4270,7 +4294,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -4287,7 +4312,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterEndpoints", input, options)
   end
@@ -4309,7 +4335,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -4323,7 +4350,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -4356,7 +4384,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -4373,7 +4402,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -4391,7 +4421,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -4404,7 +4435,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -4421,7 +4453,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -4440,7 +4473,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameterGroups", input, options)
   end
@@ -4454,7 +4488,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameters", input, options)
   end
@@ -4473,7 +4508,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -4492,7 +4528,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -4511,7 +4548,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -4526,7 +4564,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -4547,7 +4586,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -4567,7 +4607,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -4584,7 +4625,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -4601,7 +4643,8 @@ defmodule AWS.Neptune do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -4621,7 +4664,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -4643,7 +4687,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeValidDBInstanceModifications", input, options)
   end
@@ -4671,7 +4716,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -4698,7 +4744,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -4712,7 +4759,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4729,7 +4777,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -4743,7 +4792,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterEndpoint", input, options)
   end
@@ -4788,7 +4838,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -4828,7 +4879,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -4848,7 +4900,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -4887,7 +4940,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBParameterGroup", input, options)
   end
@@ -4904,7 +4958,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -4927,7 +4982,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -4945,7 +5001,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -4959,7 +5016,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplicaDBCluster", input, options)
   end
@@ -4983,7 +5041,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -5002,7 +5061,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -5016,7 +5076,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBCluster", input, options)
   end
@@ -5034,7 +5095,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -5048,7 +5110,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -5078,7 +5141,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -5102,7 +5166,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBParameterGroup", input, options)
   end
@@ -5130,7 +5195,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -5164,7 +5230,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -5179,7 +5246,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -5200,7 +5268,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -5232,7 +5301,8 @@ defmodule AWS.Neptune do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end

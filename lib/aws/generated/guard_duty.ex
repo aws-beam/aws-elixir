@@ -121,11 +121,11 @@ defmodule AWS.GuardDuty do
         "InstanceState" => String.t(),
         "InstanceType" => String.t(),
         "LaunchTime" => String.t(),
-        "NetworkInterfaces" => list(network_interface()()),
+        "NetworkInterfaces" => list(network_interface()),
         "OutpostArn" => String.t(),
         "Platform" => String.t(),
-        "ProductCodes" => list(product_code()()),
-        "Tags" => list(tag()())
+        "ProductCodes" => list(product_code()),
+        "Tags" => list(tag())
       }
 
   """
@@ -138,7 +138,7 @@ defmodule AWS.GuardDuty do
       member_data_source_configuration() :: %{
         "AccountId" => String.t(),
         "DataSources" => data_source_configurations_result(),
-        "Features" => list(member_features_configuration_result()())
+        "Features" => list(member_features_configuration_result())
       }
 
   """
@@ -215,7 +215,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       decline_invitations_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -243,7 +243,7 @@ defmodule AWS.GuardDuty do
         "ImagePrefix" => String.t(),
         "Name" => String.t(),
         "SecurityContext" => security_context(),
-        "VolumeMounts" => list(volume_mount()())
+        "VolumeMounts" => list(volume_mount())
       }
 
   """
@@ -315,12 +315,12 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       usage_statistics() :: %{
-        "SumByAccount" => list(usage_account_result()()),
-        "SumByDataSource" => list(usage_data_source_result()()),
-        "SumByFeature" => list(usage_feature_result()()),
-        "SumByResource" => list(usage_resource_result()()),
-        "TopAccountsByFeature" => list(usage_top_accounts_result()()),
-        "TopResources" => list(usage_resource_result()())
+        "SumByAccount" => list(usage_account_result()),
+        "SumByDataSource" => list(usage_data_source_result()),
+        "SumByFeature" => list(usage_feature_result()),
+        "SumByResource" => list(usage_resource_result()),
+        "TopAccountsByFeature" => list(usage_top_accounts_result()),
+        "TopResources" => list(usage_resource_result())
       }
 
   """
@@ -350,7 +350,7 @@ defmodule AWS.GuardDuty do
         "ProtectedResource" => create_protected_resource(),
         "Role" => String.t(),
         "Status" => list(any()),
-        "StatusReasons" => list(malware_protection_plan_status_reason()()),
+        "StatusReasons" => list(malware_protection_plan_status_reason()),
         "Tags" => map()
       }
 
@@ -380,8 +380,8 @@ defmodule AWS.GuardDuty do
         "Name" => String.t(),
         "Owner" => owner(),
         "PublicAccess" => public_access(),
-        "S3ObjectDetails" => list(s3_object_detail()()),
-        "Tags" => list(tag()()),
+        "S3ObjectDetails" => list(s3_object_detail()),
+        "Tags" => list(tag()),
         "Type" => String.t()
       }
 
@@ -436,8 +436,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_members_response() :: %{
-        "Members" => list(member()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "Members" => list(member()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -448,7 +448,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_member_detectors_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -471,13 +471,13 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       sequence() :: %{
-        "Actors" => list(actor()()),
-        "AdditionalSequenceTypes" => list(String.t()()),
+        "Actors" => list(actor()),
+        "AdditionalSequenceTypes" => list(String.t()),
         "Description" => String.t(),
-        "Endpoints" => list(network_endpoint()()),
-        "Resources" => list(resource_v2()()),
-        "SequenceIndicators" => list(indicator()()),
-        "Signals" => list(signal()()),
+        "Endpoints" => list(network_endpoint()),
+        "Resources" => list(resource_v2()),
+        "SequenceIndicators" => list(indicator()),
+        "Signals" => list(signal()),
         "Uid" => String.t()
       }
 
@@ -534,8 +534,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       ebs_volume_details() :: %{
-        "ScannedVolumeDetails" => list(volume_detail()()),
-        "SkippedVolumeDetails" => list(volume_detail()())
+        "ScannedVolumeDetails" => list(volume_detail()),
+        "SkippedVolumeDetails" => list(volume_detail())
       }
 
   """
@@ -566,7 +566,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       kubernetes_workload_details() :: %{
-        "Containers" => list(container()()),
+        "Containers" => list(container()),
         "HostIPC" => boolean(),
         "HostNetwork" => boolean(),
         "HostPID" => boolean(),
@@ -575,7 +575,7 @@ defmodule AWS.GuardDuty do
         "ServiceAccountName" => String.t(),
         "Type" => String.t(),
         "Uid" => String.t(),
-        "Volumes" => list(volume()())
+        "Volumes" => list(volume())
       }
 
   """
@@ -598,7 +598,7 @@ defmodule AWS.GuardDuty do
         "Euid" => integer(),
         "ExecutablePath" => String.t(),
         "ExecutableSha256" => String.t(),
-        "Lineage" => list(lineage_object()()),
+        "Lineage" => list(lineage_object()),
         "Name" => String.t(),
         "NamespacePid" => integer(),
         "ParentUuid" => String.t(),
@@ -639,7 +639,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       filter_criteria() :: %{
-        "FilterCriterion" => list(filter_criterion()())
+        "FilterCriterion" => list(filter_criterion())
       }
 
   """
@@ -702,8 +702,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       coverage_filter_condition() :: %{
-        "Equals" => list(String.t()()),
-        "NotEquals" => list(String.t()())
+        "Equals" => list(String.t()),
+        "NotEquals" => list(String.t())
       }
 
   """
@@ -737,7 +737,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       start_monitoring_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -766,7 +766,7 @@ defmodule AWS.GuardDuty do
         "RequestUri" => String.t(),
         "Resource" => String.t(),
         "ResourceName" => String.t(),
-        "SourceIps" => list(String.t()()),
+        "SourceIps" => list(String.t()),
         "StatusCode" => integer(),
         "Subresource" => String.t(),
         "UserAgent" => String.t(),
@@ -781,7 +781,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       detector_feature_configuration_result() :: %{
-        "AdditionalConfiguration" => list(detector_additional_configuration_result()()),
+        "AdditionalConfiguration" => list(detector_additional_configuration_result()),
         "Name" => list(any()),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
@@ -912,7 +912,7 @@ defmodule AWS.GuardDuty do
         "LastModifiedAt" => non_neg_integer(),
         "RevisionId" => String.t(),
         "Role" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcConfig" => vpc_config()
       }
 
@@ -930,7 +930,7 @@ defmodule AWS.GuardDuty do
         "DbShardGroupResourceId" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -990,14 +990,14 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       network_interface() :: %{
-        "Ipv6Addresses" => list(String.t()()),
+        "Ipv6Addresses" => list(String.t()),
         "NetworkInterfaceId" => String.t(),
         "PrivateDnsName" => String.t(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(private_ip_address_details()()),
+        "PrivateIpAddresses" => list(private_ip_address_details()),
         "PublicDnsName" => String.t(),
         "PublicIp" => String.t(),
-        "SecurityGroups" => list(security_group()()),
+        "SecurityGroups" => list(security_group()),
         "SubnetId" => String.t(),
         "VpcId" => String.t()
       }
@@ -1109,7 +1109,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_findings_response() :: %{
-        "FindingIds" => list(String.t()()),
+        "FindingIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1224,7 +1224,7 @@ defmodule AWS.GuardDuty do
 
       get_findings_request() :: %{
         optional("SortCriteria") => sort_criteria(),
-        required("FindingIds") => list(String.t()())
+        required("FindingIds") => list(String.t())
       }
 
   """
@@ -1335,7 +1335,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1346,7 +1346,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       detector_feature_configuration() :: %{
-        "AdditionalConfiguration" => list(detector_additional_configuration()()),
+        "AdditionalConfiguration" => list(detector_additional_configuration()),
         "Name" => list(any()),
         "Status" => list(any())
       }
@@ -1396,7 +1396,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       impersonated_user() :: %{
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "Username" => String.t()
       }
 
@@ -1417,7 +1417,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       delete_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -1430,7 +1430,7 @@ defmodule AWS.GuardDuty do
       invite_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
         optional("Message") => String.t(),
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -1484,7 +1484,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       member_features_configuration_result() :: %{
-        "AdditionalConfiguration" => list(member_additional_configuration_result()()),
+        "AdditionalConfiguration" => list(member_additional_configuration_result()),
         "Name" => list(any()),
         "Status" => list(any()),
         "UpdatedAt" => non_neg_integer()
@@ -1522,7 +1522,7 @@ defmodule AWS.GuardDuty do
 
       list_threat_intel_sets_response() :: %{
         "NextToken" => String.t(),
-        "ThreatIntelSetIds" => list(String.t()())
+        "ThreatIntelSetIds" => list(String.t())
       }
 
   """
@@ -1533,7 +1533,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       observations() :: %{
-        "Text" => list(String.t()())
+        "Text" => list(String.t())
       }
 
   """
@@ -1557,7 +1557,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       archive_findings_request() :: %{
-        required("FindingIds") => list(String.t()())
+        required("FindingIds") => list(String.t())
       }
 
   """
@@ -1616,9 +1616,9 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       kubernetes_user_details() :: %{
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "ImpersonatedUser" => impersonated_user(),
-        "SessionName" => list(String.t()()),
+        "SessionName" => list(String.t()),
         "Uid" => String.t(),
         "Username" => String.t()
       }
@@ -1660,7 +1660,7 @@ defmodule AWS.GuardDuty do
         "Region" => String.t(),
         "ResourceType" => list(any()),
         "Service" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Uid" => String.t()
       }
 
@@ -1675,7 +1675,7 @@ defmodule AWS.GuardDuty do
         "AutoEnable" => boolean(),
         "AutoEnableOrganizationMembers" => list(any()),
         "DataSources" => organization_data_source_configurations_result(),
-        "Features" => list(organization_feature_configuration_result()()),
+        "Features" => list(organization_feature_configuration_result()),
         "MemberAccountLimitReached" => boolean(),
         "NextToken" => String.t()
       }
@@ -1699,7 +1699,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       organization_feature_configuration() :: %{
-        "AdditionalConfiguration" => list(organization_additional_configuration()()),
+        "AdditionalConfiguration" => list(organization_additional_configuration()),
         "AutoEnable" => list(any()),
         "Name" => list(any())
       }
@@ -1746,7 +1746,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       unarchive_findings_request() :: %{
-        required("FindingIds") => list(String.t()())
+        required("FindingIds") => list(String.t())
       }
 
   """
@@ -1812,7 +1812,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -1844,7 +1844,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       create_members_request() :: %{
-        required("AccountDetails") => list(account_detail()())
+        required("AccountDetails") => list(account_detail())
       }
 
   """
@@ -1864,7 +1864,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_ip_sets_response() :: %{
-        "IpSetIds" => list(String.t()()),
+        "IpSetIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1943,7 +1943,7 @@ defmodule AWS.GuardDuty do
         "OwnerId" => String.t(),
         "PublicReadAccess" => list(any()),
         "PublicWriteAccess" => list(any()),
-        "S3ObjectUids" => list(String.t()())
+        "S3ObjectUids" => list(String.t())
       }
 
   """
@@ -1970,7 +1970,7 @@ defmodule AWS.GuardDuty do
       create_detector_request() :: %{
         optional("ClientToken") => String.t(),
         optional("DataSources") => data_source_configurations(),
-        optional("Features") => list(detector_feature_configuration()()),
+        optional("Features") => list(detector_feature_configuration()),
         optional("FindingPublishingFrequency") => list(any()),
         optional("Tags") => map(),
         required("Enable") => boolean()
@@ -1996,7 +1996,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       disassociate_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -2007,7 +2007,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_findings_response() :: %{
-        "Findings" => list(finding()())
+        "Findings" => list(finding())
       }
 
   """
@@ -2117,7 +2117,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -2128,7 +2128,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       invite_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -2151,7 +2151,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       member_features_configuration() :: %{
-        "AdditionalConfiguration" => list(member_additional_configuration()()),
+        "AdditionalConfiguration" => list(member_additional_configuration()),
         "Name" => list(any()),
         "Status" => list(any())
       }
@@ -2165,7 +2165,7 @@ defmodule AWS.GuardDuty do
 
       describe_malware_scans_response() :: %{
         "NextToken" => String.t(),
-        "Scans" => list(scan()())
+        "Scans" => list(scan())
       }
 
   """
@@ -2176,10 +2176,10 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       ec2_network_interface() :: %{
-        "Ipv6Addresses" => list(String.t()()),
-        "PrivateIpAddresses" => list(private_ip_address_details()()),
+        "Ipv6Addresses" => list(String.t()),
+        "PrivateIpAddresses" => list(private_ip_address_details()),
         "PublicIp" => String.t(),
-        "SecurityGroups" => list(security_group()()),
+        "SecurityGroups" => list(security_group()),
         "SubNetId" => String.t(),
         "VpcId" => String.t()
       }
@@ -2193,16 +2193,16 @@ defmodule AWS.GuardDuty do
 
       ecs_task_details() :: %{
         "Arn" => String.t(),
-        "Containers" => list(container()()),
+        "Containers" => list(container()),
         "DefinitionArn" => String.t(),
         "Group" => String.t(),
         "LaunchType" => String.t(),
         "StartedAt" => non_neg_integer(),
         "StartedBy" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskCreatedAt" => non_neg_integer(),
         "Version" => String.t(),
-        "Volumes" => list(volume()())
+        "Volumes" => list(volume())
       }
 
   """
@@ -2213,17 +2213,17 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       signal() :: %{
-        "ActorIds" => list(String.t()()),
+        "ActorIds" => list(String.t()),
         "Count" => integer(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "EndpointIds" => list(String.t()()),
+        "EndpointIds" => list(String.t()),
         "FirstSeenAt" => non_neg_integer(),
         "LastSeenAt" => non_neg_integer(),
         "Name" => String.t(),
-        "ResourceUids" => list(String.t()()),
+        "ResourceUids" => list(String.t()),
         "Severity" => float(),
-        "SignalIndicators" => list(indicator()()),
+        "SignalIndicators" => list(indicator()),
         "Type" => list(any()),
         "Uid" => String.t(),
         "UpdatedAt" => non_neg_integer()
@@ -2297,7 +2297,7 @@ defmodule AWS.GuardDuty do
       eks_cluster() :: %{
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
-        "Ec2InstanceUids" => list(String.t()()),
+        "Ec2InstanceUids" => list(String.t()),
         "Status" => list(any()),
         "VpcId" => String.t()
       }
@@ -2319,8 +2319,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       vpc_config() :: %{
-        "SecurityGroups" => list(security_group()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroups" => list(security_group()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -2458,7 +2458,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_publishing_destinations_response() :: %{
-        "Destinations" => list(destination()()),
+        "Destinations" => list(destination()),
         "NextToken" => String.t()
       }
 
@@ -2551,7 +2551,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       disassociate_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -2575,7 +2575,7 @@ defmodule AWS.GuardDuty do
 
       list_coverage_response() :: %{
         "NextToken" => String.t(),
-        "Resources" => list(coverage_resource()())
+        "Resources" => list(coverage_resource())
       }
 
   """
@@ -2586,8 +2586,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       condition() :: %{
-        "Eq" => list(String.t()()),
-        "Equals" => list(String.t()()),
+        "Eq" => list(String.t()),
+        "Equals" => list(String.t()),
         "GreaterThan" => float(),
         "GreaterThanOrEqual" => float(),
         "Gt" => integer(),
@@ -2596,8 +2596,8 @@ defmodule AWS.GuardDuty do
         "LessThanOrEqual" => float(),
         "Lt" => integer(),
         "Lte" => integer(),
-        "Neq" => list(String.t()()),
-        "NotEquals" => list(String.t()())
+        "Neq" => list(String.t()),
+        "NotEquals" => list(String.t())
       }
 
   """
@@ -2670,14 +2670,14 @@ defmodule AWS.GuardDuty do
 
       ec2_instance() :: %{
         "AvailabilityZone" => String.t(),
-        "Ec2NetworkInterfaceUids" => list(String.t()()),
+        "Ec2NetworkInterfaceUids" => list(String.t()),
         "IamInstanceProfile" => iam_instance_profile(),
         "ImageDescription" => String.t(),
         "InstanceState" => String.t(),
         "InstanceType" => String.t(),
         "OutpostArn" => String.t(),
         "Platform" => String.t(),
-        "ProductCodes" => list(product_code()())
+        "ProductCodes" => list(product_code())
       }
 
   """
@@ -2747,7 +2747,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       malware_scan_details() :: %{
-        "Threats" => list(threat()())
+        "Threats" => list(threat())
       }
 
   """
@@ -2782,7 +2782,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       create_sample_findings_request() :: %{
-        optional("FindingTypes") => list(String.t()())
+        optional("FindingTypes") => list(String.t())
       }
 
   """
@@ -2793,7 +2793,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       decline_invitations_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -2817,7 +2817,7 @@ defmodule AWS.GuardDuty do
       account_free_trial_info() :: %{
         "AccountId" => String.t(),
         "DataSources" => data_sources_free_trial(),
-        "Features" => list(free_trial_feature_configuration_result()())
+        "Features" => list(free_trial_feature_configuration_result())
       }
 
   """
@@ -2850,8 +2850,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_member_detectors_response() :: %{
-        "MemberDataSourceConfigurations" => list(member_data_source_configuration()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "MemberDataSourceConfigurations" => list(member_data_source_configuration()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -2911,7 +2911,7 @@ defmodule AWS.GuardDuty do
         "CreatedAt" => non_neg_integer(),
         "Name" => String.t(),
         "Status" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
 
@@ -2923,7 +2923,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       kubernetes_workload() :: %{
-        "ContainerUids" => list(String.t()()),
+        "ContainerUids" => list(String.t()),
         "KubernetesResourcesTypes" => list(any()),
         "Namespace" => String.t()
       }
@@ -2947,7 +2947,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       delete_invitations_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -2971,7 +2971,7 @@ defmodule AWS.GuardDuty do
       get_detector_response() :: %{
         "CreatedAt" => String.t(),
         "DataSources" => data_source_configurations_result(),
-        "Features" => list(detector_feature_configuration_result()()),
+        "Features" => list(detector_feature_configuration_result()),
         "FindingPublishingFrequency" => list(any()),
         "ServiceRole" => String.t(),
         "Status" => list(any()),
@@ -3098,7 +3098,7 @@ defmodule AWS.GuardDuty do
         optional("AutoEnable") => boolean(),
         optional("AutoEnableOrganizationMembers") => list(any()),
         optional("DataSources") => organization_data_source_configurations(),
-        optional("Features") => list(organization_feature_configuration()())
+        optional("Features") => list(organization_feature_configuration())
       }
 
   """
@@ -3177,7 +3177,7 @@ defmodule AWS.GuardDuty do
       threat_intelligence_detail() :: %{
         "ThreatFileSha256" => String.t(),
         "ThreatListName" => String.t(),
-        "ThreatNames" => list(String.t()())
+        "ThreatNames" => list(String.t())
       }
 
   """
@@ -3230,8 +3230,8 @@ defmodule AWS.GuardDuty do
 
       update_member_detectors_request() :: %{
         optional("DataSources") => data_source_configurations(),
-        optional("Features") => list(member_features_configuration()()),
-        required("AccountIds") => list(String.t()())
+        optional("Features") => list(member_features_configuration()),
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -3255,7 +3255,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       delete_invitations_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -3280,7 +3280,7 @@ defmodule AWS.GuardDuty do
 
       port_probe_action() :: %{
         "Blocked" => boolean(),
-        "PortProbeDetails" => list(port_probe_detail()())
+        "PortProbeDetails" => list(port_probe_detail())
       }
 
   """
@@ -3315,7 +3315,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       threat() :: %{
-        "ItemPaths" => list(item_path()()),
+        "ItemPaths" => list(item_path()),
         "Name" => String.t(),
         "Source" => String.t()
       }
@@ -3400,7 +3400,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_malware_protection_plans_response() :: %{
-        "MalwareProtectionPlans" => list(malware_protection_plan_summary()()),
+        "MalwareProtectionPlans" => list(malware_protection_plan_summary()),
         "NextToken" => String.t()
       }
 
@@ -3508,7 +3508,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       fargate_details() :: %{
-        "Issues" => list(String.t()()),
+        "Issues" => list(String.t()),
         "ManagementType" => list(any())
       }
 
@@ -3532,7 +3532,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_members_response() :: %{
-        "Members" => list(member()()),
+        "Members" => list(member()),
         "NextToken" => String.t()
       }
 
@@ -3558,7 +3558,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_detectors_response() :: %{
-        "DetectorIds" => list(String.t()()),
+        "DetectorIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -3582,7 +3582,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       organization_feature_statistics() :: %{
-        "AdditionalConfiguration" => list(organization_feature_statistics_additional_configuration()()),
+        "AdditionalConfiguration" => list(organization_feature_statistics_additional_configuration()),
         "EnabledAccountsCount" => integer(),
         "Name" => list(any())
       }
@@ -3607,7 +3607,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_remaining_free_trial_days_request() :: %{
-        optional("AccountIds") => list(String.t()())
+        optional("AccountIds") => list(String.t())
       }
 
   """
@@ -3649,7 +3649,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       organization_feature_configuration_result() :: %{
-        "AdditionalConfiguration" => list(organization_additional_configuration_result()()),
+        "AdditionalConfiguration" => list(organization_additional_configuration_result()),
         "AutoEnable" => list(any()),
         "Name" => list(any())
       }
@@ -3676,8 +3676,8 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_remaining_free_trial_days_response() :: %{
-        "Accounts" => list(account_free_trial_info()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "Accounts" => list(account_free_trial_info()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -3739,11 +3739,11 @@ defmodule AWS.GuardDuty do
         "AddressFamily" => String.t(),
         "CommandLineExample" => String.t(),
         "FileSystemType" => String.t(),
-        "Flags" => list(String.t()()),
+        "Flags" => list(String.t()),
         "IanaProtocolNumber" => integer(),
         "LdPreloadValue" => String.t(),
         "LibraryPath" => String.t(),
-        "MemoryRegions" => list(String.t()()),
+        "MemoryRegions" => list(String.t()),
         "ModifiedAt" => non_neg_integer(),
         "ModifyingProcess" => process_details(),
         "ModuleFilePath" => String.t(),
@@ -3771,7 +3771,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       evidence() :: %{
-        "ThreatIntelligenceDetails" => list(threat_intelligence_detail()())
+        "ThreatIntelligenceDetails" => list(threat_intelligence_detail())
       }
 
   """
@@ -3782,7 +3782,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       scan_threat_name() :: %{
-        "FilePaths" => list(scan_file_path()()),
+        "FilePaths" => list(scan_file_path()),
         "ItemCount" => integer(),
         "Name" => String.t(),
         "Severity" => String.t()
@@ -3808,7 +3808,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       coverage_filter_criteria() :: %{
-        "FilterCriterion" => list(coverage_filter_criterion()())
+        "FilterCriterion" => list(coverage_filter_criterion())
       }
 
   """
@@ -3909,7 +3909,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       start_monitoring_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -3931,7 +3931,7 @@ defmodule AWS.GuardDuty do
       update_findings_feedback_request() :: %{
         optional("Comments") => String.t(),
         required("Feedback") => list(any()),
-        required("FindingIds") => list(String.t()())
+        required("FindingIds") => list(String.t())
       }
 
   """
@@ -3943,7 +3943,7 @@ defmodule AWS.GuardDuty do
 
       create_s3_bucket_resource() :: %{
         "BucketName" => String.t(),
-        "ObjectPrefixes" => list(String.t()())
+        "ObjectPrefixes" => list(String.t())
       }
 
   """
@@ -3954,7 +3954,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       rds_login_attempt_action() :: %{
-        "LoginAttributes" => list(login_attribute()()),
+        "LoginAttributes" => list(login_attribute()),
         "RemoteIpDetails" => remote_ip_details()
       }
 
@@ -4029,11 +4029,11 @@ defmodule AWS.GuardDuty do
 
       finding_statistics() :: %{
         "CountBySeverity" => map(),
-        "GroupedByAccount" => list(account_statistics()()),
-        "GroupedByDate" => list(date_statistics()()),
-        "GroupedByFindingType" => list(finding_type_statistics()()),
-        "GroupedByResource" => list(resource_statistics()()),
-        "GroupedBySeverity" => list(severity_statistics()())
+        "GroupedByAccount" => list(account_statistics()),
+        "GroupedByDate" => list(date_statistics()),
+        "GroupedByFindingType" => list(finding_type_statistics()),
+        "GroupedByResource" => list(resource_statistics()),
+        "GroupedBySeverity" => list(severity_statistics())
       }
 
   """
@@ -4061,7 +4061,7 @@ defmodule AWS.GuardDuty do
         "RegisteredContainerInstancesCount" => integer(),
         "RunningTasksCount" => integer(),
         "Status" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskDetails" => ecs_task_details()
       }
 
@@ -4075,7 +4075,7 @@ defmodule AWS.GuardDuty do
       scan() :: %{
         "AccountId" => String.t(),
         "AdminDetectorId" => String.t(),
-        "AttachedVolumes" => list(volume_detail()()),
+        "AttachedVolumes" => list(volume_detail()),
         "DetectorId" => String.t(),
         "FailureReason" => String.t(),
         "FileCount" => float(),
@@ -4120,7 +4120,7 @@ defmodule AWS.GuardDuty do
 
       organization_statistics() :: %{
         "ActiveAccountsCount" => integer(),
-        "CountByFeature" => list(organization_feature_statistics()()),
+        "CountByFeature" => list(organization_feature_statistics()),
         "EnabledAccountsCount" => integer(),
         "MemberAccountsCount" => integer(),
         "TotalAccountsCount" => integer()
@@ -4176,7 +4176,7 @@ defmodule AWS.GuardDuty do
         "ScanId" => String.t(),
         "ScanStartedAt" => non_neg_integer(),
         "ScanType" => list(any()),
-        "Sources" => list(String.t()()),
+        "Sources" => list(String.t()),
         "TriggerFindingId" => String.t()
       }
 
@@ -4213,7 +4213,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       update_member_detectors_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -4277,7 +4277,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       stop_monitoring_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -4305,7 +4305,7 @@ defmodule AWS.GuardDuty do
         "DbInstanceIdentifier" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -4316,7 +4316,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       scan_condition() :: %{
-        "MapEquals" => list(scan_condition_pair()())
+        "MapEquals" => list(scan_condition_pair())
       }
 
   """
@@ -4329,7 +4329,7 @@ defmodule AWS.GuardDuty do
       threat_detected_by_name() :: %{
         "ItemCount" => integer(),
         "Shortened" => boolean(),
-        "ThreatNames" => list(scan_threat_name()()),
+        "ThreatNames" => list(scan_threat_name()),
         "UniqueThreatNameCount" => integer()
       }
 
@@ -4354,7 +4354,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_organization_admin_accounts_response() :: %{
-        "AdminAccounts" => list(admin_account()()),
+        "AdminAccounts" => list(admin_account()),
         "NextToken" => String.t()
       }
 
@@ -4366,7 +4366,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       usage_top_accounts_result() :: %{
-        "Accounts" => list(usage_top_account_result()()),
+        "Accounts" => list(usage_top_account_result()),
         "Feature" => list(any())
       }
 
@@ -4403,7 +4403,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       stop_monitoring_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -4425,7 +4425,7 @@ defmodule AWS.GuardDuty do
       update_detector_request() :: %{
         optional("DataSources") => data_source_configurations(),
         optional("Enable") => boolean(),
-        optional("Features") => list(detector_feature_configuration()()),
+        optional("Features") => list(detector_feature_configuration()),
         optional("FindingPublishingFrequency") => list(any())
       }
 
@@ -4534,7 +4534,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_filters_response() :: %{
-        "FilterNames" => list(String.t()()),
+        "FilterNames" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -4566,7 +4566,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       create_members_response() :: %{
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -4659,10 +4659,10 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       usage_criteria() :: %{
-        "AccountIds" => list(String.t()()),
+        "AccountIds" => list(String.t()),
         "DataSources" => list(list(any())()),
         "Features" => list(list(any())()),
-        "Resources" => list(String.t()())
+        "Resources" => list(String.t())
       }
 
   """
@@ -4697,7 +4697,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       update_s3_bucket_resource() :: %{
-        "ObjectPrefixes" => list(String.t()())
+        "ObjectPrefixes" => list(String.t())
       }
 
   """
@@ -4717,7 +4717,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       list_invitations_response() :: %{
-        "Invitations" => list(invitation()()),
+        "Invitations" => list(invitation()),
         "NextToken" => String.t()
       }
 
@@ -4741,7 +4741,7 @@ defmodule AWS.GuardDuty do
         "RdsDbUserDetails" => rds_db_user_details(),
         "RdsLimitlessDbDetails" => rds_limitless_db_details(),
         "ResourceType" => String.t(),
-        "S3BucketDetails" => list(s3_bucket_detail()())
+        "S3BucketDetails" => list(s3_bucket_detail())
       }
 
   """
@@ -4754,7 +4754,7 @@ defmodule AWS.GuardDuty do
       indicator() :: %{
         "Key" => list(any()),
         "Title" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """

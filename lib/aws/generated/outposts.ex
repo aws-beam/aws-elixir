@@ -107,7 +107,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_assets_input() :: %{
-        optional("HostIdFilter") => list(String.t()()),
+        optional("HostIdFilter") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("StatusFilter") => list(list(any())())
@@ -121,10 +121,10 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_asset_instances_input() :: %{
-        optional("AccountIdFilter") => list(String.t()()),
-        optional("AssetIdFilter") => list(String.t()()),
+        optional("AccountIdFilter") => list(String.t()),
+        optional("AssetIdFilter") => list(String.t()),
         optional("AwsServiceFilter") => list(list(any())()),
-        optional("InstanceTypeFilter") => list(String.t()()),
+        optional("InstanceTypeFilter") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -166,7 +166,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_capacity_tasks_output() :: %{
-        "CapacityTasks" => list(capacity_task_summary()()),
+        "CapacityTasks" => list(capacity_task_summary()),
         "NextToken" => String.t()
       }
 
@@ -190,7 +190,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       get_outpost_supported_instance_types_output() :: %{
-        "InstanceTypes" => list(instance_type_item()()),
+        "InstanceTypes" => list(instance_type_item()),
         "NextToken" => String.t()
       }
 
@@ -203,7 +203,7 @@ defmodule AWS.Outposts do
 
       line_item_asset_information() :: %{
         "AssetId" => String.t(),
-        "MacAddressList" => list(String.t()())
+        "MacAddressList" => list(String.t())
       }
 
   """
@@ -215,7 +215,7 @@ defmodule AWS.Outposts do
 
       list_orders_output() :: %{
         "NextToken" => String.t(),
-        "Orders" => list(order_summary()())
+        "Orders" => list(order_summary())
       }
 
   """
@@ -268,9 +268,9 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_outposts_input() :: %{
-        optional("AvailabilityZoneFilter") => list(String.t()()),
-        optional("AvailabilityZoneIdFilter") => list(String.t()()),
-        optional("LifeCycleStatusFilter") => list(String.t()()),
+        optional("AvailabilityZoneFilter") => list(String.t()),
+        optional("AvailabilityZoneIdFilter") => list(String.t()),
+        optional("LifeCycleStatusFilter") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -283,7 +283,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -295,11 +295,11 @@ defmodule AWS.Outposts do
 
       catalog_item() :: %{
         "CatalogItemId" => String.t(),
-        "EC2Capacities" => list(ec2_capacity()()),
+        "EC2Capacities" => list(ec2_capacity()),
         "ItemStatus" => list(any()),
         "PowerKva" => float(),
         "SupportedStorage" => list(list(any())()),
-        "SupportedUplinkGbps" => list(integer()()),
+        "SupportedUplinkGbps" => list(integer()),
         "WeightLbs" => integer()
       }
 
@@ -430,7 +430,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_asset_instances_output() :: %{
-        "AssetInstances" => list(asset_instance()()),
+        "AssetInstances" => list(asset_instance()),
         "NextToken" => String.t()
       }
 
@@ -552,9 +552,9 @@ defmodule AWS.Outposts do
       list_sites_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OperatingAddressCityFilter") => list(String.t()()),
-        optional("OperatingAddressCountryCodeFilter") => list(String.t()()),
-        optional("OperatingAddressStateOrRegionFilter") => list(String.t()())
+        optional("OperatingAddressCityFilter") => list(String.t()),
+        optional("OperatingAddressCountryCodeFilter") => list(String.t()),
+        optional("OperatingAddressStateOrRegionFilter") => list(String.t())
       }
 
   """
@@ -565,7 +565,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_blocking_instances_for_capacity_task_output() :: %{
-        "BlockingInstances" => list(blocking_instance()()),
+        "BlockingInstances" => list(blocking_instance()),
         "NextToken" => String.t()
       }
 
@@ -623,7 +623,7 @@ defmodule AWS.Outposts do
 
       create_order_input() :: %{
         optional("PaymentTerm") => list(any()),
-        required("LineItems") => list(line_item_request()()),
+        required("LineItems") => list(line_item_request()),
         required("OutpostIdentifier") => String.t(),
         required("PaymentOption") => list(any())
       }
@@ -680,7 +680,7 @@ defmodule AWS.Outposts do
         "LastModifiedDate" => non_neg_integer(),
         "OrderId" => String.t(),
         "OutpostId" => String.t(),
-        "RequestedInstancePools" => list(instance_type_capacity()()),
+        "RequestedInstancePools" => list(instance_type_capacity()),
         "TaskActionOnBlockingInstances" => list(any())
       }
 
@@ -693,7 +693,7 @@ defmodule AWS.Outposts do
 
       list_sites_output() :: %{
         "NextToken" => String.t(),
-        "Sites" => list(site()())
+        "Sites" => list(site())
       }
 
   """
@@ -709,7 +709,7 @@ defmodule AWS.Outposts do
         optional("InstancesToExclude") => instances_to_exclude(),
         optional("OrderId") => String.t(),
         optional("TaskActionOnBlockingInstances") => list(any()),
-        required("InstancePools") => list(instance_type_capacity()())
+        required("InstancePools") => list(instance_type_capacity())
       }
 
   """
@@ -720,7 +720,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       order() :: %{
-        "LineItems" => list(line_item()()),
+        "LineItems" => list(line_item()),
         "OrderFulfilledDate" => non_neg_integer(),
         "OrderId" => String.t(),
         "OrderSubmissionDate" => non_neg_integer(),
@@ -761,8 +761,8 @@ defmodule AWS.Outposts do
 
       compute_attributes() :: %{
         "HostId" => String.t(),
-        "InstanceFamilies" => list(String.t()()),
-        "InstanceTypeCapacities" => list(asset_instance_type_capacity()()),
+        "InstanceFamilies" => list(String.t()),
+        "InstanceTypeCapacities" => list(asset_instance_type_capacity()),
         "MaxVcpus" => integer(),
         "State" => list(any())
       }
@@ -775,7 +775,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_assets_output() :: %{
-        "Assets" => list(asset_info()()),
+        "Assets" => list(asset_info()),
         "NextToken" => String.t()
       }
 
@@ -825,7 +825,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       get_outpost_instance_types_output() :: %{
-        "InstanceTypes" => list(instance_type_item()()),
+        "InstanceTypes" => list(instance_type_item()),
         "NextToken" => String.t(),
         "OutpostArn" => String.t(),
         "OutpostId" => String.t()
@@ -850,8 +850,8 @@ defmodule AWS.Outposts do
   ## Example:
 
       instances_to_exclude() :: %{
-        "AccountIds" => list(String.t()()),
-        "Instances" => list(String.t()()),
+        "AccountIds" => list(String.t()),
+        "Instances" => list(String.t()),
         "Services" => list(list(any())())
       }
 
@@ -904,7 +904,7 @@ defmodule AWS.Outposts do
 
       list_outposts_output() :: %{
         "NextToken" => String.t(),
-        "Outposts" => list(outpost()())
+        "Outposts" => list(outpost())
       }
 
   """
@@ -1026,7 +1026,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_catalog_items_input() :: %{
-        optional("EC2FamilyFilter") => list(String.t()()),
+        optional("EC2FamilyFilter") => list(String.t()),
         optional("ItemClassFilter") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1064,7 +1064,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       connection_details() :: %{
-        "AllowedIps" => list(String.t()()),
+        "AllowedIps" => list(String.t()),
         "ClientPublicKey" => String.t(),
         "ClientTunnelAddress" => String.t(),
         "ServerEndpoint" => String.t(),
@@ -1141,7 +1141,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       list_catalog_items_output() :: %{
-        "CatalogItems" => list(catalog_item()()),
+        "CatalogItems" => list(catalog_item()),
         "NextToken" => String.t()
       }
 
@@ -1179,7 +1179,7 @@ defmodule AWS.Outposts do
   ## Example:
 
       line_item() :: %{
-        "AssetInformationList" => list(line_item_asset_information()()),
+        "AssetInformationList" => list(line_item_asset_information()),
         "CatalogItemId" => String.t(),
         "LineItemId" => String.t(),
         "PreviousLineItemId" => String.t(),
@@ -1229,7 +1229,7 @@ defmodule AWS.Outposts do
         "LastModifiedDate" => non_neg_integer(),
         "OrderId" => String.t(),
         "OutpostId" => String.t(),
-        "RequestedInstancePools" => list(instance_type_capacity()()),
+        "RequestedInstancePools" => list(instance_type_capacity()),
         "TaskActionOnBlockingInstances" => list(any())
       }
 

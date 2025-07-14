@@ -44,7 +44,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       environment_vpc() :: %{
         "AccountId" => String.t(),
-        "CidrBlocks" => list(String.t()()),
+        "CidrBlocks" => list(String.t()),
         "CreatedTime" => non_neg_integer(),
         "EnvironmentId" => String.t(),
         "LastUpdatedTime" => non_neg_integer(),
@@ -175,7 +175,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "Error" => error_response(),
         "IncludeChildPaths" => boolean(),
         "LastUpdatedTime" => non_neg_integer(),
-        "Methods" => list(String.t()()),
+        "Methods" => list(String.t()),
         "OwnerAccountId" => String.t(),
         "PathResourceToId" => map(),
         "RouteId" => String.t(),
@@ -269,7 +269,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -328,7 +328,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_services_response() :: %{
         optional("NextToken") => String.t(),
-        optional("ServiceSummaryList") => list(service_summary()())
+        optional("ServiceSummaryList") => list(service_summary())
       }
 
   """
@@ -548,7 +548,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
         "ActivationState" => String.t(),
         "AppendSourcePath" => boolean(),
         "IncludeChildPaths" => boolean(),
-        "Methods" => list(String.t()()),
+        "Methods" => list(String.t()),
         "SourcePath" => String.t()
       }
 
@@ -637,7 +637,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
         optional("Error") => error_response(),
         optional("IncludeChildPaths") => boolean(),
         optional("LastUpdatedTime") => non_neg_integer(),
-        optional("Methods") => list(String.t()()),
+        optional("Methods") => list(String.t()),
         optional("OwnerAccountId") => String.t(),
         optional("PathResourceToId") => map(),
         optional("RouteId") => String.t(),
@@ -706,7 +706,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
 
       list_routes_response() :: %{
         optional("NextToken") => String.t(),
-        optional("RouteSummaryList") => list(route_summary()())
+        optional("RouteSummaryList") => list(route_summary())
       }
 
   """
@@ -717,7 +717,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       list_environment_vpcs_response() :: %{
-        optional("EnvironmentVpcList") => list(environment_vpc()()),
+        optional("EnvironmentVpcList") => list(environment_vpc()),
         optional("NextToken") => String.t()
       }
 
@@ -842,7 +842,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       list_environments_response() :: %{
-        optional("EnvironmentSummaryList") => list(environment_summary()()),
+        optional("EnvironmentSummaryList") => list(environment_summary()),
         optional("NextToken") => String.t()
       }
 
@@ -887,7 +887,7 @@ defmodule AWS.MigrationHubRefactorSpaces do
   ## Example:
 
       list_applications_response() :: %{
-        optional("ApplicationSummaryList") => list(application_summary()()),
+        optional("ApplicationSummaryList") => list(application_summary()),
         optional("NextToken") => String.t()
       }
 

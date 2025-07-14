@@ -49,7 +49,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       customer_agreement_summary() :: %{
-        "acceptanceTerms" => list(String.t()()),
+        "acceptanceTerms" => list(String.t()),
         "agreementArn" => String.t(),
         "arn" => String.t(),
         "awsAccountId" => String.t(),
@@ -60,7 +60,7 @@ defmodule AWS.Artifact do
         "name" => String.t(),
         "organizationArn" => String.t(),
         "state" => list(any()),
-        "terminateTerms" => list(String.t()()),
+        "terminateTerms" => list(String.t()),
         "type" => list(any())
       }
 
@@ -187,7 +187,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       list_customer_agreements_response() :: %{
-        "customerAgreements" => list(customer_agreement_summary()()),
+        "customerAgreements" => list(customer_agreement_summary()),
         "nextToken" => String.t()
       }
 
@@ -212,7 +212,7 @@ defmodule AWS.Artifact do
 
       list_reports_response() :: %{
         "nextToken" => String.t(),
-        "reports" => list(report_summary()())
+        "reports" => list(report_summary())
       }
 
   """
@@ -342,7 +342,7 @@ defmodule AWS.Artifact do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }

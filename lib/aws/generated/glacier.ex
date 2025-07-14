@@ -103,7 +103,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       remove_tags_from_vault_input() :: %{
-        optional("TagKeys") => list(String.t()())
+        optional("TagKeys") => list(String.t())
       }
 
   """
@@ -219,7 +219,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       list_provisioned_capacity_output() :: %{
-        "ProvisionedCapacityList" => list(provisioned_capacity_description()())
+        "ProvisionedCapacityList" => list(provisioned_capacity_description())
       }
 
   """
@@ -403,7 +403,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       data_retrieval_policy() :: %{
-        "Rules" => list(data_retrieval_rule()())
+        "Rules" => list(data_retrieval_rule())
       }
 
   """
@@ -623,7 +623,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       s3_location() :: %{
-        "AccessControlList" => list(grant()()),
+        "AccessControlList" => list(grant()),
         "BucketName" => String.t(),
         "CannedACL" => list(any()),
         "Encryption" => encryption(),
@@ -665,7 +665,7 @@ defmodule AWS.Glacier do
 
       list_vaults_output() :: %{
         "Marker" => String.t(),
-        "VaultList" => list(describe_vault_output()())
+        "VaultList" => list(describe_vault_output())
       }
 
   """
@@ -709,7 +709,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       list_jobs_output() :: %{
-        "JobList" => list(glacier_job_description()()),
+        "JobList" => list(glacier_job_description()),
         "Marker" => String.t()
       }
 
@@ -772,7 +772,7 @@ defmodule AWS.Glacier do
   ## Example:
 
       vault_notification_config() :: %{
-        "Events" => list(String.t()()),
+        "Events" => list(String.t()),
         "SNSTopic" => String.t()
       }
 
@@ -830,7 +830,7 @@ defmodule AWS.Glacier do
 
       list_multipart_uploads_output() :: %{
         "Marker" => String.t(),
-        "UploadsList" => list(upload_list_element()())
+        "UploadsList" => list(upload_list_element())
       }
 
   """
@@ -869,7 +869,7 @@ defmodule AWS.Glacier do
         "Marker" => String.t(),
         "MultipartUploadId" => String.t(),
         "PartSizeInBytes" => float(),
-        "Parts" => list(part_list_element()()),
+        "Parts" => list(part_list_element()),
         "VaultARN" => String.t()
       }
 

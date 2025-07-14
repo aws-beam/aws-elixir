@@ -111,7 +111,7 @@ defmodule AWS.SSOOIDC do
         optional("deviceCode") => String.t(),
         optional("redirectUri") => String.t(),
         optional("refreshToken") => String.t(),
-        optional("scope") => list(String.t()()),
+        optional("scope") => list(String.t()),
         required("clientId") => String.t(),
         required("clientSecret") => String.t(),
         required("grantType") => String.t()
@@ -146,7 +146,7 @@ defmodule AWS.SSOOIDC do
         optional("redirectUri") => String.t(),
         optional("refreshToken") => String.t(),
         optional("requestedTokenType") => String.t(),
-        optional("scope") => list(String.t()()),
+        optional("scope") => list(String.t()),
         optional("subjectToken") => String.t(),
         optional("subjectTokenType") => String.t(),
         required("clientId") => String.t(),
@@ -167,7 +167,7 @@ defmodule AWS.SSOOIDC do
         "idToken" => String.t(),
         "issuedTokenType" => String.t(),
         "refreshToken" => String.t(),
-        "scope" => list(String.t()()),
+        "scope" => list(String.t()),
         "tokenType" => String.t()
       }
 
@@ -290,10 +290,10 @@ defmodule AWS.SSOOIDC do
 
       register_client_request() :: %{
         optional("entitledApplicationArn") => String.t(),
-        optional("grantTypes") => list(String.t()()),
+        optional("grantTypes") => list(String.t()),
         optional("issuerUrl") => String.t(),
-        optional("redirectUris") => list(String.t()()),
-        optional("scopes") => list(String.t()()),
+        optional("redirectUris") => list(String.t()),
+        optional("scopes") => list(String.t()),
         required("clientName") => String.t(),
         required("clientType") => String.t()
       }

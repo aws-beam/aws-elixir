@@ -31,7 +31,7 @@ defmodule AWS.VoiceID do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -44,7 +44,7 @@ defmodule AWS.VoiceID do
       registration_config() :: %{
         "DuplicateRegistrationAction" => String.t(),
         "FraudsterSimilarityThreshold" => integer(),
-        "WatchlistIds" => list(String.t()())
+        "WatchlistIds" => list(String.t())
       }
       
   """
@@ -67,7 +67,7 @@ defmodule AWS.VoiceID do
       
       list_speakers_response() :: %{
         optional("NextToken") => String.t(),
-        optional("SpeakerSummaries") => list(speaker_summary()())
+        optional("SpeakerSummaries") => list(speaker_summary())
       }
       
   """
@@ -264,7 +264,7 @@ defmodule AWS.VoiceID do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -280,7 +280,7 @@ defmodule AWS.VoiceID do
         "Configuration" => fraud_detection_configuration(),
         "Decision" => String.t(),
         "FraudDetectionResultId" => String.t(),
-        "Reasons" => list(String.t()()),
+        "Reasons" => list(String.t()),
         "RiskDetails" => fraud_risk_details()
       }
       
@@ -372,7 +372,7 @@ defmodule AWS.VoiceID do
         "CreatedAt" => non_neg_integer(),
         "DomainId" => String.t(),
         "GeneratedFraudsterId" => String.t(),
-        "WatchlistIds" => list(String.t()())
+        "WatchlistIds" => list(String.t())
       }
       
   """
@@ -383,7 +383,7 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_speaker_enrollment_jobs_response() :: %{
-        optional("JobSummaries") => list(speaker_enrollment_job_summary()()),
+        optional("JobSummaries") => list(speaker_enrollment_job_summary()),
         optional("NextToken") => String.t()
       }
       
@@ -487,7 +487,7 @@ defmodule AWS.VoiceID do
       create_domain_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("ServerSideEncryptionConfiguration") => server_side_encryption_configuration()
       }
@@ -563,7 +563,7 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_domains_response() :: %{
-        optional("DomainSummaries") => list(domain_summary()()),
+        optional("DomainSummaries") => list(domain_summary()),
         optional("NextToken") => String.t()
       }
       
@@ -608,7 +608,7 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -725,7 +725,7 @@ defmodule AWS.VoiceID do
         "CreatedAt" => non_neg_integer(),
         "DomainId" => String.t(),
         "GeneratedFraudsterId" => String.t(),
-        "WatchlistIds" => list(String.t()())
+        "WatchlistIds" => list(String.t())
       }
       
   """
@@ -888,7 +888,7 @@ defmodule AWS.VoiceID do
       
       list_watchlists_response() :: %{
         optional("NextToken") => String.t(),
-        optional("WatchlistSummaries") => list(watchlist_summary()())
+        optional("WatchlistSummaries") => list(watchlist_summary())
       }
       
   """
@@ -964,7 +964,7 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_fraudsters_response() :: %{
-        optional("FraudsterSummaries") => list(fraudster_summary()()),
+        optional("FraudsterSummaries") => list(fraudster_summary()),
         optional("NextToken") => String.t()
       }
       
@@ -998,7 +998,7 @@ defmodule AWS.VoiceID do
   ## Example:
       
       list_fraudster_registration_jobs_response() :: %{
-        optional("JobSummaries") => list(fraudster_registration_job_summary()()),
+        optional("JobSummaries") => list(fraudster_registration_job_summary()),
         optional("NextToken") => String.t()
       }
       
@@ -1151,7 +1151,7 @@ defmodule AWS.VoiceID do
       enrollment_job_fraud_detection_config() :: %{
         "FraudDetectionAction" => String.t(),
         "RiskThreshold" => integer(),
-        "WatchlistIds" => list(String.t()())
+        "WatchlistIds" => list(String.t())
       }
       
   """
@@ -1435,7 +1435,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, associate_fraudster_errors()}
   def associate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFraudster", input, options)
   end
@@ -1454,7 +1455,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -1468,7 +1470,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, create_watchlist_errors()}
   def create_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWatchlist", input, options)
   end
@@ -1482,7 +1485,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1498,7 +1502,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_fraudster_errors()}
   def delete_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFraudster", input, options)
   end
@@ -1512,7 +1517,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_speaker_errors()}
   def delete_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSpeaker", input, options)
   end
@@ -1532,7 +1538,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, delete_watchlist_errors()}
   def delete_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWatchlist", input, options)
   end
@@ -1546,7 +1553,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -1560,7 +1568,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_fraudster_errors()}
   def describe_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudster", input, options)
   end
@@ -1578,7 +1587,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_fraudster_registration_job_errors()}
   def describe_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFraudsterRegistrationJob", input, options)
   end
@@ -1592,7 +1602,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_speaker_errors()}
   def describe_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeaker", input, options)
   end
@@ -1606,7 +1617,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_speaker_enrollment_job_errors()}
   def describe_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSpeakerEnrollmentJob", input, options)
   end
@@ -1620,7 +1632,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, describe_watchlist_errors()}
   def describe_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWatchlist", input, options)
   end
@@ -1639,7 +1652,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, disassociate_fraudster_errors()}
   def disassociate_fraudster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFraudster", input, options)
   end
@@ -1654,7 +1668,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, evaluate_session_errors()}
   def evaluate_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvaluateSession", input, options)
   end
@@ -1668,7 +1683,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -1690,7 +1706,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_fraudster_registration_jobs_errors()}
   def list_fraudster_registration_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsterRegistrationJobs", input, options)
   end
@@ -1704,7 +1721,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_fraudsters_errors()}
   def list_fraudsters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFraudsters", input, options)
   end
@@ -1722,7 +1740,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_speaker_enrollment_jobs_errors()}
   def list_speaker_enrollment_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakerEnrollmentJobs", input, options)
   end
@@ -1736,7 +1755,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_speakers_errors()}
   def list_speakers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSpeakers", input, options)
   end
@@ -1750,7 +1770,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1764,7 +1785,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, list_watchlists_errors()}
   def list_watchlists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWatchlists", input, options)
   end
@@ -1788,7 +1810,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, opt_out_speaker_errors()}
   def opt_out_speaker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OptOutSpeaker", input, options)
   end
@@ -1806,7 +1829,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, start_fraudster_registration_job_errors()}
   def start_fraudster_registration_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFraudsterRegistrationJob", input, options)
   end
@@ -1820,7 +1844,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, start_speaker_enrollment_job_errors()}
   def start_speaker_enrollment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSpeakerEnrollmentJob", input, options)
   end
@@ -1834,7 +1859,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1848,7 +1874,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1867,7 +1894,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, update_domain_errors()}
   def update_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomain", input, options)
   end
@@ -1883,7 +1911,8 @@ defmodule AWS.VoiceID do
           | {:error, term()}
           | {:error, update_watchlist_errors()}
   def update_watchlist(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWatchlist", input, options)
   end

@@ -26,7 +26,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_query_distribute_output_configuration() :: %{
-        "locations" => list(list()())
+        "locations" => list(list())
       }
 
   """
@@ -124,7 +124,7 @@ defmodule AWS.CleanRooms do
 
       list_collaboration_analysis_templates_output() :: %{
         optional("nextToken") => String.t(),
-        required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary()())
+        required("collaborationAnalysisTemplateSummaries") => list(collaboration_analysis_template_summary())
       }
 
   """
@@ -191,7 +191,7 @@ defmodule AWS.CleanRooms do
 
       list_members_output() :: %{
         optional("nextToken") => String.t(),
-        required("memberSummaries") => list(member_summary()())
+        required("memberSummaries") => list(member_summary())
       }
 
   """
@@ -231,7 +231,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_collaboration_analysis_template_input() :: %{
-        required("analysisTemplateArns") => list(String.t()())
+        required("analysisTemplateArns") => list(String.t())
       }
 
   """
@@ -268,7 +268,7 @@ defmodule AWS.CleanRooms do
         optional("description") => String.t(),
         optional("selectedAnalysisMethods") => list(list(any())()),
         optional("tags") => map(),
-        required("allowedColumns") => list(String.t()()),
+        required("allowedColumns") => list(String.t()),
         required("analysisMethod") => list(any()),
         required("name") => String.t(),
         required("tableReference") => list()
@@ -311,7 +311,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_template_artifacts() :: %{
-        "additionalArtifacts" => list(analysis_template_artifact()()),
+        "additionalArtifacts" => list(analysis_template_artifact()),
         "entryPoint" => analysis_template_artifact(),
         "roleArn" => String.t()
       }
@@ -325,7 +325,7 @@ defmodule AWS.CleanRooms do
 
       list_configured_table_associations_output() :: %{
         optional("nextToken") => String.t(),
-        required("configuredTableAssociationSummaries") => list(configured_table_association_summary()())
+        required("configuredTableAssociationSummaries") => list(configured_table_association_summary())
       }
 
   """
@@ -336,7 +336,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       collaboration_analysis_template() :: %{
-        "analysisParameters" => list(analysis_parameter()()),
+        "analysisParameters" => list(analysis_parameter()),
         "arn" => String.t(),
         "collaborationArn" => String.t(),
         "collaborationId" => String.t(),
@@ -350,7 +350,7 @@ defmodule AWS.CleanRooms do
         "source" => list(),
         "sourceMetadata" => list(),
         "updateTime" => [non_neg_integer()],
-        "validations" => list(analysis_template_validation_status_detail()())
+        "validations" => list(analysis_template_validation_status_detail())
       }
 
   """
@@ -402,7 +402,7 @@ defmodule AWS.CleanRooms do
 
       list_analysis_templates_output() :: %{
         optional("nextToken") => String.t(),
-        required("analysisTemplateSummaries") => list(analysis_template_summary()())
+        required("analysisTemplateSummaries") => list(analysis_template_summary())
       }
 
   """
@@ -447,7 +447,7 @@ defmodule AWS.CleanRooms do
         "id" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
-        "receiverConfigurations" => list(receiver_configuration()()),
+        "receiverConfigurations" => list(receiver_configuration()),
         "status" => String.t()
       }
 
@@ -620,7 +620,7 @@ defmodule AWS.CleanRooms do
 
       list_memberships_output() :: %{
         optional("nextToken") => String.t(),
-        required("membershipSummaries") => list(membership_summary()())
+        required("membershipSummaries") => list(membership_summary())
       }
 
   """
@@ -675,7 +675,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_template_validation_status_detail() :: %{
-        "reasons" => list(analysis_template_validation_status_reason()()),
+        "reasons" => list(analysis_template_validation_status_reason()),
         "status" => list(any()),
         "type" => list(any())
       }
@@ -689,7 +689,7 @@ defmodule AWS.CleanRooms do
 
       list_protected_queries_output() :: %{
         optional("nextToken") => String.t(),
-        required("protectedQueries") => list(protected_query_summary()())
+        required("protectedQueries") => list(protected_query_summary())
       }
 
   """
@@ -700,7 +700,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_query_distribute_output() :: %{
-        "memberList" => list(protected_query_single_member_output()()),
+        "memberList" => list(protected_query_single_member_output()),
         "s3" => protected_query_s3_output()
       }
 
@@ -736,7 +736,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       differential_privacy_parameters() :: %{
-        "sensitivityParameters" => list(differential_privacy_sensitivity_parameters()())
+        "sensitivityParameters" => list(differential_privacy_sensitivity_parameters())
       }
 
   """
@@ -857,13 +857,13 @@ defmodule AWS.CleanRooms do
 
       analysis_rule_aggregation() :: %{
         "additionalAnalyses" => list(any()),
-        "aggregateColumns" => list(aggregate_column()()),
-        "allowedJoinOperators" => list(String.t()()),
-        "dimensionColumns" => list(String.t()()),
-        "joinColumns" => list(String.t()()),
+        "aggregateColumns" => list(aggregate_column()),
+        "allowedJoinOperators" => list(String.t()),
+        "dimensionColumns" => list(String.t()),
+        "joinColumns" => list(String.t()),
         "joinRequired" => String.t(),
-        "outputConstraints" => list(aggregation_constraint()()),
-        "scalarFunctions" => list(String.t()())
+        "outputConstraints" => list(aggregation_constraint()),
+        "scalarFunctions" => list(String.t())
       }
 
   """
@@ -874,7 +874,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       differential_privacy_privacy_budget() :: %{
-        "aggregations" => list(differential_privacy_privacy_budget_aggregation()()),
+        "aggregations" => list(differential_privacy_privacy_budget_aggregation()),
         "epsilon" => integer()
       }
 
@@ -909,7 +909,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_schema() :: %{
-        "referencedTables" => list(String.t()())
+        "referencedTables" => list(String.t())
       }
 
   """
@@ -995,7 +995,7 @@ defmodule AWS.CleanRooms do
         "analysisRuleType" => list(any()),
         "analysisType" => list(any()),
         "configurations" => list(list(any())()),
-        "reasons" => list(schema_status_reason()()),
+        "reasons" => list(schema_status_reason()),
         "status" => list(any())
       }
 
@@ -1110,7 +1110,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       id_mapping_table_schema_type_properties() :: %{
-        "idMappingTableInputSource" => list(id_mapping_table_input_source()())
+        "idMappingTableInputSource" => list(id_mapping_table_input_source())
       }
 
   """
@@ -1146,7 +1146,7 @@ defmodule AWS.CleanRooms do
 
       list_schemas_output() :: %{
         optional("nextToken") => String.t(),
-        required("schemaSummaries") => list(schema_summary()())
+        required("schemaSummaries") => list(schema_summary())
       }
 
   """
@@ -1167,11 +1167,11 @@ defmodule AWS.CleanRooms do
 
       consolidated_policy_list() :: %{
         "additionalAnalyses" => list(any()),
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedJoinOperators" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()()),
-        "joinColumns" => list(String.t()()),
-        "listColumns" => list(String.t()())
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedJoinOperators" => list(String.t()),
+        "allowedResultReceivers" => list(String.t()),
+        "joinColumns" => list(String.t()),
+        "listColumns" => list(String.t())
       }
 
   """
@@ -1215,10 +1215,10 @@ defmodule AWS.CleanRooms do
 
       analysis_rule_custom() :: %{
         "additionalAnalyses" => list(any()),
-        "allowedAnalyses" => list(String.t()()),
-        "allowedAnalysisProviders" => list(String.t()()),
+        "allowedAnalyses" => list(String.t()),
+        "allowedAnalysisProviders" => list(String.t()),
         "differentialPrivacy" => differential_privacy_configuration(),
-        "disallowedOutputColumns" => list(String.t()())
+        "disallowedOutputColumns" => list(String.t())
       }
 
   """
@@ -1374,8 +1374,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_association_analysis_rule_custom() :: %{
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()())
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedResultReceivers" => list(String.t())
       }
 
   """
@@ -1418,7 +1418,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_configured_audience_model_associations_output() :: %{
-        "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()()),
+        "configuredAudienceModelAssociationSummaries" => list(configured_audience_model_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -1431,12 +1431,12 @@ defmodule AWS.CleanRooms do
 
       consolidated_policy_custom() :: %{
         "additionalAnalyses" => list(any()),
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedAnalyses" => list(String.t()()),
-        "allowedAnalysisProviders" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()()),
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedAnalyses" => list(String.t()),
+        "allowedAnalysisProviders" => list(String.t()),
+        "allowedResultReceivers" => list(String.t()),
         "differentialPrivacy" => differential_privacy_configuration(),
-        "disallowedOutputColumns" => list(String.t()())
+        "disallowedOutputColumns" => list(String.t())
       }
 
   """
@@ -1447,7 +1447,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_collaboration_privacy_budget_templates_output() :: %{
-        "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()()),
+        "collaborationPrivacyBudgetTemplateSummaries" => list(collaboration_privacy_budget_template_summary()),
         "nextToken" => String.t()
       }
 
@@ -1524,7 +1524,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       query_constraint_require_overlap() :: %{
-        "columns" => list(String.t()())
+        "columns" => list(String.t())
       }
 
   """
@@ -1636,8 +1636,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_schema_analysis_rule_output() :: %{
-        "analysisRules" => list(analysis_rule()()),
-        "errors" => list(batch_get_schema_analysis_rule_error()())
+        "analysisRules" => list(analysis_rule()),
+        "errors" => list(batch_get_schema_analysis_rule_error())
       }
 
   """
@@ -1664,7 +1664,7 @@ defmodule AWS.CleanRooms do
         "id" => String.t(),
         "membershipArn" => String.t(),
         "membershipId" => String.t(),
-        "receiverConfigurations" => list(protected_job_receiver_configuration()()),
+        "receiverConfigurations" => list(protected_job_receiver_configuration()),
         "status" => list(any())
       }
 
@@ -1832,8 +1832,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_association_analysis_rule_aggregation() :: %{
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()())
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedResultReceivers" => list(String.t())
       }
 
   """
@@ -1909,8 +1909,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_schema_output() :: %{
-        required("errors") => list(batch_get_schema_error()()),
-        required("schemas") => list(schema()())
+        required("errors") => list(batch_get_schema_error()),
+        required("schemas") => list(schema())
       }
 
   """
@@ -1946,13 +1946,13 @@ defmodule AWS.CleanRooms do
         "analysisRuleTypes" => list(list(any())()),
         "collaborationArn" => String.t(),
         "collaborationId" => String.t(),
-        "columns" => list(column()()),
+        "columns" => list(column()),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
         "name" => String.t(),
-        "partitionKeys" => list(column()()),
-        "schemaStatusDetails" => list(schema_status_detail()()),
+        "partitionKeys" => list(column()),
+        "schemaStatusDetails" => list(schema_status_detail()),
         "schemaTypeProperties" => list(),
         "selectedAnalysisMethods" => list(list(any())()),
         "type" => list(any()),
@@ -2035,7 +2035,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_collaboration_configured_audience_model_associations_output() :: %{
-        "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()()),
+        "collaborationConfiguredAudienceModelAssociationSummaries" => list(collaboration_configured_audience_model_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -2059,7 +2059,7 @@ defmodule AWS.CleanRooms do
 
       list_privacy_budget_templates_output() :: %{
         "nextToken" => String.t(),
-        "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary()())
+        "privacyBudgetTemplateSummaries" => list(privacy_budget_template_summary())
       }
 
   """
@@ -2082,9 +2082,9 @@ defmodule AWS.CleanRooms do
 
       analysis_rule_list() :: %{
         "additionalAnalyses" => list(any()),
-        "allowedJoinOperators" => list(String.t()()),
-        "joinColumns" => list(String.t()()),
-        "listColumns" => list(String.t()())
+        "allowedJoinOperators" => list(String.t()),
+        "joinColumns" => list(String.t()),
+        "listColumns" => list(String.t())
       }
 
   """
@@ -2165,9 +2165,9 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_rule_id_mapping_table() :: %{
-        "dimensionColumns" => list(String.t()()),
-        "joinColumns" => list(String.t()()),
-        "queryConstraints" => list(list()())
+        "dimensionColumns" => list(String.t()),
+        "joinColumns" => list(String.t()),
+        "queryConstraints" => list(list())
       }
 
   """
@@ -2178,7 +2178,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       protected_job_direct_analysis_configuration_details() :: %{
-        "receiverAccountIds" => list(String.t()())
+        "receiverAccountIds" => list(String.t())
       }
 
   """
@@ -2328,7 +2328,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       differential_privacy_privacy_impact() :: %{
-        "aggregations" => list(differential_privacy_preview_aggregation()())
+        "aggregations" => list(differential_privacy_preview_aggregation())
       }
 
   """
@@ -2393,7 +2393,7 @@ defmodule AWS.CleanRooms do
         required("creatorDisplayName") => String.t(),
         required("creatorMemberAbilities") => list(list(any())()),
         required("description") => String.t(),
-        required("members") => list(member_specification()()),
+        required("members") => list(member_specification()),
         required("name") => String.t(),
         required("queryLogStatus") => list(any())
       }
@@ -2512,7 +2512,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_collaboration_privacy_budgets_output() :: %{
-        "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()()),
+        "collaborationPrivacyBudgetSummaries" => list(collaboration_privacy_budget_summary()),
         "nextToken" => String.t()
       }
 
@@ -2555,7 +2555,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_template_artifact_metadata() :: %{
-        "additionalArtifactHashes" => list(hash()()),
+        "additionalArtifactHashes" => list(hash()),
         "entryPointHash" => hash()
       }
 
@@ -2567,7 +2567,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_id_namespace_associations_output() :: %{
-        "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()()),
+        "idNamespaceAssociationSummaries" => list(id_namespace_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -2700,7 +2700,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       differential_privacy_configuration() :: %{
-        "columns" => list(differential_privacy_column()())
+        "columns" => list(differential_privacy_column())
       }
 
   """
@@ -2711,7 +2711,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       direct_analysis_configuration_details() :: %{
-        "receiverAccountIds" => list(String.t()())
+        "receiverAccountIds" => list(String.t())
       }
 
   """
@@ -2722,7 +2722,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -2733,7 +2733,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_schema_analysis_rule_input() :: %{
-        required("schemaAnalysisRuleRequests") => list(schema_analysis_rule_request()())
+        required("schemaAnalysisRuleRequests") => list(schema_analysis_rule_request())
       }
 
   """
@@ -2766,7 +2766,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       analysis_template() :: %{
-        "analysisParameters" => list(analysis_parameter()()),
+        "analysisParameters" => list(analysis_parameter()),
         "arn" => String.t(),
         "collaborationArn" => String.t(),
         "collaborationId" => String.t(),
@@ -2781,7 +2781,7 @@ defmodule AWS.CleanRooms do
         "source" => list(),
         "sourceMetadata" => list(),
         "updateTime" => [non_neg_integer()],
-        "validations" => list(analysis_template_validation_status_detail()())
+        "validations" => list(analysis_template_validation_status_detail())
       }
 
   """
@@ -2843,8 +2843,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table_association_analysis_rule_list() :: %{
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()())
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedResultReceivers" => list(String.t())
       }
 
   """
@@ -2904,7 +2904,7 @@ defmodule AWS.CleanRooms do
 
       list_collaborations_output() :: %{
         optional("nextToken") => String.t(),
-        required("collaborationList") => list(collaboration_summary()())
+        required("collaborationList") => list(collaboration_summary())
       }
 
   """
@@ -2962,7 +2962,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -3053,7 +3053,7 @@ defmodule AWS.CleanRooms do
 
       list_protected_jobs_output() :: %{
         "nextToken" => String.t(),
-        "protectedJobs" => list(protected_job_summary()())
+        "protectedJobs" => list(protected_job_summary())
       }
 
   """
@@ -3277,8 +3277,8 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_collaboration_analysis_template_output() :: %{
-        required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()()),
-        required("errors") => list(batch_get_collaboration_analysis_template_error()())
+        required("collaborationAnalysisTemplates") => list(collaboration_analysis_template()),
+        required("errors") => list(batch_get_collaboration_analysis_template_error())
       }
 
   """
@@ -3289,7 +3289,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       batch_get_schema_input() :: %{
-        required("names") => list(String.t()())
+        required("names") => list(String.t())
       }
 
   """
@@ -3378,15 +3378,15 @@ defmodule AWS.CleanRooms do
 
       consolidated_policy_aggregation() :: %{
         "additionalAnalyses" => list(any()),
-        "aggregateColumns" => list(aggregate_column()()),
-        "allowedAdditionalAnalyses" => list(String.t()()),
-        "allowedJoinOperators" => list(String.t()()),
-        "allowedResultReceivers" => list(String.t()()),
-        "dimensionColumns" => list(String.t()()),
-        "joinColumns" => list(String.t()()),
+        "aggregateColumns" => list(aggregate_column()),
+        "allowedAdditionalAnalyses" => list(String.t()),
+        "allowedJoinOperators" => list(String.t()),
+        "allowedResultReceivers" => list(String.t()),
+        "dimensionColumns" => list(String.t()),
+        "joinColumns" => list(String.t()),
         "joinRequired" => String.t(),
-        "outputConstraints" => list(aggregation_constraint()()),
-        "scalarFunctions" => list(String.t()())
+        "outputConstraints" => list(aggregation_constraint()),
+        "scalarFunctions" => list(String.t())
       }
 
   """
@@ -3486,7 +3486,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       configured_table() :: %{
-        "allowedColumns" => list(String.t()()),
+        "allowedColumns" => list(String.t()),
         "analysisMethod" => list(any()),
         "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t(),
@@ -3585,7 +3585,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       aggregate_column() :: %{
-        "columnNames" => list(String.t()()),
+        "columnNames" => list(String.t()),
         "function" => String.t()
       }
 
@@ -3606,7 +3606,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       create_analysis_template_input() :: %{
-        optional("analysisParameters") => list(analysis_parameter()()),
+        optional("analysisParameters") => list(analysis_parameter()),
         optional("description") => String.t(),
         optional("schema") => analysis_schema(),
         optional("tags") => map(),
@@ -3636,7 +3636,7 @@ defmodule AWS.CleanRooms do
 
       list_configured_tables_output() :: %{
         optional("nextToken") => String.t(),
-        required("configuredTableSummaries") => list(configured_table_summary()())
+        required("configuredTableSummaries") => list(configured_table_summary())
       }
 
   """
@@ -3812,7 +3812,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       id_mapping_table_input_reference_properties() :: %{
-        "idMappingTableInputSource" => list(id_mapping_table_input_source()())
+        "idMappingTableInputSource" => list(id_mapping_table_input_source())
       }
 
   """
@@ -3953,7 +3953,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_id_mapping_tables_output() :: %{
-        "idMappingTableSummaries" => list(id_mapping_table_summary()()),
+        "idMappingTableSummaries" => list(id_mapping_table_summary()),
         "nextToken" => String.t()
       }
 
@@ -3976,7 +3976,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       list_collaboration_id_namespace_associations_output() :: %{
-        "collaborationIdNamespaceAssociationSummaries" => list(collaboration_id_namespace_association_summary()()),
+        "collaborationIdNamespaceAssociationSummaries" => list(collaboration_id_namespace_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -3989,7 +3989,7 @@ defmodule AWS.CleanRooms do
 
       list_privacy_budgets_output() :: %{
         "nextToken" => String.t(),
-        "privacyBudgetSummaries" => list(privacy_budget_summary()())
+        "privacyBudgetSummaries" => list(privacy_budget_summary())
       }
 
   """

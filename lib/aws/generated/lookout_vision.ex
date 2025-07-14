@@ -75,7 +75,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       list_models_response() :: %{
-        "Models" => list(model_metadata()()),
+        "Models" => list(model_metadata()),
         "NextToken" => String.t()
       }
 
@@ -87,7 +87,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -99,7 +99,7 @@ defmodule AWS.LookoutVision do
 
       project_description() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "Datasets" => list(dataset_metadata()()),
+        "Datasets" => list(dataset_metadata()),
         "ProjectArn" => String.t(),
         "ProjectName" => String.t()
       }
@@ -252,7 +252,7 @@ defmodule AWS.LookoutVision do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("OutputConfig") => output_config()
       }
 
@@ -273,7 +273,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -443,7 +443,7 @@ defmodule AWS.LookoutVision do
 
       list_projects_response() :: %{
         "NextToken" => String.t(),
-        "Projects" => list(project_metadata()())
+        "Projects" => list(project_metadata())
       }
 
   """
@@ -471,7 +471,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -507,7 +507,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       detect_anomaly_result() :: %{
-        "Anomalies" => list(anomaly()()),
+        "Anomalies" => list(anomaly()),
         "AnomalyMask" => binary(),
         "Confidence" => float(),
         "IsAnomalous" => boolean(),
@@ -574,7 +574,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       list_model_packaging_jobs_response() :: %{
-        "ModelPackagingJobs" => list(model_packaging_job_metadata()()),
+        "ModelPackagingJobs" => list(model_packaging_job_metadata()),
         "NextToken" => String.t()
       }
 
@@ -825,7 +825,7 @@ defmodule AWS.LookoutVision do
         "ComponentName" => String.t(),
         "ComponentVersion" => String.t(),
         "S3OutputLocation" => s3_location(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetDevice" => list(any()),
         "TargetPlatform" => target_platform()
       }
@@ -937,7 +937,7 @@ defmodule AWS.LookoutVision do
   ## Example:
 
       list_dataset_entries_response() :: %{
-        "DatasetEntries" => list(String.t()()),
+        "DatasetEntries" => list(String.t()),
         "NextToken" => String.t()
       }
 

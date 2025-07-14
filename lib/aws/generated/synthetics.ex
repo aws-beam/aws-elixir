@@ -91,7 +91,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       describe_canaries_response() :: %{
-        "Canaries" => list(canary()()),
+        "Canaries" => list(canary()),
         "NextToken" => String.t()
       }
 
@@ -104,7 +104,7 @@ defmodule AWS.Synthetics do
 
       describe_canaries_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t()
       }
 
@@ -161,7 +161,7 @@ defmodule AWS.Synthetics do
 
       visual_reference_output() :: %{
         "BaseCanaryRunId" => String.t(),
-        "BaseScreenshots" => list(base_screenshot()())
+        "BaseScreenshots" => list(base_screenshot())
       }
 
   """
@@ -207,7 +207,7 @@ defmodule AWS.Synthetics do
 
       describe_runtime_versions_response() :: %{
         "NextToken" => String.t(),
-        "RuntimeVersions" => list(runtime_version()())
+        "RuntimeVersions" => list(runtime_version())
       }
 
   """
@@ -232,7 +232,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       describe_canaries_last_run_response() :: %{
-        "CanariesLastRun" => list(canary_last_run()()),
+        "CanariesLastRun" => list(canary_last_run()),
         "NextToken" => String.t()
       }
 
@@ -244,7 +244,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -276,7 +276,7 @@ defmodule AWS.Synthetics do
 
       list_group_resources_response() :: %{
         "NextToken" => String.t(),
-        "Resources" => list(String.t()())
+        "Resources" => list(String.t())
       }
 
   """
@@ -489,7 +489,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       base_screenshot() :: %{
-        "IgnoreCoordinates" => list(String.t()()),
+        "IgnoreCoordinates" => list(String.t()),
         "ScreenshotName" => String.t()
       }
 
@@ -513,8 +513,8 @@ defmodule AWS.Synthetics do
 
       vpc_config_output() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -583,7 +583,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       get_canary_runs_response() :: %{
-        "CanaryRuns" => list(canary_run()()),
+        "CanaryRuns" => list(canary_run()),
         "NextToken" => String.t()
       }
 
@@ -608,7 +608,7 @@ defmodule AWS.Synthetics do
 
       describe_canaries_last_run_request() :: %{
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t()
       }
 
@@ -656,7 +656,7 @@ defmodule AWS.Synthetics do
 
       visual_reference_input() :: %{
         "BaseCanaryRunId" => String.t(),
-        "BaseScreenshots" => list(base_screenshot()())
+        "BaseScreenshots" => list(base_screenshot())
       }
 
   """
@@ -771,8 +771,8 @@ defmodule AWS.Synthetics do
 
       vpc_config_input() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -920,7 +920,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       list_associated_groups_response() :: %{
-        "Groups" => list(group_summary()()),
+        "Groups" => list(group_summary()),
         "NextToken" => String.t()
       }
 
@@ -932,7 +932,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       list_groups_response() :: %{
-        "Groups" => list(group_summary()()),
+        "Groups" => list(group_summary()),
         "NextToken" => String.t()
       }
 

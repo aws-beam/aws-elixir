@@ -71,7 +71,7 @@ defmodule AWS.DynamoDBStreams do
       
       get_records_output() :: %{
         "NextShardIterator" => String.t(),
-        "Records" => list(record()())
+        "Records" => list(record())
       }
       
   """
@@ -167,7 +167,7 @@ defmodule AWS.DynamoDBStreams do
       
       list_streams_output() :: %{
         "LastEvaluatedStreamArn" => String.t(),
-        "Streams" => list(stream()())
+        "Streams" => list(stream())
       }
       
   """
@@ -245,9 +245,9 @@ defmodule AWS.DynamoDBStreams do
       
       stream_description() :: %{
         "CreationRequestDateTime" => non_neg_integer(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "LastEvaluatedShardId" => String.t(),
-        "Shards" => list(shard()()),
+        "Shards" => list(shard()),
         "StreamArn" => String.t(),
         "StreamLabel" => String.t(),
         "StreamStatus" => list(any()),
@@ -338,7 +338,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStream", input, options)
   end
@@ -363,7 +364,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -385,7 +387,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -406,7 +409,8 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end

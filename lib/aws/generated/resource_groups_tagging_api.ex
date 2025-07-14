@@ -15,8 +15,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       compliance_details() :: %{
         "ComplianceStatus" => boolean(),
-        "KeysWithNoncompliantValues" => list(String.t()()),
-        "NoncompliantKeys" => list(String.t()())
+        "KeysWithNoncompliantValues" => list(String.t()),
+        "NoncompliantKeys" => list(String.t())
       }
       
   """
@@ -88,10 +88,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
         optional("GroupBy") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("PaginationToken") => String.t(),
-        optional("RegionFilters") => list(String.t()()),
-        optional("ResourceTypeFilters") => list(String.t()()),
-        optional("TagKeyFilters") => list(String.t()()),
-        optional("TargetIdFilters") => list(String.t()())
+        optional("RegionFilters") => list(String.t()),
+        optional("ResourceTypeFilters") => list(String.t()),
+        optional("TagKeyFilters") => list(String.t()),
+        optional("TargetIdFilters") => list(String.t())
       }
       
   """
@@ -103,7 +103,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       get_compliance_summary_output() :: %{
         "PaginationToken" => String.t(),
-        "SummaryList" => list(summary()())
+        "SummaryList" => list(summary())
       }
       
   """
@@ -117,10 +117,10 @@ defmodule AWS.ResourceGroupsTaggingAPI do
         optional("ExcludeCompliantResources") => boolean(),
         optional("IncludeComplianceDetails") => boolean(),
         optional("PaginationToken") => String.t(),
-        optional("ResourceARNList") => list(String.t()()),
-        optional("ResourceTypeFilters") => list(String.t()()),
+        optional("ResourceARNList") => list(String.t()),
+        optional("ResourceTypeFilters") => list(String.t()),
         optional("ResourcesPerPage") => integer(),
-        optional("TagFilters") => list(tag_filter()()),
+        optional("TagFilters") => list(tag_filter()),
         optional("TagsPerPage") => integer()
       }
       
@@ -133,7 +133,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       get_resources_output() :: %{
         "PaginationToken" => String.t(),
-        "ResourceTagMappingList" => list(resource_tag_mapping()())
+        "ResourceTagMappingList" => list(resource_tag_mapping())
       }
       
   """
@@ -156,7 +156,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       get_tag_keys_output() :: %{
         "PaginationToken" => String.t(),
-        "TagKeys" => list(String.t()())
+        "TagKeys" => list(String.t())
       }
       
   """
@@ -180,7 +180,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       get_tag_values_output() :: %{
         "PaginationToken" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
       
   """
@@ -226,7 +226,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       resource_tag_mapping() :: %{
         "ComplianceDetails" => compliance_details(),
         "ResourceARN" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -286,7 +286,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
       
       tag_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -297,7 +297,7 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   ## Example:
       
       tag_resources_input() :: %{
-        required("ResourceARNList") => list(String.t()()),
+        required("ResourceARNList") => list(String.t()),
         required("Tags") => map()
       }
       
@@ -331,8 +331,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
   ## Example:
       
       untag_resources_input() :: %{
-        required("ResourceARNList") => list(String.t()()),
-        required("TagKeys") => list(String.t()())
+        required("ResourceARNList") => list(String.t()),
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -420,7 +420,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, describe_report_creation_errors()}
   def describe_report_creation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReportCreation", input, options)
   end
@@ -453,7 +454,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_compliance_summary_errors()}
   def get_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceSummary", input, options)
   end
@@ -492,7 +494,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_resources_errors()}
   def get_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResources", input, options)
   end
@@ -518,7 +521,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_tag_keys_errors()}
   def get_tag_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTagKeys", input, options)
   end
@@ -544,7 +548,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, get_tag_values_errors()}
   def get_tag_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTagValues", input, options)
   end
@@ -569,7 +574,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, start_report_creation_errors()}
   def start_report_creation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReportCreation", input, options)
   end
@@ -633,7 +639,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, tag_resources_errors()}
   def tag_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResources", input, options)
   end
@@ -683,7 +690,8 @@ defmodule AWS.ResourceGroupsTaggingAPI do
           | {:error, term()}
           | {:error, untag_resources_errors()}
   def untag_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResources", input, options)
   end

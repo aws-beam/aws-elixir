@@ -150,7 +150,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_user_proficiencies_request() :: %{
-        required("UserProficiencies") => list(user_proficiency()())
+        required("UserProficiencies") => list(user_proficiency())
       }
 
   """
@@ -237,7 +237,7 @@ defmodule AWS.Connect do
   ## Example:
 
       view_input_content() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "Template" => String.t()
       }
 
@@ -250,7 +250,7 @@ defmodule AWS.Connect do
 
       list_contact_references_response() :: %{
         "NextToken" => String.t(),
-        "ReferenceSummaryList" => list(list()())
+        "ReferenceSummaryList" => list(list())
       }
 
   """
@@ -262,7 +262,7 @@ defmodule AWS.Connect do
 
       search_vocabularies_response() :: %{
         "NextToken" => String.t(),
-        "VocabularySummaryList" => list(vocabulary_summary()())
+        "VocabularySummaryList" => list(vocabulary_summary())
       }
 
   """
@@ -276,8 +276,8 @@ defmodule AWS.Connect do
         optional("Groupings") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SortCriteria") => list(current_metric_sort_criteria()()),
-        required("CurrentMetrics") => list(current_metric()()),
+        optional("SortCriteria") => list(current_metric_sort_criteria()),
+        required("CurrentMetrics") => list(current_metric()),
         required("Filters") => filters()
       }
 
@@ -302,7 +302,7 @@ defmodule AWS.Connect do
 
       create_rule_request() :: %{
         optional("ClientToken") => String.t(),
-        required("Actions") => list(rule_action()()),
+        required("Actions") => list(rule_action()),
         required("Function") => String.t(),
         required("Name") => String.t(),
         required("PublishStatus") => list(any()),
@@ -322,7 +322,7 @@ defmodule AWS.Connect do
         optional("Description") => String.t(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
         required("EvaluationFormVersion") => integer(),
-        required("Items") => list(list()()),
+        required("Items") => list(list()),
         required("Title") => String.t()
       }
 
@@ -345,8 +345,8 @@ defmodule AWS.Connect do
   ## Example:
 
       security_profile_search_criteria() :: %{
-        "AndConditions" => list(security_profile_search_criteria()()),
-        "OrConditions" => list(security_profile_search_criteria()()),
+        "AndConditions" => list(security_profile_search_criteria()),
+        "OrConditions" => list(security_profile_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -618,8 +618,8 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_flow_search_criteria() :: %{
-        "AndConditions" => list(contact_flow_search_criteria()()),
-        "OrConditions" => list(contact_flow_search_criteria()()),
+        "AndConditions" => list(contact_flow_search_criteria()),
+        "OrConditions" => list(contact_flow_search_criteria()),
         "StateCondition" => list(any()),
         "StatusCondition" => list(any()),
         "StringCondition" => string_condition(),
@@ -636,7 +636,7 @@ defmodule AWS.Connect do
       search_users_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "Users" => list(user_search_summary()())
+        "Users" => list(user_search_summary())
       }
 
   """
@@ -653,7 +653,7 @@ defmodule AWS.Connect do
         optional("InitialSystemMessage") => chat_message(),
         optional("ParticipantDetails") => participant_details(),
         optional("RelatedContactId") => String.t(),
-        optional("SupportedMessagingContentTypes") => list(String.t()()),
+        optional("SupportedMessagingContentTypes") => list(String.t()),
         required("ContactFlowId") => String.t(),
         required("DestinationEndpoint") => endpoint(),
         required("InstanceId") => String.t(),
@@ -684,7 +684,7 @@ defmodule AWS.Connect do
 
       list_traffic_distribution_group_users_response() :: %{
         "NextToken" => String.t(),
-        "TrafficDistributionGroupUserSummaryList" => list(traffic_distribution_group_user_summary()())
+        "TrafficDistributionGroupUserSummaryList" => list(traffic_distribution_group_user_summary())
       }
 
   """
@@ -695,7 +695,7 @@ defmodule AWS.Connect do
   ## Example:
 
       routing_criteria_input() :: %{
-        "Steps" => list(routing_criteria_input_step()())
+        "Steps" => list(routing_criteria_input_step())
       }
 
   """
@@ -787,7 +787,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_condition() :: %{
-        "Conditions" => list(condition()()),
+        "Conditions" => list(condition()),
         "TargetListType" => list(any())
       }
 
@@ -860,7 +860,7 @@ defmodule AWS.Connect do
 
       search_hours_of_operations_response() :: %{
         "ApproximateTotalCount" => float(),
-        "HoursOfOperations" => list(hours_of_operation()()),
+        "HoursOfOperations" => list(hours_of_operation()),
         "NextToken" => String.t()
       }
 
@@ -888,7 +888,7 @@ defmodule AWS.Connect do
   ## Example:
 
       searchable_segment_attributes() :: %{
-        "Criteria" => list(searchable_segment_attributes_criteria()()),
+        "Criteria" => list(searchable_segment_attributes_criteria()),
         "MatchType" => list(any())
       }
 
@@ -963,7 +963,7 @@ defmodule AWS.Connect do
   ## Example:
 
       search_available_phone_numbers_response() :: %{
-        "AvailableNumbersList" => list(available_number_summary()()),
+        "AvailableNumbersList" => list(available_number_summary()),
         "NextToken" => String.t()
       }
 
@@ -995,7 +995,7 @@ defmodule AWS.Connect do
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
         "Description" => String.t(),
-        "Fields" => list(task_template_field()()),
+        "Fields" => list(task_template_field()),
         "Id" => String.t(),
         "InstanceId" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -1033,7 +1033,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_hours_of_operations_response() :: %{
-        "HoursOfOperationSummaryList" => list(hours_of_operation_summary()()),
+        "HoursOfOperationSummaryList" => list(hours_of_operation_summary()),
         "NextToken" => String.t()
       }
 
@@ -1046,7 +1046,7 @@ defmodule AWS.Connect do
 
       property_validation_exception() :: %{
         "Message" => String.t(),
-        "PropertyList" => list(property_validation_exception_property()())
+        "PropertyList" => list(property_validation_exception_property())
       }
 
   """
@@ -1089,7 +1089,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_flow_associations_response() :: %{
-        "FlowAssociationSummaryList" => list(flow_association_summary()()),
+        "FlowAssociationSummaryList" => list(flow_association_summary()),
         "NextToken" => String.t()
       }
 
@@ -1192,7 +1192,7 @@ defmodule AWS.Connect do
       search_predefined_attributes_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "PredefinedAttributes" => list(predefined_attribute()())
+        "PredefinedAttributes" => list(predefined_attribute())
       }
 
   """
@@ -1302,7 +1302,7 @@ defmodule AWS.Connect do
       routing_criteria() :: %{
         "ActivationTimestamp" => non_neg_integer(),
         "Index" => integer(),
-        "Steps" => list(step()())
+        "Steps" => list(step())
       }
 
   """
@@ -1328,7 +1328,7 @@ defmodule AWS.Connect do
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "UserProficiencyList" => list(user_proficiency()())
+        "UserProficiencyList" => list(user_proficiency())
       }
 
   """
@@ -1339,7 +1339,7 @@ defmodule AWS.Connect do
   ## Example:
 
       historical_metric_result() :: %{
-        "Collections" => list(historical_metric_data()()),
+        "Collections" => list(historical_metric_data()),
         "Dimensions" => dimensions()
       }
 
@@ -1409,7 +1409,7 @@ defmodule AWS.Connect do
 
       search_resource_tags_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag_set()())
+        "Tags" => list(tag_set())
       }
 
   """
@@ -1441,7 +1441,7 @@ defmodule AWS.Connect do
 
       searchable_segment_attributes_criteria() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1502,8 +1502,8 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_status_search_criteria() :: %{
-        "AndConditions" => list(agent_status_search_criteria()()),
-        "OrConditions" => list(agent_status_search_criteria()()),
+        "AndConditions" => list(agent_status_search_criteria()),
+        "OrConditions" => list(agent_status_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -1539,7 +1539,7 @@ defmodule AWS.Connect do
 
       list_prompts_response() :: %{
         "NextToken" => String.t(),
-        "PromptSummaryList" => list(prompt_summary()())
+        "PromptSummaryList" => list(prompt_summary())
       }
 
   """
@@ -1550,11 +1550,11 @@ defmodule AWS.Connect do
   ## Example:
 
       user_data_filters() :: %{
-        "Agents" => list(String.t()()),
+        "Agents" => list(String.t()),
         "ContactFilter" => contact_filter(),
-        "Queues" => list(String.t()()),
-        "RoutingProfiles" => list(String.t()()),
-        "UserHierarchyGroups" => list(String.t()())
+        "Queues" => list(String.t()),
+        "RoutingProfiles" => list(String.t()),
+        "UserHierarchyGroups" => list(String.t())
       }
 
   """
@@ -1599,7 +1599,7 @@ defmodule AWS.Connect do
       create_hours_of_operation_request() :: %{
         optional("Description") => String.t(),
         optional("Tags") => map(),
-        required("Config") => list(hours_of_operation_config()()),
+        required("Config") => list(hours_of_operation_config()),
         required("Name") => String.t(),
         required("TimeZone") => String.t()
       }
@@ -1612,7 +1612,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_point_of_interest() :: %{
-        "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_character_offsets()())
+        "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_character_offsets())
       }
 
   """
@@ -1669,11 +1669,11 @@ defmodule AWS.Connect do
       update_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t(),
         optional("AllowedAccessControlTags") => map(),
-        optional("Applications") => list(application()()),
+        optional("Applications") => list(application()),
         optional("Description") => String.t(),
-        optional("HierarchyRestrictedResources") => list(String.t()()),
-        optional("Permissions") => list(String.t()()),
-        optional("TagRestrictedResources") => list(String.t()())
+        optional("HierarchyRestrictedResources") => list(String.t()),
+        optional("Permissions") => list(String.t()),
+        optional("TagRestrictedResources") => list(String.t())
       }
 
   """
@@ -1686,7 +1686,7 @@ defmodule AWS.Connect do
       search_user_hierarchy_groups_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "UserHierarchyGroups" => list(hierarchy_group()())
+        "UserHierarchyGroups" => list(hierarchy_group())
       }
 
   """
@@ -1712,7 +1712,7 @@ defmodule AWS.Connect do
 
       search_contact_flow_modules_response() :: %{
         "ApproximateTotalCount" => float(),
-        "ContactFlowModules" => list(contact_flow_module()()),
+        "ContactFlowModules" => list(contact_flow_module()),
         "NextToken" => String.t()
       }
 
@@ -1733,9 +1733,9 @@ defmodule AWS.Connect do
   ## Example:
 
       hours_of_operation_override_search_criteria() :: %{
-        "AndConditions" => list(hours_of_operation_override_search_criteria()()),
+        "AndConditions" => list(hours_of_operation_override_search_criteria()),
         "DateCondition" => date_condition(),
-        "OrConditions" => list(hours_of_operation_override_search_criteria()()),
+        "OrConditions" => list(hours_of_operation_override_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -1854,7 +1854,7 @@ defmodule AWS.Connect do
 
       control_plane_attribute_filter() :: %{
         "AndCondition" => common_attribute_and_condition(),
-        "OrConditions" => list(common_attribute_and_condition()()),
+        "OrConditions" => list(common_attribute_and_condition()),
         "TagCondition" => tag_condition()
       }
 
@@ -1866,7 +1866,7 @@ defmodule AWS.Connect do
   ## Example:
 
       hours_of_operation() :: %{
-        "Config" => list(hours_of_operation_config()()),
+        "Config" => list(hours_of_operation_config()),
         "Description" => String.t(),
         "HoursOfOperationArn" => String.t(),
         "HoursOfOperationId" => String.t(),
@@ -1918,7 +1918,7 @@ defmodule AWS.Connect do
 
       metric_filter_v2() :: %{
         "MetricFilterKey" => String.t(),
-        "MetricFilterValues" => list(String.t()()),
+        "MetricFilterValues" => list(String.t()),
         "Negate" => boolean()
       }
 
@@ -1959,7 +1959,7 @@ defmodule AWS.Connect do
   ## Example:
 
       get_metric_data_v2_response() :: %{
-        "MetricResults" => list(metric_result_v2()()),
+        "MetricResults" => list(metric_result_v2()),
         "NextToken" => String.t()
       }
 
@@ -2002,7 +2002,7 @@ defmodule AWS.Connect do
         optional("Description") => String.t(),
         optional("SelfAssignFlowId") => String.t(),
         optional("Status") => list(any()),
-        required("Fields") => list(task_template_field()()),
+        required("Fields") => list(task_template_field()),
         required("Name") => String.t()
       }
 
@@ -2039,7 +2039,7 @@ defmodule AWS.Connect do
       task_template_field() :: %{
         "Description" => String.t(),
         "Id" => task_template_field_identifier(),
-        "SingleSelectOptions" => list(String.t()()),
+        "SingleSelectOptions" => list(String.t()),
         "Type" => list(any())
       }
 
@@ -2062,7 +2062,7 @@ defmodule AWS.Connect do
   ## Example:
 
       task_template_defaults() :: %{
-        "DefaultFieldValues" => list(task_template_default_field_value()())
+        "DefaultFieldValues" => list(task_template_default_field_value())
       }
 
   """
@@ -2123,7 +2123,7 @@ defmodule AWS.Connect do
         "IdentityInfo" => user_identity_info_lite(),
         "PhoneConfig" => user_phone_config(),
         "RoutingProfileId" => String.t(),
-        "SecurityProfileIds" => list(String.t()()),
+        "SecurityProfileIds" => list(String.t()),
         "Tags" => map(),
         "Username" => String.t()
       }
@@ -2211,8 +2211,8 @@ defmodule AWS.Connect do
   ## Example:
 
       contact_flow_module_search_criteria() :: %{
-        "AndConditions" => list(contact_flow_module_search_criteria()()),
-        "OrConditions" => list(contact_flow_module_search_criteria()()),
+        "AndConditions" => list(contact_flow_module_search_criteria()),
+        "OrConditions" => list(contact_flow_module_search_criteria()),
         "StateCondition" => list(any()),
         "StatusCondition" => list(any()),
         "StringCondition" => string_condition()
@@ -2250,7 +2250,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_hours_of_operation_request() :: %{
-        optional("Config") => list(hours_of_operation_config()()),
+        optional("Config") => list(hours_of_operation_config()),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("TimeZone") => String.t()
@@ -2304,7 +2304,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_rule_request() :: %{
-        required("Actions") => list(rule_action()()),
+        required("Actions") => list(rule_action()),
         required("Function") => String.t(),
         required("Name") => String.t(),
         required("PublishStatus") => list(any())
@@ -2508,7 +2508,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_segment_issues() :: %{
-        "IssuesDetected" => list(real_time_contact_analysis_issue_detected()())
+        "IssuesDetected" => list(real_time_contact_analysis_issue_detected())
       }
 
   """
@@ -2531,7 +2531,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_contact_evaluations_response() :: %{
-        "EvaluationSummaryList" => list(evaluation_summary()()),
+        "EvaluationSummaryList" => list(evaluation_summary()),
         "NextToken" => String.t()
       }
 
@@ -2555,9 +2555,9 @@ defmodule AWS.Connect do
   ## Example:
 
       authentication_profile() :: %{
-        "AllowedIps" => list(String.t()()),
+        "AllowedIps" => list(String.t()),
         "Arn" => String.t(),
-        "BlockedIps" => list(String.t()()),
+        "BlockedIps" => list(String.t()),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t(),
         "Id" => String.t(),
@@ -2601,7 +2601,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_hours_of_operation_overrides_response() :: %{
-        "HoursOfOperationOverrideList" => list(hours_of_operation_override()()),
+        "HoursOfOperationOverrideList" => list(hours_of_operation_override()),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t()
@@ -2627,7 +2627,7 @@ defmodule AWS.Connect do
   ## Example:
 
       invalid_contact_flow_exception() :: %{
-        "problems" => list(problem_detail()())
+        "problems" => list(problem_detail())
       }
 
   """
@@ -2867,7 +2867,7 @@ defmodule AWS.Connect do
   ## Example:
 
       transcript() :: %{
-        "Criteria" => list(transcript_criteria()()),
+        "Criteria" => list(transcript_criteria()),
         "MatchType" => list(any())
       }
 
@@ -2909,7 +2909,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_queue_quick_connects_request() :: %{
-        required("QuickConnectIds") => list(String.t()())
+        required("QuickConnectIds") => list(String.t())
       }
 
   """
@@ -2929,7 +2929,7 @@ defmodule AWS.Connect do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -2940,7 +2940,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_hours_of_operation_override_request() :: %{
-        optional("Config") => list(hours_of_operation_override_config()()),
+        optional("Config") => list(hours_of_operation_override_config()),
         optional("Description") => String.t(),
         optional("EffectiveFrom") => String.t(),
         optional("EffectiveTill") => String.t(),
@@ -2955,7 +2955,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_security_profile_applications_response() :: %{
-        "Applications" => list(application()()),
+        "Applications" => list(application()),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t()
@@ -3140,7 +3140,7 @@ defmodule AWS.Connect do
   ## Example:
 
       get_effective_hours_of_operations_response() :: %{
-        "EffectiveHoursOfOperationList" => list(effective_hours_of_operations()()),
+        "EffectiveHoursOfOperationList" => list(effective_hours_of_operations()),
         "TimeZone" => String.t()
       }
 
@@ -3259,8 +3259,8 @@ defmodule AWS.Connect do
   ## Example:
 
       email_address_search_criteria() :: %{
-        "AndConditions" => list(email_address_search_criteria()()),
-        "OrConditions" => list(email_address_search_criteria()()),
+        "AndConditions" => list(email_address_search_criteria()),
+        "OrConditions" => list(email_address_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -3306,7 +3306,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_lex_bots_response() :: %{
-        "LexBots" => list(lex_bot()()),
+        "LexBots" => list(lex_bot()),
         "NextToken" => String.t()
       }
 
@@ -3344,7 +3344,7 @@ defmodule AWS.Connect do
   ## Example:
 
       metric_result_v2() :: %{
-        "Collections" => list(metric_data_v2()()),
+        "Collections" => list(metric_data_v2()),
         "Dimensions" => map(),
         "MetricInterval" => metric_interval()
       }
@@ -3357,8 +3357,8 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_get_attached_file_metadata_response() :: %{
-        "Errors" => list(attached_file_error()()),
-        "Files" => list(attached_file()())
+        "Errors" => list(attached_file_error()),
+        "Files" => list(attached_file())
       }
 
   """
@@ -3500,7 +3500,7 @@ defmodule AWS.Connect do
 
       list_task_templates_response() :: %{
         "NextToken" => String.t(),
-        "TaskTemplates" => list(task_template_metadata()())
+        "TaskTemplates" => list(task_template_metadata())
       }
 
   """
@@ -3513,7 +3513,7 @@ defmodule AWS.Connect do
       get_current_user_data_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "UserDataList" => list(user_data()())
+        "UserDataList" => list(user_data())
       }
 
   """
@@ -3648,7 +3648,7 @@ defmodule AWS.Connect do
       user_data() :: %{
         "ActiveSlotsByChannel" => map(),
         "AvailableSlotsByChannel" => map(),
-        "Contacts" => list(agent_contact_reference()()),
+        "Contacts" => list(agent_contact_reference()),
         "HierarchyPath" => hierarchy_path_reference(),
         "MaxSlotsByChannel" => map(),
         "NextStatus" => String.t(),
@@ -3740,8 +3740,8 @@ defmodule AWS.Connect do
   ## Example:
 
       quick_connect_search_criteria() :: %{
-        "AndConditions" => list(quick_connect_search_criteria()()),
-        "OrConditions" => list(quick_connect_search_criteria()()),
+        "AndConditions" => list(quick_connect_search_criteria()),
+        "OrConditions" => list(quick_connect_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -3896,7 +3896,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_lambda_functions_response() :: %{
-        "LambdaFunctions" => list(String.t()()),
+        "LambdaFunctions" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -3937,7 +3937,7 @@ defmodule AWS.Connect do
   ## Example:
 
       view_content() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "InputSchema" => String.t(),
         "Template" => String.t()
       }
@@ -4056,7 +4056,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_routing_profile_queues_request() :: %{
-        required("QueueConfigs") => list(routing_profile_queue_config()())
+        required("QueueConfigs") => list(routing_profile_queue_config())
       }
 
   """
@@ -4069,7 +4069,7 @@ defmodule AWS.Connect do
       search_prompts_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "Prompts" => list(prompt()())
+        "Prompts" => list(prompt())
       }
 
   """
@@ -4094,7 +4094,7 @@ defmodule AWS.Connect do
 
       replication_configuration() :: %{
         "GlobalSignInEndpoint" => String.t(),
-        "ReplicationStatusSummaryList" => list(replication_status_summary()()),
+        "ReplicationStatusSummaryList" => list(replication_status_summary()),
         "SourceRegion" => String.t()
       }
 
@@ -4130,11 +4130,11 @@ defmodule AWS.Connect do
       create_security_profile_request() :: %{
         optional("AllowedAccessControlHierarchyGroupId") => String.t(),
         optional("AllowedAccessControlTags") => map(),
-        optional("Applications") => list(application()()),
+        optional("Applications") => list(application()),
         optional("Description") => String.t(),
-        optional("HierarchyRestrictedResources") => list(String.t()()),
-        optional("Permissions") => list(String.t()()),
-        optional("TagRestrictedResources") => list(String.t()()),
+        optional("HierarchyRestrictedResources") => list(String.t()),
+        optional("Permissions") => list(String.t()),
+        optional("TagRestrictedResources") => list(String.t()),
         optional("Tags") => map(),
         required("SecurityProfileName") => String.t()
       }
@@ -4171,7 +4171,7 @@ defmodule AWS.Connect do
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "Permissions" => list(String.t()())
+        "Permissions" => list(String.t())
       }
 
   """
@@ -4208,7 +4208,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_category_details() :: %{
-        "PointsOfInterest" => list(real_time_contact_analysis_point_of_interest()())
+        "PointsOfInterest" => list(real_time_contact_analysis_point_of_interest())
       }
 
   """
@@ -4321,7 +4321,7 @@ defmodule AWS.Connect do
         "DeviceInfo" => device_info(),
         "HierarchyGroups" => hierarchy_groups(),
         "Id" => String.t(),
-        "StateTransitions" => list(state_transition()())
+        "StateTransitions" => list(state_transition())
       }
 
   """
@@ -4344,7 +4344,7 @@ defmodule AWS.Connect do
 
       batch_disassociate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
-        required("DataSetIds") => list(String.t()())
+        required("DataSetIds") => list(String.t())
       }
 
   """
@@ -4423,7 +4423,7 @@ defmodule AWS.Connect do
         optional("ContactFlowId") => String.t(),
         optional("Defaults") => task_template_defaults(),
         optional("Description") => String.t(),
-        optional("Fields") => list(task_template_field()()),
+        optional("Fields") => list(task_template_field()),
         optional("Name") => String.t(),
         optional("SelfAssignFlowId") => String.t(),
         optional("Status") => list(any())
@@ -4473,7 +4473,7 @@ defmodule AWS.Connect do
 
       batch_put_contact_request() :: %{
         optional("ClientToken") => String.t(),
-        required("ContactDataRequestList") => list(contact_data_request()())
+        required("ContactDataRequestList") => list(contact_data_request())
       }
 
   """
@@ -4498,7 +4498,7 @@ defmodule AWS.Connect do
   ## Example:
 
       telephony_config() :: %{
-        "Distributions" => list(distribution()())
+        "Distributions" => list(distribution())
       }
 
   """
@@ -4510,7 +4510,7 @@ defmodule AWS.Connect do
 
       list_security_profiles_response() :: %{
         "NextToken" => String.t(),
-        "SecurityProfileSummaryList" => list(security_profile_summary()())
+        "SecurityProfileSummaryList" => list(security_profile_summary())
       }
 
   """
@@ -4610,7 +4610,7 @@ defmodule AWS.Connect do
 
       batch_get_attached_file_metadata_request() :: %{
         required("AssociatedResourceArn") => String.t(),
-        required("FileIds") => list(String.t()())
+        required("FileIds") => list(String.t())
       }
 
   """
@@ -4634,7 +4634,7 @@ defmodule AWS.Connect do
 
       batch_get_flow_association_request() :: %{
         optional("ResourceType") => list(any()),
-        required("ResourceIds") => list(String.t()())
+        required("ResourceIds") => list(String.t())
       }
 
   """
@@ -4722,7 +4722,7 @@ defmodule AWS.Connect do
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t(),
         "EvaluationFormVersion" => integer(),
-        "Items" => list(list()()),
+        "Items" => list(list()),
         "LastModifiedBy" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Locked" => boolean(),
@@ -4844,7 +4844,7 @@ defmodule AWS.Connect do
         optional("NextToken") => String.t(),
         required("EndTime") => non_neg_integer(),
         required("Filters") => filters(),
-        required("HistoricalMetrics") => list(historical_metric()()),
+        required("HistoricalMetrics") => list(historical_metric()),
         required("StartTime") => non_neg_integer()
       }
 
@@ -4889,7 +4889,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_routing_profile_queues_request() :: %{
-        required("QueueReferences") => list(routing_profile_queue_reference()())
+        required("QueueReferences") => list(routing_profile_queue_reference())
       }
 
   """
@@ -4901,7 +4901,7 @@ defmodule AWS.Connect do
 
       filter_v2() :: %{
         "FilterKey" => String.t(),
-        "FilterValues" => list(String.t()())
+        "FilterValues" => list(String.t())
       }
 
   """
@@ -4960,7 +4960,7 @@ defmodule AWS.Connect do
 
       list_users_response() :: %{
         "NextToken" => String.t(),
-        "UserSummaryList" => list(user_summary()())
+        "UserSummaryList" => list(user_summary())
       }
 
   """
@@ -4971,7 +4971,7 @@ defmodule AWS.Connect do
   ## Example:
 
       application() :: %{
-        "ApplicationPermissions" => list(String.t()()),
+        "ApplicationPermissions" => list(String.t()),
         "Namespace" => String.t()
       }
 
@@ -5052,7 +5052,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_evaluation_form_versions_response() :: %{
-        "EvaluationFormVersionSummaryList" => list(evaluation_form_version_summary()()),
+        "EvaluationFormVersionSummaryList" => list(evaluation_form_version_summary()),
         "NextToken" => String.t()
       }
 
@@ -5067,7 +5067,7 @@ defmodule AWS.Connect do
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
         optional("ScoringStrategy") => evaluation_form_scoring_strategy(),
-        required("Items") => list(list()()),
+        required("Items") => list(list()),
         required("Title") => String.t()
       }
 
@@ -5088,13 +5088,13 @@ defmodule AWS.Connect do
   ## Example:
 
       get_metric_data_v2_request() :: %{
-        optional("Groupings") => list(String.t()()),
+        optional("Groupings") => list(String.t()),
         optional("Interval") => interval_details(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("EndTime") => non_neg_integer(),
-        required("Filters") => list(filter_v2()()),
-        required("Metrics") => list(metric_v2()()),
+        required("Filters") => list(filter_v2()),
+        required("Metrics") => list(metric_v2()),
         required("ResourceArn") => String.t(),
         required("StartTime") => non_neg_integer()
       }
@@ -5135,7 +5135,7 @@ defmodule AWS.Connect do
   ## Example:
 
       untag_contact_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -5148,7 +5148,7 @@ defmodule AWS.Connect do
       search_quick_connects_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "QuickConnects" => list(quick_connect()())
+        "QuickConnects" => list(quick_connect())
       }
 
   """
@@ -5161,7 +5161,7 @@ defmodule AWS.Connect do
       list_realtime_contact_analysis_segments_v2_response() :: %{
         "Channel" => list(any()),
         "NextToken" => String.t(),
-        "Segments" => list(list()()),
+        "Segments" => list(list()),
         "Status" => list(any())
       }
 
@@ -5204,7 +5204,7 @@ defmodule AWS.Connect do
   ## Example:
 
       search_contacts_response() :: %{
-        "Contacts" => list(contact_search_summary()()),
+        "Contacts" => list(contact_search_summary()),
         "NextToken" => String.t(),
         "TotalCount" => float()
       }
@@ -5349,7 +5349,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_routing_profile_queues_request() :: %{
-        required("QueueConfigs") => list(routing_profile_queue_config()())
+        required("QueueConfigs") => list(routing_profile_queue_config())
       }
 
   """
@@ -5399,7 +5399,7 @@ defmodule AWS.Connect do
   ## Example:
 
       notification_recipient_type() :: %{
-        "UserIds" => list(String.t()()),
+        "UserIds" => list(String.t()),
         "UserTags" => map()
       }
 
@@ -5468,11 +5468,11 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_hierarchy_groups() :: %{
-        "L1Ids" => list(String.t()()),
-        "L2Ids" => list(String.t()()),
-        "L3Ids" => list(String.t()()),
-        "L4Ids" => list(String.t()()),
-        "L5Ids" => list(String.t()())
+        "L1Ids" => list(String.t()),
+        "L2Ids" => list(String.t()),
+        "L3Ids" => list(String.t()),
+        "L4Ids" => list(String.t()),
+        "L5Ids" => list(String.t())
       }
 
   """
@@ -5495,7 +5495,7 @@ defmodule AWS.Connect do
 
       list_use_cases_response() :: %{
         "NextToken" => String.t(),
-        "UseCaseSummaryList" => list(use_case()())
+        "UseCaseSummaryList" => list(use_case())
       }
 
   """
@@ -5607,7 +5607,7 @@ defmodule AWS.Connect do
   ## Example:
 
       disassociate_user_proficiencies_request() :: %{
-        required("UserProficiencies") => list(user_proficiency_disassociate()())
+        required("UserProficiencies") => list(user_proficiency_disassociate())
       }
 
   """
@@ -5677,7 +5677,7 @@ defmodule AWS.Connect do
 
       list_approved_origins_response() :: %{
         "NextToken" => String.t(),
-        "Origins" => list(String.t()())
+        "Origins" => list(String.t())
       }
 
   """
@@ -5704,7 +5704,7 @@ defmodule AWS.Connect do
   ## Example:
 
       agents_criteria() :: %{
-        "AgentIds" => list(String.t()())
+        "AgentIds" => list(String.t())
       }
 
   """
@@ -5716,7 +5716,7 @@ defmodule AWS.Connect do
 
       effective_hours_of_operations() :: %{
         "Date" => String.t(),
-        "OperationalHours" => list(operational_hour()())
+        "OperationalHours" => list(operational_hour())
       }
 
   """
@@ -5738,8 +5738,8 @@ defmodule AWS.Connect do
   ## Example:
 
       routing_profile_search_criteria() :: %{
-        "AndConditions" => list(routing_profile_search_criteria()()),
-        "OrConditions" => list(routing_profile_search_criteria()()),
+        "AndConditions" => list(routing_profile_search_criteria()),
+        "OrConditions" => list(routing_profile_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -5788,7 +5788,7 @@ defmodule AWS.Connect do
   ## Example:
 
       create_case_action_definition() :: %{
-        "Fields" => list(field_value()()),
+        "Fields" => list(field_value()),
         "TemplateId" => String.t()
       }
 
@@ -5812,7 +5812,7 @@ defmodule AWS.Connect do
   ## Example:
 
       current_metric_result() :: %{
-        "Collections" => list(current_metric_data()()),
+        "Collections" => list(current_metric_data()),
         "Dimensions" => dimensions()
       }
 
@@ -5892,7 +5892,7 @@ defmodule AWS.Connect do
         optional("MaxContacts") => integer(),
         optional("OutboundCallerConfig") => outbound_caller_config(),
         optional("OutboundEmailConfig") => outbound_email_config(),
-        optional("QuickConnectIds") => list(String.t()()),
+        optional("QuickConnectIds") => list(String.t()),
         optional("Tags") => map(),
         required("HoursOfOperationId") => String.t(),
         required("Name") => String.t()
@@ -5907,7 +5907,7 @@ defmodule AWS.Connect do
 
       attribute_and_condition() :: %{
         "HierarchyGroupCondition" => hierarchy_group_condition(),
-        "TagConditions" => list(tag_condition()())
+        "TagConditions" => list(tag_condition())
       }
 
   """
@@ -5942,7 +5942,7 @@ defmodule AWS.Connect do
   ## Example:
 
       chat_participant_role_config() :: %{
-        "ParticipantTimerConfigList" => list(participant_timer_configuration()())
+        "ParticipantTimerConfigList" => list(participant_timer_configuration())
       }
 
   """
@@ -6088,7 +6088,7 @@ defmodule AWS.Connect do
   ## Example:
 
       get_metric_data_response() :: %{
-        "MetricResults" => list(historical_metric_result()()),
+        "MetricResults" => list(historical_metric_result()),
         "NextToken" => String.t()
       }
 
@@ -6139,7 +6139,7 @@ defmodule AWS.Connect do
   ## Example:
 
       rule() :: %{
-        "Actions" => list(rule_action()()),
+        "Actions" => list(rule_action()),
         "CreatedTime" => non_neg_integer(),
         "Function" => String.t(),
         "LastUpdatedBy" => String.t(),
@@ -6226,7 +6226,7 @@ defmodule AWS.Connect do
         "TotalPauseCount" => integer(),
         "CustomerVoiceActivity" => customer_voice_activity(),
         "Attributes" => map(),
-        "Recordings" => list(recording_info()())
+        "Recordings" => list(recording_info())
       }
 
   """
@@ -6248,7 +6248,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_routing_profile_concurrency_request() :: %{
-        required("MediaConcurrencies") => list(media_concurrency()())
+        required("MediaConcurrencies") => list(media_concurrency())
       }
 
   """
@@ -6273,7 +6273,7 @@ defmodule AWS.Connect do
       control_plane_user_attribute_filter() :: %{
         "AndCondition" => attribute_and_condition(),
         "HierarchyGroupCondition" => hierarchy_group_condition(),
-        "OrConditions" => list(attribute_and_condition()()),
+        "OrConditions" => list(attribute_and_condition()),
         "TagCondition" => tag_condition()
       }
 
@@ -6417,7 +6417,7 @@ defmodule AWS.Connect do
         "Automation" => list(),
         "MaxValue" => integer(),
         "MinValue" => integer(),
-        "Options" => list(evaluation_form_numeric_question_option()())
+        "Options" => list(evaluation_form_numeric_question_option())
       }
 
   """
@@ -6428,8 +6428,8 @@ defmodule AWS.Connect do
   ## Example:
 
       additional_email_recipients() :: %{
-        "CcList" => list(email_recipient()()),
-        "ToList" => list(email_recipient()())
+        "CcList" => list(email_recipient()),
+        "ToList" => list(email_recipient())
       }
 
   """
@@ -6440,7 +6440,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_instance_attributes_response() :: %{
-        "Attributes" => list(attribute()()),
+        "Attributes" => list(attribute()),
         "NextToken" => String.t()
       }
 
@@ -6482,7 +6482,7 @@ defmodule AWS.Connect do
 
       searchable_contact_attributes_criteria() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -6494,7 +6494,7 @@ defmodule AWS.Connect do
 
       list_view_versions_response() :: %{
         "NextToken" => String.t(),
-        "ViewVersionSummaryList" => list(view_version_summary()())
+        "ViewVersionSummaryList" => list(view_version_summary())
       }
 
   """
@@ -6558,7 +6558,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_contact_flow_modules_response() :: %{
-        "ContactFlowModulesSummaryList" => list(contact_flow_module_summary()()),
+        "ContactFlowModulesSummaryList" => list(contact_flow_module_summary()),
         "NextToken" => String.t()
       }
 
@@ -6590,7 +6590,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_instances_response() :: %{
-        "InstanceSummaryList" => list(instance_summary()()),
+        "InstanceSummaryList" => list(instance_summary()),
         "NextToken" => String.t()
       }
 
@@ -6635,7 +6635,7 @@ defmodule AWS.Connect do
 
       search_email_addresses_response() :: %{
         "ApproximateTotalCount" => float(),
-        "EmailAddresses" => list(email_address_metadata()()),
+        "EmailAddresses" => list(email_address_metadata()),
         "NextToken" => String.t()
       }
 
@@ -6668,7 +6668,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_case_action_definition() :: %{
-        "Fields" => list(field_value()())
+        "Fields" => list(field_value())
       }
 
   """
@@ -6692,13 +6692,13 @@ defmodule AWS.Connect do
         "AllowedAccessControlTags" => map(),
         "Arn" => String.t(),
         "Description" => String.t(),
-        "HierarchyRestrictedResources" => list(String.t()()),
+        "HierarchyRestrictedResources" => list(String.t()),
         "Id" => String.t(),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "OrganizationResourceId" => String.t(),
         "SecurityProfileName" => String.t(),
-        "TagRestrictedResources" => list(String.t()()),
+        "TagRestrictedResources" => list(String.t()),
         "Tags" => map()
       }
 
@@ -6768,8 +6768,8 @@ defmodule AWS.Connect do
   ## Example:
 
       user_hierarchy_group_search_criteria() :: %{
-        "AndConditions" => list(user_hierarchy_group_search_criteria()()),
-        "OrConditions" => list(user_hierarchy_group_search_criteria()()),
+        "AndConditions" => list(user_hierarchy_group_search_criteria()),
+        "OrConditions" => list(user_hierarchy_group_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -6781,7 +6781,7 @@ defmodule AWS.Connect do
   ## Example:
 
       hours_of_operation_override() :: %{
-        "Config" => list(hours_of_operation_override_config()()),
+        "Config" => list(hours_of_operation_override_config()),
         "Description" => String.t(),
         "EffectiveFrom" => String.t(),
         "EffectiveTill" => String.t(),
@@ -6800,7 +6800,7 @@ defmodule AWS.Connect do
 
       list_analytics_data_lake_data_sets_response() :: %{
         "NextToken" => String.t(),
-        "Results" => list(analytics_data_sets_result()())
+        "Results" => list(analytics_data_sets_result())
       }
 
   """
@@ -6811,7 +6811,7 @@ defmodule AWS.Connect do
   ## Example:
 
       rule_summary() :: %{
-        "ActionSummaries" => list(action_summary()()),
+        "ActionSummaries" => list(action_summary()),
         "CreatedTime" => non_neg_integer(),
         "EventSourceName" => list(any()),
         "LastUpdatedTime" => non_neg_integer(),
@@ -6878,7 +6878,7 @@ defmodule AWS.Connect do
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "RoutingProfileQueueConfigSummaryList" => list(routing_profile_queue_config_summary()())
+        "RoutingProfileQueueConfigSummaryList" => list(routing_profile_queue_config_summary())
       }
 
   """
@@ -6960,7 +6960,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_bots_response() :: %{
-        "LexBots" => list(lex_bot_config()()),
+        "LexBots" => list(lex_bot_config()),
         "NextToken" => String.t()
       }
 
@@ -7028,7 +7028,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_contact_flow_versions_response() :: %{
-        "ContactFlowVersionSummaryList" => list(contact_flow_version_summary()()),
+        "ContactFlowVersionSummaryList" => list(contact_flow_version_summary()),
         "NextToken" => String.t()
       }
 
@@ -7073,7 +7073,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_user_security_profiles_request() :: %{
-        required("SecurityProfileIds") => list(String.t()())
+        required("SecurityProfileIds") => list(String.t())
       }
 
   """
@@ -7183,7 +7183,7 @@ defmodule AWS.Connect do
 
       list_security_keys_response() :: %{
         "NextToken" => String.t(),
-        "SecurityKeys" => list(security_key()())
+        "SecurityKeys" => list(security_key())
       }
 
   """
@@ -7223,10 +7223,10 @@ defmodule AWS.Connect do
   ## Example:
 
       user_search_criteria() :: %{
-        "AndConditions" => list(user_search_criteria()()),
+        "AndConditions" => list(user_search_criteria()),
         "HierarchyGroupCondition" => hierarchy_group_condition(),
         "ListCondition" => list_condition(),
-        "OrConditions" => list(user_search_criteria()()),
+        "OrConditions" => list(user_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -7335,7 +7335,7 @@ defmodule AWS.Connect do
 
       start_email_contact_request() :: %{
         optional("AdditionalRecipients") => inbound_additional_recipients(),
-        optional("Attachments") => list(email_attachment()()),
+        optional("Attachments") => list(email_attachment()),
         optional("Attributes") => map(),
         optional("ClientToken") => String.t(),
         optional("ContactFlowId") => String.t(),
@@ -7426,7 +7426,7 @@ defmodule AWS.Connect do
         "Attributes" => map(),
         "ParticipantDetails" => participant_details(),
         "StreamingConfiguration" => chat_streaming_configuration(),
-        "SupportedMessagingContentTypes" => list(String.t()())
+        "SupportedMessagingContentTypes" => list(String.t())
       }
 
   """
@@ -7496,7 +7496,7 @@ defmodule AWS.Connect do
   ## Example:
 
       sign_in_config() :: %{
-        "Distributions" => list(sign_in_distribution()())
+        "Distributions" => list(sign_in_distribution())
       }
 
   """
@@ -7508,7 +7508,7 @@ defmodule AWS.Connect do
 
       list_routing_profiles_response() :: %{
         "NextToken" => String.t(),
-        "RoutingProfileSummaryList" => list(routing_profile_summary()())
+        "RoutingProfileSummaryList" => list(routing_profile_summary())
       }
 
   """
@@ -7542,7 +7542,7 @@ defmodule AWS.Connect do
 
       search_hours_of_operation_overrides_response() :: %{
         "ApproximateTotalCount" => float(),
-        "HoursOfOperationOverrides" => list(hours_of_operation_override()()),
+        "HoursOfOperationOverrides" => list(hours_of_operation_override()),
         "NextToken" => String.t()
       }
 
@@ -7615,7 +7615,7 @@ defmodule AWS.Connect do
 
       list_rules_response() :: %{
         "NextToken" => String.t(),
-        "RuleSummaryList" => list(rule_summary()())
+        "RuleSummaryList" => list(rule_summary())
       }
 
   """
@@ -7639,7 +7639,7 @@ defmodule AWS.Connect do
       search_resource_tags_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceTypes") => list(String.t()()),
+        optional("ResourceTypes") => list(String.t()),
         optional("SearchCriteria") => resource_tags_search_criteria(),
         required("InstanceId") => String.t()
       }
@@ -7699,9 +7699,9 @@ defmodule AWS.Connect do
   ## Example:
 
       task_template_constraints() :: %{
-        "InvisibleFields" => list(invisible_field_info()()),
-        "ReadOnlyFields" => list(read_only_field_info()()),
-        "RequiredFields" => list(required_field_info()())
+        "InvisibleFields" => list(invisible_field_info()),
+        "ReadOnlyFields" => list(read_only_field_info()),
+        "RequiredFields" => list(required_field_info())
       }
 
   """
@@ -7759,7 +7759,7 @@ defmodule AWS.Connect do
   ## Example:
 
       audio_quality_metrics_info() :: %{
-        "PotentialQualityIssues" => list(String.t()()),
+        "PotentialQualityIssues" => list(String.t()),
         "QualityScore" => float()
       }
 
@@ -7810,7 +7810,7 @@ defmodule AWS.Connect do
       search_routing_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "RoutingProfiles" => list(routing_profile()())
+        "RoutingProfiles" => list(routing_profile())
       }
 
   """
@@ -7871,8 +7871,8 @@ defmodule AWS.Connect do
   ## Example:
 
       queue_search_criteria() :: %{
-        "AndConditions" => list(queue_search_criteria()()),
-        "OrConditions" => list(queue_search_criteria()()),
+        "AndConditions" => list(queue_search_criteria()),
+        "OrConditions" => list(queue_search_criteria()),
         "QueueTypeCondition" => list(any()),
         "StringCondition" => string_condition()
       }
@@ -7897,7 +7897,7 @@ defmodule AWS.Connect do
   ## Example:
 
       common_attribute_and_condition() :: %{
-        "TagConditions" => list(tag_condition()())
+        "TagConditions" => list(tag_condition())
       }
 
   """
@@ -7917,7 +7917,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_user_proficiencies_request() :: %{
-        required("UserProficiencies") => list(user_proficiency()())
+        required("UserProficiencies") => list(user_proficiency())
       }
 
   """
@@ -7969,7 +7969,7 @@ defmodule AWS.Connect do
       search_security_profiles_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "SecurityProfiles" => list(security_profile_search_summary()())
+        "SecurityProfiles" => list(security_profile_search_summary())
       }
 
   """
@@ -7980,7 +7980,7 @@ defmodule AWS.Connect do
   ## Example:
 
       agent_config() :: %{
-        "Distributions" => list(distribution()())
+        "Distributions" => list(distribution())
       }
 
   """
@@ -8107,7 +8107,7 @@ defmodule AWS.Connect do
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "QuickConnectSummaryList" => list(quick_connect_summary()())
+        "QuickConnectSummaryList" => list(quick_connect_summary())
       }
 
   """
@@ -8118,7 +8118,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_associated_contacts_response() :: %{
-        "ContactSummaryList" => list(associated_contact_summary()()),
+        "ContactSummaryList" => list(associated_contact_summary()),
         "NextToken" => String.t()
       }
 
@@ -8130,7 +8130,7 @@ defmodule AWS.Connect do
   ## Example:
 
       outbound_additional_recipients() :: %{
-        "CcEmailAddresses" => list(email_address_info()())
+        "CcEmailAddresses" => list(email_address_info())
       }
 
   """
@@ -8141,7 +8141,7 @@ defmodule AWS.Connect do
   ## Example:
 
       searchable_contact_attributes() :: %{
-        "Criteria" => list(searchable_contact_attributes_criteria()()),
+        "Criteria" => list(searchable_contact_attributes_criteria()),
         "MatchType" => list(any())
       }
 
@@ -8165,8 +8165,8 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_put_contact_response() :: %{
-        "FailedRequestList" => list(failed_request()()),
-        "SuccessfulRequestList" => list(successful_request()())
+        "FailedRequestList" => list(failed_request()),
+        "SuccessfulRequestList" => list(successful_request())
       }
 
   """
@@ -8206,7 +8206,7 @@ defmodule AWS.Connect do
   ## Example:
 
       invalid_contact_flow_module_exception() :: %{
-        "Problems" => list(problem_detail()())
+        "Problems" => list(problem_detail())
       }
 
   """
@@ -8251,7 +8251,7 @@ defmodule AWS.Connect do
 
       list_traffic_distribution_groups_response() :: %{
         "NextToken" => String.t(),
-        "TrafficDistributionGroupSummaryList" => list(traffic_distribution_group_summary()())
+        "TrafficDistributionGroupSummaryList" => list(traffic_distribution_group_summary())
       }
 
   """
@@ -8262,7 +8262,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_contact_flows_response() :: %{
-        "ContactFlowSummaryList" => list(contact_flow_summary()()),
+        "ContactFlowSummaryList" => list(contact_flow_summary()),
         "NextToken" => String.t()
       }
 
@@ -8301,7 +8301,7 @@ defmodule AWS.Connect do
 
       evaluation_form_section() :: %{
         "Instructions" => String.t(),
-        "Items" => list(list()()),
+        "Items" => list(list()),
         "RefId" => String.t(),
         "Title" => String.t(),
         "Weight" => float()
@@ -8351,7 +8351,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_integration_associations_response() :: %{
-        "IntegrationAssociationSummaryList" => list(integration_association_summary()()),
+        "IntegrationAssociationSummaryList" => list(integration_association_summary()),
         "NextToken" => String.t()
       }
 
@@ -8527,7 +8527,7 @@ defmodule AWS.Connect do
         "LastModifiedTime" => non_neg_integer(),
         "PhoneConfig" => user_phone_config(),
         "RoutingProfileId" => String.t(),
-        "SecurityProfileIds" => list(String.t()()),
+        "SecurityProfileIds" => list(String.t()),
         "Tags" => map(),
         "Username" => String.t()
       }
@@ -8561,10 +8561,10 @@ defmodule AWS.Connect do
   ## Example:
 
       expression() :: %{
-        "AndExpression" => list(expression()()),
+        "AndExpression" => list(expression()),
         "AttributeCondition" => attribute_condition(),
         "NotAttributeCondition" => attribute_condition(),
-        "OrExpression" => list(expression()())
+        "OrExpression" => list(expression())
       }
 
   """
@@ -8598,7 +8598,7 @@ defmodule AWS.Connect do
 
       create_hours_of_operation_override_request() :: %{
         optional("Description") => String.t(),
-        required("Config") => list(hours_of_operation_override_config()()),
+        required("Config") => list(hours_of_operation_override_config()),
         required("EffectiveFrom") => String.t(),
         required("EffectiveTill") => String.t(),
         required("Name") => String.t()
@@ -8668,8 +8668,8 @@ defmodule AWS.Connect do
   ## Example:
 
       predefined_attribute_search_criteria() :: %{
-        "AndConditions" => list(predefined_attribute_search_criteria()()),
-        "OrConditions" => list(predefined_attribute_search_criteria()()),
+        "AndConditions" => list(predefined_attribute_search_criteria()),
+        "OrConditions" => list(predefined_attribute_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -8705,7 +8705,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_transcript_item_redaction() :: %{
-        "CharacterOffsets" => list(real_time_contact_analysis_character_interval()())
+        "CharacterOffsets" => list(real_time_contact_analysis_character_interval())
       }
 
   """
@@ -8741,8 +8741,8 @@ defmodule AWS.Connect do
   ## Example:
 
       hours_of_operation_search_criteria() :: %{
-        "AndConditions" => list(hours_of_operation_search_criteria()()),
-        "OrConditions" => list(hours_of_operation_search_criteria()()),
+        "AndConditions" => list(hours_of_operation_search_criteria()),
+        "OrConditions" => list(hours_of_operation_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -8839,7 +8839,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_phone_numbers_v2_response() :: %{
-        "ListPhoneNumbersSummaryList" => list(list_phone_numbers_summary()()),
+        "ListPhoneNumbersSummaryList" => list(list_phone_numbers_summary()),
         "NextToken" => String.t()
       }
 
@@ -8869,7 +8869,7 @@ defmodule AWS.Connect do
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
         "Description" => String.t(),
-        "Fields" => list(task_template_field()()),
+        "Fields" => list(task_template_field()),
         "Id" => String.t(),
         "InstanceId" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
@@ -8886,9 +8886,9 @@ defmodule AWS.Connect do
   ## Example:
 
       metric_v2() :: %{
-        "MetricFilters" => list(metric_filter_v2()()),
+        "MetricFilters" => list(metric_filter_v2()),
         "Name" => String.t(),
-        "Threshold" => list(threshold_v2()())
+        "Threshold" => list(threshold_v2())
       }
 
   """
@@ -9025,9 +9025,9 @@ defmodule AWS.Connect do
 
       filters() :: %{
         "Channels" => list(list(any())()),
-        "Queues" => list(String.t()()),
-        "RoutingProfiles" => list(String.t()()),
-        "RoutingStepExpressions" => list(String.t()())
+        "Queues" => list(String.t()),
+        "RoutingProfiles" => list(String.t()),
+        "RoutingStepExpressions" => list(String.t())
       }
 
   """
@@ -9038,7 +9038,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_agent_status_response() :: %{
-        "AgentStatusSummaryList" => list(agent_status_summary()()),
+        "AgentStatusSummaryList" => list(agent_status_summary()),
         "NextToken" => String.t()
       }
 
@@ -9096,7 +9096,7 @@ defmodule AWS.Connect do
 
       list_queues_response() :: %{
         "NextToken" => String.t(),
-        "QueueSummaryList" => list(queue_summary()())
+        "QueueSummaryList" => list(queue_summary())
       }
 
   """
@@ -9107,7 +9107,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_evaluation_forms_response() :: %{
-        "EvaluationFormSummaryList" => list(evaluation_form_summary()()),
+        "EvaluationFormSummaryList" => list(evaluation_form_summary()),
         "NextToken" => String.t()
       }
 
@@ -9121,7 +9121,7 @@ defmodule AWS.Connect do
       evaluation_form_single_select_question_properties() :: %{
         "Automation" => evaluation_form_single_select_question_automation(),
         "DisplayAs" => list(any()),
-        "Options" => list(evaluation_form_single_select_question_option()())
+        "Options" => list(evaluation_form_single_select_question_option())
       }
 
   """
@@ -9371,7 +9371,7 @@ defmodule AWS.Connect do
 
       list_phone_numbers_response() :: %{
         "NextToken" => String.t(),
-        "PhoneNumberSummaryList" => list(phone_number_summary()())
+        "PhoneNumberSummaryList" => list(phone_number_summary())
       }
 
   """
@@ -9511,8 +9511,8 @@ defmodule AWS.Connect do
   ## Example:
 
       control_plane_tag_filter() :: %{
-        "AndConditions" => list(tag_condition()()),
-        "OrConditions" => list(list(tag_condition()())()),
+        "AndConditions" => list(tag_condition()),
+        "OrConditions" => list(list(tag_condition())()),
         "TagCondition" => tag_condition()
       }
 
@@ -9563,7 +9563,7 @@ defmodule AWS.Connect do
   ## Example:
 
       search_agent_statuses_response() :: %{
-        "AgentStatuses" => list(agent_status()()),
+        "AgentStatuses" => list(agent_status()),
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t()
       }
@@ -9595,7 +9595,7 @@ defmodule AWS.Connect do
 
       search_contact_flows_response() :: %{
         "ApproximateTotalCount" => float(),
-        "ContactFlows" => list(contact_flow()()),
+        "ContactFlows" => list(contact_flow()),
         "NextToken" => String.t()
       }
 
@@ -9704,7 +9704,7 @@ defmodule AWS.Connect do
       case_sla_configuration() :: %{
         "FieldId" => String.t(),
         "Name" => String.t(),
-        "TargetFieldValues" => list(field_value_union()()),
+        "TargetFieldValues" => list(field_value_union()),
         "TargetSlaMinutes" => float(),
         "Type" => list(any())
       }
@@ -9745,7 +9745,7 @@ defmodule AWS.Connect do
 
       batch_associate_analytics_data_set_request() :: %{
         optional("TargetAccountId") => String.t(),
-        required("DataSetIds") => list(String.t()())
+        required("DataSetIds") => list(String.t())
       }
 
   """
@@ -9769,7 +9769,7 @@ defmodule AWS.Connect do
   ## Example:
 
       associate_queue_quick_connects_request() :: %{
-        required("QuickConnectIds") => list(String.t()())
+        required("QuickConnectIds") => list(String.t())
       }
 
   """
@@ -9850,7 +9850,7 @@ defmodule AWS.Connect do
 
       list_predefined_attributes_response() :: %{
         "NextToken" => String.t(),
-        "PredefinedAttributeSummaryList" => list(predefined_attribute_summary()())
+        "PredefinedAttributeSummaryList" => list(predefined_attribute_summary())
       }
 
   """
@@ -9862,14 +9862,14 @@ defmodule AWS.Connect do
 
       routing_profile() :: %{
         "AgentAvailabilityTimer" => list(any()),
-        "AssociatedQueueIds" => list(String.t()()),
+        "AssociatedQueueIds" => list(String.t()),
         "DefaultOutboundQueueId" => String.t(),
         "Description" => String.t(),
         "InstanceId" => String.t(),
         "IsDefault" => boolean(),
         "LastModifiedRegion" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "MediaConcurrencies" => list(media_concurrency()()),
+        "MediaConcurrencies" => list(media_concurrency()),
         "Name" => String.t(),
         "NumberOfAssociatedQueues" => float(),
         "NumberOfAssociatedUsers" => float(),
@@ -9910,11 +9910,11 @@ defmodule AWS.Connect do
 
       create_routing_profile_request() :: %{
         optional("AgentAvailabilityTimer") => list(any()),
-        optional("QueueConfigs") => list(routing_profile_queue_config()()),
+        optional("QueueConfigs") => list(routing_profile_queue_config()),
         optional("Tags") => map(),
         required("DefaultOutboundQueueId") => String.t(),
         required("Description") => String.t(),
-        required("MediaConcurrencies") => list(media_concurrency()()),
+        required("MediaConcurrencies") => list(media_concurrency()),
         required("Name") => String.t()
       }
 
@@ -9934,7 +9934,7 @@ defmodule AWS.Connect do
         optional("PersistentChat") => persistent_chat(),
         optional("RelatedContactId") => String.t(),
         optional("SegmentAttributes") => map(),
-        optional("SupportedMessagingContentTypes") => list(String.t()()),
+        optional("SupportedMessagingContentTypes") => list(String.t()),
         required("ContactFlowId") => String.t(),
         required("InstanceId") => String.t(),
         required("ParticipantDetails") => participant_details()
@@ -10009,8 +10009,8 @@ defmodule AWS.Connect do
   ## Example:
 
       prompt_search_criteria() :: %{
-        "AndConditions" => list(prompt_search_criteria()()),
-        "OrConditions" => list(prompt_search_criteria()()),
+        "AndConditions" => list(prompt_search_criteria()),
+        "OrConditions" => list(prompt_search_criteria()),
         "StringCondition" => string_condition()
       }
 
@@ -10023,11 +10023,11 @@ defmodule AWS.Connect do
 
       search_criteria() :: %{
         "AgentHierarchyGroups" => agent_hierarchy_groups(),
-        "AgentIds" => list(String.t()()),
+        "AgentIds" => list(String.t()),
         "Channels" => list(list(any())()),
         "ContactAnalysis" => contact_analysis(),
         "InitiationMethods" => list(list(any())()),
-        "QueueIds" => list(String.t()()),
+        "QueueIds" => list(String.t()),
         "SearchableContactAttributes" => searchable_contact_attributes(),
         "SearchableSegmentAttributes" => searchable_segment_attributes()
       }
@@ -10127,7 +10127,7 @@ defmodule AWS.Connect do
 
       list_quick_connects_response() :: %{
         "NextToken" => String.t(),
-        "QuickConnectSummaryList" => list(quick_connect_summary()())
+        "QuickConnectSummaryList" => list(quick_connect_summary())
       }
 
   """
@@ -10215,7 +10215,7 @@ defmodule AWS.Connect do
 
       list_instance_storage_configs_response() :: %{
         "NextToken" => String.t(),
-        "StorageConfigs" => list(instance_storage_config()())
+        "StorageConfigs" => list(instance_storage_config())
       }
 
   """
@@ -10238,7 +10238,7 @@ defmodule AWS.Connect do
 
       evaluation_form_single_select_question_automation() :: %{
         "DefaultOptionRefId" => String.t(),
-        "Options" => list(list()())
+        "Options" => list(list())
       }
 
   """
@@ -10251,7 +10251,7 @@ defmodule AWS.Connect do
       search_queues_response() :: %{
         "ApproximateTotalCount" => float(),
         "NextToken" => String.t(),
-        "Queues" => list(queue()())
+        "Queues" => list(queue())
       }
 
   """
@@ -10274,7 +10274,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_issue_detected() :: %{
-        "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_content()())
+        "TranscriptItems" => list(real_time_contact_analysis_transcript_item_with_content())
       }
 
   """
@@ -10285,8 +10285,8 @@ defmodule AWS.Connect do
   ## Example:
 
       update_authentication_profile_request() :: %{
-        optional("AllowedIps") => list(String.t()()),
-        optional("BlockedIps") => list(String.t()()),
+        optional("AllowedIps") => list(String.t()),
+        optional("BlockedIps") => list(String.t()),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
         optional("PeriodicSessionDuration") => integer()
@@ -10330,8 +10330,8 @@ defmodule AWS.Connect do
   ## Example:
 
       inbound_additional_recipients() :: %{
-        "CcAddresses" => list(email_address_info()()),
-        "ToAddresses" => list(email_address_info()())
+        "CcAddresses" => list(email_address_info()),
+        "ToAddresses" => list(email_address_info())
       }
 
   """
@@ -10356,7 +10356,7 @@ defmodule AWS.Connect do
 
       list_views_response() :: %{
         "NextToken" => String.t(),
-        "ViewsSummaryList" => list(view_summary()())
+        "ViewsSummaryList" => list(view_summary())
       }
 
   """
@@ -10412,7 +10412,7 @@ defmodule AWS.Connect do
 
       list_analytics_data_associations_response() :: %{
         "NextToken" => String.t(),
-        "Results" => list(analytics_data_association_result()())
+        "Results" => list(analytics_data_association_result())
       }
 
   """
@@ -10444,7 +10444,7 @@ defmodule AWS.Connect do
 
       list_user_hierarchy_groups_response() :: %{
         "NextToken" => String.t(),
-        "UserHierarchyGroupSummaryList" => list(hierarchy_group_summary()())
+        "UserHierarchyGroupSummaryList" => list(hierarchy_group_summary())
       }
 
   """
@@ -10489,7 +10489,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_default_vocabularies_response() :: %{
-        "DefaultVocabularyList" => list(default_vocabulary()()),
+        "DefaultVocabularyList" => list(default_vocabulary()),
         "NextToken" => String.t()
       }
 
@@ -10570,7 +10570,7 @@ defmodule AWS.Connect do
       get_current_metric_data_response() :: %{
         "ApproximateTotalCount" => float(),
         "DataSnapshotTime" => non_neg_integer(),
-        "MetricResults" => list(current_metric_result()()),
+        "MetricResults" => list(current_metric_result()),
         "NextToken" => String.t()
       }
 
@@ -10582,7 +10582,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_authentication_profiles_response() :: %{
-        "AuthenticationProfileSummaryList" => list(authentication_profile_summary()()),
+        "AuthenticationProfileSummaryList" => list(authentication_profile_summary()),
         "NextToken" => String.t()
       }
 
@@ -10705,7 +10705,7 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_segment_attachments() :: %{
-        "Attachments" => list(real_time_contact_analysis_attachment()()),
+        "Attachments" => list(real_time_contact_analysis_attachment()),
         "DisplayName" => String.t(),
         "Id" => String.t(),
         "ParticipantId" => String.t(),
@@ -10754,7 +10754,7 @@ defmodule AWS.Connect do
       transcript_criteria() :: %{
         "MatchType" => list(any()),
         "ParticipantRole" => list(any()),
-        "SearchText" => list(String.t()())
+        "SearchText" => list(String.t())
       }
 
   """
@@ -10787,8 +10787,8 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_disassociate_analytics_data_set_response() :: %{
-        "Deleted" => list(String.t()()),
-        "Errors" => list(error_result()())
+        "Deleted" => list(String.t()),
+        "Errors" => list(error_result())
       }
 
   """
@@ -10819,7 +10819,7 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_get_flow_association_response() :: %{
-        "FlowAssociationSummaryList" => list(flow_association_summary()())
+        "FlowAssociationSummaryList" => list(flow_association_summary())
       }
 
   """
@@ -10862,7 +10862,7 @@ defmodule AWS.Connect do
         optional("Tags") => map(),
         required("PhoneConfig") => user_phone_config(),
         required("RoutingProfileId") => String.t(),
-        required("SecurityProfileIds") => list(String.t()()),
+        required("SecurityProfileIds") => list(String.t()),
         required("Username") => String.t()
       }
 
@@ -10891,7 +10891,7 @@ defmodule AWS.Connect do
         "EvaluationFormArn" => String.t(),
         "EvaluationFormId" => String.t(),
         "EvaluationFormVersion" => integer(),
-        "Items" => list(list()()),
+        "Items" => list(list()),
         "ScoringStrategy" => evaluation_form_scoring_strategy(),
         "Title" => String.t()
       }
@@ -10999,8 +10999,8 @@ defmodule AWS.Connect do
   ## Example:
 
       batch_associate_analytics_data_set_response() :: %{
-        "Created" => list(analytics_data_association_result()()),
-        "Errors" => list(error_result()())
+        "Created" => list(analytics_data_association_result()),
+        "Errors" => list(error_result())
       }
 
   """

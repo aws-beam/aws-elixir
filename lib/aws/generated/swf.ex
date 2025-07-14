@@ -37,7 +37,7 @@ defmodule AWS.SWF do
   ## Example:
       
       workflow_execution_infos() :: %{
-        "executionInfos" => list(workflow_execution_info()()),
+        "executionInfos" => list(workflow_execution_info()),
         "nextPageToken" => String.t()
       }
       
@@ -49,7 +49,7 @@ defmodule AWS.SWF do
   ## Example:
       
       respond_decision_task_completed_input() :: %{
-        optional("decisions") => list(decision()()),
+        optional("decisions") => list(decision()),
         optional("executionContext") => String.t(),
         optional("taskList") => task_list(),
         optional("taskListScheduleToStartTimeout") => String.t(),
@@ -197,7 +197,7 @@ defmodule AWS.SWF do
         "executionStartToCloseTimeout" => String.t(),
         "input" => String.t(),
         "lambdaRole" => String.t(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "taskList" => task_list(),
         "taskPriority" => String.t(),
         "taskStartToCloseTimeout" => String.t(),
@@ -319,7 +319,7 @@ defmodule AWS.SWF do
         "lambdaRole" => String.t(),
         "parentInitiatedEventId" => float(),
         "parentWorkflowExecution" => workflow_execution(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "taskList" => task_list(),
         "taskPriority" => String.t(),
         "taskStartToCloseTimeout" => String.t(),
@@ -459,7 +459,7 @@ defmodule AWS.SWF do
       
       workflow_type_infos() :: %{
         "nextPageToken" => String.t(),
-        "typeInfos" => list(workflow_type_info()())
+        "typeInfos" => list(workflow_type_info())
       }
       
   """
@@ -511,7 +511,7 @@ defmodule AWS.SWF do
   ## Example:
       
       list_tags_for_resource_output() :: %{
-        "tags" => list(resource_tag()())
+        "tags" => list(resource_tag())
       }
       
   """
@@ -615,7 +615,7 @@ defmodule AWS.SWF do
       
       register_domain_input() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(resource_tag()()),
+        optional("tags") => list(resource_tag()),
         required("name") => String.t(),
         required("workflowExecutionRetentionPeriodInDays") => String.t()
       }
@@ -685,7 +685,7 @@ defmodule AWS.SWF do
         "executionStartToCloseTimeout" => String.t(),
         "input" => String.t(),
         "lambdaRole" => String.t(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "taskList" => task_list(),
         "taskPriority" => String.t(),
         "taskStartToCloseTimeout" => String.t(),
@@ -985,7 +985,7 @@ defmodule AWS.SWF do
         optional("executionStartToCloseTimeout") => String.t(),
         optional("input") => String.t(),
         optional("lambdaRole") => String.t(),
-        optional("tagList") => list(String.t()()),
+        optional("tagList") => list(String.t()),
         optional("taskList") => task_list(),
         optional("taskPriority") => String.t(),
         optional("taskStartToCloseTimeout") => String.t(),
@@ -1086,7 +1086,7 @@ defmodule AWS.SWF do
   ## Example:
       
       decision_task() :: %{
-        "events" => list(history_event()()),
+        "events" => list(history_event()),
         "nextPageToken" => String.t(),
         "previousStartedEventId" => float(),
         "startedEventId" => float(),
@@ -1248,7 +1248,7 @@ defmodule AWS.SWF do
       
       tag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(resource_tag()())
+        required("tags") => list(resource_tag())
       }
       
   """
@@ -1278,7 +1278,7 @@ defmodule AWS.SWF do
         "executionStatus" => list(any()),
         "parent" => workflow_execution(),
         "startTimestamp" => non_neg_integer(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "workflowType" => workflow_type()
       }
       
@@ -1527,7 +1527,7 @@ defmodule AWS.SWF do
       
       activity_type_infos() :: %{
         "nextPageToken" => String.t(),
-        "typeInfos" => list(activity_type_info()())
+        "typeInfos" => list(activity_type_info())
       }
       
   """
@@ -1563,7 +1563,7 @@ defmodule AWS.SWF do
   ## Example:
       
       domain_infos() :: %{
-        "domainInfos" => list(domain_info()()),
+        "domainInfos" => list(domain_info()),
         "nextPageToken" => String.t()
       }
       
@@ -1643,7 +1643,7 @@ defmodule AWS.SWF do
       
       untag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -1894,7 +1894,7 @@ defmodule AWS.SWF do
         "input" => String.t(),
         "lambdaRole" => String.t(),
         "newExecutionRunId" => String.t(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "taskList" => task_list(),
         "taskPriority" => String.t(),
         "taskStartToCloseTimeout" => String.t(),
@@ -1948,7 +1948,7 @@ defmodule AWS.SWF do
   ## Example:
       
       history() :: %{
-        "events" => list(history_event()()),
+        "events" => list(history_event()),
         "nextPageToken" => String.t()
       }
       
@@ -1990,7 +1990,7 @@ defmodule AWS.SWF do
         "executionStartToCloseTimeout" => String.t(),
         "input" => String.t(),
         "lambdaRole" => String.t(),
-        "tagList" => list(String.t()()),
+        "tagList" => list(String.t()),
         "taskList" => task_list(),
         "taskPriority" => String.t(),
         "taskStartToCloseTimeout" => String.t(),
@@ -2392,7 +2392,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, count_closed_workflow_executions_errors()}
   def count_closed_workflow_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CountClosedWorkflowExecutions", input, options)
   end
@@ -2452,7 +2453,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, count_open_workflow_executions_errors()}
   def count_open_workflow_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CountOpenWorkflowExecutions", input, options)
   end
@@ -2498,7 +2500,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, count_pending_activity_tasks_errors()}
   def count_pending_activity_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CountPendingActivityTasks", input, options)
   end
@@ -2544,7 +2547,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, count_pending_decision_tasks_errors()}
   def count_pending_decision_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CountPendingDecisionTasks", input, options)
   end
@@ -2599,7 +2603,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, delete_activity_type_errors()}
   def delete_activity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteActivityType", input, options)
   end
@@ -2654,7 +2659,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, delete_workflow_type_errors()}
   def delete_workflow_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWorkflowType", input, options)
   end
@@ -2709,7 +2715,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, deprecate_activity_type_errors()}
   def deprecate_activity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprecateActivityType", input, options)
   end
@@ -2760,7 +2767,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, deprecate_domain_errors()}
   def deprecate_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprecateDomain", input, options)
   end
@@ -2820,7 +2828,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, deprecate_workflow_type_errors()}
   def deprecate_workflow_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprecateWorkflowType", input, options)
   end
@@ -2875,7 +2884,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, describe_activity_type_errors()}
   def describe_activity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeActivityType", input, options)
   end
@@ -2915,7 +2925,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, describe_domain_errors()}
   def describe_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomain", input, options)
   end
@@ -2959,7 +2970,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, describe_workflow_execution_errors()}
   def describe_workflow_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkflowExecution", input, options)
   end
@@ -3014,7 +3026,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, describe_workflow_type_errors()}
   def describe_workflow_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWorkflowType", input, options)
   end
@@ -3060,7 +3073,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, get_workflow_execution_history_errors()}
   def get_workflow_execution_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWorkflowExecutionHistory", input, options)
   end
@@ -3108,7 +3122,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_activity_types_errors()}
   def list_activity_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActivityTypes", input, options)
   end
@@ -3171,7 +3186,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_closed_workflow_executions_errors()}
   def list_closed_workflow_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClosedWorkflowExecutions", input, options)
   end
@@ -3220,7 +3236,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_domains_errors()}
   def list_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomains", input, options)
   end
@@ -3282,7 +3299,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_open_workflow_executions_errors()}
   def list_open_workflow_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOpenWorkflowExecutions", input, options)
   end
@@ -3296,7 +3314,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3338,7 +3357,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, list_workflow_types_errors()}
   def list_workflow_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWorkflowTypes", input, options)
   end
@@ -3394,7 +3414,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, poll_for_activity_task_errors()}
   def poll_for_activity_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForActivityTask", input, options)
   end
@@ -3466,7 +3487,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, poll_for_decision_task_errors()}
   def poll_for_decision_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForDecisionTask", input, options)
   end
@@ -3539,7 +3561,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, record_activity_task_heartbeat_errors()}
   def record_activity_task_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RecordActivityTaskHeartbeat", input, options)
   end
@@ -3599,7 +3622,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, register_activity_type_errors()}
   def register_activity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterActivityType", input, options)
   end
@@ -3639,7 +3663,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, register_domain_errors()}
   def register_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDomain", input, options)
   end
@@ -3702,7 +3727,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, register_workflow_type_errors()}
   def register_workflow_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterWorkflowType", input, options)
   end
@@ -3761,7 +3787,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, request_cancel_workflow_execution_errors()}
   def request_cancel_workflow_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestCancelWorkflowExecution", input, options)
   end
@@ -3818,7 +3845,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, respond_activity_task_canceled_errors()}
   def respond_activity_task_canceled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondActivityTaskCanceled", input, options)
   end
@@ -3874,7 +3902,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, respond_activity_task_completed_errors()}
   def respond_activity_task_completed(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondActivityTaskCompleted", input, options)
   end
@@ -3924,7 +3953,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, respond_activity_task_failed_errors()}
   def respond_activity_task_failed(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondActivityTaskFailed", input, options)
   end
@@ -3961,7 +3991,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, respond_decision_task_completed_errors()}
   def respond_decision_task_completed(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondDecisionTaskCompleted", input, options)
   end
@@ -4014,7 +4045,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, signal_workflow_execution_errors()}
   def signal_workflow_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SignalWorkflowExecution", input, options)
   end
@@ -4093,7 +4125,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, start_workflow_execution_errors()}
   def start_workflow_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWorkflowExecution", input, options)
   end
@@ -4109,7 +4142,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4166,7 +4200,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, terminate_workflow_execution_errors()}
   def terminate_workflow_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateWorkflowExecution", input, options)
   end
@@ -4222,7 +4257,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, undeprecate_activity_type_errors()}
   def undeprecate_activity_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UndeprecateActivityType", input, options)
   end
@@ -4267,7 +4303,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, undeprecate_domain_errors()}
   def undeprecate_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UndeprecateDomain", input, options)
   end
@@ -4323,7 +4360,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, undeprecate_workflow_type_errors()}
   def undeprecate_workflow_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UndeprecateWorkflowType", input, options)
   end
@@ -4337,7 +4375,8 @@ defmodule AWS.SWF do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

@@ -44,22 +44,22 @@ defmodule AWS.DynamoDB do
       
       table_description() :: %{
         "ArchivalSummary" => archival_summary(),
-        "AttributeDefinitions" => list(attribute_definition()()),
+        "AttributeDefinitions" => list(attribute_definition()),
         "BillingModeSummary" => billing_mode_summary(),
         "CreationDateTime" => non_neg_integer(),
         "DeletionProtectionEnabled" => boolean(),
-        "GlobalSecondaryIndexes" => list(global_secondary_index_description()()),
+        "GlobalSecondaryIndexes" => list(global_secondary_index_description()),
         "GlobalTableVersion" => String.t(),
-        "GlobalTableWitnesses" => list(global_table_witness_description()()),
+        "GlobalTableWitnesses" => list(global_table_witness_description()),
         "ItemCount" => float(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "LatestStreamArn" => String.t(),
         "LatestStreamLabel" => String.t(),
-        "LocalSecondaryIndexes" => list(local_secondary_index_description()()),
+        "LocalSecondaryIndexes" => list(local_secondary_index_description()),
         "MultiRegionConsistency" => list(any()),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput_description(),
-        "Replicas" => list(replica_description()()),
+        "Replicas" => list(replica_description()),
         "RestoreSummary" => restore_summary(),
         "SSEDescription" => sse_description(),
         "StreamSpecification" => stream_specification(),
@@ -80,7 +80,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       transact_write_items_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
+        "ConsumedCapacity" => list(consumed_capacity()),
         "ItemCollectionMetrics" => map()
       }
       
@@ -94,7 +94,7 @@ defmodule AWS.DynamoDB do
       replica_settings_description() :: %{
         "RegionName" => String.t(),
         "ReplicaBillingModeSummary" => billing_mode_summary(),
-        "ReplicaGlobalSecondaryIndexSettings" => list(replica_global_secondary_index_settings_description()()),
+        "ReplicaGlobalSecondaryIndexSettings" => list(replica_global_secondary_index_settings_description()),
         "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ReplicaProvisionedReadCapacityUnits" => float(),
         "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
@@ -141,7 +141,7 @@ defmodule AWS.DynamoDB do
         optional("ClientRequestToken") => String.t(),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ReturnItemCollectionMetrics") => list(any()),
-        required("TransactItems") => list(transact_write_item()())
+        required("TransactItems") => list(transact_write_item())
       }
       
   """
@@ -153,7 +153,7 @@ defmodule AWS.DynamoDB do
       
       local_secondary_index() :: %{
         "IndexName" => String.t(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "Projection" => projection()
       }
       
@@ -177,7 +177,7 @@ defmodule AWS.DynamoDB do
       
       local_secondary_index_info() :: %{
         "IndexName" => String.t(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "Projection" => projection()
       }
       
@@ -229,7 +229,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       expected_attribute_value() :: %{
-        "AttributeValueList" => list(list()()),
+        "AttributeValueList" => list(list()),
         "ComparisonOperator" => list(any()),
         "Exists" => boolean(),
         "Value" => list()
@@ -243,10 +243,10 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       keys_and_attributes() :: %{
-        "AttributesToGet" => list(String.t()()),
+        "AttributesToGet" => list(String.t()),
         "ConsistentRead" => boolean(),
         "ExpressionAttributeNames" => map(),
-        "Keys" => list(map()()),
+        "Keys" => list(map()),
         "ProjectionExpression" => String.t()
       }
       
@@ -272,8 +272,8 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       batch_execute_statement_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
-        "Responses" => list(batch_statement_response()())
+        "ConsumedCapacity" => list(consumed_capacity()),
+        "Responses" => list(batch_statement_response())
       }
       
   """
@@ -329,7 +329,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       create_replication_group_member_action() :: %{
-        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()),
         "KMSMasterKeyId" => String.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
@@ -417,7 +417,7 @@ defmodule AWS.DynamoDB do
       
       create_global_table_input() :: %{
         required("GlobalTableName") => String.t(),
-        required("ReplicationGroup") => list(replica()())
+        required("ReplicationGroup") => list(replica())
       }
       
   """
@@ -456,7 +456,7 @@ defmodule AWS.DynamoDB do
       execute_transaction_input() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("ReturnConsumedCapacity") => list(any()),
-        required("TransactStatements") => list(parameterized_statement()())
+        required("TransactStatements") => list(parameterized_statement())
       }
       
   """
@@ -467,7 +467,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       list_global_tables_output() :: %{
-        "GlobalTables" => list(global_table()()),
+        "GlobalTables" => list(global_table()),
         "LastEvaluatedGlobalTableName" => String.t()
       }
       
@@ -568,7 +568,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       replica_auto_scaling_description() :: %{
-        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_auto_scaling_description()()),
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_auto_scaling_description()),
         "RegionName" => String.t(),
         "ReplicaProvisionedReadCapacityAutoScalingSettings" => auto_scaling_settings_description(),
         "ReplicaProvisionedWriteCapacityAutoScalingSettings" => auto_scaling_settings_description(),
@@ -584,7 +584,7 @@ defmodule AWS.DynamoDB do
       
       replica_settings_update() :: %{
         "RegionName" => String.t(),
-        "ReplicaGlobalSecondaryIndexSettingsUpdate" => list(replica_global_secondary_index_settings_update()()),
+        "ReplicaGlobalSecondaryIndexSettingsUpdate" => list(replica_global_secondary_index_settings_update()),
         "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate" => auto_scaling_settings_update(),
         "ReplicaProvisionedReadCapacityUnits" => float(),
         "ReplicaTableClass" => list(any())
@@ -599,7 +599,7 @@ defmodule AWS.DynamoDB do
       
       global_table() :: %{
         "GlobalTableName" => String.t(),
-        "ReplicationGroup" => list(replica()())
+        "ReplicationGroup" => list(replica())
       }
       
   """
@@ -610,7 +610,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       batch_write_item_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
+        "ConsumedCapacity" => list(consumed_capacity()),
         "ItemCollectionMetrics" => map(),
         "UnprocessedItems" => map()
       }
@@ -625,18 +625,18 @@ defmodule AWS.DynamoDB do
       create_table_input() :: %{
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
-        optional("GlobalSecondaryIndexes") => list(global_secondary_index()()),
-        optional("LocalSecondaryIndexes") => list(local_secondary_index()()),
+        optional("GlobalSecondaryIndexes") => list(global_secondary_index()),
+        optional("LocalSecondaryIndexes") => list(local_secondary_index()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
         optional("ResourcePolicy") => String.t(),
         optional("SSESpecification") => sse_specification(),
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("WarmThroughput") => warm_throughput(),
-        required("AttributeDefinitions") => list(attribute_definition()()),
-        required("KeySchema") => list(key_schema_element()()),
+        required("AttributeDefinitions") => list(attribute_definition()),
+        required("KeySchema") => list(key_schema_element()),
         required("TableName") => String.t()
       }
       
@@ -707,10 +707,10 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       table_creation_parameters() :: %{
-        "AttributeDefinitions" => list(attribute_definition()()),
+        "AttributeDefinitions" => list(attribute_definition()),
         "BillingMode" => list(any()),
-        "GlobalSecondaryIndexes" => list(global_secondary_index()()),
-        "KeySchema" => list(key_schema_element()()),
+        "GlobalSecondaryIndexes" => list(global_secondary_index()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "SSESpecification" => sse_specification(),
@@ -737,7 +737,7 @@ defmodule AWS.DynamoDB do
       
       execute_statement_output() :: %{
         "ConsumedCapacity" => consumed_capacity(),
-        "Items" => list(map()()),
+        "Items" => list(map()),
         "LastEvaluatedKey" => map(),
         "NextToken" => String.t()
       }
@@ -750,7 +750,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()())
+        "Endpoints" => list(endpoint())
       }
       
   """
@@ -796,7 +796,7 @@ defmodule AWS.DynamoDB do
         "AutoScalingRoleArn" => String.t(),
         "MaximumUnits" => float(),
         "MinimumUnits" => float(),
-        "ScalingPolicies" => list(auto_scaling_policy_description()())
+        "ScalingPolicies" => list(auto_scaling_policy_description())
       }
       
   """
@@ -832,10 +832,10 @@ defmodule AWS.DynamoDB do
       
       update_global_table_settings_input() :: %{
         optional("GlobalTableBillingMode") => list(any()),
-        optional("GlobalTableGlobalSecondaryIndexSettingsUpdate") => list(global_table_global_secondary_index_settings_update()()),
+        optional("GlobalTableGlobalSecondaryIndexSettingsUpdate") => list(global_table_global_secondary_index_settings_update()),
         optional("GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate") => auto_scaling_settings_update(),
         optional("GlobalTableProvisionedWriteCapacityUnits") => float(),
-        optional("ReplicaSettingsUpdate") => list(replica_settings_update()()),
+        optional("ReplicaSettingsUpdate") => list(replica_settings_update()),
         required("GlobalTableName") => String.t()
       }
       
@@ -847,7 +847,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       scan_input() :: %{
-        optional("AttributesToGet") => list(String.t()()),
+        optional("AttributesToGet") => list(String.t()),
         optional("ConditionalOperator") => list(any()),
         optional("ConsistentRead") => boolean(),
         optional("ExclusiveStartKey") => map(),
@@ -926,7 +926,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       transaction_canceled_exception() :: %{
-        "CancellationReasons" => list(cancellation_reason()()),
+        "CancellationReasons" => list(cancellation_reason()),
         "Message" => String.t()
       }
       
@@ -994,7 +994,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       parameterized_statement() :: %{
-        "Parameters" => list(list()()),
+        "Parameters" => list(list()),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
         "Statement" => String.t()
       }
@@ -1008,7 +1008,7 @@ defmodule AWS.DynamoDB do
       
       list_tags_of_resource_output() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1021,7 +1021,7 @@ defmodule AWS.DynamoDB do
       query_output() :: %{
         "ConsumedCapacity" => consumed_capacity(),
         "Count" => integer(),
-        "Items" => list(map()()),
+        "Items" => list(map()),
         "LastEvaluatedKey" => map(),
         "ScannedCount" => integer()
       }
@@ -1075,7 +1075,7 @@ defmodule AWS.DynamoDB do
       
       update_global_table_input() :: %{
         required("GlobalTableName") => String.t(),
-        required("ReplicaUpdates") => list(replica_update()())
+        required("ReplicaUpdates") => list(replica_update())
       }
       
   """
@@ -1089,7 +1089,7 @@ defmodule AWS.DynamoDB do
         optional("ConsistentRead") => boolean(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("Parameters") => list(list()()),
+        optional("Parameters") => list(list()),
         optional("ReturnConsumedCapacity") => list(any()),
         optional("ReturnValuesOnConditionCheckFailure") => list(any()),
         required("Statement") => String.t()
@@ -1140,7 +1140,7 @@ defmodule AWS.DynamoDB do
       
       batch_execute_statement_input() :: %{
         optional("ReturnConsumedCapacity") => list(any()),
-        required("Statements") => list(batch_statement_request()())
+        required("Statements") => list(batch_statement_request())
       }
       
   """
@@ -1151,9 +1151,9 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       update_table_replica_auto_scaling_input() :: %{
-        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_auto_scaling_update()()),
+        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_auto_scaling_update()),
         optional("ProvisionedWriteCapacityAutoScalingUpdate") => auto_scaling_settings_update(),
-        optional("ReplicaUpdates") => list(replica_auto_scaling_update()()),
+        optional("ReplicaUpdates") => list(replica_auto_scaling_update()),
         required("TableName") => String.t()
       }
       
@@ -1201,7 +1201,7 @@ defmodule AWS.DynamoDB do
       
       replica_auto_scaling_update() :: %{
         "RegionName" => String.t(),
-        "ReplicaGlobalSecondaryIndexUpdates" => list(replica_global_secondary_index_auto_scaling_update()()),
+        "ReplicaGlobalSecondaryIndexUpdates" => list(replica_global_secondary_index_auto_scaling_update()),
         "ReplicaProvisionedReadCapacityAutoScalingUpdate" => auto_scaling_settings_update()
       }
       
@@ -1236,7 +1236,7 @@ defmodule AWS.DynamoDB do
       
       csv_options() :: %{
         "Delimiter" => String.t(),
-        "HeaderList" => list(String.t()())
+        "HeaderList" => list(String.t())
       }
       
   """
@@ -1247,7 +1247,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       projection() :: %{
-        "NonKeyAttributes" => list(String.t()()),
+        "NonKeyAttributes" => list(String.t()),
         "ProjectionType" => list(any())
       }
       
@@ -1283,7 +1283,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       batch_get_item_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
+        "ConsumedCapacity" => list(consumed_capacity()),
         "Responses" => map(),
         "UnprocessedKeys" => map()
       }
@@ -1309,7 +1309,7 @@ defmodule AWS.DynamoDB do
       source_table_details() :: %{
         "BillingMode" => list(any()),
         "ItemCount" => float(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "ProvisionedThroughput" => provisioned_throughput(),
         "TableArn" => String.t(),
@@ -1356,7 +1356,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       describe_contributor_insights_output() :: %{
-        "ContributorInsightsRuleList" => list(String.t()()),
+        "ContributorInsightsRuleList" => list(String.t()),
         "ContributorInsightsStatus" => list(any()),
         "FailureException" => failure_exception(),
         "IndexName" => String.t(),
@@ -1477,7 +1477,7 @@ defmodule AWS.DynamoDB do
       
       create_global_secondary_index_action() :: %{
         "IndexName" => String.t(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput(),
@@ -1496,7 +1496,7 @@ defmodule AWS.DynamoDB do
         "IndexName" => String.t(),
         "IndexSizeBytes" => float(),
         "ItemCount" => float(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "Projection" => projection()
       }
       
@@ -1707,7 +1707,7 @@ defmodule AWS.DynamoDB do
       
       item_collection_metrics() :: %{
         "ItemCollectionKey" => map(),
-        "SizeEstimateRangeGB" => list(float()())
+        "SizeEstimateRangeGB" => list(float())
       }
       
   """
@@ -1719,7 +1719,7 @@ defmodule AWS.DynamoDB do
       
       describe_global_table_settings_output() :: %{
         "GlobalTableName" => String.t(),
-        "ReplicaSettings" => list(replica_settings_description()())
+        "ReplicaSettings" => list(replica_settings_description())
       }
       
   """
@@ -1730,7 +1730,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       update_replication_group_member_action() :: %{
-        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()()),
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index()),
         "KMSMasterKeyId" => String.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
@@ -1807,8 +1807,8 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       transact_get_items_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
-        "Responses" => list(item_response()())
+        "ConsumedCapacity" => list(consumed_capacity()),
+        "Responses" => list(item_response())
       }
       
   """
@@ -1895,7 +1895,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       condition() :: %{
-        "AttributeValueList" => list(list()()),
+        "AttributeValueList" => list(list()),
         "ComparisonOperator" => list(any())
       }
       
@@ -1908,7 +1908,7 @@ defmodule AWS.DynamoDB do
       
       transact_get_items_input() :: %{
         optional("ReturnConsumedCapacity") => list(any()),
-        required("TransactItems") => list(transact_get_item()())
+        required("TransactItems") => list(transact_get_item())
       }
       
   """
@@ -2004,7 +2004,7 @@ defmodule AWS.DynamoDB do
       
       tag_resource_input() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -2047,8 +2047,8 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       execute_transaction_output() :: %{
-        "ConsumedCapacity" => list(consumed_capacity()()),
-        "Responses" => list(item_response()())
+        "ConsumedCapacity" => list(consumed_capacity()),
+        "Responses" => list(item_response())
       }
       
   """
@@ -2142,7 +2142,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       describe_kinesis_streaming_destination_output() :: %{
-        "KinesisDataStreamDestinations" => list(kinesis_data_stream_destination()()),
+        "KinesisDataStreamDestinations" => list(kinesis_data_stream_destination()),
         "TableName" => String.t()
       }
       
@@ -2274,7 +2274,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       list_exports_output() :: %{
-        "ExportSummaries" => list(export_summary()()),
+        "ExportSummaries" => list(export_summary()),
         "NextToken" => String.t()
       }
       
@@ -2354,7 +2354,7 @@ defmodule AWS.DynamoDB do
         "IndexSizeBytes" => float(),
         "IndexStatus" => list(any()),
         "ItemCount" => float(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput_description(),
@@ -2370,7 +2370,7 @@ defmodule AWS.DynamoDB do
       
       global_secondary_index_info() :: %{
         "IndexName" => String.t(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput()
@@ -2457,7 +2457,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       query_input() :: %{
-        optional("AttributesToGet") => list(String.t()()),
+        optional("AttributesToGet") => list(String.t()),
         optional("ConditionalOperator") => list(any()),
         optional("ConsistentRead") => boolean(),
         optional("ExclusiveStartKey") => map(),
@@ -2531,7 +2531,7 @@ defmodule AWS.DynamoDB do
       
       untag_resource_input() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -2580,7 +2580,7 @@ defmodule AWS.DynamoDB do
         "GlobalTableArn" => String.t(),
         "GlobalTableName" => String.t(),
         "GlobalTableStatus" => list(any()),
-        "ReplicationGroup" => list(replica_description()())
+        "ReplicationGroup" => list(replica_description())
       }
       
   """
@@ -2604,7 +2604,7 @@ defmodule AWS.DynamoDB do
       
       global_secondary_index() :: %{
         "IndexName" => String.t(),
-        "KeySchema" => list(key_schema_element()()),
+        "KeySchema" => list(key_schema_element()),
         "OnDemandThroughput" => on_demand_throughput(),
         "Projection" => projection(),
         "ProvisionedThroughput" => provisioned_throughput(),
@@ -2620,8 +2620,8 @@ defmodule AWS.DynamoDB do
       
       restore_table_to_point_in_time_input() :: %{
         optional("BillingModeOverride") => list(any()),
-        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
-        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()),
+        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()),
         optional("OnDemandThroughputOverride") => on_demand_throughput(),
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("RestoreDateTime") => non_neg_integer(),
@@ -2652,8 +2652,8 @@ defmodule AWS.DynamoDB do
       
       restore_table_from_backup_input() :: %{
         optional("BillingModeOverride") => list(any()),
-        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()()),
-        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()()),
+        optional("GlobalSecondaryIndexOverride") => list(global_secondary_index()),
+        optional("LocalSecondaryIndexOverride") => list(local_secondary_index()),
         optional("OnDemandThroughputOverride") => on_demand_throughput(),
         optional("ProvisionedThroughputOverride") => provisioned_throughput(),
         optional("SSESpecificationOverride") => sse_specification(),
@@ -2682,8 +2682,8 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       source_table_feature_details() :: %{
-        "GlobalSecondaryIndexes" => list(global_secondary_index_info()()),
-        "LocalSecondaryIndexes" => list(local_secondary_index_info()()),
+        "GlobalSecondaryIndexes" => list(global_secondary_index_info()),
+        "LocalSecondaryIndexes" => list(local_secondary_index_info()),
         "SSEDescription" => sse_description(),
         "StreamDescription" => stream_specification(),
         "TimeToLiveDescription" => time_to_live_description()
@@ -2742,7 +2742,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       replica_description() :: %{
-        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()()),
+        "GlobalSecondaryIndexes" => list(replica_global_secondary_index_description()),
         "KMSMasterKeyId" => String.t(),
         "OnDemandThroughputOverride" => on_demand_throughput_override(),
         "ProvisionedThroughputOverride" => provisioned_throughput_override(),
@@ -2765,7 +2765,7 @@ defmodule AWS.DynamoDB do
       scan_output() :: %{
         "ConsumedCapacity" => consumed_capacity(),
         "Count" => integer(),
-        "Items" => list(map()()),
+        "Items" => list(map()),
         "LastEvaluatedKey" => map(),
         "ScannedCount" => integer()
       }
@@ -2813,7 +2813,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       list_contributor_insights_output() :: %{
-        "ContributorInsightsSummaries" => list(contributor_insights_summary()()),
+        "ContributorInsightsSummaries" => list(contributor_insights_summary()),
         "NextToken" => String.t()
       }
       
@@ -2894,7 +2894,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       get_item_input() :: %{
-        optional("AttributesToGet") => list(String.t()()),
+        optional("AttributesToGet") => list(String.t()),
         optional("ConsistentRead") => boolean(),
         optional("ExpressionAttributeNames") => map(),
         optional("ProjectionExpression") => String.t(),
@@ -2975,7 +2975,7 @@ defmodule AWS.DynamoDB do
       
       list_tables_output() :: %{
         "LastEvaluatedTableName" => String.t(),
-        "TableNames" => list(String.t()())
+        "TableNames" => list(String.t())
       }
       
   """
@@ -3045,7 +3045,7 @@ defmodule AWS.DynamoDB do
       
       update_global_table_settings_output() :: %{
         "GlobalTableName" => String.t(),
-        "ReplicaSettings" => list(replica_settings_description()())
+        "ReplicaSettings" => list(replica_settings_description())
       }
       
   """
@@ -3131,15 +3131,15 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       update_table_input() :: %{
-        optional("AttributeDefinitions") => list(attribute_definition()()),
+        optional("AttributeDefinitions") => list(attribute_definition()),
         optional("BillingMode") => list(any()),
         optional("DeletionProtectionEnabled") => boolean(),
-        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()()),
-        optional("GlobalTableWitnessUpdates") => list(global_table_witness_group_update()()),
+        optional("GlobalSecondaryIndexUpdates") => list(global_secondary_index_update()),
+        optional("GlobalTableWitnessUpdates") => list(global_table_witness_group_update()),
         optional("MultiRegionConsistency") => list(any()),
         optional("OnDemandThroughput") => on_demand_throughput(),
         optional("ProvisionedThroughput") => provisioned_throughput(),
-        optional("ReplicaUpdates") => list(replication_group_update()()),
+        optional("ReplicaUpdates") => list(replication_group_update()),
         optional("SSESpecification") => sse_specification(),
         optional("StreamSpecification") => stream_specification(),
         optional("TableClass") => list(any()),
@@ -3172,7 +3172,7 @@ defmodule AWS.DynamoDB do
       
       batch_statement_request() :: %{
         "ConsistentRead" => boolean(),
-        "Parameters" => list(list()()),
+        "Parameters" => list(list()),
         "ReturnValuesOnConditionCheckFailure" => list(any()),
         "Statement" => String.t()
       }
@@ -3254,7 +3254,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       list_backups_output() :: %{
-        "BackupSummaries" => list(backup_summary()()),
+        "BackupSummaries" => list(backup_summary()),
         "LastEvaluatedBackupArn" => String.t()
       }
       
@@ -3384,7 +3384,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       table_auto_scaling_description() :: %{
-        "Replicas" => list(replica_auto_scaling_description()()),
+        "Replicas" => list(replica_auto_scaling_description()),
         "TableName" => String.t(),
         "TableStatus" => list(any())
       }
@@ -3397,7 +3397,7 @@ defmodule AWS.DynamoDB do
   ## Example:
       
       list_imports_output() :: %{
-        "ImportSummaryList" => list(import_summary()()),
+        "ImportSummaryList" => list(import_summary()),
         "NextToken" => String.t()
       }
       
@@ -3806,7 +3806,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
@@ -3892,7 +3893,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_get_item_errors()}
   def batch_get_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetItem", input, options)
   end
@@ -4015,7 +4017,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_write_item_errors()}
   def batch_write_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchWriteItem", input, options)
   end
@@ -4068,7 +4071,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBackup", input, options)
   end
@@ -4147,7 +4151,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_global_table_errors()}
   def create_global_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalTable", input, options)
   end
@@ -4179,7 +4184,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -4196,7 +4202,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -4228,7 +4235,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_item_errors()}
   def delete_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteItem", input, options)
   end
@@ -4263,7 +4271,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4301,7 +4310,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -4318,7 +4328,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_backup_errors()}
   def describe_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBackup", input, options)
   end
@@ -4351,7 +4362,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_continuous_backups_errors()}
   def describe_continuous_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContinuousBackups", input, options)
   end
@@ -4367,7 +4379,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_contributor_insights_errors()}
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContributorInsights", input, options)
   end
@@ -4383,7 +4396,8 @@ defmodule AWS.DynamoDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -4397,7 +4411,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_export_errors()}
   def describe_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExport", input, options)
   end
@@ -4422,7 +4437,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_global_table_errors()}
   def describe_global_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalTable", input, options)
   end
@@ -4447,7 +4463,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_global_table_settings_errors()}
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalTableSettings", input, options)
   end
@@ -4461,7 +4478,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_import_errors()}
   def describe_import(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImport", input, options)
   end
@@ -4479,7 +4497,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_kinesis_streaming_destination_errors()}
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeKinesisStreamingDestination", input, options)
   end
@@ -4574,7 +4593,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLimits", input, options)
   end
@@ -4598,7 +4618,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -4616,7 +4637,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_table_replica_auto_scaling_errors()}
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTableReplicaAutoScaling", input, options)
   end
@@ -4630,7 +4652,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_time_to_live_errors()}
   def describe_time_to_live(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTimeToLive", input, options)
   end
@@ -4651,7 +4674,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, disable_kinesis_streaming_destination_errors()}
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableKinesisStreamingDestination", input, options)
   end
@@ -4672,7 +4696,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, enable_kinesis_streaming_destination_errors()}
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableKinesisStreamingDestination", input, options)
   end
@@ -4703,7 +4728,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
@@ -4728,7 +4754,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, execute_transaction_errors()}
   def execute_transaction(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteTransaction", input, options)
   end
@@ -4746,7 +4773,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, export_table_to_point_in_time_errors()}
   def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportTableToPointInTime", input, options)
   end
@@ -4769,7 +4797,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, get_item_errors()}
   def get_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetItem", input, options)
   end
@@ -4821,7 +4850,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -4835,7 +4865,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, import_table_errors()}
   def import_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportTable", input, options)
   end
@@ -4868,7 +4899,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_backups_errors()}
   def list_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBackups", input, options)
   end
@@ -4884,7 +4916,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_contributor_insights_errors()}
   def list_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContributorInsights", input, options)
   end
@@ -4898,7 +4931,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExports", input, options)
   end
@@ -4923,7 +4957,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_global_tables_errors()}
   def list_global_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGlobalTables", input, options)
   end
@@ -4937,7 +4972,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
   end
@@ -4956,7 +4992,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -4976,7 +5013,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_tags_of_resource_errors()}
   def list_tags_of_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsOfResource", input, options)
   end
@@ -5022,7 +5060,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, put_item_errors()}
   def put_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutItem", input, options)
   end
@@ -5060,7 +5099,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -5138,7 +5178,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -5178,7 +5219,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, restore_table_from_backup_errors()}
   def restore_table_from_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableFromBackup", input, options)
   end
@@ -5246,7 +5288,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, restore_table_to_point_in_time_errors()}
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreTableToPointInTime", input, options)
   end
@@ -5309,7 +5352,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, scan_errors()}
   def scan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Scan", input, options)
   end
@@ -5350,7 +5394,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5393,7 +5438,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, transact_get_items_errors()}
   def transact_get_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TransactGetItems", input, options)
   end
@@ -5482,7 +5528,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, transact_write_items_errors()}
   def transact_write_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TransactWriteItems", input, options)
   end
@@ -5519,7 +5566,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5550,7 +5598,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_continuous_backups_errors()}
   def update_continuous_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContinuousBackups", input, options)
   end
@@ -5577,7 +5626,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_contributor_insights_errors()}
   def update_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContributorInsights", input, options)
   end
@@ -5634,7 +5684,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_global_table_errors()}
   def update_global_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGlobalTable", input, options)
   end
@@ -5659,7 +5710,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_global_table_settings_errors()}
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGlobalTableSettings", input, options)
   end
@@ -5684,7 +5736,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_item_errors()}
   def update_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateItem", input, options)
   end
@@ -5702,7 +5755,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_kinesis_streaming_destination_errors()}
   def update_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateKinesisStreamingDestination", input, options)
   end
@@ -5737,7 +5791,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -5755,7 +5810,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_table_replica_auto_scaling_errors()}
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTableReplicaAutoScaling", input, options)
   end
@@ -5802,7 +5858,8 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_time_to_live_errors()}
   def update_time_to_live(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTimeToLive", input, options)
   end

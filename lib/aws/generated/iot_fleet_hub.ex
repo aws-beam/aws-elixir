@@ -165,7 +165,7 @@ defmodule AWS.IoTFleetHub do
   ## Example:
 
       list_applications_response() :: %{
-        "applicationSummaries" => list(application_summary()()),
+        "applicationSummaries" => list(application_summary()),
         "nextToken" => String.t()
       }
 
@@ -239,7 +239,7 @@ defmodule AWS.IoTFleetHub do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """

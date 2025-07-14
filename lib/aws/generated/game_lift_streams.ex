@@ -70,7 +70,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       disassociate_applications_input() :: %{
-        required("ApplicationIdentifiers") => list(String.t()())
+        required("ApplicationIdentifiers") => list(String.t())
       }
 
   """
@@ -101,7 +101,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       list_stream_sessions_output() :: %{
-        "Items" => list(stream_session_summary()()),
+        "Items" => list(stream_session_summary()),
         "NextToken" => String.t()
       }
 
@@ -122,7 +122,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       associate_applications_input() :: %{
-        required("ApplicationIdentifiers") => list(String.t()())
+        required("ApplicationIdentifiers") => list(String.t())
       }
 
   """
@@ -163,7 +163,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       list_stream_sessions_by_account_output() :: %{
-        "Items" => list(stream_session_summary()()),
+        "Items" => list(stream_session_summary()),
         "NextToken" => String.t()
       }
 
@@ -176,16 +176,16 @@ defmodule AWS.GameLiftStreams do
 
       create_application_output() :: %{
         "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()()),
+        "ApplicationLogPaths" => list(String.t()),
         "ApplicationSourceUri" => String.t(),
         "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()()),
+        "AssociatedStreamGroups" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ExecutablePath" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "ReplicationStatuses" => list(replication_status()()),
+        "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
         "Status" => list(any()),
         "StatusReason" => list(any())
@@ -212,13 +212,13 @@ defmodule AWS.GameLiftStreams do
 
       create_stream_group_output() :: %{
         "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()()),
+        "AssociatedApplications" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()()),
+        "LocationStates" => list(location_state()),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "StreamClass" => list(any())
@@ -232,7 +232,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -291,7 +291,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       associate_applications_output() :: %{
-        "ApplicationArns" => list(String.t()()),
+        "ApplicationArns" => list(String.t()),
         "Arn" => String.t()
       }
 
@@ -303,7 +303,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       list_applications_output() :: %{
-        "Items" => list(application_summary()()),
+        "Items" => list(application_summary()),
         "NextToken" => String.t()
       }
 
@@ -370,7 +370,7 @@ defmodule AWS.GameLiftStreams do
 
       create_application_input() :: %{
         optional("ApplicationLogOutputUri") => String.t(),
-        optional("ApplicationLogPaths") => list(String.t()()),
+        optional("ApplicationLogPaths") => list(String.t()),
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("ApplicationSourceUri") => String.t(),
@@ -414,7 +414,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       disassociate_applications_output() :: %{
-        "ApplicationArns" => list(String.t()()),
+        "ApplicationArns" => list(String.t()),
         "Arn" => String.t()
       }
 
@@ -438,7 +438,7 @@ defmodule AWS.GameLiftStreams do
 
       add_stream_group_locations_output() :: %{
         "Identifier" => String.t(),
-        "Locations" => list(location_state()())
+        "Locations" => list(location_state())
       }
 
   """
@@ -454,7 +454,7 @@ defmodule AWS.GameLiftStreams do
         optional("ClientToken") => String.t(),
         optional("ConnectionTimeoutSeconds") => integer(),
         optional("Description") => String.t(),
-        optional("Locations") => list(String.t()()),
+        optional("Locations") => list(String.t()),
         optional("SessionLengthSeconds") => integer(),
         optional("UserId") => String.t(),
         required("ApplicationIdentifier") => String.t(),
@@ -471,7 +471,7 @@ defmodule AWS.GameLiftStreams do
 
       update_stream_group_input() :: %{
         optional("Description") => String.t(),
-        optional("LocationConfigurations") => list(location_configuration()())
+        optional("LocationConfigurations") => list(location_configuration())
       }
 
   """
@@ -507,16 +507,16 @@ defmodule AWS.GameLiftStreams do
 
       get_application_output() :: %{
         "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()()),
+        "ApplicationLogPaths" => list(String.t()),
         "ApplicationSourceUri" => String.t(),
         "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()()),
+        "AssociatedStreamGroups" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ExecutablePath" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "ReplicationStatuses" => list(replication_status()()),
+        "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
         "Status" => list(any()),
         "StatusReason" => list(any())
@@ -550,7 +550,7 @@ defmodule AWS.GameLiftStreams do
       create_stream_group_input() :: %{
         optional("ClientToken") => String.t(),
         optional("DefaultApplicationIdentifier") => String.t(),
-        optional("LocationConfigurations") => list(location_configuration()()),
+        optional("LocationConfigurations") => list(location_configuration()),
         optional("Tags") => map(),
         required("Description") => String.t(),
         required("StreamClass") => list(any())
@@ -628,13 +628,13 @@ defmodule AWS.GameLiftStreams do
 
       get_stream_group_output() :: %{
         "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()()),
+        "AssociatedApplications" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()()),
+        "LocationStates" => list(location_state()),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "StreamClass" => list(any())
@@ -697,7 +697,7 @@ defmodule AWS.GameLiftStreams do
 
       update_application_input() :: %{
         optional("ApplicationLogOutputUri") => String.t(),
-        optional("ApplicationLogPaths") => list(String.t()()),
+        optional("ApplicationLogPaths") => list(String.t()),
         optional("Description") => String.t()
       }
 
@@ -709,7 +709,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       add_stream_group_locations_input() :: %{
-        required("LocationConfigurations") => list(location_configuration()())
+        required("LocationConfigurations") => list(location_configuration())
       }
 
   """
@@ -721,13 +721,13 @@ defmodule AWS.GameLiftStreams do
 
       update_stream_group_output() :: %{
         "Arn" => String.t(),
-        "AssociatedApplications" => list(String.t()()),
+        "AssociatedApplications" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "DefaultApplication" => default_application(),
         "Description" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "LocationStates" => list(location_state()()),
+        "LocationStates" => list(location_state()),
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "StreamClass" => list(any())
@@ -752,7 +752,7 @@ defmodule AWS.GameLiftStreams do
   ## Example:
 
       list_stream_groups_output() :: %{
-        "Items" => list(stream_group_summary()()),
+        "Items" => list(stream_group_summary()),
         "NextToken" => String.t()
       }
 
@@ -827,16 +827,16 @@ defmodule AWS.GameLiftStreams do
 
       update_application_output() :: %{
         "ApplicationLogOutputUri" => String.t(),
-        "ApplicationLogPaths" => list(String.t()()),
+        "ApplicationLogPaths" => list(String.t()),
         "ApplicationSourceUri" => String.t(),
         "Arn" => String.t(),
-        "AssociatedStreamGroups" => list(String.t()()),
+        "AssociatedStreamGroups" => list(String.t()),
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t(),
         "ExecutablePath" => String.t(),
         "Id" => String.t(),
         "LastUpdatedAt" => [non_neg_integer()],
-        "ReplicationStatuses" => list(replication_status()()),
+        "ReplicationStatuses" => list(replication_status()),
         "RuntimeEnvironment" => runtime_environment(),
         "Status" => list(any()),
         "StatusReason" => list(any())

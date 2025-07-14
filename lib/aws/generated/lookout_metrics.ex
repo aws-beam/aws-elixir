@@ -18,7 +18,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       get_data_quality_metrics_response() :: %{
-        "AnomalyDetectorDataQualityMetricList" => list(anomaly_detector_data_quality_metric()())
+        "AnomalyDetectorDataQualityMetricList" => list(anomaly_detector_data_quality_metric())
       }
 
   """
@@ -91,9 +91,9 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       update_metric_set_request() :: %{
-        optional("DimensionFilterList") => list(metric_set_dimension_filter()()),
-        optional("DimensionList") => list(String.t()()),
-        optional("MetricList") => list(metric()()),
+        optional("DimensionFilterList") => list(metric_set_dimension_filter()),
+        optional("DimensionList") => list(String.t()),
+        optional("MetricList") => list(metric()),
         optional("MetricSetDescription") => String.t(),
         optional("MetricSetFrequency") => list(any()),
         optional("MetricSource") => metric_source(),
@@ -122,7 +122,7 @@ defmodule AWS.LookoutMetrics do
 
       dimension_contribution() :: %{
         "DimensionName" => String.t(),
-        "DimensionValueContributionList" => list(dimension_value_contribution()())
+        "DimensionValueContributionList" => list(dimension_value_contribution())
       }
 
   """
@@ -134,7 +134,7 @@ defmodule AWS.LookoutMetrics do
 
       list_anomaly_group_summaries_response() :: %{
         "AnomalyGroupStatistics" => anomaly_group_statistics(),
-        "AnomalyGroupSummaryList" => list(anomaly_group_summary()()),
+        "AnomalyGroupSummaryList" => list(anomaly_group_summary()),
         "NextToken" => String.t()
       }
 
@@ -162,7 +162,7 @@ defmodule AWS.LookoutMetrics do
         "AnomalyGroupId" => String.t(),
         "AnomalyGroupScore" => float(),
         "EndTime" => String.t(),
-        "MetricLevelImpactList" => list(metric_level_impact()()),
+        "MetricLevelImpactList" => list(metric_level_impact()),
         "PrimaryMetricName" => String.t(),
         "StartTime" => String.t()
       }
@@ -175,8 +175,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       vpc_configuration() :: %{
-        "SecurityGroupIdList" => list(String.t()()),
-        "SubnetIdList" => list(String.t()())
+        "SecurityGroupIdList" => list(String.t()),
+        "SubnetIdList" => list(String.t())
       }
 
   """
@@ -187,7 +187,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       list_metric_sets_response() :: %{
-        "MetricSetSummaryList" => list(metric_set_summary()()),
+        "MetricSetSummaryList" => list(metric_set_summary()),
         "NextToken" => String.t()
       }
 
@@ -322,7 +322,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       metric_set_dimension_filter() :: %{
-        "FilterList" => list(filter()()),
+        "FilterList" => list(filter()),
         "Name" => String.t()
       }
 
@@ -379,7 +379,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -429,8 +429,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       auto_detection_s3_source_config() :: %{
-        "HistoricalDataPathList" => list(String.t()()),
-        "TemplatedPathList" => list(String.t()())
+        "HistoricalDataPathList" => list(String.t()),
+        "TemplatedPathList" => list(String.t())
       }
 
   """
@@ -466,8 +466,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       get_sample_data_response() :: %{
-        "HeaderValues" => list(String.t()()),
-        "SampleRows" => list(list(String.t()())())
+        "HeaderValues" => list(String.t()),
+        "SampleRows" => list(list(String.t())())
       }
 
   """
@@ -533,7 +533,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       anomaly_detector_data_quality_metric() :: %{
-        "MetricSetDataQualityMetricList" => list(metric_set_data_quality_metric()()),
+        "MetricSetDataQualityMetricList" => list(metric_set_data_quality_metric()),
         "StartTimestamp" => non_neg_integer()
       }
 
@@ -614,7 +614,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       metric_set_data_quality_metric() :: %{
-        "DataQualityMetricList" => list(data_quality_metric()()),
+        "DataQualityMetricList" => list(data_quality_metric()),
         "MetricSetArn" => String.t()
       }
 
@@ -666,7 +666,7 @@ defmodule AWS.LookoutMetrics do
         "ContainsHeader" => boolean(),
         "Delimiter" => String.t(),
         "FileCompression" => list(any()),
-        "HeaderList" => list(String.t()()),
+        "HeaderList" => list(String.t()),
         "QuoteSymbol" => String.t()
       }
 
@@ -715,9 +715,9 @@ defmodule AWS.LookoutMetrics do
 
       sample_data_s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
-        "HistoricalDataPathList" => list(String.t()()),
+        "HistoricalDataPathList" => list(String.t()),
         "RoleArn" => String.t(),
-        "TemplatedPathList" => list(String.t()())
+        "TemplatedPathList" => list(String.t())
       }
 
   """
@@ -740,8 +740,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       time_series() :: %{
-        "DimensionList" => list(dimension_name_value()()),
-        "MetricValueList" => list(float()()),
+        "DimensionList" => list(dimension_name_value()),
+        "MetricValueList" => list(float()),
         "TimeSeriesId" => String.t()
       }
 
@@ -877,11 +877,11 @@ defmodule AWS.LookoutMetrics do
 
       attribute_value() :: %{
         "B" => String.t(),
-        "BS" => list(String.t()()),
+        "BS" => list(String.t()),
         "N" => String.t(),
-        "NS" => list(String.t()()),
+        "NS" => list(String.t()),
         "S" => String.t(),
-        "SS" => list(String.t()())
+        "SS" => list(String.t())
       }
 
   """
@@ -934,9 +934,9 @@ defmodule AWS.LookoutMetrics do
 
       s3_source_config() :: %{
         "FileFormatDescriptor" => file_format_descriptor(),
-        "HistoricalDataPathList" => list(String.t()()),
+        "HistoricalDataPathList" => list(String.t()),
         "RoleArn" => String.t(),
-        "TemplatedPathList" => list(String.t()())
+        "TemplatedPathList" => list(String.t())
       }
 
   """
@@ -973,7 +973,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       list_anomaly_group_related_metrics_response() :: %{
-        "InterMetricImpactList" => list(inter_metric_impact_details()()),
+        "InterMetricImpactList" => list(inter_metric_impact_details()),
         "NextToken" => String.t()
       }
 
@@ -1074,8 +1074,8 @@ defmodule AWS.LookoutMetrics do
         "AnomalyGroupId" => String.t(),
         "MetricName" => String.t(),
         "NextToken" => String.t(),
-        "TimeSeriesList" => list(time_series()()),
-        "TimestampList" => list(String.t()())
+        "TimeSeriesList" => list(time_series()),
+        "TimestampList" => list(String.t())
       }
 
   """
@@ -1086,7 +1086,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       describe_anomaly_detection_executions_response() :: %{
-        "ExecutionList" => list(execution_status()()),
+        "ExecutionList" => list(execution_status()),
         "NextToken" => String.t()
       }
 
@@ -1154,7 +1154,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       get_feedback_response() :: %{
-        "AnomalyGroupTimeSeriesFeedback" => list(time_series_feedback()()),
+        "AnomalyGroupTimeSeriesFeedback" => list(time_series_feedback()),
         "NextToken" => String.t()
       }
 
@@ -1188,10 +1188,10 @@ defmodule AWS.LookoutMetrics do
       describe_metric_set_response() :: %{
         "AnomalyDetectorArn" => String.t(),
         "CreationTime" => non_neg_integer(),
-        "DimensionFilterList" => list(metric_set_dimension_filter()()),
-        "DimensionList" => list(String.t()()),
+        "DimensionFilterList" => list(metric_set_dimension_filter()),
+        "DimensionList" => list(String.t()),
         "LastModificationTime" => non_neg_integer(),
-        "MetricList" => list(metric()()),
+        "MetricList" => list(metric()),
         "MetricSetArn" => String.t(),
         "MetricSetDescription" => String.t(),
         "MetricSetFrequency" => list(any()),
@@ -1210,7 +1210,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       contribution_matrix() :: %{
-        "DimensionContributionList" => list(dimension_contribution()())
+        "DimensionContributionList" => list(dimension_contribution())
       }
 
   """
@@ -1234,7 +1234,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
@@ -1323,8 +1323,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       alert_filters() :: %{
-        "DimensionFilterList" => list(dimension_filter()()),
-        "MetricList" => list(String.t()())
+        "DimensionFilterList" => list(dimension_filter()),
+        "MetricList" => list(String.t())
       }
 
   """
@@ -1374,7 +1374,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       list_alerts_response() :: %{
-        "AlertSummaryList" => list(alert_summary()()),
+        "AlertSummaryList" => list(alert_summary()),
         "NextToken" => String.t()
       }
 
@@ -1401,7 +1401,7 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       list_anomaly_detectors_response() :: %{
-        "AnomalyDetectorSummaryList" => list(anomaly_detector_summary()()),
+        "AnomalyDetectorSummaryList" => list(anomaly_detector_summary()),
         "NextToken" => String.t()
       }
 
@@ -1426,7 +1426,7 @@ defmodule AWS.LookoutMetrics do
 
       anomaly_group_statistics() :: %{
         "EvaluationStartDate" => String.t(),
-        "ItemizedMetricStatsList" => list(itemized_metric_stats()()),
+        "ItemizedMetricStatsList" => list(itemized_metric_stats()),
         "TotalCount" => integer()
       }
 
@@ -1489,7 +1489,7 @@ defmodule AWS.LookoutMetrics do
 
       dimension_filter() :: %{
         "DimensionName" => String.t(),
-        "DimensionValueList" => list(String.t()())
+        "DimensionValueList" => list(String.t())
       }
 
   """
@@ -1535,8 +1535,8 @@ defmodule AWS.LookoutMetrics do
   ## Example:
 
       create_metric_set_request() :: %{
-        optional("DimensionFilterList") => list(metric_set_dimension_filter()()),
-        optional("DimensionList") => list(String.t()()),
+        optional("DimensionFilterList") => list(metric_set_dimension_filter()),
+        optional("DimensionList") => list(String.t()),
         optional("MetricSetDescription") => String.t(),
         optional("MetricSetFrequency") => list(any()),
         optional("Offset") => integer(),
@@ -1544,7 +1544,7 @@ defmodule AWS.LookoutMetrics do
         optional("TimestampColumn") => timestamp_column(),
         optional("Timezone") => String.t(),
         required("AnomalyDetectorArn") => String.t(),
-        required("MetricList") => list(metric()()),
+        required("MetricList") => list(metric()),
         required("MetricSetName") => String.t(),
         required("MetricSource") => metric_source()
       }

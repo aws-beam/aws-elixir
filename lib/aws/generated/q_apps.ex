@@ -38,7 +38,7 @@ defmodule AWS.QApps do
       create_library_item_input() :: %{
         required("appId") => String.t(),
         required("appVersion") => integer(),
-        required("categories") => list(String.t()()),
+        required("categories") => list(String.t()),
         required("instanceId") => String.t()
       }
 
@@ -100,7 +100,7 @@ defmodule AWS.QApps do
 
       update_q_app_permissions_output() :: %{
         "appId" => [String.t()],
-        "permissions" => list(permission_output()()),
+        "permissions" => list(permission_output()),
         "resourceArn" => [String.t()]
       }
 
@@ -139,7 +139,7 @@ defmodule AWS.QApps do
       list_q_app_session_data_output() :: %{
         "nextToken" => [String.t()],
         "sessionArn" => [String.t()],
-        "sessionData" => list(q_app_session_data()()),
+        "sessionData" => list(q_app_session_data()),
         "sessionId" => String.t()
       }
 
@@ -243,7 +243,7 @@ defmodule AWS.QApps do
   ## Example:
 
       batch_create_category_input() :: %{
-        required("categories") => list(batch_create_category_input_category()()),
+        required("categories") => list(batch_create_category_input_category()),
         required("instanceId") => String.t()
       }
 
@@ -255,7 +255,7 @@ defmodule AWS.QApps do
   ## Example:
 
       list_categories_output() :: %{
-        "categories" => list(category()())
+        "categories" => list(category())
       }
 
   """
@@ -307,7 +307,7 @@ defmodule AWS.QApps do
   ## Example:
 
       app_definition_input() :: %{
-        "cards" => list(list()()),
+        "cards" => list(list()),
         "initialPrompt" => String.t()
       }
 
@@ -330,7 +330,7 @@ defmodule AWS.QApps do
   ## Example:
 
       start_q_app_session_input() :: %{
-        optional("initialValues") => list(card_value()()),
+        optional("initialValues") => list(card_value()),
         optional("sessionId") => [String.t()],
         optional("tags") => map(),
         required("appId") => String.t(),
@@ -348,7 +348,7 @@ defmodule AWS.QApps do
       get_library_item_output() :: %{
         "appId" => String.t(),
         "appVersion" => integer(),
-        "categories" => list(category()()),
+        "categories" => list(category()),
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
@@ -369,7 +369,7 @@ defmodule AWS.QApps do
   ## Example:
 
       update_q_app_session_input() :: %{
-        optional("values") => list(card_value()()),
+        optional("values") => list(card_value()),
         required("instanceId") => String.t(),
         required("sessionId") => String.t()
       }
@@ -406,7 +406,7 @@ defmodule AWS.QApps do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -430,7 +430,7 @@ defmodule AWS.QApps do
 
       describe_q_app_permissions_output() :: %{
         "appId" => [String.t()],
-        "permissions" => list(permission_output()()),
+        "permissions" => list(permission_output()),
         "resourceArn" => [String.t()]
       }
 
@@ -477,7 +477,7 @@ defmodule AWS.QApps do
       update_library_item_output() :: %{
         "appId" => String.t(),
         "appVersion" => integer(),
-        "categories" => list(category()()),
+        "categories" => list(category()),
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
@@ -528,7 +528,7 @@ defmodule AWS.QApps do
       app_definition() :: %{
         "appDefinitionVersion" => [String.t()],
         "canEdit" => [boolean()],
-        "cards" => list(list()())
+        "cards" => list(list())
       }
 
   """
@@ -581,7 +581,7 @@ defmodule AWS.QApps do
       library_item_member() :: %{
         "appId" => String.t(),
         "appVersion" => integer(),
-        "categories" => list(category()()),
+        "categories" => list(category()),
         "createdAt" => non_neg_integer(),
         "createdBy" => [String.t()],
         "isRatedByUser" => [boolean()],
@@ -669,7 +669,7 @@ defmodule AWS.QApps do
       card_status() :: %{
         "currentState" => list(any()),
         "currentValue" => [String.t()],
-        "submissions" => list(submission()())
+        "submissions" => list(submission())
       }
 
   """
@@ -698,7 +698,7 @@ defmodule AWS.QApps do
   ## Example:
 
       batch_delete_category_input() :: %{
-        required("categories") => list(String.t()()),
+        required("categories") => list(String.t()),
         required("instanceId") => String.t()
       }
 
@@ -786,8 +786,8 @@ defmodule AWS.QApps do
   ## Example:
 
       update_q_app_permissions_input() :: %{
-        optional("grantPermissions") => list(permission_input()()),
-        optional("revokePermissions") => list(permission_input()()),
+        optional("grantPermissions") => list(permission_input()),
+        optional("revokePermissions") => list(permission_input()),
         required("appId") => String.t(),
         required("instanceId") => String.t()
       }
@@ -853,7 +853,7 @@ defmodule AWS.QApps do
   ## Example:
 
       update_library_item_input() :: %{
-        optional("categories") => list(String.t()()),
+        optional("categories") => list(String.t()),
         optional("status") => list(any()),
         required("instanceId") => String.t(),
         required("libraryItemId") => String.t()
@@ -1031,7 +1031,7 @@ defmodule AWS.QApps do
   ## Example:
 
       list_library_items_output() :: %{
-        "libraryItems" => list(library_item_member()()),
+        "libraryItems" => list(library_item_member()),
         "nextToken" => [String.t()]
       }
 
@@ -1221,7 +1221,7 @@ defmodule AWS.QApps do
   ## Example:
 
       attribute_filter() :: %{
-        "andAllFilters" => list(attribute_filter()()),
+        "andAllFilters" => list(attribute_filter()),
         "containsAll" => document_attribute(),
         "containsAny" => document_attribute(),
         "equalsTo" => document_attribute(),
@@ -1230,7 +1230,7 @@ defmodule AWS.QApps do
         "lessThan" => document_attribute(),
         "lessThanOrEquals" => document_attribute(),
         "notFilter" => attribute_filter(),
-        "orAllFilters" => list(attribute_filter()())
+        "orAllFilters" => list(attribute_filter())
       }
 
   """
@@ -1314,7 +1314,7 @@ defmodule AWS.QApps do
   ## Example:
 
       batch_update_category_input() :: %{
-        required("categories") => list(category_input()()),
+        required("categories") => list(category_input()),
         required("instanceId") => String.t()
       }
 
@@ -1378,7 +1378,7 @@ defmodule AWS.QApps do
   ## Example:
 
       list_q_apps_output() :: %{
-        "apps" => list(user_app_item()()),
+        "apps" => list(user_app_item()),
         "nextToken" => [String.t()]
       }
 

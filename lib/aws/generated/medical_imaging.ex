@@ -196,7 +196,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -239,7 +239,7 @@ defmodule AWS.MedicalImaging do
 
       search_filter() :: %{
         "operator" => list(any()),
-        "values" => list(list()())
+        "values" => list(list())
       }
 
   """
@@ -326,7 +326,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       search_image_sets_response() :: %{
-        "imageSetsMetadataSummaries" => list(image_sets_metadata_summary()()),
+        "imageSetsMetadataSummaries" => list(image_sets_metadata_summary()),
         "nextToken" => String.t(),
         "sort" => sort()
       }
@@ -387,7 +387,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       list_datastores_response() :: %{
-        "datastoreSummaries" => list(datastore_summary()()),
+        "datastoreSummaries" => list(datastore_summary()),
         "nextToken" => String.t()
       }
 
@@ -579,7 +579,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       list_image_set_versions_response() :: %{
-        "imageSetPropertiesList" => list(image_set_properties()()),
+        "imageSetPropertiesList" => list(image_set_properties()),
         "nextToken" => String.t()
       }
 
@@ -771,7 +771,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       search_criteria() :: %{
-        "filters" => list(search_filter()()),
+        "filters" => list(search_filter()),
         "sort" => sort()
       }
 
@@ -795,7 +795,7 @@ defmodule AWS.MedicalImaging do
   ## Example:
 
       list_d_i_c_o_m_import_jobs_response() :: %{
-        "jobSummaries" => list(d_i_c_o_m_import_job_summary()()),
+        "jobSummaries" => list(d_i_c_o_m_import_job_summary()),
         "nextToken" => String.t()
       }
 

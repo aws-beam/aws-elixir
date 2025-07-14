@@ -143,7 +143,7 @@ defmodule AWS.Textract do
       
       geometry() :: %{
         "BoundingBox" => bounding_box(),
-        "Polygon" => list(point()()),
+        "Polygon" => list(point()),
         "RotationAngle" => float()
       }
       
@@ -166,7 +166,7 @@ defmodule AWS.Textract do
       analyze_id_response() :: %{
         "AnalyzeIDModelVersion" => String.t(),
         "DocumentMetadata" => document_metadata(),
-        "IdentityDocuments" => list(identity_document()())
+        "IdentityDocuments" => list(identity_document())
       }
       
   """
@@ -208,8 +208,8 @@ defmodule AWS.Textract do
   ## Example:
       
       lending_document() :: %{
-        "LendingFields" => list(lending_field()()),
-        "SignatureDetections" => list(signature_detection()())
+        "LendingFields" => list(lending_field()),
+        "SignatureDetections" => list(signature_detection())
       }
       
   """
@@ -254,7 +254,7 @@ defmodule AWS.Textract do
   ## Example:
       
       analyze_id_request() :: %{
-        required("DocumentPages") => list(document()())
+        required("DocumentPages") => list(document())
       }
       
   """
@@ -280,7 +280,7 @@ defmodule AWS.Textract do
   ## Example:
       
       relationship() :: %{
-        "Ids" => list(String.t()()),
+        "Ids" => list(String.t()),
         "Type" => list(any())
       }
       
@@ -294,11 +294,11 @@ defmodule AWS.Textract do
       get_expense_analysis_response() :: %{
         "AnalyzeExpenseModelVersion" => String.t(),
         "DocumentMetadata" => document_metadata(),
-        "ExpenseDocuments" => list(expense_document()()),
+        "ExpenseDocuments" => list(expense_document()),
         "JobStatus" => list(any()),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -336,7 +336,7 @@ defmodule AWS.Textract do
   ## Example:
       
       line_item_fields() :: %{
-        "LineItemExpenseFields" => list(expense_field()())
+        "LineItemExpenseFields" => list(expense_field())
       }
       
   """
@@ -348,7 +348,7 @@ defmodule AWS.Textract do
       
       adapter() :: %{
         "AdapterId" => String.t(),
-        "Pages" => list(String.t()()),
+        "Pages" => list(String.t()),
         "Version" => String.t()
       }
       
@@ -374,7 +374,7 @@ defmodule AWS.Textract do
       
       analyze_expense_response() :: %{
         "DocumentMetadata" => document_metadata(),
-        "ExpenseDocuments" => list(expense_document()())
+        "ExpenseDocuments" => list(expense_document())
       }
       
   """
@@ -385,7 +385,7 @@ defmodule AWS.Textract do
   ## Example:
       
       adapters_config() :: %{
-        "Adapters" => list(adapter()())
+        "Adapters" => list(adapter())
       }
       
   """
@@ -397,7 +397,7 @@ defmodule AWS.Textract do
       
       line_item_group() :: %{
         "LineItemGroupIndex" => integer(),
-        "LineItems" => list(line_item_fields()())
+        "LineItems" => list(line_item_fields())
       }
       
   """
@@ -420,7 +420,7 @@ defmodule AWS.Textract do
       
       analyze_document_response() :: %{
         "AnalyzeDocumentModelVersion" => String.t(),
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DocumentMetadata" => document_metadata(),
         "HumanLoopActivationOutput" => human_loop_activation_output()
       }
@@ -434,7 +434,7 @@ defmodule AWS.Textract do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -473,7 +473,7 @@ defmodule AWS.Textract do
       
       expense_group_property() :: %{
         "Id" => String.t(),
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
       
   """
@@ -489,7 +489,7 @@ defmodule AWS.Textract do
         "JobStatus" => list(any()),
         "StatusMessage" => String.t(),
         "Summary" => lending_summary(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -500,10 +500,10 @@ defmodule AWS.Textract do
   ## Example:
       
       expense_document() :: %{
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "ExpenseIndex" => integer(),
-        "LineItemGroups" => list(line_item_group()()),
-        "SummaryFields" => list(expense_field()())
+        "LineItemGroups" => list(line_item_group()),
+        "SummaryFields" => list(expense_field())
       }
       
   """
@@ -543,7 +543,7 @@ defmodule AWS.Textract do
       
       split_document() :: %{
         "Index" => integer(),
-        "Pages" => list(integer()())
+        "Pages" => list(integer())
       }
       
   """
@@ -571,9 +571,9 @@ defmodule AWS.Textract do
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
         "NextToken" => String.t(),
-        "Results" => list(lending_result()()),
+        "Results" => list(lending_result()),
         "StatusMessage" => String.t(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -609,7 +609,7 @@ defmodule AWS.Textract do
       
       human_loop_activation_output() :: %{
         "HumanLoopActivationConditionsEvaluationResults" => String.t(),
-        "HumanLoopActivationReasons" => list(String.t()()),
+        "HumanLoopActivationReasons" => list(String.t()),
         "HumanLoopArn" => String.t()
       }
       
@@ -729,13 +729,13 @@ defmodule AWS.Textract do
   ## Example:
       
       get_document_text_detection_response() :: %{
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DetectDocumentTextModelVersion" => String.t(),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -776,7 +776,7 @@ defmodule AWS.Textract do
       lending_field() :: %{
         "KeyDetection" => lending_detection(),
         "Type" => String.t(),
-        "ValueDetections" => list(lending_detection()())
+        "ValueDetections" => list(lending_detection())
       }
       
   """
@@ -820,7 +820,7 @@ defmodule AWS.Textract do
   ## Example:
       
       queries_config() :: %{
-        "Queries" => list(query()())
+        "Queries" => list(query())
       }
       
   """
@@ -968,7 +968,7 @@ defmodule AWS.Textract do
   ## Example:
       
       list_adapter_versions_response() :: %{
-        "AdapterVersions" => list(adapter_version_overview()()),
+        "AdapterVersions" => list(adapter_version_overview()),
         "NextToken" => String.t()
       }
       
@@ -993,7 +993,7 @@ defmodule AWS.Textract do
       
       warning() :: %{
         "ErrorCode" => String.t(),
-        "Pages" => list(integer()())
+        "Pages" => list(integer())
       }
       
   """
@@ -1075,12 +1075,12 @@ defmodule AWS.Textract do
       
       get_document_analysis_response() :: %{
         "AnalyzeDocumentModelVersion" => String.t(),
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DocumentMetadata" => document_metadata(),
         "JobStatus" => list(any()),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -1174,8 +1174,8 @@ defmodule AWS.Textract do
   ## Example:
       
       page_classification() :: %{
-        "PageNumber" => list(prediction()()),
-        "PageType" => list(prediction()())
+        "PageNumber" => list(prediction()),
+        "PageType" => list(prediction())
       }
       
   """
@@ -1237,10 +1237,10 @@ defmodule AWS.Textract do
   ## Example:
       
       document_group() :: %{
-        "DetectedSignatures" => list(detected_signature()()),
-        "SplitDocuments" => list(split_document()()),
+        "DetectedSignatures" => list(detected_signature()),
+        "SplitDocuments" => list(split_document()),
         "Type" => String.t(),
-        "UndetectedSignatures" => list(undetected_signature()())
+        "UndetectedSignatures" => list(undetected_signature())
       }
       
   """
@@ -1252,7 +1252,7 @@ defmodule AWS.Textract do
       
       expense_field() :: %{
         "Currency" => expense_currency(),
-        "GroupProperties" => list(expense_group_property()()),
+        "GroupProperties" => list(expense_group_property()),
         "LabelDetection" => expense_detection(),
         "PageNumber" => integer(),
         "Type" => expense_type(),
@@ -1268,7 +1268,7 @@ defmodule AWS.Textract do
       
       query() :: %{
         "Alias" => String.t(),
-        "Pages" => list(String.t()()),
+        "Pages" => list(String.t()),
         "Text" => String.t()
       }
       
@@ -1284,7 +1284,7 @@ defmodule AWS.Textract do
         "AdapterVersion" => String.t(),
         "CreationTime" => non_neg_integer(),
         "DatasetConfig" => adapter_version_dataset_config(),
-        "EvaluationMetrics" => list(adapter_version_evaluation_metric()()),
+        "EvaluationMetrics" => list(adapter_version_evaluation_metric()),
         "FeatureTypes" => list(list(any())()),
         "KMSKeyId" => String.t(),
         "OutputConfig" => output_config(),
@@ -1312,7 +1312,7 @@ defmodule AWS.Textract do
   ## Example:
       
       detect_document_text_response() :: %{
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DetectDocumentTextModelVersion" => String.t(),
         "DocumentMetadata" => document_metadata()
       }
@@ -1325,9 +1325,9 @@ defmodule AWS.Textract do
   ## Example:
       
       identity_document() :: %{
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DocumentIndex" => integer(),
-        "IdentityDocumentFields" => list(identity_document_field()())
+        "IdentityDocumentFields" => list(identity_document_field())
       }
       
   """
@@ -1373,7 +1373,7 @@ defmodule AWS.Textract do
         "Id" => String.t(),
         "Page" => integer(),
         "Query" => query(),
-        "Relationships" => list(relationship()()),
+        "Relationships" => list(relationship()),
         "RowIndex" => integer(),
         "RowSpan" => integer(),
         "SelectionStatus" => list(any()),
@@ -1389,7 +1389,7 @@ defmodule AWS.Textract do
   ## Example:
       
       list_adapters_response() :: %{
-        "Adapters" => list(adapter_overview()()),
+        "Adapters" => list(adapter_overview()),
         "NextToken" => String.t()
       }
       
@@ -1435,8 +1435,8 @@ defmodule AWS.Textract do
   ## Example:
       
       lending_summary() :: %{
-        "DocumentGroups" => list(document_group()()),
-        "UndetectedDocumentTypes" => list(String.t()())
+        "DocumentGroups" => list(document_group()),
+        "UndetectedDocumentTypes" => list(String.t())
       }
       
   """
@@ -1501,7 +1501,7 @@ defmodule AWS.Textract do
   ## Example:
       
       lending_result() :: %{
-        "Extractions" => list(extraction()()),
+        "Extractions" => list(extraction()),
         "Page" => integer(),
         "PageClassification" => page_classification()
       }
@@ -1866,7 +1866,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_document_errors()}
   def analyze_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeDocument", input, options)
   end
@@ -1897,7 +1898,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_expense_errors()}
   def analyze_expense(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeExpense", input, options)
   end
@@ -1916,7 +1918,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, analyze_id_errors()}
   def analyze_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AnalyzeID", input, options)
   end
@@ -1938,7 +1941,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_errors()}
   def create_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapter", input, options)
   end
@@ -1958,7 +1962,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, create_adapter_version_errors()}
   def create_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAdapterVersion", input, options)
   end
@@ -1974,7 +1979,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_errors()}
   def delete_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapter", input, options)
   end
@@ -1992,7 +1998,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, delete_adapter_version_errors()}
   def delete_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
   end
@@ -2024,7 +2031,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, detect_document_text_errors()}
   def detect_document_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectDocumentText", input, options)
   end
@@ -2040,7 +2048,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_errors()}
   def get_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapter", input, options)
   end
@@ -2056,7 +2065,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_adapter_version_errors()}
   def get_adapter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdapterVersion", input, options)
   end
@@ -2137,7 +2147,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_analysis_errors()}
   def get_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
   end
@@ -2189,7 +2200,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_document_text_detection_errors()}
   def get_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocumentTextDetection", input, options)
   end
@@ -2234,7 +2246,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_expense_analysis_errors()}
   def get_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExpenseAnalysis", input, options)
   end
@@ -2263,7 +2276,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_errors()}
   def get_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysis", input, options)
   end
@@ -2296,7 +2310,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, get_lending_analysis_summary_errors()}
   def get_lending_analysis_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLendingAnalysisSummary", input, options)
   end
@@ -2310,7 +2325,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapter_versions_errors()}
   def list_adapter_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapterVersions", input, options)
   end
@@ -2324,7 +2340,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_adapters_errors()}
   def list_adapters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdapters", input, options)
   end
@@ -2338,7 +2355,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2373,7 +2391,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_analysis_errors()}
   def start_document_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
   end
@@ -2409,7 +2428,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_document_text_detection_errors()}
   def start_document_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentTextDetection", input, options)
   end
@@ -2446,7 +2466,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_expense_analysis_errors()}
   def start_expense_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExpenseAnalysis", input, options)
   end
@@ -2497,7 +2518,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, start_lending_analysis_errors()}
   def start_lending_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartLendingAnalysis", input, options)
   end
@@ -2511,7 +2533,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2525,7 +2548,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2542,7 +2566,8 @@ defmodule AWS.Textract do
           | {:error, term()}
           | {:error, update_adapter_errors()}
   def update_adapter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAdapter", input, options)
   end

@@ -25,7 +25,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       contact_filter() :: %{
-        "channel" => list(String.t()()),
+        "channel" => list(String.t()),
         "contactArn" => String.t()
       }
 
@@ -108,7 +108,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       get_case_audit_events_response() :: %{
-        "auditEvents" => list(audit_event()()),
+        "auditEvents" => list(audit_event()),
         "nextToken" => String.t()
       }
 
@@ -132,7 +132,7 @@ defmodule AWS.ConnectCases do
 
       search_related_items_response() :: %{
         optional("nextToken") => String.t(),
-        required("relatedItems") => list(search_related_items_response_item()())
+        required("relatedItems") => list(search_related_items_response_item())
       }
 
   """
@@ -155,12 +155,12 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       search_cases_request() :: %{
-        optional("fields") => list(field_identifier()()),
+        optional("fields") => list(field_identifier()),
         optional("filter") => list(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
         optional("searchTerm") => [String.t()],
-        optional("sorts") => list(sort()())
+        optional("sorts") => list(sort())
       }
 
   """
@@ -197,7 +197,7 @@ defmodule AWS.ConnectCases do
       list_templates_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("status") => list(String.t()())
+        optional("status") => list(String.t())
       }
 
   """
@@ -210,7 +210,7 @@ defmodule AWS.ConnectCases do
       create_case_request() :: %{
         optional("clientToken") => [String.t()],
         optional("performedBy") => list(),
-        required("fields") => list(field_value()()),
+        required("fields") => list(field_value()),
         required("templateId") => String.t()
       }
 
@@ -236,7 +236,7 @@ defmodule AWS.ConnectCases do
 
       list_layouts_response() :: %{
         optional("nextToken") => String.t(),
-        required("layouts") => list(layout_summary()())
+        required("layouts") => list(layout_summary())
       }
 
   """
@@ -262,8 +262,8 @@ defmodule AWS.ConnectCases do
       create_template_request() :: %{
         optional("description") => String.t(),
         optional("layoutConfiguration") => layout_configuration(),
-        optional("requiredFields") => list(required_field()()),
-        optional("rules") => list(template_rule()()),
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
         optional("status") => String.t(),
         required("name") => String.t()
       }
@@ -281,8 +281,8 @@ defmodule AWS.ConnectCases do
         optional("description") => String.t(),
         optional("lastModifiedTime") => non_neg_integer(),
         optional("layoutConfiguration") => layout_configuration(),
-        optional("requiredFields") => list(required_field()()),
-        optional("rules") => list(template_rule()()),
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("status") => String.t(),
@@ -307,7 +307,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_put_field_options_request() :: %{
-        required("options") => list(field_option()())
+        required("options") => list(field_option())
       }
 
   """
@@ -361,7 +361,7 @@ defmodule AWS.ConnectCases do
       list_field_options_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("values") => list(String.t()())
+        optional("values") => list(String.t())
       }
 
   """
@@ -387,8 +387,8 @@ defmodule AWS.ConnectCases do
         optional("description") => String.t(),
         optional("layoutConfiguration") => layout_configuration(),
         optional("name") => String.t(),
-        optional("requiredFields") => list(required_field()()),
-        optional("rules") => list(template_rule()()),
+        optional("requiredFields") => list(required_field()),
+        optional("rules") => list(template_rule()),
         optional("status") => String.t()
       }
 
@@ -401,7 +401,7 @@ defmodule AWS.ConnectCases do
 
       list_cases_for_contact_response() :: %{
         optional("nextToken") => String.t(),
-        required("cases") => list(case_summary()())
+        required("cases") => list(case_summary())
       }
 
   """
@@ -412,7 +412,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -437,7 +437,7 @@ defmodule AWS.ConnectCases do
       get_case_response() :: %{
         optional("nextToken") => String.t(),
         optional("tags") => map(),
-        required("fields") => list(field_value()()),
+        required("fields") => list(field_value()),
         required("templateId") => String.t()
       }
 
@@ -501,7 +501,7 @@ defmodule AWS.ConnectCases do
 
       search_cases_response_item() :: %{
         "caseId" => String.t(),
-        "fields" => list(field_value()()),
+        "fields" => list(field_value()),
         "tags" => map(),
         "templateId" => String.t()
       }
@@ -514,7 +514,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       search_related_items_request() :: %{
-        optional("filters") => list(list()()),
+        optional("filters") => list(list()),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t()
       }
@@ -610,7 +610,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_get_field_request() :: %{
-        required("fields") => list(field_identifier()())
+        required("fields") => list(field_identifier())
       }
 
   """
@@ -646,7 +646,7 @@ defmodule AWS.ConnectCases do
 
       get_case_request() :: %{
         optional("nextToken") => String.t(),
-        required("fields") => list(field_identifier()())
+        required("fields") => list(field_identifier())
       }
 
   """
@@ -685,7 +685,7 @@ defmodule AWS.ConnectCases do
 
       list_domains_response() :: %{
         optional("nextToken") => String.t(),
-        required("domains") => list(domain_summary()())
+        required("domains") => list(domain_summary())
       }
 
   """
@@ -757,8 +757,8 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_get_field_response() :: %{
-        required("errors") => list(field_error()()),
-        required("fields") => list(get_field_response()())
+        required("errors") => list(field_error()),
+        required("fields") => list(get_field_response())
       }
 
   """
@@ -769,7 +769,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       list_case_rules_response() :: %{
-        "caseRules" => list(case_rule_summary()()),
+        "caseRules" => list(case_rule_summary()),
         "nextToken" => String.t()
       }
 
@@ -783,7 +783,7 @@ defmodule AWS.ConnectCases do
       sla_input_configuration() :: %{
         "fieldId" => String.t(),
         "name" => String.t(),
-        "targetFieldValues" => list(list()()),
+        "targetFieldValues" => list(list()),
         "targetSlaMinutes" => float(),
         "type" => String.t()
       }
@@ -847,7 +847,7 @@ defmodule AWS.ConnectCases do
 
       list_fields_response() :: %{
         optional("nextToken") => String.t(),
-        required("fields") => list(field_summary()())
+        required("fields") => list(field_summary())
       }
 
   """
@@ -1033,7 +1033,7 @@ defmodule AWS.ConnectCases do
 
       update_case_request() :: %{
         optional("performedBy") => list(),
-        required("fields") => list(field_value()())
+        required("fields") => list(field_value())
       }
 
   """
@@ -1081,7 +1081,7 @@ defmodule AWS.ConnectCases do
         "fieldId" => String.t(),
         "name" => String.t(),
         "status" => String.t(),
-        "targetFieldValues" => list(list()()),
+        "targetFieldValues" => list(list()),
         "targetTime" => non_neg_integer(),
         "type" => String.t()
       }
@@ -1142,8 +1142,8 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_get_case_rule_response() :: %{
-        "caseRules" => list(get_case_rule_response()()),
-        "errors" => list(case_rule_error()())
+        "caseRules" => list(get_case_rule_response()),
+        "errors" => list(case_rule_error())
       }
 
   """
@@ -1205,7 +1205,7 @@ defmodule AWS.ConnectCases do
 
       list_templates_response() :: %{
         optional("nextToken") => String.t(),
-        required("templates") => list(template_summary()())
+        required("templates") => list(template_summary())
       }
 
   """
@@ -1227,7 +1227,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       layout_sections() :: %{
-        "sections" => list(list()())
+        "sections" => list(list())
       }
 
   """
@@ -1310,7 +1310,7 @@ defmodule AWS.ConnectCases do
 
       search_cases_response() :: %{
         optional("nextToken") => String.t(),
-        required("cases") => list(search_cases_response_item()())
+        required("cases") => list(search_cases_response_item())
       }
 
   """
@@ -1321,7 +1321,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_put_field_options_response() :: %{
-        optional("errors") => list(field_option_error()())
+        optional("errors") => list(field_option_error())
       }
 
   """
@@ -1428,7 +1428,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       required_case_rule() :: %{
-        "conditions" => list(list()()),
+        "conditions" => list(list()),
         "defaultValue" => [boolean()]
       }
 
@@ -1441,7 +1441,7 @@ defmodule AWS.ConnectCases do
 
       list_field_options_response() :: %{
         optional("nextToken") => String.t(),
-        required("options") => list(field_option()())
+        required("options") => list(field_option())
       }
 
   """
@@ -1521,7 +1521,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       field_group() :: %{
-        "fields" => list(field_item()()),
+        "fields" => list(field_item()),
         "name" => [String.t()]
       }
 
@@ -1534,7 +1534,7 @@ defmodule AWS.ConnectCases do
 
       audit_event() :: %{
         "eventId" => String.t(),
-        "fields" => list(audit_event_field()()),
+        "fields" => list(audit_event_field()),
         "performedBy" => audit_event_performed_by(),
         "performedTime" => non_neg_integer(),
         "relatedItemType" => String.t(),
@@ -1549,7 +1549,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       case_event_included_data() :: %{
-        "fields" => list(field_identifier()())
+        "fields" => list(field_identifier())
       }
 
   """
@@ -1607,7 +1607,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       batch_get_case_rule_request() :: %{
-        required("caseRules") => list(case_rule_identifier()())
+        required("caseRules") => list(case_rule_identifier())
       }
 
   """

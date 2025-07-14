@@ -135,8 +135,8 @@ defmodule AWS.PCS do
   ## Example:
       
       networking() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
       
   """
@@ -160,9 +160,9 @@ defmodule AWS.PCS do
       queue() :: %{
         "arn" => [String.t()],
         "clusterId" => [String.t()],
-        "computeNodeGroupConfigurations" => list(compute_node_group_configuration()()),
+        "computeNodeGroupConfigurations" => list(compute_node_group_configuration()),
         "createdAt" => [non_neg_integer()],
-        "errorInfo" => list(error_info()()),
+        "errorInfo" => list(error_info()),
         "id" => [String.t()],
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t(),
@@ -189,7 +189,7 @@ defmodule AWS.PCS do
   ## Example:
       
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -201,7 +201,7 @@ defmodule AWS.PCS do
       
       update_queue_request() :: %{
         optional("clientToken") => String.t(),
-        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()()),
+        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
         required("clusterIdentifier") => String.t(),
         required("queueIdentifier") => String.t()
       }
@@ -217,7 +217,7 @@ defmodule AWS.PCS do
         "accounting" => accounting(),
         "authKey" => slurm_auth_key(),
         "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting()())
+        "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
   """
@@ -289,10 +289,10 @@ defmodule AWS.PCS do
         "clusterId" => [String.t()],
         "createdAt" => [non_neg_integer()],
         "customLaunchTemplate" => custom_launch_template(),
-        "errorInfo" => list(error_info()()),
+        "errorInfo" => list(error_info()),
         "iamInstanceProfileArn" => String.t(),
         "id" => [String.t()],
-        "instanceConfigs" => list(instance_config()()),
+        "instanceConfigs" => list(instance_config()),
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t(),
         "purchaseOption" => list(any()),
@@ -300,7 +300,7 @@ defmodule AWS.PCS do
         "slurmConfiguration" => compute_node_group_slurm_configuration(),
         "spotOptions" => spot_options(),
         "status" => list(any()),
-        "subnetIds" => list(String.t()())
+        "subnetIds" => list(String.t())
       }
       
   """
@@ -328,7 +328,7 @@ defmodule AWS.PCS do
   ## Example:
       
       register_compute_node_group_instance_response() :: %{
-        "endpoints" => list(endpoint()()),
+        "endpoints" => list(endpoint()),
         "nodeID" => [String.t()],
         "sharedSecret" => String.t()
       }
@@ -381,8 +381,8 @@ defmodule AWS.PCS do
       cluster() :: %{
         "arn" => [String.t()],
         "createdAt" => [non_neg_integer()],
-        "endpoints" => list(endpoint()()),
-        "errorInfo" => list(error_info()()),
+        "endpoints" => list(endpoint()),
+        "errorInfo" => list(error_info()),
         "id" => [String.t()],
         "modifiedAt" => [non_neg_integer()],
         "name" => [String.t()],
@@ -428,7 +428,7 @@ defmodule AWS.PCS do
   ## Example:
       
       update_compute_node_group_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting()())
+        "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
   """
@@ -451,7 +451,7 @@ defmodule AWS.PCS do
   ## Example:
       
       list_compute_node_groups_response() :: %{
-        "computeNodeGroups" => list(compute_node_group_summary()()),
+        "computeNodeGroups" => list(compute_node_group_summary()),
         "nextToken" => [String.t()]
       }
       
@@ -507,7 +507,7 @@ defmodule AWS.PCS do
   ## Example:
       
       compute_node_group_slurm_configuration_request() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting()())
+        "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
   """
@@ -542,7 +542,7 @@ defmodule AWS.PCS do
       
       create_queue_request() :: %{
         optional("clientToken") => String.t(),
-        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()()),
+        optional("computeNodeGroupConfigurations") => list(compute_node_group_configuration()),
         optional("tags") => map(),
         required("clusterIdentifier") => String.t(),
         required("queueName") => String.t()
@@ -556,7 +556,7 @@ defmodule AWS.PCS do
   ## Example:
       
       list_clusters_response() :: %{
-        "clusters" => list(cluster_summary()()),
+        "clusters" => list(cluster_summary()),
         "nextToken" => [String.t()]
       }
       
@@ -625,7 +625,7 @@ defmodule AWS.PCS do
   ## Example:
       
       compute_node_group_slurm_configuration() :: %{
-        "slurmCustomSettings" => list(slurm_custom_setting()())
+        "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
   """
@@ -685,7 +685,7 @@ defmodule AWS.PCS do
       cluster_slurm_configuration_request() :: %{
         "accounting" => accounting_request(),
         "scaleDownIdleTimeInSeconds" => [integer()],
-        "slurmCustomSettings" => list(slurm_custom_setting()())
+        "slurmCustomSettings" => list(slurm_custom_setting())
       }
       
   """
@@ -719,7 +719,7 @@ defmodule AWS.PCS do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -776,7 +776,7 @@ defmodule AWS.PCS do
       
       list_queues_response() :: %{
         "nextToken" => [String.t()],
-        "queues" => list(queue_summary()())
+        "queues" => list(queue_summary())
       }
       
   """
@@ -824,8 +824,8 @@ defmodule AWS.PCS do
   ## Example:
       
       networking_request() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
       
   """
@@ -846,7 +846,7 @@ defmodule AWS.PCS do
         required("computeNodeGroupName") => String.t(),
         required("customLaunchTemplate") => custom_launch_template(),
         required("iamInstanceProfileArn") => String.t(),
-        required("instanceConfigs") => list(instance_config()()),
+        required("instanceConfigs") => list(instance_config()),
         required("scalingConfiguration") => scaling_configuration_request(),
         required("subnetIds") => list([String.t()]())
       }
@@ -1088,7 +1088,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1113,7 +1114,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_compute_node_group_errors()}
   def create_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateComputeNodeGroup", input, options)
   end
@@ -1130,7 +1132,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQueue", input, options)
   end
@@ -1147,7 +1150,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1163,7 +1167,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_compute_node_group_errors()}
   def delete_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteComputeNodeGroup", input, options)
   end
@@ -1181,7 +1186,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQueue", input, options)
   end
@@ -1198,7 +1204,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCluster", input, options)
   end
@@ -1215,7 +1222,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_compute_node_group_errors()}
   def get_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeNodeGroup", input, options)
   end
@@ -1232,7 +1240,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQueue", input, options)
   end
@@ -1246,7 +1255,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1260,7 +1270,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_compute_node_groups_errors()}
   def list_compute_node_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComputeNodeGroups", input, options)
   end
@@ -1274,7 +1285,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQueues", input, options)
   end
@@ -1288,7 +1300,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1309,7 +1322,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, register_compute_node_group_instance_errors()}
   def register_compute_node_group_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterComputeNodeGroupInstance", input, options)
   end
@@ -1328,7 +1342,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1345,7 +1360,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1363,7 +1379,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_compute_node_group_errors()}
   def update_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateComputeNodeGroup", input, options)
   end
@@ -1379,7 +1396,8 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQueue", input, options)
   end

@@ -101,7 +101,7 @@ defmodule AWS.WorkDocs do
         optional("Filters") => filters(),
         optional("Limit") => integer(),
         optional("Marker") => String.t(),
-        optional("OrderBy") => list(search_sort_result()()),
+        optional("OrderBy") => list(search_sort_result()),
         optional("OrganizationId") => String.t(),
         optional("QueryScopes") => list(list(any())()),
         optional("QueryText") => String.t()
@@ -116,7 +116,7 @@ defmodule AWS.WorkDocs do
 
       describe_resource_permissions_response() :: %{
         "Marker" => String.t(),
-        "Principals" => list(principal()())
+        "Principals" => list(principal())
       }
 
   """
@@ -142,7 +142,7 @@ defmodule AWS.WorkDocs do
       add_resource_permissions_request() :: %{
         optional("AuthenticationToken") => String.t(),
         optional("NotificationOptions") => notification_options(),
-        required("Principals") => list(share_principal()())
+        required("Principals") => list(share_principal())
       }
 
   """
@@ -323,7 +323,7 @@ defmodule AWS.WorkDocs do
       describe_users_response() :: %{
         "Marker" => String.t(),
         "TotalNumberOfUsers" => float(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
 
   """
@@ -383,7 +383,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       add_resource_permissions_response() :: %{
-        "ShareResults" => list(share_result()())
+        "ShareResults" => list(share_result())
       }
 
   """
@@ -406,8 +406,8 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       describe_folder_contents_response() :: %{
-        "Documents" => list(document_metadata()()),
-        "Folders" => list(folder_metadata()()),
+        "Documents" => list(document_metadata()),
+        "Folders" => list(folder_metadata()),
         "Marker" => String.t()
       }
 
@@ -528,7 +528,7 @@ defmodule AWS.WorkDocs do
       delete_custom_metadata_request() :: %{
         optional("AuthenticationToken") => String.t(),
         optional("DeleteAll") => boolean(),
-        optional("Keys") => list(String.t()()),
+        optional("Keys") => list(String.t()),
         optional("VersionId") => String.t()
       }
 
@@ -551,7 +551,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       entity_not_exists_exception() :: %{
-        "EntityIds" => list(String.t()()),
+        "EntityIds" => list(String.t()),
         "Message" => String.t()
       }
 
@@ -565,7 +565,7 @@ defmodule AWS.WorkDocs do
       delete_labels_request() :: %{
         optional("AuthenticationToken") => String.t(),
         optional("DeleteAll") => boolean(),
-        optional("Labels") => list(String.t()())
+        optional("Labels") => list(String.t())
       }
 
   """
@@ -577,7 +577,7 @@ defmodule AWS.WorkDocs do
 
       principal() :: %{
         "Id" => String.t(),
-        "Roles" => list(permission_info()()),
+        "Roles" => list(permission_info()),
         "Type" => list(any())
       }
 
@@ -621,7 +621,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       describe_document_versions_response() :: %{
-        "DocumentVersions" => list(document_version_metadata()()),
+        "DocumentVersions" => list(document_version_metadata()),
         "Marker" => String.t()
       }
 
@@ -645,7 +645,7 @@ defmodule AWS.WorkDocs do
 
       describe_activities_response() :: %{
         "Marker" => String.t(),
-        "UserActivities" => list(activity()())
+        "UserActivities" => list(activity())
       }
 
   """
@@ -706,7 +706,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       search_resources_response() :: %{
-        "Items" => list(response_item()()),
+        "Items" => list(response_item()),
         "Marker" => String.t()
       }
 
@@ -865,8 +865,8 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       get_resources_response() :: %{
-        "Documents" => list(document_metadata()()),
-        "Folders" => list(folder_metadata()()),
+        "Documents" => list(document_metadata()),
+        "Folders" => list(folder_metadata()),
         "Marker" => String.t()
       }
 
@@ -903,7 +903,7 @@ defmodule AWS.WorkDocs do
         "CreatedTimestamp" => non_neg_integer(),
         "CreatorId" => String.t(),
         "Id" => String.t(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LatestVersionSize" => float(),
         "ModifiedTimestamp" => non_neg_integer(),
         "Name" => String.t(),
@@ -933,7 +933,7 @@ defmodule AWS.WorkDocs do
 
       create_labels_request() :: %{
         optional("AuthenticationToken") => String.t(),
-        required("Labels") => list(String.t()())
+        required("Labels") => list(String.t())
       }
 
   """
@@ -1023,7 +1023,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       resource_path() :: %{
-        "Components" => list(resource_path_component()())
+        "Components" => list(resource_path_component())
       }
 
   """
@@ -1105,7 +1105,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       describe_comments_response() :: %{
-        "Comments" => list(comment()()),
+        "Comments" => list(comment()),
         "Marker" => String.t()
       }
 
@@ -1180,7 +1180,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       describe_groups_response() :: %{
-        "Groups" => list(group_metadata()()),
+        "Groups" => list(group_metadata()),
         "Marker" => String.t()
       }
 
@@ -1214,7 +1214,7 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       describe_root_folders_response() :: %{
-        "Folders" => list(folder_metadata()()),
+        "Folders" => list(folder_metadata()),
         "Marker" => String.t()
       }
 
@@ -1259,7 +1259,7 @@ defmodule AWS.WorkDocs do
         "CreatedTimestamp" => non_neg_integer(),
         "CreatorId" => String.t(),
         "Id" => String.t(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LatestVersionMetadata" => document_version_metadata(),
         "ModifiedTimestamp" => non_neg_integer(),
         "ParentFolderId" => String.t(),
@@ -1347,7 +1347,7 @@ defmodule AWS.WorkDocs do
 
       describe_notification_subscriptions_response() :: %{
         "Marker" => String.t(),
-        "Subscriptions" => list(subscription()())
+        "Subscriptions" => list(subscription())
       }
 
   """
@@ -1358,12 +1358,12 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       filters() :: %{
-        "AncestorIds" => list(String.t()()),
+        "AncestorIds" => list(String.t()),
         "ContentCategories" => list(list(any())()),
         "CreatedRange" => date_range_type(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "ModifiedRange" => date_range_type(),
-        "Principals" => list(search_principal_type()()),
+        "Principals" => list(search_principal_type()),
         "ResourceTypes" => list(list(any())()),
         "SearchCollectionTypes" => list(list(any())()),
         "SizeRange" => long_range_type(),
@@ -1514,8 +1514,8 @@ defmodule AWS.WorkDocs do
   ## Example:
 
       participants() :: %{
-        "Groups" => list(group_metadata()()),
-        "Users" => list(user_metadata()())
+        "Groups" => list(group_metadata()),
+        "Users" => list(user_metadata())
       }
 
   """

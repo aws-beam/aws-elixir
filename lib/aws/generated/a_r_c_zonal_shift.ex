@@ -31,7 +31,7 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       list_managed_resources_response() :: %{
-        "items" => list(managed_resource_summary()()),
+        "items" => list(managed_resource_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -45,11 +45,11 @@ defmodule AWS.ARCZonalShift do
       get_managed_resource_response() :: %{
         "appliedWeights" => map(),
         "arn" => String.t(),
-        "autoshifts" => list(autoshift_in_resource()()),
+        "autoshifts" => list(autoshift_in_resource()),
         "name" => String.t(),
         "practiceRunConfiguration" => practice_run_configuration(),
         "zonalAutoshiftStatus" => list(any()),
-        "zonalShifts" => list(zonal_shift_in_resource()())
+        "zonalShifts" => list(zonal_shift_in_resource())
       }
 
   """
@@ -60,7 +60,7 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       list_zonal_shifts_response() :: %{
-        "items" => list(zonal_shift_summary()()),
+        "items" => list(zonal_shift_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -156,12 +156,12 @@ defmodule AWS.ARCZonalShift do
       managed_resource_summary() :: %{
         "appliedWeights" => map(),
         "arn" => String.t(),
-        "autoshifts" => list(autoshift_in_resource()()),
-        "availabilityZones" => list(String.t()()),
+        "autoshifts" => list(autoshift_in_resource()),
+        "availabilityZones" => list(String.t()),
         "name" => String.t(),
         "practiceRunStatus" => list(any()),
         "zonalAutoshiftStatus" => list(any()),
-        "zonalShifts" => list(zonal_shift_in_resource()())
+        "zonalShifts" => list(zonal_shift_in_resource())
       }
 
   """
@@ -211,10 +211,10 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       update_practice_run_configuration_request() :: %{
-        optional("blockedDates") => list(String.t()()),
-        optional("blockedWindows") => list(String.t()()),
-        optional("blockingAlarms") => list(control_condition()()),
-        optional("outcomeAlarms") => list(control_condition()())
+        optional("blockedDates") => list(String.t()),
+        optional("blockedWindows") => list(String.t()),
+        optional("blockingAlarms") => list(control_condition()),
+        optional("outcomeAlarms") => list(control_condition())
       }
 
   """
@@ -428,7 +428,7 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       list_autoshifts_response() :: %{
-        "items" => list(autoshift_summary()()),
+        "items" => list(autoshift_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -477,10 +477,10 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       create_practice_run_configuration_request() :: %{
-        optional("blockedDates") => list(String.t()()),
-        optional("blockedWindows") => list(String.t()()),
-        optional("blockingAlarms") => list(control_condition()()),
-        required("outcomeAlarms") => list(control_condition()()),
+        optional("blockedDates") => list(String.t()),
+        optional("blockedWindows") => list(String.t()),
+        optional("blockingAlarms") => list(control_condition()),
+        required("outcomeAlarms") => list(control_condition()),
         required("resourceIdentifier") => String.t()
       }
 
@@ -518,10 +518,10 @@ defmodule AWS.ARCZonalShift do
   ## Example:
 
       practice_run_configuration() :: %{
-        "blockedDates" => list(String.t()()),
-        "blockedWindows" => list(String.t()()),
-        "blockingAlarms" => list(control_condition()()),
-        "outcomeAlarms" => list(control_condition()())
+        "blockedDates" => list(String.t()),
+        "blockedWindows" => list(String.t()),
+        "blockingAlarms" => list(control_condition()),
+        "outcomeAlarms" => list(control_condition())
       }
 
   """

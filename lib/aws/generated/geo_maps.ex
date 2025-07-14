@@ -217,7 +217,7 @@ defmodule AWS.GeoMaps do
   ## Example:
 
       validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()()),
+        "FieldList" => list(validation_exception_field()),
         "Message" => [String.t()],
         "Reason" => String.t()
       }

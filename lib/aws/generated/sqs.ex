@@ -199,7 +199,7 @@ defmodule AWS.SQS do
   ## Example:
       
       receive_message_result() :: %{
-        "Messages" => list(message()())
+        "Messages" => list(message())
       }
       
   """
@@ -232,7 +232,7 @@ defmodule AWS.SQS do
   ## Example:
       
       send_message_batch_request() :: %{
-        required("Entries") => list(send_message_batch_request_entry()()),
+        required("Entries") => list(send_message_batch_request_entry()),
         required("QueueUrl") => String.t()
       }
       
@@ -244,7 +244,7 @@ defmodule AWS.SQS do
   ## Example:
       
       delete_message_batch_request() :: %{
-        required("Entries") => list(delete_message_batch_request_entry()()),
+        required("Entries") => list(delete_message_batch_request_entry()),
         required("QueueUrl") => String.t()
       }
       
@@ -313,10 +313,10 @@ defmodule AWS.SQS do
   ## Example:
       
       message_attribute_value() :: %{
-        "BinaryListValues" => list(binary()()),
+        "BinaryListValues" => list(binary()),
         "BinaryValue" => binary(),
         "DataType" => String.t(),
-        "StringListValues" => list(String.t()()),
+        "StringListValues" => list(String.t()),
         "StringValue" => String.t()
       }
       
@@ -328,7 +328,7 @@ defmodule AWS.SQS do
   ## Example:
       
       list_message_move_tasks_result() :: %{
-        "Results" => list(list_message_move_tasks_result_entry()())
+        "Results" => list(list_message_move_tasks_result_entry())
       }
       
   """
@@ -351,7 +351,7 @@ defmodule AWS.SQS do
       
       list_queues_result() :: %{
         "NextToken" => String.t(),
-        "QueueUrls" => list(String.t()())
+        "QueueUrls" => list(String.t())
       }
       
   """
@@ -387,8 +387,8 @@ defmodule AWS.SQS do
   ## Example:
       
       delete_message_batch_result() :: %{
-        "Failed" => list(batch_result_error_entry()()),
-        "Successful" => list(delete_message_batch_result_entry()())
+        "Failed" => list(batch_result_error_entry()),
+        "Successful" => list(delete_message_batch_result_entry())
       }
       
   """
@@ -429,8 +429,8 @@ defmodule AWS.SQS do
   ## Example:
       
       send_message_batch_result() :: %{
-        "Failed" => list(batch_result_error_entry()()),
-        "Successful" => list(send_message_batch_result_entry()())
+        "Failed" => list(batch_result_error_entry()),
+        "Successful" => list(send_message_batch_result_entry())
       }
       
   """
@@ -442,7 +442,7 @@ defmodule AWS.SQS do
       
       untag_queue_request() :: %{
         required("QueueUrl") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -547,7 +547,7 @@ defmodule AWS.SQS do
   ## Example:
       
       change_message_visibility_batch_request() :: %{
-        required("Entries") => list(change_message_visibility_batch_request_entry()()),
+        required("Entries") => list(change_message_visibility_batch_request_entry()),
         required("QueueUrl") => String.t()
       }
       
@@ -711,7 +711,7 @@ defmodule AWS.SQS do
       receive_message_request() :: %{
         optional("AttributeNames") => list(list(any())()),
         optional("MaxNumberOfMessages") => integer(),
-        optional("MessageAttributeNames") => list(String.t()()),
+        optional("MessageAttributeNames") => list(String.t()),
         optional("MessageSystemAttributeNames") => list(list(any())()),
         optional("ReceiveRequestAttemptId") => String.t(),
         optional("VisibilityTimeout") => integer(),
@@ -738,10 +738,10 @@ defmodule AWS.SQS do
   ## Example:
       
       message_system_attribute_value() :: %{
-        "BinaryListValues" => list(binary()()),
+        "BinaryListValues" => list(binary()),
         "BinaryValue" => binary(),
         "DataType" => String.t(),
-        "StringListValues" => list(String.t()()),
+        "StringListValues" => list(String.t()),
         "StringValue" => String.t()
       }
       
@@ -776,7 +776,7 @@ defmodule AWS.SQS do
       
       list_dead_letter_source_queues_result() :: %{
         "NextToken" => String.t(),
-        "queueUrls" => list(String.t()())
+        "queueUrls" => list(String.t())
       }
       
   """
@@ -890,8 +890,8 @@ defmodule AWS.SQS do
   ## Example:
       
       change_message_visibility_batch_result() :: %{
-        "Failed" => list(batch_result_error_entry()()),
-        "Successful" => list(change_message_visibility_batch_result_entry()())
+        "Failed" => list(batch_result_error_entry()),
+        "Successful" => list(change_message_visibility_batch_result_entry())
       }
       
   """
@@ -960,8 +960,8 @@ defmodule AWS.SQS do
   ## Example:
       
       add_permission_request() :: %{
-        required("AWSAccountIds") => list(String.t()()),
-        required("Actions") => list(String.t()()),
+        required("AWSAccountIds") => list(String.t()),
+        required("Actions") => list(String.t()),
         required("Label") => String.t(),
         required("QueueUrl") => String.t()
       }
@@ -1261,7 +1261,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddPermission", input, options)
   end
@@ -1294,7 +1295,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, cancel_message_move_task_errors()}
   def cancel_message_move_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMessageMoveTask", input, options)
   end
@@ -1375,7 +1377,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, change_message_visibility_errors()}
   def change_message_visibility(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ChangeMessageVisibility", input, options)
   end
@@ -1412,7 +1415,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, change_message_visibility_batch_errors()}
   def change_message_visibility_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ChangeMessageVisibilityBatch", input, options)
   end
@@ -1487,7 +1491,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQueue", input, options)
   end
@@ -1528,7 +1533,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, delete_message_errors()}
   def delete_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMessage", input, options)
   end
@@ -1556,7 +1562,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, delete_message_batch_errors()}
   def delete_message_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMessageBatch", input, options)
   end
@@ -1598,7 +1605,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQueue", input, options)
   end
@@ -1616,7 +1624,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, get_queue_attributes_errors()}
   def get_queue_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQueueAttributes", input, options)
   end
@@ -1650,7 +1659,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, get_queue_url_errors()}
   def get_queue_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQueueUrl", input, options)
   end
@@ -1678,7 +1688,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, list_dead_letter_source_queues_errors()}
   def list_dead_letter_source_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeadLetterSourceQueues", input, options)
   end
@@ -1705,7 +1716,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, list_message_move_tasks_errors()}
   def list_message_move_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMessageMoveTasks", input, options)
   end
@@ -1728,7 +1740,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, list_queue_tags_errors()}
   def list_queue_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQueueTags", input, options)
   end
@@ -1760,7 +1773,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQueues", input, options)
   end
@@ -1789,7 +1803,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, purge_queue_errors()}
   def purge_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurgeQueue", input, options)
   end
@@ -1859,7 +1874,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, receive_message_errors()}
   def receive_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReceiveMessage", input, options)
   end
@@ -1888,7 +1904,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemovePermission", input, options)
   end
@@ -1913,7 +1930,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, send_message_errors()}
   def send_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendMessage", input, options)
   end
@@ -1965,7 +1983,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, send_message_batch_errors()}
   def send_message_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendMessageBatch", input, options)
   end
@@ -2005,7 +2024,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, set_queue_attributes_errors()}
   def set_queue_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetQueueAttributes", input, options)
   end
@@ -2037,7 +2057,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, start_message_move_task_errors()}
   def start_message_move_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMessageMoveTask", input, options)
   end
@@ -2080,7 +2101,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, tag_queue_errors()}
   def tag_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagQueue", input, options)
   end
@@ -2103,7 +2125,8 @@ defmodule AWS.SQS do
           | {:error, term()}
           | {:error, untag_queue_errors()}
   def untag_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagQueue", input, options)
   end

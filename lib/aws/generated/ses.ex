@@ -42,7 +42,7 @@ defmodule AWS.SES do
       
       list_receipt_rule_sets_response() :: %{
         "NextToken" => String.t(),
-        "RuleSets" => list(receipt_rule_set_metadata()())
+        "RuleSets" => list(receipt_rule_set_metadata())
       }
       
   """
@@ -279,7 +279,7 @@ defmodule AWS.SES do
       
       identity_dkim_attributes() :: %{
         "DkimEnabled" => boolean(),
-        "DkimTokens" => list(String.t()()),
+        "DkimTokens" => list(String.t()),
         "DkimVerificationStatus" => list(any())
       }
       
@@ -303,7 +303,7 @@ defmodule AWS.SES do
   ## Example:
       
       verify_domain_dkim_response() :: %{
-        "DkimTokens" => list(String.t()())
+        "DkimTokens" => list(String.t())
       }
       
   """
@@ -379,7 +379,7 @@ defmodule AWS.SES do
       
       describe_receipt_rule_set_response() :: %{
         "Metadata" => receipt_rule_set_metadata(),
-        "Rules" => list(receipt_rule()())
+        "Rules" => list(receipt_rule())
       }
       
   """
@@ -390,7 +390,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_receipt_filters_response() :: %{
-        "Filters" => list(receipt_filter()())
+        "Filters" => list(receipt_filter())
       }
       
   """
@@ -418,12 +418,12 @@ defmodule AWS.SES do
       
       send_raw_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("Destinations") => list(String.t()()),
+        optional("Destinations") => list(String.t()),
         optional("FromArn") => String.t(),
         optional("ReturnPathArn") => String.t(),
         optional("Source") => String.t(),
         optional("SourceArn") => String.t(),
-        optional("Tags") => list(message_tag()()),
+        optional("Tags") => list(message_tag()),
         required("RawMessage") => raw_message()
       }
       
@@ -447,7 +447,7 @@ defmodule AWS.SES do
   ## Example:
       
       get_identity_mail_from_domain_attributes_request() :: %{
-        required("Identities") => list(String.t()())
+        required("Identities") => list(String.t())
       }
       
   """
@@ -505,7 +505,7 @@ defmodule AWS.SES do
       describe_configuration_set_response() :: %{
         "ConfigurationSet" => configuration_set(),
         "DeliveryOptions" => delivery_options(),
-        "EventDestinations" => list(event_destination()()),
+        "EventDestinations" => list(event_destination()),
         "ReputationOptions" => reputation_options(),
         "TrackingOptions" => tracking_options()
       }
@@ -519,7 +519,7 @@ defmodule AWS.SES do
       
       describe_active_receipt_rule_set_response() :: %{
         "Metadata" => receipt_rule_set_metadata(),
-        "Rules" => list(receipt_rule()())
+        "Rules" => list(receipt_rule())
       }
       
   """
@@ -541,7 +541,7 @@ defmodule AWS.SES do
   ## Example:
       
       get_identity_verification_attributes_request() :: %{
-        required("Identities") => list(String.t()())
+        required("Identities") => list(String.t())
       }
       
   """
@@ -665,7 +665,7 @@ defmodule AWS.SES do
   ## Example:
       
       reorder_receipt_rule_set_request() :: %{
-        required("RuleNames") => list(String.t()()),
+        required("RuleNames") => list(String.t()),
         required("RuleSetName") => String.t()
       }
       
@@ -766,7 +766,7 @@ defmodule AWS.SES do
   ## Example:
       
       cloud_watch_destination() :: %{
-        "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
       }
       
   """
@@ -811,7 +811,7 @@ defmodule AWS.SES do
   ## Example:
       
       get_identity_notification_attributes_request() :: %{
-        required("Identities") => list(String.t()())
+        required("Identities") => list(String.t())
       }
       
   """
@@ -873,7 +873,7 @@ defmodule AWS.SES do
       
       message_dsn() :: %{
         "ArrivalDate" => non_neg_integer(),
-        "ExtensionFields" => list(extension_field()()),
+        "ExtensionFields" => list(extension_field()),
         "ReportingMta" => String.t()
       }
       
@@ -1094,7 +1094,7 @@ defmodule AWS.SES do
       
       get_identity_policies_request() :: %{
         required("Identity") => String.t(),
-        required("PolicyNames") => list(String.t()())
+        required("PolicyNames") => list(String.t())
       }
       
   """
@@ -1303,7 +1303,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(configuration_set()()),
+        "ConfigurationSets" => list(configuration_set()),
         "NextToken" => String.t()
       }
       
@@ -1410,7 +1410,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_custom_verification_email_templates_response() :: %{
-        "CustomVerificationEmailTemplates" => list(custom_verification_email_template()()),
+        "CustomVerificationEmailTemplates" => list(custom_verification_email_template()),
         "NextToken" => String.t()
       }
       
@@ -1422,7 +1422,7 @@ defmodule AWS.SES do
   ## Example:
       
       send_bulk_templated_email_response() :: %{
-        "Status" => list(bulk_email_destination_status()())
+        "Status" => list(bulk_email_destination_status())
       }
       
   """
@@ -1520,14 +1520,14 @@ defmodule AWS.SES do
       
       send_bulk_templated_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("DefaultTags") => list(message_tag()()),
-        optional("ReplyToAddresses") => list(String.t()()),
+        optional("DefaultTags") => list(message_tag()),
+        optional("ReplyToAddresses") => list(String.t()),
         optional("ReturnPath") => String.t(),
         optional("ReturnPathArn") => String.t(),
         optional("SourceArn") => String.t(),
         optional("TemplateArn") => String.t(),
         required("DefaultTemplateData") => String.t(),
-        required("Destinations") => list(bulk_email_destination()()),
+        required("Destinations") => list(bulk_email_destination()),
         required("Source") => String.t(),
         required("Template") => String.t()
       }
@@ -1629,11 +1629,11 @@ defmodule AWS.SES do
       
       send_templated_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("ReplyToAddresses") => list(String.t()()),
+        optional("ReplyToAddresses") => list(String.t()),
         optional("ReturnPath") => String.t(),
         optional("ReturnPathArn") => String.t(),
         optional("SourceArn") => String.t(),
-        optional("Tags") => list(message_tag()()),
+        optional("Tags") => list(message_tag()),
         optional("TemplateArn") => String.t(),
         required("Destination") => destination(),
         required("Source") => String.t(),
@@ -1673,10 +1673,10 @@ defmodule AWS.SES do
   ## Example:
       
       receipt_rule() :: %{
-        "Actions" => list(receipt_action()()),
+        "Actions" => list(receipt_action()),
         "Enabled" => boolean(),
         "Name" => String.t(),
-        "Recipients" => list(String.t()()),
+        "Recipients" => list(String.t()),
         "ScanEnabled" => boolean(),
         "TlsPolicy" => list(any())
       }
@@ -1794,7 +1794,7 @@ defmodule AWS.SES do
       
       list_templates_response() :: %{
         "NextToken" => String.t(),
-        "TemplatesMetadata" => list(template_metadata()())
+        "TemplatesMetadata" => list(template_metadata())
       }
       
   """
@@ -1912,9 +1912,9 @@ defmodule AWS.SES do
   ## Example:
       
       destination() :: %{
-        "BccAddresses" => list(String.t()()),
-        "CcAddresses" => list(String.t()()),
-        "ToAddresses" => list(String.t()())
+        "BccAddresses" => list(String.t()),
+        "CcAddresses" => list(String.t()),
+        "ToAddresses" => list(String.t())
       }
       
   """
@@ -2008,7 +2008,7 @@ defmodule AWS.SES do
         optional("Explanation") => String.t(),
         optional("MessageDsn") => message_dsn(),
         required("BounceSender") => String.t(),
-        required("BouncedRecipientInfoList") => list(bounced_recipient_info()()),
+        required("BouncedRecipientInfoList") => list(bounced_recipient_info()),
         required("OriginalMessageId") => String.t()
       }
       
@@ -2020,7 +2020,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_identities_response() :: %{
-        "Identities" => list(String.t()()),
+        "Identities" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -2045,7 +2045,7 @@ defmodule AWS.SES do
       recipient_dsn_fields() :: %{
         "Action" => list(any()),
         "DiagnosticCode" => String.t(),
-        "ExtensionFields" => list(extension_field()()),
+        "ExtensionFields" => list(extension_field()),
         "FinalRecipient" => String.t(),
         "LastAttemptDate" => non_neg_integer(),
         "RemoteMta" => String.t(),
@@ -2118,7 +2118,7 @@ defmodule AWS.SES do
       
       bulk_email_destination() :: %{
         "Destination" => destination(),
-        "ReplacementTags" => list(message_tag()()),
+        "ReplacementTags" => list(message_tag()),
         "ReplacementTemplateData" => String.t()
       }
       
@@ -2130,7 +2130,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_identity_policies_response() :: %{
-        "PolicyNames" => list(String.t()())
+        "PolicyNames" => list(String.t())
       }
       
   """
@@ -2198,11 +2198,11 @@ defmodule AWS.SES do
       
       send_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("ReplyToAddresses") => list(String.t()()),
+        optional("ReplyToAddresses") => list(String.t()),
         optional("ReturnPath") => String.t(),
         optional("ReturnPathArn") => String.t(),
         optional("SourceArn") => String.t(),
-        optional("Tags") => list(message_tag()()),
+        optional("Tags") => list(message_tag()),
         required("Destination") => destination(),
         required("Message") => message(),
         required("Source") => String.t()
@@ -2227,7 +2227,7 @@ defmodule AWS.SES do
   ## Example:
       
       list_verified_email_addresses_response() :: %{
-        "VerifiedEmailAddresses" => list(String.t()())
+        "VerifiedEmailAddresses" => list(String.t())
       }
       
   """
@@ -2238,7 +2238,7 @@ defmodule AWS.SES do
   ## Example:
       
       get_send_statistics_response() :: %{
-        "SendDataPoints" => list(send_data_point()())
+        "SendDataPoints" => list(send_data_point())
       }
       
   """
@@ -2423,7 +2423,7 @@ defmodule AWS.SES do
   ## Example:
       
       get_identity_dkim_attributes_request() :: %{
-        required("Identities") => list(String.t()())
+        required("Identities") => list(String.t())
       }
       
   """
@@ -2651,7 +2651,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, clone_receipt_rule_set_errors()}
   def clone_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CloneReceiptRuleSet", input, options)
   end
@@ -2671,7 +2672,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_configuration_set_errors()}
   def create_configuration_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationSet", input, options)
   end
@@ -2701,7 +2703,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_configuration_set_event_destination_errors()}
   def create_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationSetEventDestination", input, options)
   end
@@ -2728,7 +2731,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_configuration_set_tracking_options_errors()}
   def create_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConfigurationSetTrackingOptions", input, options)
   end
@@ -2753,7 +2757,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_custom_verification_email_template_errors()}
   def create_custom_verification_email_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomVerificationEmailTemplate", input, options)
   end
@@ -2772,7 +2777,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_receipt_filter_errors()}
   def create_receipt_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReceiptFilter", input, options)
   end
@@ -2791,7 +2797,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_receipt_rule_errors()}
   def create_receipt_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReceiptRule", input, options)
   end
@@ -2810,7 +2817,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_receipt_rule_set_errors()}
   def create_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReceiptRuleSet", input, options)
   end
@@ -2831,7 +2839,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, create_template_errors()}
   def create_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTemplate", input, options)
   end
@@ -2851,7 +2860,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, delete_configuration_set_errors()}
   def delete_configuration_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationSet", input, options)
   end
@@ -2877,7 +2887,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, delete_configuration_set_event_destination_errors()}
   def delete_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationSetEventDestination", input, options)
   end
@@ -2908,7 +2919,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, delete_configuration_set_tracking_options_errors()}
   def delete_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationSetTrackingOptions", input, options)
   end
@@ -2932,7 +2944,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_custom_verification_email_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomVerificationEmailTemplate", input, options)
   end
@@ -2948,7 +2961,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentity", input, options)
   end
@@ -2978,7 +2992,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_identity_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentityPolicy", input, options)
   end
@@ -2996,7 +3011,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_receipt_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReceiptFilter", input, options)
   end
@@ -3015,7 +3031,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, delete_receipt_rule_errors()}
   def delete_receipt_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReceiptRule", input, options)
   end
@@ -3037,7 +3054,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, delete_receipt_rule_set_errors()}
   def delete_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReceiptRuleSet", input, options)
   end
@@ -3052,7 +3070,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTemplate", input, options)
   end
@@ -3068,7 +3087,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_verified_email_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVerifiedEmailAddress", input, options)
   end
@@ -3092,7 +3112,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeActiveReceiptRuleSet", input, options)
   end
@@ -3111,7 +3132,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, describe_configuration_set_errors()}
   def describe_configuration_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationSet", input, options)
   end
@@ -3130,7 +3152,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, describe_receipt_rule_errors()}
   def describe_receipt_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReceiptRule", input, options)
   end
@@ -3149,7 +3172,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, describe_receipt_rule_set_errors()}
   def describe_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReceiptRuleSet", input, options)
   end
@@ -3165,7 +3189,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_account_sending_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccountSendingEnabled", input, options)
   end
@@ -3191,7 +3216,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, get_custom_verification_email_template_errors()}
   def get_custom_verification_email_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomVerificationEmailTemplate", input, options)
   end
@@ -3234,7 +3260,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_identity_dkim_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityDkimAttributes", input, options)
   end
@@ -3257,7 +3284,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_identity_mail_from_domain_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityMailFromDomainAttributes", input, options)
   end
@@ -3283,7 +3311,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_identity_notification_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityNotificationAttributes", input, options)
   end
@@ -3313,7 +3342,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_identity_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityPolicies", input, options)
   end
@@ -3360,7 +3390,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_identity_verification_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityVerificationAttributes", input, options)
   end
@@ -3375,7 +3406,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_send_quota(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSendQuota", input, options)
   end
@@ -3395,7 +3427,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_send_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSendStatistics", input, options)
   end
@@ -3413,7 +3446,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, get_template_errors()}
   def get_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTemplate", input, options)
   end
@@ -3442,7 +3476,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_configuration_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationSets", input, options)
   end
@@ -3468,7 +3503,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_custom_verification_email_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomVerificationEmailTemplates", input, options)
   end
@@ -3497,7 +3533,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_identities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentities", input, options)
   end
@@ -3526,7 +3563,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_identity_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentityPolicies", input, options)
   end
@@ -3546,7 +3584,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_receipt_filters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceiptFilters", input, options)
   end
@@ -3570,7 +3609,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_receipt_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReceiptRuleSets", input, options)
   end
@@ -3586,7 +3626,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTemplates", input, options)
   end
@@ -3602,7 +3643,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_verified_email_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVerifiedEmailAddresses", input, options)
   end
@@ -3620,7 +3662,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, put_configuration_set_delivery_options_errors()}
   def put_configuration_set_delivery_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigurationSetDeliveryOptions", input, options)
   end
@@ -3648,7 +3691,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, put_identity_policy_errors()}
   def put_identity_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutIdentityPolicy", input, options)
   end
@@ -3671,7 +3715,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, reorder_receipt_rule_set_errors()}
   def reorder_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReorderReceiptRuleSet", input, options)
   end
@@ -3698,7 +3743,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_bounce_errors()}
   def send_bounce(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendBounce", input, options)
   end
@@ -3757,7 +3803,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_bulk_templated_email_errors()}
   def send_bulk_templated_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendBulkTemplatedEmail", input, options)
   end
@@ -3787,7 +3834,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_custom_verification_email_errors()}
   def send_custom_verification_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendCustomVerificationEmail", input, options)
   end
@@ -3845,7 +3893,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_email_errors()}
   def send_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendEmail", input, options)
   end
@@ -3962,7 +4011,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_raw_email_errors()}
   def send_raw_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendRawEmail", input, options)
   end
@@ -4029,7 +4079,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, send_templated_email_errors()}
   def send_templated_email(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendTemplatedEmail", input, options)
   end
@@ -4051,7 +4102,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, set_active_receipt_rule_set_errors()}
   def set_active_receipt_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetActiveReceiptRuleSet", input, options)
   end
@@ -4083,7 +4135,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_identity_dkim_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityDkimEnabled", input, options)
   end
@@ -4116,7 +4169,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_identity_feedback_forwarding_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityFeedbackForwardingEnabled", input, options)
   end
@@ -4143,7 +4197,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_identity_headers_in_notifications_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityHeadersInNotificationsEnabled", input, options)
   end
@@ -4167,7 +4222,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_identity_mail_from_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityMailFromDomain", input, options)
   end
@@ -4196,7 +4252,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def set_identity_notification_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityNotificationTopic", input, options)
   end
@@ -4215,7 +4272,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, set_receipt_rule_position_errors()}
   def set_receipt_rule_position(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetReceiptRulePosition", input, options)
   end
@@ -4233,7 +4291,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, test_render_template_errors()}
   def test_render_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestRenderTemplate", input, options)
   end
@@ -4256,7 +4315,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_account_sending_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccountSendingEnabled", input, options)
   end
@@ -4290,7 +4350,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_configuration_set_event_destination_errors()}
   def update_configuration_set_event_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationSetEventDestination", input, options)
   end
@@ -4320,7 +4381,8 @@ defmodule AWS.SES do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4355,7 +4417,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_configuration_set_sending_enabled_errors()}
   def update_configuration_set_sending_enabled(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationSetSendingEnabled", input, options)
   end
@@ -4382,7 +4445,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_configuration_set_tracking_options_errors()}
   def update_configuration_set_tracking_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationSetTrackingOptions", input, options)
   end
@@ -4407,7 +4471,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_custom_verification_email_template_errors()}
   def update_custom_verification_email_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomVerificationEmailTemplate", input, options)
   end
@@ -4426,7 +4491,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_receipt_rule_errors()}
   def update_receipt_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateReceiptRule", input, options)
   end
@@ -4447,7 +4513,8 @@ defmodule AWS.SES do
           | {:error, term()}
           | {:error, update_template_errors()}
   def update_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTemplate", input, options)
   end
@@ -4504,7 +4571,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def verify_domain_dkim(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyDomainDkim", input, options)
   end
@@ -4526,7 +4594,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def verify_domain_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyDomainIdentity", input, options)
   end
@@ -4542,7 +4611,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def verify_email_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyEmailAddress", input, options)
   end
@@ -4562,7 +4632,8 @@ defmodule AWS.SES do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def verify_email_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyEmailIdentity", input, options)
   end

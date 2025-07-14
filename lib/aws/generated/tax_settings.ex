@@ -67,7 +67,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_delete_tax_registration_response() :: %{
-        "errors" => list(batch_delete_tax_registration_error()())
+        "errors" => list(batch_delete_tax_registration_error())
       }
 
   """
@@ -266,7 +266,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_get_tax_exemptions_response() :: %{
-        "failedAccounts" => list(String.t()()),
+        "failedAccounts" => list(String.t()),
         "taxExemptionDetailsMap" => map()
       }
 
@@ -289,7 +289,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_put_tax_registration_request() :: %{
-        required("accountIds") => list(String.t()()),
+        required("accountIds") => list(String.t()),
         required("taxRegistrationEntry") => tax_registration_entry()
       }
 
@@ -441,7 +441,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       tax_exemption_type() :: %{
-        "applicableJurisdictions" => list(authority()()),
+        "applicableJurisdictions" => list(authority()),
         "description" => String.t(),
         "displayName" => String.t()
       }
@@ -479,7 +479,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       get_tax_exemption_types_response() :: %{
-        "taxExemptionTypes" => list(tax_exemption_type()())
+        "taxExemptionTypes" => list(tax_exemption_type())
       }
 
   """
@@ -490,7 +490,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_put_tax_registration_response() :: %{
-        "errors" => list(batch_put_tax_registration_error()()),
+        "errors" => list(batch_put_tax_registration_error()),
         "status" => list(any())
       }
 
@@ -549,7 +549,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       list_tax_registrations_response() :: %{
-        "accountDetails" => list(account_details()()),
+        "accountDetails" => list(account_details()),
         "nextToken" => String.t()
       }
 
@@ -751,7 +751,7 @@ defmodule AWS.TaxSettings do
 
       verification_details() :: %{
         "dateOfBirth" => String.t(),
-        "taxRegistrationDocuments" => list(tax_registration_document()())
+        "taxRegistrationDocuments" => list(tax_registration_document())
       }
 
   """
@@ -793,7 +793,7 @@ defmodule AWS.TaxSettings do
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
-        "taxDocumentMetadatas" => list(tax_document_metadata()())
+        "taxDocumentMetadatas" => list(tax_document_metadata())
       }
 
   """
@@ -850,7 +850,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       put_tax_exemption_request() :: %{
-        required("accountIds") => list(String.t()()),
+        required("accountIds") => list(String.t()),
         required("authority") => authority(),
         required("exemptionCertificate") => exemption_certificate(),
         required("exemptionType") => String.t()
@@ -895,7 +895,7 @@ defmodule AWS.TaxSettings do
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
-        "taxDocumentMetadatas" => list(tax_document_metadata()())
+        "taxDocumentMetadatas" => list(tax_document_metadata())
       }
 
   """
@@ -918,7 +918,7 @@ defmodule AWS.TaxSettings do
         "heritageObtainedDetails" => boolean(),
         "heritageObtainedParentEntity" => String.t(),
         "heritageObtainedReason" => String.t(),
-        "taxExemptions" => list(tax_exemption()())
+        "taxExemptions" => list(tax_exemption())
       }
 
   """
@@ -930,7 +930,7 @@ defmodule AWS.TaxSettings do
 
       validation_exception() :: %{
         "errorCode" => list(any()),
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t()
       }
 
@@ -943,7 +943,7 @@ defmodule AWS.TaxSettings do
 
       list_supplemental_tax_registrations_response() :: %{
         "nextToken" => String.t(),
-        "taxRegistrations" => list(supplemental_tax_registration()())
+        "taxRegistrations" => list(supplemental_tax_registration())
       }
 
   """
@@ -1057,7 +1057,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_get_tax_exemptions_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -1083,7 +1083,7 @@ defmodule AWS.TaxSettings do
   ## Example:
 
       batch_delete_tax_registration_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """

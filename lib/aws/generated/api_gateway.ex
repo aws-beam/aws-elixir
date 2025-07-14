@@ -21,7 +21,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_stage_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -32,8 +32,8 @@ defmodule AWS.APIGateway do
   ## Example:
 
       api_key_ids() :: %{
-        "ids" => list(String.t()()),
-        "warnings" => list(String.t()())
+        "ids" => list(String.t()),
+        "warnings" => list(String.t())
       }
 
   """
@@ -46,7 +46,7 @@ defmodule AWS.APIGateway do
       endpoint_configuration() :: %{
         "ipAddressType" => list(any()),
         "types" => list(list(any())()),
-        "vpcEndpointIds" => list(String.t()())
+        "vpcEndpointIds" => list(String.t())
       }
 
   """
@@ -185,7 +185,7 @@ defmodule AWS.APIGateway do
         "identitySource" => String.t(),
         "identityValidationExpression" => String.t(),
         "name" => String.t(),
-        "providerARNs" => list(String.t()()),
+        "providerARNs" => list(String.t()),
         "type" => list(any())
       }
 
@@ -282,7 +282,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_resource_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -307,7 +307,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       integration() :: %{
-        "cacheKeyParameters" => list(String.t()()),
+        "cacheKeyParameters" => list(String.t()),
         "cacheNamespace" => String.t(),
         "connectionId" => String.t(),
         "connectionType" => list(any()),
@@ -400,7 +400,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_client_certificate_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -436,7 +436,7 @@ defmodule AWS.APIGateway do
       mutual_tls_authentication() :: %{
         "truststoreUri" => String.t(),
         "truststoreVersion" => String.t(),
-        "truststoreWarnings" => list(String.t()())
+        "truststoreWarnings" => list(String.t())
       }
 
   """
@@ -501,7 +501,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       documentation_versions() :: %{
-        "items" => list(documentation_version()()),
+        "items" => list(documentation_version()),
         "position" => String.t()
       }
 
@@ -513,7 +513,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_api_key_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -524,7 +524,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       vpc_links() :: %{
-        "items" => list(vpc_link()()),
+        "items" => list(vpc_link()),
         "position" => String.t()
       }
 
@@ -545,7 +545,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       usage_plans() :: %{
-        "items" => list(usage_plan()()),
+        "items" => list(usage_plan()),
         "position" => String.t()
       }
 
@@ -609,7 +609,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       put_integration_request() :: %{
-        optional("cacheKeyParameters") => list(String.t()()),
+        optional("cacheKeyParameters") => list(String.t()),
         optional("cacheNamespace") => String.t(),
         optional("connectionId") => String.t(),
         optional("connectionType") => list(any()),
@@ -642,7 +642,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_request_validator_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -653,7 +653,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_model_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -690,7 +690,7 @@ defmodule AWS.APIGateway do
 
       update_base_path_mapping_request() :: %{
         optional("domainNameId") => String.t(),
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -701,7 +701,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       usage_plan_keys() :: %{
-        "items" => list(usage_plan_key()()),
+        "items" => list(usage_plan_key()),
         "position" => String.t()
       }
 
@@ -713,7 +713,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       sdk_type() :: %{
-        "configurationProperties" => list(sdk_configuration_property()()),
+        "configurationProperties" => list(sdk_configuration_property()),
         "description" => String.t(),
         "friendlyName" => String.t(),
         "id" => String.t()
@@ -733,7 +733,7 @@ defmodule AWS.APIGateway do
         "status" => list(any()),
         "statusMessage" => String.t(),
         "tags" => map(),
-        "targetArns" => list(String.t()())
+        "targetArns" => list(String.t())
       }
 
   """
@@ -744,7 +744,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -755,7 +755,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_documentation_part_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -826,7 +826,7 @@ defmodule AWS.APIGateway do
         optional("authorizerUri") => String.t(),
         optional("identitySource") => String.t(),
         optional("identityValidationExpression") => String.t(),
-        optional("providerARNs") => list(String.t()()),
+        optional("providerARNs") => list(String.t()),
         required("name") => String.t(),
         required("type") => list(any())
       }
@@ -857,7 +857,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       stages() :: %{
-        "item" => list(stage()())
+        "item" => list(stage())
       }
 
   """
@@ -881,7 +881,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_gateway_response_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -907,7 +907,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       gateway_responses() :: %{
-        "items" => list(gateway_response()()),
+        "items" => list(gateway_response()),
         "position" => String.t()
       }
 
@@ -931,7 +931,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_method_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -942,7 +942,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       client_certificates() :: %{
-        "items" => list(client_certificate()()),
+        "items" => list(client_certificate()),
         "position" => String.t()
       }
 
@@ -963,7 +963,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       domain_names() :: %{
-        "items" => list(domain_name()()),
+        "items" => list(domain_name()),
         "position" => String.t()
       }
 
@@ -975,7 +975,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       resources() :: %{
-        "items" => list(resource()()),
+        "items" => list(resource()),
         "position" => String.t()
       }
 
@@ -1062,7 +1062,7 @@ defmodule AWS.APIGateway do
 
       rest_api() :: %{
         "apiKeySource" => list(any()),
-        "binaryMediaTypes" => list(String.t()()),
+        "binaryMediaTypes" => list(String.t()),
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
         "disableExecuteApiEndpoint" => boolean(),
@@ -1074,7 +1074,7 @@ defmodule AWS.APIGateway do
         "rootResourceId" => String.t(),
         "tags" => map(),
         "version" => String.t(),
-        "warnings" => list(String.t()())
+        "warnings" => list(String.t())
       }
 
   """
@@ -1097,7 +1097,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       get_resources_request() :: %{
-        optional("embed") => list(String.t()()),
+        optional("embed") => list(String.t()),
         optional("limit") => integer(),
         optional("position") => String.t()
       }
@@ -1194,7 +1194,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       base_path_mappings() :: %{
-        "items" => list(base_path_mapping()()),
+        "items" => list(base_path_mapping()),
         "position" => String.t()
       }
 
@@ -1206,7 +1206,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       get_deployment_request() :: %{
-        optional("embed") => list(String.t()())
+        optional("embed") => list(String.t())
       }
 
   """
@@ -1220,7 +1220,7 @@ defmodule AWS.APIGateway do
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("targetArns") => list(String.t()())
+        required("targetArns") => list(String.t())
       }
 
   """
@@ -1268,7 +1268,7 @@ defmodule AWS.APIGateway do
       account() :: %{
         "apiKeyVersion" => String.t(),
         "cloudwatchRoleArn" => String.t(),
-        "features" => list(String.t()()),
+        "features" => list(String.t()),
         "throttleSettings" => throttle_settings()
       }
 
@@ -1325,7 +1325,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_usage_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1357,7 +1357,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_integration_response_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1383,7 +1383,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_rest_api_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1394,7 +1394,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_integration_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1406,7 +1406,7 @@ defmodule AWS.APIGateway do
 
       put_method_request() :: %{
         optional("apiKeyRequired") => boolean(),
-        optional("authorizationScopes") => list(String.t()()),
+        optional("authorizationScopes") => list(String.t()),
         optional("authorizerId") => String.t(),
         optional("operationName") => String.t(),
         optional("requestModels") => map(),
@@ -1435,7 +1435,7 @@ defmodule AWS.APIGateway do
 
       update_domain_name_request() :: %{
         optional("domainNameId") => String.t(),
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1446,7 +1446,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       rest_apis() :: %{
-        "items" => list(rest_api()()),
+        "items" => list(rest_api()),
         "position" => String.t()
       }
 
@@ -1463,7 +1463,7 @@ defmodule AWS.APIGateway do
         optional("enabled") => boolean(),
         optional("generateDistinctId") => boolean(),
         optional("name") => String.t(),
-        optional("stageKeys") => list(stage_key()()),
+        optional("stageKeys") => list(stage_key()),
         optional("tags") => map(),
         optional("value") => String.t()
       }
@@ -1476,7 +1476,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_account_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1487,7 +1487,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       domain_name_access_associations() :: %{
-        optional("items") => list(domain_name_access_association()()),
+        optional("items") => list(domain_name_access_association()),
         optional("position") => String.t()
       }
 
@@ -1551,7 +1551,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_method_response_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1623,7 +1623,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       get_resource_request() :: %{
-        optional("embed") => list(String.t()())
+        optional("embed") => list(String.t())
       }
 
   """
@@ -1766,9 +1766,9 @@ defmodule AWS.APIGateway do
   ## Example:
 
       api_keys() :: %{
-        "items" => list(api_key()()),
+        "items" => list(api_key()),
         "position" => String.t(),
-        "warnings" => list(String.t()())
+        "warnings" => list(String.t())
       }
 
   """
@@ -1818,7 +1818,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_vpc_link_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1838,7 +1838,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       usage_plan() :: %{
-        "apiStages" => list(api_stage()()),
+        "apiStages" => list(api_stage()),
         "description" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
@@ -1867,7 +1867,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_usage_plan_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -1878,7 +1878,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       sdk_types() :: %{
-        "items" => list(sdk_type()())
+        "items" => list(sdk_type())
       }
 
   """
@@ -1943,7 +1943,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       create_usage_plan_request() :: %{
-        optional("apiStages") => list(api_stage()()),
+        optional("apiStages") => list(api_stage()),
         optional("description") => String.t(),
         optional("quota") => quota_settings(),
         optional("tags") => map(),
@@ -2017,7 +2017,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       request_validators() :: %{
-        "items" => list(request_validator()()),
+        "items" => list(request_validator()),
         "position" => String.t()
       }
 
@@ -2041,7 +2041,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       models() :: %{
-        "items" => list(model()()),
+        "items" => list(model()),
         "position" => String.t()
       }
 
@@ -2075,7 +2075,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       documentation_parts() :: %{
-        "items" => list(documentation_part()()),
+        "items" => list(documentation_part()),
         "position" => String.t()
       }
 
@@ -2124,8 +2124,8 @@ defmodule AWS.APIGateway do
   ## Example:
 
       documentation_part_ids() :: %{
-        "ids" => list(String.t()()),
-        "warnings" => list(String.t()())
+        "ids" => list(String.t()),
+        "warnings" => list(String.t())
       }
 
   """
@@ -2146,7 +2146,7 @@ defmodule AWS.APIGateway do
 
       method() :: %{
         "apiKeyRequired" => boolean(),
-        "authorizationScopes" => list(String.t()()),
+        "authorizationScopes" => list(String.t()),
         "authorizationType" => String.t(),
         "authorizerId" => String.t(),
         "httpMethod" => String.t(),
@@ -2216,7 +2216,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       authorizers() :: %{
-        "items" => list(authorizer()()),
+        "items" => list(authorizer()),
         "position" => String.t()
       }
 
@@ -2257,7 +2257,7 @@ defmodule AWS.APIGateway do
         "id" => String.t(),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
-        "stageKeys" => list(String.t()()),
+        "stageKeys" => list(String.t()),
         "tags" => map(),
         "value" => String.t()
       }
@@ -2348,7 +2348,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       deployments() :: %{
-        "items" => list(deployment()()),
+        "items" => list(deployment()),
         "position" => String.t()
       }
 
@@ -2360,7 +2360,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_documentation_version_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -2371,7 +2371,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_deployment_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -2467,7 +2467,7 @@ defmodule AWS.APIGateway do
   ## Example:
 
       update_authorizer_request() :: %{
-        optional("patchOperations") => list(patch_operation()())
+        optional("patchOperations") => list(patch_operation())
       }
 
   """
@@ -2492,7 +2492,7 @@ defmodule AWS.APIGateway do
 
       create_rest_api_request() :: %{
         optional("apiKeySource") => list(any()),
-        optional("binaryMediaTypes") => list(String.t()()),
+        optional("binaryMediaTypes") => list(String.t()),
         optional("cloneFrom") => String.t(),
         optional("description") => String.t(),
         optional("disableExecuteApiEndpoint") => boolean(),

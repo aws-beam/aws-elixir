@@ -22,7 +22,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       http_match() :: %{
-        "headerMatches" => list(header_match()()),
+        "headerMatches" => list(header_match()),
         "method" => String.t(),
         "pathMatch" => path_match()
       }
@@ -53,7 +53,7 @@ defmodule AWS.VPCLattice do
         optional("arn") => String.t(),
         optional("createdBy") => String.t(),
         optional("id") => String.t(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("status") => String.t()
       }
 
@@ -94,7 +94,7 @@ defmodule AWS.VPCLattice do
         optional("arn") => String.t(),
         optional("createdBy") => String.t(),
         optional("id") => String.t(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("status") => String.t()
       }
 
@@ -124,7 +124,7 @@ defmodule AWS.VPCLattice do
         "id" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t(),
-        "portRanges" => list(String.t()()),
+        "portRanges" => list(String.t()),
         "protocol" => String.t(),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t(),
@@ -181,7 +181,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       batch_update_rule_request() :: %{
-        required("rules") => list(rule_update()())
+        required("rules") => list(rule_update())
       }
 
   """
@@ -200,7 +200,7 @@ defmodule AWS.VPCLattice do
         optional("id") => String.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
         optional("name") => String.t(),
-        optional("serviceArns") => list(String.t()()),
+        optional("serviceArns") => list(String.t()),
         optional("status") => String.t(),
         optional("type") => String.t()
       }
@@ -256,7 +256,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       deregister_targets_request() :: %{
-        required("targets") => list(target()())
+        required("targets") => list(target())
       }
 
   """
@@ -309,9 +309,9 @@ defmodule AWS.VPCLattice do
         "ipAddressType" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -345,7 +345,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       forward_action() :: %{
-        "targetGroups" => list(weighted_target_group()())
+        "targetGroups" => list(weighted_target_group())
       }
 
   """
@@ -451,7 +451,7 @@ defmodule AWS.VPCLattice do
         "arn" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "portRanges" => list(String.t()()),
+        "portRanges" => list(String.t()),
         "protocol" => String.t(),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t(),
@@ -514,7 +514,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_service_network_vpc_endpoint_associations_response() :: %{
-        "items" => list(service_network_endpoint_association()()),
+        "items" => list(service_network_endpoint_association()),
         "nextToken" => String.t()
       }
 
@@ -527,7 +527,7 @@ defmodule AWS.VPCLattice do
 
       list_service_network_vpc_associations_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(service_network_vpc_association_summary()())
+        required("items") => list(service_network_vpc_association_summary())
       }
 
   """
@@ -587,10 +587,10 @@ defmodule AWS.VPCLattice do
       create_resource_gateway_request() :: %{
         optional("clientToken") => String.t(),
         optional("ipAddressType") => String.t(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("subnetIds") => list(String.t()()),
+        required("subnetIds") => list(String.t()),
         required("vpcIdentifier") => String.t()
       }
 
@@ -642,7 +642,7 @@ defmodule AWS.VPCLattice do
         optional("failureMessage") => [String.t()],
         optional("id") => String.t(),
         optional("lastUpdatedAt") => non_neg_integer(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("serviceNetworkArn") => String.t(),
         optional("serviceNetworkId") => String.t(),
         optional("serviceNetworkName") => String.t(),
@@ -668,7 +668,7 @@ defmodule AWS.VPCLattice do
 
       list_access_log_subscriptions_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(access_log_subscription_summary()())
+        required("items") => list(access_log_subscription_summary())
       }
 
   """
@@ -679,7 +679,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -727,7 +727,7 @@ defmodule AWS.VPCLattice do
         "name" => String.t(),
         "port" => integer(),
         "protocol" => String.t(),
-        "serviceArns" => list(String.t()()),
+        "serviceArns" => list(String.t()),
         "status" => String.t(),
         "type" => String.t(),
         "vpcIdentifier" => String.t()
@@ -768,9 +768,9 @@ defmodule AWS.VPCLattice do
         "id" => String.t(),
         "ipAddressType" => String.t(),
         "name" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -820,9 +820,9 @@ defmodule AWS.VPCLattice do
         "id" => String.t(),
         "ipAddressType" => String.t(),
         "name" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcIdentifier" => String.t()
       }
 
@@ -1055,9 +1055,9 @@ defmodule AWS.VPCLattice do
         "ipAddressType" => String.t(),
         "lastUpdatedAt" => non_neg_integer(),
         "name" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcIdentifier" => String.t()
       }
 
@@ -1093,7 +1093,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_services_response() :: %{
-        optional("items") => list(service_summary()()),
+        optional("items") => list(service_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -1180,7 +1180,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_resource_gateways_response() :: %{
-        "items" => list(resource_gateway_summary()()),
+        "items" => list(resource_gateway_summary()),
         "nextToken" => String.t()
       }
 
@@ -1353,7 +1353,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_service_network_resource_associations_response() :: %{
-        "items" => list(service_network_resource_association_summary()()),
+        "items" => list(service_network_resource_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -1399,7 +1399,7 @@ defmodule AWS.VPCLattice do
 
       list_listeners_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(listener_summary()())
+        required("items") => list(listener_summary())
       }
 
   """
@@ -1410,7 +1410,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_target_groups_response() :: %{
-        optional("items") => list(target_group_summary()()),
+        optional("items") => list(target_group_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -1458,7 +1458,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_resource_configurations_response() :: %{
-        "items" => list(resource_configuration_summary()()),
+        "items" => list(resource_configuration_summary()),
         "nextToken" => String.t()
       }
 
@@ -1522,7 +1522,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       register_targets_request() :: %{
-        required("targets") => list(target()())
+        required("targets") => list(target())
       }
 
   """
@@ -1549,7 +1549,7 @@ defmodule AWS.VPCLattice do
       list_targets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("targets") => list(target()())
+        optional("targets") => list(target())
       }
 
   """
@@ -1666,7 +1666,7 @@ defmodule AWS.VPCLattice do
 
       list_rules_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(rule_summary()())
+        required("items") => list(rule_summary())
       }
 
   """
@@ -1677,7 +1677,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_resource_gateway_request() :: %{
-        optional("securityGroupIds") => list(String.t()())
+        optional("securityGroupIds") => list(String.t())
       }
 
   """
@@ -1728,7 +1728,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       list_resource_endpoint_associations_response() :: %{
-        "items" => list(resource_endpoint_association_summary()()),
+        "items" => list(resource_endpoint_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -1740,7 +1740,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -1840,7 +1840,7 @@ defmodule AWS.VPCLattice do
       create_resource_configuration_request() :: %{
         optional("allowAssociationToShareableServiceNetwork") => boolean(),
         optional("clientToken") => String.t(),
-        optional("portRanges") => list(String.t()()),
+        optional("portRanges") => list(String.t()),
         optional("protocol") => String.t(),
         optional("resourceConfigurationDefinition") => list(),
         optional("resourceConfigurationGroupIdentifier") => String.t(),
@@ -2006,8 +2006,8 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       register_targets_response() :: %{
-        optional("successful") => list(target()()),
-        optional("unsuccessful") => list(target_failure()())
+        optional("successful") => list(target()),
+        optional("unsuccessful") => list(target_failure())
       }
 
   """
@@ -2113,7 +2113,7 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       update_service_network_vpc_association_request() :: %{
-        required("securityGroupIds") => list(String.t()())
+        required("securityGroupIds") => list(String.t())
       }
 
   """
@@ -2137,8 +2137,8 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       deregister_targets_response() :: %{
-        optional("successful") => list(target()()),
-        optional("unsuccessful") => list(target_failure()())
+        optional("successful") => list(target()),
+        optional("unsuccessful") => list(target_failure())
       }
 
   """
@@ -2187,8 +2187,8 @@ defmodule AWS.VPCLattice do
   ## Example:
 
       batch_update_rule_response() :: %{
-        optional("successful") => list(rule_update_success()()),
-        optional("unsuccessful") => list(rule_update_failure()())
+        optional("successful") => list(rule_update_success()),
+        optional("unsuccessful") => list(rule_update_failure())
       }
 
   """
@@ -2218,7 +2218,7 @@ defmodule AWS.VPCLattice do
 
       list_targets_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(target_summary()())
+        required("items") => list(target_summary())
       }
 
   """
@@ -2230,7 +2230,7 @@ defmodule AWS.VPCLattice do
 
       update_resource_configuration_request() :: %{
         optional("allowAssociationToShareableServiceNetwork") => boolean(),
-        optional("portRanges") => list(String.t()()),
+        optional("portRanges") => list(String.t()),
         optional("resourceConfigurationDefinition") => list()
       }
 
@@ -2278,7 +2278,7 @@ defmodule AWS.VPCLattice do
 
       create_service_network_vpc_association_request() :: %{
         optional("clientToken") => String.t(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("tags") => map(),
         required("serviceNetworkIdentifier") => String.t(),
         required("vpcIdentifier") => String.t()
@@ -2328,7 +2328,7 @@ defmodule AWS.VPCLattice do
 
       list_service_networks_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(service_network_summary()())
+        required("items") => list(service_network_summary())
       }
 
   """
@@ -2351,7 +2351,7 @@ defmodule AWS.VPCLattice do
 
       list_service_network_service_associations_response() :: %{
         optional("nextToken") => String.t(),
-        required("items") => list(service_network_service_association_summary()())
+        required("items") => list(service_network_service_association_summary())
       }
 
   """
@@ -2416,7 +2416,7 @@ defmodule AWS.VPCLattice do
         "failureReason" => [String.t()],
         "id" => String.t(),
         "name" => String.t(),
-        "portRanges" => list(String.t()()),
+        "portRanges" => list(String.t()),
         "protocol" => String.t(),
         "resourceConfigurationDefinition" => list(),
         "resourceConfigurationGroupId" => String.t(),

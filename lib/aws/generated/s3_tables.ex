@@ -182,7 +182,7 @@ defmodule AWS.S3Tables do
       namespace_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "namespaceId" => String.t(),
         "ownerAccountId" => String.t(),
         "tableBucketId" => String.t()
@@ -199,7 +199,7 @@ defmodule AWS.S3Tables do
         "createdAt" => [non_neg_integer()],
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t(),
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "namespaceId" => String.t(),
         "tableARN" => String.t(),
         "tableBucketId" => String.t(),
@@ -242,7 +242,7 @@ defmodule AWS.S3Tables do
       update_table_metadata_location_response() :: %{
         "metadataLocation" => String.t(),
         "name" => String.t(),
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "tableARN" => String.t(),
         "versionToken" => String.t()
       }
@@ -277,7 +277,7 @@ defmodule AWS.S3Tables do
         "modifiedAt" => [non_neg_integer()],
         "modifiedBy" => String.t(),
         "name" => String.t(),
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "namespaceId" => String.t(),
         "ownerAccountId" => String.t(),
         "tableARN" => String.t(),
@@ -359,7 +359,7 @@ defmodule AWS.S3Tables do
       get_namespace_response() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "namespaceId" => String.t(),
         "ownerAccountId" => String.t(),
         "tableBucketId" => String.t()
@@ -373,7 +373,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       create_namespace_request() :: %{
-        required("namespace") => list(String.t()())
+        required("namespace") => list(String.t())
       }
 
   """
@@ -407,7 +407,7 @@ defmodule AWS.S3Tables do
 
       list_tables_response() :: %{
         "continuationToken" => String.t(),
-        "tables" => list(table_summary()())
+        "tables" => list(table_summary())
       }
 
   """
@@ -575,7 +575,7 @@ defmodule AWS.S3Tables do
 
       list_table_buckets_response() :: %{
         "continuationToken" => String.t(),
-        "tableBuckets" => list(table_bucket_summary()())
+        "tableBuckets" => list(table_bucket_summary())
       }
 
   """
@@ -610,7 +610,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       create_namespace_response() :: %{
-        "namespace" => list(String.t()()),
+        "namespace" => list(String.t()),
         "tableBucketARN" => String.t()
       }
 
@@ -671,7 +671,7 @@ defmodule AWS.S3Tables do
 
       list_namespaces_response() :: %{
         "continuationToken" => String.t(),
-        "namespaces" => list(namespace_summary()())
+        "namespaces" => list(namespace_summary())
       }
 
   """
@@ -704,7 +704,7 @@ defmodule AWS.S3Tables do
   ## Example:
 
       iceberg_schema() :: %{
-        "fields" => list(schema_field()())
+        "fields" => list(schema_field())
       }
 
   """

@@ -16,9 +16,9 @@ defmodule AWS.Personalize do
   ## Example:
       
       hyper_parameter_ranges() :: %{
-        "categoricalHyperParameterRanges" => list(categorical_hyper_parameter_range()()),
-        "continuousHyperParameterRanges" => list(continuous_hyper_parameter_range()()),
-        "integerHyperParameterRanges" => list(integer_hyper_parameter_range()())
+        "categoricalHyperParameterRanges" => list(categorical_hyper_parameter_range()),
+        "continuousHyperParameterRanges" => list(continuous_hyper_parameter_range()),
+        "integerHyperParameterRanges" => list(integer_hyper_parameter_range())
       }
       
   """
@@ -49,7 +49,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       create_event_tracker_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetGroupArn") => String.t(),
         required("name") => String.t()
       }
@@ -169,7 +169,7 @@ defmodule AWS.Personalize do
         optional("batchInferenceJobMode") => list(any()),
         optional("filterArn") => String.t(),
         optional("numResults") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("themeGenerationConfig") => theme_generation_config(),
         required("jobInput") => batch_inference_job_input(),
         required("jobName") => String.t(),
@@ -204,7 +204,7 @@ defmodule AWS.Personalize do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -215,7 +215,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_batch_inference_jobs_response() :: %{
-        "batchInferenceJobs" => list(batch_inference_job_summary()()),
+        "batchInferenceJobs" => list(batch_inference_job_summary()),
         "nextToken" => String.t()
       }
       
@@ -274,7 +274,7 @@ defmodule AWS.Personalize do
       
       list_recipes_response() :: %{
         "nextToken" => String.t(),
-        "recipes" => list(recipe_summary()())
+        "recipes" => list(recipe_summary())
       }
       
   """
@@ -313,7 +313,7 @@ defmodule AWS.Personalize do
       
       create_recommender_request() :: %{
         optional("recommenderConfig") => recommender_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetGroupArn") => String.t(),
         required("name") => String.t(),
         required("recipeArn") => String.t()
@@ -387,7 +387,7 @@ defmodule AWS.Personalize do
       default_categorical_hyper_parameter_range() :: %{
         "isTunable" => boolean(),
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -428,7 +428,7 @@ defmodule AWS.Personalize do
         optional("performHPO") => boolean(),
         optional("recipeArn") => String.t(),
         optional("solutionConfig") => solution_config(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetGroupArn") => String.t(),
         required("name") => String.t()
       }
@@ -644,7 +644,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_campaigns_response() :: %{
-        "campaigns" => list(campaign_summary()()),
+        "campaigns" => list(campaign_summary()),
         "nextToken" => String.t()
       }
       
@@ -691,9 +691,9 @@ defmodule AWS.Personalize do
   ## Example:
       
       default_hyper_parameter_ranges() :: %{
-        "categoricalHyperParameterRanges" => list(default_categorical_hyper_parameter_range()()),
-        "continuousHyperParameterRanges" => list(default_continuous_hyper_parameter_range()()),
-        "integerHyperParameterRanges" => list(default_integer_hyper_parameter_range()())
+        "categoricalHyperParameterRanges" => list(default_categorical_hyper_parameter_range()),
+        "continuousHyperParameterRanges" => list(default_continuous_hyper_parameter_range()),
+        "integerHyperParameterRanges" => list(default_integer_hyper_parameter_range())
       }
       
   """
@@ -786,7 +786,7 @@ defmodule AWS.Personalize do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -854,7 +854,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_data_deletion_jobs_response() :: %{
-        "dataDeletionJobs" => list(data_deletion_job_summary()()),
+        "dataDeletionJobs" => list(data_deletion_job_summary()),
         "nextToken" => String.t()
       }
       
@@ -882,7 +882,7 @@ defmodule AWS.Personalize do
         optional("domain") => list(any()),
         optional("kmsKeyArn") => String.t(),
         optional("roleArn") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t()
       }
       
@@ -975,7 +975,7 @@ defmodule AWS.Personalize do
       
       create_metric_attribution_request() :: %{
         required("datasetGroupArn") => String.t(),
-        required("metrics") => list(metric_attribute()()),
+        required("metrics") => list(metric_attribute()),
         required("metricsOutputConfig") => metric_attribution_output(),
         required("name") => String.t()
       }
@@ -1247,7 +1247,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       create_filter_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetGroupArn") => String.t(),
         required("filterExpression") => String.t(),
         required("name") => String.t()
@@ -1283,7 +1283,7 @@ defmodule AWS.Personalize do
       
       create_solution_version_request() :: %{
         optional("name") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("trainingMode") => list(any()),
         required("solutionArn") => String.t()
       }
@@ -1471,7 +1471,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_dataset_groups_response() :: %{
-        "datasetGroups" => list(dataset_group_summary()()),
+        "datasetGroups" => list(dataset_group_summary()),
         "nextToken" => String.t()
       }
       
@@ -1536,7 +1536,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_metric_attribution_metrics_response() :: %{
-        "metrics" => list(metric_attribute()()),
+        "metrics" => list(metric_attribute()),
         "nextToken" => String.t()
       }
       
@@ -1593,7 +1593,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1604,7 +1604,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       events_config() :: %{
-        "eventParametersList" => list(event_parameters()())
+        "eventParametersList" => list(event_parameters())
       }
       
   """
@@ -1629,7 +1629,7 @@ defmodule AWS.Personalize do
       
       categorical_hyper_parameter_range() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1651,7 +1651,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_batch_segment_jobs_response() :: %{
-        "batchSegmentJobs" => list(batch_segment_job_summary()()),
+        "batchSegmentJobs" => list(batch_segment_job_summary()),
         "nextToken" => String.t()
       }
       
@@ -1676,7 +1676,7 @@ defmodule AWS.Personalize do
       
       list_solutions_response() :: %{
         "nextToken" => String.t(),
-        "solutions" => list(solution_summary()())
+        "solutions" => list(solution_summary())
       }
       
   """
@@ -1788,7 +1788,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       create_data_deletion_job_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("dataSource") => data_source(),
         required("datasetGroupArn") => String.t(),
         required("jobName") => String.t(),
@@ -1859,7 +1859,7 @@ defmodule AWS.Personalize do
       
       auto_ml_config() :: %{
         "metricName" => String.t(),
-        "recipeList" => list(String.t()())
+        "recipeList" => list(String.t())
       }
       
   """
@@ -1911,7 +1911,7 @@ defmodule AWS.Personalize do
       create_batch_segment_job_request() :: %{
         optional("filterArn") => String.t(),
         optional("numResults") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("jobInput") => batch_segment_job_input(),
         required("jobName") => String.t(),
         required("jobOutput") => batch_segment_job_output(),
@@ -1944,7 +1944,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_dataset_import_jobs_response() :: %{
-        "datasetImportJobs" => list(dataset_import_job_summary()()),
+        "datasetImportJobs" => list(dataset_import_job_summary()),
         "nextToken" => String.t()
       }
       
@@ -2017,7 +2017,7 @@ defmodule AWS.Personalize do
       create_campaign_request() :: %{
         optional("campaignConfig") => campaign_config(),
         optional("minProvisionedTPS") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t(),
         required("solutionVersionArn") => String.t()
       }
@@ -2030,7 +2030,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_dataset_export_jobs_response() :: %{
-        "datasetExportJobs" => list(dataset_export_job_summary()()),
+        "datasetExportJobs" => list(dataset_export_job_summary()),
         "nextToken" => String.t()
       }
       
@@ -2113,7 +2113,7 @@ defmodule AWS.Personalize do
       
       list_recommenders_response() :: %{
         "nextToken" => String.t(),
-        "recommenders" => list(recommender_summary()())
+        "recommenders" => list(recommender_summary())
       }
       
   """
@@ -2193,7 +2193,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       create_dataset_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetGroupArn") => String.t(),
         required("datasetType") => String.t(),
         required("name") => String.t(),
@@ -2219,7 +2219,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_metric_attributions_response() :: %{
-        "metricAttributions" => list(metric_attribution_summary()()),
+        "metricAttributions" => list(metric_attribution_summary()),
         "nextToken" => String.t()
       }
       
@@ -2231,7 +2231,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_event_trackers_response() :: %{
-        "eventTrackers" => list(event_tracker_summary()()),
+        "eventTrackers" => list(event_tracker_summary()),
         "nextToken" => String.t()
       }
       
@@ -2261,7 +2261,7 @@ defmodule AWS.Personalize do
       create_dataset_import_job_request() :: %{
         optional("importMode") => list(any()),
         optional("publishAttributionMetricsToS3") => boolean(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("dataSource") => data_source(),
         required("datasetArn") => String.t(),
         required("jobName") => String.t(),
@@ -2296,7 +2296,7 @@ defmodule AWS.Personalize do
       
       list_solution_versions_response() :: %{
         "nextToken" => String.t(),
-        "solutionVersions" => list(solution_version_summary()())
+        "solutionVersions" => list(solution_version_summary())
       }
       
   """
@@ -2344,10 +2344,10 @@ defmodule AWS.Personalize do
   ## Example:
       
       update_metric_attribution_request() :: %{
-        optional("addMetrics") => list(metric_attribute()()),
+        optional("addMetrics") => list(metric_attribute()),
         optional("metricAttributionArn") => String.t(),
         optional("metricsOutputConfig") => metric_attribution_output(),
-        optional("removeMetrics") => list(String.t()())
+        optional("removeMetrics") => list(String.t())
       }
       
   """
@@ -2493,7 +2493,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_datasets_response() :: %{
-        "datasets" => list(dataset_summary()()),
+        "datasets" => list(dataset_summary()),
         "nextToken" => String.t()
       }
       
@@ -2610,7 +2610,7 @@ defmodule AWS.Personalize do
       
       list_schemas_response() :: %{
         "nextToken" => String.t(),
-        "schemas" => list(dataset_schema_summary()())
+        "schemas" => list(dataset_schema_summary())
       }
       
   """
@@ -2633,7 +2633,7 @@ defmodule AWS.Personalize do
       
       create_dataset_export_job_request() :: %{
         optional("ingestionMode") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("datasetArn") => String.t(),
         required("jobName") => String.t(),
         required("jobOutput") => dataset_export_job_output(),
@@ -2686,7 +2686,7 @@ defmodule AWS.Personalize do
   ## Example:
       
       list_filters_response() :: %{
-        "Filters" => list(filter_summary()()),
+        "Filters" => list(filter_summary()),
         "nextToken" => String.t()
       }
       
@@ -3157,7 +3157,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_batch_inference_job_errors()}
   def create_batch_inference_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchInferenceJob", input, options)
   end
@@ -3175,7 +3176,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_batch_segment_job_errors()}
   def create_batch_segment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBatchSegmentJob", input, options)
   end
@@ -3265,7 +3267,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCampaign", input, options)
   end
@@ -3331,7 +3334,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_data_deletion_job_errors()}
   def create_data_deletion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataDeletionJob", input, options)
   end
@@ -3400,7 +3404,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -3435,7 +3440,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_dataset_export_job_errors()}
   def create_dataset_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetExportJob", input, options)
   end
@@ -3527,7 +3533,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
@@ -3588,7 +3595,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
@@ -3643,7 +3651,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_event_tracker_errors()}
   def create_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventTracker", input, options)
   end
@@ -3659,7 +3668,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_filter_errors()}
   def create_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFilter", input, options)
   end
@@ -3678,7 +3688,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_metric_attribution_errors()}
   def create_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMetricAttribution", input, options)
   end
@@ -3774,7 +3785,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_recommender_errors()}
   def create_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRecommender", input, options)
   end
@@ -3812,7 +3824,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_schema_errors()}
   def create_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSchema", input, options)
   end
@@ -3917,7 +3930,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_solution_errors()}
   def create_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSolution", input, options)
   end
@@ -3992,7 +4006,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, create_solution_version_errors()}
   def create_solution_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSolutionVersion", input, options)
   end
@@ -4014,7 +4029,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCampaign", input, options)
   end
@@ -4034,7 +4050,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -4060,7 +4077,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
@@ -4079,7 +4097,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_event_tracker_errors()}
   def delete_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventTracker", input, options)
   end
@@ -4093,7 +4112,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_filter_errors()}
   def delete_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFilter", input, options)
   end
@@ -4107,7 +4127,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_metric_attribution_errors()}
   def delete_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMetricAttribution", input, options)
   end
@@ -4125,7 +4146,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_recommender_errors()}
   def delete_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRecommender", input, options)
   end
@@ -4143,7 +4165,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_schema_errors()}
   def delete_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSchema", input, options)
   end
@@ -4165,7 +4188,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, delete_solution_errors()}
   def delete_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSolution", input, options)
   end
@@ -4179,7 +4203,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_algorithm_errors()}
   def describe_algorithm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlgorithm", input, options)
   end
@@ -4197,7 +4222,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_batch_inference_job_errors()}
   def describe_batch_inference_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchInferenceJob", input, options)
   end
@@ -4215,7 +4241,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_batch_segment_job_errors()}
   def describe_batch_segment_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchSegmentJob", input, options)
   end
@@ -4243,7 +4270,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_campaign_errors()}
   def describe_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCampaign", input, options)
   end
@@ -4259,7 +4287,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_data_deletion_job_errors()}
   def describe_data_deletion_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataDeletionJob", input, options)
   end
@@ -4276,7 +4305,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -4292,7 +4322,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_dataset_export_job_errors()}
   def describe_dataset_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetExportJob", input, options)
   end
@@ -4310,7 +4341,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
@@ -4326,7 +4358,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
@@ -4345,7 +4378,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_event_tracker_errors()}
   def describe_event_tracker(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventTracker", input, options)
   end
@@ -4359,7 +4393,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_feature_transformation_errors()}
   def describe_feature_transformation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeatureTransformation", input, options)
   end
@@ -4373,7 +4408,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_filter_errors()}
   def describe_filter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFilter", input, options)
   end
@@ -4387,7 +4423,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_metric_attribution_errors()}
   def describe_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetricAttribution", input, options)
   end
@@ -4423,7 +4460,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_recipe_errors()}
   def describe_recipe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecipe", input, options)
   end
@@ -4458,7 +4496,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_recommender_errors()}
   def describe_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommender", input, options)
   end
@@ -4475,7 +4514,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_schema_errors()}
   def describe_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSchema", input, options)
   end
@@ -4492,7 +4532,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_solution_errors()}
   def describe_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSolution", input, options)
   end
@@ -4509,7 +4550,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, describe_solution_version_errors()}
   def describe_solution_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSolutionVersion", input, options)
   end
@@ -4523,7 +4565,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, get_solution_metrics_errors()}
   def get_solution_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSolutionMetrics", input, options)
   end
@@ -4539,7 +4582,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_batch_inference_jobs_errors()}
   def list_batch_inference_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBatchInferenceJobs", input, options)
   end
@@ -4554,7 +4598,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_batch_segment_jobs_errors()}
   def list_batch_segment_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBatchSegmentJobs", input, options)
   end
@@ -4575,7 +4620,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCampaigns", input, options)
   end
@@ -4597,7 +4643,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_data_deletion_jobs_errors()}
   def list_data_deletion_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataDeletionJobs", input, options)
   end
@@ -4619,7 +4666,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_dataset_export_jobs_errors()}
   def list_dataset_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetExportJobs", input, options)
   end
@@ -4638,7 +4686,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
@@ -4660,7 +4709,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
@@ -4679,7 +4729,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -4699,7 +4750,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_event_trackers_errors()}
   def list_event_trackers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventTrackers", input, options)
   end
@@ -4713,7 +4765,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_filters_errors()}
   def list_filters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFilters", input, options)
   end
@@ -4727,7 +4780,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_metric_attribution_metrics_errors()}
   def list_metric_attribution_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricAttributionMetrics", input, options)
   end
@@ -4741,7 +4795,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_metric_attributions_errors()}
   def list_metric_attributions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMetricAttributions", input, options)
   end
@@ -4758,7 +4813,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_recipes_errors()}
   def list_recipes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecipes", input, options)
   end
@@ -4779,7 +4835,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_recommenders_errors()}
   def list_recommenders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommenders", input, options)
   end
@@ -4798,7 +4855,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -4818,7 +4876,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_solution_versions_errors()}
   def list_solution_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSolutionVersions", input, options)
   end
@@ -4839,7 +4898,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSolutions", input, options)
   end
@@ -4855,7 +4915,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4873,7 +4934,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, start_recommender_errors()}
   def start_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRecommender", input, options)
   end
@@ -4890,7 +4952,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, stop_recommender_errors()}
   def stop_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopRecommender", input, options)
   end
@@ -4920,7 +4983,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, stop_solution_version_creation_errors()}
   def stop_solution_version_creation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSolutionVersionCreation", input, options)
   end
@@ -4934,7 +4998,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4950,7 +5015,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4995,7 +5061,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCampaign", input, options)
   end
@@ -5011,7 +5078,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, update_dataset_errors()}
   def update_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataset", input, options)
   end
@@ -5025,7 +5093,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, update_metric_attribution_errors()}
   def update_metric_attribution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMetricAttribution", input, options)
   end
@@ -5049,7 +5118,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, update_recommender_errors()}
   def update_recommender(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRecommender", input, options)
   end
@@ -5080,7 +5150,8 @@ defmodule AWS.Personalize do
           | {:error, term()}
           | {:error, update_solution_errors()}
   def update_solution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSolution", input, options)
   end

@@ -94,7 +94,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         optional("ListenerArn") => String.t(),
         optional("Marker") => String.t(),
         optional("PageSize") => integer(),
-        optional("RuleArns") => list(String.t()())
+        optional("RuleArns") => list(String.t())
       }
       
   """
@@ -116,7 +116,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_capacity_reservation_output() :: %{
-        "CapacityReservationState" => list(zonal_capacity_reservation_state()()),
+        "CapacityReservationState" => list(zonal_capacity_reservation_state()),
         "DecreaseRequestsRemaining" => integer(),
         "LastModifiedTime" => non_neg_integer(),
         "MinimumLoadBalancerCapacity" => minimum_load_balancer_capacity()
@@ -155,9 +155,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       availability_zone() :: %{
-        "LoadBalancerAddresses" => list(load_balancer_address()()),
+        "LoadBalancerAddresses" => list(load_balancer_address()),
         "OutpostId" => String.t(),
-        "SourceNatIpv6Prefixes" => list(String.t()()),
+        "SourceNatIpv6Prefixes" => list(String.t()),
         "SubnetId" => String.t(),
         "ZoneName" => String.t()
       }
@@ -217,7 +217,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       add_trust_store_revocations_output() :: %{
-        "TrustStoreRevocations" => list(trust_store_revocation()())
+        "TrustStoreRevocations" => list(trust_store_revocation())
       }
       
   """
@@ -228,7 +228,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_target_group_output() :: %{
-        "TargetGroups" => list(target_group()())
+        "TargetGroups" => list(target_group())
       }
       
   """
@@ -239,9 +239,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       listener() :: %{
-        "AlpnPolicy" => list(String.t()()),
-        "Certificates" => list(certificate()()),
-        "DefaultActions" => list(action()()),
+        "AlpnPolicy" => list(String.t()),
+        "Certificates" => list(certificate()),
+        "DefaultActions" => list(action()),
         "ListenerArn" => String.t(),
         "LoadBalancerArn" => String.t(),
         "MutualAuthentication" => mutual_authentication_attributes(),
@@ -280,14 +280,14 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_listener_input() :: %{
-        optional("AlpnPolicy") => list(String.t()()),
-        optional("Certificates") => list(certificate()()),
+        optional("AlpnPolicy") => list(String.t()),
+        optional("Certificates") => list(certificate()),
         optional("MutualAuthentication") => mutual_authentication_attributes(),
         optional("Port") => integer(),
         optional("Protocol") => list(any()),
         optional("SslPolicy") => String.t(),
-        optional("Tags") => list(tag()()),
-        required("DefaultActions") => list(action()()),
+        optional("Tags") => list(tag()),
+        required("DefaultActions") => list(action()),
         required("LoadBalancerArn") => String.t()
       }
       
@@ -308,7 +308,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       add_listener_certificates_output() :: %{
-        "Certificates" => list(certificate()())
+        "Certificates" => list(certificate())
       }
       
   """
@@ -319,7 +319,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_target_group_output() :: %{
-        "TargetGroups" => list(target_group()())
+        "TargetGroups" => list(target_group())
       }
       
   """
@@ -332,7 +332,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       set_security_groups_input() :: %{
         optional("EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic") => list(any()),
         required("LoadBalancerArn") => String.t(),
-        required("SecurityGroups") => list(String.t()())
+        required("SecurityGroups") => list(String.t())
       }
       
   """
@@ -366,7 +366,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_target_group_attributes_input() :: %{
-        required("Attributes") => list(target_group_attribute()()),
+        required("Attributes") => list(target_group_attribute()),
         required("TargetGroupArn") => String.t()
       }
       
@@ -378,7 +378,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       add_listener_certificates_input() :: %{
-        required("Certificates") => list(certificate()()),
+        required("Certificates") => list(certificate()),
         required("ListenerArn") => String.t()
       }
       
@@ -392,8 +392,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
       set_subnets_input() :: %{
         optional("EnablePrefixForIpv6SourceNat") => list(any()),
         optional("IpAddressType") => list(any()),
-        optional("SubnetMappings") => list(subnet_mapping()()),
-        optional("Subnets") => list(String.t()()),
+        optional("SubnetMappings") => list(subnet_mapping()),
+        optional("Subnets") => list(String.t()),
         required("LoadBalancerArn") => String.t()
       }
       
@@ -420,10 +420,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       ssl_policy() :: %{
-        "Ciphers" => list(cipher()()),
+        "Ciphers" => list(cipher()),
         "Name" => String.t(),
-        "SslProtocols" => list(String.t()()),
-        "SupportedLoadBalancerTypes" => list(String.t()())
+        "SslProtocols" => list(String.t()),
+        "SupportedLoadBalancerTypes" => list(String.t())
       }
       
   """
@@ -447,7 +447,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_listener_output() :: %{
-        "Listeners" => list(listener()())
+        "Listeners" => list(listener())
       }
       
   """
@@ -459,7 +459,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       deregister_targets_input() :: %{
         required("TargetGroupArn") => String.t(),
-        required("Targets") => list(target_description()())
+        required("Targets") => list(target_description())
       }
       
   """
@@ -481,8 +481,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       add_tags_input() :: %{
-        required("ResourceArns") => list(String.t()()),
-        required("Tags") => list(tag()())
+        required("ResourceArns") => list(String.t()),
+        required("Tags") => list(tag())
       }
       
   """
@@ -542,7 +542,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_rule_output() :: %{
-        "Rules" => list(rule()())
+        "Rules" => list(rule())
       }
       
   """
@@ -553,7 +553,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       add_trust_store_revocations_input() :: %{
-        optional("RevocationContents") => list(revocation_content()()),
+        optional("RevocationContents") => list(revocation_content()),
         required("TrustStoreArn") => String.t()
       }
       
@@ -565,7 +565,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_target_group_attributes_output() :: %{
-        "Attributes" => list(target_group_attribute()())
+        "Attributes" => list(target_group_attribute())
       }
       
   """
@@ -601,7 +601,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_trust_stores_output() :: %{
         "NextMarker" => String.t(),
-        "TrustStores" => list(trust_store()())
+        "TrustStores" => list(trust_store())
       }
       
   """
@@ -614,7 +614,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       describe_ssl_policies_input() :: %{
         optional("LoadBalancerType") => list(any()),
         optional("Marker") => String.t(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("PageSize") => integer()
       }
       
@@ -626,7 +626,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_load_balancer_output() :: %{
-        "LoadBalancers" => list(load_balancer()())
+        "LoadBalancers" => list(load_balancer())
       }
       
   """
@@ -698,7 +698,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       create_trust_store_input() :: %{
         optional("CaCertificatesBundleS3ObjectVersion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CaCertificatesBundleS3Bucket") => String.t(),
         required("CaCertificatesBundleS3Key") => String.t(),
         required("Name") => String.t()
@@ -723,7 +723,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       query_string_condition_config() :: %{
-        "Values" => list(query_string_key_value_pair()())
+        "Values" => list(query_string_key_value_pair())
       }
       
   """
@@ -768,7 +768,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       host_header_condition_config() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -780,7 +780,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_ssl_policies_output() :: %{
         "NextMarker" => String.t(),
-        "SslPolicies" => list(ssl_policy()())
+        "SslPolicies" => list(ssl_policy())
       }
       
   """
@@ -854,7 +854,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_tags_input() :: %{
-        required("ResourceArns") => list(String.t()())
+        required("ResourceArns") => list(String.t())
       }
       
   """
@@ -888,7 +888,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         optional("Port") => integer(),
         optional("Protocol") => list(any()),
         optional("ProtocolVersion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetType") => list(any()),
         optional("UnhealthyThresholdCount") => integer(),
         optional("VpcId") => String.t(),
@@ -935,9 +935,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_listener_input() :: %{
-        optional("AlpnPolicy") => list(String.t()()),
-        optional("Certificates") => list(certificate()()),
-        optional("DefaultActions") => list(action()()),
+        optional("AlpnPolicy") => list(String.t()),
+        optional("Certificates") => list(certificate()),
+        optional("DefaultActions") => list(action()),
         optional("MutualAuthentication") => mutual_authentication_attributes(),
         optional("Port") => integer(),
         optional("Protocol") => list(any()),
@@ -986,7 +986,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       set_rule_priorities_output() :: %{
-        "Rules" => list(rule()())
+        "Rules" => list(rule())
       }
       
   """
@@ -998,7 +998,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       tag_description() :: %{
         "ResourceArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1032,7 +1032,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       set_subnets_output() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "EnablePrefixForIpv6SourceNat" => list(any()),
         "IpAddressType" => list(any())
       }
@@ -1056,7 +1056,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_listener_output() :: %{
-        "Listeners" => list(listener()())
+        "Listeners" => list(listener())
       }
       
   """
@@ -1133,7 +1133,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_listener_attributes_output() :: %{
-        "Attributes" => list(listener_attribute()())
+        "Attributes" => list(listener_attribute())
       }
       
   """
@@ -1167,7 +1167,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       remove_listener_certificates_input() :: %{
-        required("Certificates") => list(certificate()()),
+        required("Certificates") => list(certificate()),
         required("ListenerArn") => String.t()
       }
       
@@ -1180,7 +1180,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       forward_action_config() :: %{
         "TargetGroupStickinessConfig" => target_group_stickiness_config(),
-        "TargetGroups" => list(target_group_tuple()())
+        "TargetGroups" => list(target_group_tuple())
       }
       
   """
@@ -1213,7 +1213,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_tags_output() :: %{
-        "TagDescriptions" => list(tag_description()())
+        "TagDescriptions" => list(tag_description())
       }
       
   """
@@ -1247,9 +1247,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_trust_stores_input() :: %{
         optional("Marker") => String.t(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("PageSize") => integer(),
-        optional("TrustStoreArns") => list(String.t()())
+        optional("TrustStoreArns") => list(String.t())
       }
       
   """
@@ -1282,7 +1282,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_listener_certificates_output() :: %{
-        "Certificates" => list(certificate()()),
+        "Certificates" => list(certificate()),
         "NextMarker" => String.t()
       }
       
@@ -1333,8 +1333,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       rule() :: %{
-        "Actions" => list(action()()),
-        "Conditions" => list(rule_condition()()),
+        "Actions" => list(action()),
+        "Conditions" => list(rule_condition()),
         "IsDefault" => boolean(),
         "Priority" => String.t(),
         "RuleArn" => String.t()
@@ -1348,9 +1348,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_rule_input() :: %{
-        optional("Tags") => list(tag()()),
-        required("Actions") => list(action()()),
-        required("Conditions") => list(rule_condition()()),
+        optional("Tags") => list(tag()),
+        required("Actions") => list(action()),
+        required("Conditions") => list(rule_condition()),
         required("ListenerArn") => String.t(),
         required("Priority") => integer()
       }
@@ -1363,7 +1363,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       set_rule_priorities_input() :: %{
-        required("RulePriorities") => list(rule_priority_pair()())
+        required("RulePriorities") => list(rule_priority_pair())
       }
       
   """
@@ -1374,7 +1374,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_account_limits_output() :: %{
-        "Limits" => list(limit()()),
+        "Limits" => list(limit()),
         "NextMarker" => String.t()
       }
       
@@ -1417,9 +1417,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_load_balancers_input() :: %{
-        optional("LoadBalancerArns") => list(String.t()()),
+        optional("LoadBalancerArns") => list(String.t()),
         optional("Marker") => String.t(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("PageSize") => integer()
       }
       
@@ -1476,7 +1476,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_listeners_output() :: %{
-        "Listeners" => list(listener()()),
+        "Listeners" => list(listener()),
         "NextMarker" => String.t()
       }
       
@@ -1488,7 +1488,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_load_balancer_attributes_output() :: %{
-        "Attributes" => list(load_balancer_attribute()())
+        "Attributes" => list(load_balancer_attribute())
       }
       
   """
@@ -1511,7 +1511,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_load_balancer_attributes_output() :: %{
-        "Attributes" => list(load_balancer_attribute()())
+        "Attributes" => list(load_balancer_attribute())
       }
       
   """
@@ -1534,7 +1534,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       remove_trust_store_revocations_input() :: %{
-        required("RevocationIds") => list(float()()),
+        required("RevocationIds") => list(float()),
         required("TrustStoreArn") => String.t()
       }
       
@@ -1606,7 +1606,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_listener_attributes_output() :: %{
-        "Attributes" => list(listener_attribute()())
+        "Attributes" => list(listener_attribute())
       }
       
   """
@@ -1618,7 +1618,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_trust_store_associations_output() :: %{
         "NextMarker" => String.t(),
-        "TrustStoreAssociations" => list(trust_store_association()())
+        "TrustStoreAssociations" => list(trust_store_association())
       }
       
   """
@@ -1659,7 +1659,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_target_groups_output() :: %{
         "NextMarker" => String.t(),
-        "TargetGroups" => list(target_group()())
+        "TargetGroups" => list(target_group())
       }
       
   """
@@ -1702,7 +1702,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       http_request_method_condition_config() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1726,7 +1726,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       describe_trust_store_revocations_input() :: %{
         optional("Marker") => String.t(),
         optional("PageSize") => integer(),
-        optional("RevocationIds") => list(float()()),
+        optional("RevocationIds") => list(float()),
         required("TrustStoreArn") => String.t()
       }
       
@@ -1756,7 +1756,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "PathPatternConfig" => path_pattern_condition_config(),
         "QueryStringConfig" => query_string_condition_config(),
         "SourceIpConfig" => source_ip_condition_config(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1767,7 +1767,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_capacity_reservation_output() :: %{
-        "CapacityReservationState" => list(zonal_capacity_reservation_state()()),
+        "CapacityReservationState" => list(zonal_capacity_reservation_state()),
         "DecreaseRequestsRemaining" => integer(),
         "LastModifiedTime" => non_neg_integer(),
         "MinimumLoadBalancerCapacity" => minimum_load_balancer_capacity()
@@ -1816,7 +1816,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_load_balancer_attributes_input() :: %{
-        required("Attributes") => list(load_balancer_attribute()()),
+        required("Attributes") => list(load_balancer_attribute()),
         required("LoadBalancerArn") => String.t()
       }
       
@@ -1833,10 +1833,10 @@ defmodule AWS.ElasticLoadBalancingv2 do
         optional("IpAddressType") => list(any()),
         optional("IpamPools") => ipam_pools(),
         optional("Scheme") => list(any()),
-        optional("SecurityGroups") => list(String.t()()),
-        optional("SubnetMappings") => list(subnet_mapping()()),
-        optional("Subnets") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SecurityGroups") => list(String.t()),
+        optional("SubnetMappings") => list(subnet_mapping()),
+        optional("Subnets") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("Type") => list(any()),
         required("Name") => String.t()
       }
@@ -1890,7 +1890,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "HealthCheckTimeoutSeconds" => integer(),
         "HealthyThresholdCount" => integer(),
         "IpAddressType" => list(any()),
-        "LoadBalancerArns" => list(String.t()()),
+        "LoadBalancerArns" => list(String.t()),
         "Matcher" => matcher(),
         "Port" => integer(),
         "Protocol" => list(any()),
@@ -1910,7 +1910,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       load_balancer() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "CanonicalHostedZoneId" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "CustomerOwnedIpv4Pool" => String.t(),
@@ -1922,7 +1922,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
         "LoadBalancerArn" => String.t(),
         "LoadBalancerName" => String.t(),
         "Scheme" => list(any()),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "State" => load_balancer_state(),
         "Type" => list(any()),
         "VpcId" => String.t()
@@ -1937,7 +1937,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_target_health_input() :: %{
         optional("Include") => list(list(any())()),
-        optional("Targets") => list(target_description()()),
+        optional("Targets") => list(target_description()),
         required("TargetGroupArn") => String.t()
       }
       
@@ -1973,7 +1973,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_trust_store_revocations_output() :: %{
         "NextMarker" => String.t(),
-        "TrustStoreRevocations" => list(describe_trust_store_revocation()())
+        "TrustStoreRevocations" => list(describe_trust_store_revocation())
       }
       
   """
@@ -1984,7 +1984,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_listeners_input() :: %{
-        optional("ListenerArns") => list(String.t()()),
+        optional("ListenerArns") => list(String.t()),
         optional("LoadBalancerArn") => String.t(),
         optional("Marker") => String.t(),
         optional("PageSize") => integer()
@@ -1999,7 +1999,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       register_targets_input() :: %{
         required("TargetGroupArn") => String.t(),
-        required("Targets") => list(target_description()())
+        required("Targets") => list(target_description())
       }
       
   """
@@ -2113,7 +2113,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       describe_rules_output() :: %{
         "NextMarker" => String.t(),
-        "Rules" => list(rule()())
+        "Rules" => list(rule())
       }
       
   """
@@ -2150,8 +2150,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_rule_input() :: %{
-        optional("Actions") => list(action()()),
-        optional("Conditions") => list(rule_condition()()),
+        optional("Actions") => list(action()),
+        optional("Conditions") => list(rule_condition()),
         required("RuleArn") => String.t()
       }
       
@@ -2218,7 +2218,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_load_balancers_output() :: %{
-        "LoadBalancers" => list(load_balancer()()),
+        "LoadBalancers" => list(load_balancer()),
         "NextMarker" => String.t()
       }
       
@@ -2279,9 +2279,9 @@ defmodule AWS.ElasticLoadBalancingv2 do
       describe_target_groups_input() :: %{
         optional("LoadBalancerArn") => String.t(),
         optional("Marker") => String.t(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("PageSize") => integer(),
-        optional("TargetGroupArns") => list(String.t()())
+        optional("TargetGroupArns") => list(String.t())
       }
       
   """
@@ -2303,8 +2303,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       remove_tags_input() :: %{
-        required("ResourceArns") => list(String.t()()),
-        required("TagKeys") => list(String.t()())
+        required("ResourceArns") => list(String.t()),
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -2316,7 +2316,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       http_header_condition_config() :: %{
         "HttpHeaderName" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2338,7 +2338,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       path_pattern_condition_config() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2408,7 +2408,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       describe_target_health_output() :: %{
-        "TargetHealthDescriptions" => list(target_health_description()())
+        "TargetHealthDescriptions" => list(target_health_description())
       }
       
   """
@@ -2419,7 +2419,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       source_ip_condition_config() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2453,7 +2453,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       create_trust_store_output() :: %{
-        "TrustStores" => list(trust_store()())
+        "TrustStores" => list(trust_store())
       }
       
   """
@@ -2465,7 +2465,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       set_security_groups_output() :: %{
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => list(any()),
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t())
       }
       
   """
@@ -2476,7 +2476,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_trust_store_output() :: %{
-        "TrustStores" => list(trust_store()())
+        "TrustStores" => list(trust_store())
       }
       
   """
@@ -2521,7 +2521,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_listener_attributes_input() :: %{
-        required("Attributes") => list(listener_attribute()()),
+        required("Attributes") => list(listener_attribute()),
         required("ListenerArn") => String.t()
       }
       
@@ -2553,7 +2553,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_rule_output() :: %{
-        "Rules" => list(rule()())
+        "Rules" => list(rule())
       }
       
   """
@@ -2588,7 +2588,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
   ## Example:
       
       modify_target_group_attributes_output() :: %{
-        "Attributes" => list(target_group_attribute()())
+        "Attributes" => list(target_group_attribute())
       }
       
   """
@@ -2899,7 +2899,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_listener_certificates_errors()}
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddListenerCertificates", input, options)
   end
@@ -2922,7 +2923,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -2936,7 +2938,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_trust_store_revocations_errors()}
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTrustStoreRevocations", input, options)
   end
@@ -2973,7 +2976,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
@@ -3007,7 +3011,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -3034,7 +3039,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3070,7 +3076,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTargetGroup", input, options)
   end
@@ -3086,7 +3093,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrustStore", input, options)
   end
@@ -3104,7 +3112,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
@@ -3132,7 +3141,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -3148,7 +3158,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -3166,7 +3177,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_shared_trust_store_association_errors()}
   def delete_shared_trust_store_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSharedTrustStoreAssociation", input, options)
   end
@@ -3188,7 +3200,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTargetGroup", input, options)
   end
@@ -3202,7 +3215,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrustStore", input, options)
   end
@@ -3251,7 +3265,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTargets", input, options)
   end
@@ -3283,7 +3298,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3297,7 +3313,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_capacity_reservation_errors()}
   def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservation", input, options)
   end
@@ -3311,7 +3328,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_attributes_errors()}
   def describe_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListenerAttributes", input, options)
   end
@@ -3338,7 +3356,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_certificates_errors()}
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListenerCertificates", input, options)
   end
@@ -3357,7 +3376,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listeners_errors()}
   def describe_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListeners", input, options)
   end
@@ -3397,7 +3417,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -3411,7 +3432,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3428,7 +3450,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_rules_errors()}
   def describe_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRules", input, options)
   end
@@ -3447,7 +3470,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_ssl_policies_errors()}
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSSLPolicies", input, options)
   end
@@ -3466,7 +3490,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3500,7 +3525,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_group_attributes_errors()}
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroupAttributes", input, options)
   end
@@ -3521,7 +3547,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_groups_errors()}
   def describe_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroups", input, options)
   end
@@ -3535,7 +3562,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_health_errors()}
   def describe_target_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetHealth", input, options)
   end
@@ -3553,7 +3581,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_associations_errors()}
   def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreAssociations", input, options)
   end
@@ -3568,7 +3597,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_revocations_errors()}
   def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreRevocations", input, options)
   end
@@ -3582,7 +3612,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_stores_errors()}
   def describe_trust_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStores", input, options)
   end
@@ -3596,7 +3627,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3617,7 +3649,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreCaCertificatesBundle", input, options)
   end
@@ -3638,7 +3671,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_revocation_content_errors()}
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
   end
@@ -3656,7 +3690,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_capacity_reservation_errors()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
@@ -3670,7 +3705,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_ip_pools_errors()}
   def modify_ip_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpPools", input, options)
   end
@@ -3699,7 +3735,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_errors()}
   def modify_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyListener", input, options)
   end
@@ -3713,7 +3750,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_attributes_errors()}
   def modify_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyListenerAttributes", input, options)
   end
@@ -3733,7 +3771,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
@@ -3756,7 +3795,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_rule_errors()}
   def modify_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyRule", input, options)
   end
@@ -3772,7 +3812,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_errors()}
   def modify_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroup", input, options)
   end
@@ -3786,7 +3827,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_attributes_errors()}
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroupAttributes", input, options)
   end
@@ -3800,7 +3842,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_trust_store_errors()}
   def modify_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrustStore", input, options)
   end
@@ -3842,7 +3885,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTargets", input, options)
   end
@@ -3858,7 +3902,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_listener_certificates_errors()}
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveListenerCertificates", input, options)
   end
@@ -3877,7 +3922,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -3891,7 +3937,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_trust_store_revocations_errors()}
   def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTrustStoreRevocations", input, options)
   end
@@ -3906,7 +3953,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
@@ -3924,7 +3972,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_rule_priorities_errors()}
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRulePriorities", input, options)
   end
@@ -3949,7 +3998,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_security_groups_errors()}
   def set_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSecurityGroups", input, options)
   end
@@ -3973,7 +4023,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_subnets_errors()}
   def set_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSubnets", input, options)
   end

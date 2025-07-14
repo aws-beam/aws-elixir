@@ -63,7 +63,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_analysis_schemes_response() :: %{
-        "AnalysisSchemes" => list(analysis_scheme_status()())
+        "AnalysisSchemes" => list(analysis_scheme_status())
       }
       
   """
@@ -227,7 +227,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_domains_request() :: %{
-        optional("DomainNames") => list(String.t()())
+        optional("DomainNames") => list(String.t())
       }
       
   """
@@ -340,7 +340,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_suggesters_response() :: %{
-        "Suggesters" => list(suggester_status()())
+        "Suggesters" => list(suggester_status())
       }
       
   """
@@ -524,7 +524,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       index_documents_response() :: %{
-        "FieldNames" => list(String.t()())
+        "FieldNames" => list(String.t())
       }
       
   """
@@ -547,7 +547,7 @@ defmodule AWS.CloudSearch do
       
       describe_index_fields_request() :: %{
         optional("Deployed") => boolean(),
-        optional("FieldNames") => list(String.t()()),
+        optional("FieldNames") => list(String.t()),
         required("DomainName") => String.t()
       }
       
@@ -603,7 +603,7 @@ defmodule AWS.CloudSearch do
       
       describe_suggesters_request() :: %{
         optional("Deployed") => boolean(),
-        optional("SuggesterNames") => list(String.t()()),
+        optional("SuggesterNames") => list(String.t()),
         required("DomainName") => String.t()
       }
       
@@ -682,7 +682,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_analysis_schemes_request() :: %{
-        optional("AnalysisSchemeNames") => list(String.t()()),
+        optional("AnalysisSchemeNames") => list(String.t()),
         optional("Deployed") => boolean(),
         required("DomainName") => String.t()
       }
@@ -745,7 +745,7 @@ defmodule AWS.CloudSearch do
       
       describe_expressions_request() :: %{
         optional("Deployed") => boolean(),
-        optional("ExpressionNames") => list(String.t()()),
+        optional("ExpressionNames") => list(String.t()),
         required("DomainName") => String.t()
       }
       
@@ -819,7 +819,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       build_suggesters_response() :: %{
-        "FieldNames" => list(String.t()())
+        "FieldNames" => list(String.t())
       }
       
   """
@@ -940,7 +940,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_index_fields_response() :: %{
-        "IndexFields" => list(index_field_status()())
+        "IndexFields" => list(index_field_status())
       }
       
   """
@@ -951,7 +951,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_domains_response() :: %{
-        "DomainStatusList" => list(domain_status()())
+        "DomainStatusList" => list(domain_status())
       }
       
   """
@@ -986,7 +986,7 @@ defmodule AWS.CloudSearch do
   ## Example:
       
       describe_expressions_response() :: %{
-        "Expressions" => list(expression_status()())
+        "Expressions" => list(expression_status())
       }
       
   """
@@ -1324,7 +1324,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, build_suggesters_errors()}
   def build_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BuildSuggesters", input, options)
   end
@@ -1342,7 +1343,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, create_domain_errors()}
   def create_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDomain", input, options)
   end
@@ -1360,7 +1362,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_analysis_scheme_errors()}
   def define_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineAnalysisScheme", input, options)
   end
@@ -1379,7 +1382,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_expression_errors()}
   def define_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineExpression", input, options)
   end
@@ -1401,7 +1405,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_index_field_errors()}
   def define_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineIndexField", input, options)
   end
@@ -1421,7 +1426,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, define_suggester_errors()}
   def define_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DefineSuggester", input, options)
   end
@@ -1438,7 +1444,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_analysis_scheme_errors()}
   def delete_analysis_scheme(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAnalysisScheme", input, options)
   end
@@ -1456,7 +1463,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_domain_errors()}
   def delete_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDomain", input, options)
   end
@@ -1473,7 +1481,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_expression_errors()}
   def delete_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExpression", input, options)
   end
@@ -1490,7 +1499,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_index_field_errors()}
   def delete_index_field(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndexField", input, options)
   end
@@ -1507,7 +1517,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, delete_suggester_errors()}
   def delete_suggester(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSuggester", input, options)
   end
@@ -1529,7 +1540,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_analysis_schemes_errors()}
   def describe_analysis_schemes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAnalysisSchemes", input, options)
   end
@@ -1548,7 +1560,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_availability_options_errors()}
   def describe_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityOptions", input, options)
   end
@@ -1570,7 +1583,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_domain_endpoint_options_errors()}
   def describe_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomainEndpointOptions", input, options)
   end
@@ -1591,7 +1605,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_domains_errors()}
   def describe_domains(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDomains", input, options)
   end
@@ -1611,7 +1626,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_expressions_errors()}
   def describe_expressions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExpressions", input, options)
   end
@@ -1632,7 +1648,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_index_fields_errors()}
   def describe_index_fields(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndexFields", input, options)
   end
@@ -1650,7 +1667,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_scaling_parameters_errors()}
   def describe_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingParameters", input, options)
   end
@@ -1675,7 +1693,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_service_access_policies_errors()}
   def describe_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceAccessPolicies", input, options)
   end
@@ -1696,7 +1715,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, describe_suggesters_errors()}
   def describe_suggesters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSuggesters", input, options)
   end
@@ -1714,7 +1734,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, index_documents_errors()}
   def index_documents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IndexDocuments", input, options)
   end
@@ -1728,7 +1749,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, list_domain_names_errors()}
   def list_domain_names(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDomainNames", input, options)
   end
@@ -1749,7 +1771,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_availability_options_errors()}
   def update_availability_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityOptions", input, options)
   end
@@ -1767,7 +1790,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_domain_endpoint_options_errors()}
   def update_domain_endpoint_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDomainEndpointOptions", input, options)
   end
@@ -1789,7 +1813,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_scaling_parameters_errors()}
   def update_scaling_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScalingParameters", input, options)
   end
@@ -1808,7 +1833,8 @@ defmodule AWS.CloudSearch do
           | {:error, term()}
           | {:error, update_service_access_policies_errors()}
   def update_service_access_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAccessPolicies", input, options)
   end

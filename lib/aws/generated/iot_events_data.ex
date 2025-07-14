@@ -34,7 +34,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_reset_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry()())
+        "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
@@ -59,8 +59,8 @@ defmodule AWS.IoTEventsData do
 
       detector_state() :: %{
         "stateName" => String.t(),
-        "timers" => list(timer()()),
-        "variables" => list(variable()())
+        "timers" => list(timer()),
+        "variables" => list(variable())
       }
 
   """
@@ -71,7 +71,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_snooze_alarm_request() :: %{
-        required("snoozeActionRequests") => list(snooze_alarm_action_request()())
+        required("snoozeActionRequests") => list(snooze_alarm_action_request())
       }
 
   """
@@ -161,7 +161,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_acknowledge_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry()())
+        "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
@@ -186,7 +186,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_put_message_request() :: %{
-        required("messages") => list(message()())
+        required("messages") => list(message())
       }
 
   """
@@ -208,7 +208,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_delete_detector_response() :: %{
-        "batchDeleteDetectorErrorEntries" => list(batch_delete_detector_error_entry()())
+        "batchDeleteDetectorErrorEntries" => list(batch_delete_detector_error_entry())
       }
 
   """
@@ -259,7 +259,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_acknowledge_alarm_request() :: %{
-        required("acknowledgeActionRequests") => list(acknowledge_alarm_action_request()())
+        required("acknowledgeActionRequests") => list(acknowledge_alarm_action_request())
       }
 
   """
@@ -329,7 +329,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_update_detector_request() :: %{
-        required("detectors") => list(update_detector_request()())
+        required("detectors") => list(update_detector_request())
       }
 
   """
@@ -340,7 +340,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_snooze_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry()())
+        "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
@@ -379,8 +379,8 @@ defmodule AWS.IoTEventsData do
 
       detector_state_definition() :: %{
         "stateName" => String.t(),
-        "timers" => list(timer_definition()()),
-        "variables" => list(variable_definition()())
+        "timers" => list(timer_definition()),
+        "variables" => list(variable_definition())
       }
 
   """
@@ -443,7 +443,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_disable_alarm_request() :: %{
-        required("disableActionRequests") => list(disable_alarm_action_request()())
+        required("disableActionRequests") => list(disable_alarm_action_request())
       }
 
   """
@@ -454,7 +454,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       list_alarms_response() :: %{
-        "alarmSummaries" => list(alarm_summary()()),
+        "alarmSummaries" => list(alarm_summary()),
         "nextToken" => String.t()
       }
 
@@ -488,7 +488,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_enable_alarm_request() :: %{
-        required("enableActionRequests") => list(enable_alarm_action_request()())
+        required("enableActionRequests") => list(enable_alarm_action_request())
       }
 
   """
@@ -499,7 +499,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_reset_alarm_request() :: %{
-        required("resetActionRequests") => list(reset_alarm_action_request()())
+        required("resetActionRequests") => list(reset_alarm_action_request())
       }
 
   """
@@ -521,7 +521,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_delete_detector_request() :: %{
-        required("detectors") => list(delete_detector_request()())
+        required("detectors") => list(delete_detector_request())
       }
 
   """
@@ -532,7 +532,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       list_detectors_response() :: %{
-        "detectorSummaries" => list(detector_summary()()),
+        "detectorSummaries" => list(detector_summary()),
         "nextToken" => String.t()
       }
 
@@ -655,7 +655,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_update_detector_response() :: %{
-        "batchUpdateDetectorErrorEntries" => list(batch_update_detector_error_entry()())
+        "batchUpdateDetectorErrorEntries" => list(batch_update_detector_error_entry())
       }
 
   """
@@ -666,7 +666,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_enable_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry()())
+        "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """
@@ -704,7 +704,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_put_message_response() :: %{
-        "BatchPutMessageErrorEntries" => list(batch_put_message_error_entry()())
+        "BatchPutMessageErrorEntries" => list(batch_put_message_error_entry())
       }
 
   """
@@ -753,7 +753,7 @@ defmodule AWS.IoTEventsData do
   ## Example:
 
       batch_disable_alarm_response() :: %{
-        "errorEntries" => list(batch_alarm_action_error_entry()())
+        "errorEntries" => list(batch_alarm_action_error_entry())
       }
 
   """

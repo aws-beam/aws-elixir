@@ -107,7 +107,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_entities_request() :: %{
-        optional("filters") => list(list()()),
+        optional("filters") => list(list()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -151,8 +151,8 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       tabular_conditions() :: %{
-        "orderBy" => list(order_by()()),
-        "propertyFilters" => list(property_filter()())
+        "orderBy" => list(order_by()),
+        "propertyFilters" => list(property_filter())
       }
 
   """
@@ -199,7 +199,7 @@ defmodule AWS.IoTTwinMaker do
 
       list_properties_response() :: %{
         "nextToken" => String.t(),
-        "propertySummaries" => list(property_summary()())
+        "propertySummaries" => list(property_summary())
       }
 
   """
@@ -210,7 +210,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       iot_twin_maker_source_configuration() :: %{
-        "filters" => list(list()()),
+        "filters" => list(list()),
         "workspace" => String.t()
       }
 
@@ -243,7 +243,7 @@ defmodule AWS.IoTTwinMaker do
         optional("nextToken") => String.t(),
         optional("propertyGroupName") => String.t(),
         optional("tabularConditions") => tabular_conditions(),
-        required("selectedProperties") => list(String.t()())
+        required("selectedProperties") => list(String.t())
       }
 
   """
@@ -257,7 +257,7 @@ defmodule AWS.IoTTwinMaker do
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
         optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()()),
+        optional("extendsFrom") => list(String.t()),
         optional("functions") => map(),
         optional("isSingleton") => boolean(),
         optional("propertyDefinitions") => map(),
@@ -385,7 +385,7 @@ defmodule AWS.IoTTwinMaker do
         "arn" => String.t(),
         "creationDateTime" => non_neg_integer(),
         "description" => String.t(),
-        "linkedServices" => list(String.t()()),
+        "linkedServices" => list(String.t()),
         "updateDateTime" => non_neg_integer(),
         "workspaceId" => String.t()
       }
@@ -400,7 +400,7 @@ defmodule AWS.IoTTwinMaker do
       component_property_group_response() :: %{
         "groupType" => String.t(),
         "isInherited" => boolean(),
-        "propertyNames" => list(String.t()())
+        "propertyNames" => list(String.t())
       }
 
   """
@@ -507,7 +507,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       data_type() :: %{
-        "allowedValues" => list(data_value()()),
+        "allowedValues" => list(data_value()),
         "nestedType" => data_type(),
         "relationship" => relationship(),
         "type" => String.t(),
@@ -563,7 +563,7 @@ defmodule AWS.IoTTwinMaker do
 
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -642,7 +642,7 @@ defmodule AWS.IoTTwinMaker do
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
         optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()()),
+        optional("extendsFrom") => list(String.t()),
         optional("functions") => map(),
         optional("isSingleton") => boolean(),
         optional("propertyDefinitions") => map(),
@@ -658,7 +658,7 @@ defmodule AWS.IoTTwinMaker do
 
       property_group_request() :: %{
         "groupType" => String.t(),
-        "propertyNames" => list(String.t()())
+        "propertyNames" => list(String.t())
       }
 
   """
@@ -707,7 +707,7 @@ defmodule AWS.IoTTwinMaker do
 
       property_value_entry() :: %{
         "entityPropertyReference" => entity_property_reference(),
-        "propertyValues" => list(property_value()())
+        "propertyValues" => list(property_value())
       }
 
   """
@@ -719,7 +719,7 @@ defmodule AWS.IoTTwinMaker do
 
       component_property_group_request() :: %{
         "groupType" => String.t(),
-        "propertyNames" => list(String.t()()),
+        "propertyNames" => list(String.t()),
         "updateType" => String.t()
       }
 
@@ -739,7 +739,7 @@ defmodule AWS.IoTTwinMaker do
         "metadataTransferJobRole" => String.t(),
         "progress" => metadata_transfer_job_progress(),
         "reportUrl" => String.t(),
-        "sources" => list(source_configuration()()),
+        "sources" => list(source_configuration()),
         "status" => metadata_transfer_job_status(),
         "updateDateTime" => non_neg_integer()
       }
@@ -753,7 +753,7 @@ defmodule AWS.IoTTwinMaker do
 
       get_property_value_history_response() :: %{
         optional("nextToken") => String.t(),
-        required("propertyValues") => list(property_value_history()())
+        required("propertyValues") => list(property_value_history())
       }
 
   """
@@ -764,7 +764,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       batch_put_property_values_request() :: %{
-        required("entries") => list(property_value_entry()())
+        required("entries") => list(property_value_entry())
       }
 
   """
@@ -800,7 +800,7 @@ defmodule AWS.IoTTwinMaker do
         optional("componentTypeName") => String.t(),
         optional("compositeComponentTypes") => map(),
         optional("description") => String.t(),
-        optional("extendsFrom") => list(String.t()()),
+        optional("extendsFrom") => list(String.t()),
         optional("functions") => map(),
         optional("isAbstract") => boolean(),
         optional("isSchemaInitialized") => boolean(),
@@ -850,7 +850,7 @@ defmodule AWS.IoTTwinMaker do
 
       list_sync_jobs_response() :: %{
         optional("nextToken") => String.t(),
-        optional("syncJobSummaries") => list(sync_job_summary()())
+        optional("syncJobSummaries") => list(sync_job_summary())
       }
 
   """
@@ -881,7 +881,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       batch_put_property_values_response() :: %{
-        required("errorEntries") => list(batch_put_property_error_entry()())
+        required("errorEntries") => list(batch_put_property_error_entry())
       }
 
   """
@@ -904,7 +904,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       row() :: %{
-        "rowData" => list(any()())
+        "rowData" => list(any())
       }
 
   """
@@ -999,7 +999,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       get_scene_response() :: %{
-        optional("capabilities") => list(String.t()()),
+        optional("capabilities") => list(String.t()),
         optional("description") => String.t(),
         optional("error") => scene_error(),
         optional("generatedSceneMetadata") => map(),
@@ -1097,7 +1097,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       batch_put_property_error_entry() :: %{
-        "errors" => list(batch_put_property_error()())
+        "errors" => list(batch_put_property_error())
       }
 
   """
@@ -1204,7 +1204,7 @@ defmodule AWS.IoTTwinMaker do
 
       function_request() :: %{
         "implementedBy" => data_connector(),
-        "requiredProperties" => list(String.t()()),
+        "requiredProperties" => list(String.t()),
         "scope" => String.t()
       }
 
@@ -1231,7 +1231,7 @@ defmodule AWS.IoTTwinMaker do
       property_group_response() :: %{
         "groupType" => String.t(),
         "isInherited" => boolean(),
-        "propertyNames" => list(String.t()())
+        "propertyNames" => list(String.t())
       }
 
   """
@@ -1300,7 +1300,7 @@ defmodule AWS.IoTTwinMaker do
       list_component_types_response() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        required("componentTypeSummaries") => list(component_type_summary()()),
+        required("componentTypeSummaries") => list(component_type_summary()),
         required("workspaceId") => String.t()
       }
 
@@ -1351,7 +1351,7 @@ defmodule AWS.IoTTwinMaker do
 
       list_sync_resources_response() :: %{
         optional("nextToken") => String.t(),
-        optional("syncResources") => list(sync_resource_summary()())
+        optional("syncResources") => list(sync_resource_summary())
       }
 
   """
@@ -1363,7 +1363,7 @@ defmodule AWS.IoTTwinMaker do
 
       list_workspaces_response() :: %{
         optional("nextToken") => String.t(),
-        optional("workspaceSummaries") => list(workspace_summary()())
+        optional("workspaceSummaries") => list(workspace_summary())
       }
 
   """
@@ -1395,7 +1395,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_metadata_transfer_jobs_request() :: %{
-        optional("filters") => list(list()()),
+        optional("filters") => list(list()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("destinationType") => String.t(),
@@ -1472,7 +1472,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_sync_resources_request() :: %{
-        optional("filters") => list(list()()),
+        optional("filters") => list(list()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1626,7 +1626,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       update_pricing_plan_request() :: %{
-        optional("bundleNames") => list(String.t()()),
+        optional("bundleNames") => list(String.t()),
         required("pricingMode") => String.t()
       }
 
@@ -1652,9 +1652,9 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       execute_query_response() :: %{
-        optional("columnDescriptions") => list(column_description()()),
+        optional("columnDescriptions") => list(column_description()),
         optional("nextToken") => String.t(),
-        optional("rows") => list(row()())
+        optional("rows") => list(row())
       }
 
   """
@@ -1697,10 +1697,10 @@ defmodule AWS.IoTTwinMaker do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("orderByTime") => String.t(),
-        optional("propertyFilters") => list(property_filter()()),
+        optional("propertyFilters") => list(property_filter()),
         optional("startDateTime") => non_neg_integer(),
         optional("startTime") => String.t(),
-        required("selectedProperties") => list(String.t()())
+        required("selectedProperties") => list(String.t())
       }
 
   """
@@ -1722,7 +1722,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_components_response() :: %{
-        "componentSummaries" => list(component_summary()()),
+        "componentSummaries" => list(component_summary()),
         "nextToken" => String.t()
       }
 
@@ -1751,7 +1751,7 @@ defmodule AWS.IoTTwinMaker do
         optional("description") => String.t(),
         optional("metadataTransferJobId") => String.t(),
         required("destination") => destination_configuration(),
-        required("sources") => list(source_configuration()())
+        required("sources") => list(source_configuration())
       }
 
   """
@@ -1762,7 +1762,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       bundle_information() :: %{
-        "bundleNames" => list(String.t()()),
+        "bundleNames" => list(String.t()),
         "pricingTier" => String.t()
       }
 
@@ -1785,7 +1785,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       create_scene_request() :: %{
-        optional("capabilities") => list(String.t()()),
+        optional("capabilities") => list(String.t()),
         optional("description") => String.t(),
         optional("sceneMetadata") => map(),
         optional("tags") => map(),
@@ -1801,7 +1801,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_metadata_transfer_jobs_response() :: %{
-        "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()()),
+        "metadataTransferJobSummaries" => list(metadata_transfer_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1835,7 +1835,7 @@ defmodule AWS.IoTTwinMaker do
 
       property_value_history() :: %{
         "entityPropertyReference" => entity_property_reference(),
-        "values" => list(property_value()())
+        "values" => list(property_value())
       }
 
   """
@@ -1869,7 +1869,7 @@ defmodule AWS.IoTTwinMaker do
       function_response() :: %{
         "implementedBy" => data_connector(),
         "isInherited" => boolean(),
-        "requiredProperties" => list(String.t()()),
+        "requiredProperties" => list(String.t()),
         "scope" => String.t()
       }
 
@@ -1881,7 +1881,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_entities_response() :: %{
-        optional("entitySummaries") => list(entity_summary()()),
+        optional("entitySummaries") => list(entity_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -1904,7 +1904,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       iot_site_wise_source_configuration() :: %{
-        "filters" => list(list()())
+        "filters" => list(list())
       }
 
   """
@@ -1936,7 +1936,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       list_component_types_request() :: %{
-        optional("filters") => list(list()()),
+        optional("filters") => list(list()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1953,7 +1953,7 @@ defmodule AWS.IoTTwinMaker do
         "doubleValue" => float(),
         "expression" => String.t(),
         "integerValue" => integer(),
-        "listValue" => list(data_value()()),
+        "listValue" => list(data_value()),
         "longValue" => float(),
         "mapValue" => map(),
         "relationshipValue" => relationship_value(),
@@ -1994,7 +1994,7 @@ defmodule AWS.IoTTwinMaker do
 
       get_workspace_response() :: %{
         optional("description") => String.t(),
-        optional("linkedServices") => list(String.t()()),
+        optional("linkedServices") => list(String.t()),
         optional("role") => String.t(),
         optional("s3Location") => String.t(),
         required("arn") => String.t(),
@@ -2012,7 +2012,7 @@ defmodule AWS.IoTTwinMaker do
 
       list_scenes_response() :: %{
         optional("nextToken") => String.t(),
-        optional("sceneSummaries") => list(scene_summary()())
+        optional("sceneSummaries") => list(scene_summary())
       }
 
   """
@@ -2052,7 +2052,7 @@ defmodule AWS.IoTTwinMaker do
       get_property_value_response() :: %{
         optional("nextToken") => String.t(),
         optional("propertyValues") => map(),
-        optional("tabularPropertyValues") => list(list(map()())())
+        optional("tabularPropertyValues") => list(list(map())())
       }
 
   """
@@ -2063,7 +2063,7 @@ defmodule AWS.IoTTwinMaker do
   ## Example:
 
       update_scene_request() :: %{
-        optional("capabilities") => list(String.t()()),
+        optional("capabilities") => list(String.t()),
         optional("contentLocation") => String.t(),
         optional("description") => String.t(),
         optional("sceneMetadata") => map()

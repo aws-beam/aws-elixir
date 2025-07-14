@@ -47,7 +47,7 @@ defmodule AWS.Wisdom do
 
       query_assistant_response() :: %{
         optional("nextToken") => String.t(),
-        required("results") => list(result_data()())
+        required("results") => list(result_data())
       }
 
   """
@@ -128,9 +128,9 @@ defmodule AWS.Wisdom do
   ## Example:
 
       quick_response_search_expression() :: %{
-        "filters" => list(quick_response_filter_field()()),
+        "filters" => list(quick_response_filter_field()),
         "orderOnField" => quick_response_order_field(),
-        "queries" => list(quick_response_query_field()())
+        "queries" => list(quick_response_query_field())
       }
 
   """
@@ -154,7 +154,7 @@ defmodule AWS.Wisdom do
 
       app_integrations_configuration() :: %{
         "appIntegrationArn" => String.t(),
-        "objectFields" => list(String.t()())
+        "objectFields" => list(String.t())
       }
 
   """
@@ -166,7 +166,7 @@ defmodule AWS.Wisdom do
 
       list_contents_response() :: %{
         optional("nextToken") => String.t(),
-        required("contentSummaries") => list(content_summary()())
+        required("contentSummaries") => list(content_summary())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.Wisdom do
         "includeNoExistence" => [boolean()],
         "name" => String.t(),
         "operator" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -301,8 +301,8 @@ defmodule AWS.Wisdom do
   ## Example:
 
       get_recommendations_response() :: %{
-        optional("triggers") => list(recommendation_trigger()()),
-        required("recommendations") => list(recommendation_data()())
+        optional("triggers") => list(recommendation_trigger()),
+        required("recommendations") => list(recommendation_data())
       }
 
   """
@@ -350,7 +350,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -372,7 +372,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       create_quick_response_request() :: %{
-        optional("channels") => list(String.t()()),
+        optional("channels") => list(String.t()),
         optional("clientToken") => String.t(),
         optional("contentType") => String.t(),
         optional("description") => String.t(),
@@ -405,7 +405,7 @@ defmodule AWS.Wisdom do
 
       search_content_response() :: %{
         optional("nextToken") => String.t(),
-        required("contentSummaries") => list(content_summary()())
+        required("contentSummaries") => list(content_summary())
       }
 
   """
@@ -534,7 +534,7 @@ defmodule AWS.Wisdom do
 
       list_quick_responses_response() :: %{
         "nextToken" => String.t(),
-        "quickResponseSummaries" => list(quick_response_summary()())
+        "quickResponseSummaries" => list(quick_response_summary())
       }
 
   """
@@ -641,7 +641,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       document_text() :: %{
-        "highlights" => list(highlight()()),
+        "highlights" => list(highlight()),
         "text" => String.t()
       }
 
@@ -733,7 +733,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       quick_response_summary() :: %{
-        "channels" => list(String.t()()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "createdTime" => [non_neg_integer()],
         "description" => String.t(),
@@ -817,7 +817,7 @@ defmodule AWS.Wisdom do
 
       search_sessions_response() :: %{
         optional("nextToken") => String.t(),
-        required("sessionSummaries") => list(session_summary()())
+        required("sessionSummaries") => list(session_summary())
       }
 
   """
@@ -828,7 +828,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       notify_recommendations_received_response() :: %{
-        optional("errors") => list(notify_recommendations_received_error()()),
+        optional("errors") => list(notify_recommendations_received_error()),
         optional("recommendationIds") => list([String.t()]())
       }
 
@@ -840,7 +840,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       update_quick_response_request() :: %{
-        optional("channels") => list(String.t()()),
+        optional("channels") => list(String.t()),
         optional("content") => list(),
         optional("contentType") => String.t(),
         optional("description") => String.t(),
@@ -862,7 +862,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       quick_response_data() :: %{
-        "channels" => list(String.t()()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
@@ -964,7 +964,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       search_expression() :: %{
-        "filters" => list(filter()())
+        "filters" => list(filter())
       }
 
   """
@@ -1028,7 +1028,7 @@ defmodule AWS.Wisdom do
   ## Example:
 
       list_import_jobs_response() :: %{
-        "importJobSummaries" => list(import_job_summary()()),
+        "importJobSummaries" => list(import_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1050,7 +1050,7 @@ defmodule AWS.Wisdom do
 
       search_quick_responses_response() :: %{
         "nextToken" => String.t(),
-        "results" => list(quick_response_search_result_data()())
+        "results" => list(quick_response_search_result_data())
       }
 
   """
@@ -1185,9 +1185,9 @@ defmodule AWS.Wisdom do
   ## Example:
 
       quick_response_search_result_data() :: %{
-        "attributesInterpolated" => list(String.t()()),
-        "attributesNotInterpolated" => list(String.t()()),
-        "channels" => list(String.t()()),
+        "attributesInterpolated" => list(String.t()),
+        "attributesNotInterpolated" => list(String.t()),
+        "channels" => list(String.t()),
         "contentType" => String.t(),
         "contents" => quick_response_contents(),
         "createdTime" => [non_neg_integer()],
@@ -1370,7 +1370,7 @@ defmodule AWS.Wisdom do
 
       list_knowledge_bases_response() :: %{
         optional("nextToken") => String.t(),
-        required("knowledgeBaseSummaries") => list(knowledge_base_summary()())
+        required("knowledgeBaseSummaries") => list(knowledge_base_summary())
       }
 
   """
@@ -1393,7 +1393,7 @@ defmodule AWS.Wisdom do
 
       list_assistant_associations_response() :: %{
         optional("nextToken") => String.t(),
-        required("assistantAssociationSummaries") => list(assistant_association_summary()())
+        required("assistantAssociationSummaries") => list(assistant_association_summary())
       }
 
   """
@@ -1474,7 +1474,7 @@ defmodule AWS.Wisdom do
         "name" => String.t(),
         "operator" => String.t(),
         "priority" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1525,7 +1525,7 @@ defmodule AWS.Wisdom do
 
       list_assistants_response() :: %{
         optional("nextToken") => String.t(),
-        required("assistantSummaries") => list(assistant_summary()())
+        required("assistantSummaries") => list(assistant_summary())
       }
 
   """
@@ -1559,7 +1559,7 @@ defmodule AWS.Wisdom do
 
       grouping_configuration() :: %{
         "criteria" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """

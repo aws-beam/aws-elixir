@@ -46,7 +46,7 @@ defmodule AWS.Fis do
   ## Example:
 
       list_experiments_response() :: %{
-        "experiments" => list(experiment_summary()()),
+        "experiments" => list(experiment_summary()),
         "nextToken" => String.t()
       }
 
@@ -157,9 +157,9 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_target() :: %{
-        "filters" => list(experiment_template_target_filter()()),
+        "filters" => list(experiment_template_target_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t()()),
+        "resourceArns" => list(String.t()),
         "resourceTags" => map(),
         "resourceType" => String.t(),
         "selectionMode" => String.t()
@@ -204,7 +204,7 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_report_configuration_data_sources() :: %{
-        "cloudWatchDashboards" => list(experiment_report_configuration_cloud_watch_dashboard()())
+        "cloudWatchDashboards" => list(experiment_report_configuration_cloud_watch_dashboard())
       }
 
   """
@@ -215,7 +215,7 @@ defmodule AWS.Fis do
   ## Example:
 
       list_experiment_templates_response() :: %{
-        "experimentTemplates" => list(experiment_template_summary()()),
+        "experimentTemplates" => list(experiment_template_summary()),
         "nextToken" => String.t()
       }
 
@@ -233,7 +233,7 @@ defmodule AWS.Fis do
         optional("experimentReportConfiguration") => update_experiment_template_report_configuration_input(),
         optional("logConfiguration") => update_experiment_template_log_configuration_input(),
         optional("roleArn") => String.t(),
-        optional("stopConditions") => list(update_experiment_template_stop_condition_input()()),
+        optional("stopConditions") => list(update_experiment_template_stop_condition_input()),
         optional("targets") => map()
       }
 
@@ -284,7 +284,7 @@ defmodule AWS.Fis do
         "description" => String.t(),
         "endTime" => non_neg_integer(),
         "parameters" => map(),
-        "startAfter" => list(String.t()()),
+        "startAfter" => list(String.t()),
         "startTime" => non_neg_integer(),
         "state" => experiment_action_state(),
         "targets" => map()
@@ -345,7 +345,7 @@ defmodule AWS.Fis do
 
       experiment_template_target_filter() :: %{
         "path" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -392,7 +392,7 @@ defmodule AWS.Fis do
   ## Example:
 
       untag_resource_request() :: %{
-        optional("tagKeys") => list(String.t()())
+        optional("tagKeys") => list(String.t())
       }
 
   """
@@ -448,7 +448,7 @@ defmodule AWS.Fis do
 
       list_experiment_target_account_configurations_response() :: %{
         "nextToken" => String.t(),
-        "targetAccountConfigurations" => list(experiment_target_account_configuration_summary()())
+        "targetAccountConfigurations" => list(experiment_target_account_configuration_summary())
       }
 
   """
@@ -517,7 +517,7 @@ defmodule AWS.Fis do
         "actionId" => String.t(),
         "description" => String.t(),
         "parameters" => map(),
-        "startAfter" => list(String.t()()),
+        "startAfter" => list(String.t()),
         "targets" => map()
       }
 
@@ -530,7 +530,7 @@ defmodule AWS.Fis do
 
       experiment_target_filter() :: %{
         "path" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -699,7 +699,7 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_report_configuration_data_sources_input() :: %{
-        "cloudWatchDashboards" => list(report_configuration_cloud_watch_dashboard_input()())
+        "cloudWatchDashboards" => list(report_configuration_cloud_watch_dashboard_input())
       }
 
   """
@@ -731,7 +731,7 @@ defmodule AWS.Fis do
         required("clientToken") => String.t(),
         required("description") => String.t(),
         required("roleArn") => String.t(),
-        required("stopConditions") => list(create_experiment_template_stop_condition_input()())
+        required("stopConditions") => list(create_experiment_template_stop_condition_input())
       }
 
   """
@@ -776,9 +776,9 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_target() :: %{
-        "filters" => list(experiment_target_filter()()),
+        "filters" => list(experiment_target_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t()()),
+        "resourceArns" => list(String.t()),
         "resourceTags" => map(),
         "resourceType" => String.t(),
         "selectionMode" => String.t()
@@ -837,7 +837,7 @@ defmodule AWS.Fis do
   ## Example:
 
       list_actions_response() :: %{
-        "actions" => list(action_summary()()),
+        "actions" => list(action_summary()),
         "nextToken" => String.t()
       }
 
@@ -849,7 +849,7 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_report() :: %{
-        "s3Reports" => list(experiment_report_s3_report()()),
+        "s3Reports" => list(experiment_report_s3_report()),
         "state" => experiment_report_state()
       }
 
@@ -932,7 +932,7 @@ defmodule AWS.Fis do
 
       list_target_account_configurations_response() :: %{
         "nextToken" => String.t(),
-        "targetAccountConfigurations" => list(target_account_configuration_summary()())
+        "targetAccountConfigurations" => list(target_account_configuration_summary())
       }
 
   """
@@ -1004,7 +1004,7 @@ defmodule AWS.Fis do
         "actionId" => String.t(),
         "description" => String.t(),
         "parameters" => map(),
-        "startAfter" => list(String.t()()),
+        "startAfter" => list(String.t()),
         "targets" => map()
       }
 
@@ -1027,7 +1027,7 @@ defmodule AWS.Fis do
   ## Example:
 
       experiment_template_report_configuration_data_sources() :: %{
-        "cloudWatchDashboards" => list(experiment_template_report_configuration_cloud_watch_dashboard()())
+        "cloudWatchDashboards" => list(experiment_template_report_configuration_cloud_watch_dashboard())
       }
 
   """
@@ -1064,7 +1064,7 @@ defmodule AWS.Fis do
         "lastUpdateTime" => non_neg_integer(),
         "logConfiguration" => experiment_template_log_configuration(),
         "roleArn" => String.t(),
-        "stopConditions" => list(experiment_template_stop_condition()()),
+        "stopConditions" => list(experiment_template_stop_condition()),
         "tags" => map(),
         "targetAccountConfigurationsCount" => float(),
         "targets" => map()
@@ -1121,7 +1121,7 @@ defmodule AWS.Fis do
 
       list_experiment_resolved_targets_response() :: %{
         "nextToken" => String.t(),
-        "resolvedTargets" => list(resolved_target()())
+        "resolvedTargets" => list(resolved_target())
       }
 
   """
@@ -1164,7 +1164,7 @@ defmodule AWS.Fis do
         "actionId" => String.t(),
         "description" => String.t(),
         "parameters" => map(),
-        "startAfter" => list(String.t()()),
+        "startAfter" => list(String.t()),
         "targets" => map()
       }
 
@@ -1177,7 +1177,7 @@ defmodule AWS.Fis do
 
       experiment_template_target_input_filter() :: %{
         "path" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1220,7 +1220,7 @@ defmodule AWS.Fis do
 
       list_target_resource_types_response() :: %{
         "nextToken" => String.t(),
-        "targetResourceTypes" => list(target_resource_type_summary()())
+        "targetResourceTypes" => list(target_resource_type_summary())
       }
 
   """
@@ -1377,9 +1377,9 @@ defmodule AWS.Fis do
   ## Example:
 
       create_experiment_template_target_input() :: %{
-        "filters" => list(experiment_template_target_input_filter()()),
+        "filters" => list(experiment_template_target_input_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t()()),
+        "resourceArns" => list(String.t()),
         "resourceTags" => map(),
         "resourceType" => String.t(),
         "selectionMode" => String.t()
@@ -1450,9 +1450,9 @@ defmodule AWS.Fis do
   ## Example:
 
       update_experiment_template_target_input() :: %{
-        "filters" => list(experiment_template_target_input_filter()()),
+        "filters" => list(experiment_template_target_input_filter()),
         "parameters" => map(),
-        "resourceArns" => list(String.t()()),
+        "resourceArns" => list(String.t()),
         "resourceTags" => map(),
         "resourceType" => String.t(),
         "selectionMode" => String.t()
@@ -1504,7 +1504,7 @@ defmodule AWS.Fis do
         "roleArn" => String.t(),
         "startTime" => non_neg_integer(),
         "state" => experiment_state(),
-        "stopConditions" => list(experiment_stop_condition()()),
+        "stopConditions" => list(experiment_stop_condition()),
         "tags" => map(),
         "targetAccountConfigurationsCount" => float(),
         "targets" => map()

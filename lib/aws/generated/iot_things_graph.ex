@@ -54,7 +54,7 @@ defmodule AWS.IoTThingsGraph do
       
       search_flow_templates_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(flow_template_summary()())
+        "summaries" => list(flow_template_summary())
       }
       
   """
@@ -66,7 +66,7 @@ defmodule AWS.IoTThingsGraph do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -89,7 +89,7 @@ defmodule AWS.IoTThingsGraph do
       
       search_things_response() :: %{
         "nextToken" => String.t(),
-        "things" => list(thing()())
+        "things" => list(thing())
       }
       
   """
@@ -145,7 +145,7 @@ defmodule AWS.IoTThingsGraph do
       
       system_instance_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
       
   """
@@ -212,7 +212,7 @@ defmodule AWS.IoTThingsGraph do
       
       entity_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
       
   """
@@ -237,7 +237,7 @@ defmodule AWS.IoTThingsGraph do
       
       get_upload_status_response() :: %{
         "createdDate" => non_neg_integer(),
-        "failureReason" => list(String.t()()),
+        "failureReason" => list(String.t()),
         "namespaceArn" => String.t(),
         "namespaceName" => String.t(),
         "namespaceVersion" => float(),
@@ -278,7 +278,7 @@ defmodule AWS.IoTThingsGraph do
       
       get_entities_request() :: %{
         optional("namespaceVersion") => float(),
-        required("ids") => list(String.t()())
+        required("ids") => list(String.t())
       }
       
   """
@@ -289,7 +289,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       search_entities_response() :: %{
-        "descriptions" => list(entity_description()()),
+        "descriptions" => list(entity_description()),
         "nextToken" => String.t()
       }
       
@@ -312,7 +312,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       get_entities_response() :: %{
-        "descriptions" => list(entity_description()())
+        "descriptions" => list(entity_description())
       }
       
   """
@@ -368,7 +368,7 @@ defmodule AWS.IoTThingsGraph do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -406,7 +406,7 @@ defmodule AWS.IoTThingsGraph do
         optional("greengrassGroupName") => String.t(),
         optional("metricsConfiguration") => metrics_configuration(),
         optional("s3BucketName") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("definition") => definition_document(),
         required("target") => list(any())
       }
@@ -437,7 +437,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       search_system_templates_request() :: %{
-        optional("filters") => list(system_template_filter()()),
+        optional("filters") => list(system_template_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -451,7 +451,7 @@ defmodule AWS.IoTThingsGraph do
       
       search_flow_executions_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(flow_execution_summary()())
+        "summaries" => list(flow_execution_summary())
       }
       
   """
@@ -589,7 +589,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       search_system_instances_request() :: %{
-        optional("filters") => list(system_instance_filter()()),
+        optional("filters") => list(system_instance_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -602,7 +602,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       search_flow_templates_request() :: %{
-        optional("filters") => list(flow_template_filter()()),
+        optional("filters") => list(flow_template_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -654,7 +654,7 @@ defmodule AWS.IoTThingsGraph do
       
       list_tags_for_resource_response() :: %{
         "nextToken" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -708,7 +708,7 @@ defmodule AWS.IoTThingsGraph do
       
       get_flow_template_revisions_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(flow_template_summary()())
+        "summaries" => list(flow_template_summary())
       }
       
   """
@@ -742,7 +742,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       search_entities_request() :: %{
-        optional("filters") => list(entity_filter()()),
+        optional("filters") => list(entity_filter()),
         optional("maxResults") => integer(),
         optional("namespaceVersion") => float(),
         optional("nextToken") => String.t(),
@@ -780,7 +780,7 @@ defmodule AWS.IoTThingsGraph do
       
       search_system_instances_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(system_instance_summary()())
+        "summaries" => list(system_instance_summary())
       }
       
   """
@@ -855,7 +855,7 @@ defmodule AWS.IoTThingsGraph do
         "metricsConfiguration" => metrics_configuration(),
         "s3BucketName" => String.t(),
         "summary" => system_instance_summary(),
-        "validatedDependencyRevisions" => list(dependency_revision()()),
+        "validatedDependencyRevisions" => list(dependency_revision()),
         "validatedNamespaceVersion" => float()
       }
       
@@ -925,7 +925,7 @@ defmodule AWS.IoTThingsGraph do
       
       system_template_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
       
   """
@@ -948,7 +948,7 @@ defmodule AWS.IoTThingsGraph do
       
       search_system_templates_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(system_template_summary()())
+        "summaries" => list(system_template_summary())
       }
       
   """
@@ -980,7 +980,7 @@ defmodule AWS.IoTThingsGraph do
       
       get_system_template_revisions_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(system_template_summary()())
+        "summaries" => list(system_template_summary())
       }
       
   """
@@ -1039,7 +1039,7 @@ defmodule AWS.IoTThingsGraph do
   ## Example:
       
       list_flow_execution_messages_response() :: %{
-        "messages" => list(flow_execution_message()()),
+        "messages" => list(flow_execution_message()),
         "nextToken" => String.t()
       }
       
@@ -1102,7 +1102,7 @@ defmodule AWS.IoTThingsGraph do
       
       flow_template_filter() :: %{
         "name" => list(any()),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
       
   """
@@ -1383,7 +1383,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, associate_entity_to_thing_errors()}
   def associate_entity_to_thing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEntityToThing", input, options)
   end
@@ -1404,7 +1405,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, create_flow_template_errors()}
   def create_flow_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlowTemplate", input, options)
   end
@@ -1438,7 +1440,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, create_system_instance_errors()}
   def create_system_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSystemInstance", input, options)
   end
@@ -1456,7 +1459,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, create_system_template_errors()}
   def create_system_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSystemTemplate", input, options)
   end
@@ -1475,7 +1479,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, delete_flow_template_errors()}
   def delete_flow_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlowTemplate", input, options)
   end
@@ -1494,7 +1499,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
@@ -1514,7 +1520,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, delete_system_instance_errors()}
   def delete_system_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSystemInstance", input, options)
   end
@@ -1532,7 +1539,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, delete_system_template_errors()}
   def delete_system_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSystemTemplate", input, options)
   end
@@ -1563,7 +1571,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, deploy_system_instance_errors()}
   def deploy_system_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeploySystemInstance", input, options)
   end
@@ -1580,7 +1589,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, deprecate_flow_template_errors()}
   def deprecate_flow_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprecateFlowTemplate", input, options)
   end
@@ -1594,7 +1604,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, deprecate_system_template_errors()}
   def deprecate_system_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprecateSystemTemplate", input, options)
   end
@@ -1609,7 +1620,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, describe_namespace_errors()}
   def describe_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNamespace", input, options)
   end
@@ -1627,7 +1639,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, dissociate_entity_from_thing_errors()}
   def dissociate_entity_from_thing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DissociateEntityFromThing", input, options)
   end
@@ -1673,7 +1686,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_entities_errors()}
   def get_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEntities", input, options)
   end
@@ -1688,7 +1702,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_flow_template_errors()}
   def get_flow_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFlowTemplate", input, options)
   end
@@ -1706,7 +1721,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_flow_template_revisions_errors()}
   def get_flow_template_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFlowTemplateRevisions", input, options)
   end
@@ -1720,7 +1736,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_namespace_deletion_status_errors()}
   def get_namespace_deletion_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNamespaceDeletionStatus", input, options)
   end
@@ -1734,7 +1751,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_system_instance_errors()}
   def get_system_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSystemInstance", input, options)
   end
@@ -1748,7 +1766,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_system_template_errors()}
   def get_system_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSystemTemplate", input, options)
   end
@@ -1767,7 +1786,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_system_template_revisions_errors()}
   def get_system_template_revisions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSystemTemplateRevisions", input, options)
   end
@@ -1781,7 +1801,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, get_upload_status_errors()}
   def get_upload_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUploadStatus", input, options)
   end
@@ -1796,7 +1817,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, list_flow_execution_messages_errors()}
   def list_flow_execution_messages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowExecutionMessages", input, options)
   end
@@ -1810,7 +1832,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1827,7 +1850,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_entities_errors()}
   def search_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchEntities", input, options)
   end
@@ -1841,7 +1865,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_flow_executions_errors()}
   def search_flow_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchFlowExecutions", input, options)
   end
@@ -1855,7 +1880,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_flow_templates_errors()}
   def search_flow_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchFlowTemplates", input, options)
   end
@@ -1869,7 +1895,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_system_instances_errors()}
   def search_system_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchSystemInstances", input, options)
   end
@@ -1886,7 +1913,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_system_templates_errors()}
   def search_system_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchSystemTemplates", input, options)
   end
@@ -1910,7 +1938,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, search_things_errors()}
   def search_things(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchThings", input, options)
   end
@@ -1924,7 +1953,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1938,7 +1968,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, undeploy_system_instance_errors()}
   def undeploy_system_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UndeploySystemInstance", input, options)
   end
@@ -1952,7 +1983,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1972,7 +2004,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, update_flow_template_errors()}
   def update_flow_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFlowTemplate", input, options)
   end
@@ -1989,7 +2022,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, update_system_template_errors()}
   def update_system_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSystemTemplate", input, options)
   end
@@ -2028,7 +2062,8 @@ defmodule AWS.IoTThingsGraph do
           | {:error, term()}
           | {:error, upload_entity_definitions_errors()}
   def upload_entity_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UploadEntityDefinitions", input, options)
   end

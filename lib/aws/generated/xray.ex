@@ -30,7 +30,7 @@ defmodule AWS.XRay do
         "ContainsOldGroupVersions" => boolean(),
         "EndTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "Services" => list(service()()),
+        "Services" => list(service()),
         "StartTime" => non_neg_integer()
       }
 
@@ -80,7 +80,7 @@ defmodule AWS.XRay do
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
         "Summary" => String.t(),
-        "TopAnomalousServices" => list(anomalous_service()())
+        "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
@@ -91,7 +91,7 @@ defmodule AWS.XRay do
   ## Example:
 
       graph_link() :: %{
-        "DestinationTraceIds" => list(String.t()()),
+        "DestinationTraceIds" => list(String.t()),
         "ReferenceType" => String.t(),
         "SourceTraceId" => String.t()
       }
@@ -105,10 +105,10 @@ defmodule AWS.XRay do
 
       response_time_root_cause_service() :: %{
         "AccountId" => String.t(),
-        "EntityPath" => list(response_time_root_cause_entity()()),
+        "EntityPath" => list(response_time_root_cause_entity()),
         "Inferred" => boolean(),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -144,7 +144,7 @@ defmodule AWS.XRay do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -224,7 +224,7 @@ defmodule AWS.XRay do
   ## Example:
 
       put_trace_segments_request() :: %{
-        required("TraceSegmentDocuments") => list(String.t()())
+        required("TraceSegmentDocuments") => list(String.t())
       }
 
   """
@@ -249,7 +249,7 @@ defmodule AWS.XRay do
         "NextToken" => String.t(),
         "RetrievalStatus" => list(any()),
         "TraceFormat" => list(any()),
-        "Traces" => list(retrieved_trace()())
+        "Traces" => list(retrieved_trace())
       }
 
   """
@@ -343,9 +343,9 @@ defmodule AWS.XRay do
 
       insight_impact_graph_service() :: %{
         "AccountId" => String.t(),
-        "Edges" => list(insight_impact_graph_edge()()),
+        "Edges" => list(insight_impact_graph_edge()),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "ReferenceId" => integer(),
         "Type" => String.t()
       }
@@ -373,7 +373,7 @@ defmodule AWS.XRay do
       get_trace_summaries_result() :: %{
         "ApproximateTime" => non_neg_integer(),
         "NextToken" => String.t(),
-        "TraceSummaries" => list(trace_summary()()),
+        "TraceSummaries" => list(trace_summary()),
         "TracesProcessedCount" => float()
       }
 
@@ -433,7 +433,7 @@ defmodule AWS.XRay do
         optional("EC2InstanceId") => String.t(),
         optional("Hostname") => String.t(),
         optional("ResourceARN") => String.t(),
-        required("TelemetryRecords") => list(telemetry_record()())
+        required("TelemetryRecords") => list(telemetry_record())
       }
 
   """
@@ -460,7 +460,7 @@ defmodule AWS.XRay do
 
       error_root_cause() :: %{
         "ClientImpacting" => boolean(),
-        "Services" => list(error_root_cause_service()())
+        "Services" => list(error_root_cause_service())
       }
 
   """
@@ -472,7 +472,7 @@ defmodule AWS.XRay do
 
       get_trace_graph_result() :: %{
         "NextToken" => String.t(),
-        "Services" => list(service()())
+        "Services" => list(service())
       }
 
   """
@@ -495,13 +495,13 @@ defmodule AWS.XRay do
 
       service() :: %{
         "AccountId" => String.t(),
-        "DurationHistogram" => list(histogram_entry()()),
-        "Edges" => list(edge()()),
+        "DurationHistogram" => list(histogram_entry()),
+        "Edges" => list(edge()),
         "EndTime" => non_neg_integer(),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "ReferenceId" => integer(),
-        "ResponseTimeHistogram" => list(histogram_entry()()),
+        "ResponseTimeHistogram" => list(histogram_entry()),
         "Root" => boolean(),
         "StartTime" => non_neg_integer(),
         "State" => String.t(),
@@ -555,7 +555,7 @@ defmodule AWS.XRay do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -568,7 +568,7 @@ defmodule AWS.XRay do
       retrieved_trace() :: %{
         "Duration" => float(),
         "Id" => String.t(),
-        "Spans" => list(span()())
+        "Spans" => list(span())
       }
 
   """
@@ -580,8 +580,8 @@ defmodule AWS.XRay do
 
       batch_get_traces_result() :: %{
         "NextToken" => String.t(),
-        "Traces" => list(trace()()),
-        "UnprocessedTraceIds" => list(String.t()())
+        "Traces" => list(trace()),
+        "UnprocessedTraceIds" => list(String.t())
       }
 
   """
@@ -656,7 +656,7 @@ defmodule AWS.XRay do
   ## Example:
 
       retrieved_service() :: %{
-        "Links" => list(graph_link()()),
+        "Links" => list(graph_link()),
         "Service" => service()
       }
 
@@ -669,7 +669,7 @@ defmodule AWS.XRay do
 
       batch_get_traces_request() :: %{
         optional("NextToken") => String.t(),
-        required("TraceIds") => list(String.t()())
+        required("TraceIds") => list(String.t())
       }
 
   """
@@ -694,7 +694,7 @@ defmodule AWS.XRay do
 
       value_with_service_ids() :: %{
         "AnnotationValue" => list(),
-        "ServiceIds" => list(service_id()())
+        "ServiceIds" => list(service_id())
       }
 
   """
@@ -707,7 +707,7 @@ defmodule AWS.XRay do
       start_trace_retrieval_request() :: %{
         required("EndTime") => non_neg_integer(),
         required("StartTime") => non_neg_integer(),
-        required("TraceIds") => list(String.t()())
+        required("TraceIds") => list(String.t())
       }
 
   """
@@ -812,7 +812,7 @@ defmodule AWS.XRay do
         "EventTime" => non_neg_integer(),
         "RootCauseServiceRequestImpactStatistics" => request_impact_statistics(),
         "Summary" => String.t(),
-        "TopAnomalousServices" => list(anomalous_service()())
+        "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
@@ -824,7 +824,7 @@ defmodule AWS.XRay do
 
       response_time_root_cause() :: %{
         "ClientImpacting" => boolean(),
-        "Services" => list(response_time_root_cause_service()())
+        "Services" => list(response_time_root_cause_service())
       }
 
   """
@@ -909,7 +909,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_insight_events_result() :: %{
-        "InsightEvents" => list(insight_event()()),
+        "InsightEvents" => list(insight_event()),
         "NextToken" => String.t()
       }
 
@@ -921,7 +921,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_sampling_targets_request() :: %{
-        required("SamplingStatisticsDocuments") => list(sampling_statistics_document()())
+        required("SamplingStatisticsDocuments") => list(sampling_statistics_document())
       }
 
   """
@@ -962,7 +962,7 @@ defmodule AWS.XRay do
 
       time_series_service_statistics() :: %{
         "EdgeSummaryStatistics" => edge_statistics(),
-        "ResponseTimeHistogram" => list(histogram_entry()()),
+        "ResponseTimeHistogram" => list(histogram_entry()),
         "ServiceForecastStatistics" => forecast_statistics(),
         "ServiceSummaryStatistics" => service_statistics(),
         "Timestamp" => non_neg_integer()
@@ -977,8 +977,8 @@ defmodule AWS.XRay do
 
       get_sampling_targets_result() :: %{
         "LastRuleModification" => non_neg_integer(),
-        "SamplingTargetDocuments" => list(sampling_target_document()()),
-        "UnprocessedStatistics" => list(unprocessed_statistics()())
+        "SamplingTargetDocuments" => list(sampling_target_document()),
+        "UnprocessedStatistics" => list(unprocessed_statistics())
       }
 
   """
@@ -999,10 +999,10 @@ defmodule AWS.XRay do
 
       fault_root_cause_service() :: %{
         "AccountId" => String.t(),
-        "EntityPath" => list(fault_root_cause_entity()()),
+        "EntityPath" => list(fault_root_cause_entity()),
         "Inferred" => boolean(),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -1026,7 +1026,7 @@ defmodule AWS.XRay do
 
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1051,7 +1051,7 @@ defmodule AWS.XRay do
       create_group_request() :: %{
         optional("FilterExpression") => String.t(),
         optional("InsightsConfiguration") => insights_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("GroupName") => String.t()
       }
 
@@ -1082,7 +1082,7 @@ defmodule AWS.XRay do
 
       get_sampling_statistic_summaries_result() :: %{
         "NextToken" => String.t(),
-        "SamplingStatisticSummaries" => list(sampling_statistic_summary()())
+        "SamplingStatisticSummaries" => list(sampling_statistic_summary())
       }
 
   """
@@ -1093,7 +1093,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_groups_result() :: %{
-        "Groups" => list(group_summary()()),
+        "Groups" => list(group_summary()),
         "NextToken" => String.t()
       }
 
@@ -1106,7 +1106,7 @@ defmodule AWS.XRay do
 
       get_trace_graph_request() :: %{
         optional("NextToken") => String.t(),
-        required("TraceIds") => list(String.t()())
+        required("TraceIds") => list(String.t())
       }
 
   """
@@ -1118,10 +1118,10 @@ defmodule AWS.XRay do
 
       error_root_cause_service() :: %{
         "AccountId" => String.t(),
-        "EntityPath" => list(error_root_cause_entity()()),
+        "EntityPath" => list(error_root_cause_entity()),
         "Inferred" => boolean(),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -1136,7 +1136,7 @@ defmodule AWS.XRay do
         "Duration" => float(),
         "Id" => String.t(),
         "LimitExceeded" => boolean(),
-        "Segments" => list(segment()())
+        "Segments" => list(segment())
       }
 
   """
@@ -1170,7 +1170,7 @@ defmodule AWS.XRay do
   ## Example:
 
       fault_root_cause_entity() :: %{
-        "Exceptions" => list(root_cause_exception()()),
+        "Exceptions" => list(root_cause_exception()),
         "Name" => String.t(),
         "Remote" => boolean()
       }
@@ -1183,7 +1183,7 @@ defmodule AWS.XRay do
   ## Example:
 
       error_root_cause_entity() :: %{
-        "Exceptions" => list(root_cause_exception()()),
+        "Exceptions" => list(root_cause_exception()),
         "Name" => String.t(),
         "Remote" => boolean()
       }
@@ -1230,7 +1230,7 @@ defmodule AWS.XRay do
   ## Example:
 
       create_sampling_rule_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SamplingRule") => sampling_rule()
       }
 
@@ -1268,7 +1268,7 @@ defmodule AWS.XRay do
 
       alias() :: %{
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -1289,7 +1289,7 @@ defmodule AWS.XRay do
   ## Example:
 
       put_trace_segments_result() :: %{
-        "UnprocessedTraceSegments" => list(unprocessed_trace_segment()())
+        "UnprocessedTraceSegments" => list(unprocessed_trace_segment())
       }
 
   """
@@ -1388,7 +1388,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_indexing_rules_result() :: %{
-        "IndexingRules" => list(indexing_rule()()),
+        "IndexingRules" => list(indexing_rule()),
         "NextToken" => String.t()
       }
 
@@ -1423,7 +1423,7 @@ defmodule AWS.XRay do
       service_id() :: %{
         "AccountId" => String.t(),
         "Name" => String.t(),
-        "Names" => list(String.t()()),
+        "Names" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -1436,26 +1436,26 @@ defmodule AWS.XRay do
 
       trace_summary() :: %{
         "Annotations" => map(),
-        "AvailabilityZones" => list(availability_zone_detail()()),
+        "AvailabilityZones" => list(availability_zone_detail()),
         "Duration" => float(),
         "EntryPoint" => service_id(),
-        "ErrorRootCauses" => list(error_root_cause()()),
-        "FaultRootCauses" => list(fault_root_cause()()),
+        "ErrorRootCauses" => list(error_root_cause()),
+        "FaultRootCauses" => list(fault_root_cause()),
         "HasError" => boolean(),
         "HasFault" => boolean(),
         "HasThrottle" => boolean(),
         "Http" => http(),
         "Id" => String.t(),
-        "InstanceIds" => list(instance_id_detail()()),
+        "InstanceIds" => list(instance_id_detail()),
         "IsPartial" => boolean(),
         "MatchedEventTime" => non_neg_integer(),
-        "ResourceARNs" => list(resource_arn_detail()()),
+        "ResourceARNs" => list(resource_arn_detail()),
         "ResponseTime" => float(),
-        "ResponseTimeRootCauses" => list(response_time_root_cause()()),
+        "ResponseTimeRootCauses" => list(response_time_root_cause()),
         "Revision" => integer(),
-        "ServiceIds" => list(service_id()()),
+        "ServiceIds" => list(service_id()),
         "StartTime" => non_neg_integer(),
-        "Users" => list(trace_user()())
+        "Users" => list(trace_user())
       }
 
   """
@@ -1505,7 +1505,7 @@ defmodule AWS.XRay do
 
       fault_root_cause() :: %{
         "ClientImpacting" => boolean(),
-        "Services" => list(fault_root_cause_service()())
+        "Services" => list(fault_root_cause_service())
       }
 
   """
@@ -1555,7 +1555,7 @@ defmodule AWS.XRay do
 
       get_sampling_rules_result() :: %{
         "NextToken" => String.t(),
-        "SamplingRuleRecords" => list(sampling_rule_record()())
+        "SamplingRuleRecords" => list(sampling_rule_record())
       }
 
   """
@@ -1566,7 +1566,7 @@ defmodule AWS.XRay do
   ## Example:
 
       trace_user() :: %{
-        "ServiceIds" => list(service_id()()),
+        "ServiceIds" => list(service_id()),
         "UserName" => String.t()
       }
 
@@ -1677,7 +1677,7 @@ defmodule AWS.XRay do
         "StartTime" => non_neg_integer(),
         "State" => list(any()),
         "Summary" => String.t(),
-        "TopAnomalousServices" => list(anomalous_service()())
+        "TopAnomalousServices" => list(anomalous_service())
       }
 
   """
@@ -1697,12 +1697,12 @@ defmodule AWS.XRay do
   ## Example:
 
       edge() :: %{
-        "Aliases" => list(alias()()),
+        "Aliases" => list(alias()),
         "EdgeType" => String.t(),
         "EndTime" => non_neg_integer(),
-        "ReceivedEventAgeHistogram" => list(histogram_entry()()),
+        "ReceivedEventAgeHistogram" => list(histogram_entry()),
         "ReferenceId" => integer(),
-        "ResponseTimeHistogram" => list(histogram_entry()()),
+        "ResponseTimeHistogram" => list(histogram_entry()),
         "StartTime" => non_neg_integer(),
         "SummaryStatistics" => edge_statistics()
       }
@@ -1740,7 +1740,7 @@ defmodule AWS.XRay do
       get_retrieved_traces_graph_result() :: %{
         "NextToken" => String.t(),
         "RetrievalStatus" => list(any()),
-        "Services" => list(retrieved_service()())
+        "Services" => list(retrieved_service())
       }
 
   """
@@ -1765,7 +1765,7 @@ defmodule AWS.XRay do
       get_time_series_service_statistics_result() :: %{
         "ContainsOldGroupVersions" => boolean(),
         "NextToken" => String.t(),
-        "TimeSeriesServiceStatistics" => list(time_series_service_statistics()())
+        "TimeSeriesServiceStatistics" => list(time_series_service_statistics())
       }
 
   """
@@ -1776,7 +1776,7 @@ defmodule AWS.XRay do
   ## Example:
 
       get_insight_summaries_result() :: %{
-        "InsightSummaries" => list(insight_summary()()),
+        "InsightSummaries" => list(insight_summary()),
         "NextToken" => String.t()
       }
 
@@ -1832,7 +1832,7 @@ defmodule AWS.XRay do
         "NextToken" => String.t(),
         "ServiceGraphEndTime" => non_neg_integer(),
         "ServiceGraphStartTime" => non_neg_integer(),
-        "Services" => list(insight_impact_graph_service()()),
+        "Services" => list(insight_impact_graph_service()),
         "StartTime" => non_neg_integer()
       }
 
@@ -1905,7 +1905,7 @@ defmodule AWS.XRay do
 
       list_resource_policies_result() :: %{
         "NextToken" => String.t(),
-        "ResourcePolicies" => list(resource_policy()())
+        "ResourcePolicies" => list(resource_policy())
       }
 
   """

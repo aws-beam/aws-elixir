@@ -53,8 +53,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       batch_apply_update_action_message() :: %{
-        optional("CacheClusterIds") => list(String.t()()),
-        optional("ReplicationGroupIds") => list(String.t()()),
+        optional("CacheClusterIds") => list(String.t()),
+        optional("ReplicationGroupIds") => list(String.t()),
         required("ServiceUpdateName") => String.t()
       }
       
@@ -66,11 +66,11 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       describe_update_actions_message() :: %{
-        optional("CacheClusterIds") => list(String.t()()),
+        optional("CacheClusterIds") => list(String.t()),
         optional("Engine") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
-        optional("ReplicationGroupIds") => list(String.t()()),
+        optional("ReplicationGroupIds") => list(String.t()),
         optional("ServiceUpdateName") => String.t(),
         optional("ServiceUpdateStatus") => list(list(any())()),
         optional("ServiceUpdateTimeRange") => time_range_filter(),
@@ -118,7 +118,7 @@ defmodule AWS.ElastiCache do
         "FixedPrice" => float(),
         "OfferingType" => String.t(),
         "ProductDescription" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservationARN" => String.t(),
         "ReservedCacheNodeId" => String.t(),
         "ReservedCacheNodesOfferingId" => String.t(),
@@ -231,7 +231,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_security_group_message() :: %{
-        "CacheSecurityGroups" => list(cache_security_group()()),
+        "CacheSecurityGroups" => list(cache_security_group()),
         "Marker" => String.t()
       }
       
@@ -269,7 +269,7 @@ defmodule AWS.ElastiCache do
       
       describe_user_groups_result() :: %{
         "Marker" => String.t(),
-        "UserGroups" => list(user_group()())
+        "UserGroups" => list(user_group())
       }
       
   """
@@ -281,7 +281,7 @@ defmodule AWS.ElastiCache do
       
       cache_node_type_specific_parameter() :: %{
         "AllowedValues" => String.t(),
-        "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()()),
+        "CacheNodeTypeSpecificValues" => list(cache_node_type_specific_value()),
         "ChangeType" => list(any()),
         "DataType" => String.t(),
         "Description" => String.t(),
@@ -299,7 +299,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       describe_global_replication_groups_result() :: %{
-        "GlobalReplicationGroups" => list(global_replication_group()()),
+        "GlobalReplicationGroups" => list(global_replication_group()),
         "Marker" => String.t()
       }
       
@@ -322,11 +322,11 @@ defmodule AWS.ElastiCache do
         "KmsKeyId" => String.t(),
         "MajorEngineVersion" => String.t(),
         "ReaderEndpoint" => endpoint(),
-        "SecurityGroupIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
         "ServerlessCacheName" => String.t(),
         "SnapshotRetentionLimit" => integer(),
         "Status" => String.t(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "UserGroupId" => String.t()
       }
       
@@ -338,7 +338,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_parameter_groups_message() :: %{
-        "CacheParameterGroups" => list(cache_parameter_group()()),
+        "CacheParameterGroups" => list(cache_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -383,8 +383,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       allowed_node_type_modifications_message() :: %{
-        "ScaleDownModifications" => list(String.t()()),
-        "ScaleUpModifications" => list(String.t()())
+        "ScaleDownModifications" => list(String.t()),
+        "ScaleUpModifications" => list(String.t())
       }
       
   """
@@ -395,9 +395,9 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       modify_replication_group_shard_configuration_message() :: %{
-        optional("NodeGroupsToRemove") => list(String.t()()),
-        optional("NodeGroupsToRetain") => list(String.t()()),
-        optional("ReshardingConfiguration") => list(resharding_configuration()()),
+        optional("NodeGroupsToRemove") => list(String.t()),
+        optional("NodeGroupsToRetain") => list(String.t()),
+        optional("ReshardingConfiguration") => list(resharding_configuration()),
         required("ApplyImmediately") => boolean(),
         required("NodeGroupCount") => integer(),
         required("ReplicationGroupId") => String.t()
@@ -412,8 +412,8 @@ defmodule AWS.ElastiCache do
       
       modify_user_group_message() :: %{
         optional("Engine") => String.t(),
-        optional("UserIdsToAdd") => list(String.t()()),
-        optional("UserIdsToRemove") => list(String.t()()),
+        optional("UserIdsToAdd") => list(String.t()),
+        optional("UserIdsToRemove") => list(String.t()),
         required("UserGroupId") => String.t()
       }
       
@@ -459,7 +459,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       reset_cache_parameter_group_message() :: %{
-        optional("ParameterNameValues") => list(parameter_name_value()()),
+        optional("ParameterNameValues") => list(parameter_name_value()),
         optional("ResetAllParameters") => boolean(),
         required("CacheParameterGroupName") => String.t()
       }
@@ -508,11 +508,11 @@ defmodule AWS.ElastiCache do
         optional("Engine") => String.t(),
         optional("MinimumEngineVersion") => String.t(),
         optional("PendingChanges") => user_group_pending_changes(),
-        optional("ReplicationGroups") => list(String.t()()),
-        optional("ServerlessCaches") => list(String.t()()),
+        optional("ReplicationGroups") => list(String.t()),
+        optional("ServerlessCaches") => list(String.t()),
         optional("Status") => String.t(),
         optional("UserGroupId") => String.t(),
-        optional("UserIds") => list(String.t()())
+        optional("UserIds") => list(String.t())
       }
       
   """
@@ -534,10 +534,10 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       engine_defaults() :: %{
-        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
         "CacheParameterGroupFamily" => String.t(),
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -581,9 +581,9 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_parameter_group_details() :: %{
-        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()()),
+        "CacheNodeTypeSpecificParameters" => list(cache_node_type_specific_parameter()),
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -663,7 +663,7 @@ defmodule AWS.ElastiCache do
         "FixedPrice" => float(),
         "OfferingType" => String.t(),
         "ProductDescription" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedCacheNodesOfferingId" => String.t(),
         "UsagePrice" => float()
       }
@@ -677,7 +677,7 @@ defmodule AWS.ElastiCache do
       
       create_serverless_cache_snapshot_request() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ServerlessCacheName") => String.t(),
         required("ServerlessCacheSnapshotName") => String.t()
       }
@@ -690,7 +690,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       increase_node_groups_in_global_replication_group_message() :: %{
-        optional("RegionalConfigurations") => list(regional_configuration()()),
+        optional("RegionalConfigurations") => list(regional_configuration()),
         required("ApplyImmediately") => boolean(),
         required("GlobalReplicationGroupId") => String.t(),
         required("NodeGroupCount") => integer()
@@ -705,7 +705,7 @@ defmodule AWS.ElastiCache do
       
       describe_serverless_caches_response() :: %{
         "NextToken" => String.t(),
-        "ServerlessCaches" => list(serverless_cache()())
+        "ServerlessCaches" => list(serverless_cache())
       }
       
   """
@@ -750,8 +750,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       create_user_group_message() :: %{
-        optional("Tags") => list(tag()()),
-        optional("UserIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("UserIds") => list(String.t()),
         required("Engine") => String.t(),
         required("UserGroupId") => String.t()
       }
@@ -827,7 +827,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_parameter_group_status() :: %{
-        "CacheNodeIdsToReboot" => list(String.t()()),
+        "CacheNodeIdsToReboot" => list(String.t()),
         "CacheParameterGroupName" => String.t(),
         "ParameterApplyStatus" => String.t()
       }
@@ -840,8 +840,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       user_group_pending_changes() :: %{
-        "UserIdsToAdd" => list(String.t()()),
-        "UserIdsToRemove" => list(String.t()())
+        "UserIdsToAdd" => list(String.t()),
+        "UserIdsToRemove" => list(String.t())
       }
       
   """
@@ -876,7 +876,7 @@ defmodule AWS.ElastiCache do
       
       describe_serverless_cache_snapshots_response() :: %{
         "NextToken" => String.t(),
-        "ServerlessCacheSnapshots" => list(serverless_cache_snapshot()())
+        "ServerlessCacheSnapshots" => list(serverless_cache_snapshot())
       }
       
   """
@@ -932,7 +932,7 @@ defmodule AWS.ElastiCache do
       
       node_group() :: %{
         "NodeGroupId" => String.t(),
-        "NodeGroupMembers" => list(node_group_member()()),
+        "NodeGroupMembers" => list(node_group_member()),
         "PrimaryEndpoint" => endpoint(),
         "ReaderEndpoint" => endpoint(),
         "Slots" => String.t(),
@@ -1029,8 +1029,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       update_action_results_message() :: %{
-        optional("ProcessedUpdateActions") => list(processed_update_action()()),
-        optional("UnprocessedUpdateActions") => list(unprocessed_update_action()())
+        optional("ProcessedUpdateActions") => list(processed_update_action()),
+        optional("UnprocessedUpdateActions") => list(unprocessed_update_action())
       }
       
   """
@@ -1068,29 +1068,29 @@ defmodule AWS.ElastiCache do
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("CacheNodeType") => String.t(),
         optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("CacheSecurityGroupNames") => list(String.t()),
         optional("CacheSubnetGroupName") => String.t(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("IpDiscovery") => list(any()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
         optional("NetworkType") => list(any()),
         optional("NotificationTopicArn") => String.t(),
         optional("NumCacheNodes") => integer(),
         optional("OutpostMode") => list(any()),
         optional("Port") => integer(),
         optional("PreferredAvailabilityZone") => String.t(),
-        optional("PreferredAvailabilityZones") => list(String.t()()),
+        optional("PreferredAvailabilityZones") => list(String.t()),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("PreferredOutpostArn") => String.t(),
-        optional("PreferredOutpostArns") => list(String.t()()),
+        optional("PreferredOutpostArns") => list(String.t()),
         optional("ReplicationGroupId") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("SnapshotArns") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("SnapshotArns") => list(String.t()),
         optional("SnapshotName") => String.t(),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TransitEncryptionEnabled") => boolean(),
         required("CacheClusterId") => String.t()
       }
@@ -1182,7 +1182,7 @@ defmodule AWS.ElastiCache do
       
       reserved_cache_nodes_offering_message() :: %{
         "Marker" => String.t(),
-        "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering()())
+        "ReservedCacheNodesOfferings" => list(reserved_cache_nodes_offering())
       }
       
   """
@@ -1279,8 +1279,8 @@ defmodule AWS.ElastiCache do
       
       decrease_replica_count_message() :: %{
         optional("NewReplicaCount") => integer(),
-        optional("ReplicaConfiguration") => list(configure_shard()()),
-        optional("ReplicasToRemove") => list(String.t()()),
+        optional("ReplicaConfiguration") => list(configure_shard()),
+        optional("ReplicasToRemove") => list(String.t()),
         required("ApplyImmediately") => boolean(),
         required("ReplicationGroupId") => String.t()
       }
@@ -1421,7 +1421,7 @@ defmodule AWS.ElastiCache do
       
       increase_replica_count_message() :: %{
         optional("NewReplicaCount") => integer(),
-        optional("ReplicaConfiguration") => list(configure_shard()()),
+        optional("ReplicaConfiguration") => list(configure_shard()),
         required("ApplyImmediately") => boolean(),
         required("ReplicationGroupId") => String.t()
       }
@@ -1456,7 +1456,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       test_migration_message() :: %{
-        required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
         required("ReplicationGroupId") => String.t()
       }
       
@@ -1469,10 +1469,10 @@ defmodule AWS.ElastiCache do
       
       pending_modified_values() :: %{
         "AuthTokenStatus" => list(any()),
-        "CacheNodeIdsToRemove" => list(String.t()()),
+        "CacheNodeIdsToRemove" => list(String.t()),
         "CacheNodeType" => String.t(),
         "EngineVersion" => String.t(),
-        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
         "NumCacheNodes" => integer(),
         "ScaleConfig" => scale_config(),
         "TransitEncryptionEnabled" => boolean(),
@@ -1594,7 +1594,7 @@ defmodule AWS.ElastiCache do
         "ARN" => String.t(),
         "CacheSecurityGroupName" => String.t(),
         "Description" => String.t(),
-        "EC2SecurityGroups" => list(ec2_security_group()()),
+        "EC2SecurityGroups" => list(ec2_security_group()),
         "OwnerId" => String.t()
       }
       
@@ -1628,9 +1628,9 @@ defmodule AWS.ElastiCache do
         "NodeGroupId" => String.t(),
         "PrimaryAvailabilityZone" => String.t(),
         "PrimaryOutpostArn" => String.t(),
-        "ReplicaAvailabilityZones" => list(String.t()()),
+        "ReplicaAvailabilityZones" => list(String.t()),
         "ReplicaCount" => integer(),
-        "ReplicaOutpostArns" => list(String.t()()),
+        "ReplicaOutpostArns" => list(String.t()),
         "Slots" => String.t()
       }
       
@@ -1677,7 +1677,7 @@ defmodule AWS.ElastiCache do
       
       reserved_cache_node_message() :: %{
         "Marker" => String.t(),
-        "ReservedCacheNodes" => list(reserved_cache_node()())
+        "ReservedCacheNodes" => list(reserved_cache_node())
       }
       
   """
@@ -1785,8 +1785,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       batch_stop_update_action_message() :: %{
-        optional("CacheClusterIds") => list(String.t()()),
-        optional("ReplicationGroupIds") => list(String.t()()),
+        optional("CacheClusterIds") => list(String.t()),
+        optional("ReplicationGroupIds") => list(String.t()),
         required("ServiceUpdateName") => String.t()
       }
       
@@ -1816,12 +1816,12 @@ defmodule AWS.ElastiCache do
         optional("AutomaticFailoverEnabled") => boolean(),
         optional("CacheNodeType") => String.t(),
         optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("CacheSecurityGroupNames") => list(String.t()),
         optional("ClusterMode") => list(any()),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("IpDiscovery") => list(any()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
         optional("MultiAZEnabled") => boolean(),
         optional("NodeGroupId") => String.t(),
         optional("NotificationTopicArn") => String.t(),
@@ -1830,14 +1830,14 @@ defmodule AWS.ElastiCache do
         optional("PrimaryClusterId") => String.t(),
         optional("RemoveUserGroups") => boolean(),
         optional("ReplicationGroupDescription") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),
         optional("SnapshottingClusterId") => String.t(),
         optional("TransitEncryptionEnabled") => boolean(),
         optional("TransitEncryptionMode") => list(any()),
-        optional("UserGroupIdsToAdd") => list(String.t()()),
-        optional("UserGroupIdsToRemove") => list(String.t()()),
+        optional("UserGroupIdsToAdd") => list(String.t()),
+        optional("UserGroupIdsToRemove") => list(String.t()),
         required("ReplicationGroupId") => String.t()
       }
       
@@ -1877,7 +1877,7 @@ defmodule AWS.ElastiCache do
       
       service_updates_message() :: %{
         "Marker" => String.t(),
-        "ServiceUpdates" => list(service_update()())
+        "ServiceUpdates" => list(service_update())
       }
       
   """
@@ -1889,7 +1889,7 @@ defmodule AWS.ElastiCache do
       
       copy_snapshot_message() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetBucket") => String.t(),
         required("SourceSnapshotName") => String.t(),
         required("TargetSnapshotName") => String.t()
@@ -1960,7 +1960,7 @@ defmodule AWS.ElastiCache do
       
       copy_serverless_cache_snapshot_request() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceServerlessCacheSnapshotName") => String.t(),
         required("TargetServerlessCacheSnapshotName") => String.t()
       }
@@ -1974,7 +1974,7 @@ defmodule AWS.ElastiCache do
       
       reboot_cache_cluster_message() :: %{
         required("CacheClusterId") => String.t(),
-        required("CacheNodeIdsToReboot") => list(String.t()())
+        required("CacheNodeIdsToReboot") => list(String.t())
       }
       
   """
@@ -2054,15 +2054,15 @@ defmodule AWS.ElastiCache do
         "AutoMinorVersionUpgrade" => boolean(),
         "TransitEncryptionMode" => list(any()),
         "IpDiscovery" => list(any()),
-        "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
         "TransitEncryptionEnabled" => boolean(),
         "NotificationConfiguration" => notification_configuration(),
         "CacheSubnetGroupName" => String.t(),
-        "CacheNodes" => list(cache_node()()),
+        "CacheNodes" => list(cache_node()),
         "PreferredOutpostArn" => String.t(),
         "EngineVersion" => String.t(),
-        "CacheSecurityGroups" => list(cache_security_group_membership()()),
-        "SecurityGroups" => list(security_group_membership()()),
+        "CacheSecurityGroups" => list(cache_security_group_membership()),
+        "SecurityGroups" => list(security_group_membership()),
         "CacheNodeType" => String.t(),
         "NumCacheNodes" => integer()
       }
@@ -2077,8 +2077,8 @@ defmodule AWS.ElastiCache do
       create_user_message() :: %{
         optional("AuthenticationMode") => authentication_mode(),
         optional("NoPasswordRequired") => boolean(),
-        optional("Passwords") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("Passwords") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("AccessString") => String.t(),
         required("Engine") => String.t(),
         required("UserId") => String.t(),
@@ -2096,7 +2096,7 @@ defmodule AWS.ElastiCache do
         "ARN" => String.t(),
         "CacheSubnetGroupDescription" => String.t(),
         "CacheSubnetGroupName" => String.t(),
-        "Subnets" => list(subnet()()),
+        "Subnets" => list(subnet()),
         "SupportedNetworkTypes" => list(list(any())()),
         "VpcId" => String.t()
       }
@@ -2241,7 +2241,7 @@ defmodule AWS.ElastiCache do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2268,12 +2268,12 @@ defmodule AWS.ElastiCache do
         "GlobalReplicationGroupInfo" => global_replication_group_info(),
         "IpDiscovery" => list(any()),
         "KmsKeyId" => String.t(),
-        "LogDeliveryConfigurations" => list(log_delivery_configuration()()),
-        "MemberClusters" => list(String.t()()),
-        "MemberClustersOutpostArns" => list(String.t()()),
+        "LogDeliveryConfigurations" => list(log_delivery_configuration()),
+        "MemberClusters" => list(String.t()),
+        "MemberClustersOutpostArns" => list(String.t()),
         "MultiAZ" => list(any()),
         "NetworkType" => list(any()),
-        "NodeGroups" => list(node_group()()),
+        "NodeGroups" => list(node_group()),
         "PendingModifiedValues" => replication_group_pending_modified_values(),
         "ReplicationGroupCreateTime" => non_neg_integer(),
         "ReplicationGroupId" => String.t(),
@@ -2283,7 +2283,7 @@ defmodule AWS.ElastiCache do
         "Status" => String.t(),
         "TransitEncryptionEnabled" => boolean(),
         "TransitEncryptionMode" => list(any()),
-        "UserGroupIds" => list(String.t()())
+        "UserGroupIds" => list(String.t())
       }
       
   """
@@ -2311,7 +2311,7 @@ defmodule AWS.ElastiCache do
         optional("AuthenticationMode") => authentication_mode(),
         optional("Engine") => String.t(),
         optional("NoPasswordRequired") => boolean(),
-        optional("Passwords") => list(String.t()()),
+        optional("Passwords") => list(String.t()),
         required("UserId") => String.t()
       }
       
@@ -2337,7 +2337,7 @@ defmodule AWS.ElastiCache do
         optional("CacheClusterId") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("ReplicationGroupId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnapshotName") => String.t()
       }
       
@@ -2384,7 +2384,7 @@ defmodule AWS.ElastiCache do
       
       modify_cache_parameter_group_message() :: %{
         required("CacheParameterGroupName") => String.t(),
-        required("ParameterNameValues") => list(parameter_name_value()())
+        required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
@@ -2419,7 +2419,7 @@ defmodule AWS.ElastiCache do
       
       modify_cache_subnet_group_message() :: %{
         optional("CacheSubnetGroupDescription") => String.t(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         required("CacheSubnetGroupName") => String.t()
       }
       
@@ -2445,7 +2445,7 @@ defmodule AWS.ElastiCache do
         "AuthTokenStatus" => list(any()),
         "AutomaticFailoverStatus" => list(any()),
         "ClusterMode" => list(any()),
-        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()()),
+        "LogDeliveryConfigurations" => list(pending_log_delivery_configuration()),
         "PrimaryClusterId" => String.t(),
         "Resharding" => resharding_status(),
         "TransitEncryptionEnabled" => boolean(),
@@ -2472,7 +2472,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       events_message() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -2485,7 +2485,7 @@ defmodule AWS.ElastiCache do
       
       resharding_configuration() :: %{
         "NodeGroupId" => String.t(),
-        "PreferredAvailabilityZones" => list(String.t()())
+        "PreferredAvailabilityZones" => list(String.t())
       }
       
   """
@@ -2509,7 +2509,7 @@ defmodule AWS.ElastiCache do
       purchase_reserved_cache_nodes_offering_message() :: %{
         optional("CacheNodeCount") => integer(),
         optional("ReservedCacheNodeId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ReservedCacheNodesOfferingId") => String.t()
       }
       
@@ -2628,7 +2628,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_subnet_group_message() :: %{
-        "CacheSubnetGroups" => list(cache_subnet_group()()),
+        "CacheSubnetGroups" => list(cache_subnet_group()),
         "Marker" => String.t()
       }
       
@@ -2654,7 +2654,7 @@ defmodule AWS.ElastiCache do
       
       describe_users_result() :: %{
         "Marker" => String.t(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
       
   """
@@ -2667,8 +2667,8 @@ defmodule AWS.ElastiCache do
       configure_shard() :: %{
         "NewReplicaCount" => integer(),
         "NodeGroupId" => String.t(),
-        "PreferredAvailabilityZones" => list(String.t()()),
-        "PreferredOutpostArns" => list(String.t()())
+        "PreferredAvailabilityZones" => list(String.t()),
+        "PreferredOutpostArns" => list(String.t())
       }
       
   """
@@ -2705,10 +2705,10 @@ defmodule AWS.ElastiCache do
       
       update_action() :: %{
         "CacheClusterId" => String.t(),
-        "CacheNodeUpdateStatus" => list(cache_node_update_status()()),
+        "CacheNodeUpdateStatus" => list(cache_node_update_status()),
         "Engine" => String.t(),
         "EstimatedUpdateTime" => String.t(),
-        "NodeGroupUpdateStatus" => list(node_group_update_status()()),
+        "NodeGroupUpdateStatus" => list(node_group_update_status()),
         "NodesUpdated" => String.t(),
         "ReplicationGroupId" => String.t(),
         "ServiceUpdateName" => String.t(),
@@ -2732,7 +2732,7 @@ defmodule AWS.ElastiCache do
       
       node_group_update_status() :: %{
         "NodeGroupId" => String.t(),
-        "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status()())
+        "NodeGroupMemberUpdateStatus" => list(node_group_member_update_status())
       }
       
   """
@@ -2744,7 +2744,7 @@ defmodule AWS.ElastiCache do
       
       update_actions_message() :: %{
         "Marker" => String.t(),
-        "UpdateActions" => list(update_action()())
+        "UpdateActions" => list(update_action())
       }
       
   """
@@ -2779,7 +2779,7 @@ defmodule AWS.ElastiCache do
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
         "KmsKeyId" => String.t(),
-        "NodeSnapshots" => list(node_snapshot()()),
+        "NodeSnapshots" => list(node_snapshot()),
         "NumCacheNodes" => integer(),
         "NumNodeGroups" => integer(),
         "Port" => integer(),
@@ -2830,10 +2830,10 @@ defmodule AWS.ElastiCache do
         "ClusterEnabled" => boolean(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
-        "GlobalNodeGroups" => list(global_node_group()()),
+        "GlobalNodeGroups" => list(global_node_group()),
         "GlobalReplicationGroupDescription" => String.t(),
         "GlobalReplicationGroupId" => String.t(),
-        "Members" => list(global_replication_group_member()()),
+        "Members" => list(global_replication_group_member()),
         "Status" => String.t(),
         "TransitEncryptionEnabled" => boolean()
       }
@@ -2846,7 +2846,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       tag_list_message() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -2868,10 +2868,10 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       create_cache_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CacheSubnetGroupDescription") => String.t(),
         required("CacheSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -2916,7 +2916,7 @@ defmodule AWS.ElastiCache do
       
       add_tags_to_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -2949,7 +2949,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       create_cache_security_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CacheSecurityGroupName") => String.t(),
         required("Description") => String.t()
       }
@@ -2963,8 +2963,8 @@ defmodule AWS.ElastiCache do
       
       create_replication_group_message() :: %{
         optional("ServerlessCacheSnapshotName") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("UserGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("UserGroupIds") => list(String.t()),
         optional("PrimaryClusterId") => String.t(),
         optional("CacheSubnetGroupName") => String.t(),
         optional("SnapshotRetentionLimit") => integer(),
@@ -2973,7 +2973,7 @@ defmodule AWS.ElastiCache do
         required("ReplicationGroupId") => String.t(),
         optional("AuthToken") => String.t(),
         optional("ReplicasPerNodeGroup") => integer(),
-        optional("PreferredCacheClusterAZs") => list(String.t()()),
+        optional("PreferredCacheClusterAZs") => list(String.t()),
         optional("Engine") => String.t(),
         optional("IpDiscovery") => list(any()),
         optional("NumCacheClusters") => integer(),
@@ -2983,13 +2983,13 @@ defmodule AWS.ElastiCache do
         optional("TransitEncryptionEnabled") => boolean(),
         optional("SnapshotWindow") => String.t(),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("SnapshotArns") => list(String.t()()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
+        optional("SnapshotArns") => list(String.t()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
         optional("EngineVersion") => String.t(),
         optional("SnapshotName") => String.t(),
         optional("ClusterMode") => list(any()),
-        optional("NodeGroupConfiguration") => list(node_group_configuration()()),
-        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("NodeGroupConfiguration") => list(node_group_configuration()),
+        optional("CacheSecurityGroupNames") => list(String.t()),
         optional("DataTieringEnabled") => boolean(),
         optional("Port") => integer(),
         optional("AtRestEncryptionEnabled") => boolean(),
@@ -3000,7 +3000,7 @@ defmodule AWS.ElastiCache do
         optional("KmsKeyId") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("CacheNodeType") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -3061,7 +3061,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_cluster_message() :: %{
-        "CacheClusters" => list(cache_cluster()()),
+        "CacheClusters" => list(cache_cluster()),
         "Marker" => String.t()
       }
       
@@ -3135,7 +3135,7 @@ defmodule AWS.ElastiCache do
       
       describe_snapshots_list_message() :: %{
         "Marker" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -3147,7 +3147,7 @@ defmodule AWS.ElastiCache do
       
       describe_users_message() :: %{
         optional("Engine") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("UserId") => String.t()
@@ -3191,7 +3191,7 @@ defmodule AWS.ElastiCache do
         optional("Engine") => String.t(),
         optional("MinimumEngineVersion") => String.t(),
         optional("Status") => String.t(),
-        optional("UserGroupIds") => list(String.t()()),
+        optional("UserGroupIds") => list(String.t()),
         optional("UserId") => String.t(),
         optional("UserName") => String.t()
       }
@@ -3204,7 +3204,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       create_cache_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("CacheParameterGroupFamily") => String.t(),
         required("CacheParameterGroupName") => String.t(),
         required("Description") => String.t()
@@ -3256,11 +3256,11 @@ defmodule AWS.ElastiCache do
         optional("Description") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("MajorEngineVersion") => String.t(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("SnapshotArnsToRestore") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("SnapshotArnsToRestore") => list(String.t()),
         optional("SnapshotRetentionLimit") => integer(),
-        optional("SubnetIds") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SubnetIds") => list(String.t()),
+        optional("Tags") => list(tag()),
         optional("UserGroupId") => String.t(),
         required("Engine") => String.t(),
         required("ServerlessCacheName") => String.t()
@@ -3340,7 +3340,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       cache_engine_version_message() :: %{
-        "CacheEngineVersions" => list(cache_engine_version()()),
+        "CacheEngineVersions" => list(cache_engine_version()),
         "Marker" => String.t()
       }
       
@@ -3352,7 +3352,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       authentication_mode() :: %{
-        "Passwords" => list(String.t()()),
+        "Passwords" => list(String.t()),
         "Type" => list(any())
       }
       
@@ -3381,7 +3381,7 @@ defmodule AWS.ElastiCache do
         optional("Engine") => String.t(),
         optional("MajorEngineVersion") => String.t(),
         optional("RemoveUserGroup") => boolean(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SnapshotRetentionLimit") => integer(),
         optional("UserGroupId") => String.t(),
         required("ServerlessCacheName") => String.t()
@@ -3411,7 +3411,7 @@ defmodule AWS.ElastiCache do
       
       remove_tags_from_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -3496,8 +3496,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       decrease_node_groups_in_global_replication_group_message() :: %{
-        optional("GlobalNodeGroupsToRemove") => list(String.t()()),
-        optional("GlobalNodeGroupsToRetain") => list(String.t()()),
+        optional("GlobalNodeGroupsToRemove") => list(String.t()),
+        optional("GlobalNodeGroupsToRetain") => list(String.t()),
         required("ApplyImmediately") => boolean(),
         required("GlobalReplicationGroupId") => String.t(),
         required("NodeGroupCount") => integer()
@@ -3566,8 +3566,8 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       user_groups_update_status() :: %{
-        "UserGroupIdsToAdd" => list(String.t()()),
-        "UserGroupIdsToRemove" => list(String.t()())
+        "UserGroupIdsToAdd" => list(String.t()),
+        "UserGroupIdsToRemove" => list(String.t())
       }
       
   """
@@ -3616,7 +3616,7 @@ defmodule AWS.ElastiCache do
   ## Example:
       
       start_migration_message() :: %{
-        required("CustomerNodeEndpointList") => list(customer_node_endpoint()()),
+        required("CustomerNodeEndpointList") => list(customer_node_endpoint()),
         required("ReplicationGroupId") => String.t()
       }
       
@@ -3673,7 +3673,7 @@ defmodule AWS.ElastiCache do
       
       replication_group_message() :: %{
         "Marker" => String.t(),
-        "ReplicationGroups" => list(replication_group()())
+        "ReplicationGroups" => list(replication_group())
       }
       
   """
@@ -3735,21 +3735,21 @@ defmodule AWS.ElastiCache do
         optional("AuthToken") => String.t(),
         optional("AuthTokenUpdateStrategy") => list(any()),
         optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("CacheNodeIdsToRemove") => list(String.t()()),
+        optional("CacheNodeIdsToRemove") => list(String.t()),
         optional("CacheNodeType") => String.t(),
         optional("CacheParameterGroupName") => String.t(),
-        optional("CacheSecurityGroupNames") => list(String.t()()),
+        optional("CacheSecurityGroupNames") => list(String.t()),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
         optional("IpDiscovery") => list(any()),
-        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()()),
-        optional("NewAvailabilityZones") => list(String.t()()),
+        optional("LogDeliveryConfigurations") => list(log_delivery_configuration_request()),
+        optional("NewAvailabilityZones") => list(String.t()),
         optional("NotificationTopicArn") => String.t(),
         optional("NotificationTopicStatus") => String.t(),
         optional("NumCacheNodes") => integer(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("ScaleConfig") => scale_config(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),
         required("CacheClusterId") => String.t()
@@ -3809,7 +3809,7 @@ defmodule AWS.ElastiCache do
       regional_configuration() :: %{
         "ReplicationGroupId" => String.t(),
         "ReplicationGroupRegion" => String.t(),
-        "ReshardingConfiguration" => list(resharding_configuration()())
+        "ReshardingConfiguration" => list(resharding_configuration())
       }
       
   """
@@ -4456,7 +4456,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -4483,7 +4484,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, authorize_cache_security_group_ingress_errors()}
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeCacheSecurityGroupIngress", input, options)
   end
@@ -4500,7 +4502,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_apply_update_action_errors()}
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchApplyUpdateAction", input, options)
   end
@@ -4518,7 +4521,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_stop_update_action_errors()}
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchStopUpdateAction", input, options)
   end
@@ -4532,7 +4536,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, complete_migration_errors()}
   def complete_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteMigration", input, options)
   end
@@ -4548,7 +4553,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_serverless_cache_snapshot_errors()}
   def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyServerlessCacheSnapshot", input, options)
   end
@@ -4659,7 +4665,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -4679,7 +4686,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_cluster_errors()}
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheCluster", input, options)
   end
@@ -4715,7 +4723,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_parameter_group_errors()}
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheParameterGroup", input, options)
   end
@@ -4739,7 +4748,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_security_group_errors()}
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheSecurityGroup", input, options)
   end
@@ -4757,7 +4767,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_subnet_group_errors()}
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCacheSubnetGroup", input, options)
   end
@@ -4786,7 +4797,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_global_replication_group_errors()}
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalReplicationGroup", input, options)
   end
@@ -4850,7 +4862,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_replication_group_errors()}
   def create_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReplicationGroup", input, options)
   end
@@ -4864,7 +4877,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_errors()}
   def create_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServerlessCache", input, options)
   end
@@ -4885,7 +4899,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_snapshot_errors()}
   def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateServerlessCacheSnapshot", input, options)
   end
@@ -4902,7 +4917,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4919,7 +4935,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -4937,7 +4954,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_group_errors()}
   def create_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserGroup", input, options)
   end
@@ -4955,7 +4973,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_node_groups_in_global_replication_group_errors()}
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4982,7 +5001,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_replica_count_errors()}
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecreaseReplicaCount", input, options)
   end
@@ -5026,7 +5046,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_cluster_errors()}
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheCluster", input, options)
   end
@@ -5044,7 +5065,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_parameter_group_errors()}
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheParameterGroup", input, options)
   end
@@ -5061,7 +5083,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_security_group_errors()}
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheSecurityGroup", input, options)
   end
@@ -5079,7 +5102,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_subnet_group_errors()}
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCacheSubnetGroup", input, options)
   end
@@ -5115,7 +5139,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_global_replication_group_errors()}
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalReplicationGroup", input, options)
   end
@@ -5150,7 +5175,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_replication_group_errors()}
   def delete_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReplicationGroup", input, options)
   end
@@ -5169,7 +5195,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_errors()}
   def delete_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCache", input, options)
   end
@@ -5189,7 +5216,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_snapshot_errors()}
   def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCacheSnapshot", input, options)
   end
@@ -5210,7 +5238,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -5229,7 +5258,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -5248,7 +5278,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_group_errors()}
   def delete_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserGroup", input, options)
   end
@@ -5288,7 +5319,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_clusters_errors()}
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheClusters", input, options)
   end
@@ -5301,7 +5333,8 @@ defmodule AWS.ElastiCache do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheEngineVersions", input, options)
   end
@@ -5318,7 +5351,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameter_groups_errors()}
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameterGroups", input, options)
   end
@@ -5332,7 +5366,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameters_errors()}
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameters", input, options)
   end
@@ -5351,7 +5386,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_security_groups_errors()}
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheSecurityGroups", input, options)
   end
@@ -5372,7 +5408,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_subnet_groups_errors()}
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCacheSubnetGroups", input, options)
   end
@@ -5392,7 +5429,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_engine_default_parameters_errors()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -5415,7 +5453,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -5436,7 +5475,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_global_replication_groups_errors()}
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalReplicationGroups", input, options)
   end
@@ -5456,7 +5496,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_replication_groups_errors()}
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplicationGroups", input, options)
   end
@@ -5472,7 +5513,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_errors()}
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodes", input, options)
   end
@@ -5490,7 +5532,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_offerings_errors()}
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodesOfferings", input, options)
   end
@@ -5514,7 +5557,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_cache_snapshots_errors()}
   def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCacheSnapshots", input, options)
   end
@@ -5532,7 +5576,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_caches_errors()}
   def describe_serverless_caches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCaches", input, options)
   end
@@ -5546,7 +5591,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -5568,7 +5614,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -5582,7 +5629,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_update_actions_errors()}
   def describe_update_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUpdateActions", input, options)
   end
@@ -5596,7 +5644,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_user_groups_errors()}
   def describe_user_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserGroups", input, options)
   end
@@ -5610,7 +5659,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -5633,7 +5683,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, disassociate_global_replication_group_errors()}
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateGlobalReplicationGroup", input, options)
   end
@@ -5654,7 +5705,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, export_serverless_cache_snapshot_errors()}
   def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportServerlessCacheSnapshot", input, options)
   end
@@ -5675,7 +5727,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, failover_global_replication_group_errors()}
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalReplicationGroup", input, options)
   end
@@ -5693,7 +5746,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_node_groups_in_global_replication_group_errors()}
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5720,7 +5774,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_replica_count_errors()}
   def increase_replica_count(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IncreaseReplicaCount", input, options)
   end
@@ -5745,7 +5800,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_allowed_node_type_modifications_errors()}
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeModifications", input, options)
   end
@@ -5772,7 +5828,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5790,7 +5847,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_cluster_errors()}
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheCluster", input, options)
   end
@@ -5807,7 +5865,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_parameter_group_errors()}
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheParameterGroup", input, options)
   end
@@ -5821,7 +5880,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_subnet_group_errors()}
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCacheSubnetGroup", input, options)
   end
@@ -5835,7 +5895,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_global_replication_group_errors()}
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalReplicationGroup", input, options)
   end
@@ -5865,7 +5926,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_errors()}
   def modify_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroup", input, options)
   end
@@ -5885,7 +5947,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_shard_configuration_errors()}
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroupShardConfiguration", input, options)
   end
@@ -5899,7 +5962,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_serverless_cache_errors()}
   def modify_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyServerlessCache", input, options)
   end
@@ -5913,7 +5977,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_errors()}
   def modify_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyUser", input, options)
   end
@@ -5927,7 +5992,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_group_errors()}
   def modify_user_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyUserGroup", input, options)
   end
@@ -5949,7 +6015,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, purchase_reserved_cache_nodes_offering_errors()}
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedCacheNodesOffering", input, options)
   end
@@ -5968,7 +6035,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, rebalance_slots_in_global_replication_group_errors()}
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebalanceSlotsInGlobalReplicationGroup", input, options)
   end
@@ -6006,7 +6074,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reboot_cache_cluster_errors()}
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootCacheCluster", input, options)
   end
@@ -6029,7 +6098,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -6049,7 +6119,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reset_cache_parameter_group_errors()}
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetCacheParameterGroup", input, options)
   end
@@ -6070,7 +6141,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, revoke_cache_security_group_ingress_errors()}
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeCacheSecurityGroupIngress", input, options)
   end
@@ -6084,7 +6156,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMigration", input, options)
   end
@@ -6191,7 +6264,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_failover_errors()}
   def test_failover(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestFailover", input, options)
   end
@@ -6205,7 +6279,8 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_migration_errors()}
   def test_migration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestMigration", input, options)
   end

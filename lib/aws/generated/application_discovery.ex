@@ -124,7 +124,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_continuous_exports_response() :: %{
-        "descriptions" => list(continuous_export_description()()),
+        "descriptions" => list(continuous_export_description()),
         "nextToken" => String.t()
       }
       
@@ -186,7 +186,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       batch_delete_agents_request() :: %{
-        required("deleteAgents") => list(delete_agent()())
+        required("deleteAgents") => list(delete_agent())
       }
       
   """
@@ -197,8 +197,8 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       delete_tags_request() :: %{
-        optional("tags") => list(tag()()),
-        required("configurationIds") => list(String.t()())
+        optional("tags") => list(tag()),
+        required("configurationIds") => list(String.t())
       }
       
   """
@@ -268,7 +268,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       list_configurations_response() :: %{
-        "configurations" => list(map()()),
+        "configurations" => list(map()),
         "nextToken" => String.t()
       }
       
@@ -281,7 +281,7 @@ defmodule AWS.ApplicationDiscovery do
       
       list_server_neighbors_response() :: %{
         "knownDependencyCount" => float(),
-        "neighbors" => list(neighbor_connection_detail()()),
+        "neighbors" => list(neighbor_connection_detail()),
         "nextToken" => String.t()
       }
       
@@ -306,7 +306,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_export_configurations_response() :: %{
-        "exportsInfo" => list(export_info()()),
+        "exportsInfo" => list(export_info()),
         "nextToken" => String.t()
       }
       
@@ -320,7 +320,7 @@ defmodule AWS.ApplicationDiscovery do
       export_filter() :: %{
         "condition" => String.t(),
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -332,7 +332,7 @@ defmodule AWS.ApplicationDiscovery do
       
       disassociate_configuration_items_from_application_request() :: %{
         required("applicationConfigurationId") => String.t(),
-        required("configurationIds") => list(String.t()())
+        required("configurationIds") => list(String.t())
       }
       
   """
@@ -343,7 +343,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_export_tasks_response() :: %{
-        "exportsInfo" => list(export_info()()),
+        "exportsInfo" => list(export_info()),
         "nextToken" => String.t()
       }
       
@@ -355,7 +355,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_configurations_request() :: %{
-        required("configurationIds") => list(String.t()())
+        required("configurationIds") => list(String.t())
       }
       
   """
@@ -366,8 +366,8 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_agents_request() :: %{
-        optional("agentIds") => list(String.t()()),
-        optional("filters") => list(filter()()),
+        optional("agentIds") => list(String.t()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -403,7 +403,7 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_tags_response() :: %{
         "nextToken" => String.t(),
-        "tags" => list(configuration_tag()())
+        "tags" => list(configuration_tag())
       }
       
   """
@@ -414,7 +414,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       start_batch_delete_configuration_task_request() :: %{
-        required("configurationIds") => list(String.t()()),
+        required("configurationIds") => list(String.t()),
         required("configurationType") => list(any())
       }
       
@@ -426,10 +426,10 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       list_configurations_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("orderBy") => list(order_by_element()()),
+        optional("orderBy") => list(order_by_element()),
         required("configurationType") => list(any())
       }
       
@@ -452,8 +452,8 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       create_tags_request() :: %{
-        required("configurationIds") => list(String.t()()),
-        required("tags") => list(tag()())
+        required("configurationIds") => list(String.t()),
+        required("tags") => list(tag())
       }
       
   """
@@ -526,7 +526,7 @@ defmodule AWS.ApplicationDiscovery do
       
       agent_info() :: %{
         "agentId" => String.t(),
-        "agentNetworkInfoList" => list(agent_network_info()()),
+        "agentNetworkInfoList" => list(agent_network_info()),
         "agentType" => String.t(),
         "collectionStatus" => String.t(),
         "connectorId" => String.t(),
@@ -557,8 +557,8 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_export_tasks_request() :: %{
-        optional("exportIds") => list(String.t()()),
-        optional("filters") => list(export_filter()()),
+        optional("exportIds") => list(String.t()),
+        optional("filters") => list(export_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -586,7 +586,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       batch_delete_import_data_response() :: %{
-        "errors" => list(batch_delete_import_data_error()())
+        "errors" => list(batch_delete_import_data_error())
       }
       
   """
@@ -638,7 +638,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       batch_delete_agents_response() :: %{
-        "errors" => list(batch_delete_agent_error()())
+        "errors" => list(batch_delete_agent_error())
       }
       
   """
@@ -698,7 +698,7 @@ defmodule AWS.ApplicationDiscovery do
       ec2_recommendations_export_preferences() :: %{
         "cpuPerformanceMetricBasis" => usage_metric_basis(),
         "enabled" => boolean(),
-        "excludedInstanceTypes" => list(String.t()()),
+        "excludedInstanceTypes" => list(String.t()),
         "preferredRegion" => String.t(),
         "ramPerformanceMetricBasis" => usage_metric_basis(),
         "reservedInstanceOptions" => reserved_instance_options(),
@@ -713,7 +713,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       stop_data_collection_by_agent_ids_response() :: %{
-        "agentsConfigurationStatus" => list(agent_configuration_status()())
+        "agentsConfigurationStatus" => list(agent_configuration_status())
       }
       
   """
@@ -736,7 +736,7 @@ defmodule AWS.ApplicationDiscovery do
       
       associate_configuration_items_to_application_request() :: %{
         required("applicationConfigurationId") => String.t(),
-        required("configurationIds") => list(String.t()())
+        required("configurationIds") => list(String.t())
       }
       
   """
@@ -771,7 +771,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_configurations_response() :: %{
-        "configurations" => list(map()())
+        "configurations" => list(map())
       }
       
   """
@@ -784,7 +784,7 @@ defmodule AWS.ApplicationDiscovery do
       filter() :: %{
         "condition" => String.t(),
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -821,7 +821,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       start_data_collection_by_agent_ids_request() :: %{
-        required("agentIds") => list(String.t()())
+        required("agentIds") => list(String.t())
       }
       
   """
@@ -885,11 +885,11 @@ defmodule AWS.ApplicationDiscovery do
       
       batch_delete_configuration_task() :: %{
         "configurationType" => list(any()),
-        "deletedConfigurations" => list(String.t()()),
-        "deletionWarnings" => list(deletion_warning()()),
+        "deletedConfigurations" => list(String.t()),
+        "deletionWarnings" => list(deletion_warning()),
         "endTime" => non_neg_integer(),
-        "failedConfigurations" => list(failed_configuration()()),
-        "requestedConfigurations" => list(String.t()()),
+        "failedConfigurations" => list(failed_configuration()),
+        "requestedConfigurations" => list(String.t()),
         "startTime" => non_neg_integer(),
         "status" => list(any()),
         "taskId" => String.t()
@@ -904,7 +904,7 @@ defmodule AWS.ApplicationDiscovery do
       
       batch_delete_import_data_request() :: %{
         optional("deleteHistory") => boolean(),
-        required("importTaskIds") => list(String.t()())
+        required("importTaskIds") => list(String.t())
       }
       
   """
@@ -926,7 +926,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_continuous_exports_request() :: %{
-        optional("exportIds") => list(String.t()()),
+        optional("exportIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -939,7 +939,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       stop_data_collection_by_agent_ids_request() :: %{
-        required("agentIds") => list(String.t()())
+        required("agentIds") => list(String.t())
       }
       
   """
@@ -972,7 +972,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       start_data_collection_by_agent_ids_response() :: %{
-        "agentsConfigurationStatus" => list(agent_configuration_status()())
+        "agentsConfigurationStatus" => list(agent_configuration_status())
       }
       
   """
@@ -997,7 +997,7 @@ defmodule AWS.ApplicationDiscovery do
       
       import_task_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1008,7 +1008,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_agents_response() :: %{
-        "agentsInfo" => list(agent_info()()),
+        "agentsInfo" => list(agent_info()),
         "nextToken" => String.t()
       }
       
@@ -1022,7 +1022,7 @@ defmodule AWS.ApplicationDiscovery do
       start_export_task_request() :: %{
         optional("endTime") => non_neg_integer(),
         optional("exportDataFormat") => list(list(any())()),
-        optional("filters") => list(export_filter()()),
+        optional("filters") => list(export_filter()),
         optional("preferences") => list(),
         optional("startTime") => non_neg_integer()
       }
@@ -1044,7 +1044,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_export_configurations_request() :: %{
-        optional("exportIds") => list(String.t()()),
+        optional("exportIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1114,7 +1114,7 @@ defmodule AWS.ApplicationDiscovery do
       
       list_server_neighbors_request() :: %{
         optional("maxResults") => integer(),
-        optional("neighborConfigurationIds") => list(String.t()()),
+        optional("neighborConfigurationIds") => list(String.t()),
         optional("nextToken") => String.t(),
         optional("portInformationNeeded") => boolean(),
         required("configurationId") => String.t()
@@ -1192,7 +1192,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_tags_request() :: %{
-        optional("filters") => list(tag_filter()()),
+        optional("filters") => list(tag_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1206,7 +1206,7 @@ defmodule AWS.ApplicationDiscovery do
       
       tag_filter() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1217,7 +1217,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       describe_import_tasks_request() :: %{
-        optional("filters") => list(import_task_filter()()),
+        optional("filters") => list(import_task_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1263,7 +1263,7 @@ defmodule AWS.ApplicationDiscovery do
       
       describe_import_tasks_response() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(import_task()())
+        "tasks" => list(import_task())
       }
       
   """
@@ -1274,7 +1274,7 @@ defmodule AWS.ApplicationDiscovery do
   ## Example:
       
       delete_applications_request() :: %{
-        required("configurationIds") => list(String.t()())
+        required("configurationIds") => list(String.t())
       }
       
   """
@@ -1521,7 +1521,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, associate_configuration_items_to_application_errors()}
   def associate_configuration_items_to_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConfigurationItemsToApplication", input, options)
   end
@@ -1540,7 +1541,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, batch_delete_agents_errors()}
   def batch_delete_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteAgents", input, options)
   end
@@ -1567,7 +1569,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, batch_delete_import_data_errors()}
   def batch_delete_import_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteImportData", input, options)
   end
@@ -1581,7 +1584,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -1600,7 +1604,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, create_tags_errors()}
   def create_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTags", input, options)
   end
@@ -1615,7 +1620,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, delete_applications_errors()}
   def delete_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplications", input, options)
   end
@@ -1632,7 +1638,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -1650,7 +1657,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_agents_errors()}
   def describe_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgents", input, options)
   end
@@ -1670,7 +1678,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_batch_delete_configuration_task_errors()}
   def describe_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBatchDeleteConfigurationTask", input, options)
   end
@@ -1709,7 +1718,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_configurations_errors()}
   def describe_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurations", input, options)
   end
@@ -1727,7 +1737,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_continuous_exports_errors()}
   def describe_continuous_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContinuousExports", input, options)
   end
@@ -1746,7 +1757,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_export_configurations_errors()}
   def describe_export_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportConfigurations", input, options)
   end
@@ -1763,7 +1775,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -1779,7 +1792,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_import_tasks_errors()}
   def describe_import_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImportTasks", input, options)
   end
@@ -1809,7 +1823,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -1827,7 +1842,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, disassociate_configuration_items_from_application_errors()}
   def disassociate_configuration_items_from_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -1858,7 +1874,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, export_configurations_errors()}
   def export_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportConfigurations", input, options)
   end
@@ -1876,7 +1893,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, get_discovery_summary_errors()}
   def get_discovery_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiscoverySummary", input, options)
   end
@@ -1894,7 +1912,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, list_configurations_errors()}
   def list_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurations", input, options)
   end
@@ -1909,7 +1928,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, list_server_neighbors_errors()}
   def list_server_neighbors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServerNeighbors", input, options)
   end
@@ -1931,7 +1951,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_batch_delete_configuration_task_errors()}
   def start_batch_delete_configuration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBatchDeleteConfigurationTask", input, options)
   end
@@ -1945,7 +1966,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_continuous_export_errors()}
   def start_continuous_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartContinuousExport", input, options)
   end
@@ -1963,7 +1985,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_data_collection_by_agent_ids_errors()}
   def start_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataCollectionByAgentIds", input, options)
   end
@@ -2008,7 +2031,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportTask", input, options)
   end
@@ -2066,7 +2090,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, start_import_task_errors()}
   def start_import_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartImportTask", input, options)
   end
@@ -2080,7 +2105,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, stop_continuous_export_errors()}
   def stop_continuous_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopContinuousExport", input, options)
   end
@@ -2098,7 +2124,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, stop_data_collection_by_agent_ids_errors()}
   def stop_data_collection_by_agent_ids(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataCollectionByAgentIds", input, options)
   end
@@ -2112,7 +2139,8 @@ defmodule AWS.ApplicationDiscovery do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end

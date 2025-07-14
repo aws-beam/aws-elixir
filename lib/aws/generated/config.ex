@@ -64,7 +64,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_recorder_status_response() :: %{
-        "ConfigurationRecordersStatus" => list(configuration_recorder_status()())
+        "ConfigurationRecordersStatus" => list(configuration_recorder_status())
       }
       
   """
@@ -186,7 +186,7 @@ defmodule AWS.Config do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -219,7 +219,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_aggregate_conformance_pack_compliance_summary_response() :: %{
-        "AggregateConformancePackComplianceSummaries" => list(aggregate_conformance_pack_compliance_summary()()),
+        "AggregateConformancePackComplianceSummaries" => list(aggregate_conformance_pack_compliance_summary()),
         "GroupByKey" => String.t(),
         "NextToken" => String.t()
       }
@@ -232,7 +232,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_compliance_details_by_resource_response() :: %{
-        "EvaluationResults" => list(evaluation_result()()),
+        "EvaluationResults" => list(evaluation_result()),
         "NextToken" => String.t()
       }
       
@@ -267,7 +267,7 @@ defmodule AWS.Config do
       
       get_aggregate_discovered_resource_counts_response() :: %{
         "GroupByKey" => String.t(),
-        "GroupedResourceCounts" => list(grouped_resource_count()()),
+        "GroupedResourceCounts" => list(grouped_resource_count()),
         "NextToken" => String.t(),
         "TotalDiscoveredResources" => float()
       }
@@ -291,7 +291,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_service_linked_configuration_recorder_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ServicePrincipal") => String.t()
       }
       
@@ -323,7 +323,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_config_rule_evaluation_status_request() :: %{
-        optional("ConfigRuleNames") => list(String.t()()),
+        optional("ConfigRuleNames") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -391,7 +391,7 @@ defmodule AWS.Config do
         "ConfigRuleState" => list(any()),
         "CreatedBy" => String.t(),
         "Description" => String.t(),
-        "EvaluationModes" => list(evaluation_mode_configuration()()),
+        "EvaluationModes" => list(evaluation_mode_configuration()),
         "InputParameters" => String.t(),
         "MaximumExecutionFrequency" => list(any()),
         "Scope" => scope(),
@@ -417,7 +417,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_config_rule_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConfigRule") => config_rule()
       }
       
@@ -452,7 +452,7 @@ defmodule AWS.Config do
       
       describe_retention_configurations_response() :: %{
         "NextToken" => String.t(),
-        "RetentionConfigurations" => list(retention_configuration()())
+        "RetentionConfigurations" => list(retention_configuration())
       }
       
   """
@@ -463,7 +463,7 @@ defmodule AWS.Config do
   ## Example:
       
       configuration_aggregator() :: %{
-        "AccountAggregationSources" => list(account_aggregation_source()()),
+        "AccountAggregationSources" => list(account_aggregation_source()),
         "AggregatorFilters" => aggregator_filters(),
         "ConfigurationAggregatorArn" => String.t(),
         "ConfigurationAggregatorName" => String.t(),
@@ -577,7 +577,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_conformance_pack_compliance_summary_response() :: %{
-        "ConformancePackComplianceSummaryList" => list(conformance_pack_compliance_summary()()),
+        "ConformancePackComplianceSummaryList" => list(conformance_pack_compliance_summary()),
         "NextToken" => String.t()
       }
       
@@ -614,7 +614,7 @@ defmodule AWS.Config do
   ## Example:
       
       delete_remediation_exceptions_response() :: %{
-        "FailedBatches" => list(failed_delete_remediation_exceptions_batch()())
+        "FailedBatches" => list(failed_delete_remediation_exceptions_batch())
       }
       
   """
@@ -639,7 +639,7 @@ defmodule AWS.Config do
       
       describe_compliance_by_config_rule_request() :: %{
         optional("ComplianceTypes") => list(list(any())()),
-        optional("ConfigRuleNames") => list(String.t()()),
+        optional("ConfigRuleNames") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -652,7 +652,7 @@ defmodule AWS.Config do
       
       describe_organization_config_rules_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConfigRules" => list(organization_config_rule()())
+        "OrganizationConfigRules" => list(organization_config_rule())
       }
       
   """
@@ -664,7 +664,7 @@ defmodule AWS.Config do
       
       delete_remediation_exceptions_request() :: %{
         required("ConfigRuleName") => String.t(),
-        required("ResourceKeys") => list(remediation_exception_resource_key()())
+        required("ResourceKeys") => list(remediation_exception_resource_key())
       }
       
   """
@@ -675,7 +675,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_remediation_configurations_request() :: %{
-        required("RemediationConfigurations") => list(remediation_configuration()())
+        required("RemediationConfigurations") => list(remediation_configuration())
       }
       
   """
@@ -686,7 +686,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_remediation_configurations_request() :: %{
-        required("ConfigRuleNames") => list(String.t()())
+        required("ConfigRuleNames") => list(String.t())
       }
       
   """
@@ -708,7 +708,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_aggregate_compliance_details_by_config_rule_response() :: %{
-        "AggregateEvaluationResults" => list(aggregate_evaluation_result()()),
+        "AggregateEvaluationResults" => list(aggregate_evaluation_result()),
         "NextToken" => String.t()
       }
       
@@ -764,7 +764,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_delivery_channels_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t()())
+        optional("DeliveryChannelNames") => list(String.t())
       }
       
   """
@@ -827,7 +827,7 @@ defmodule AWS.Config do
   ## Example:
       
       list_configuration_recorders_response() :: %{
-        "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()()),
+        "ConfigurationRecorderSummaries" => list(configuration_recorder_summary()),
         "NextToken" => String.t()
       }
       
@@ -851,7 +851,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_remediation_configurations_response() :: %{
-        "RemediationConfigurations" => list(remediation_configuration()())
+        "RemediationConfigurations" => list(remediation_configuration())
       }
       
   """
@@ -863,7 +863,7 @@ defmodule AWS.Config do
       
       recording_mode() :: %{
         "recordingFrequency" => list(any()),
-        "recordingModeOverrides" => list(recording_mode_override()())
+        "recordingModeOverrides" => list(recording_mode_override())
       }
       
   """
@@ -886,7 +886,7 @@ defmodule AWS.Config do
       
       list_resource_evaluations_response() :: %{
         "NextToken" => String.t(),
-        "ResourceEvaluations" => list(resource_evaluation()())
+        "ResourceEvaluations" => list(resource_evaluation())
       }
       
   """
@@ -897,7 +897,7 @@ defmodule AWS.Config do
   ## Example:
       
       failed_remediation_exception_batch() :: %{
-        "FailedItems" => list(remediation_exception()()),
+        "FailedItems" => list(remediation_exception()),
         "FailureMessage" => String.t()
       }
       
@@ -920,7 +920,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_compliance_details_by_config_rule_response() :: %{
-        "EvaluationResults" => list(evaluation_result()()),
+        "EvaluationResults" => list(evaluation_result()),
         "NextToken" => String.t()
       }
       
@@ -969,7 +969,7 @@ defmodule AWS.Config do
       
       describe_organization_conformance_packs_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConformancePacks" => list(organization_conformance_pack()())
+        "OrganizationConformancePacks" => list(organization_conformance_pack())
       }
       
   """
@@ -1005,7 +1005,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_compliance_by_config_rule_response() :: %{
-        "ComplianceByConfigRules" => list(compliance_by_config_rule()()),
+        "ComplianceByConfigRules" => list(compliance_by_config_rule()),
         "NextToken" => String.t()
       }
       
@@ -1017,7 +1017,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_evaluations_request() :: %{
-        optional("Evaluations") => list(evaluation()()),
+        optional("Evaluations") => list(evaluation()),
         optional("TestMode") => boolean(),
         required("ResultToken") => String.t()
       }
@@ -1039,7 +1039,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_config_rules_response() :: %{
-        "ConfigRules" => list(config_rule()()),
+        "ConfigRules" => list(config_rule()),
         "NextToken" => String.t()
       }
       
@@ -1074,7 +1074,7 @@ defmodule AWS.Config do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1087,7 +1087,7 @@ defmodule AWS.Config do
       get_conformance_pack_compliance_summary_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        required("ConformancePackNames") => list(String.t()())
+        required("ConformancePackNames") => list(String.t())
       }
       
   """
@@ -1135,7 +1135,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_aggregate_config_rule_compliance_summary_response() :: %{
-        "AggregateComplianceCounts" => list(aggregate_compliance_count()()),
+        "AggregateComplianceCounts" => list(aggregate_compliance_count()),
         "GroupByKey" => String.t(),
         "NextToken" => String.t()
       }
@@ -1160,7 +1160,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_compliance_summary_by_resource_type_response() :: %{
-        "ComplianceSummariesByResourceType" => list(compliance_summary_by_resource_type()())
+        "ComplianceSummariesByResourceType" => list(compliance_summary_by_resource_type())
       }
       
   """
@@ -1186,8 +1186,8 @@ defmodule AWS.Config do
   ## Example:
       
       batch_get_aggregate_resource_config_response() :: %{
-        "BaseConfigurationItems" => list(base_configuration_item()()),
-        "UnprocessedResourceIdentifiers" => list(aggregate_resource_identifier()())
+        "BaseConfigurationItems" => list(base_configuration_item()),
+        "UnprocessedResourceIdentifiers" => list(aggregate_resource_identifier())
       }
       
   """
@@ -1198,7 +1198,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_pack_status_response() :: %{
-        "ConformancePackStatusDetails" => list(conformance_pack_status_detail()()),
+        "ConformancePackStatusDetails" => list(conformance_pack_status_detail()),
         "NextToken" => String.t()
       }
       
@@ -1223,7 +1223,7 @@ defmodule AWS.Config do
       select_resource_config_response() :: %{
         "NextToken" => String.t(),
         "QueryInfo" => query_info(),
-        "Results" => list(String.t()())
+        "Results" => list(String.t())
       }
       
   """
@@ -1234,7 +1234,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_resource_config_history_response() :: %{
-        "configurationItems" => list(configuration_item()()),
+        "configurationItems" => list(configuration_item()),
         "nextToken" => String.t()
       }
       
@@ -1298,7 +1298,7 @@ defmodule AWS.Config do
         "LastUpdatedTime" => non_neg_integer(),
         "ResourceKey" => resource_key(),
         "State" => list(any()),
-        "StepDetails" => list(remediation_execution_step()())
+        "StepDetails" => list(remediation_execution_step())
       }
       
   """
@@ -1309,7 +1309,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_delivery_channels_response() :: %{
-        "DeliveryChannels" => list(delivery_channel()())
+        "DeliveryChannels" => list(delivery_channel())
       }
       
   """
@@ -1343,7 +1343,7 @@ defmodule AWS.Config do
       
       organization_aggregation_source() :: %{
         "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t()()),
+        "AwsRegions" => list(String.t()),
         "RoleArn" => String.t()
       }
       
@@ -1359,7 +1359,7 @@ defmodule AWS.Config do
         "InputParameters" => String.t(),
         "MaximumExecutionFrequency" => list(any()),
         "ResourceIdScope" => String.t(),
-        "ResourceTypesScope" => list(String.t()()),
+        "ResourceTypesScope" => list(String.t()),
         "RuleIdentifier" => String.t(),
         "TagKeyScope" => String.t(),
         "TagValueScope" => String.t()
@@ -1388,7 +1388,7 @@ defmodule AWS.Config do
       
       list_discovered_resources_response() :: %{
         "nextToken" => String.t(),
-        "resourceIdentifiers" => list(resource_identifier()())
+        "resourceIdentifiers" => list(resource_identifier())
       }
       
   """
@@ -1410,7 +1410,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_delivery_channel_status_request() :: %{
-        optional("DeliveryChannelNames") => list(String.t()())
+        optional("DeliveryChannelNames") => list(String.t())
       }
       
   """
@@ -1423,7 +1423,7 @@ defmodule AWS.Config do
       describe_organization_config_rules_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationConfigRuleNames") => list(String.t()())
+        optional("OrganizationConfigRuleNames") => list(String.t())
       }
       
   """
@@ -1435,7 +1435,7 @@ defmodule AWS.Config do
       
       get_organization_config_rule_detailed_status_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConfigRuleDetailedStatus" => list(member_account_status()())
+        "OrganizationConfigRuleDetailedStatus" => list(member_account_status())
       }
       
   """
@@ -1446,7 +1446,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_compliance_by_resource_response() :: %{
-        "ComplianceByResources" => list(compliance_by_resource()()),
+        "ComplianceByResources" => list(compliance_by_resource()),
         "NextToken" => String.t()
       }
       
@@ -1458,7 +1458,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_remediation_configurations_response() :: %{
-        "FailedBatches" => list(failed_remediation_batch()())
+        "FailedBatches" => list(failed_remediation_batch())
       }
       
   """
@@ -1582,7 +1582,7 @@ defmodule AWS.Config do
       describe_organization_config_rule_statuses_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationConfigRuleNames") => list(String.t()())
+        optional("OrganizationConfigRuleNames") => list(String.t())
       }
       
   """
@@ -1595,7 +1595,7 @@ defmodule AWS.Config do
       describe_remediation_execution_status_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceKeys") => list(resource_key()()),
+        optional("ResourceKeys") => list(resource_key()),
         required("ConfigRuleName") => String.t()
       }
       
@@ -1608,7 +1608,7 @@ defmodule AWS.Config do
       
       aggregator_filter_resource_type() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
       
   """
@@ -1621,7 +1621,7 @@ defmodule AWS.Config do
       conformance_pack_detail() :: %{
         "ConformancePackArn" => String.t(),
         "ConformancePackId" => String.t(),
-        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()()),
+        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
         "ConformancePackName" => String.t(),
         "CreatedBy" => String.t(),
         "DeliveryS3Bucket" => String.t(),
@@ -1638,7 +1638,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_conformance_pack_request() :: %{
-        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()()),
+        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
         optional("DeliveryS3Bucket") => String.t(),
         optional("DeliveryS3KeyPrefix") => String.t(),
         optional("TemplateBody") => String.t(),
@@ -1701,7 +1701,7 @@ defmodule AWS.Config do
       
       describe_configuration_recorder_status_request() :: %{
         optional("Arn") => String.t(),
-        optional("ConfigurationRecorderNames") => list(String.t()()),
+        optional("ConfigurationRecorderNames") => list(String.t()),
         optional("ServicePrincipal") => String.t()
       }
       
@@ -1798,9 +1798,9 @@ defmodule AWS.Config do
   ## Example:
       
       account_aggregation_source() :: %{
-        "AccountIds" => list(String.t()()),
+        "AccountIds" => list(String.t()),
         "AllAwsRegions" => boolean(),
-        "AwsRegions" => list(String.t()())
+        "AwsRegions" => list(String.t())
       }
       
   """
@@ -1811,8 +1811,8 @@ defmodule AWS.Config do
   ## Example:
       
       batch_get_resource_config_response() :: %{
-        "baseConfigurationItems" => list(base_configuration_item()()),
-        "unprocessedResourceKeys" => list(resource_key()())
+        "baseConfigurationItems" => list(base_configuration_item()),
+        "unprocessedResourceKeys" => list(resource_key())
       }
       
   """
@@ -1836,7 +1836,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_aggregators_request() :: %{
-        optional("ConfigurationAggregatorNames") => list(String.t()()),
+        optional("ConfigurationAggregatorNames") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1865,8 +1865,8 @@ defmodule AWS.Config do
       
       conformance_pack_evaluation_filters() :: %{
         "ComplianceType" => list(any()),
-        "ConfigRuleNames" => list(String.t()()),
-        "ResourceIds" => list(String.t()()),
+        "ConfigRuleNames" => list(String.t()),
+        "ResourceIds" => list(String.t()),
         "ResourceType" => String.t()
       }
       
@@ -1890,7 +1890,7 @@ defmodule AWS.Config do
   ## Example:
       
       start_remediation_execution_response() :: %{
-        "FailedItems" => list(resource_key()()),
+        "FailedItems" => list(resource_key()),
         "FailureMessage" => String.t()
       }
       
@@ -1902,7 +1902,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_aggregate_compliance_by_config_rules_response() :: %{
-        "AggregateComplianceByConfigRules" => list(aggregate_compliance_by_config_rule()()),
+        "AggregateComplianceByConfigRules" => list(aggregate_compliance_by_config_rule()),
         "NextToken" => String.t()
       }
       
@@ -2016,7 +2016,7 @@ defmodule AWS.Config do
       
       describe_organization_conformance_pack_statuses_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConformancePackStatuses" => list(organization_conformance_pack_status()())
+        "OrganizationConformancePackStatuses" => list(organization_conformance_pack_status())
       }
       
   """
@@ -2083,7 +2083,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_aggregators_response() :: %{
-        "ConfigurationAggregators" => list(configuration_aggregator()()),
+        "ConfigurationAggregators" => list(configuration_aggregator()),
         "NextToken" => String.t()
       }
       
@@ -2111,7 +2111,7 @@ defmodule AWS.Config do
       
       conformance_pack_compliance_filters() :: %{
         "ComplianceType" => list(any()),
-        "ConfigRuleNames" => list(String.t()())
+        "ConfigRuleNames" => list(String.t())
       }
       
   """
@@ -2123,7 +2123,7 @@ defmodule AWS.Config do
       
       start_remediation_execution_request() :: %{
         required("ConfigRuleName") => String.t(),
-        required("ResourceKeys") => list(resource_key()())
+        required("ResourceKeys") => list(resource_key())
       }
       
   """
@@ -2137,7 +2137,7 @@ defmodule AWS.Config do
         optional("includeDeletedResources") => boolean(),
         optional("limit") => integer(),
         optional("nextToken") => String.t(),
-        optional("resourceIds") => list(String.t()()),
+        optional("resourceIds") => list(String.t()),
         optional("resourceName") => String.t(),
         required("resourceType") => list(any())
       }
@@ -2151,7 +2151,7 @@ defmodule AWS.Config do
       
       list_aggregate_discovered_resources_response() :: %{
         "NextToken" => String.t(),
-        "ResourceIdentifiers" => list(aggregate_resource_identifier()())
+        "ResourceIdentifiers" => list(aggregate_resource_identifier())
       }
       
   """
@@ -2175,7 +2175,7 @@ defmodule AWS.Config do
       conformance_pack_rule_compliance() :: %{
         "ComplianceType" => list(any()),
         "ConfigRuleName" => String.t(),
-        "Controls" => list(String.t()())
+        "Controls" => list(String.t())
       }
       
   """
@@ -2249,7 +2249,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_aggregate_compliance_by_conformance_packs_response() :: %{
-        "AggregateComplianceByConformancePacks" => list(aggregate_compliance_by_conformance_pack()()),
+        "AggregateComplianceByConformancePacks" => list(aggregate_compliance_by_conformance_pack()),
         "NextToken" => String.t()
       }
       
@@ -2273,7 +2273,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_remediation_exceptions_response() :: %{
-        "FailedBatches" => list(failed_remediation_exception_batch()())
+        "FailedBatches" => list(failed_remediation_exception_batch())
       }
       
   """
@@ -2284,7 +2284,7 @@ defmodule AWS.Config do
   ## Example:
       
       start_config_rules_evaluation_request() :: %{
-        optional("ConfigRuleNames") => list(String.t()())
+        optional("ConfigRuleNames") => list(String.t())
       }
       
   """
@@ -2296,7 +2296,7 @@ defmodule AWS.Config do
       
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -2344,7 +2344,7 @@ defmodule AWS.Config do
       
       describe_configuration_recorders_request() :: %{
         optional("Arn") => String.t(),
-        optional("ConfigurationRecorderNames") => list(String.t()()),
+        optional("ConfigurationRecorderNames") => list(String.t()),
         optional("ServicePrincipal") => String.t()
       }
       
@@ -2422,7 +2422,7 @@ defmodule AWS.Config do
       
       aggregator_filter_service_principal() :: %{
         "Type" => list(any()),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
       
   """
@@ -2434,7 +2434,7 @@ defmodule AWS.Config do
       
       describe_remediation_exceptions_response() :: %{
         "NextToken" => String.t(),
-        "RemediationExceptions" => list(remediation_exception()())
+        "RemediationExceptions" => list(remediation_exception())
       }
       
   """
@@ -2518,7 +2518,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_pack_status_request() :: %{
-        optional("ConformancePackNames") => list(String.t()()),
+        optional("ConformancePackNames") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2546,10 +2546,10 @@ defmodule AWS.Config do
   ## Example:
       
       put_configuration_aggregator_request() :: %{
-        optional("AccountAggregationSources") => list(account_aggregation_source()()),
+        optional("AccountAggregationSources") => list(account_aggregation_source()),
         optional("AggregatorFilters") => aggregator_filters(),
         optional("OrganizationAggregationSource") => organization_aggregation_source(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConfigurationAggregatorName") => String.t()
       }
       
@@ -2624,7 +2624,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_aggregation_authorizations_response() :: %{
-        "AggregationAuthorizations" => list(aggregation_authorization()()),
+        "AggregationAuthorizations" => list(aggregation_authorization()),
         "NextToken" => String.t()
       }
       
@@ -2665,7 +2665,7 @@ defmodule AWS.Config do
       source() :: %{
         "CustomPolicyDetails" => custom_policy_details(),
         "Owner" => list(any()),
-        "SourceDetails" => list(source_detail()()),
+        "SourceDetails" => list(source_detail()),
         "SourceIdentifier" => String.t()
       }
       
@@ -2703,7 +2703,7 @@ defmodule AWS.Config do
       
       scope() :: %{
         "ComplianceResourceId" => String.t(),
-        "ComplianceResourceTypes" => list(String.t()()),
+        "ComplianceResourceTypes" => list(String.t()),
         "TagKey" => String.t(),
         "TagValue" => String.t()
       }
@@ -2729,7 +2729,7 @@ defmodule AWS.Config do
       
       configuration_recorder_filter() :: %{
         "filterName" => list(any()),
-        "filterValue" => list(String.t()())
+        "filterValue" => list(String.t())
       }
       
   """
@@ -2764,7 +2764,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_stored_query_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("StoredQuery") => stored_query()
       }
       
@@ -2778,7 +2778,7 @@ defmodule AWS.Config do
       get_discovered_resource_counts_request() :: %{
         optional("limit") => integer(),
         optional("nextToken") => String.t(),
-        optional("resourceTypes") => list(String.t()())
+        optional("resourceTypes") => list(String.t())
       }
       
   """
@@ -2789,7 +2789,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_evaluations_response() :: %{
-        "FailedEvaluations" => list(evaluation()())
+        "FailedEvaluations" => list(evaluation())
       }
       
   """
@@ -2811,7 +2811,7 @@ defmodule AWS.Config do
   ## Example:
       
       failed_delete_remediation_exceptions_batch() :: %{
-        "FailedItems" => list(remediation_exception_resource_key()()),
+        "FailedItems" => list(remediation_exception_resource_key()),
         "FailureMessage" => String.t()
       }
       
@@ -2856,7 +2856,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_aggregation_authorization_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AuthorizedAccountId") => String.t(),
         required("AuthorizedAwsRegion") => String.t()
       }
@@ -2919,7 +2919,7 @@ defmodule AWS.Config do
       
       get_organization_conformance_pack_detailed_status_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConformancePackDetailedStatuses" => list(organization_conformance_pack_detailed_status()())
+        "OrganizationConformancePackDetailedStatuses" => list(organization_conformance_pack_detailed_status())
       }
       
   """
@@ -2930,7 +2930,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_packs_request() :: %{
-        optional("ConformancePackNames") => list(String.t()()),
+        optional("ConformancePackNames") => list(String.t()),
         optional("Limit") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2943,7 +2943,7 @@ defmodule AWS.Config do
   ## Example:
       
       get_compliance_summary_by_resource_type_request() :: %{
-        optional("ResourceTypes") => list(String.t()())
+        optional("ResourceTypes") => list(String.t())
       }
       
   """
@@ -3001,7 +3001,7 @@ defmodule AWS.Config do
   ## Example:
       
       conformance_pack_compliance_scores_filters() :: %{
-        "ConformancePackNames" => list(String.t()())
+        "ConformancePackNames" => list(String.t())
       }
       
   """
@@ -3012,7 +3012,7 @@ defmodule AWS.Config do
   ## Example:
       
       failed_remediation_batch() :: %{
-        "FailedItems" => list(remediation_configuration()()),
+        "FailedItems" => list(remediation_configuration()),
         "FailureMessage" => String.t()
       }
       
@@ -3024,7 +3024,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_organization_config_rule_request() :: %{
-        optional("ExcludedAccounts") => list(String.t()()),
+        optional("ExcludedAccounts") => list(String.t()),
         optional("OrganizationCustomPolicyRuleMetadata") => organization_custom_policy_rule_metadata(),
         optional("OrganizationCustomRuleMetadata") => organization_custom_rule_metadata(),
         optional("OrganizationManagedRuleMetadata") => organization_managed_rule_metadata(),
@@ -3055,7 +3055,7 @@ defmodule AWS.Config do
       
       list_stored_queries_response() :: %{
         "NextToken" => String.t(),
-        "StoredQueryMetadata" => list(stored_query_metadata()())
+        "StoredQueryMetadata" => list(stored_query_metadata())
       }
       
   """
@@ -3079,7 +3079,7 @@ defmodule AWS.Config do
       
       get_discovered_resource_counts_response() :: %{
         "nextToken" => String.t(),
-        "resourceCounts" => list(resource_count()()),
+        "resourceCounts" => list(resource_count()),
         "totalDiscoveredResources" => float()
       }
       
@@ -3215,7 +3215,7 @@ defmodule AWS.Config do
       
       describe_retention_configurations_request() :: %{
         optional("NextToken") => String.t(),
-        optional("RetentionConfigurationNames") => list(String.t()())
+        optional("RetentionConfigurationNames") => list(String.t())
       }
       
   """
@@ -3269,7 +3269,7 @@ defmodule AWS.Config do
         "MaximumExecutionFrequency" => list(any()),
         "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
         "ResourceIdScope" => String.t(),
-        "ResourceTypesScope" => list(String.t()()),
+        "ResourceTypesScope" => list(String.t()),
         "TagKeyScope" => String.t(),
         "TagValueScope" => String.t()
       }
@@ -3282,7 +3282,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_recorders_response() :: %{
-        "ConfigurationRecorders" => list(configuration_recorder()())
+        "ConfigurationRecorders" => list(configuration_recorder())
       }
       
   """
@@ -3339,7 +3339,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_config_rules_request() :: %{
-        optional("ConfigRuleNames") => list(String.t()()),
+        optional("ConfigRuleNames") => list(String.t()),
         optional("Filters") => describe_config_rules_filters(),
         optional("NextToken") => String.t()
       }
@@ -3352,7 +3352,7 @@ defmodule AWS.Config do
   ## Example:
       
       batch_get_resource_config_request() :: %{
-        required("resourceKeys") => list(resource_key()())
+        required("resourceKeys") => list(resource_key())
       }
       
   """
@@ -3377,7 +3377,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_configuration_aggregator_sources_status_response() :: %{
-        "AggregatedSourceStatusList" => list(aggregated_source_status()()),
+        "AggregatedSourceStatusList" => list(aggregated_source_status()),
         "NextToken" => String.t()
       }
       
@@ -3457,7 +3457,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_delivery_channel_status_response() :: %{
-        "DeliveryChannelsStatus" => list(delivery_channel_status()())
+        "DeliveryChannelsStatus" => list(delivery_channel_status())
       }
       
   """
@@ -3469,7 +3469,7 @@ defmodule AWS.Config do
       
       describe_remediation_execution_status_response() :: %{
         "NextToken" => String.t(),
-        "RemediationExecutionStatuses" => list(remediation_execution_status()())
+        "RemediationExecutionStatuses" => list(remediation_execution_status())
       }
       
   """
@@ -3480,7 +3480,7 @@ defmodule AWS.Config do
   ## Example:
       
       organization_custom_policy_rule_metadata() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t()()),
+        "DebugLogDeliveryAccounts" => list(String.t()),
         "Description" => String.t(),
         "InputParameters" => String.t(),
         "MaximumExecutionFrequency" => list(any()),
@@ -3488,7 +3488,7 @@ defmodule AWS.Config do
         "PolicyRuntime" => String.t(),
         "PolicyText" => String.t(),
         "ResourceIdScope" => String.t(),
-        "ResourceTypesScope" => list(String.t()()),
+        "ResourceTypesScope" => list(String.t()),
         "TagKeyScope" => String.t(),
         "TagValueScope" => String.t()
       }
@@ -3604,7 +3604,7 @@ defmodule AWS.Config do
         optional("ExpirationTime") => non_neg_integer(),
         optional("Message") => String.t(),
         required("ConfigRuleName") => String.t(),
-        required("ResourceKeys") => list(remediation_exception_resource_key()())
+        required("ResourceKeys") => list(remediation_exception_resource_key())
       }
       
   """
@@ -3634,7 +3634,7 @@ defmodule AWS.Config do
       
       get_conformance_pack_compliance_details_response() :: %{
         "ConformancePackName" => String.t(),
-        "ConformancePackRuleEvaluationResults" => list(conformance_pack_evaluation_result()()),
+        "ConformancePackRuleEvaluationResults" => list(conformance_pack_evaluation_result()),
         "NextToken" => String.t()
       }
       
@@ -3662,10 +3662,10 @@ defmodule AWS.Config do
   ## Example:
       
       put_organization_conformance_pack_request() :: %{
-        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()()),
+        optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
         optional("DeliveryS3Bucket") => String.t(),
         optional("DeliveryS3KeyPrefix") => String.t(),
-        optional("ExcludedAccounts") => list(String.t()()),
+        optional("ExcludedAccounts") => list(String.t()),
         optional("TemplateBody") => String.t(),
         optional("TemplateS3Uri") => String.t(),
         required("OrganizationConformancePackName") => String.t()
@@ -3681,7 +3681,7 @@ defmodule AWS.Config do
       describe_organization_conformance_pack_statuses_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationConformancePackNames") => list(String.t()())
+        optional("OrganizationConformancePackNames") => list(String.t())
       }
       
   """
@@ -3741,7 +3741,7 @@ defmodule AWS.Config do
       
       describe_organization_config_rule_statuses_response() :: %{
         "NextToken" => String.t(),
-        "OrganizationConfigRuleStatuses" => list(organization_config_rule_status()())
+        "OrganizationConfigRuleStatuses" => list(organization_config_rule_status())
       }
       
   """
@@ -3801,8 +3801,8 @@ defmodule AWS.Config do
         "configurationItemStatus" => list(any()),
         "configurationStateId" => String.t(),
         "recordingFrequency" => list(any()),
-        "relatedEvents" => list(String.t()()),
-        "relationships" => list(relationship()()),
+        "relatedEvents" => list(String.t()),
+        "relationships" => list(relationship()),
         "resourceCreationTime" => non_neg_integer(),
         "resourceId" => String.t(),
         "resourceName" => String.t(),
@@ -3833,7 +3833,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_config_rule_evaluation_status_response() :: %{
-        "ConfigRulesEvaluationStatus" => list(config_rule_evaluation_status()()),
+        "ConfigRulesEvaluationStatus" => list(config_rule_evaluation_status()),
         "NextToken" => String.t()
       }
       
@@ -3845,7 +3845,7 @@ defmodule AWS.Config do
   ## Example:
       
       organization_config_rule() :: %{
-        "ExcludedAccounts" => list(String.t()()),
+        "ExcludedAccounts" => list(String.t()),
         "LastUpdateTime" => non_neg_integer(),
         "OrganizationConfigRuleArn" => String.t(),
         "OrganizationConfigRuleName" => String.t(),
@@ -3873,7 +3873,7 @@ defmodule AWS.Config do
   ## Example:
       
       list_conformance_pack_compliance_scores_response() :: %{
-        "ConformancePackComplianceScores" => list(conformance_pack_compliance_score()()),
+        "ConformancePackComplianceScores" => list(conformance_pack_compliance_score()),
         "NextToken" => String.t()
       }
       
@@ -3886,7 +3886,7 @@ defmodule AWS.Config do
       
       describe_pending_aggregation_requests_response() :: %{
         "NextToken" => String.t(),
-        "PendingAggregationRequests" => list(pending_aggregation_request()())
+        "PendingAggregationRequests" => list(pending_aggregation_request())
       }
       
   """
@@ -3897,7 +3897,7 @@ defmodule AWS.Config do
   ## Example:
       
       static_value() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -3932,7 +3932,7 @@ defmodule AWS.Config do
       describe_remediation_exceptions_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceKeys") => list(remediation_exception_resource_key()()),
+        optional("ResourceKeys") => list(remediation_exception_resource_key()),
         required("ConfigRuleName") => String.t()
       }
       
@@ -3945,7 +3945,7 @@ defmodule AWS.Config do
       
       batch_get_aggregate_resource_config_request() :: %{
         required("ConfigurationAggregatorName") => String.t(),
-        required("ResourceIdentifiers") => list(aggregate_resource_identifier()())
+        required("ResourceIdentifiers") => list(aggregate_resource_identifier())
       }
       
   """
@@ -3956,7 +3956,7 @@ defmodule AWS.Config do
   ## Example:
       
       describe_conformance_packs_response() :: %{
-        "ConformancePackDetails" => list(conformance_pack_detail()()),
+        "ConformancePackDetails" => list(conformance_pack_detail()),
         "NextToken" => String.t()
       }
       
@@ -3968,7 +3968,7 @@ defmodule AWS.Config do
   ## Example:
       
       query_info() :: %{
-        "SelectFields" => list(field_info()())
+        "SelectFields" => list(field_info())
       }
       
   """
@@ -3979,7 +3979,7 @@ defmodule AWS.Config do
   ## Example:
       
       list_configuration_recorders_request() :: %{
-        optional("Filters") => list(configuration_recorder_filter()()),
+        optional("Filters") => list(configuration_recorder_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4133,10 +4133,10 @@ defmodule AWS.Config do
   ## Example:
       
       organization_conformance_pack() :: %{
-        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()()),
+        "ConformancePackInputParameters" => list(conformance_pack_input_parameter()),
         "DeliveryS3Bucket" => String.t(),
         "DeliveryS3KeyPrefix" => String.t(),
-        "ExcludedAccounts" => list(String.t()()),
+        "ExcludedAccounts" => list(String.t()),
         "LastUpdateTime" => non_neg_integer(),
         "OrganizationConformancePackArn" => String.t(),
         "OrganizationConformancePackName" => String.t()
@@ -4152,7 +4152,7 @@ defmodule AWS.Config do
       describe_organization_conformance_packs_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationConformancePackNames") => list(String.t()())
+        optional("OrganizationConformancePackNames") => list(String.t())
       }
       
   """
@@ -4251,7 +4251,7 @@ defmodule AWS.Config do
       select_aggregate_resource_config_response() :: %{
         "NextToken" => String.t(),
         "QueryInfo" => query_info(),
-        "Results" => list(String.t()())
+        "Results" => list(String.t())
       }
       
   """
@@ -4300,7 +4300,7 @@ defmodule AWS.Config do
       
       describe_conformance_pack_compliance_response() :: %{
         "ConformancePackName" => String.t(),
-        "ConformancePackRuleComplianceList" => list(conformance_pack_rule_compliance()()),
+        "ConformancePackRuleComplianceList" => list(conformance_pack_rule_compliance()),
         "NextToken" => String.t()
       }
       
@@ -4312,7 +4312,7 @@ defmodule AWS.Config do
   ## Example:
       
       put_configuration_recorder_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ConfigurationRecorder") => configuration_recorder()
       }
       
@@ -4347,14 +4347,14 @@ defmodule AWS.Config do
   ## Example:
       
       organization_custom_policy_rule_metadata_no_policy() :: %{
-        "DebugLogDeliveryAccounts" => list(String.t()()),
+        "DebugLogDeliveryAccounts" => list(String.t()),
         "Description" => String.t(),
         "InputParameters" => String.t(),
         "MaximumExecutionFrequency" => list(any()),
         "OrganizationConfigRuleTriggerTypes" => list(list(any())()),
         "PolicyRuntime" => String.t(),
         "ResourceIdScope" => String.t(),
-        "ResourceTypesScope" => list(String.t()()),
+        "ResourceTypesScope" => list(String.t()),
         "TagKeyScope" => String.t(),
         "TagValueScope" => String.t()
       }
@@ -4833,7 +4833,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, associate_resource_types_errors()}
   def associate_resource_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateResourceTypes", input, options)
   end
@@ -4863,7 +4864,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_aggregate_resource_config_errors()}
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetAggregateResourceConfig", input, options)
   end
@@ -4892,7 +4894,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_resource_config_errors()}
   def batch_get_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetResourceConfig", input, options)
   end
@@ -4911,7 +4914,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_aggregation_authorization_errors()}
   def delete_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAggregationAuthorization", input, options)
   end
@@ -4958,7 +4962,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_config_rule_errors()}
   def delete_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigRule", input, options)
   end
@@ -4973,7 +4978,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_aggregator_errors()}
   def delete_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationAggregator", input, options)
   end
@@ -4995,7 +5001,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_recorder_errors()}
   def delete_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationRecorder", input, options)
   end
@@ -5015,7 +5022,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_conformance_pack_errors()}
   def delete_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConformancePack", input, options)
   end
@@ -5033,7 +5041,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_delivery_channel_errors()}
   def delete_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryChannel", input, options)
   end
@@ -5053,7 +5062,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_evaluation_results_errors()}
   def delete_evaluation_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEvaluationResults", input, options)
   end
@@ -5078,7 +5088,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_config_rule_errors()}
   def delete_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConfigRule", input, options)
   end
@@ -5108,7 +5119,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_conformance_pack_errors()}
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConformancePack", input, options)
   end
@@ -5127,7 +5139,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_pending_aggregation_request_errors()}
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePendingAggregationRequest", input, options)
   end
@@ -5145,7 +5158,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_configuration_errors()}
   def delete_remediation_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRemediationConfiguration", input, options)
   end
@@ -5163,7 +5177,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_exceptions_errors()}
   def delete_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRemediationExceptions", input, options)
   end
@@ -5181,7 +5196,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_resource_config_errors()}
   def delete_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceConfig", input, options)
   end
@@ -5195,7 +5211,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_retention_configuration_errors()}
   def delete_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRetentionConfiguration", input, options)
   end
@@ -5229,7 +5246,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_service_linked_configuration_recorder_errors()}
   def delete_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceLinkedConfigurationRecorder", input, options)
   end
@@ -5244,7 +5262,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_stored_query_errors()}
   def delete_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStoredQuery", input, options)
   end
@@ -5274,7 +5293,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, deliver_config_snapshot_errors()}
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeliverConfigSnapshot", input, options)
   end
@@ -5299,7 +5319,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_config_rules_errors()}
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAggregateComplianceByConfigRules", input, options)
   end
@@ -5326,7 +5347,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_conformance_packs_errors()}
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5351,7 +5373,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregation_authorizations_errors()}
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAggregationAuthorizations", input, options)
   end
@@ -5403,7 +5426,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_config_rule_errors()}
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByConfigRule", input, options)
   end
@@ -5452,7 +5476,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_resource_errors()}
   def describe_compliance_by_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByResource", input, options)
   end
@@ -5474,7 +5499,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rule_evaluation_status_errors()}
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigRuleEvaluationStatus", input, options)
   end
@@ -5488,7 +5514,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rules_errors()}
   def describe_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigRules", input, options)
   end
@@ -5510,7 +5537,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregator_sources_status_errors()}
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5538,7 +5566,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregators_errors()}
   def describe_configuration_aggregators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationAggregators", input, options)
   end
@@ -5568,7 +5597,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorder_status_errors()}
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorderStatus", input, options)
   end
@@ -5593,7 +5623,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorders_errors()}
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorders", input, options)
   end
@@ -5613,7 +5644,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_compliance_errors()}
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackCompliance", input, options)
   end
@@ -5633,7 +5665,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_status_errors()}
   def describe_conformance_pack_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackStatus", input, options)
   end
@@ -5647,7 +5680,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_packs_errors()}
   def describe_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConformancePacks", input, options)
   end
@@ -5672,7 +5706,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channel_status_errors()}
   def describe_delivery_channel_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannelStatus", input, options)
   end
@@ -5693,7 +5728,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channels_errors()}
   def describe_delivery_channels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannels", input, options)
   end
@@ -5720,7 +5756,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rule_statuses_errors()}
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRuleStatuses", input, options)
   end
@@ -5763,7 +5800,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rules_errors()}
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRules", input, options)
   end
@@ -5791,7 +5829,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_pack_statuses_errors()}
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5840,7 +5879,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_packs_errors()}
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConformancePacks", input, options)
   end
@@ -5858,7 +5898,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_pending_aggregation_requests_errors()}
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingAggregationRequests", input, options)
   end
@@ -5875,7 +5916,8 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationConfigurations", input, options)
   end
@@ -5902,7 +5944,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_exceptions_errors()}
   def describe_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExceptions", input, options)
   end
@@ -5924,7 +5967,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_execution_status_errors()}
   def describe_remediation_execution_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExecutionStatus", input, options)
   end
@@ -5950,7 +5994,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_retention_configurations_errors()}
   def describe_retention_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRetentionConfigurations", input, options)
   end
@@ -5969,7 +6014,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, disassociate_resource_types_errors()}
   def disassociate_resource_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateResourceTypes", input, options)
   end
@@ -5996,7 +6042,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_compliance_details_by_config_rule_errors()}
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6025,7 +6072,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_config_rule_compliance_summary_errors()}
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateConfigRuleComplianceSummary", input, options)
   end
@@ -6050,7 +6098,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_conformance_pack_compliance_summary_errors()}
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6083,7 +6132,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_discovered_resource_counts_errors()}
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateDiscoveredResourceCounts", input, options)
   end
@@ -6100,7 +6150,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_resource_config_errors()}
   def get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAggregateResourceConfig", input, options)
   end
@@ -6123,7 +6174,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_config_rule_errors()}
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByConfigRule", input, options)
   end
@@ -6145,7 +6197,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_resource_errors()}
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByResource", input, options)
   end
@@ -6159,7 +6212,8 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByConfigRule", input, options)
   end
@@ -6182,7 +6236,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_summary_by_resource_type_errors()}
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByResourceType", input, options)
   end
@@ -6201,7 +6256,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_details_errors()}
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceDetails", input, options)
   end
@@ -6220,7 +6276,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_summary_errors()}
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceSummary", input, options)
   end
@@ -6235,7 +6292,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_custom_rule_policy_errors()}
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCustomRulePolicy", input, options)
   end
@@ -6299,7 +6357,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_discovered_resource_counts_errors()}
   def get_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDiscoveredResourceCounts", input, options)
   end
@@ -6318,7 +6377,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_config_rule_detailed_status_errors()}
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOrganizationConfigRuleDetailedStatus", input, options)
   end
@@ -6337,7 +6397,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_conformance_pack_detailed_status_errors()}
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -6362,7 +6423,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_custom_rule_policy_errors()}
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOrganizationCustomRulePolicy", input, options)
   end
@@ -6401,7 +6463,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_config_history_errors()}
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceConfigHistory", input, options)
   end
@@ -6428,7 +6491,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_evaluation_summary_errors()}
   def get_resource_evaluation_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceEvaluationSummary", input, options)
   end
@@ -6442,7 +6506,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_stored_query_errors()}
   def get_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStoredQuery", input, options)
   end
@@ -6470,7 +6535,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_aggregate_discovered_resources_errors()}
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAggregateDiscoveredResources", input, options)
   end
@@ -6484,7 +6550,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_configuration_recorders_errors()}
   def list_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConfigurationRecorders", input, options)
   end
@@ -6512,7 +6579,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_conformance_pack_compliance_scores_errors()}
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConformancePackComplianceScores", input, options)
   end
@@ -6544,7 +6612,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -6558,7 +6627,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_resource_evaluations_errors()}
   def list_resource_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceEvaluations", input, options)
   end
@@ -6575,7 +6645,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_stored_queries_errors()}
   def list_stored_queries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStoredQueries", input, options)
   end
@@ -6589,7 +6660,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -6618,7 +6690,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_aggregation_authorization_errors()}
   def put_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAggregationAuthorization", input, options)
   end
@@ -6698,7 +6771,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_config_rule_errors()}
   def put_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigRule", input, options)
   end
@@ -6750,7 +6824,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_aggregator_errors()}
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigurationAggregator", input, options)
   end
@@ -6805,7 +6880,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_recorder_errors()}
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConfigurationRecorder", input, options)
   end
@@ -6835,7 +6911,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_conformance_pack_errors()}
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutConformancePack", input, options)
   end
@@ -6864,7 +6941,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_delivery_channel_errors()}
   def put_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDeliveryChannel", input, options)
   end
@@ -6882,7 +6960,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_evaluations_errors()}
   def put_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEvaluations", input, options)
   end
@@ -6899,7 +6978,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_external_evaluation_errors()}
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutExternalEvaluation", input, options)
   end
@@ -6977,7 +7057,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_config_rule_errors()}
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOrganizationConfigRule", input, options)
   end
@@ -7032,7 +7113,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_conformance_pack_errors()}
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutOrganizationConformancePack", input, options)
   end
@@ -7089,7 +7171,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_configurations_errors()}
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRemediationConfigurations", input, options)
   end
@@ -7157,7 +7240,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_exceptions_errors()}
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRemediationExceptions", input, options)
   end
@@ -7186,7 +7270,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_resource_config_errors()}
   def put_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceConfig", input, options)
   end
@@ -7211,7 +7296,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_retention_configuration_errors()}
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRetentionConfiguration", input, options)
   end
@@ -7257,7 +7343,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_service_linked_configuration_recorder_errors()}
   def put_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutServiceLinkedConfigurationRecorder", input, options)
   end
@@ -7285,7 +7372,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_stored_query_errors()}
   def put_stored_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutStoredQuery", input, options)
   end
@@ -7324,7 +7412,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_aggregate_resource_config_errors()}
   def select_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SelectAggregateResourceConfig", input, options)
   end
@@ -7346,7 +7435,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_resource_config_errors()}
   def select_resource_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SelectResourceConfig", input, options)
   end
@@ -7406,7 +7496,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_config_rules_evaluation_errors()}
   def start_config_rules_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartConfigRulesEvaluation", input, options)
   end
@@ -7428,7 +7519,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_configuration_recorder_errors()}
   def start_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartConfigurationRecorder", input, options)
   end
@@ -7450,7 +7542,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_remediation_execution_errors()}
   def start_remediation_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartRemediationExecution", input, options)
   end
@@ -7484,7 +7577,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_resource_evaluation_errors()}
   def start_resource_evaluation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartResourceEvaluation", input, options)
   end
@@ -7501,7 +7595,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, stop_configuration_recorder_errors()}
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopConfigurationRecorder", input, options)
   end
@@ -7521,7 +7616,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -7535,7 +7631,8 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

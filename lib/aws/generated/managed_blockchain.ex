@@ -170,7 +170,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       list_members_output() :: %{
-        "Members" => list(member_summary()()),
+        "Members" => list(member_summary()),
         "NextToken" => String.t()
       }
 
@@ -182,8 +182,8 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       proposal_actions() :: %{
-        "Invitations" => list(invite_action()()),
-        "Removals" => list(remove_action()())
+        "Invitations" => list(invite_action()),
+        "Removals" => list(remove_action())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -471,7 +471,7 @@ defmodule AWS.ManagedBlockchain do
 
       list_proposal_votes_output() :: %{
         "NextToken" => String.t(),
-        "ProposalVotes" => list(vote_summary()())
+        "ProposalVotes" => list(vote_summary())
       }
 
   """
@@ -526,7 +526,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       list_networks_output() :: %{
-        "Networks" => list(network_summary()()),
+        "Networks" => list(network_summary()),
         "NextToken" => String.t()
       }
 
@@ -910,7 +910,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       list_invitations_output() :: %{
-        "Invitations" => list(invitation()()),
+        "Invitations" => list(invitation()),
         "NextToken" => String.t()
       }
 
@@ -1126,7 +1126,7 @@ defmodule AWS.ManagedBlockchain do
 
       list_nodes_output() :: %{
         "NextToken" => String.t(),
-        "Nodes" => list(node_summary()())
+        "Nodes" => list(node_summary())
       }
 
   """
@@ -1168,7 +1168,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       list_accessors_output() :: %{
-        "Accessors" => list(accessor_summary()()),
+        "Accessors" => list(accessor_summary()),
         "NextToken" => String.t()
       }
 
@@ -1217,7 +1217,7 @@ defmodule AWS.ManagedBlockchain do
 
       list_proposals_output() :: %{
         "NextToken" => String.t(),
-        "Proposals" => list(proposal_summary()())
+        "Proposals" => list(proposal_summary())
       }
 
   """
@@ -1228,7 +1228,7 @@ defmodule AWS.ManagedBlockchain do
   ## Example:
 
       get_node_output() :: %{
-        "Node" => managedblockchain_node()
+        "Node" => node()
       }
 
   """

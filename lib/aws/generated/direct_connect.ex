@@ -51,7 +51,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_direct_connect_gateway_associations_result() :: %{
-        "directConnectGatewayAssociations" => list(direct_connect_gateway_association()()),
+        "directConnectGatewayAssociations" => list(direct_connect_gateway_association()),
         "nextToken" => String.t()
       }
       
@@ -66,10 +66,10 @@ defmodule AWS.DirectConnect do
         "associatedGateway" => associated_gateway(),
         "directConnectGatewayId" => String.t(),
         "directConnectGatewayOwnerAccount" => String.t(),
-        "existingAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()()),
+        "existingAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()),
         "proposalId" => String.t(),
         "proposalState" => list(any()),
-        "requestedAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()())
+        "requestedAllowedPrefixesToDirectConnectGateway" => list(route_filter_prefix())
       }
       
   """
@@ -81,7 +81,7 @@ defmodule AWS.DirectConnect do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -106,7 +106,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       start_bgp_failover_test_request() :: %{
-        optional("bgpPeers") => list(String.t()()),
+        optional("bgpPeers") => list(String.t()),
         optional("testDurationInMinutes") => integer(),
         required("virtualInterfaceId") => String.t()
       }
@@ -119,7 +119,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_direct_connect_gateways_result() :: %{
-        "directConnectGateways" => list(direct_connect_gateway()()),
+        "directConnectGateways" => list(direct_connect_gateway()),
         "nextToken" => String.t()
       }
       
@@ -189,7 +189,7 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "virtualGatewayId" => String.t(),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
@@ -214,7 +214,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       virtual_gateways() :: %{
-        optional("virtualGateways") => list(virtual_gateway()())
+        optional("virtualGateways") => list(virtual_gateway())
       }
       
   """
@@ -251,7 +251,7 @@ defmodule AWS.DirectConnect do
         "authKey" => String.t(),
         "customerAddress" => String.t(),
         "mtu" => integer(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
       }
@@ -290,7 +290,7 @@ defmodule AWS.DirectConnect do
       create_interconnect_request() :: %{
         optional("lagId") => String.t(),
         optional("providerName") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("bandwidth") => String.t(),
         required("interconnectName") => String.t(),
         required("location") => String.t()
@@ -338,7 +338,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_customer_metadata_response() :: %{
-        "agreements" => list(customer_agreement()()),
+        "agreements" => list(customer_agreement()),
         "nniPartnerType" => list(any())
       }
       
@@ -400,7 +400,7 @@ defmodule AWS.DirectConnect do
       
       disassociate_mac_sec_key_response() :: %{
         "connectionId" => String.t(),
-        "macSecKeys" => list(mac_sec_key()())
+        "macSecKeys" => list(mac_sec_key())
       }
       
   """
@@ -468,7 +468,7 @@ defmodule AWS.DirectConnect do
         "location" => String.t(),
         "providerName" => String.t(),
         "region" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -502,7 +502,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       direct_connect_gateway_association() :: %{
-        "allowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()()),
+        "allowedPrefixesToDirectConnectGateway" => list(route_filter_prefix()),
         "associatedCoreNetwork" => associated_core_network(),
         "associatedGateway" => associated_gateway(),
         "associationId" => String.t(),
@@ -540,7 +540,7 @@ defmodule AWS.DirectConnect do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -574,7 +574,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_tags_response() :: %{
-        "resourceTags" => list(resource_tag()())
+        "resourceTags" => list(resource_tag())
       }
       
   """
@@ -585,7 +585,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       list_virtual_interface_test_history_request() :: %{
-        optional("bgpPeers") => list(String.t()()),
+        optional("bgpPeers") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("status") => String.t(),
@@ -601,7 +601,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_direct_connect_gateway_attachments_result() :: %{
-        "directConnectGatewayAttachments" => list(direct_connect_gateway_attachment()()),
+        "directConnectGatewayAttachments" => list(direct_connect_gateway_attachment()),
         "nextToken" => String.t()
       }
       
@@ -613,7 +613,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       virtual_interfaces() :: %{
-        optional("virtualInterfaces") => list(virtual_interface()())
+        optional("virtualInterfaces") => list(virtual_interface())
       }
       
   """
@@ -642,7 +642,7 @@ defmodule AWS.DirectConnect do
         "authKey" => String.t(),
         "customerAddress" => String.t(),
         "mtu" => integer(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
       }
@@ -715,11 +715,11 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       create_lag_request() :: %{
-        optional("childConnectionTags") => list(tag()()),
+        optional("childConnectionTags") => list(tag()),
         optional("connectionId") => String.t(),
         optional("providerName") => String.t(),
         optional("requestMACSec") => boolean(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("connectionsBandwidth") => String.t(),
         required("lagName") => String.t(),
         required("location") => String.t(),
@@ -757,7 +757,7 @@ defmodule AWS.DirectConnect do
       
       list_virtual_interface_test_history_response() :: %{
         "nextToken" => String.t(),
-        "virtualInterfaceTestHistory" => list(virtual_interface_test_history()())
+        "virtualInterfaceTestHistory" => list(virtual_interface_test_history())
       }
       
   """
@@ -828,13 +828,13 @@ defmodule AWS.DirectConnect do
         "loaIssueTime" => non_neg_integer(),
         "location" => String.t(),
         "macSecCapable" => boolean(),
-        "macSecKeys" => list(mac_sec_key()()),
+        "macSecKeys" => list(mac_sec_key()),
         "ownerAccount" => String.t(),
         "partnerName" => String.t(),
         "portEncryptionStatus" => String.t(),
         "providerName" => String.t(),
         "region" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "vlan" => integer()
       }
       
@@ -862,8 +862,8 @@ defmodule AWS.DirectConnect do
         "asn" => integer(),
         "authKey" => String.t(),
         "customerAddress" => String.t(),
-        "routeFilterPrefixes" => list(route_filter_prefix()()),
-        "tags" => list(tag()()),
+        "routeFilterPrefixes" => list(route_filter_prefix()),
+        "tags" => list(tag()),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
       }
@@ -923,7 +923,7 @@ defmodule AWS.DirectConnect do
       
       create_direct_connect_gateway_request() :: %{
         optional("amazonSideAsn") => float(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("directConnectGatewayName") => String.t()
       }
       
@@ -935,7 +935,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       create_direct_connect_gateway_association_request() :: %{
-        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
         optional("gatewayId") => String.t(),
         optional("virtualGatewayId") => String.t(),
         required("directConnectGatewayId") => String.t()
@@ -976,9 +976,9 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       location() :: %{
-        "availableMacSecPortSpeeds" => list(String.t()()),
-        "availablePortSpeeds" => list(String.t()()),
-        "availableProviders" => list(String.t()()),
+        "availableMacSecPortSpeeds" => list(String.t()),
+        "availablePortSpeeds" => list(String.t()),
+        "availableProviders" => list(String.t()),
         "locationCode" => String.t(),
         "locationName" => String.t(),
         "region" => String.t()
@@ -1038,7 +1038,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       connections() :: %{
-        optional("connections") => list(connection()())
+        optional("connections") => list(connection())
       }
       
   """
@@ -1060,7 +1060,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       locations() :: %{
-        optional("locations") => list(location()())
+        optional("locations") => list(location())
       }
       
   """
@@ -1082,7 +1082,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       virtual_interface_test_history() :: %{
-        "bgpPeers" => list(String.t()()),
+        "bgpPeers" => list(String.t()),
         "endTime" => non_neg_integer(),
         "ownerAccount" => String.t(),
         "startTime" => non_neg_integer(),
@@ -1108,7 +1108,7 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
       }
@@ -1132,7 +1132,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_direct_connect_gateway_association_proposals_result() :: %{
-        "directConnectGatewayAssociationProposals" => list(direct_connect_gateway_association_proposal()()),
+        "directConnectGatewayAssociationProposals" => list(direct_connect_gateway_association_proposal()),
         "nextToken" => String.t()
       }
       
@@ -1151,7 +1151,7 @@ defmodule AWS.DirectConnect do
         "authKey" => String.t(),
         "awsDeviceV2" => String.t(),
         "awsLogicalDeviceId" => String.t(),
-        "bgpPeers" => list(bgp_peer()()),
+        "bgpPeers" => list(bgp_peer()),
         "connectionId" => String.t(),
         "customerAddress" => String.t(),
         "customerRouterConfig" => String.t(),
@@ -1161,9 +1161,9 @@ defmodule AWS.DirectConnect do
         "mtu" => integer(),
         "ownerAccount" => String.t(),
         "region" => String.t(),
-        "routeFilterPrefixes" => list(route_filter_prefix()()),
+        "routeFilterPrefixes" => list(route_filter_prefix()),
         "siteLinkEnabled" => boolean(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "virtualGatewayId" => String.t(),
         "virtualInterfaceId" => String.t(),
         "virtualInterfaceName" => String.t(),
@@ -1181,7 +1181,7 @@ defmodule AWS.DirectConnect do
       
       resource_tag() :: %{
         "resourceArn" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1192,7 +1192,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       allocate_hosted_connection_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("bandwidth") => String.t(),
         required("connectionId") => String.t(),
         required("connectionName") => String.t(),
@@ -1323,9 +1323,9 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       update_direct_connect_gateway_association_request() :: %{
-        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
         optional("associationId") => String.t(),
-        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()())
+        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix())
       }
       
   """
@@ -1360,7 +1360,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       interconnects() :: %{
-        optional("interconnects") => list(interconnect()())
+        optional("interconnects") => list(interconnect())
       }
       
   """
@@ -1431,8 +1431,8 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       create_direct_connect_gateway_association_proposal_request() :: %{
-        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
-        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("addAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
+        optional("removeAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
         required("directConnectGatewayId") => String.t(),
         required("directConnectGatewayOwnerAccount") => String.t(),
         required("gatewayId") => String.t()
@@ -1470,7 +1470,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       accept_direct_connect_gateway_association_proposal_request() :: %{
-        optional("overrideAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()()),
+        optional("overrideAllowedPrefixesToDirectConnectGateway") => list(route_filter_prefix()),
         required("associatedGatewayOwnerAccount") => String.t(),
         required("directConnectGatewayId") => String.t(),
         required("proposalId") => String.t()
@@ -1498,7 +1498,7 @@ defmodule AWS.DirectConnect do
       
       associate_mac_sec_key_response() :: %{
         "connectionId" => String.t(),
-        "macSecKeys" => list(mac_sec_key()())
+        "macSecKeys" => list(mac_sec_key())
       }
       
   """
@@ -1528,7 +1528,7 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayState" => list(any()),
         "ownerAccount" => String.t(),
         "stateChangeError" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1551,7 +1551,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       describe_tags_request() :: %{
-        required("resourceArns") => list(String.t()())
+        required("resourceArns") => list(String.t())
       }
       
   """
@@ -1657,7 +1657,7 @@ defmodule AWS.DirectConnect do
   ## Example:
       
       lags() :: %{
-        optional("lags") => list(lag()())
+        optional("lags") => list(lag())
       }
       
   """
@@ -1695,7 +1695,7 @@ defmodule AWS.DirectConnect do
         optional("lagId") => String.t(),
         optional("providerName") => String.t(),
         optional("requestMACSec") => boolean(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("bandwidth") => String.t(),
         required("connectionName") => String.t(),
         required("location") => String.t()
@@ -1736,7 +1736,7 @@ defmodule AWS.DirectConnect do
         "awsDevice" => String.t(),
         "awsDeviceV2" => String.t(),
         "awsLogicalDeviceId" => String.t(),
-        "connections" => list(connection()()),
+        "connections" => list(connection()),
         "connectionsBandwidth" => String.t(),
         "encryptionMode" => String.t(),
         "hasLogicalRedundancy" => list(any()),
@@ -1746,13 +1746,13 @@ defmodule AWS.DirectConnect do
         "lagState" => list(any()),
         "location" => String.t(),
         "macSecCapable" => boolean(),
-        "macSecKeys" => list(mac_sec_key()()),
+        "macSecKeys" => list(mac_sec_key()),
         "minimumLinks" => integer(),
         "numberOfConnections" => integer(),
         "ownerAccount" => String.t(),
         "providerName" => String.t(),
         "region" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1779,8 +1779,8 @@ defmodule AWS.DirectConnect do
         "asn" => integer(),
         "authKey" => String.t(),
         "customerAddress" => String.t(),
-        "routeFilterPrefixes" => list(route_filter_prefix()()),
-        "tags" => list(tag()()),
+        "routeFilterPrefixes" => list(route_filter_prefix()),
+        "tags" => list(tag()),
         "virtualInterfaceName" => String.t(),
         "vlan" => integer()
       }
@@ -2066,7 +2066,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, accept_direct_connect_gateway_association_proposal_errors()}
   def accept_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2100,7 +2101,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, allocate_connection_on_interconnect_errors()}
   def allocate_connection_on_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateConnectionOnInterconnect", input, options)
   end
@@ -2123,7 +2125,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, allocate_hosted_connection_errors()}
   def allocate_hosted_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateHostedConnection", input, options)
   end
@@ -2147,7 +2150,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, allocate_private_virtual_interface_errors()}
   def allocate_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocatePrivateVirtualInterface", input, options)
   end
@@ -2178,7 +2182,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, allocate_public_virtual_interface_errors()}
   def allocate_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocatePublicVirtualInterface", input, options)
   end
@@ -2208,7 +2213,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, allocate_transit_virtual_interface_errors()}
   def allocate_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllocateTransitVirtualInterface", input, options)
   end
@@ -2247,7 +2253,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, associate_connection_with_lag_errors()}
   def associate_connection_with_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateConnectionWithLag", input, options)
   end
@@ -2272,7 +2279,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, associate_hosted_connection_errors()}
   def associate_hosted_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateHostedConnection", input, options)
   end
@@ -2294,7 +2302,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, associate_mac_sec_key_errors()}
   def associate_mac_sec_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateMacSecKey", input, options)
   end
@@ -2327,7 +2336,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, associate_virtual_interface_errors()}
   def associate_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVirtualInterface", input, options)
   end
@@ -2345,7 +2355,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, confirm_connection_errors()}
   def confirm_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmConnection", input, options)
   end
@@ -2361,7 +2372,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, confirm_customer_agreement_errors()}
   def confirm_customer_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmCustomerAgreement", input, options)
   end
@@ -2385,7 +2397,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, confirm_private_virtual_interface_errors()}
   def confirm_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmPrivateVirtualInterface", input, options)
   end
@@ -2408,7 +2421,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, confirm_public_virtual_interface_errors()}
   def confirm_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmPublicVirtualInterface", input, options)
   end
@@ -2430,7 +2444,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, confirm_transit_virtual_interface_errors()}
   def confirm_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmTransitVirtualInterface", input, options)
   end
@@ -2471,7 +2486,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_bgp_peer_errors()}
   def create_bgp_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBGPPeer", input, options)
   end
@@ -2501,7 +2517,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -2526,7 +2543,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_direct_connect_gateway_errors()}
   def create_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectConnectGateway", input, options)
   end
@@ -2549,7 +2567,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_direct_connect_gateway_association_errors()}
   def create_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDirectConnectGatewayAssociation", input, options)
   end
@@ -2571,7 +2590,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_direct_connect_gateway_association_proposal_errors()}
   def create_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2619,7 +2639,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_interconnect_errors()}
   def create_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateInterconnect", input, options)
   end
@@ -2667,7 +2688,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_lag_errors()}
   def create_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLag", input, options)
   end
@@ -2705,7 +2727,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_private_virtual_interface_errors()}
   def create_private_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePrivateVirtualInterface", input, options)
   end
@@ -2728,7 +2751,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_public_virtual_interface_errors()}
   def create_public_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePublicVirtualInterface", input, options)
   end
@@ -2769,7 +2793,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, create_transit_virtual_interface_errors()}
   def create_transit_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTransitVirtualInterface", input, options)
   end
@@ -2786,7 +2811,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_bgp_peer_errors()}
   def delete_bgp_peer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBGPPeer", input, options)
   end
@@ -2806,7 +2832,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -2825,7 +2852,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_direct_connect_gateway_errors()}
   def delete_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectConnectGateway", input, options)
   end
@@ -2849,7 +2877,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_direct_connect_gateway_association_errors()}
   def delete_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDirectConnectGatewayAssociation", input, options)
   end
@@ -2868,7 +2897,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_direct_connect_gateway_association_proposal_errors()}
   def delete_direct_connect_gateway_association_proposal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2891,7 +2921,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_interconnect_errors()}
   def delete_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInterconnect", input, options)
   end
@@ -2908,7 +2939,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_lag_errors()}
   def delete_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLag", input, options)
   end
@@ -2922,7 +2954,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, delete_virtual_interface_errors()}
   def delete_virtual_interface(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVirtualInterface", input, options)
   end
@@ -2949,7 +2982,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_connection_loa_errors()}
   def describe_connection_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionLoa", input, options)
   end
@@ -2963,7 +2997,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_connections_errors()}
   def describe_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnections", input, options)
   end
@@ -2988,7 +3023,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_connections_on_interconnect_errors()}
   def describe_connections_on_interconnect(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnectionsOnInterconnect", input, options)
   end
@@ -3003,7 +3039,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_customer_metadata_errors()}
   def describe_customer_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomerMetadata", input, options)
   end
@@ -3026,7 +3063,8 @@ defmodule AWS.DirectConnect do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3093,7 +3131,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_direct_connect_gateway_associations_errors()}
   def describe_direct_connect_gateway_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGatewayAssociations", input, options)
   end
@@ -3122,7 +3161,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_direct_connect_gateway_attachments_errors()}
   def describe_direct_connect_gateway_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGatewayAttachments", input, options)
   end
@@ -3143,7 +3183,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_direct_connect_gateways_errors()}
   def describe_direct_connect_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDirectConnectGateways", input, options)
   end
@@ -3160,7 +3201,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_hosted_connections_errors()}
   def describe_hosted_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeHostedConnections", input, options)
   end
@@ -3185,7 +3227,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_interconnect_loa_errors()}
   def describe_interconnect_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInterconnectLoa", input, options)
   end
@@ -3200,7 +3243,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_interconnects_errors()}
   def describe_interconnects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInterconnects", input, options)
   end
@@ -3214,7 +3258,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_lags_errors()}
   def describe_lags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLags", input, options)
   end
@@ -3235,7 +3280,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_loa_errors()}
   def describe_loa(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoa", input, options)
   end
@@ -3252,7 +3298,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_locations_errors()}
   def describe_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocations", input, options)
   end
@@ -3267,7 +3314,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_router_configuration_errors()}
   def describe_router_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRouterConfiguration", input, options)
   end
@@ -3281,7 +3329,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3305,7 +3354,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_virtual_gateways_errors()}
   def describe_virtual_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVirtualGateways", input, options)
   end
@@ -3329,7 +3379,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, describe_virtual_interfaces_errors()}
   def describe_virtual_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVirtualInterfaces", input, options)
   end
@@ -3363,7 +3414,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, disassociate_connection_from_lag_errors()}
   def disassociate_connection_from_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateConnectionFromLag", input, options)
   end
@@ -3378,7 +3430,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, disassociate_mac_sec_key_errors()}
   def disassociate_mac_sec_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateMacSecKey", input, options)
   end
@@ -3396,7 +3449,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, list_virtual_interface_test_history_errors()}
   def list_virtual_interface_test_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVirtualInterfaceTestHistory", input, options)
   end
@@ -3422,7 +3476,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, start_bgp_failover_test_errors()}
   def start_bgp_failover_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartBgpFailoverTest", input, options)
   end
@@ -3436,7 +3491,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, stop_bgp_failover_test_errors()}
   def stop_bgp_failover_test(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopBgpFailoverTest", input, options)
   end
@@ -3455,7 +3511,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3469,7 +3526,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3491,7 +3549,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end
@@ -3505,7 +3564,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, update_direct_connect_gateway_errors()}
   def update_direct_connect_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectConnectGateway", input, options)
   end
@@ -3525,7 +3585,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, update_direct_connect_gateway_association_errors()}
   def update_direct_connect_gateway_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDirectConnectGatewayAssociation", input, options)
   end
@@ -3562,7 +3623,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, update_lag_errors()}
   def update_lag(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLag", input, options)
   end
@@ -3591,7 +3653,8 @@ defmodule AWS.DirectConnect do
           | {:error, term()}
           | {:error, update_virtual_interface_attributes_errors()}
   def update_virtual_interface_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVirtualInterfaceAttributes", input, options)
   end

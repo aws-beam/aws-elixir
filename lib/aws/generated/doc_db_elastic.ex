@@ -199,7 +199,7 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -219,7 +219,7 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       list_clusters_output() :: %{
-        optional("clusters") => list(cluster_in_list()()),
+        optional("clusters") => list(cluster_in_list()),
         optional("nextToken") => String.t()
       }
 
@@ -232,7 +232,7 @@ defmodule AWS.DocDBElastic do
 
       list_pending_maintenance_actions_output() :: %{
         "nextToken" => String.t(),
-        "resourcePendingMaintenanceActions" => list(resource_pending_maintenance_action()())
+        "resourcePendingMaintenanceActions" => list(resource_pending_maintenance_action())
       }
 
   """
@@ -304,7 +304,7 @@ defmodule AWS.DocDBElastic do
         "shardCapacity" => [integer()],
         "shardCount" => [integer()],
         "shardInstanceCount" => [integer()],
-        "shards" => list(shard()()),
+        "shards" => list(shard()),
         "status" => String.t(),
         "subnetIds" => list([String.t()]()),
         "vpcSecurityGroupIds" => list([String.t()]())
@@ -417,7 +417,7 @@ defmodule AWS.DocDBElastic do
 
       list_cluster_snapshots_output() :: %{
         optional("nextToken") => String.t(),
-        optional("snapshots") => list(cluster_snapshot_in_list()())
+        optional("snapshots") => list(cluster_snapshot_in_list())
       }
 
   """
@@ -503,7 +503,7 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -537,7 +537,7 @@ defmodule AWS.DocDBElastic do
   ## Example:
 
       resource_pending_maintenance_action() :: %{
-        "pendingMaintenanceActionDetails" => list(pending_maintenance_action_details()()),
+        "pendingMaintenanceActionDetails" => list(pending_maintenance_action_details()),
         "resourceArn" => [String.t()]
       }
 

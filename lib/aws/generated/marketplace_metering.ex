@@ -142,7 +142,7 @@ defmodule AWS.MarketplaceMetering do
       
       batch_meter_usage_request() :: %{
         required("ProductCode") => String.t(),
-        required("UsageRecords") => list(usage_record()())
+        required("UsageRecords") => list(usage_record())
       }
       
   """
@@ -153,8 +153,8 @@ defmodule AWS.MarketplaceMetering do
   ## Example:
       
       batch_meter_usage_result() :: %{
-        "Results" => list(usage_record_result()()),
-        "UnprocessedRecords" => list(usage_record()())
+        "Results" => list(usage_record_result()),
+        "UnprocessedRecords" => list(usage_record())
       }
       
   """
@@ -320,7 +320,7 @@ defmodule AWS.MarketplaceMetering do
       
       meter_usage_request() :: %{
         optional("DryRun") => boolean(),
-        optional("UsageAllocations") => list(usage_allocation()()),
+        optional("UsageAllocations") => list(usage_allocation()),
         optional("UsageQuantity") => integer(),
         required("ProductCode") => String.t(),
         required("Timestamp") => non_neg_integer(),
@@ -441,7 +441,7 @@ defmodule AWS.MarketplaceMetering do
       
       usage_allocation() :: %{
         "AllocatedUsageQuantity" => integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -457,7 +457,7 @@ defmodule AWS.MarketplaceMetering do
         "Dimension" => String.t(),
         "Quantity" => integer(),
         "Timestamp" => non_neg_integer(),
-        "UsageAllocations" => list(usage_allocation()())
+        "UsageAllocations" => list(usage_allocation())
       }
       
   """
@@ -578,7 +578,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, batch_meter_usage_errors()}
   def batch_meter_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchMeterUsage", input, options)
   end
@@ -613,7 +614,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, meter_usage_errors()}
   def meter_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MeterUsage", input, options)
   end
@@ -682,7 +684,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, register_usage_errors()}
   def register_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterUsage", input, options)
   end
@@ -721,7 +724,8 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, resolve_customer_errors()}
   def resolve_customer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveCustomer", input, options)
   end

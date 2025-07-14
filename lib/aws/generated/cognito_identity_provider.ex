@@ -288,7 +288,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       delete_user_attributes_request() :: %{
         required("AccessToken") => String.t(),
-        required("UserAttributeNames") => list(String.t()())
+        required("UserAttributeNames") => list(String.t())
       }
       
   """
@@ -299,7 +299,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_user_attributes_response() :: %{
-        "CodeDeliveryDetailsList" => list(code_delivery_details_type()())
+        "CodeDeliveryDetailsList" => list(code_delivery_details_type())
       }
       
   """
@@ -442,7 +442,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       get_csv_header_response() :: %{
-        "CSVHeader" => list(String.t()()),
+        "CSVHeader" => list(String.t()),
         "UserPoolId" => String.t()
       }
       
@@ -454,7 +454,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       set_log_delivery_configuration_request() :: %{
-        required("LogConfigurations") => list(log_configuration_type()()),
+        required("LogConfigurations") => list(log_configuration_type()),
         required("UserPoolId") => String.t()
       }
       
@@ -524,7 +524,7 @@ defmodule AWS.CognitoIdentityProvider do
       get_user_auth_factors_response() :: %{
         "ConfiguredUserAuthFactors" => list(list(any())()),
         "PreferredMfaSetting" => String.t(),
-        "UserMFASettingList" => list(String.t()()),
+        "UserMFASettingList" => list(String.t()),
         "Username" => String.t()
       }
       
@@ -590,8 +590,8 @@ defmodule AWS.CognitoIdentityProvider do
         optional("ForceAliasCreation") => boolean(),
         optional("MessageAction") => list(any()),
         optional("TemporaryPassword") => String.t(),
-        optional("UserAttributes") => list(attribute_type()()),
-        optional("ValidationData") => list(attribute_type()()),
+        optional("UserAttributes") => list(attribute_type()),
+        optional("ValidationData") => list(attribute_type()),
         required("UserPoolId") => String.t(),
         required("Username") => String.t()
       }
@@ -639,7 +639,7 @@ defmodule AWS.CognitoIdentityProvider do
       update_user_attributes_request() :: %{
         optional("ClientMetadata") => map(),
         required("AccessToken") => String.t(),
-        required("UserAttributes") => list(attribute_type()())
+        required("UserAttributes") => list(attribute_type())
       }
       
   """
@@ -871,10 +871,10 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       get_user_response() :: %{
-        "MFAOptions" => list(mfa_option_type()()),
+        "MFAOptions" => list(mfa_option_type()),
         "PreferredMfaSetting" => String.t(),
-        "UserAttributes" => list(attribute_type()()),
-        "UserMFASettingList" => list(String.t()()),
+        "UserAttributes" => list(attribute_type()),
+        "UserMFASettingList" => list(String.t()),
         "Username" => String.t()
       }
       
@@ -900,9 +900,9 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       user_type() :: %{
-        "Attributes" => list(attribute_type()()),
+        "Attributes" => list(attribute_type()),
         "Enabled" => boolean(),
-        "MFAOptions" => list(mfa_option_type()()),
+        "MFAOptions" => list(mfa_option_type()),
         "UserCreateDate" => non_neg_integer(),
         "UserLastModifiedDate" => non_neg_integer(),
         "UserStatus" => list(any()),
@@ -918,7 +918,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_user_pools_response() :: %{
         "NextToken" => String.t(),
-        "UserPools" => list(user_pool_description_type()())
+        "UserPools" => list(user_pool_description_type())
       }
       
   """
@@ -1009,7 +1009,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_resource_server_request() :: %{
-        optional("Scopes") => list(resource_server_scope_type()()),
+        optional("Scopes") => list(resource_server_scope_type()),
         required("Identifier") => String.t(),
         required("Name") => String.t(),
         required("UserPoolId") => String.t()
@@ -1255,10 +1255,10 @@ defmodule AWS.CognitoIdentityProvider do
         "AccessTokenValidity" => integer(),
         "AllowedOAuthFlows" => list(list(any())()),
         "AllowedOAuthFlowsUserPoolClient" => boolean(),
-        "AllowedOAuthScopes" => list(String.t()()),
+        "AllowedOAuthScopes" => list(String.t()),
         "AnalyticsConfiguration" => analytics_configuration_type(),
         "AuthSessionValidity" => integer(),
-        "CallbackURLs" => list(String.t()()),
+        "CallbackURLs" => list(String.t()),
         "ClientId" => String.t(),
         "ClientName" => String.t(),
         "ClientSecret" => String.t(),
@@ -1269,15 +1269,15 @@ defmodule AWS.CognitoIdentityProvider do
         "ExplicitAuthFlows" => list(list(any())()),
         "IdTokenValidity" => integer(),
         "LastModifiedDate" => non_neg_integer(),
-        "LogoutURLs" => list(String.t()()),
+        "LogoutURLs" => list(String.t()),
         "PreventUserExistenceErrors" => list(any()),
-        "ReadAttributes" => list(String.t()()),
+        "ReadAttributes" => list(String.t()),
         "RefreshTokenRotation" => refresh_token_rotation_type(),
         "RefreshTokenValidity" => integer(),
-        "SupportedIdentityProviders" => list(String.t()()),
+        "SupportedIdentityProviders" => list(String.t()),
         "TokenValidityUnits" => token_validity_units_type(),
         "UserPoolId" => String.t(),
-        "WriteAttributes" => list(String.t()())
+        "WriteAttributes" => list(String.t())
       }
       
   """
@@ -1313,7 +1313,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1362,12 +1362,12 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_get_user_response() :: %{
         "Enabled" => boolean(),
-        "MFAOptions" => list(mfa_option_type()()),
+        "MFAOptions" => list(mfa_option_type()),
         "PreferredMfaSetting" => String.t(),
-        "UserAttributes" => list(attribute_type()()),
+        "UserAttributes" => list(attribute_type()),
         "UserCreateDate" => non_neg_integer(),
         "UserLastModifiedDate" => non_neg_integer(),
-        "UserMFASettingList" => list(String.t()()),
+        "UserMFASettingList" => list(String.t()),
         "UserStatus" => list(any()),
         "Username" => String.t()
       }
@@ -1465,7 +1465,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       admin_update_user_attributes_request() :: %{
         optional("ClientMetadata") => map(),
-        required("UserAttributes") => list(attribute_type()()),
+        required("UserAttributes") => list(attribute_type()),
         required("UserPoolId") => String.t(),
         required("Username") => String.t()
       }
@@ -1489,7 +1489,7 @@ defmodule AWS.CognitoIdentityProvider do
       identity_provider_type() :: %{
         "AttributeMapping" => map(),
         "CreationDate" => non_neg_integer(),
-        "IdpIdentifiers" => list(String.t()()),
+        "IdpIdentifiers" => list(String.t()),
         "LastModifiedDate" => non_neg_integer(),
         "ProviderDetails" => map(),
         "ProviderName" => String.t(),
@@ -1528,7 +1528,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       admin_set_user_settings_request() :: %{
-        required("MFAOptions") => list(mfa_option_type()()),
+        required("MFAOptions") => list(mfa_option_type()),
         required("UserPoolId") => String.t(),
         required("Username") => String.t()
       }
@@ -1620,7 +1620,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       update_managed_login_branding_request() :: %{
-        optional("Assets") => list(asset_type()()),
+        optional("Assets") => list(asset_type()),
         optional("ManagedLoginBrandingId") => String.t(),
         optional("Settings") => any(),
         optional("UseCognitoProvidedValues") => boolean(),
@@ -1689,7 +1689,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       device_type() :: %{
-        "DeviceAttributes" => list(attribute_type()()),
+        "DeviceAttributes" => list(attribute_type()),
         "DeviceCreateDate" => non_neg_integer(),
         "DeviceKey" => String.t(),
         "DeviceLastAuthenticatedDate" => non_neg_integer(),
@@ -1831,7 +1831,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_users_in_group_response() :: %{
         "NextToken" => String.t(),
-        "Users" => list(user_type()())
+        "Users" => list(user_type())
       }
       
   """
@@ -1940,7 +1940,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       admin_delete_user_attributes_request() :: %{
-        required("UserAttributeNames") => list(String.t()()),
+        required("UserAttributeNames") => list(String.t()),
         required("UserPoolId") => String.t(),
         required("Username") => String.t()
       }
@@ -1977,7 +1977,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       log_delivery_configuration_type() :: %{
-        "LogConfigurations" => list(log_configuration_type()()),
+        "LogConfigurations" => list(log_configuration_type()),
         "UserPoolId" => String.t()
       }
       
@@ -1989,8 +1989,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       risk_exception_configuration_type() :: %{
-        "BlockedIPRangeList" => list(String.t()()),
-        "SkippedIPRangeList" => list(String.t()())
+        "BlockedIPRangeList" => list(String.t()),
+        "SkippedIPRangeList" => list(String.t())
       }
       
   """
@@ -2106,7 +2106,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("LambdaConfig") => lambda_config_type(),
         optional("MfaConfiguration") => list(any()),
         optional("Policies") => user_pool_policy_type(),
-        optional("Schema") => list(schema_attribute_type()()),
+        optional("Schema") => list(schema_attribute_type()),
         optional("SmsAuthenticationMessage") => String.t(),
         optional("SmsConfiguration") => sms_configuration_type(),
         optional("SmsVerificationMessage") => String.t(),
@@ -2129,7 +2129,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_user_import_jobs_response() :: %{
         "PaginationToken" => String.t(),
-        "UserImportJobs" => list(user_import_job_type()())
+        "UserImportJobs" => list(user_import_job_type())
       }
       
   """
@@ -2141,7 +2141,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_users_response() :: %{
         "PaginationToken" => String.t(),
-        "Users" => list(user_type()())
+        "Users" => list(user_type())
       }
       
   """
@@ -2178,24 +2178,24 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AccessTokenValidity") => integer(),
         optional("AllowedOAuthFlows") => list(list(any())()),
         optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-        optional("AllowedOAuthScopes") => list(String.t()()),
+        optional("AllowedOAuthScopes") => list(String.t()),
         optional("AnalyticsConfiguration") => analytics_configuration_type(),
         optional("AuthSessionValidity") => integer(),
-        optional("CallbackURLs") => list(String.t()()),
+        optional("CallbackURLs") => list(String.t()),
         optional("DefaultRedirectURI") => String.t(),
         optional("EnablePropagateAdditionalUserContextData") => boolean(),
         optional("EnableTokenRevocation") => boolean(),
         optional("ExplicitAuthFlows") => list(list(any())()),
         optional("GenerateSecret") => boolean(),
         optional("IdTokenValidity") => integer(),
-        optional("LogoutURLs") => list(String.t()()),
+        optional("LogoutURLs") => list(String.t()),
         optional("PreventUserExistenceErrors") => list(any()),
-        optional("ReadAttributes") => list(String.t()()),
+        optional("ReadAttributes") => list(String.t()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
-        optional("SupportedIdentityProviders") => list(String.t()()),
+        optional("SupportedIdentityProviders") => list(String.t()),
         optional("TokenValidityUnits") => token_validity_units_type(),
-        optional("WriteAttributes") => list(String.t()()),
+        optional("WriteAttributes") => list(String.t()),
         required("ClientName") => String.t(),
         required("UserPoolId") => String.t()
       }
@@ -2284,7 +2284,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       managed_login_branding_type() :: %{
-        "Assets" => list(asset_type()()),
+        "Assets" => list(asset_type()),
         "CreationDate" => non_neg_integer(),
         "LastModifiedDate" => non_neg_integer(),
         "ManagedLoginBrandingId" => String.t(),
@@ -2366,7 +2366,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_resource_server_request() :: %{
-        optional("Scopes") => list(resource_server_scope_type()()),
+        optional("Scopes") => list(resource_server_scope_type()),
         required("Identifier") => String.t(),
         required("Name") => String.t(),
         required("UserPoolId") => String.t()
@@ -2424,7 +2424,7 @@ defmodule AWS.CognitoIdentityProvider do
       resource_server_type() :: %{
         "Identifier" => String.t(),
         "Name" => String.t(),
-        "Scopes" => list(resource_server_scope_type()()),
+        "Scopes" => list(resource_server_scope_type()),
         "UserPoolId" => String.t()
       }
       
@@ -2447,7 +2447,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       list_devices_response() :: %{
-        "Devices" => list(device_type()()),
+        "Devices" => list(device_type()),
         "PaginationToken" => String.t()
       }
       
@@ -2527,7 +2527,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       add_custom_attributes_request() :: %{
-        required("CustomAttributes") => list(schema_attribute_type()()),
+        required("CustomAttributes") => list(schema_attribute_type()),
         required("UserPoolId") => String.t()
       }
       
@@ -2631,7 +2631,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       set_user_settings_request() :: %{
         required("AccessToken") => String.t(),
-        required("MFAOptions") => list(mfa_option_type()())
+        required("MFAOptions") => list(mfa_option_type())
       }
       
   """
@@ -2704,7 +2704,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       admin_list_devices_response() :: %{
-        "Devices" => list(device_type()()),
+        "Devices" => list(device_type()),
         "PaginationToken" => String.t()
       }
       
@@ -2765,7 +2765,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       web_authn_credential_description() :: %{
         "AuthenticatorAttachment" => String.t(),
-        "AuthenticatorTransports" => list(String.t()()),
+        "AuthenticatorTransports" => list(String.t()),
         "CreatedAt" => non_neg_integer(),
         "CredentialId" => String.t(),
         "FriendlyCredentialName" => String.t(),
@@ -2856,9 +2856,9 @@ defmodule AWS.CognitoIdentityProvider do
         optional("ClientMetadata") => map(),
         optional("Password") => String.t(),
         optional("SecretHash") => String.t(),
-        optional("UserAttributes") => list(attribute_type()()),
+        optional("UserAttributes") => list(attribute_type()),
         optional("UserContextData") => user_context_data_type(),
-        optional("ValidationData") => list(attribute_type()()),
+        optional("ValidationData") => list(attribute_type()),
         required("ClientId") => String.t(),
         required("Username") => String.t()
       }
@@ -3034,7 +3034,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       admin_list_user_auth_events_response() :: %{
-        "AuthEvents" => list(auth_event_type()()),
+        "AuthEvents" => list(auth_event_type()),
         "NextToken" => String.t()
       }
       
@@ -3079,7 +3079,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       auth_event_type() :: %{
-        "ChallengeResponses" => list(challenge_response_type()()),
+        "ChallengeResponses" => list(challenge_response_type()),
         "CreationDate" => non_neg_integer(),
         "EventContextData" => event_context_data_type(),
         "EventFeedback" => event_feedback_type(),
@@ -3098,7 +3098,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       create_identity_provider_request() :: %{
         optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t()()),
+        optional("IdpIdentifiers") => list(String.t()),
         required("ProviderDetails") => map(),
         required("ProviderName") => String.t(),
         required("ProviderType") => list(any()),
@@ -3343,7 +3343,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       account_recovery_setting_type() :: %{
-        "RecoveryMechanisms" => list(recovery_option_type()())
+        "RecoveryMechanisms" => list(recovery_option_type())
       }
       
   """
@@ -3556,7 +3556,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_identity_providers_response() :: %{
         "NextToken" => String.t(),
-        "Providers" => list(provider_description()())
+        "Providers" => list(provider_description())
       }
       
   """
@@ -3651,7 +3651,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       admin_list_groups_for_user_response() :: %{
-        "Groups" => list(group_type()()),
+        "Groups" => list(group_type()),
         "NextToken" => String.t()
       }
       
@@ -3689,24 +3689,24 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AccessTokenValidity") => integer(),
         optional("AllowedOAuthFlows") => list(list(any())()),
         optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-        optional("AllowedOAuthScopes") => list(String.t()()),
+        optional("AllowedOAuthScopes") => list(String.t()),
         optional("AnalyticsConfiguration") => analytics_configuration_type(),
         optional("AuthSessionValidity") => integer(),
-        optional("CallbackURLs") => list(String.t()()),
+        optional("CallbackURLs") => list(String.t()),
         optional("ClientName") => String.t(),
         optional("DefaultRedirectURI") => String.t(),
         optional("EnablePropagateAdditionalUserContextData") => boolean(),
         optional("EnableTokenRevocation") => boolean(),
         optional("ExplicitAuthFlows") => list(list(any())()),
         optional("IdTokenValidity") => integer(),
-        optional("LogoutURLs") => list(String.t()()),
+        optional("LogoutURLs") => list(String.t()),
         optional("PreventUserExistenceErrors") => list(any()),
-        optional("ReadAttributes") => list(String.t()()),
+        optional("ReadAttributes") => list(String.t()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
-        optional("SupportedIdentityProviders") => list(String.t()()),
+        optional("SupportedIdentityProviders") => list(String.t()),
         optional("TokenValidityUnits") => token_validity_units_type(),
-        optional("WriteAttributes") => list(String.t()()),
+        optional("WriteAttributes") => list(String.t()),
         required("ClientId") => String.t(),
         required("UserPoolId") => String.t()
       }
@@ -3730,7 +3730,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       list_users_request() :: %{
-        optional("AttributesToGet") => list(String.t()()),
+        optional("AttributesToGet") => list(String.t()),
         optional("Filter") => String.t(),
         optional("Limit") => integer(),
         optional("PaginationToken") => String.t(),
@@ -3844,7 +3844,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       create_managed_login_branding_request() :: %{
-        optional("Assets") => list(asset_type()()),
+        optional("Assets") => list(asset_type()),
         optional("Settings") => any(),
         optional("UseCognitoProvidedValues") => boolean(),
         required("ClientId") => String.t(),
@@ -3913,7 +3913,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       update_identity_provider_request() :: %{
         optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t()()),
+        optional("IdpIdentifiers") => list(String.t()),
         optional("ProviderDetails") => map(),
         required("ProviderName") => String.t(),
         required("UserPoolId") => String.t()
@@ -3928,7 +3928,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       context_data_type() :: %{
         "EncodedData" => String.t(),
-        "HttpHeaders" => list(http_header()()),
+        "HttpHeaders" => list(http_header()),
         "IpAddress" => String.t(),
         "ServerName" => String.t(),
         "ServerPath" => String.t()
@@ -3955,7 +3955,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       list_groups_response() :: %{
-        "Groups" => list(group_type()()),
+        "Groups" => list(group_type()),
         "NextToken" => String.t()
       }
       
@@ -4076,7 +4076,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       list_web_authn_credentials_response() :: %{
-        "Credentials" => list(web_authn_credential_description()()),
+        "Credentials" => list(web_authn_credential_description()),
         "NextToken" => String.t()
       }
       
@@ -4146,7 +4146,7 @@ defmodule AWS.CognitoIdentityProvider do
         "Domain" => String.t(),
         "AdminCreateUserConfig" => admin_create_user_config_type(),
         "AccountRecoverySetting" => account_recovery_setting_type(),
-        "SchemaAttributes" => list(schema_attribute_type()())
+        "SchemaAttributes" => list(schema_attribute_type())
       }
       
   """
@@ -4375,7 +4375,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_user_pool_clients_response() :: %{
         "NextToken" => String.t(),
-        "UserPoolClients" => list(user_pool_client_description()())
+        "UserPoolClients" => list(user_pool_client_description())
       }
       
   """
@@ -4460,7 +4460,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       list_resource_servers_response() :: %{
         "NextToken" => String.t(),
-        "ResourceServers" => list(resource_server_type()())
+        "ResourceServers" => list(resource_server_type())
       }
       
   """
@@ -5694,7 +5694,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, add_custom_attributes_errors()}
   def add_custom_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCustomAttributes", input, options)
   end
@@ -5727,7 +5728,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_add_user_to_group_errors()}
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminAddUserToGroup", input, options)
   end
@@ -5767,7 +5769,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_confirm_sign_up_errors()}
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminConfirmSignUp", input, options)
   end
@@ -5843,7 +5846,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_create_user_errors()}
   def admin_create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminCreateUser", input, options)
   end
@@ -5872,7 +5876,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_delete_user_errors()}
   def admin_delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDeleteUser", input, options)
   end
@@ -5906,7 +5911,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_delete_user_attributes_errors()}
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDeleteUserAttributes", input, options)
   end
@@ -5973,7 +5979,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_disable_provider_for_user_errors()}
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDisableProviderForUser", input, options)
   end
@@ -6006,7 +6013,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_disable_user_errors()}
   def admin_disable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDisableUser", input, options)
   end
@@ -6036,7 +6044,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_enable_user_errors()}
   def admin_enable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminEnableUser", input, options)
   end
@@ -6071,7 +6080,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_forget_device_errors()}
   def admin_forget_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminForgetDevice", input, options)
   end
@@ -6103,7 +6113,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_get_device_errors()}
   def admin_get_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminGetDevice", input, options)
   end
@@ -6139,7 +6150,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_get_user_errors()}
   def admin_get_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminGetUser", input, options)
   end
@@ -6202,7 +6214,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_initiate_auth_errors()}
   def admin_initiate_auth(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminInitiateAuth", input, options)
   end
@@ -6248,7 +6261,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_link_provider_for_user_errors()}
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminLinkProviderForUser", input, options)
   end
@@ -6285,7 +6299,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_devices_errors()}
   def admin_list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListDevices", input, options)
   end
@@ -6319,7 +6334,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_groups_for_user_errors()}
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListGroupsForUser", input, options)
   end
@@ -6352,7 +6368,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_user_auth_events_errors()}
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListUserAuthEvents", input, options)
   end
@@ -6387,7 +6404,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_remove_user_from_group_errors()}
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminRemoveUserFromGroup", input, options)
   end
@@ -6449,7 +6467,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_reset_user_password_errors()}
   def admin_reset_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminResetUserPassword", input, options)
   end
@@ -6516,7 +6535,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_respond_to_auth_challenge_errors()}
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminRespondToAuthChallenge", input, options)
   end
@@ -6554,7 +6574,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_mfa_preference_errors()}
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserMFAPreference", input, options)
   end
@@ -6622,7 +6643,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_password_errors()}
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserPassword", input, options)
   end
@@ -6656,7 +6678,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_settings_errors()}
   def admin_set_user_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserSettings", input, options)
   end
@@ -6705,7 +6728,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_auth_event_feedback_errors()}
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateAuthEventFeedback", input, options)
   end
@@ -6744,7 +6768,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_device_status_errors()}
   def admin_update_device_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateDeviceStatus", input, options)
   end
@@ -6811,7 +6836,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_user_attributes_errors()}
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateUserAttributes", input, options)
   end
@@ -6875,7 +6901,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_user_global_sign_out_errors()}
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUserGlobalSignOut", input, options)
   end
@@ -6909,7 +6936,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, associate_software_token_errors()}
   def associate_software_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSoftwareToken", input, options)
   end
@@ -6934,7 +6962,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ChangePassword", input, options)
   end
@@ -6952,7 +6981,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, complete_web_authn_registration_errors()}
   def complete_web_authn_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteWebAuthnRegistration", input, options)
   end
@@ -6984,7 +7014,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_device_errors()}
   def confirm_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmDevice", input, options)
   end
@@ -7008,7 +7039,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_forgot_password_errors()}
   def confirm_forgot_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmForgotPassword", input, options)
   end
@@ -7046,7 +7078,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_sign_up_errors()}
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmSignUp", input, options)
   end
@@ -7078,7 +7111,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -7113,7 +7147,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIdentityProvider", input, options)
   end
@@ -7165,7 +7200,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_managed_login_branding_errors()}
   def create_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateManagedLoginBranding", input, options)
   end
@@ -7199,7 +7235,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_resource_server_errors()}
   def create_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceServer", input, options)
   end
@@ -7232,7 +7269,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_import_job_errors()}
   def create_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserImportJob", input, options)
   end
@@ -7293,7 +7331,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_errors()}
   def create_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPool", input, options)
   end
@@ -7334,7 +7373,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_client_errors()}
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPoolClient", input, options)
   end
@@ -7382,7 +7422,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_domain_errors()}
   def create_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPoolDomain", input, options)
   end
@@ -7418,7 +7459,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -7452,7 +7494,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentityProvider", input, options)
   end
@@ -7487,7 +7530,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_managed_login_branding_errors()}
   def delete_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteManagedLoginBranding", input, options)
   end
@@ -7522,7 +7566,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_resource_server_errors()}
   def delete_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceServer", input, options)
   end
@@ -7550,7 +7595,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -7579,7 +7625,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_attributes_errors()}
   def delete_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserAttributes", input, options)
   end
@@ -7611,7 +7658,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_errors()}
   def delete_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPool", input, options)
   end
@@ -7628,7 +7676,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_client_errors()}
   def delete_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolClient", input, options)
   end
@@ -7647,7 +7696,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_domain_errors()}
   def delete_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolDomain", input, options)
   end
@@ -7674,7 +7724,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_web_authn_credential_errors()}
   def delete_web_authn_credential(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebAuthnCredential", input, options)
   end
@@ -7689,7 +7740,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_identity_provider_errors()}
   def describe_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdentityProvider", input, options)
   end
@@ -7705,7 +7757,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_managed_login_branding_errors()}
   def describe_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedLoginBranding", input, options)
   end
@@ -7725,7 +7778,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_managed_login_branding_by_client_errors()}
   def describe_managed_login_branding_by_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedLoginBrandingByClient", input, options)
   end
@@ -7741,7 +7795,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_resource_server_errors()}
   def describe_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourceServer", input, options)
   end
@@ -7762,7 +7817,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_risk_configuration_errors()}
   def describe_risk_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRiskConfiguration", input, options)
   end
@@ -7778,7 +7834,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_import_job_errors()}
   def describe_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserImportJob", input, options)
   end
@@ -7811,7 +7868,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_errors()}
   def describe_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPool", input, options)
   end
@@ -7846,7 +7904,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_client_errors()}
   def describe_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPoolClient", input, options)
   end
@@ -7876,7 +7935,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_domain_errors()}
   def describe_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPoolDomain", input, options)
   end
@@ -7905,7 +7965,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, forget_device_errors()}
   def forget_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ForgetDevice", input, options)
   end
@@ -7962,7 +8023,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, forgot_password_errors()}
   def forgot_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ForgotPassword", input, options)
   end
@@ -8000,7 +8062,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_csv_header_errors()}
   def get_csv_header(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCSVHeader", input, options)
   end
@@ -8030,7 +8093,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevice", input, options)
   end
@@ -8062,7 +8126,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroup", input, options)
   end
@@ -8084,7 +8149,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_identity_provider_by_identifier_errors()}
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityProviderByIdentifier", input, options)
   end
@@ -8117,7 +8183,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_log_delivery_configuration_errors()}
   def get_log_delivery_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLogDeliveryConfiguration", input, options)
   end
@@ -8155,7 +8222,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_signing_certificate_errors()}
   def get_signing_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSigningCertificate", input, options)
   end
@@ -8178,7 +8246,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_tokens_from_refresh_token_errors()}
   def get_tokens_from_refresh_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTokensFromRefreshToken", input, options)
   end
@@ -8200,7 +8269,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_ui_customization_errors()}
   def get_ui_customization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUICustomization", input, options)
   end
@@ -8225,7 +8295,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUser", input, options)
   end
@@ -8282,7 +8353,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_attribute_verification_code_errors()}
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserAttributeVerificationCode", input, options)
   end
@@ -8317,7 +8389,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_auth_factors_errors()}
   def get_user_auth_factors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserAuthFactors", input, options)
   end
@@ -8365,7 +8438,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_pool_mfa_config_errors()}
   def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserPoolMfaConfig", input, options)
   end
@@ -8425,7 +8499,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, global_sign_out_errors()}
   def global_sign_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GlobalSignOut", input, options)
   end
@@ -8481,7 +8556,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, initiate_auth_errors()}
   def initiate_auth(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InitiateAuth", input, options)
   end
@@ -8511,7 +8587,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -8540,7 +8617,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -8572,7 +8650,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_identity_providers_errors()}
   def list_identity_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentityProviders", input, options)
   end
@@ -8604,7 +8683,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_resource_servers_errors()}
   def list_resource_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceServers", input, options)
   end
@@ -8621,7 +8701,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -8656,7 +8737,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_import_jobs_errors()}
   def list_user_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserImportJobs", input, options)
   end
@@ -8689,7 +8771,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pool_clients_errors()}
   def list_user_pool_clients(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPoolClients", input, options)
   end
@@ -8718,7 +8801,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pools_errors()}
   def list_user_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPools", input, options)
   end
@@ -8748,7 +8832,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -8780,7 +8865,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_users_in_group_errors()}
   def list_users_in_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsersInGroup", input, options)
   end
@@ -8806,7 +8892,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_web_authn_credentials_errors()}
   def list_web_authn_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebAuthnCredentials", input, options)
   end
@@ -8862,7 +8949,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, resend_confirmation_code_errors()}
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResendConfirmationCode", input, options)
   end
@@ -8922,7 +9010,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, respond_to_auth_challenge_errors()}
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondToAuthChallenge", input, options)
   end
@@ -8950,7 +9039,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, revoke_token_errors()}
   def revoke_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeToken", input, options)
   end
@@ -8970,7 +9060,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_log_delivery_configuration_errors()}
   def set_log_delivery_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLogDeliveryConfiguration", input, options)
   end
@@ -9010,7 +9101,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_risk_configuration_errors()}
   def set_risk_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRiskConfiguration", input, options)
   end
@@ -9049,7 +9141,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_ui_customization_errors()}
   def set_ui_customization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUICustomization", input, options)
   end
@@ -9091,7 +9184,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_mfa_preference_errors()}
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserMFAPreference", input, options)
   end
@@ -9135,7 +9229,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_pool_mfa_config_errors()}
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserPoolMfaConfig", input, options)
   end
@@ -9165,7 +9260,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_settings_errors()}
   def set_user_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserSettings", input, options)
   end
@@ -9222,7 +9318,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, sign_up_errors()}
   def sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SignUp", input, options)
   end
@@ -9241,7 +9338,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, start_user_import_job_errors()}
   def start_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartUserImportJob", input, options)
   end
@@ -9265,7 +9363,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, start_web_authn_registration_errors()}
   def start_web_authn_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWebAuthnRegistration", input, options)
   end
@@ -9283,7 +9382,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, stop_user_import_job_errors()}
   def stop_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopUserImportJob", input, options)
   end
@@ -9321,7 +9421,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -9335,7 +9436,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -9377,7 +9479,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_auth_event_feedback_errors()}
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAuthEventFeedback", input, options)
   end
@@ -9412,7 +9515,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_device_status_errors()}
   def update_device_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceStatus", input, options)
   end
@@ -9445,7 +9549,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -9480,7 +9585,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIdentityProvider", input, options)
   end
@@ -9525,7 +9631,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_managed_login_branding_errors()}
   def update_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateManagedLoginBranding", input, options)
   end
@@ -9560,7 +9667,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_resource_server_errors()}
   def update_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResourceServer", input, options)
   end
@@ -9617,7 +9725,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_attributes_errors()}
   def update_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserAttributes", input, options)
   end
@@ -9680,7 +9789,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_errors()}
   def update_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPool", input, options)
   end
@@ -9725,7 +9835,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_client_errors()}
   def update_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolClient", input, options)
   end
@@ -9784,7 +9895,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_domain_errors()}
   def update_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolDomain", input, options)
   end
@@ -9812,7 +9924,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, verify_software_token_errors()}
   def verify_software_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifySoftwareToken", input, options)
   end
@@ -9847,7 +9960,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, verify_user_attribute_errors()}
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyUserAttribute", input, options)
   end

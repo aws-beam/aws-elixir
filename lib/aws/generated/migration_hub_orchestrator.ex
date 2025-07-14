@@ -24,7 +24,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_workflow_steps_response() :: %{
         optional("nextToken") => String.t(),
-        required("workflowStepsSummary") => list(workflow_step_summary()())
+        required("workflowStepsSummary") => list(workflow_step_summary())
       }
 
   """
@@ -59,10 +59,10 @@ defmodule AWS.MigrationHubOrchestrator do
 
       create_workflow_step_request() :: %{
         optional("description") => String.t(),
-        optional("next") => list(String.t()()),
-        optional("outputs") => list(workflow_step_output()()),
-        optional("previous") => list(String.t()()),
-        optional("stepTarget") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("outputs") => list(workflow_step_output()),
+        optional("previous") => list(String.t()),
+        optional("stepTarget") => list(String.t()),
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration(),
         required("name") => String.t(),
         required("stepActionType") => String.t(),
@@ -95,7 +95,7 @@ defmodule AWS.MigrationHubOrchestrator do
       create_migration_workflow_request() :: %{
         optional("applicationConfigurationId") => [String.t()],
         optional("description") => [String.t()],
-        optional("stepTargets") => list(String.t()()),
+        optional("stepTargets") => list(String.t()),
         optional("tags") => map(),
         required("inputParameters") => map(),
         required("name") => [String.t()],
@@ -130,8 +130,8 @@ defmodule AWS.MigrationHubOrchestrator do
       update_workflow_step_group_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t(),
-        optional("next") => list(String.t()()),
-        optional("previous") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("previous") => list(String.t()),
         required("workflowId") => String.t()
       }
 
@@ -193,12 +193,12 @@ defmodule AWS.MigrationHubOrchestrator do
       update_workflow_step_request() :: %{
         optional("description") => String.t(),
         optional("name") => String.t(),
-        optional("next") => list(String.t()()),
-        optional("outputs") => list(workflow_step_output()()),
-        optional("previous") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("outputs") => list(workflow_step_output()),
+        optional("previous") => list(String.t()),
         optional("status") => String.t(),
         optional("stepActionType") => String.t(),
-        optional("stepTarget") => list(String.t()()),
+        optional("stepTarget") => list(String.t()),
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration(),
         required("stepGroupId") => String.t(),
         required("workflowId") => String.t()
@@ -215,7 +215,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("description") => [String.t()],
         optional("inputParameters") => map(),
         optional("name") => [String.t()],
-        optional("stepTargets") => list(String.t()())
+        optional("stepTargets") => list(String.t())
       }
 
   """
@@ -227,7 +227,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_migration_workflows_response() :: %{
         optional("nextToken") => String.t(),
-        required("migrationWorkflowSummary") => list(migration_workflow_summary()())
+        required("migrationWorkflowSummary") => list(migration_workflow_summary())
       }
 
   """
@@ -278,7 +278,7 @@ defmodule AWS.MigrationHubOrchestrator do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -306,19 +306,19 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("endTime") => [non_neg_integer()],
         optional("lastStartTime") => [non_neg_integer()],
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
+        optional("next") => list(String.t()),
         optional("noOfSrvCompleted") => [integer()],
         optional("noOfSrvFailed") => [integer()],
-        optional("outputs") => list(workflow_step_output()()),
+        optional("outputs") => list(workflow_step_output()),
         optional("owner") => String.t(),
-        optional("previous") => list(String.t()()),
+        optional("previous") => list(String.t()),
         optional("scriptOutputLocation") => [String.t()],
         optional("status") => String.t(),
         optional("statusMessage") => [String.t()],
         optional("stepActionType") => String.t(),
         optional("stepGroupId") => [String.t()],
         optional("stepId") => [String.t()],
-        optional("stepTarget") => list(String.t()()),
+        optional("stepTarget") => list(String.t()),
         optional("totalNoOfSrv") => [integer()],
         optional("workflowId") => [String.t()],
         optional("workflowStepAutomationConfiguration") => workflow_step_automation_configuration()
@@ -359,7 +359,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("creationTime") => [non_neg_integer()],
         optional("description") => [String.t()],
         optional("id") => [String.t()],
-        optional("inputs") => list(template_input()()),
+        optional("inputs") => list(template_input()),
         optional("name") => [String.t()],
         optional("owner") => [String.t()],
         optional("status") => String.t(),
@@ -367,7 +367,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("tags") => map(),
         optional("templateArn") => [String.t()],
         optional("templateClass") => [String.t()],
-        optional("tools") => list(tool()())
+        optional("tools") => list(tool())
       }
 
   """
@@ -444,7 +444,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("id") => String.t(),
         optional("name") => [String.t()],
         optional("status") => String.t(),
-        optional("stepTargets") => list(String.t()()),
+        optional("stepTargets") => list(String.t()),
         optional("tags") => map(),
         optional("templateId") => [String.t()],
         optional("workflowInputs") => map()
@@ -460,8 +460,8 @@ defmodule AWS.MigrationHubOrchestrator do
       template_step_group_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
-        "next" => list(String.t()()),
-        "previous" => list(String.t()())
+        "next" => list(String.t()),
+        "previous" => list(String.t())
       }
 
   """
@@ -487,8 +487,8 @@ defmodule AWS.MigrationHubOrchestrator do
 
       create_workflow_step_group_request() :: %{
         optional("description") => String.t(),
-        optional("next") => list(String.t()()),
-        optional("previous") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("previous") => list(String.t()),
         required("name") => String.t(),
         required("workflowId") => String.t()
       }
@@ -521,11 +521,11 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("id") => [String.t()],
         optional("lastModifiedTime") => [non_neg_integer()],
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
-        optional("previous") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("previous") => list(String.t()),
         optional("status") => String.t(),
         optional("templateId") => [String.t()],
-        optional("tools") => list(tool()())
+        optional("tools") => list(tool())
       }
 
   """
@@ -552,7 +552,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("statusMessage") => [String.t()],
         optional("tags") => map(),
         optional("templateId") => [String.t()],
-        optional("tools") => list(tool()()),
+        optional("tools") => list(tool()),
         optional("totalSteps") => [integer()],
         optional("workflowBucket") => [String.t()],
         optional("workflowInputs") => map()
@@ -599,7 +599,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_plugins_response() :: %{
         optional("nextToken") => String.t(),
-        optional("plugins") => list(plugin_summary()())
+        optional("plugins") => list(plugin_summary())
       }
 
   """
@@ -612,11 +612,11 @@ defmodule AWS.MigrationHubOrchestrator do
       workflow_step_summary() :: %{
         "description" => [String.t()],
         "name" => [String.t()],
-        "next" => list(String.t()()),
+        "next" => list(String.t()),
         "noOfSrvCompleted" => [integer()],
         "noOfSrvFailed" => [integer()],
         "owner" => String.t(),
-        "previous" => list(String.t()()),
+        "previous" => list(String.t()),
         "scriptLocation" => [String.t()],
         "status" => String.t(),
         "statusMessage" => [String.t()],
@@ -635,9 +635,9 @@ defmodule AWS.MigrationHubOrchestrator do
       workflow_step_group_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
-        "next" => list(String.t()()),
+        "next" => list(String.t()),
         "owner" => String.t(),
-        "previous" => list(String.t()()),
+        "previous" => list(String.t()),
         "status" => String.t()
       }
 
@@ -737,9 +737,9 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("description") => [String.t()],
         optional("id") => [String.t()],
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
-        optional("previous") => list(String.t()()),
-        optional("tools") => list(tool()()),
+        optional("next") => list(String.t()),
+        optional("previous") => list(String.t()),
+        optional("tools") => list(tool()),
         optional("workflowId") => [String.t()]
       }
 
@@ -759,7 +759,7 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("lastModifiedTime") => [non_neg_integer()],
         optional("name") => [String.t()],
         optional("status") => String.t(),
-        optional("stepTargets") => list(String.t()()),
+        optional("stepTargets") => list(String.t()),
         optional("tags") => map(),
         optional("templateId") => [String.t()],
         optional("workflowInputs") => map()
@@ -838,7 +838,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_workflow_step_groups_response() :: %{
         optional("nextToken") => String.t(),
-        required("workflowStepGroupsSummary") => list(workflow_step_group_summary()())
+        required("workflowStepGroupsSummary") => list(workflow_step_group_summary())
       }
 
   """
@@ -867,9 +867,9 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("id") => [String.t()],
         optional("lastModifiedTime") => [non_neg_integer()],
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
-        optional("previous") => list(String.t()()),
-        optional("tools") => list(tool()()),
+        optional("next") => list(String.t()),
+        optional("previous") => list(String.t()),
+        optional("tools") => list(tool()),
         optional("workflowId") => [String.t()]
       }
 
@@ -935,9 +935,9 @@ defmodule AWS.MigrationHubOrchestrator do
       template_step_summary() :: %{
         "id" => [String.t()],
         "name" => [String.t()],
-        "next" => list(String.t()()),
+        "next" => list(String.t()),
         "owner" => String.t(),
-        "previous" => list(String.t()()),
+        "previous" => list(String.t()),
         "stepActionType" => String.t(),
         "stepGroupId" => [String.t()],
         "targetType" => String.t(),
@@ -1012,11 +1012,11 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("id") => String.t(),
         optional("lastModifiedTime") => [non_neg_integer()],
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
+        optional("next") => list(String.t()),
         optional("owner") => String.t(),
-        optional("previous") => list(String.t()()),
+        optional("previous") => list(String.t()),
         optional("status") => String.t(),
-        optional("tools") => list(tool()()),
+        optional("tools") => list(tool()),
         optional("workflowId") => [String.t()]
       }
 
@@ -1041,9 +1041,9 @@ defmodule AWS.MigrationHubOrchestrator do
         optional("description") => [String.t()],
         optional("id") => String.t(),
         optional("name") => [String.t()],
-        optional("next") => list(String.t()()),
-        optional("outputs") => list(step_output()()),
-        optional("previous") => list(String.t()()),
+        optional("next") => list(String.t()),
+        optional("outputs") => list(step_output()),
+        optional("previous") => list(String.t()),
         optional("stepActionType") => String.t(),
         optional("stepAutomationConfiguration") => step_automation_configuration(),
         optional("stepGroupId") => String.t(),
@@ -1096,7 +1096,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_migration_workflow_templates_response() :: %{
         optional("nextToken") => String.t(),
-        required("templateSummary") => list(template_summary()())
+        required("templateSummary") => list(template_summary())
       }
 
   """
@@ -1108,7 +1108,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_template_steps_response() :: %{
         optional("nextToken") => String.t(),
-        optional("templateStepSummaryList") => list(template_step_summary()())
+        optional("templateStepSummaryList") => list(template_step_summary())
       }
 
   """
@@ -1132,7 +1132,7 @@ defmodule AWS.MigrationHubOrchestrator do
 
       list_template_step_groups_response() :: %{
         optional("nextToken") => String.t(),
-        required("templateStepGroupSummary") => list(template_step_group_summary()())
+        required("templateStepGroupSummary") => list(template_step_group_summary())
       }
 
   """

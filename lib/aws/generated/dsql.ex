@@ -201,7 +201,7 @@ defmodule AWS.DSQL do
   ## Example:
 
       list_clusters_output() :: %{
-        "clusters" => list(cluster_summary()()),
+        "clusters" => list(cluster_summary()),
         "nextToken" => String.t()
       }
 
@@ -233,7 +233,7 @@ defmodule AWS.DSQL do
   ## Example:
 
       multi_region_properties() :: %{
-        "clusters" => list(String.t()()),
+        "clusters" => list(String.t()),
         "witnessRegion" => String.t()
       }
 
@@ -298,7 +298,7 @@ defmodule AWS.DSQL do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -337,7 +337,7 @@ defmodule AWS.DSQL do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }

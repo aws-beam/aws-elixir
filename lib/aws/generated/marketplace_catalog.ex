@@ -25,7 +25,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_product_name_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -39,7 +39,7 @@ defmodule AWS.MarketplaceCatalog do
       list_entities_request() :: %{
         optional("EntityTypeFilters") => list(),
         optional("EntityTypeSort") => list(),
-        optional("FilterList") => list(filter()()),
+        optional("FilterList") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OwnershipType") => list(any()),
@@ -69,7 +69,7 @@ defmodule AWS.MarketplaceCatalog do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -106,7 +106,7 @@ defmodule AWS.MarketplaceCatalog do
         "Details" => String.t(),
         "DetailsDocument" => any(),
         "Entity" => entity(),
-        "EntityTags" => list(tag()())
+        "EntityTags" => list(tag())
       }
 
   """
@@ -129,7 +129,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       list_change_sets_request() :: %{
-        optional("FilterList") => list(filter()()),
+        optional("FilterList") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("Sort") => sort(),
@@ -206,7 +206,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       machine_learning_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -228,7 +228,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_manufacturer_account_id_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -240,7 +240,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       ami_product_title_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -284,7 +284,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       saa_s_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -307,7 +307,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_manufacturer_legal_name_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -319,7 +319,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       saa_s_product_title_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -332,7 +332,7 @@ defmodule AWS.MarketplaceCatalog do
 
       resale_authorization_created_date_filter() :: %{
         "DateRange" => resale_authorization_created_date_filter_date_range(),
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -367,7 +367,7 @@ defmodule AWS.MarketplaceCatalog do
 
       resale_authorization_availability_end_date_filter() :: %{
         "DateRange" => resale_authorization_availability_end_date_filter_date_range(),
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -378,7 +378,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       describe_change_set_response() :: %{
-        "ChangeSet" => list(change_summary()()),
+        "ChangeSet" => list(change_summary()),
         "ChangeSetArn" => String.t(),
         "ChangeSetId" => String.t(),
         "ChangeSetName" => String.t(),
@@ -445,7 +445,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       container_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -496,7 +496,7 @@ defmodule AWS.MarketplaceCatalog do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -507,7 +507,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_product_id_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -565,7 +565,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_offer_extended_status_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -599,7 +599,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_reseller_legal_name_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -625,7 +625,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       batch_describe_entities_request() :: %{
-        required("EntityRequestList") => list(entity_request()())
+        required("EntityRequestList") => list(entity_request())
       }
 
   """
@@ -681,7 +681,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       machine_learning_product_title_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -751,11 +751,11 @@ defmodule AWS.MarketplaceCatalog do
 
       start_change_set_request() :: %{
         optional("ChangeSetName") => String.t(),
-        optional("ChangeSetTags") => list(tag()()),
+        optional("ChangeSetTags") => list(tag()),
         optional("ClientRequestToken") => String.t(),
         optional("Intent") => list(any()),
         required("Catalog") => String.t(),
-        required("ChangeSet") => list(change()())
+        required("ChangeSet") => list(change())
       }
 
   """
@@ -766,7 +766,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       ami_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -800,7 +800,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       offer_resale_authorization_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -811,7 +811,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -822,7 +822,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       offer_product_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -837,7 +837,7 @@ defmodule AWS.MarketplaceCatalog do
         "ChangeSetId" => String.t(),
         "ChangeSetName" => String.t(),
         "EndTime" => String.t(),
-        "EntityIdList" => list(String.t()()),
+        "EntityIdList" => list(String.t()),
         "FailureCode" => list(any()),
         "StartTime" => String.t(),
         "Status" => list(any())
@@ -852,7 +852,7 @@ defmodule AWS.MarketplaceCatalog do
 
       list_tags_for_resource_response() :: %{
         "ResourceArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -874,7 +874,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_name_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -924,7 +924,7 @@ defmodule AWS.MarketplaceCatalog do
 
       offer_summary() :: %{
         "AvailabilityEndDate" => String.t(),
-        "BuyerAccounts" => list(String.t()()),
+        "BuyerAccounts" => list(String.t()),
         "Name" => String.t(),
         "ProductId" => String.t(),
         "ReleaseDate" => String.t(),
@@ -942,7 +942,7 @@ defmodule AWS.MarketplaceCatalog do
 
       filter() :: %{
         "Name" => String.t(),
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -989,7 +989,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       data_product_title_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -1053,7 +1053,7 @@ defmodule AWS.MarketplaceCatalog do
         "Details" => String.t(),
         "DetailsDocument" => any(),
         "Entity" => entity(),
-        "ErrorDetailList" => list(error_detail()())
+        "ErrorDetailList" => list(error_detail())
       }
 
   """
@@ -1107,7 +1107,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       offer_name_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -1188,7 +1188,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       offer_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -1230,7 +1230,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       data_product_entity_id_filter() :: %{
-        "ValueList" => list(String.t()())
+        "ValueList" => list(String.t())
       }
 
   """
@@ -1265,7 +1265,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       container_product_title_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -1349,7 +1349,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       list_entities_response() :: %{
-        "EntitySummaryList" => list(entity_summary()()),
+        "EntitySummaryList" => list(entity_summary()),
         "NextToken" => String.t()
       }
 
@@ -1372,7 +1372,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       resale_authorization_reseller_account_id_filter() :: %{
-        "ValueList" => list(String.t()()),
+        "ValueList" => list(String.t()),
         "WildCardValue" => String.t()
       }
 
@@ -1451,7 +1451,7 @@ defmodule AWS.MarketplaceCatalog do
   ## Example:
 
       list_change_sets_response() :: %{
-        "ChangeSetSummaryList" => list(change_set_summary_list_item()()),
+        "ChangeSetSummaryList" => list(change_set_summary_list_item()),
         "NextToken" => String.t()
       }
 

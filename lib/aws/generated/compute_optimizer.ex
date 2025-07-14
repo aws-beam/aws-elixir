@@ -46,11 +46,11 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(license_recommendation_filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(license_recommendation_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("resourceArns") => list(String.t()())
+        optional("resourceArns") => list(String.t())
       }
       
   """
@@ -61,7 +61,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_ec2_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(recommended_option_projected_metric()())
+        "recommendedOptionProjectedMetrics" => list(recommended_option_projected_metric())
       }
       
   """
@@ -72,7 +72,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_recommendation_summaries_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -106,16 +106,16 @@ defmodule AWS.ComputeOptimizer do
         "idle" => list(any()),
         "instanceFinding" => list(any()),
         "instanceFindingReasonCodes" => list(list(any())()),
-        "instanceRecommendationOptions" => list(rds_db_instance_recommendation_option()()),
+        "instanceRecommendationOptions" => list(rds_db_instance_recommendation_option()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookbackPeriodInDays" => float(),
         "promotionTier" => integer(),
         "resourceArn" => String.t(),
         "storageFinding" => list(any()),
         "storageFindingReasonCodes" => list(list(any())()),
-        "storageRecommendationOptions" => list(rds_db_storage_recommendation_option()()),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(rds_db_utilization_metric()())
+        "storageRecommendationOptions" => list(rds_db_storage_recommendation_option()),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(rds_db_utilization_metric())
       }
       
   """
@@ -131,7 +131,7 @@ defmodule AWS.ComputeOptimizer do
         "licenseModel" => list(any()),
         "licenseName" => list(any()),
         "licenseVersion" => String.t(),
-        "metricsSource" => list(metric_source()()),
+        "metricsSource" => list(metric_source()),
         "numberOfCores" => integer(),
         "operatingSystem" => String.t()
       }
@@ -179,8 +179,8 @@ defmodule AWS.ComputeOptimizer do
         "resourceType" => list(any()),
         "savingsOpportunity" => idle_savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => idle_savings_opportunity_after_discounts(),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(idle_utilization_metric()())
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(idle_utilization_metric())
       }
       
   """
@@ -245,8 +245,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       describe_recommendation_export_jobs_request() :: %{
-        optional("filters") => list(job_filter()()),
-        optional("jobIds") => list(String.t()()),
+        optional("filters") => list(job_filter()),
+        optional("jobIds") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -270,9 +270,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(lambda_function_recommendation_filter()()),
-        optional("functionArns") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(lambda_function_recommendation_filter()),
+        optional("functionArns") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -285,9 +285,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_ebs_volume_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()()),
+        "errors" => list(get_recommendation_error()),
         "nextToken" => String.t(),
-        "volumeRecommendations" => list(volume_recommendation()())
+        "volumeRecommendations" => list(volume_recommendation())
       }
       
   """
@@ -308,10 +308,10 @@ defmodule AWS.ComputeOptimizer do
         "functionVersion" => String.t(),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookbackPeriodInDays" => float(),
-        "memorySizeRecommendationOptions" => list(lambda_function_memory_recommendation_option()()),
+        "memorySizeRecommendationOptions" => list(lambda_function_memory_recommendation_option()),
         "numberOfInvocations" => float(),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(lambda_function_utilization_metric()())
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(lambda_function_utilization_metric())
       }
       
   """
@@ -362,7 +362,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_enrollment_statuses_for_organization_request() :: %{
-        optional("filters") => list(enrollment_filter()()),
+        optional("filters") => list(enrollment_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -402,8 +402,8 @@ defmodule AWS.ComputeOptimizer do
         "enhancedInfrastructureMetrics" => list(any()),
         "externalMetricsPreference" => external_metrics_preference(),
         "lookBackPeriod" => list(any()),
-        "preferredResources" => list(effective_preferred_resource()()),
-        "utilizationPreferences" => list(utilization_preference()())
+        "preferredResources" => list(effective_preferred_resource()),
+        "utilizationPreferences" => list(utilization_preference())
       }
       
   """
@@ -415,7 +415,7 @@ defmodule AWS.ComputeOptimizer do
       
       get_recommendation_preferences_response() :: %{
         "nextToken" => String.t(),
-        "recommendationPreferencesDetails" => list(recommendation_preferences_detail()())
+        "recommendationPreferencesDetails" => list(recommendation_preferences_detail())
       }
       
   """
@@ -426,10 +426,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       e_c_s_service_recommendation_option() :: %{
-        "containerRecommendations" => list(container_recommendation()()),
+        "containerRecommendations" => list(container_recommendation()),
         "cpu" => integer(),
         "memory" => integer(),
-        "projectedUtilizationMetrics" => list(e_c_s_service_projected_utilization_metric()()),
+        "projectedUtilizationMetrics" => list(e_c_s_service_projected_utilization_metric()),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => e_c_s_savings_opportunity_after_discounts()
       }
@@ -481,11 +481,11 @@ defmodule AWS.ComputeOptimizer do
         "externalMetricsPreference" => external_metrics_preference(),
         "inferredWorkloadTypes" => list(any()),
         "lookBackPeriod" => list(any()),
-        "preferredResources" => list(effective_preferred_resource()()),
+        "preferredResources" => list(effective_preferred_resource()),
         "resourceType" => list(any()),
         "savingsEstimationMode" => list(any()),
         "scope" => scope(),
-        "utilizationPreferences" => list(utilization_preference()())
+        "utilizationPreferences" => list(utilization_preference())
       }
       
   """
@@ -535,7 +535,7 @@ defmodule AWS.ComputeOptimizer do
       
       describe_recommendation_export_jobs_response() :: %{
         "nextToken" => String.t(),
-        "recommendationExportJobs" => list(recommendation_export_job()())
+        "recommendationExportJobs" => list(recommendation_export_job())
       }
       
   """
@@ -559,7 +559,7 @@ defmodule AWS.ComputeOptimizer do
       
       get_recommendation_summaries_response() :: %{
         "nextToken" => String.t(),
-        "recommendationSummaries" => list(recommendation_summary()())
+        "recommendationSummaries" => list(recommendation_summary())
       }
       
   """
@@ -593,8 +593,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_e_c_s_service_recommendations_response() :: %{
-        "ecsServiceRecommendations" => list(e_c_s_service_recommendation()()),
-        "errors" => list(get_recommendation_error()()),
+        "ecsServiceRecommendations" => list(e_c_s_service_recommendation()),
+        "errors" => list(get_recommendation_error()),
         "nextToken" => String.t()
       }
       
@@ -653,7 +653,7 @@ defmodule AWS.ComputeOptimizer do
       
       lambda_function_memory_recommendation_option() :: %{
         "memorySize" => integer(),
-        "projectedUtilizationMetrics" => list(lambda_function_memory_projected_metric()()),
+        "projectedUtilizationMetrics" => list(lambda_function_memory_projected_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => lambda_savings_opportunity_after_discounts()
@@ -680,7 +680,7 @@ defmodule AWS.ComputeOptimizer do
       
       job_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -692,8 +692,8 @@ defmodule AWS.ComputeOptimizer do
       
       rds_database_projected_metric() :: %{
         "name" => list(any()),
-        "timestamps" => list(non_neg_integer()()),
-        "values" => list(float()())
+        "timestamps" => list(non_neg_integer()),
+        "values" => list(float())
       }
       
   """
@@ -704,10 +704,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_lambda_function_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(lambda_function_recommendation_filter()()),
+        optional("filters") => list(lambda_function_recommendation_filter()),
         optional("includeMemberAccounts") => boolean(),
         required("s3DestinationConfig") => s3_destination_config()
       }
@@ -720,7 +720,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_enrollment_statuses_for_organization_response() :: %{
-        "accountEnrollmentStatuses" => list(account_enrollment_status()()),
+        "accountEnrollmentStatuses" => list(account_enrollment_status()),
         "nextToken" => String.t()
       }
       
@@ -754,10 +754,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(e_c_s_service_recommendation_filter()()),
+        optional("filters") => list(e_c_s_service_recommendation_filter()),
         optional("includeMemberAccounts") => boolean(),
         required("s3DestinationConfig") => s3_destination_config()
       }
@@ -782,8 +782,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_idle_recommendations_response() :: %{
-        "errors" => list(idle_recommendation_error()()),
-        "idleRecommendations" => list(idle_recommendation()()),
+        "errors" => list(idle_recommendation_error()),
+        "idleRecommendations" => list(idle_recommendation()),
         "nextToken" => String.t()
       }
       
@@ -795,8 +795,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_ec2_instance_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()()),
-        "instanceRecommendations" => list(instance_recommendation()()),
+        "errors" => list(get_recommendation_error()),
+        "instanceRecommendations" => list(instance_recommendation()),
         "nextToken" => String.t()
       }
       
@@ -843,7 +843,7 @@ defmodule AWS.ComputeOptimizer do
       
       idle_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -878,7 +878,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_e_c_s_service_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(e_c_s_service_recommended_option_projected_metric()())
+        "recommendedOptionProjectedMetrics" => list(e_c_s_service_recommended_option_projected_metric())
       }
       
   """
@@ -930,10 +930,10 @@ defmodule AWS.ComputeOptimizer do
         optional("externalMetricsPreference") => external_metrics_preference(),
         optional("inferredWorkloadTypes") => list(any()),
         optional("lookBackPeriod") => list(any()),
-        optional("preferredResources") => list(preferred_resource()()),
+        optional("preferredResources") => list(preferred_resource()),
         optional("savingsEstimationMode") => list(any()),
         optional("scope") => scope(),
-        optional("utilizationPreferences") => list(utilization_preference()()),
+        optional("utilizationPreferences") => list(utilization_preference()),
         required("resourceType") => list(any())
       }
       
@@ -945,12 +945,12 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(rds_db_recommendation_filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(rds_db_recommendation_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("recommendationPreferences") => recommendation_preferences(),
-        optional("resourceArns") => list(String.t()())
+        optional("resourceArns") => list(String.t())
       }
       
   """
@@ -972,10 +972,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_idle_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(idle_recommendation_filter()()),
+        optional("filters") => list(idle_recommendation_filter()),
         optional("includeMemberAccounts") => boolean(),
         required("s3DestinationConfig") => s3_destination_config()
       }
@@ -1022,10 +1022,10 @@ defmodule AWS.ComputeOptimizer do
         "finding" => list(any()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookBackPeriodInDays" => float(),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(ebs_utilization_metric()()),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(ebs_utilization_metric()),
         "volumeArn" => String.t(),
-        "volumeRecommendationOptions" => list(volume_recommendation_option()())
+        "volumeRecommendationOptions" => list(volume_recommendation_option())
       }
       
   """
@@ -1036,10 +1036,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_license_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(license_recommendation_filter()()),
+        optional("filters") => list(license_recommendation_filter()),
         optional("includeMemberAccounts") => boolean(),
         required("s3DestinationConfig") => s3_destination_config()
       }
@@ -1103,11 +1103,11 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(ebs_filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(ebs_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("volumeArns") => list(String.t()())
+        optional("volumeArns") => list(String.t())
       }
       
   """
@@ -1130,10 +1130,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("includeMemberAccounts") => boolean(),
         optional("recommendationPreferences") => recommendation_preferences(),
         required("s3DestinationConfig") => s3_destination_config()
@@ -1147,11 +1147,11 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_e_c_s_service_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(e_c_s_service_recommendation_filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(e_c_s_service_recommendation_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("serviceArns") => list(String.t()())
+        optional("serviceArns") => list(String.t())
       }
       
   """
@@ -1212,10 +1212,10 @@ defmodule AWS.ComputeOptimizer do
         "instanceState" => list(any()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookBackPeriodInDays" => float(),
-        "recommendationOptions" => list(instance_recommendation_option()()),
-        "recommendationSources" => list(recommendation_source()()),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(utilization_metric()())
+        "recommendationOptions" => list(instance_recommendation_option()),
+        "recommendationSources" => list(recommendation_source()),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(utilization_metric())
       }
       
   """
@@ -1252,7 +1252,7 @@ defmodule AWS.ComputeOptimizer do
       
       filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1344,8 +1344,8 @@ defmodule AWS.ComputeOptimizer do
         "inferredWorkloadTypes" => list(list(any())()),
         "lastRefreshTimestamp" => non_neg_integer(),
         "lookBackPeriodInDays" => float(),
-        "recommendationOptions" => list(auto_scaling_group_recommendation_option()()),
-        "utilizationMetrics" => list(utilization_metric()())
+        "recommendationOptions" => list(auto_scaling_group_recommendation_option()),
+        "utilizationMetrics" => list(utilization_metric())
       }
       
   """
@@ -1361,10 +1361,10 @@ defmodule AWS.ComputeOptimizer do
         "finding" => list(any()),
         "findingReasonCodes" => list(list(any())()),
         "lastRefreshTimestamp" => non_neg_integer(),
-        "licenseRecommendationOptions" => list(license_recommendation_option()()),
+        "licenseRecommendationOptions" => list(license_recommendation_option()),
         "lookbackPeriodInDays" => float(),
         "resourceArn" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1387,9 +1387,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(filter()()),
-        optional("instanceArns") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(filter()),
+        optional("instanceArns") => list(String.t()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("recommendationPreferences") => recommendation_preferences()
@@ -1465,12 +1465,12 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_idle_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("filters") => list(idle_recommendation_filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("filters") => list(idle_recommendation_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("orderBy") => order_by(),
-        optional("resourceArns") => list(String.t()())
+        optional("resourceArns") => list(String.t())
       }
       
   """
@@ -1481,9 +1481,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_auto_scaling_group_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
-        optional("autoScalingGroupArns") => list(String.t()()),
-        optional("filters") => list(filter()()),
+        optional("accountIds") => list(String.t()),
+        optional("autoScalingGroupArns") => list(String.t()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("recommendationPreferences") => recommendation_preferences()
@@ -1515,7 +1515,7 @@ defmodule AWS.ComputeOptimizer do
         "migrationEffort" => list(any()),
         "performanceRisk" => float(),
         "platformDifferences" => list(list(any())()),
-        "projectedUtilizationMetrics" => list(utilization_metric()()),
+        "projectedUtilizationMetrics" => list(utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => instance_savings_opportunity_after_discounts()
@@ -1544,10 +1544,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       e_c_s_service_projected_metric() :: %{
-        "lowerBoundValues" => list(float()()),
+        "lowerBoundValues" => list(float()),
         "name" => list(any()),
-        "timestamps" => list(non_neg_integer()()),
-        "upperBoundValues" => list(float()())
+        "timestamps" => list(non_neg_integer()),
+        "upperBoundValues" => list(float())
       }
       
   """
@@ -1559,7 +1559,7 @@ defmodule AWS.ComputeOptimizer do
       
       enrollment_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1582,7 +1582,7 @@ defmodule AWS.ComputeOptimizer do
       
       e_c_s_service_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1593,8 +1593,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_license_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()()),
-        "licenseRecommendations" => list(license_recommendation()()),
+        "errors" => list(get_recommendation_error()),
+        "licenseRecommendations" => list(license_recommendation()),
         "nextToken" => String.t()
       }
       
@@ -1607,7 +1607,7 @@ defmodule AWS.ComputeOptimizer do
       
       license_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -1618,7 +1618,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       e_c_s_service_recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(e_c_s_service_projected_metric()()),
+        "projectedMetrics" => list(e_c_s_service_projected_metric()),
         "recommendedCpuUnits" => integer(),
         "recommendedMemorySize" => integer()
       }
@@ -1631,7 +1631,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       rds_database_recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(rds_database_projected_metric()()),
+        "projectedMetrics" => list(rds_database_projected_metric()),
         "rank" => integer(),
         "recommendedDBInstanceClass" => String.t()
       }
@@ -1667,10 +1667,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_ebs_volume_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(ebs_filter()()),
+        optional("filters") => list(ebs_filter()),
         optional("includeMemberAccounts") => boolean(),
         required("s3DestinationConfig") => s3_destination_config()
       }
@@ -1695,8 +1695,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_auto_scaling_group_recommendations_response() :: %{
-        "autoScalingGroupRecommendations" => list(auto_scaling_group_recommendation()()),
-        "errors" => list(get_recommendation_error()()),
+        "autoScalingGroupRecommendations" => list(auto_scaling_group_recommendation()),
+        "errors" => list(get_recommendation_error()),
         "nextToken" => String.t()
       }
       
@@ -1747,9 +1747,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       effective_preferred_resource() :: %{
-        "effectiveIncludeList" => list(String.t()()),
-        "excludeList" => list(String.t()()),
-        "includeList" => list(String.t()()),
+        "effectiveIncludeList" => list(String.t()),
+        "excludeList" => list(String.t()),
+        "includeList" => list(String.t()),
         "name" => list(any())
       }
       
@@ -1835,8 +1835,8 @@ defmodule AWS.ComputeOptimizer do
       
       projected_metric() :: %{
         "name" => list(any()),
-        "timestamps" => list(non_neg_integer()()),
-        "values" => list(float()())
+        "timestamps" => list(non_neg_integer()),
+        "values" => list(float())
       }
       
   """
@@ -1901,9 +1901,9 @@ defmodule AWS.ComputeOptimizer do
         "externalMetricsPreference" => external_metrics_preference(),
         "inferredWorkloadTypes" => list(any()),
         "lookBackPeriod" => list(any()),
-        "preferredResources" => list(effective_preferred_resource()()),
+        "preferredResources" => list(effective_preferred_resource()),
         "savingsEstimationMode" => instance_savings_estimation_mode(),
-        "utilizationPreferences" => list(utilization_preference()())
+        "utilizationPreferences" => list(utilization_preference())
       }
       
   """
@@ -1924,9 +1924,9 @@ defmodule AWS.ComputeOptimizer do
         "launchType" => list(any()),
         "lookbackPeriodInDays" => float(),
         "serviceArn" => String.t(),
-        "serviceRecommendationOptions" => list(e_c_s_service_recommendation_option()()),
-        "tags" => list(tag()()),
-        "utilizationMetrics" => list(e_c_s_service_utilization_metric()())
+        "serviceRecommendationOptions" => list(e_c_s_service_recommendation_option()),
+        "tags" => list(tag()),
+        "utilizationMetrics" => list(e_c_s_service_utilization_metric())
       }
       
   """
@@ -1937,7 +1937,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_lambda_function_recommendations_response() :: %{
-        "lambdaFunctionRecommendations" => list(lambda_function_recommendation()()),
+        "lambdaFunctionRecommendations" => list(lambda_function_recommendation()),
         "nextToken" => String.t()
       }
       
@@ -1970,11 +1970,11 @@ defmodule AWS.ComputeOptimizer do
         "aggregatedSavingsOpportunity" => savings_opportunity(),
         "currentPerformanceRiskRatings" => current_performance_risk_ratings(),
         "idleSavingsOpportunity" => savings_opportunity(),
-        "idleSummaries" => list(idle_summary()()),
-        "inferredWorkloadSavings" => list(inferred_workload_saving()()),
+        "idleSummaries" => list(idle_summary()),
+        "inferredWorkloadSavings" => list(inferred_workload_saving()),
         "recommendationResourceType" => list(any()),
         "savingsOpportunity" => savings_opportunity(),
-        "summaries" => list(summary()())
+        "summaries" => list(summary())
       }
       
   """
@@ -1991,7 +1991,7 @@ defmodule AWS.ComputeOptimizer do
         "instanceType" => String.t(),
         "maxSize" => integer(),
         "minSize" => integer(),
-        "mixedInstanceTypes" => list(String.t()()),
+        "mixedInstanceTypes" => list(String.t()),
         "type" => list(any())
       }
       
@@ -2007,7 +2007,7 @@ defmodule AWS.ComputeOptimizer do
         "instanceGpuInfo" => gpu_info(),
         "migrationEffort" => list(any()),
         "performanceRisk" => float(),
-        "projectedUtilizationMetrics" => list(utilization_metric()()),
+        "projectedUtilizationMetrics" => list(utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => auto_scaling_group_savings_opportunity_after_discounts()
@@ -2022,7 +2022,7 @@ defmodule AWS.ComputeOptimizer do
       
       lambda_function_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -2047,7 +2047,7 @@ defmodule AWS.ComputeOptimizer do
       rds_db_instance_recommendation_option() :: %{
         "dbInstanceClass" => String.t(),
         "performanceRisk" => float(),
-        "projectedUtilizationMetrics" => list(rds_db_utilization_metric()()),
+        "projectedUtilizationMetrics" => list(rds_db_utilization_metric()),
         "rank" => integer(),
         "savingsOpportunity" => savings_opportunity(),
         "savingsOpportunityAfterDiscounts" => rds_instance_savings_opportunity_after_discounts()
@@ -2075,7 +2075,7 @@ defmodule AWS.ComputeOptimizer do
       
       rds_db_recommendation_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -2086,10 +2086,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_rds_database_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(rds_db_recommendation_filter()()),
+        optional("filters") => list(rds_db_recommendation_filter()),
         optional("includeMemberAccounts") => boolean(),
         optional("recommendationPreferences") => recommendation_preferences(),
         required("s3DestinationConfig") => s3_destination_config()
@@ -2104,7 +2104,7 @@ defmodule AWS.ComputeOptimizer do
       
       ebs_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -2160,7 +2160,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       recommended_option_projected_metric() :: %{
-        "projectedMetrics" => list(projected_metric()()),
+        "projectedMetrics" => list(projected_metric()),
         "rank" => integer(),
         "recommendedInstanceType" => String.t()
       }
@@ -2215,7 +2215,7 @@ defmodule AWS.ComputeOptimizer do
       
       summary() :: %{
         "name" => list(any()),
-        "reasonCodeSummaries" => list(reason_code_summary()()),
+        "reasonCodeSummaries" => list(reason_code_summary()),
         "value" => float()
       }
       
@@ -2227,7 +2227,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_rds_database_recommendation_projected_metrics_response() :: %{
-        "recommendedOptionProjectedMetrics" => list(rds_database_recommended_option_projected_metric()())
+        "recommendedOptionProjectedMetrics" => list(rds_database_recommended_option_projected_metric())
       }
       
   """
@@ -2238,10 +2238,10 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       export_ec2_instance_recommendations_request() :: %{
-        optional("accountIds") => list(String.t()()),
+        optional("accountIds") => list(String.t()),
         optional("fieldsToExport") => list(list(any())()),
         optional("fileFormat") => list(any()),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("includeMemberAccounts") => boolean(),
         optional("recommendationPreferences") => recommendation_preferences(),
         required("s3DestinationConfig") => s3_destination_config()
@@ -2285,8 +2285,8 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       preferred_resource() :: %{
-        "excludeList" => list(String.t()()),
-        "includeList" => list(String.t()()),
+        "excludeList" => list(String.t()),
+        "includeList" => list(String.t()),
         "name" => list(any())
       }
       
@@ -2299,7 +2299,7 @@ defmodule AWS.ComputeOptimizer do
       
       service_configuration() :: %{
         "autoScalingConfiguration" => list(any()),
-        "containerConfigurations" => list(container_configuration()()),
+        "containerConfigurations" => list(container_configuration()),
         "cpu" => integer(),
         "memory" => integer(),
         "taskDefinitionArn" => String.t()
@@ -2313,9 +2313,9 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       get_rds_database_recommendations_response() :: %{
-        "errors" => list(get_recommendation_error()()),
+        "errors" => list(get_recommendation_error()),
         "nextToken" => String.t(),
-        "rdsDBRecommendations" => list(rds_db_recommendation()())
+        "rdsDBRecommendations" => list(rds_db_recommendation())
       }
       
   """
@@ -2326,7 +2326,7 @@ defmodule AWS.ComputeOptimizer do
   ## Example:
       
       gpu_info() :: %{
-        "gpus" => list(gpu()())
+        "gpus" => list(gpu())
       }
       
   """
@@ -2639,7 +2639,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, delete_recommendation_preferences_errors()}
   def delete_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRecommendationPreferences", input, options)
   end
@@ -2662,7 +2663,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, describe_recommendation_export_jobs_errors()}
   def describe_recommendation_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRecommendationExportJobs", input, options)
   end
@@ -2691,7 +2693,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_auto_scaling_group_recommendations_errors()}
   def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportAutoScalingGroupRecommendations", input, options)
   end
@@ -2719,7 +2722,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_e_c_s_service_recommendations_errors()}
   def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportECSServiceRecommendations", input, options)
   end
@@ -2748,7 +2752,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_ebs_volume_recommendations_errors()}
   def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportEBSVolumeRecommendations", input, options)
   end
@@ -2777,7 +2782,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_ec2_instance_recommendations_errors()}
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportEC2InstanceRecommendations", input, options)
   end
@@ -2803,7 +2809,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_idle_recommendations_errors()}
   def export_idle_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportIdleRecommendations", input, options)
   end
@@ -2832,7 +2839,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_lambda_function_recommendations_errors()}
   def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportLambdaFunctionRecommendations", input, options)
   end
@@ -2858,7 +2866,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_license_recommendations_errors()}
   def export_license_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportLicenseRecommendations", input, options)
   end
@@ -2889,7 +2898,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_rds_database_recommendations_errors()}
   def export_rds_database_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExportRDSDatabaseRecommendations", input, options)
   end
@@ -2914,7 +2924,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_auto_scaling_group_recommendations_errors()}
   def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAutoScalingGroupRecommendations", input, options)
   end
@@ -2933,7 +2944,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_e_c_s_service_recommendation_projected_metrics_errors()}
   def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2964,7 +2976,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_e_c_s_service_recommendations_errors()}
   def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetECSServiceRecommendations", input, options)
   end
@@ -2984,7 +2997,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ebs_volume_recommendations_errors()}
   def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEBSVolumeRecommendations", input, options)
   end
@@ -3008,7 +3022,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ec2_instance_recommendations_errors()}
   def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEC2InstanceRecommendations", input, options)
   end
@@ -3033,7 +3048,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ec2_recommendation_projected_metrics_errors()}
   def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEC2RecommendationProjectedMetrics", input, options)
   end
@@ -3060,7 +3076,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_effective_recommendation_preferences_errors()}
   def get_effective_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEffectiveRecommendationPreferences", input, options)
   end
@@ -3081,7 +3098,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_enrollment_status_errors()}
   def get_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnrollmentStatus", input, options)
   end
@@ -3103,7 +3121,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_enrollment_statuses_for_organization_errors()}
   def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnrollmentStatusesForOrganization", input, options)
   end
@@ -3124,7 +3143,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_idle_recommendations_errors()}
   def get_idle_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdleRecommendations", input, options)
   end
@@ -3148,7 +3168,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_lambda_function_recommendations_errors()}
   def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLambdaFunctionRecommendations", input, options)
   end
@@ -3169,7 +3190,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_license_recommendations_errors()}
   def get_license_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLicenseRecommendations", input, options)
   end
@@ -3188,7 +3210,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_rds_database_recommendation_projected_metrics_errors()}
   def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3220,7 +3243,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_rds_database_recommendations_errors()}
   def get_rds_database_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRDSDatabaseRecommendations", input, options)
   end
@@ -3245,7 +3269,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_recommendation_preferences_errors()}
   def get_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecommendationPreferences", input, options)
   end
@@ -3291,7 +3316,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_recommendation_summaries_errors()}
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecommendationSummaries", input, options)
   end
@@ -3311,7 +3337,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, put_recommendation_preferences_errors()}
   def put_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecommendationPreferences", input, options)
   end
@@ -3342,7 +3369,8 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end

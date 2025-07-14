@@ -221,110 +221,110 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_security_finding_filters() :: %{
-        "Region" => list(string_filter()()),
-        "ResourceTags" => list(map_filter()()),
-        "ResourceAwsEc2InstanceSubnetId" => list(string_filter()()),
-        "ResourceAwsIamAccessKeyStatus" => list(string_filter()()),
-        "ResourceId" => list(string_filter()()),
-        "FindingProviderFieldsCriticality" => list(number_filter()()),
-        "ResourceAwsEc2InstanceLaunchedAt" => list(date_filter()()),
-        "FindingProviderFieldsSeverityLabel" => list(string_filter()()),
-        "ResourceAwsS3BucketOwnerId" => list(string_filter()()),
-        "ResourceDetailsOther" => list(map_filter()()),
-        "NetworkDestinationIpV4" => list(ip_filter()()),
-        "CompanyName" => list(string_filter()()),
-        "MalwareState" => list(string_filter()()),
-        "RecommendationText" => list(string_filter()()),
-        "ResourceContainerName" => list(string_filter()()),
-        "ResourceAwsEc2InstanceIamInstanceProfileArn" => list(string_filter()()),
-        "ResourceAwsIamUserUserName" => list(string_filter()()),
-        "SeverityLabel" => list(string_filter()()),
-        "Keyword" => list(keyword_filter()()),
-        "FindingProviderFieldsRelatedFindingsProductArn" => list(string_filter()()),
-        "ResourceContainerLaunchedAt" => list(date_filter()()),
-        "MalwareName" => list(string_filter()()),
-        "UserDefinedFields" => list(map_filter()()),
-        "FindingProviderFieldsRelatedFindingsId" => list(string_filter()()),
-        "SeverityNormalized" => list(number_filter()()),
-        "RelatedFindingsProductArn" => list(string_filter()()),
-        "ResourceApplicationArn" => list(string_filter()()),
-        "ResourceAwsEc2InstanceIpV6Addresses" => list(ip_filter()()),
-        "ProcessPid" => list(number_filter()()),
-        "WorkflowState" => list(string_filter()()),
-        "ProductName" => list(string_filter()()),
-        "NetworkSourceMac" => list(string_filter()()),
-        "Confidence" => list(number_filter()()),
-        "CreatedAt" => list(date_filter()()),
-        "ProcessName" => list(string_filter()()),
-        "ComplianceSecurityControlId" => list(string_filter()()),
-        "MalwarePath" => list(string_filter()()),
-        "NetworkDestinationDomain" => list(string_filter()()),
-        "ResourceRegion" => list(string_filter()()),
-        "NetworkDestinationIpV6" => list(ip_filter()()),
-        "UpdatedAt" => list(date_filter()()),
-        "AwsAccountId" => list(string_filter()()),
-        "ResourceAwsEc2InstanceIpV4Addresses" => list(ip_filter()()),
-        "FindingProviderFieldsConfidence" => list(number_filter()()),
-        "ResourceContainerImageName" => list(string_filter()()),
-        "ThreatIntelIndicatorValue" => list(string_filter()()),
-        "ProcessLaunchedAt" => list(date_filter()()),
-        "RelatedFindingsId" => list(string_filter()()),
-        "Id" => list(string_filter()()),
-        "ResourceAwsIamAccessKeyPrincipalName" => list(string_filter()()),
-        "NetworkSourceIpV4" => list(ip_filter()()),
-        "ComplianceStatus" => list(string_filter()()),
-        "ThreatIntelIndicatorCategory" => list(string_filter()()),
-        "ProductArn" => list(string_filter()()),
-        "ThreatIntelIndicatorLastObservedAt" => list(date_filter()()),
-        "SourceUrl" => list(string_filter()()),
-        "MalwareType" => list(string_filter()()),
-        "NetworkSourcePort" => list(number_filter()()),
-        "ResourceAwsS3BucketOwnerName" => list(string_filter()()),
-        "NetworkSourceIpV6" => list(ip_filter()()),
-        "VulnerabilitiesFixAvailable" => list(string_filter()()),
-        "AwsAccountName" => list(string_filter()()),
-        "ResourceAwsEc2InstanceVpcId" => list(string_filter()()),
-        "FirstObservedAt" => list(date_filter()()),
-        "NetworkDirection" => list(string_filter()()),
-        "FindingProviderFieldsTypes" => list(string_filter()()),
-        "GeneratorId" => list(string_filter()()),
-        "NoteText" => list(string_filter()()),
-        "FindingProviderFieldsSeverityOriginal" => list(string_filter()()),
-        "RecordState" => list(string_filter()()),
-        "SeverityProduct" => list(number_filter()()),
-        "ResourceAwsEc2InstanceKeyName" => list(string_filter()()),
-        "Title" => list(string_filter()()),
-        "ResourceAwsEc2InstanceType" => list(string_filter()()),
-        "ResourceApplicationName" => list(string_filter()()),
-        "ComplianceAssociatedStandardsId" => list(string_filter()()),
-        "ComplianceSecurityControlParametersName" => list(string_filter()()),
-        "Sample" => list(boolean_filter()()),
-        "Criticality" => list(number_filter()()),
-        "ResourceContainerImageId" => list(string_filter()()),
-        "NetworkSourceDomain" => list(string_filter()()),
-        "ThreatIntelIndicatorSource" => list(string_filter()()),
-        "ThreatIntelIndicatorType" => list(string_filter()()),
-        "ResourceAwsIamAccessKeyUserName" => list(string_filter()()),
-        "ResourceAwsIamAccessKeyCreatedAt" => list(date_filter()()),
-        "LastObservedAt" => list(date_filter()()),
-        "NetworkDestinationPort" => list(number_filter()()),
-        "ProcessParentPid" => list(number_filter()()),
-        "NoteUpdatedBy" => list(string_filter()()),
-        "ResourceAwsEc2InstanceImageId" => list(string_filter()()),
-        "NetworkProtocol" => list(string_filter()()),
-        "Description" => list(string_filter()()),
-        "WorkflowStatus" => list(string_filter()()),
-        "ThreatIntelIndicatorSourceUrl" => list(string_filter()()),
-        "ProcessPath" => list(string_filter()()),
-        "VulnerabilitiesExploitAvailable" => list(string_filter()()),
-        "ComplianceSecurityControlParametersValue" => list(string_filter()()),
-        "ProductFields" => list(map_filter()()),
-        "NoteUpdatedAt" => list(date_filter()()),
-        "Type" => list(string_filter()()),
-        "VerificationState" => list(string_filter()()),
-        "ResourceType" => list(string_filter()()),
-        "ResourcePartition" => list(string_filter()()),
-        "ProcessTerminatedAt" => list(date_filter()())
+        "Region" => list(string_filter()),
+        "ResourceTags" => list(map_filter()),
+        "ResourceAwsEc2InstanceSubnetId" => list(string_filter()),
+        "ResourceAwsIamAccessKeyStatus" => list(string_filter()),
+        "ResourceId" => list(string_filter()),
+        "FindingProviderFieldsCriticality" => list(number_filter()),
+        "ResourceAwsEc2InstanceLaunchedAt" => list(date_filter()),
+        "FindingProviderFieldsSeverityLabel" => list(string_filter()),
+        "ResourceAwsS3BucketOwnerId" => list(string_filter()),
+        "ResourceDetailsOther" => list(map_filter()),
+        "NetworkDestinationIpV4" => list(ip_filter()),
+        "CompanyName" => list(string_filter()),
+        "MalwareState" => list(string_filter()),
+        "RecommendationText" => list(string_filter()),
+        "ResourceContainerName" => list(string_filter()),
+        "ResourceAwsEc2InstanceIamInstanceProfileArn" => list(string_filter()),
+        "ResourceAwsIamUserUserName" => list(string_filter()),
+        "SeverityLabel" => list(string_filter()),
+        "Keyword" => list(keyword_filter()),
+        "FindingProviderFieldsRelatedFindingsProductArn" => list(string_filter()),
+        "ResourceContainerLaunchedAt" => list(date_filter()),
+        "MalwareName" => list(string_filter()),
+        "UserDefinedFields" => list(map_filter()),
+        "FindingProviderFieldsRelatedFindingsId" => list(string_filter()),
+        "SeverityNormalized" => list(number_filter()),
+        "RelatedFindingsProductArn" => list(string_filter()),
+        "ResourceApplicationArn" => list(string_filter()),
+        "ResourceAwsEc2InstanceIpV6Addresses" => list(ip_filter()),
+        "ProcessPid" => list(number_filter()),
+        "WorkflowState" => list(string_filter()),
+        "ProductName" => list(string_filter()),
+        "NetworkSourceMac" => list(string_filter()),
+        "Confidence" => list(number_filter()),
+        "CreatedAt" => list(date_filter()),
+        "ProcessName" => list(string_filter()),
+        "ComplianceSecurityControlId" => list(string_filter()),
+        "MalwarePath" => list(string_filter()),
+        "NetworkDestinationDomain" => list(string_filter()),
+        "ResourceRegion" => list(string_filter()),
+        "NetworkDestinationIpV6" => list(ip_filter()),
+        "UpdatedAt" => list(date_filter()),
+        "AwsAccountId" => list(string_filter()),
+        "ResourceAwsEc2InstanceIpV4Addresses" => list(ip_filter()),
+        "FindingProviderFieldsConfidence" => list(number_filter()),
+        "ResourceContainerImageName" => list(string_filter()),
+        "ThreatIntelIndicatorValue" => list(string_filter()),
+        "ProcessLaunchedAt" => list(date_filter()),
+        "RelatedFindingsId" => list(string_filter()),
+        "Id" => list(string_filter()),
+        "ResourceAwsIamAccessKeyPrincipalName" => list(string_filter()),
+        "NetworkSourceIpV4" => list(ip_filter()),
+        "ComplianceStatus" => list(string_filter()),
+        "ThreatIntelIndicatorCategory" => list(string_filter()),
+        "ProductArn" => list(string_filter()),
+        "ThreatIntelIndicatorLastObservedAt" => list(date_filter()),
+        "SourceUrl" => list(string_filter()),
+        "MalwareType" => list(string_filter()),
+        "NetworkSourcePort" => list(number_filter()),
+        "ResourceAwsS3BucketOwnerName" => list(string_filter()),
+        "NetworkSourceIpV6" => list(ip_filter()),
+        "VulnerabilitiesFixAvailable" => list(string_filter()),
+        "AwsAccountName" => list(string_filter()),
+        "ResourceAwsEc2InstanceVpcId" => list(string_filter()),
+        "FirstObservedAt" => list(date_filter()),
+        "NetworkDirection" => list(string_filter()),
+        "FindingProviderFieldsTypes" => list(string_filter()),
+        "GeneratorId" => list(string_filter()),
+        "NoteText" => list(string_filter()),
+        "FindingProviderFieldsSeverityOriginal" => list(string_filter()),
+        "RecordState" => list(string_filter()),
+        "SeverityProduct" => list(number_filter()),
+        "ResourceAwsEc2InstanceKeyName" => list(string_filter()),
+        "Title" => list(string_filter()),
+        "ResourceAwsEc2InstanceType" => list(string_filter()),
+        "ResourceApplicationName" => list(string_filter()),
+        "ComplianceAssociatedStandardsId" => list(string_filter()),
+        "ComplianceSecurityControlParametersName" => list(string_filter()),
+        "Sample" => list(boolean_filter()),
+        "Criticality" => list(number_filter()),
+        "ResourceContainerImageId" => list(string_filter()),
+        "NetworkSourceDomain" => list(string_filter()),
+        "ThreatIntelIndicatorSource" => list(string_filter()),
+        "ThreatIntelIndicatorType" => list(string_filter()),
+        "ResourceAwsIamAccessKeyUserName" => list(string_filter()),
+        "ResourceAwsIamAccessKeyCreatedAt" => list(date_filter()),
+        "LastObservedAt" => list(date_filter()),
+        "NetworkDestinationPort" => list(number_filter()),
+        "ProcessParentPid" => list(number_filter()),
+        "NoteUpdatedBy" => list(string_filter()),
+        "ResourceAwsEc2InstanceImageId" => list(string_filter()),
+        "NetworkProtocol" => list(string_filter()),
+        "Description" => list(string_filter()),
+        "WorkflowStatus" => list(string_filter()),
+        "ThreatIntelIndicatorSourceUrl" => list(string_filter()),
+        "ProcessPath" => list(string_filter()),
+        "VulnerabilitiesExploitAvailable" => list(string_filter()),
+        "ComplianceSecurityControlParametersValue" => list(string_filter()),
+        "ProductFields" => list(map_filter()),
+        "NoteUpdatedAt" => list(date_filter()),
+        "Type" => list(string_filter()),
+        "VerificationState" => list(string_filter()),
+        "ResourceType" => list(string_filter()),
+        "ResourcePartition" => list(string_filter()),
+        "ProcessTerminatedAt" => list(date_filter())
       }
 
   """
@@ -338,7 +338,7 @@ defmodule AWS.SecurityHub do
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
-        "Regions" => list(String.t()())
+        "Regions" => list(String.t())
       }
 
   """
@@ -379,7 +379,7 @@ defmodule AWS.SecurityHub do
       aws_dynamo_db_table_local_secondary_index() :: %{
         "IndexArn" => String.t(),
         "IndexName" => String.t(),
-        "KeySchema" => list(aws_dynamo_db_table_key_schema()()),
+        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
         "Projection" => aws_dynamo_db_table_projection()
       }
 
@@ -418,7 +418,7 @@ defmodule AWS.SecurityHub do
       rule_group_source() :: %{
         "RulesSourceList" => rule_group_source_list_details(),
         "RulesString" => String.t(),
-        "StatefulRules" => list(rule_group_source_stateful_rules_details()()),
+        "StatefulRules" => list(rule_group_source_stateful_rules_details()),
         "StatelessRulesAndCustomActions" => rule_group_source_stateless_rules_and_custom_actions_details()
       }
 
@@ -480,8 +480,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details() :: %{
-        "Add" => list(String.t()()),
-        "Drop" => list(String.t()())
+        "Add" => list(String.t()),
+        "Drop" => list(String.t())
       }
 
   """
@@ -537,9 +537,9 @@ defmodule AWS.SecurityHub do
 
       aws_route53_hosted_zone_details() :: %{
         "HostedZone" => aws_route53_hosted_zone_object_details(),
-        "NameServers" => list(String.t()()),
+        "NameServers" => list(String.t()),
         "QueryLoggingConfig" => aws_route53_query_logging_config_details(),
-        "Vpcs" => list(aws_route53_hosted_zone_vpc_details()())
+        "Vpcs" => list(aws_route53_hosted_zone_vpc_details())
       }
 
   """
@@ -565,7 +565,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       integer_list_configuration_options() :: %{
-        "DefaultValue" => list(integer()()),
+        "DefaultValue" => list(integer()),
         "Max" => integer(),
         "MaxItems" => integer(),
         "Min" => integer()
@@ -591,14 +591,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_iam_user_details() :: %{
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
         "CreateDate" => String.t(),
-        "GroupList" => list(String.t()()),
+        "GroupList" => list(String.t()),
         "Path" => String.t(),
         "PermissionsBoundary" => aws_iam_permissions_boundary(),
         "UserId" => String.t(),
         "UserName" => String.t(),
-        "UserPolicyList" => list(aws_iam_user_policy()())
+        "UserPolicyList" => list(aws_iam_user_policy())
       }
 
   """
@@ -615,7 +615,7 @@ defmodule AWS.SecurityHub do
         "LaunchedAt" => String.t(),
         "Name" => String.t(),
         "Privileged" => boolean(),
-        "VolumeMounts" => list(volume_mount()())
+        "VolumeMounts" => list(volume_mount())
       }
 
   """
@@ -656,8 +656,8 @@ defmodule AWS.SecurityHub do
         "DbSecurityGroupArn" => String.t(),
         "DbSecurityGroupDescription" => String.t(),
         "DbSecurityGroupName" => String.t(),
-        "Ec2SecurityGroups" => list(aws_rds_db_security_group_ec2_security_group()()),
-        "IpRanges" => list(aws_rds_db_security_group_ip_range()()),
+        "Ec2SecurityGroups" => list(aws_rds_db_security_group_ec2_security_group()),
+        "IpRanges" => list(aws_rds_db_security_group_ip_range()),
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
@@ -670,7 +670,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       describe_standards_controls_response() :: %{
-        "Controls" => list(standards_control()()),
+        "Controls" => list(standards_control()),
         "NextToken" => String.t()
       }
 
@@ -719,7 +719,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_lambda_layer_version_details() :: %{
-        "CompatibleRuntimes" => list(String.t()()),
+        "CompatibleRuntimes" => list(String.t()),
         "CreatedDate" => String.t(),
         "Version" => float()
       }
@@ -752,7 +752,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       decline_invitations_response() :: %{
-        "UnprocessedAccounts" => list(result()())
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -803,11 +803,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       firewall_policy_details() :: %{
-        "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()()),
-        "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()()),
-        "StatelessDefaultActions" => list(String.t()()),
-        "StatelessFragmentDefaultActions" => list(String.t()()),
-        "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details()())
+        "StatefulRuleGroupReferences" => list(firewall_policy_stateful_rule_group_references_details()),
+        "StatelessCustomActions" => list(firewall_policy_stateless_custom_actions_details()),
+        "StatelessDefaultActions" => list(String.t()),
+        "StatelessFragmentDefaultActions" => list(String.t()),
+        "StatelessRuleGroupReferences" => list(firewall_policy_stateless_rule_group_references_details())
       }
 
   """
@@ -917,17 +917,17 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       vulnerability() :: %{
-        "CodeVulnerabilities" => list(vulnerability_code_vulnerabilities()()),
-        "Cvss" => list(cvss()()),
+        "CodeVulnerabilities" => list(vulnerability_code_vulnerabilities()),
+        "Cvss" => list(cvss()),
         "EpssScore" => float(),
         "ExploitAvailable" => list(any()),
         "FixAvailable" => list(any()),
         "Id" => String.t(),
         "LastKnownExploitAt" => String.t(),
-        "ReferenceUrls" => list(String.t()()),
-        "RelatedVulnerabilities" => list(String.t()()),
+        "ReferenceUrls" => list(String.t()),
+        "RelatedVulnerabilities" => list(String.t()),
         "Vendor" => vulnerability_vendor(),
-        "VulnerablePackages" => list(software_package()())
+        "VulnerablePackages" => list(software_package())
       }
 
   """
@@ -979,7 +979,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_insights_request() :: %{
-        optional("InsightArns") => list(String.t()()),
+        optional("InsightArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1087,7 +1087,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_redshift_cluster_cluster_parameter_group() :: %{
-        "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()()),
+        "ClusterParameterStatusList" => list(aws_redshift_cluster_cluster_parameter_status()),
         "ParameterApplyStatus" => String.t(),
         "ParameterGroupName" => String.t()
       }
@@ -1137,8 +1137,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_members_response() :: %{
-        "Members" => list(member()()),
-        "UnprocessedAccounts" => list(result()())
+        "Members" => list(member()),
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -1246,10 +1246,10 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       sequence() :: %{
-        "Actors" => list(actor()()),
-        "Endpoints" => list(network_endpoint()()),
-        "SequenceIndicators" => list(indicator()()),
-        "Signals" => list(signal()()),
+        "Actors" => list(actor()),
+        "Endpoints" => list(network_endpoint()),
+        "SequenceIndicators" => list(indicator()),
+        "Signals" => list(signal()),
         "Uid" => String.t()
       }
 
@@ -1272,7 +1272,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details() :: %{
-        "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()()),
+        "Operands" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_operands_details()),
         "Prefix" => String.t(),
         "Tag" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_tag_details(),
         "Type" => String.t()
@@ -1366,7 +1366,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_standards_control_associations_response() :: %{
-        "UnprocessedAssociationUpdates" => list(unprocessed_standards_control_association_update()())
+        "UnprocessedAssociationUpdates" => list(unprocessed_standards_control_association_update())
       }
 
   """
@@ -1380,7 +1380,7 @@ defmodule AWS.SecurityHub do
         "AdditionalOccurrences" => boolean(),
         "CustomDataIdentifiers" => custom_data_identifiers_result(),
         "MimeType" => String.t(),
-        "SensitiveData" => list(sensitive_data_result()()),
+        "SensitiveData" => list(sensitive_data_result()),
         "SizeClassified" => float(),
         "Status" => classification_status()
       }
@@ -1486,7 +1486,7 @@ defmodule AWS.SecurityHub do
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RuleGroupId" => String.t(),
-        "Rules" => list(aws_waf_regional_rule_group_rules_details()())
+        "Rules" => list(aws_waf_regional_rule_group_rules_details())
       }
 
   """
@@ -1535,9 +1535,9 @@ defmodule AWS.SecurityHub do
 
       aws_auto_scaling_launch_configuration_details() :: %{
         "AssociatePublicIpAddress" => boolean(),
-        "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()()),
+        "BlockDeviceMappings" => list(aws_auto_scaling_launch_configuration_block_device_mappings_details()),
         "ClassicLinkVpcId" => String.t(),
-        "ClassicLinkVpcSecurityGroups" => list(String.t()()),
+        "ClassicLinkVpcSecurityGroups" => list(String.t()),
         "CreatedTime" => String.t(),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => String.t(),
@@ -1550,7 +1550,7 @@ defmodule AWS.SecurityHub do
         "MetadataOptions" => aws_auto_scaling_launch_configuration_metadata_options(),
         "PlacementTenancy" => String.t(),
         "RamdiskId" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SpotPrice" => String.t(),
         "UserData" => String.t()
       }
@@ -1611,7 +1611,7 @@ defmodule AWS.SecurityHub do
 
       sensitive_data_result() :: %{
         "Category" => String.t(),
-        "Detections" => list(sensitive_data_detections()()),
+        "Detections" => list(sensitive_data_detections()),
         "TotalCount" => float()
       }
 
@@ -1728,7 +1728,7 @@ defmodule AWS.SecurityHub do
         "OptionGroupName" => String.t(),
         "PercentProgress" => integer(),
         "Port" => integer(),
-        "ProcessorFeatures" => list(aws_rds_db_processor_feature()()),
+        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
         "SnapshotCreateTime" => String.t(),
         "SnapshotType" => String.t(),
         "SourceDbSnapshotIdentifier" => String.t(),
@@ -1748,7 +1748,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_enable_standards_response() :: %{
-        "StandardsSubscriptions" => list(standards_subscription()())
+        "StandardsSubscriptions" => list(standards_subscription())
       }
 
   """
@@ -1771,12 +1771,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       compliance() :: %{
-        "AssociatedStandards" => list(associated_standard()()),
-        "RelatedRequirements" => list(String.t()()),
+        "AssociatedStandards" => list(associated_standard()),
+        "RelatedRequirements" => list(String.t()),
         "SecurityControlId" => String.t(),
-        "SecurityControlParameters" => list(security_control_parameter()()),
+        "SecurityControlParameters" => list(security_control_parameter()),
         "Status" => list(any()),
-        "StatusReasons" => list(status_reason()())
+        "StatusReasons" => list(status_reason())
       }
 
   """
@@ -1824,14 +1824,14 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_details() :: %{
         "ClusterArn" => String.t(),
-        "Containers" => list(aws_ecs_container_details()()),
+        "Containers" => list(aws_ecs_container_details()),
         "CreatedAt" => String.t(),
         "Group" => String.t(),
         "StartedAt" => String.t(),
         "StartedBy" => String.t(),
         "TaskDefinitionArn" => String.t(),
         "Version" => String.t(),
-        "Volumes" => list(aws_ecs_task_volume_details()())
+        "Volumes" => list(aws_ecs_task_volume_details())
       }
 
   """
@@ -1921,44 +1921,44 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       automation_rules_finding_filters() :: %{
-        "ResourceTags" => list(map_filter()()),
-        "ResourceId" => list(string_filter()()),
-        "ResourceDetailsOther" => list(map_filter()()),
-        "CompanyName" => list(string_filter()()),
-        "SeverityLabel" => list(string_filter()()),
-        "UserDefinedFields" => list(map_filter()()),
-        "RelatedFindingsProductArn" => list(string_filter()()),
-        "ResourceApplicationArn" => list(string_filter()()),
-        "ProductName" => list(string_filter()()),
-        "Confidence" => list(number_filter()()),
-        "CreatedAt" => list(date_filter()()),
-        "ComplianceSecurityControlId" => list(string_filter()()),
-        "ResourceRegion" => list(string_filter()()),
-        "UpdatedAt" => list(date_filter()()),
-        "AwsAccountId" => list(string_filter()()),
-        "RelatedFindingsId" => list(string_filter()()),
-        "Id" => list(string_filter()()),
-        "ComplianceStatus" => list(string_filter()()),
-        "ProductArn" => list(string_filter()()),
-        "SourceUrl" => list(string_filter()()),
-        "AwsAccountName" => list(string_filter()()),
-        "FirstObservedAt" => list(date_filter()()),
-        "GeneratorId" => list(string_filter()()),
-        "NoteText" => list(string_filter()()),
-        "RecordState" => list(string_filter()()),
-        "Title" => list(string_filter()()),
-        "ResourceApplicationName" => list(string_filter()()),
-        "ComplianceAssociatedStandardsId" => list(string_filter()()),
-        "Criticality" => list(number_filter()()),
-        "LastObservedAt" => list(date_filter()()),
-        "NoteUpdatedBy" => list(string_filter()()),
-        "Description" => list(string_filter()()),
-        "WorkflowStatus" => list(string_filter()()),
-        "NoteUpdatedAt" => list(date_filter()()),
-        "Type" => list(string_filter()()),
-        "VerificationState" => list(string_filter()()),
-        "ResourceType" => list(string_filter()()),
-        "ResourcePartition" => list(string_filter()())
+        "ResourceTags" => list(map_filter()),
+        "ResourceId" => list(string_filter()),
+        "ResourceDetailsOther" => list(map_filter()),
+        "CompanyName" => list(string_filter()),
+        "SeverityLabel" => list(string_filter()),
+        "UserDefinedFields" => list(map_filter()),
+        "RelatedFindingsProductArn" => list(string_filter()),
+        "ResourceApplicationArn" => list(string_filter()),
+        "ProductName" => list(string_filter()),
+        "Confidence" => list(number_filter()),
+        "CreatedAt" => list(date_filter()),
+        "ComplianceSecurityControlId" => list(string_filter()),
+        "ResourceRegion" => list(string_filter()),
+        "UpdatedAt" => list(date_filter()),
+        "AwsAccountId" => list(string_filter()),
+        "RelatedFindingsId" => list(string_filter()),
+        "Id" => list(string_filter()),
+        "ComplianceStatus" => list(string_filter()),
+        "ProductArn" => list(string_filter()),
+        "SourceUrl" => list(string_filter()),
+        "AwsAccountName" => list(string_filter()),
+        "FirstObservedAt" => list(date_filter()),
+        "GeneratorId" => list(string_filter()),
+        "NoteText" => list(string_filter()),
+        "RecordState" => list(string_filter()),
+        "Title" => list(string_filter()),
+        "ResourceApplicationName" => list(string_filter()),
+        "ComplianceAssociatedStandardsId" => list(string_filter()),
+        "Criticality" => list(number_filter()),
+        "LastObservedAt" => list(date_filter()),
+        "NoteUpdatedBy" => list(string_filter()),
+        "Description" => list(string_filter()),
+        "WorkflowStatus" => list(string_filter()),
+        "NoteUpdatedAt" => list(date_filter()),
+        "Type" => list(string_filter()),
+        "VerificationState" => list(string_filter()),
+        "ResourceType" => list(string_filter()),
+        "ResourcePartition" => list(string_filter())
       }
 
   """
@@ -1993,7 +1993,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_app_sync_graph_ql_api_details() :: %{
-        "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()()),
+        "AdditionalAuthenticationProviders" => list(aws_app_sync_graph_ql_api_additional_authentication_providers_details()),
         "ApiId" => String.t(),
         "Arn" => String.t(),
         "AuthenticationType" => String.t(),
@@ -2015,7 +2015,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_variables_ip_sets_details() :: %{
-        "Definition" => list(String.t()())
+        "Definition" => list(String.t())
       }
 
   """
@@ -2026,7 +2026,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_standards_control_associations_request() :: %{
-        required("StandardsControlAssociationUpdates") => list(standards_control_association_update()())
+        required("StandardsControlAssociationUpdates") => list(standards_control_association_update())
       }
 
   """
@@ -2037,8 +2037,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_rds_pending_cloud_watch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()()),
-        "LogTypesToEnable" => list(String.t()())
+        "LogTypesToDisable" => list(String.t()),
+        "LogTypesToEnable" => list(String.t())
       }
 
   """
@@ -2049,8 +2049,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_configuration_policy_associations_response() :: %{
-        "ConfigurationPolicyAssociations" => list(configuration_policy_association_summary()()),
-        "UnprocessedConfigurationPolicyAssociations" => list(unprocessed_configuration_policy_association()())
+        "ConfigurationPolicyAssociations" => list(configuration_policy_association_summary()),
+        "UnprocessedConfigurationPolicyAssociations" => list(unprocessed_configuration_policy_association())
       }
 
   """
@@ -2076,7 +2076,7 @@ defmodule AWS.SecurityHub do
         "DomainName" => String.t(),
         "ResourceRecord" => aws_certificate_manager_certificate_resource_record(),
         "ValidationDomain" => String.t(),
-        "ValidationEmails" => list(String.t()()),
+        "ValidationEmails" => list(String.t()),
         "ValidationMethod" => String.t(),
         "ValidationStatus" => String.t()
       }
@@ -2127,11 +2127,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_iam_group_details() :: %{
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
         "CreateDate" => String.t(),
         "GroupId" => String.t(),
         "GroupName" => String.t(),
-        "GroupPolicyList" => list(aws_iam_group_policy()()),
+        "GroupPolicyList" => list(aws_iam_group_policy()),
         "Path" => String.t()
       }
 
@@ -2213,10 +2213,10 @@ defmodule AWS.SecurityHub do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "EventSubscriptionArn" => String.t(),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
@@ -2236,7 +2236,7 @@ defmodule AWS.SecurityHub do
         "AvailableIpAddressCount" => integer(),
         "CidrBlock" => String.t(),
         "DefaultForAz" => boolean(),
-        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()()),
+        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
         "MapPublicIpOnLaunch" => boolean(),
         "OwnerId" => String.t(),
         "State" => String.t(),
@@ -2285,14 +2285,14 @@ defmodule AWS.SecurityHub do
       aws_rds_db_cluster_details() :: %{
         "Status" => String.t(),
         "Engine" => String.t(),
-        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()()),
+        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
         "DatabaseName" => String.t(),
         "PreferredMaintenanceWindow" => String.t(),
         "IamDatabaseAuthenticationEnabled" => boolean(),
         "PreferredBackupWindow" => String.t(),
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
-        "ReadReplicaIdentifiers" => list(String.t()()),
+        "ReadReplicaIdentifiers" => list(String.t()),
         "CopyTagsToSnapshot" => boolean(),
         "DbClusterIdentifier" => String.t(),
         "DbClusterParameterGroup" => String.t(),
@@ -2300,27 +2300,27 @@ defmodule AWS.SecurityHub do
         "AutoMinorVersionUpgrade" => boolean(),
         "ClusterCreateTime" => String.t(),
         "Port" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "CrossAccountClone" => boolean(),
-        "DbClusterOptionGroupMemberships" => list(aws_rds_db_cluster_option_group_membership()()),
+        "DbClusterOptionGroupMemberships" => list(aws_rds_db_cluster_option_group_membership()),
         "MasterUsername" => String.t(),
         "DbClusterResourceId" => String.t(),
         "ReaderEndpoint" => String.t(),
-        "EnabledCloudWatchLogsExports" => list(String.t()()),
-        "CustomEndpoints" => list(String.t()()),
+        "EnabledCloudWatchLogsExports" => list(String.t()),
+        "CustomEndpoints" => list(String.t()),
         "DeletionProtection" => boolean(),
-        "DomainMemberships" => list(aws_rds_db_domain_membership()()),
+        "DomainMemberships" => list(aws_rds_db_domain_membership()),
         "MultiAz" => boolean(),
         "EngineMode" => String.t(),
         "ActivityStreamStatus" => String.t(),
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
         "HostedZoneId" => String.t(),
-        "AssociatedRoles" => list(aws_rds_db_cluster_associated_role()()),
+        "AssociatedRoles" => list(aws_rds_db_cluster_associated_role()),
         "DbSubnetGroup" => String.t(),
         "StorageEncrypted" => boolean(),
         "Endpoint" => String.t(),
-        "DbClusterMembers" => list(aws_rds_db_cluster_member()())
+        "DbClusterMembers" => list(aws_rds_db_cluster_member())
       }
 
   """
@@ -2429,8 +2429,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t()()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
+        "ProcessedAutomationRules" => list(String.t()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
       }
 
   """
@@ -2485,18 +2485,18 @@ defmodule AWS.SecurityHub do
         "DeleteOnTermination" => boolean(),
         "Description" => String.t(),
         "DeviceIndex" => integer(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "InterfaceType" => String.t(),
         "Ipv4PrefixCount" => integer(),
-        "Ipv4Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details()()),
+        "Ipv4Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_details()),
         "Ipv6AddressCount" => integer(),
-        "Ipv6Addresses" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details()()),
+        "Ipv6Addresses" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_addresses_details()),
         "Ipv6PrefixCount" => integer(),
-        "Ipv6Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details()()),
+        "Ipv6Prefixes" => list(aws_ec2_launch_template_data_network_interface_set_ipv6_prefixes_details()),
         "NetworkCardIndex" => integer(),
         "NetworkInterfaceId" => String.t(),
         "PrivateIpAddress" => String.t(),
-        "PrivateIpAddresses" => list(aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details()()),
+        "PrivateIpAddresses" => list(aws_ec2_launch_template_data_network_interface_set_private_ip_addresses_details()),
         "SecondaryPrivateIpAddressCount" => integer(),
         "SubnetId" => String.t()
       }
@@ -2567,7 +2567,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_health_check_details() :: %{
-        "Command" => list(String.t()()),
+        "Command" => list(String.t()),
         "Interval" => integer(),
         "Retries" => integer(),
         "StartPeriod" => integer(),
@@ -2624,7 +2624,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_aggregators_v2_response() :: %{
-        "AggregatorsV2" => list(aggregator_v2()()),
+        "AggregatorsV2" => list(aggregator_v2()),
         "NextToken" => String.t()
       }
 
@@ -2648,7 +2648,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       resources_filters() :: %{
-        "CompositeFilters" => list(resources_composite_filter()()),
+        "CompositeFilters" => list(resources_composite_filter()),
         "CompositeOperator" => list(any())
       }
 
@@ -2660,7 +2660,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_disable_standards_response() :: %{
-        "StandardsSubscriptions" => list(standards_subscription()())
+        "StandardsSubscriptions" => list(standards_subscription())
       }
 
   """
@@ -2694,7 +2694,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_origin_groups() :: %{
-        "Items" => list(aws_cloud_front_distribution_origin_group()())
+        "Items" => list(aws_cloud_front_distribution_origin_group())
       }
 
   """
@@ -2717,8 +2717,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_network_acl_details() :: %{
-        "Associations" => list(aws_ec2_network_acl_association()()),
-        "Entries" => list(aws_ec2_network_acl_entry()()),
+        "Associations" => list(aws_ec2_network_acl_association()),
+        "Entries" => list(aws_ec2_network_acl_entry()),
         "IsDefault" => boolean(),
         "NetworkAclId" => String.t(),
         "OwnerId" => String.t(),
@@ -2798,7 +2798,7 @@ defmodule AWS.SecurityHub do
         "IndexSizeBytes" => float(),
         "IndexStatus" => String.t(),
         "ItemCount" => integer(),
-        "KeySchema" => list(aws_dynamo_db_table_key_schema()()),
+        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
         "Projection" => aws_dynamo_db_table_projection(),
         "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput()
       }
@@ -2859,16 +2859,16 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpc_endpoint_service_details() :: %{
         "AcceptanceRequired" => boolean(),
-        "AvailabilityZones" => list(String.t()()),
-        "BaseEndpointDnsNames" => list(String.t()()),
-        "GatewayLoadBalancerArns" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "BaseEndpointDnsNames" => list(String.t()),
+        "GatewayLoadBalancerArns" => list(String.t()),
         "ManagesVpcEndpoints" => boolean(),
-        "NetworkLoadBalancerArns" => list(String.t()()),
+        "NetworkLoadBalancerArns" => list(String.t()),
         "PrivateDnsName" => String.t(),
         "ServiceId" => String.t(),
         "ServiceName" => String.t(),
         "ServiceState" => String.t(),
-        "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details()())
+        "ServiceType" => list(aws_ec2_vpc_endpoint_service_service_type_details())
       }
 
   """
@@ -2902,9 +2902,9 @@ defmodule AWS.SecurityHub do
         "Confidence" => integer(),
         "Criticality" => integer(),
         "Note" => note_update(),
-        "RelatedFindings" => list(related_finding()()),
+        "RelatedFindings" => list(related_finding()),
         "Severity" => severity_update(),
-        "Types" => list(String.t()()),
+        "Types" => list(String.t()),
         "UserDefinedFields" => map(),
         "VerificationState" => list(any()),
         "Workflow" => workflow_update()
@@ -3039,7 +3039,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_backup_backup_vault_notifications_details() :: %{
-        "BackupVaultEvents" => list(String.t()()),
+        "BackupVaultEvents" => list(String.t()),
         "SnsTopicArn" => String.t()
       }
 
@@ -3075,7 +3075,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       describe_action_targets_response() :: %{
-        "ActionTargets" => list(action_target()()),
+        "ActionTargets" => list(action_target()),
         "NextToken" => String.t()
       }
 
@@ -3121,7 +3121,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_notification_configuration() :: %{
-        "Configurations" => list(aws_s3_bucket_notification_configuration_detail()())
+        "Configurations" => list(aws_s3_bucket_notification_configuration_detail())
       }
 
   """
@@ -3210,8 +3210,8 @@ defmodule AWS.SecurityHub do
 
       rule_group_source_list_details() :: %{
         "GeneratedRulesType" => String.t(),
-        "TargetTypes" => list(String.t()()),
-        "Targets" => list(String.t()())
+        "TargetTypes" => list(String.t()),
+        "Targets" => list(String.t())
       }
 
   """
@@ -3324,7 +3324,7 @@ defmodule AWS.SecurityHub do
         optional("Filters") => aws_security_finding_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SortCriteria") => list(sort_criterion()())
+        optional("SortCriteria") => list(sort_criterion())
       }
 
   """
@@ -3349,7 +3349,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_aggregator_v2_request() :: %{
-        optional("LinkedRegions") => list(String.t()()),
+        optional("LinkedRegions") => list(String.t()),
         required("RegionLinkingMode") => String.t()
       }
 
@@ -3386,9 +3386,9 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_backup_backup_plan_backup_plan_details() :: %{
-        "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()()),
+        "AdvancedBackupSettings" => list(aws_backup_backup_plan_advanced_backup_settings_details()),
         "BackupPlanName" => String.t(),
-        "BackupPlanRule" => list(aws_backup_backup_plan_rule_details()())
+        "BackupPlanRule" => list(aws_backup_backup_plan_rule_details())
       }
 
   """
@@ -3421,7 +3421,7 @@ defmodule AWS.SecurityHub do
         "Owner" => String.t(),
         "SqsFailureFeedbackRoleArn" => String.t(),
         "SqsSuccessFeedbackRoleArn" => String.t(),
-        "Subscription" => list(aws_sns_topic_subscription()()),
+        "Subscription" => list(aws_sns_topic_subscription()),
         "TopicName" => String.t()
       }
 
@@ -3475,7 +3475,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_automation_rule_v2_request() :: %{
-        optional("Actions") => list(automation_rules_action_v2()()),
+        optional("Actions") => list(automation_rules_action_v2()),
         optional("Criteria") => list(),
         optional("Description") => String.t(),
         optional("RuleName") => String.t(),
@@ -3516,7 +3516,7 @@ defmodule AWS.SecurityHub do
         "Id" => String.t(),
         "MulticastSupport" => String.t(),
         "PropagationDefaultRouteTableId" => String.t(),
-        "TransitGatewayCidrBlocks" => list(String.t()()),
+        "TransitGatewayCidrBlocks" => list(String.t()),
         "VpnEcmpSupport" => String.t()
       }
 
@@ -3561,7 +3561,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -3629,7 +3629,7 @@ defmodule AWS.SecurityHub do
         "Id" => String.t(),
         "ManagedbyFirewallManager" => boolean(),
         "Name" => String.t(),
-        "Rules" => list(aws_wafv2_rules_details()()),
+        "Rules" => list(aws_wafv2_rules_details()),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
 
@@ -3642,15 +3642,15 @@ defmodule AWS.SecurityHub do
 
       aws_iam_role_details() :: %{
         "AssumeRolePolicyDocument" => String.t(),
-        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()()),
+        "AttachedManagedPolicies" => list(aws_iam_attached_managed_policy()),
         "CreateDate" => String.t(),
-        "InstanceProfileList" => list(aws_iam_instance_profile()()),
+        "InstanceProfileList" => list(aws_iam_instance_profile()),
         "MaxSessionDuration" => integer(),
         "Path" => String.t(),
         "PermissionsBoundary" => aws_iam_permissions_boundary(),
         "RoleId" => String.t(),
         "RoleName" => String.t(),
-        "RolePolicyList" => list(aws_iam_role_policy()())
+        "RolePolicyList" => list(aws_iam_role_policy())
       }
 
   """
@@ -3701,7 +3701,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_automation_rule_v2_response() :: %{
-        "Actions" => list(automation_rules_action_v2()()),
+        "Actions" => list(automation_rules_action_v2()),
         "CreatedAt" => non_neg_integer(),
         "Criteria" => list(),
         "Description" => String.t(),
@@ -3754,7 +3754,7 @@ defmodule AWS.SecurityHub do
 
       list_security_control_definitions_response() :: %{
         "NextToken" => String.t(),
-        "SecurityControlDefinitions" => list(security_control_definition()())
+        "SecurityControlDefinitions" => list(security_control_definition())
       }
 
   """
@@ -3765,7 +3765,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_automation_rules_request() :: %{
-        required("UpdateAutomationRulesRequestItems") => list(update_automation_rules_request_item()())
+        required("UpdateAutomationRulesRequestItems") => list(update_automation_rules_request_item())
       }
 
   """
@@ -3840,7 +3840,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       delete_members_response() :: %{
-        "UnprocessedAccounts" => list(result()())
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -3890,7 +3890,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       invite_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -3903,7 +3903,7 @@ defmodule AWS.SecurityHub do
       insight_results() :: %{
         "GroupByAttribute" => String.t(),
         "InsightArn" => String.t(),
-        "ResultValues" => list(insight_result_value()())
+        "ResultValues" => list(insight_result_value())
       }
 
   """
@@ -3935,7 +3935,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_service_details() :: %{
-        "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()()),
+        "CapacityProviderStrategy" => list(aws_ecs_service_capacity_provider_strategy_details()),
         "Cluster" => String.t(),
         "DeploymentConfiguration" => aws_ecs_service_deployment_configuration_details(),
         "DeploymentController" => aws_ecs_service_deployment_controller_details(),
@@ -3944,18 +3944,18 @@ defmodule AWS.SecurityHub do
         "EnableExecuteCommand" => boolean(),
         "HealthCheckGracePeriodSeconds" => integer(),
         "LaunchType" => String.t(),
-        "LoadBalancers" => list(aws_ecs_service_load_balancers_details()()),
+        "LoadBalancers" => list(aws_ecs_service_load_balancers_details()),
         "Name" => String.t(),
         "NetworkConfiguration" => aws_ecs_service_network_configuration_details(),
-        "PlacementConstraints" => list(aws_ecs_service_placement_constraints_details()()),
-        "PlacementStrategies" => list(aws_ecs_service_placement_strategies_details()()),
+        "PlacementConstraints" => list(aws_ecs_service_placement_constraints_details()),
+        "PlacementStrategies" => list(aws_ecs_service_placement_strategies_details()),
         "PlatformVersion" => String.t(),
         "PropagateTags" => String.t(),
         "Role" => String.t(),
         "SchedulingStrategy" => String.t(),
         "ServiceArn" => String.t(),
         "ServiceName" => String.t(),
-        "ServiceRegistries" => list(aws_ecs_service_service_registries_details()()),
+        "ServiceRegistries" => list(aws_ecs_service_service_registries_details()),
         "TaskDefinition" => String.t()
       }
 
@@ -3968,7 +3968,7 @@ defmodule AWS.SecurityHub do
 
       describe_standards_response() :: %{
         "NextToken" => String.t(),
-        "Standards" => list(standard()())
+        "Standards" => list(standard())
       }
 
   """
@@ -4005,7 +4005,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_origin_group_failover_status_codes() :: %{
-        "Items" => list(integer()()),
+        "Items" => list(integer()),
         "Quantity" => integer()
       }
 
@@ -4019,7 +4019,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_source_stateless_rule_definition() :: %{
-        "Actions" => list(String.t()()),
+        "Actions" => list(String.t()),
         "MatchAttributes" => rule_group_source_stateless_rule_match_attributes()
       }
 
@@ -4043,10 +4043,10 @@ defmodule AWS.SecurityHub do
 
       aws_cors_configuration() :: %{
         "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t()()),
-        "AllowMethods" => list(String.t()()),
-        "AllowOrigins" => list(String.t()()),
-        "ExposeHeaders" => list(String.t()()),
+        "AllowHeaders" => list(String.t()),
+        "AllowMethods" => list(String.t()),
+        "AllowOrigins" => list(String.t()),
+        "ExposeHeaders" => list(String.t()),
         "MaxAge" => integer()
       }
 
@@ -4059,7 +4059,7 @@ defmodule AWS.SecurityHub do
 
       list_automation_rules_v2_response() :: %{
         "NextToken" => String.t(),
-        "Rules" => list(automation_rules_metadata_v2()())
+        "Rules" => list(automation_rules_metadata_v2())
       }
 
   """
@@ -4070,15 +4070,15 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_formation_stack_details() :: %{
-        "Capabilities" => list(String.t()()),
+        "Capabilities" => list(String.t()),
         "CreationTime" => String.t(),
         "Description" => String.t(),
         "DisableRollback" => boolean(),
         "DriftInformation" => aws_cloud_formation_stack_drift_information_details(),
         "EnableTerminationProtection" => boolean(),
         "LastUpdatedTime" => String.t(),
-        "NotificationArns" => list(String.t()()),
-        "Outputs" => list(aws_cloud_formation_stack_outputs_details()()),
+        "NotificationArns" => list(String.t()),
+        "Outputs" => list(aws_cloud_formation_stack_outputs_details()),
         "RoleArn" => String.t(),
         "StackId" => String.t(),
         "StackName" => String.t(),
@@ -4176,10 +4176,10 @@ defmodule AWS.SecurityHub do
         "Filter" => aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_details(),
         "ID" => String.t(),
         "NoncurrentVersionExpirationInDays" => integer(),
-        "NoncurrentVersionTransitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details()()),
+        "NoncurrentVersionTransitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_noncurrent_version_transitions_details()),
         "Prefix" => String.t(),
         "Status" => String.t(),
-        "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details()())
+        "Transitions" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_transitions_details())
       }
 
   """
@@ -4259,7 +4259,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_delete_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t()())
+        required("AutomationRulesArns") => list(String.t())
       }
 
   """
@@ -4288,7 +4288,7 @@ defmodule AWS.SecurityHub do
         "DefaultAction" => String.t(),
         "MetricName" => String.t(),
         "Name" => String.t(),
-        "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()()),
+        "RulesList" => list(aws_waf_regional_web_acl_rules_list_details()),
         "WebAclId" => String.t()
       }
 
@@ -4300,7 +4300,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_standards_control_associations_request() :: %{
-        required("StandardsControlAssociationIds") => list(standards_control_association_id()())
+        required("StandardsControlAssociationIds") => list(standards_control_association_id())
       }
 
   """
@@ -4311,9 +4311,9 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_elasticsearch_domain_vpc_options() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VPCId" => String.t()
       }
 
@@ -4381,7 +4381,7 @@ defmodule AWS.SecurityHub do
 
       aws_eks_cluster_logging_cluster_logging_details() :: %{
         "Enabled" => boolean(),
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
 
   """
@@ -4392,7 +4392,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_connectors_v2_response() :: %{
-        "Connectors" => list(connector_summary()()),
+        "Connectors" => list(connector_summary()),
         "NextToken" => String.t()
       }
 
@@ -4468,9 +4468,9 @@ defmodule AWS.SecurityHub do
         "EndpointUrl" => String.t(),
         "EnvironmentArn" => String.t(),
         "EnvironmentId" => String.t(),
-        "EnvironmentLinks" => list(aws_elastic_beanstalk_environment_environment_link()()),
+        "EnvironmentLinks" => list(aws_elastic_beanstalk_environment_environment_link()),
         "EnvironmentName" => String.t(),
-        "OptionSettings" => list(aws_elastic_beanstalk_environment_option_setting()()),
+        "OptionSettings" => list(aws_elastic_beanstalk_environment_option_setting()),
         "PlatformArn" => String.t(),
         "SolutionStackName" => String.t(),
         "Status" => String.t(),
@@ -4500,7 +4500,7 @@ defmodule AWS.SecurityHub do
       rule_group_source_stateful_rules_details() :: %{
         "Action" => String.t(),
         "Header" => rule_group_source_stateful_rules_header_details(),
-        "RuleOptions" => list(rule_group_source_stateful_rules_options_details()())
+        "RuleOptions" => list(rule_group_source_stateful_rules_options_details())
       }
 
   """
@@ -4520,7 +4520,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_enable_standards_request() :: %{
-        required("StandardsSubscriptionRequests") => list(standards_subscription_request()())
+        required("StandardsSubscriptionRequests") => list(standards_subscription_request())
       }
 
   """
@@ -4545,7 +4545,7 @@ defmodule AWS.SecurityHub do
 
       standards_control_association_summary() :: %{
         "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t()()),
+        "RelatedRequirements" => list(String.t()),
         "SecurityControlArn" => String.t(),
         "SecurityControlId" => String.t(),
         "StandardsArn" => String.t(),
@@ -4575,7 +4575,7 @@ defmodule AWS.SecurityHub do
 
       rule_group_source_stateful_rules_options_details() :: %{
         "Keyword" => String.t(),
-        "Settings" => list(String.t()())
+        "Settings" => list(String.t())
       }
 
   """
@@ -4622,7 +4622,7 @@ defmodule AWS.SecurityHub do
         "DbSubnetGroupDescription" => String.t(),
         "DbSubnetGroupName" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(aws_rds_db_subnet_group_subnet()()),
+        "Subnets" => list(aws_rds_db_subnet_group_subnet()),
         "VpcId" => String.t()
       }
 
@@ -4736,8 +4736,8 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_service_network_configuration_aws_vpc_configuration_details() :: %{
         "AssignPublicIp" => String.t(),
-        "SecurityGroups" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroups" => list(String.t()),
+        "Subnets" => list(String.t())
       }
 
   """
@@ -4750,11 +4750,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       occurrences() :: %{
-        "Cells" => list(cell()()),
-        "LineRanges" => list(range()()),
-        "OffsetRanges" => list(range()()),
-        "Pages" => list(page()()),
-        "Records" => list(record()())
+        "Cells" => list(cell()),
+        "LineRanges" => list(range()),
+        "OffsetRanges" => list(range()),
+        "Pages" => list(page()),
+        "Records" => list(record())
       }
 
   """
@@ -4767,7 +4767,7 @@ defmodule AWS.SecurityHub do
       aws_waf_regional_rule_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
-        "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()()),
+        "PredicateList" => list(aws_waf_regional_rule_predicate_list_details()),
         "RuleId" => String.t()
       }
 
@@ -4792,7 +4792,7 @@ defmodule AWS.SecurityHub do
       aws_waf_web_acl_details() :: %{
         "DefaultAction" => String.t(),
         "Name" => String.t(),
-        "Rules" => list(aws_waf_web_acl_rule()()),
+        "Rules" => list(aws_waf_web_acl_rule()),
         "WebAclId" => String.t()
       }
 
@@ -4806,7 +4806,7 @@ defmodule AWS.SecurityHub do
       update_aggregator_v2_response() :: %{
         "AggregationRegion" => String.t(),
         "AggregatorV2Arn" => String.t(),
-        "LinkedRegions" => list(String.t()()),
+        "LinkedRegions" => list(String.t()),
         "RegionLinkingMode" => String.t()
       }
 
@@ -4952,7 +4952,7 @@ defmodule AWS.SecurityHub do
         "Description" => String.t(),
         "DocumentationVersion" => String.t(),
         "LastUpdatedDate" => String.t(),
-        "MethodSettings" => list(aws_api_gateway_method_settings()()),
+        "MethodSettings" => list(aws_api_gateway_method_settings()),
         "StageName" => String.t(),
         "TracingEnabled" => boolean(),
         "Variables" => map(),
@@ -4972,7 +4972,7 @@ defmodule AWS.SecurityHub do
         "ControlStatusUpdatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "DisabledReason" => String.t(),
-        "RelatedRequirements" => list(String.t()()),
+        "RelatedRequirements" => list(String.t()),
         "RemediationUrl" => String.t(),
         "SeverityRating" => list(any()),
         "StandardsControlArn" => String.t(),
@@ -5001,7 +5001,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_certificate_manager_certificate_renewal_summary() :: %{
-        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()()),
+        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
         "RenewalStatus" => String.t(),
         "RenewalStatusReason" => String.t(),
         "UpdatedAt" => String.t()
@@ -5036,7 +5036,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_dynamo_db_table_replica() :: %{
-        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()()),
+        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_replica_global_secondary_index()),
         "KmsMasterKeyId" => String.t(),
         "ProvisionedThroughputOverride" => aws_dynamo_db_table_provisioned_throughput_override(),
         "RegionName" => String.t(),
@@ -5075,7 +5075,7 @@ defmodule AWS.SecurityHub do
         "ReplicationInstanceClass" => String.t(),
         "ReplicationInstanceIdentifier" => String.t(),
         "ReplicationSubnetGroup" => aws_dms_replication_instance_replication_subnet_group_details(),
-        "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details()())
+        "VpcSecurityGroups" => list(aws_dms_replication_instance_vpc_security_groups_details())
       }
 
   """
@@ -5166,8 +5166,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_source_stateless_rules_and_custom_actions_details() :: %{
-        "CustomActions" => list(rule_group_source_custom_actions_details()()),
-        "StatelessRules" => list(rule_group_source_stateless_rules_details()())
+        "CustomActions" => list(rule_group_source_custom_actions_details()),
+        "StatelessRules" => list(rule_group_source_stateless_rules_details())
       }
 
   """
@@ -5208,15 +5208,15 @@ defmodule AWS.SecurityHub do
         "CertificateAuthorityArn" => String.t(),
         "CreatedAt" => String.t(),
         "DomainName" => String.t(),
-        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()()),
-        "ExtendedKeyUsages" => list(aws_certificate_manager_certificate_extended_key_usage()()),
+        "DomainValidationOptions" => list(aws_certificate_manager_certificate_domain_validation_option()),
+        "ExtendedKeyUsages" => list(aws_certificate_manager_certificate_extended_key_usage()),
         "FailureReason" => String.t(),
         "ImportedAt" => String.t(),
-        "InUseBy" => list(String.t()()),
+        "InUseBy" => list(String.t()),
         "IssuedAt" => String.t(),
         "Issuer" => String.t(),
         "KeyAlgorithm" => String.t(),
-        "KeyUsages" => list(aws_certificate_manager_certificate_key_usage()()),
+        "KeyUsages" => list(aws_certificate_manager_certificate_key_usage()),
         "NotAfter" => String.t(),
         "NotBefore" => String.t(),
         "Options" => aws_certificate_manager_certificate_options(),
@@ -5226,7 +5226,7 @@ defmodule AWS.SecurityHub do
         "SignatureAlgorithm" => String.t(),
         "Status" => String.t(),
         "Subject" => String.t(),
-        "SubjectAlternativeNames" => list(String.t()()),
+        "SubjectAlternativeNames" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -5239,7 +5239,7 @@ defmodule AWS.SecurityHub do
 
       get_enabled_standards_response() :: %{
         "NextToken" => String.t(),
-        "StandardsSubscriptions" => list(standards_subscription()())
+        "StandardsSubscriptions" => list(standards_subscription())
       }
 
   """
@@ -5267,7 +5267,7 @@ defmodule AWS.SecurityHub do
         "InstanceProfileId" => String.t(),
         "InstanceProfileName" => String.t(),
         "Path" => String.t(),
-        "Roles" => list(aws_iam_instance_profile_role()())
+        "Roles" => list(aws_iam_instance_profile_role())
       }
 
   """
@@ -5315,11 +5315,11 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       resources_composite_filter() :: %{
-        "DateFilters" => list(resources_date_filter()()),
-        "MapFilters" => list(resources_map_filter()()),
-        "NumberFilters" => list(resources_number_filter()()),
+        "DateFilters" => list(resources_date_filter()),
+        "MapFilters" => list(resources_map_filter()),
+        "NumberFilters" => list(resources_number_filter()),
         "Operator" => list(any()),
-        "StringFilters" => list(resources_string_filter()())
+        "StringFilters" => list(resources_string_filter())
       }
 
   """
@@ -5330,9 +5330,9 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       security_controls_configuration() :: %{
-        "DisabledSecurityControlIdentifiers" => list(String.t()()),
-        "EnabledSecurityControlIdentifiers" => list(String.t()()),
-        "SecurityControlCustomParameters" => list(security_control_custom_parameter()())
+        "DisabledSecurityControlIdentifiers" => list(String.t()),
+        "EnabledSecurityControlIdentifiers" => list(String.t()),
+        "SecurityControlCustomParameters" => list(security_control_custom_parameter())
       }
 
   """
@@ -5367,7 +5367,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -5378,7 +5378,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_variables_port_sets_details() :: %{
-        "Definition" => list(String.t()())
+        "Definition" => list(String.t())
       }
 
   """
@@ -5402,7 +5402,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_members_request() :: %{
-        required("AccountDetails") => list(account_details()())
+        required("AccountDetails") => list(account_details())
       }
 
   """
@@ -5426,9 +5426,9 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_elb_load_balancer_policies() :: %{
-        "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()()),
-        "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()()),
-        "OtherPolicies" => list(String.t()())
+        "AppCookieStickinessPolicies" => list(aws_elb_app_cookie_stickiness_policy()),
+        "LbCookieStickinessPolicies" => list(aws_elb_lb_cookie_stickiness_policy()),
+        "OtherPolicies" => list(String.t())
       }
 
   """
@@ -5467,7 +5467,7 @@ defmodule AWS.SecurityHub do
         optional("ClientToken") => String.t(),
         optional("RuleStatus") => list(any()),
         optional("Tags") => map(),
-        required("Actions") => list(automation_rules_action_v2()()),
+        required("Actions") => list(automation_rules_action_v2()),
         required("Criteria") => list(),
         required("Description") => String.t(),
         required("RuleName") => String.t(),
@@ -5575,7 +5575,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       disassociate_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -5601,7 +5601,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_volume_details() :: %{
-        "Attachments" => list(aws_ec2_volume_attachment()()),
+        "Attachments" => list(aws_ec2_volume_attachment()),
         "CreateTime" => String.t(),
         "DeviceName" => String.t(),
         "Encrypted" => boolean(),
@@ -5622,7 +5622,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_findings_response() :: %{
-        "Findings" => list(aws_security_finding()()),
+        "Findings" => list(aws_security_finding()),
         "NextToken" => String.t()
       }
 
@@ -5651,7 +5651,7 @@ defmodule AWS.SecurityHub do
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RuleGroupId" => String.t(),
-        "Rules" => list(aws_waf_rule_group_rules_details()())
+        "Rules" => list(aws_waf_rule_group_rules_details())
       }
 
   """
@@ -5697,8 +5697,8 @@ defmodule AWS.SecurityHub do
       aws_ec2_security_group_details() :: %{
         "GroupId" => String.t(),
         "GroupName" => String.t(),
-        "IpPermissions" => list(aws_ec2_security_group_ip_permission()()),
-        "IpPermissionsEgress" => list(aws_ec2_security_group_ip_permission()()),
+        "IpPermissions" => list(aws_ec2_security_group_ip_permission()),
+        "IpPermissionsEgress" => list(aws_ec2_security_group_ip_permission()),
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
@@ -5712,7 +5712,7 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_container_details() :: %{
         "Image" => String.t(),
-        "MountPoints" => list(aws_mount_point()()),
+        "MountPoints" => list(aws_mount_point()),
         "Name" => String.t(),
         "Privileged" => boolean()
       }
@@ -5753,7 +5753,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       vulnerability_code_vulnerabilities() :: %{
-        "Cwes" => list(String.t()()),
+        "Cwes" => list(String.t()),
         "FilePath" => code_vulnerabilities_file_path(),
         "SourceArn" => String.t()
       }
@@ -5821,7 +5821,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -5843,7 +5843,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       invite_members_response() :: %{
-        "UnprocessedAccounts" => list(result()())
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -5854,7 +5854,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_notification_configuration_s3_key_filter() :: %{
-        "FilterRules" => list(aws_s3_bucket_notification_configuration_s3_key_filter_rule()())
+        "FilterRules" => list(aws_s3_bucket_notification_configuration_s3_key_filter_rule())
       }
 
   """
@@ -5906,8 +5906,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_findings_v2_response() :: %{
-        "ProcessedFindings" => list(batch_update_findings_v2_processed_finding()()),
-        "UnprocessedFindings" => list(batch_update_findings_v2_unprocessed_finding()())
+        "ProcessedFindings" => list(batch_update_findings_v2_processed_finding()),
+        "UnprocessedFindings" => list(batch_update_findings_v2_unprocessed_finding())
       }
 
   """
@@ -5954,7 +5954,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       automation_rules_metadata_v2() :: %{
-        "Actions" => list(automation_rules_action_type_object_v2()()),
+        "Actions" => list(automation_rules_action_type_object_v2()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
         "RuleArn" => String.t(),
@@ -5987,18 +5987,18 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       signal() :: %{
-        "ActorIds" => list(String.t()()),
+        "ActorIds" => list(String.t()),
         "Count" => integer(),
         "CreatedAt" => float(),
-        "EndpointIds" => list(String.t()()),
+        "EndpointIds" => list(String.t()),
         "FirstSeenAt" => float(),
         "Id" => String.t(),
         "LastSeenAt" => float(),
         "Name" => String.t(),
         "ProductArn" => String.t(),
-        "ResourceIds" => list(String.t()()),
+        "ResourceIds" => list(String.t()),
         "Severity" => float(),
-        "SignalIndicators" => list(indicator()()),
+        "SignalIndicators" => list(indicator()),
         "Title" => String.t(),
         "Type" => String.t(),
         "UpdatedAt" => float()
@@ -6040,7 +6040,7 @@ defmodule AWS.SecurityHub do
       aws_wafv2_custom_response_details() :: %{
         "CustomResponseBodyKey" => String.t(),
         "ResponseCode" => integer(),
-        "ResponseHeaders" => list(aws_wafv2_custom_http_header()())
+        "ResponseHeaders" => list(aws_wafv2_custom_http_header())
       }
 
   """
@@ -6114,8 +6114,8 @@ defmodule AWS.SecurityHub do
 
       batch_update_findings_v2_request() :: %{
         optional("Comment") => String.t(),
-        optional("FindingIdentifiers") => list(ocsf_finding_identifier()()),
-        optional("MetadataUids") => list(String.t()()),
+        optional("FindingIdentifiers") => list(ocsf_finding_identifier()),
+        optional("MetadataUids") => list(String.t()),
         optional("SeverityId") => integer(),
         optional("StatusId") => integer()
       }
@@ -6128,8 +6128,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_automation_rules_response() :: %{
-        "Rules" => list(automation_rules_config()()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
+        "Rules" => list(automation_rules_config()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
       }
 
   """
@@ -6152,7 +6152,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       string_list_configuration_options() :: %{
-        "DefaultValue" => list(String.t()()),
+        "DefaultValue" => list(String.t()),
         "ExpressionDescription" => String.t(),
         "MaxItems" => integer(),
         "Re2Expression" => String.t()
@@ -6180,7 +6180,7 @@ defmodule AWS.SecurityHub do
 
       aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t()())
+        "AttributeValues" => list(String.t())
       }
 
   """
@@ -6191,7 +6191,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_automation_rules_request() :: %{
-        required("AutomationRulesArns") => list(String.t()())
+        required("AutomationRulesArns") => list(String.t())
       }
 
   """
@@ -6273,7 +6273,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       automation_rules_config() :: %{
-        "Actions" => list(automation_rules_action()()),
+        "Actions" => list(automation_rules_action()),
         "CreatedAt" => non_neg_integer(),
         "CreatedBy" => String.t(),
         "Criteria" => automation_rules_finding_filters(),
@@ -6307,7 +6307,7 @@ defmodule AWS.SecurityHub do
 
       aws_backup_backup_plan_rule_details() :: %{
         "CompletionWindowMinutes" => float(),
-        "CopyActions" => list(aws_backup_backup_plan_rule_copy_actions_details()()),
+        "CopyActions" => list(aws_backup_backup_plan_rule_copy_actions_details()),
         "EnableContinuousBackup" => boolean(),
         "Lifecycle" => aws_backup_backup_plan_lifecycle_details(),
         "RuleId" => String.t(),
@@ -6337,7 +6337,7 @@ defmodule AWS.SecurityHub do
 
       product() :: %{
         "ActivationUrl" => String.t(),
-        "Categories" => list(String.t()()),
+        "Categories" => list(String.t()),
         "CompanyName" => String.t(),
         "Description" => String.t(),
         "IntegrationTypes" => list(list(any())()),
@@ -6406,10 +6406,10 @@ defmodule AWS.SecurityHub do
 
       aws_rds_db_cluster_snapshot_details() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "ClusterCreateTime" => String.t(),
         "DbClusterIdentifier" => String.t(),
-        "DbClusterSnapshotAttributes" => list(aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute()()),
+        "DbClusterSnapshotAttributes" => list(aws_rds_db_cluster_snapshot_db_cluster_snapshot_attribute()),
         "DbClusterSnapshotIdentifier" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
@@ -6579,7 +6579,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t()()),
+        optional("Regions") => list(String.t()),
         required("FindingAggregatorArn") => String.t(),
         required("RegionLinkingMode") => String.t()
       }
@@ -6630,7 +6630,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_origin_ssl_protocols() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -6682,7 +6682,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_configuration_policy_associations_response() :: %{
-        "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()()),
+        "ConfigurationPolicyAssociationSummaries" => list(configuration_policy_association_summary()),
         "NextToken" => String.t()
       }
 
@@ -6695,7 +6695,7 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details() :: %{
         "ContainerPath" => String.t(),
-        "MountOptions" => list(String.t()()),
+        "MountOptions" => list(String.t()),
         "Size" => integer()
       }
 
@@ -6709,8 +6709,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_sage_maker_notebook_instance_details() :: %{
-        "AcceleratorTypes" => list(String.t()()),
-        "AdditionalCodeRepositories" => list(String.t()()),
+        "AcceleratorTypes" => list(String.t()),
+        "AdditionalCodeRepositories" => list(String.t()),
         "DefaultCodeRepository" => String.t(),
         "DirectInternetAccess" => String.t(),
         "FailureReason" => String.t(),
@@ -6725,7 +6725,7 @@ defmodule AWS.SecurityHub do
         "PlatformIdentifier" => String.t(),
         "RoleArn" => String.t(),
         "RootAccess" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SubnetId" => String.t(),
         "Url" => String.t(),
         "VolumeSizeInGB" => integer()
@@ -6802,15 +6802,15 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpn_connection_options_tunnel_options_details() :: %{
         "DpdTimeoutSeconds" => integer(),
-        "IkeVersions" => list(String.t()()),
+        "IkeVersions" => list(String.t()),
         "OutsideIpAddress" => String.t(),
-        "Phase1DhGroupNumbers" => list(integer()()),
-        "Phase1EncryptionAlgorithms" => list(String.t()()),
-        "Phase1IntegrityAlgorithms" => list(String.t()()),
+        "Phase1DhGroupNumbers" => list(integer()),
+        "Phase1EncryptionAlgorithms" => list(String.t()),
+        "Phase1IntegrityAlgorithms" => list(String.t()),
         "Phase1LifetimeSeconds" => integer(),
-        "Phase2DhGroupNumbers" => list(integer()()),
-        "Phase2EncryptionAlgorithms" => list(String.t()()),
-        "Phase2IntegrityAlgorithms" => list(String.t()()),
+        "Phase2DhGroupNumbers" => list(integer()),
+        "Phase2EncryptionAlgorithms" => list(String.t()),
+        "Phase2IntegrityAlgorithms" => list(String.t()),
         "Phase2LifetimeSeconds" => integer(),
         "PreSharedKey" => String.t(),
         "RekeyFuzzPercentage" => integer(),
@@ -6852,15 +6852,15 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_client_vpn_endpoint_details() :: %{
-        "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()()),
+        "AuthenticationOptions" => list(aws_ec2_client_vpn_endpoint_authentication_options_details()),
         "ClientCidrBlock" => String.t(),
         "ClientConnectOptions" => aws_ec2_client_vpn_endpoint_client_connect_options_details(),
         "ClientLoginBannerOptions" => aws_ec2_client_vpn_endpoint_client_login_banner_options_details(),
         "ClientVpnEndpointId" => String.t(),
         "ConnectionLogOptions" => aws_ec2_client_vpn_endpoint_connection_log_options_details(),
         "Description" => String.t(),
-        "DnsServer" => list(String.t()()),
-        "SecurityGroupIdSet" => list(String.t()()),
+        "DnsServer" => list(String.t()),
+        "SecurityGroupIdSet" => list(String.t()),
         "SelfServicePortalUrl" => String.t(),
         "ServerCertificateArn" => String.t(),
         "SessionTimeoutHours" => integer(),
@@ -6940,12 +6940,12 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_container_definitions_linux_parameters_details() :: %{
         "Capabilities" => aws_ecs_task_definition_container_definitions_linux_parameters_capabilities_details(),
-        "Devices" => list(aws_ecs_task_definition_container_definitions_linux_parameters_devices_details()()),
+        "Devices" => list(aws_ecs_task_definition_container_definitions_linux_parameters_devices_details()),
         "InitProcessEnabled" => boolean(),
         "MaxSwap" => integer(),
         "SharedMemorySize" => integer(),
         "Swappiness" => integer(),
-        "Tmpfs" => list(aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details()())
+        "Tmpfs" => list(aws_ecs_task_definition_container_definitions_linux_parameters_tmpfs_details())
       }
 
   """
@@ -6958,7 +6958,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_finding_aggregator_request() :: %{
-        optional("Regions") => list(String.t()()),
+        optional("Regions") => list(String.t()),
         required("RegionLinkingMode") => String.t()
       }
 
@@ -6971,7 +6971,7 @@ defmodule AWS.SecurityHub do
 
       get_finding_history_response() :: %{
         "NextToken" => String.t(),
-        "Records" => list(finding_history_record()())
+        "Records" => list(finding_history_record())
       }
 
   """
@@ -6982,7 +6982,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       update_automation_rules_request_item() :: %{
-        "Actions" => list(automation_rules_action()()),
+        "Actions" => list(automation_rules_action()),
         "Criteria" => automation_rules_finding_filters(),
         "Description" => String.t(),
         "IsTerminal" => boolean(),
@@ -7065,7 +7065,7 @@ defmodule AWS.SecurityHub do
       aws_ecs_task_definition_container_definitions_log_configuration_details() :: %{
         "LogDriver" => String.t(),
         "Options" => map(),
-        "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details()())
+        "SecretOptions" => list(aws_ecs_task_definition_container_definitions_log_configuration_secret_options_details())
       }
 
   """
@@ -7110,7 +7110,7 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_listener_description() :: %{
         "Listener" => aws_elb_load_balancer_listener(),
-        "PolicyNames" => list(String.t()())
+        "PolicyNames" => list(String.t())
       }
 
   """
@@ -7151,13 +7151,13 @@ defmodule AWS.SecurityHub do
         optional("Confidence") => integer(),
         optional("Criticality") => integer(),
         optional("Note") => note_update(),
-        optional("RelatedFindings") => list(related_finding()()),
+        optional("RelatedFindings") => list(related_finding()),
         optional("Severity") => severity_update(),
-        optional("Types") => list(String.t()()),
+        optional("Types") => list(String.t()),
         optional("UserDefinedFields") => map(),
         optional("VerificationState") => list(any()),
         optional("Workflow") => workflow_update(),
-        required("FindingIdentifiers") => list(aws_security_finding_identifier()())
+        required("FindingIdentifiers") => list(aws_security_finding_identifier())
       }
 
   """
@@ -7183,7 +7183,7 @@ defmodule AWS.SecurityHub do
 
       generator_details() :: %{
         "Description" => String.t(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "Name" => String.t()
       }
 
@@ -7232,7 +7232,7 @@ defmodule AWS.SecurityHub do
         optional("IsTerminal") => boolean(),
         optional("RuleStatus") => list(any()),
         optional("Tags") => map(),
-        required("Actions") => list(automation_rules_action()()),
+        required("Actions") => list(automation_rules_action()),
         required("Criteria") => automation_rules_finding_filters(),
         required("Description") => String.t(),
         required("RuleName") => String.t(),
@@ -7288,7 +7288,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_insights_response() :: %{
-        "Insights" => list(insight()()),
+        "Insights" => list(insight()),
         "NextToken" => String.t()
       }
 
@@ -7325,7 +7325,7 @@ defmodule AWS.SecurityHub do
 
       aws_api_gateway_rest_api_details() :: %{
         "ApiKeySource" => String.t(),
-        "BinaryMediaTypes" => list(String.t()()),
+        "BinaryMediaTypes" => list(String.t()),
         "CreatedDate" => String.t(),
         "Description" => String.t(),
         "EndpointConfiguration" => aws_api_gateway_endpoint_configuration(),
@@ -7385,7 +7385,7 @@ defmodule AWS.SecurityHub do
         optional("Filters") => resources_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SortCriteria") => list(sort_criterion()())
+        optional("SortCriteria") => list(sort_criterion())
       }
 
   """
@@ -7396,7 +7396,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_eks_cluster_logging_details() :: %{
-        "ClusterLogging" => list(aws_eks_cluster_logging_cluster_logging_details()())
+        "ClusterLogging" => list(aws_eks_cluster_logging_cluster_logging_details())
       }
 
   """
@@ -7422,11 +7422,11 @@ defmodule AWS.SecurityHub do
 
       standards_control_association_detail() :: %{
         "AssociationStatus" => list(any()),
-        "RelatedRequirements" => list(String.t()()),
+        "RelatedRequirements" => list(String.t()),
         "SecurityControlArn" => String.t(),
         "SecurityControlId" => String.t(),
         "StandardsArn" => String.t(),
-        "StandardsControlArns" => list(String.t()()),
+        "StandardsControlArns" => list(String.t()),
         "StandardsControlDescription" => String.t(),
         "StandardsControlTitle" => String.t(),
         "UpdatedAt" => non_neg_integer(),
@@ -7463,7 +7463,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       decline_invitations_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -7474,8 +7474,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_code_build_project_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -7526,7 +7526,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_rate_based_rule_details() :: %{
-        "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()()),
+        "MatchPredicates" => list(aws_waf_rate_based_rule_match_predicate()),
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RateKey" => String.t(),
@@ -7630,7 +7630,7 @@ defmodule AWS.SecurityHub do
 
       describe_products_response() :: %{
         "NextToken" => String.t(),
-        "Products" => list(product()())
+        "Products" => list(product())
       }
 
   """
@@ -7642,7 +7642,7 @@ defmodule AWS.SecurityHub do
 
       aws_waf_web_acl_rule() :: %{
         "Action" => waf_action(),
-        "ExcludedRules" => list(waf_excluded_rule()()),
+        "ExcludedRules" => list(waf_excluded_rule()),
         "OverrideAction" => waf_override_action(),
         "Priority" => integer(),
         "RuleId" => String.t(),
@@ -7671,8 +7671,8 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpc_peering_connection_vpc_info_details() :: %{
         "CidrBlock" => String.t(),
-        "CidrBlockSet" => list(vpc_info_cidr_block_set_details()()),
-        "Ipv6CidrBlockSet" => list(vpc_info_ipv6_cidr_block_set_details()()),
+        "CidrBlockSet" => list(vpc_info_cidr_block_set_details()),
+        "Ipv6CidrBlockSet" => list(vpc_info_ipv6_cidr_block_set_details()),
         "OwnerId" => String.t(),
         "PeeringOptions" => vpc_info_peering_options_details(),
         "Region" => String.t(),
@@ -7719,17 +7719,17 @@ defmodule AWS.SecurityHub do
       aws_rds_db_instance_details() :: %{
         "LatestRestorableTime" => String.t(),
         "DBName" => String.t(),
-        "StatusInfos" => list(aws_rds_db_status_info()()),
+        "StatusInfos" => list(aws_rds_db_status_info()),
         "Engine" => String.t(),
-        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()()),
+        "VpcSecurityGroups" => list(aws_rds_db_instance_vpc_security_group()),
         "PerformanceInsightsKmsKeyId" => String.t(),
         "CACertificateIdentifier" => String.t(),
         "Timezone" => String.t(),
         "PreferredMaintenanceWindow" => String.t(),
         "Iops" => integer(),
         "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t()()),
-        "OptionGroupMemberships" => list(aws_rds_db_option_group_membership()()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t()),
+        "OptionGroupMemberships" => list(aws_rds_db_option_group_membership()),
         "PreferredBackupWindow" => String.t(),
         "PendingModifiedValues" => aws_rds_db_pending_modified_values(),
         "PerformanceInsightsEnabled" => boolean(),
@@ -7738,34 +7738,34 @@ defmodule AWS.SecurityHub do
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
         "DbInstanceStatus" => String.t(),
-        "DbSecurityGroups" => list(String.t()()),
+        "DbSecurityGroups" => list(String.t()),
         "AvailabilityZone" => String.t(),
         "CopyTagsToSnapshot" => boolean(),
-        "ProcessorFeatures" => list(aws_rds_db_processor_feature()()),
+        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
         "DBInstanceClass" => String.t(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t()()),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t()),
         "EnhancedMonitoringResourceArn" => String.t(),
-        "DbParameterGroups" => list(aws_rds_db_parameter_group()()),
+        "DbParameterGroups" => list(aws_rds_db_parameter_group()),
         "AutoMinorVersionUpgrade" => boolean(),
         "DbiResourceId" => String.t(),
         "TdeCredentialArn" => String.t(),
         "MasterUsername" => String.t(),
         "LicenseModel" => String.t(),
-        "EnabledCloudWatchLogsExports" => list(String.t()()),
+        "EnabledCloudWatchLogsExports" => list(String.t()),
         "DBInstanceIdentifier" => String.t(),
         "DBClusterIdentifier" => String.t(),
         "DeletionProtection" => boolean(),
         "StorageType" => String.t(),
         "PerformanceInsightsRetentionPeriod" => integer(),
         "InstanceCreateTime" => String.t(),
-        "DomainMemberships" => list(aws_rds_db_domain_membership()()),
+        "DomainMemberships" => list(aws_rds_db_domain_membership()),
         "MultiAz" => boolean(),
         "DbInstancePort" => integer(),
         "SecondaryAvailabilityZone" => String.t(),
         "PubliclyAccessible" => boolean(),
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
-        "AssociatedRoles" => list(aws_rds_db_instance_associated_role()()),
+        "AssociatedRoles" => list(aws_rds_db_instance_associated_role()),
         "DbSubnetGroup" => aws_rds_db_subnet_group(),
         "MaxAllocatedStorage" => integer(),
         "StorageEncrypted" => boolean(),
@@ -7816,7 +7816,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       delete_invitations_request() :: %{
-        required("AccountIds") => list(String.t()())
+        required("AccountIds") => list(String.t())
       }
 
   """
@@ -7863,7 +7863,7 @@ defmodule AWS.SecurityHub do
 
       aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_details() :: %{
         "LaunchTemplateSpecification" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_launch_template_specification(),
-        "Overrides" => list(aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details()())
+        "Overrides" => list(aws_auto_scaling_auto_scaling_group_mixed_instances_policy_launch_template_overrides_list_details())
       }
 
   """
@@ -7876,7 +7876,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_msk_cluster_cluster_info_client_authentication_tls_details() :: %{
-        "CertificateAuthorityArnList" => list(String.t()()),
+        "CertificateAuthorityArnList" => list(String.t()),
         "Enabled" => boolean()
       }
 
@@ -7962,7 +7962,7 @@ defmodule AWS.SecurityHub do
 
       group_by_result() :: %{
         "GroupByField" => String.t(),
-        "GroupByValues" => list(group_by_value()())
+        "GroupByValues" => list(group_by_value())
       }
 
   """
@@ -7974,8 +7974,8 @@ defmodule AWS.SecurityHub do
 
       aws_eks_cluster_resources_vpc_config_details() :: %{
         "EndpointPublicAccess" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -7987,7 +7987,7 @@ defmodule AWS.SecurityHub do
 
       list_enabled_products_for_import_response() :: %{
         "NextToken" => String.t(),
-        "ProductSubscriptions" => list(String.t()())
+        "ProductSubscriptions" => list(String.t())
       }
 
   """
@@ -8052,7 +8052,7 @@ defmodule AWS.SecurityHub do
 
       aws_efs_access_point_posix_user_details() :: %{
         "Gid" => String.t(),
-        "SecondaryGids" => list(String.t()()),
+        "SecondaryGids" => list(String.t()),
         "Uid" => String.t()
       }
 
@@ -8089,7 +8089,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_configuration_policies_response() :: %{
-        "ConfigurationPolicySummaries" => list(configuration_policy_summary()()),
+        "ConfigurationPolicySummaries" => list(configuration_policy_summary()),
         "NextToken" => String.t()
       }
 
@@ -8101,7 +8101,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_amazon_mq_broker_ldap_server_metadata_details() :: %{
-        "Hosts" => list(String.t()()),
+        "Hosts" => list(String.t()),
         "RoleBase" => String.t(),
         "RoleName" => String.t(),
         "RoleSearchMatching" => String.t(),
@@ -8123,9 +8123,9 @@ defmodule AWS.SecurityHub do
       finding_provider_fields() :: %{
         "Confidence" => integer(),
         "Criticality" => integer(),
-        "RelatedFindings" => list(related_finding()()),
+        "RelatedFindings" => list(related_finding()),
         "Severity" => finding_provider_severity(),
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
 
   """
@@ -8247,8 +8247,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_update_findings_response() :: %{
-        "ProcessedFindings" => list(aws_security_finding_identifier()()),
-        "UnprocessedFindings" => list(batch_update_findings_unprocessed_finding()())
+        "ProcessedFindings" => list(aws_security_finding_identifier()),
+        "UnprocessedFindings" => list(batch_update_findings_unprocessed_finding())
       }
 
   """
@@ -8273,7 +8273,7 @@ defmodule AWS.SecurityHub do
       get_finding_statistics_v2_request() :: %{
         optional("MaxStatisticResults") => integer(),
         optional("SortOrder") => list(any()),
-        required("GroupByRules") => list(group_by_rule()())
+        required("GroupByRules") => list(group_by_rule())
       }
 
   """
@@ -8358,7 +8358,7 @@ defmodule AWS.SecurityHub do
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
-        "Regions" => list(String.t()())
+        "Regions" => list(String.t())
       }
 
   """
@@ -8370,7 +8370,7 @@ defmodule AWS.SecurityHub do
 
       aws_guard_duty_detector_details() :: %{
         "DataSources" => aws_guard_duty_detector_data_sources_details(),
-        "Features" => list(aws_guard_duty_detector_features_details()()),
+        "Features" => list(aws_guard_duty_detector_features_details()),
         "FindingPublishingFrequency" => String.t(),
         "ServiceRole" => String.t(),
         "Status" => String.t()
@@ -8463,7 +8463,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       delete_invitations_response() :: %{
-        "UnprocessedAccounts" => list(result()())
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -8475,7 +8475,7 @@ defmodule AWS.SecurityHub do
 
       batch_import_findings_response() :: %{
         "FailedCount" => integer(),
-        "FailedFindings" => list(import_findings_error()()),
+        "FailedFindings" => list(import_findings_error()),
         "SuccessCount" => integer()
       }
 
@@ -8488,7 +8488,7 @@ defmodule AWS.SecurityHub do
 
       port_probe_action() :: %{
         "Blocked" => boolean(),
-        "PortProbeDetails" => list(port_probe_detail()())
+        "PortProbeDetails" => list(port_probe_detail())
       }
 
   """
@@ -8549,7 +8549,7 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_attributes() :: %{
         "AccessLog" => aws_elb_load_balancer_access_log(),
-        "AdditionalAttributes" => list(aws_elb_load_balancer_additional_attribute()()),
+        "AdditionalAttributes" => list(aws_elb_load_balancer_additional_attribute()),
         "ConnectionDraining" => aws_elb_load_balancer_connection_draining(),
         "ConnectionSettings" => aws_elb_load_balancer_connection_settings(),
         "CrossZoneLoadBalancing" => aws_elb_load_balancer_cross_zone_load_balancing()
@@ -8629,22 +8629,22 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_elb_load_balancer_details() :: %{
-        "AvailabilityZones" => list(String.t()()),
-        "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()()),
+        "AvailabilityZones" => list(String.t()),
+        "BackendServerDescriptions" => list(aws_elb_load_balancer_backend_server_description()),
         "CanonicalHostedZoneName" => String.t(),
         "CanonicalHostedZoneNameID" => String.t(),
         "CreatedTime" => String.t(),
         "DnsName" => String.t(),
         "HealthCheck" => aws_elb_load_balancer_health_check(),
-        "Instances" => list(aws_elb_load_balancer_instance()()),
-        "ListenerDescriptions" => list(aws_elb_load_balancer_listener_description()()),
+        "Instances" => list(aws_elb_load_balancer_instance()),
+        "ListenerDescriptions" => list(aws_elb_load_balancer_listener_description()),
         "LoadBalancerAttributes" => aws_elb_load_balancer_attributes(),
         "LoadBalancerName" => String.t(),
         "Policies" => aws_elb_load_balancer_policies(),
         "Scheme" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SourceSecurityGroup" => aws_elb_load_balancer_source_security_group(),
-        "Subnets" => list(String.t()()),
+        "Subnets" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -8656,7 +8656,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       threat() :: %{
-        "FilePaths" => list(file_paths()()),
+        "FilePaths" => list(file_paths()),
         "ItemCount" => integer(),
         "Name" => String.t(),
         "Severity" => String.t()
@@ -8720,13 +8720,13 @@ defmodule AWS.SecurityHub do
       aws_ec2_instance_details() :: %{
         "IamInstanceProfileArn" => String.t(),
         "ImageId" => String.t(),
-        "IpV4Addresses" => list(String.t()()),
-        "IpV6Addresses" => list(String.t()()),
+        "IpV4Addresses" => list(String.t()),
+        "IpV6Addresses" => list(String.t()),
         "KeyName" => String.t(),
         "LaunchedAt" => String.t(),
         "MetadataOptions" => aws_ec2_instance_metadata_options(),
         "Monitoring" => aws_ec2_instance_monitoring_details(),
-        "NetworkInterfaces" => list(aws_ec2_instance_network_interfaces_details()()),
+        "NetworkInterfaces" => list(aws_ec2_instance_network_interfaces_details()),
         "SubnetId" => String.t(),
         "Type" => String.t(),
         "VirtualizationType" => String.t(),
@@ -8757,7 +8757,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_import_findings_request() :: %{
-        required("Findings") => list(aws_security_finding()())
+        required("Findings") => list(aws_security_finding())
       }
 
   """
@@ -8768,7 +8768,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_dynamo_db_table_projection() :: %{
-        "NonKeyAttributes" => list(String.t()()),
+        "NonKeyAttributes" => list(String.t()),
         "ProjectionType" => String.t()
       }
 
@@ -8801,8 +8801,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_open_search_service_domain_vpc_options_details() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -8813,12 +8813,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       composite_filter() :: %{
-        "BooleanFilters" => list(ocsf_boolean_filter()()),
-        "DateFilters" => list(ocsf_date_filter()()),
-        "MapFilters" => list(ocsf_map_filter()()),
-        "NumberFilters" => list(ocsf_number_filter()()),
+        "BooleanFilters" => list(ocsf_boolean_filter()),
+        "DateFilters" => list(ocsf_date_filter()),
+        "MapFilters" => list(ocsf_map_filter()),
+        "NumberFilters" => list(ocsf_number_filter()),
         "Operator" => list(any()),
-        "StringFilters" => list(ocsf_string_filter()())
+        "StringFilters" => list(ocsf_string_filter())
       }
 
   """
@@ -8850,7 +8850,7 @@ defmodule AWS.SecurityHub do
 
       get_resources_v2_response() :: %{
         "NextToken" => String.t(),
-        "Resources" => list(resource_result()())
+        "Resources" => list(resource_result())
       }
 
   """
@@ -8875,8 +8875,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_security_controls_response() :: %{
-        "SecurityControls" => list(security_control()()),
-        "UnprocessedIds" => list(unprocessed_security_control()())
+        "SecurityControls" => list(security_control()),
+        "UnprocessedIds" => list(unprocessed_security_control())
       }
 
   """
@@ -8939,43 +8939,43 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_container_definitions_details() :: %{
-        "Command" => list(String.t()()),
+        "Command" => list(String.t()),
         "MemoryReservation" => integer(),
         "StartTimeout" => integer(),
         "LinuxParameters" => aws_ecs_task_definition_container_definitions_linux_parameters_details(),
-        "PortMappings" => list(aws_ecs_task_definition_container_definitions_port_mappings_details()()),
+        "PortMappings" => list(aws_ecs_task_definition_container_definitions_port_mappings_details()),
         "Hostname" => String.t(),
         "Privileged" => boolean(),
         "WorkingDirectory" => String.t(),
         "Image" => String.t(),
-        "EnvironmentFiles" => list(aws_ecs_task_definition_container_definitions_environment_files_details()()),
-        "Ulimits" => list(aws_ecs_task_definition_container_definitions_ulimits_details()()),
+        "EnvironmentFiles" => list(aws_ecs_task_definition_container_definitions_environment_files_details()),
+        "Ulimits" => list(aws_ecs_task_definition_container_definitions_ulimits_details()),
         "StopTimeout" => integer(),
-        "ExtraHosts" => list(aws_ecs_task_definition_container_definitions_extra_hosts_details()()),
+        "ExtraHosts" => list(aws_ecs_task_definition_container_definitions_extra_hosts_details()),
         "LogConfiguration" => aws_ecs_task_definition_container_definitions_log_configuration_details(),
-        "Secrets" => list(aws_ecs_task_definition_container_definitions_secrets_details()()),
-        "DockerSecurityOptions" => list(String.t()()),
-        "SystemControls" => list(aws_ecs_task_definition_container_definitions_system_controls_details()()),
+        "Secrets" => list(aws_ecs_task_definition_container_definitions_secrets_details()),
+        "DockerSecurityOptions" => list(String.t()),
+        "SystemControls" => list(aws_ecs_task_definition_container_definitions_system_controls_details()),
         "HealthCheck" => aws_ecs_task_definition_container_definitions_health_check_details(),
-        "DnsServers" => list(String.t()()),
+        "DnsServers" => list(String.t()),
         "PseudoTerminal" => boolean(),
         "RepositoryCredentials" => aws_ecs_task_definition_container_definitions_repository_credentials_details(),
         "DockerLabels" => map(),
         "DisableNetworking" => boolean(),
         "User" => String.t(),
-        "Environment" => list(aws_ecs_task_definition_container_definitions_environment_details()()),
+        "Environment" => list(aws_ecs_task_definition_container_definitions_environment_details()),
         "FirelensConfiguration" => aws_ecs_task_definition_container_definitions_firelens_configuration_details(),
-        "MountPoints" => list(aws_ecs_task_definition_container_definitions_mount_points_details()()),
-        "VolumesFrom" => list(aws_ecs_task_definition_container_definitions_volumes_from_details()()),
-        "DependsOn" => list(aws_ecs_task_definition_container_definitions_depends_on_details()()),
-        "DnsSearchDomains" => list(String.t()()),
+        "MountPoints" => list(aws_ecs_task_definition_container_definitions_mount_points_details()),
+        "VolumesFrom" => list(aws_ecs_task_definition_container_definitions_volumes_from_details()),
+        "DependsOn" => list(aws_ecs_task_definition_container_definitions_depends_on_details()),
+        "DnsSearchDomains" => list(String.t()),
         "Interactive" => boolean(),
-        "Links" => list(String.t()()),
-        "ResourceRequirements" => list(aws_ecs_task_definition_container_definitions_resource_requirements_details()()),
+        "Links" => list(String.t()),
+        "ResourceRequirements" => list(aws_ecs_task_definition_container_definitions_resource_requirements_details()),
         "Essential" => boolean(),
         "Name" => String.t(),
         "ReadonlyRootFilesystem" => boolean(),
-        "EntryPoint" => list(String.t()()),
+        "EntryPoint" => list(String.t()),
         "Cpu" => integer(),
         "Memory" => integer()
       }
@@ -9064,18 +9064,18 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_launch_template_data_instance_requirements_details() :: %{
         "AcceleratorCount" => aws_ec2_launch_template_data_instance_requirements_accelerator_count_details(),
-        "AcceleratorManufacturers" => list(String.t()()),
-        "AcceleratorNames" => list(String.t()()),
+        "AcceleratorManufacturers" => list(String.t()),
+        "AcceleratorNames" => list(String.t()),
         "AcceleratorTotalMemoryMiB" => aws_ec2_launch_template_data_instance_requirements_accelerator_total_memory_mi_b_details(),
-        "AcceleratorTypes" => list(String.t()()),
+        "AcceleratorTypes" => list(String.t()),
         "BareMetal" => String.t(),
         "BaselineEbsBandwidthMbps" => aws_ec2_launch_template_data_instance_requirements_baseline_ebs_bandwidth_mbps_details(),
         "BurstablePerformance" => String.t(),
-        "CpuManufacturers" => list(String.t()()),
-        "ExcludedInstanceTypes" => list(String.t()()),
-        "InstanceGenerations" => list(String.t()()),
+        "CpuManufacturers" => list(String.t()),
+        "ExcludedInstanceTypes" => list(String.t()),
+        "InstanceGenerations" => list(String.t()),
         "LocalStorage" => String.t(),
-        "LocalStorageTypes" => list(String.t()()),
+        "LocalStorageTypes" => list(String.t()),
         "MemoryGiBPerVCpu" => aws_ec2_launch_template_data_instance_requirements_memory_gi_b_per_v_cpu_details(),
         "MemoryMiB" => aws_ec2_launch_template_data_instance_requirements_memory_mi_b_details(),
         "NetworkInterfaceCount" => aws_ec2_launch_template_data_instance_requirements_network_interface_count_details(),
@@ -9107,7 +9107,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_members_response() :: %{
-        "Members" => list(member()()),
+        "Members" => list(member()),
         "NextToken" => String.t()
       }
 
@@ -9134,11 +9134,11 @@ defmodule AWS.SecurityHub do
       aws_ec2_security_group_ip_permission() :: %{
         "FromPort" => integer(),
         "IpProtocol" => String.t(),
-        "IpRanges" => list(aws_ec2_security_group_ip_range()()),
-        "Ipv6Ranges" => list(aws_ec2_security_group_ipv6_range()()),
-        "PrefixListIds" => list(aws_ec2_security_group_prefix_list_id()()),
+        "IpRanges" => list(aws_ec2_security_group_ip_range()),
+        "Ipv6Ranges" => list(aws_ec2_security_group_ipv6_range()),
+        "PrefixListIds" => list(aws_ec2_security_group_prefix_list_id()),
         "ToPort" => integer(),
-        "UserIdGroupPairs" => list(aws_ec2_security_group_user_id_group_pair()())
+        "UserIdGroupPairs" => list(aws_ec2_security_group_user_id_group_pair())
       }
 
   """
@@ -9149,7 +9149,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_step_function_state_machine_logging_configuration_details() :: %{
-        "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()()),
+        "Destinations" => list(aws_step_function_state_machine_logging_configuration_destinations_details()),
         "IncludeExecutionData" => boolean(),
         "Level" => String.t()
       }
@@ -9166,11 +9166,11 @@ defmodule AWS.SecurityHub do
         "CustomerGatewayConfiguration" => String.t(),
         "CustomerGatewayId" => String.t(),
         "Options" => aws_ec2_vpn_connection_options_details(),
-        "Routes" => list(aws_ec2_vpn_connection_routes_details()()),
+        "Routes" => list(aws_ec2_vpn_connection_routes_details()),
         "State" => String.t(),
         "TransitGatewayId" => String.t(),
         "Type" => String.t(),
-        "VgwTelemetry" => list(aws_ec2_vpn_connection_vgw_telemetry_details()()),
+        "VgwTelemetry" => list(aws_ec2_vpn_connection_vgw_telemetry_details()),
         "VpnConnectionId" => String.t(),
         "VpnGatewayId" => String.t()
       }
@@ -9183,7 +9183,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_resources_statistics_v2_response() :: %{
-        "GroupByResults" => list(group_by_result()())
+        "GroupByResults" => list(group_by_result())
       }
 
   """
@@ -9234,7 +9234,7 @@ defmodule AWS.SecurityHub do
       get_enabled_standards_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("StandardsSubscriptionArns") => list(String.t()())
+        optional("StandardsSubscriptionArns") => list(String.t())
       }
 
   """
@@ -9250,7 +9250,7 @@ defmodule AWS.SecurityHub do
         "NextToken" => String.t(),
         "UpdateSource" => finding_history_update_source(),
         "UpdateTime" => non_neg_integer(),
-        "Updates" => list(finding_history_update()())
+        "Updates" => list(finding_history_update())
       }
 
   """
@@ -9296,12 +9296,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_code_build_project_details() :: %{
-        "Artifacts" => list(aws_code_build_project_artifacts_details()()),
+        "Artifacts" => list(aws_code_build_project_artifacts_details()),
         "EncryptionKey" => String.t(),
         "Environment" => aws_code_build_project_environment(),
         "LogsConfig" => aws_code_build_project_logs_config_details(),
         "Name" => String.t(),
-        "SecondaryArtifacts" => list(aws_code_build_project_artifacts_details()()),
+        "SecondaryArtifacts" => list(aws_code_build_project_artifacts_details()),
         "ServiceRole" => String.t(),
         "Source" => aws_code_build_project_source(),
         "VpcConfig" => aws_code_build_project_vpc_config()
@@ -9447,7 +9447,7 @@ defmodule AWS.SecurityHub do
 
       describe_products_v2_response() :: %{
         "NextToken" => String.t(),
-        "ProductsV2" => list(product_v2()())
+        "ProductsV2" => list(product_v2())
       }
 
   """
@@ -9463,7 +9463,7 @@ defmodule AWS.SecurityHub do
         "Description" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "Rules" => list(aws_wafv2_rules_details()()),
+        "Rules" => list(aws_wafv2_rules_details()),
         "Scope" => String.t(),
         "VisibilityConfig" => aws_wafv2_visibility_config_details()
       }
@@ -9509,7 +9509,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       stateless_custom_publish_metric_action() :: %{
-        "Dimensions" => list(stateless_custom_publish_metric_action_dimension()())
+        "Dimensions" => list(stateless_custom_publish_metric_action_dimension())
       }
 
   """
@@ -9520,7 +9520,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_origins() :: %{
-        "Items" => list(aws_cloud_front_distribution_origin_item()())
+        "Items" => list(aws_cloud_front_distribution_origin_item())
       }
 
   """
@@ -9591,7 +9591,7 @@ defmodule AWS.SecurityHub do
 
       aws_s3_bucket_notification_configuration_detail() :: %{
         "Destination" => String.t(),
-        "Events" => list(String.t()()),
+        "Events" => list(String.t()),
         "Filter" => aws_s3_bucket_notification_configuration_filter(),
         "Type" => String.t()
       }
@@ -9655,7 +9655,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_api_gateway_endpoint_configuration() :: %{
-        "Types" => list(String.t()())
+        "Types" => list(String.t())
       }
 
   """
@@ -9803,7 +9803,7 @@ defmodule AWS.SecurityHub do
         "FirewallPolicyArn" => String.t(),
         "FirewallPolicyChangeProtection" => boolean(),
         "SubnetChangeProtection" => boolean(),
-        "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()()),
+        "SubnetMappings" => list(aws_network_firewall_firewall_subnet_mappings_details()),
         "VpcId" => String.t()
       }
 
@@ -9842,7 +9842,7 @@ defmodule AWS.SecurityHub do
 
       list_standards_control_associations_response() :: %{
         "NextToken" => String.t(),
-        "StandardsControlAssociationSummaries" => list(standards_control_association_summary()())
+        "StandardsControlAssociationSummaries" => list(standards_control_association_summary())
       }
 
   """
@@ -9853,12 +9853,12 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_source_stateless_rule_match_attributes() :: %{
-        "DestinationPorts" => list(rule_group_source_stateless_rule_match_attributes_destination_ports()()),
-        "Destinations" => list(rule_group_source_stateless_rule_match_attributes_destinations()()),
-        "Protocols" => list(integer()()),
-        "SourcePorts" => list(rule_group_source_stateless_rule_match_attributes_source_ports()()),
-        "Sources" => list(rule_group_source_stateless_rule_match_attributes_sources()()),
-        "TcpFlags" => list(rule_group_source_stateless_rule_match_attributes_tcp_flags()())
+        "DestinationPorts" => list(rule_group_source_stateless_rule_match_attributes_destination_ports()),
+        "Destinations" => list(rule_group_source_stateless_rule_match_attributes_destinations()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(rule_group_source_stateless_rule_match_attributes_source_ports()),
+        "Sources" => list(rule_group_source_stateless_rule_match_attributes_sources()),
+        "TcpFlags" => list(rule_group_source_stateless_rule_match_attributes_tcp_flags())
       }
 
   """
@@ -9966,9 +9966,9 @@ defmodule AWS.SecurityHub do
       aws_redshift_cluster_details() :: %{
         "DBName" => String.t(),
         "AutomatedSnapshotRetentionPeriod" => integer(),
-        "VpcSecurityGroups" => list(aws_redshift_cluster_vpc_security_group()()),
+        "VpcSecurityGroups" => list(aws_redshift_cluster_vpc_security_group()),
         "Encrypted" => boolean(),
-        "PendingActions" => list(String.t()()),
+        "PendingActions" => list(String.t()),
         "EnhancedVpcRouting" => boolean(),
         "PreferredMaintenanceWindow" => String.t(),
         "ClusterAvailabilityStatus" => String.t(),
@@ -9977,7 +9977,7 @@ defmodule AWS.SecurityHub do
         "PendingModifiedValues" => aws_redshift_cluster_pending_modified_values(),
         "KmsKeyId" => String.t(),
         "VpcId" => String.t(),
-        "ClusterSecurityGroups" => list(aws_redshift_cluster_cluster_security_group()()),
+        "ClusterSecurityGroups" => list(aws_redshift_cluster_cluster_security_group()),
         "AvailabilityZone" => String.t(),
         "ManualSnapshotRetentionPeriod" => integer(),
         "SnapshotScheduleState" => String.t(),
@@ -9990,22 +9990,22 @@ defmodule AWS.SecurityHub do
         "HsmStatus" => aws_redshift_cluster_hsm_status(),
         "MaintenanceTrackName" => String.t(),
         "ClusterSubnetGroupName" => String.t(),
-        "ClusterNodes" => list(aws_redshift_cluster_cluster_node()()),
+        "ClusterNodes" => list(aws_redshift_cluster_cluster_node()),
         "ClusterStatus" => String.t(),
         "MasterUsername" => String.t(),
         "ClusterVersion" => String.t(),
         "ClusterIdentifier" => String.t(),
         "ClusterPublicKey" => String.t(),
         "NumberOfNodes" => integer(),
-        "IamRoles" => list(aws_redshift_cluster_iam_role()()),
+        "IamRoles" => list(aws_redshift_cluster_iam_role()),
         "NextMaintenanceWindowStartTime" => String.t(),
         "PubliclyAccessible" => boolean(),
         "ElasticResizeNumberOfNodeOptions" => String.t(),
         "Endpoint" => aws_redshift_cluster_endpoint(),
         "SnapshotScheduleIdentifier" => String.t(),
         "ElasticIpStatus" => aws_redshift_cluster_elastic_ip_status(),
-        "DeferredMaintenanceWindows" => list(aws_redshift_cluster_deferred_maintenance_window()()),
-        "ClusterParameterGroups" => list(aws_redshift_cluster_cluster_parameter_group()()),
+        "DeferredMaintenanceWindows" => list(aws_redshift_cluster_deferred_maintenance_window()),
+        "ClusterParameterGroups" => list(aws_redshift_cluster_cluster_parameter_group()),
         "ExpectedNextSnapshotScheduleTime" => String.t(),
         "LoggingStatus" => aws_redshift_cluster_logging_status()
       }
@@ -10029,7 +10029,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_server_side_encryption_configuration() :: %{
-        "Rules" => list(aws_s3_bucket_server_side_encryption_rule()())
+        "Rules" => list(aws_s3_bucket_server_side_encryption_rule())
       }
 
   """
@@ -10054,7 +10054,7 @@ defmodule AWS.SecurityHub do
         optional("Filters") => ocsf_finding_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SortCriteria") => list(sort_criterion()())
+        optional("SortCriteria") => list(sort_criterion())
       }
 
   """
@@ -10174,7 +10174,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_cloud_front_distribution_cache_behaviors() :: %{
-        "Items" => list(aws_cloud_front_distribution_cache_behavior()())
+        "Items" => list(aws_cloud_front_distribution_cache_behavior())
       }
 
   """
@@ -10198,7 +10198,7 @@ defmodule AWS.SecurityHub do
 
       security_control_parameter() :: %{
         "Name" => String.t(),
-        "Value" => list(String.t()())
+        "Value" => list(String.t())
       }
 
   """
@@ -10284,7 +10284,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       enum_configuration_options() :: %{
-        "AllowedValues" => list(String.t()()),
+        "AllowedValues" => list(String.t()),
         "DefaultValue" => String.t()
       }
 
@@ -10311,7 +10311,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       custom_data_identifiers_result() :: %{
-        "Detections" => list(custom_data_identifiers_detections()()),
+        "Detections" => list(custom_data_identifiers_detections()),
         "TotalCount" => float()
       }
 
@@ -10372,7 +10372,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_finding_statistics_v2_response() :: %{
-        "GroupByResults" => list(group_by_result()())
+        "GroupByResults" => list(group_by_result())
       }
 
   """
@@ -10422,7 +10422,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       get_findings_v2_response() :: %{
-        "Findings" => list(any()()),
+        "Findings" => list(any()),
         "NextToken" => String.t()
       }
 
@@ -10540,7 +10540,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_finding_aggregators_response() :: %{
-        "FindingAggregators" => list(finding_aggregator()()),
+        "FindingAggregators" => list(finding_aggregator()),
         "NextToken" => String.t()
       }
 
@@ -10573,7 +10573,7 @@ defmodule AWS.SecurityHub do
         "PermissionsBoundaryUsageCount" => integer(),
         "PolicyId" => String.t(),
         "PolicyName" => String.t(),
-        "PolicyVersionList" => list(aws_iam_policy_version()()),
+        "PolicyVersionList" => list(aws_iam_policy_version()),
         "UpdateDate" => String.t()
       }
 
@@ -10585,7 +10585,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_security_controls_request() :: %{
-        required("SecurityControlIds") => list(String.t()())
+        required("SecurityControlIds") => list(String.t())
       }
 
   """
@@ -10765,7 +10765,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       ocsf_finding_filters() :: %{
-        "CompositeFilters" => list(composite_filter()()),
+        "CompositeFilters" => list(composite_filter()),
         "CompositeOperator" => list(any())
       }
 
@@ -10813,7 +10813,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       describe_action_targets_request() :: %{
-        optional("ActionTargetArns") => list(String.t()()),
+        optional("ActionTargetArns") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -10844,15 +10844,15 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_launch_template_data_details() :: %{
-        "BlockDeviceMappingSet" => list(aws_ec2_launch_template_data_block_device_mapping_set_details()()),
+        "BlockDeviceMappingSet" => list(aws_ec2_launch_template_data_block_device_mapping_set_details()),
         "CapacityReservationSpecification" => aws_ec2_launch_template_data_capacity_reservation_specification_details(),
         "CpuOptions" => aws_ec2_launch_template_data_cpu_options_details(),
         "CreditSpecification" => aws_ec2_launch_template_data_credit_specification_details(),
         "DisableApiStop" => boolean(),
         "DisableApiTermination" => boolean(),
         "EbsOptimized" => boolean(),
-        "ElasticGpuSpecificationSet" => list(aws_ec2_launch_template_data_elastic_gpu_specification_set_details()()),
-        "ElasticInferenceAcceleratorSet" => list(aws_ec2_launch_template_data_elastic_inference_accelerator_set_details()()),
+        "ElasticGpuSpecificationSet" => list(aws_ec2_launch_template_data_elastic_gpu_specification_set_details()),
+        "ElasticInferenceAcceleratorSet" => list(aws_ec2_launch_template_data_elastic_inference_accelerator_set_details()),
         "EnclaveOptions" => aws_ec2_launch_template_data_enclave_options_details(),
         "HibernationOptions" => aws_ec2_launch_template_data_hibernation_options_details(),
         "IamInstanceProfile" => aws_ec2_launch_template_data_iam_instance_profile_details(),
@@ -10863,16 +10863,16 @@ defmodule AWS.SecurityHub do
         "InstanceType" => String.t(),
         "KernelId" => String.t(),
         "KeyName" => String.t(),
-        "LicenseSet" => list(aws_ec2_launch_template_data_license_set_details()()),
+        "LicenseSet" => list(aws_ec2_launch_template_data_license_set_details()),
         "MaintenanceOptions" => aws_ec2_launch_template_data_maintenance_options_details(),
         "MetadataOptions" => aws_ec2_launch_template_data_metadata_options_details(),
         "Monitoring" => aws_ec2_launch_template_data_monitoring_details(),
-        "NetworkInterfaceSet" => list(aws_ec2_launch_template_data_network_interface_set_details()()),
+        "NetworkInterfaceSet" => list(aws_ec2_launch_template_data_network_interface_set_details()),
         "Placement" => aws_ec2_launch_template_data_placement_details(),
         "PrivateDnsNameOptions" => aws_ec2_launch_template_data_private_dns_name_options_details(),
         "RamDiskId" => String.t(),
-        "SecurityGroupIdSet" => list(String.t()()),
-        "SecurityGroupSet" => list(String.t()()),
+        "SecurityGroupIdSet" => list(String.t()),
+        "SecurityGroupSet" => list(String.t()),
         "UserData" => String.t()
       }
 
@@ -10993,7 +10993,7 @@ defmodule AWS.SecurityHub do
       get_resources_statistics_v2_request() :: %{
         optional("MaxStatisticResults") => integer(),
         optional("SortOrder") => list(any()),
-        required("GroupByRules") => list(resource_group_by_rule()())
+        required("GroupByRules") => list(resource_group_by_rule())
       }
 
   """
@@ -11051,7 +11051,7 @@ defmodule AWS.SecurityHub do
       aws_ecs_task_definition_container_definitions_linux_parameters_devices_details() :: %{
         "ContainerPath" => String.t(),
         "HostPath" => String.t(),
-        "Permissions" => list(String.t()())
+        "Permissions" => list(String.t())
       }
 
   """
@@ -11131,7 +11131,7 @@ defmodule AWS.SecurityHub do
       create_aggregator_v2_response() :: %{
         "AggregationRegion" => String.t(),
         "AggregatorV2Arn" => String.t(),
-        "LinkedRegions" => list(String.t()()),
+        "LinkedRegions" => list(String.t()),
         "RegionLinkingMode" => String.t()
       }
 
@@ -11216,7 +11216,7 @@ defmodule AWS.SecurityHub do
 
       resource_result() :: %{
         "AccountId" => String.t(),
-        "FindingsSummary" => list(resource_findings_summary()()),
+        "FindingsSummary" => list(resource_findings_summary()),
         "Region" => String.t(),
         "ResourceArn" => String.t(),
         "ResourceCategory" => list(any()),
@@ -11225,7 +11225,7 @@ defmodule AWS.SecurityHub do
         "ResourceDetailCaptureTimeDt" => String.t(),
         "ResourceId" => String.t(),
         "ResourceName" => String.t(),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => String.t()
       }
 
@@ -11264,7 +11264,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_s3_bucket_bucket_lifecycle_configuration_details() :: %{
-        "Rules" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_details()())
+        "Rules" => list(aws_s3_bucket_bucket_lifecycle_configuration_rules_details())
       }
 
   """
@@ -11354,7 +11354,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       cvss() :: %{
-        "Adjustments" => list(adjustment()()),
+        "Adjustments" => list(adjustment()),
         "BaseScore" => float(),
         "BaseVector" => String.t(),
         "Source" => String.t(),
@@ -11386,24 +11386,24 @@ defmodule AWS.SecurityHub do
         "Region" => String.t(),
         "GeneratorDetails" => generator_details(),
         "CompanyName" => String.t(),
-        "Types" => list(String.t()()),
+        "Types" => list(String.t()),
         "Compliance" => compliance(),
-        "Vulnerabilities" => list(vulnerability()()),
+        "Vulnerabilities" => list(vulnerability()),
         "UserDefinedFields" => map(),
         "Network" => network(),
         "ProcessedAt" => String.t(),
-        "Malware" => list(malware()()),
+        "Malware" => list(malware()),
         "Severity" => severity(),
-        "NetworkPath" => list(network_path_component()()),
+        "NetworkPath" => list(network_path_component()),
         "WorkflowState" => list(any()),
         "ProductName" => String.t(),
         "Confidence" => integer(),
         "CreatedAt" => String.t(),
         "Remediation" => remediation(),
-        "ThreatIntelIndicators" => list(threat_intel_indicator()()),
+        "ThreatIntelIndicators" => list(threat_intel_indicator()),
         "UpdatedAt" => String.t(),
         "AwsAccountId" => String.t(),
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "Id" => String.t(),
         "Detection" => detection(),
         "ProductArn" => String.t(),
@@ -11417,14 +11417,14 @@ defmodule AWS.SecurityHub do
         "Note" => note(),
         "RecordState" => list(any()),
         "Title" => String.t(),
-        "Threats" => list(threat()()),
+        "Threats" => list(threat()),
         "Sample" => boolean(),
         "Criticality" => integer(),
         "LastObservedAt" => String.t(),
         "Action" => action(),
         "PatchSummary" => patch_summary(),
         "Description" => String.t(),
-        "RelatedFindings" => list(related_finding()()),
+        "RelatedFindings" => list(related_finding()),
         "ProductFields" => map(),
         "VerificationState" => list(any()),
         "Process" => process_details()
@@ -11492,14 +11492,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_auto_scaling_auto_scaling_group_details() :: %{
-        "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()()),
+        "AvailabilityZones" => list(aws_auto_scaling_auto_scaling_group_availability_zones_list_details()),
         "CapacityRebalance" => boolean(),
         "CreatedTime" => String.t(),
         "HealthCheckGracePeriod" => integer(),
         "HealthCheckType" => String.t(),
         "LaunchConfigurationName" => String.t(),
         "LaunchTemplate" => aws_auto_scaling_auto_scaling_group_launch_template_launch_template_specification(),
-        "LoadBalancerNames" => list(String.t()()),
+        "LoadBalancerNames" => list(String.t()),
         "MixedInstancesPolicy" => aws_auto_scaling_auto_scaling_group_mixed_instances_policy_details()
       }
 
@@ -11589,7 +11589,7 @@ defmodule AWS.SecurityHub do
 
       create_aggregator_v2_request() :: %{
         optional("ClientToken") => String.t(),
-        optional("LinkedRegions") => list(String.t()()),
+        optional("LinkedRegions") => list(String.t()),
         optional("Tags") => map(),
         required("RegionLinkingMode") => String.t()
       }
@@ -11786,7 +11786,7 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_task_definition_proxy_configuration_details() :: %{
         "ContainerName" => String.t(),
-        "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()()),
+        "ProxyConfigurationProperties" => list(aws_ecs_task_definition_proxy_configuration_proxy_configuration_properties_details()),
         "Type" => String.t()
       }
 
@@ -11812,8 +11812,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       network_path_component_details() :: %{
-        "Address" => list(String.t()()),
-        "PortRanges" => list(port_range()())
+        "Address" => list(String.t()),
+        "PortRanges" => list(port_range())
       }
 
   """
@@ -11851,7 +11851,7 @@ defmodule AWS.SecurityHub do
 
       aws_elb_load_balancer_backend_server_description() :: %{
         "InstancePort" => integer(),
-        "PolicyNames" => list(String.t()())
+        "PolicyNames" => list(String.t())
       }
 
   """
@@ -11863,12 +11863,12 @@ defmodule AWS.SecurityHub do
 
       aws_ecs_cluster_details() :: %{
         "ActiveServicesCount" => integer(),
-        "CapacityProviders" => list(String.t()()),
+        "CapacityProviders" => list(String.t()),
         "ClusterArn" => String.t(),
         "ClusterName" => String.t(),
-        "ClusterSettings" => list(aws_ecs_cluster_cluster_settings_details()()),
+        "ClusterSettings" => list(aws_ecs_cluster_cluster_settings_details()),
         "Configuration" => aws_ecs_cluster_configuration_details(),
-        "DefaultCapacityProviderStrategy" => list(aws_ecs_cluster_default_capacity_provider_strategy_details()()),
+        "DefaultCapacityProviderStrategy" => list(aws_ecs_cluster_default_capacity_provider_strategy_details()),
         "RegisteredContainerInstancesCount" => integer(),
         "RunningTasksCount" => integer(),
         "Status" => String.t()
@@ -11891,21 +11891,21 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ecs_task_definition_details() :: %{
-        "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()()),
+        "ContainerDefinitions" => list(aws_ecs_task_definition_container_definitions_details()),
         "Cpu" => String.t(),
         "ExecutionRoleArn" => String.t(),
         "Family" => String.t(),
-        "InferenceAccelerators" => list(aws_ecs_task_definition_inference_accelerators_details()()),
+        "InferenceAccelerators" => list(aws_ecs_task_definition_inference_accelerators_details()),
         "IpcMode" => String.t(),
         "Memory" => String.t(),
         "NetworkMode" => String.t(),
         "PidMode" => String.t(),
-        "PlacementConstraints" => list(aws_ecs_task_definition_placement_constraints_details()()),
+        "PlacementConstraints" => list(aws_ecs_task_definition_placement_constraints_details()),
         "ProxyConfiguration" => aws_ecs_task_definition_proxy_configuration_details(),
-        "RequiresCompatibilities" => list(String.t()()),
+        "RequiresCompatibilities" => list(String.t()),
         "Status" => String.t(),
         "TaskRoleArn" => String.t(),
-        "Volumes" => list(aws_ecs_task_definition_volumes_details()())
+        "Volumes" => list(aws_ecs_task_definition_volumes_details())
       }
 
   """
@@ -11959,7 +11959,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       security_hub_policy() :: %{
-        "EnabledStandardIdentifiers" => list(String.t()()),
+        "EnabledStandardIdentifiers" => list(String.t()),
         "SecurityControlsConfiguration" => security_controls_configuration(),
         "ServiceEnabled" => boolean()
       }
@@ -12056,7 +12056,7 @@ defmodule AWS.SecurityHub do
         "Architecture" => String.t(),
         "ImageDigest" => String.t(),
         "ImagePublishedAt" => String.t(),
-        "ImageTags" => list(String.t()()),
+        "ImageTags" => list(String.t()),
         "RegistryId" => String.t(),
         "RepositoryName" => String.t()
       }
@@ -12070,12 +12070,12 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_network_interface_details() :: %{
         "Attachment" => aws_ec2_network_interface_attachment(),
-        "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()()),
+        "IpV6Addresses" => list(aws_ec2_network_interface_ip_v6_address_detail()),
         "NetworkInterfaceId" => String.t(),
-        "PrivateIpAddresses" => list(aws_ec2_network_interface_private_ip_address_detail()()),
+        "PrivateIpAddresses" => list(aws_ec2_network_interface_private_ip_address_detail()),
         "PublicDnsName" => String.t(),
         "PublicIp" => String.t(),
-        "SecurityGroups" => list(aws_ec2_network_interface_security_group()()),
+        "SecurityGroups" => list(aws_ec2_network_interface_security_group()),
         "SourceDestCheck" => boolean()
       }
 
@@ -12154,7 +12154,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_wafv2_custom_request_handling_details() :: %{
-        "InsertHeaders" => list(aws_wafv2_custom_http_header()())
+        "InsertHeaders" => list(aws_wafv2_custom_http_header())
       }
 
   """
@@ -12178,7 +12178,7 @@ defmodule AWS.SecurityHub do
       aws_waf_rule_details() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
-        "PredicateList" => list(aws_waf_rule_predicate_list_details()()),
+        "PredicateList" => list(aws_waf_rule_predicate_list_details()),
         "RuleId" => String.t()
       }
 
@@ -12202,7 +12202,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_organization_admin_accounts_response() :: %{
-        "AdminAccounts" => list(admin_account()()),
+        "AdminAccounts" => list(admin_account()),
         "Feature" => list(any()),
         "NextToken" => String.t()
       }
@@ -12216,7 +12216,7 @@ defmodule AWS.SecurityHub do
 
       product_v2() :: %{
         "ActivationUrl" => String.t(),
-        "Categories" => list(String.t()()),
+        "Categories" => list(String.t()),
         "CompanyName" => String.t(),
         "Description" => String.t(),
         "IntegrationV2Types" => list(list(any())()),
@@ -12241,7 +12241,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_disable_standards_request() :: %{
-        required("StandardsSubscriptionArns") => list(String.t()())
+        required("StandardsSubscriptionArns") => list(String.t())
       }
 
   """
@@ -12274,7 +12274,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_waf_regional_rate_based_rule_details() :: %{
-        "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()()),
+        "MatchPredicates" => list(aws_waf_regional_rate_based_rule_match_predicate()),
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RateKey" => String.t(),
@@ -12293,7 +12293,7 @@ defmodule AWS.SecurityHub do
         "ErrorDocument" => String.t(),
         "IndexDocumentSuffix" => String.t(),
         "RedirectAllRequestsTo" => aws_s3_bucket_website_configuration_redirect_to(),
-        "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule()())
+        "RoutingRules" => list(aws_s3_bucket_website_configuration_routing_rule())
       }
 
   """
@@ -12304,9 +12304,9 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_vpc_details() :: %{
-        "CidrBlockAssociationSet" => list(cidr_block_association()()),
+        "CidrBlockAssociationSet" => list(cidr_block_association()),
         "DhcpOptionsId" => String.t(),
-        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()()),
+        "Ipv6CidrBlockAssociationSet" => list(ipv6_cidr_block_association()),
         "State" => String.t()
       }
 
@@ -12318,8 +12318,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       enum_list_configuration_options() :: %{
-        "AllowedValues" => list(String.t()()),
-        "DefaultValue" => list(String.t()()),
+        "AllowedValues" => list(String.t()),
+        "DefaultValue" => list(String.t()),
         "MaxItems" => integer()
       }
 
@@ -12447,7 +12447,7 @@ defmodule AWS.SecurityHub do
       get_aggregator_v2_response() :: %{
         "AggregationRegion" => String.t(),
         "AggregatorV2Arn" => String.t(),
-        "LinkedRegions" => list(String.t()()),
+        "LinkedRegions" => list(String.t()),
         "RegionLinkingMode" => String.t()
       }
 
@@ -12459,7 +12459,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_lambda_function_details() :: %{
-        "Architectures" => list(String.t()()),
+        "Architectures" => list(String.t()),
         "Code" => aws_lambda_function_code(),
         "CodeSha256" => String.t(),
         "DeadLetterConfig" => aws_lambda_function_dead_letter_config(),
@@ -12468,7 +12468,7 @@ defmodule AWS.SecurityHub do
         "Handler" => String.t(),
         "KmsKeyArn" => String.t(),
         "LastModified" => String.t(),
-        "Layers" => list(aws_lambda_function_layer()()),
+        "Layers" => list(aws_lambda_function_layer()),
         "MasterArn" => String.t(),
         "MemorySize" => integer(),
         "PackageType" => String.t(),
@@ -12504,7 +12504,7 @@ defmodule AWS.SecurityHub do
         "Description" => String.t(),
         "EndpointId" => String.t(),
         "EndpointUrl" => String.t(),
-        "EventBuses" => list(aws_events_endpoint_event_buses_details()()),
+        "EventBuses" => list(aws_events_endpoint_event_buses_details()),
         "Name" => String.t(),
         "ReplicationConfig" => aws_events_endpoint_replication_config_details(),
         "RoleArn" => String.t(),
@@ -12570,7 +12570,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_configuration_policy_associations_request() :: %{
-        required("ConfigurationPolicyAssociationIdentifiers") => list(configuration_policy_association()())
+        required("ConfigurationPolicyAssociationIdentifiers") => list(configuration_policy_association())
       }
 
   """
@@ -12581,8 +12581,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_get_standards_control_associations_response() :: %{
-        "StandardsControlAssociationDetails" => list(standards_control_association_detail()()),
-        "UnprocessedAssociations" => list(unprocessed_standards_control_association()())
+        "StandardsControlAssociationDetails" => list(standards_control_association_detail()),
+        "UnprocessedAssociations" => list(unprocessed_standards_control_association())
       }
 
   """
@@ -12605,8 +12605,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       batch_delete_automation_rules_response() :: %{
-        "ProcessedAutomationRules" => list(String.t()()),
-        "UnprocessedAutomationRules" => list(unprocessed_automation_rule()())
+        "ProcessedAutomationRules" => list(String.t()),
+        "UnprocessedAutomationRules" => list(unprocessed_automation_rule())
       }
 
   """
@@ -12710,19 +12710,19 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_dynamo_db_table_details() :: %{
-        "AttributeDefinitions" => list(aws_dynamo_db_table_attribute_definition()()),
+        "AttributeDefinitions" => list(aws_dynamo_db_table_attribute_definition()),
         "BillingModeSummary" => aws_dynamo_db_table_billing_mode_summary(),
         "CreationDateTime" => String.t(),
         "DeletionProtectionEnabled" => boolean(),
-        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_global_secondary_index()()),
+        "GlobalSecondaryIndexes" => list(aws_dynamo_db_table_global_secondary_index()),
         "GlobalTableVersion" => String.t(),
         "ItemCount" => integer(),
-        "KeySchema" => list(aws_dynamo_db_table_key_schema()()),
+        "KeySchema" => list(aws_dynamo_db_table_key_schema()),
         "LatestStreamArn" => String.t(),
         "LatestStreamLabel" => String.t(),
-        "LocalSecondaryIndexes" => list(aws_dynamo_db_table_local_secondary_index()()),
+        "LocalSecondaryIndexes" => list(aws_dynamo_db_table_local_secondary_index()),
         "ProvisionedThroughput" => aws_dynamo_db_table_provisioned_throughput(),
-        "Replicas" => list(aws_dynamo_db_table_replica()()),
+        "Replicas" => list(aws_dynamo_db_table_replica()),
         "RestoreSummary" => aws_dynamo_db_table_restore_summary(),
         "SseDescription" => aws_dynamo_db_table_sse_description(),
         "StreamSpecification" => aws_dynamo_db_table_stream_specification(),
@@ -12765,7 +12765,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       create_members_response() :: %{
-        "UnprocessedAccounts" => list(result()())
+        "UnprocessedAccounts" => list(result())
       }
 
   """
@@ -12776,7 +12776,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_automation_rules_response() :: %{
-        "AutomationRulesMetadata" => list(automation_rules_metadata()()),
+        "AutomationRulesMetadata" => list(automation_rules_metadata()),
         "NextToken" => String.t()
       }
 
@@ -12789,7 +12789,7 @@ defmodule AWS.SecurityHub do
 
       aws_code_build_project_environment() :: %{
         "Certificate" => String.t(),
-        "EnvironmentVariables" => list(aws_code_build_project_environment_environment_variables_details()()),
+        "EnvironmentVariables" => list(aws_code_build_project_environment_environment_variables_details()),
         "ImagePullCredentialsType" => String.t(),
         "PrivilegedMode" => boolean(),
         "RegistryCredential" => aws_code_build_project_environment_registry_credential(),
@@ -12833,8 +12833,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       rule_group_source_stateless_rule_match_attributes_tcp_flags() :: %{
-        "Flags" => list(String.t()()),
-        "Masks" => list(String.t()())
+        "Flags" => list(String.t()),
+        "Masks" => list(String.t())
       }
 
   """
@@ -12859,7 +12859,7 @@ defmodule AWS.SecurityHub do
 
       aws_ec2_vpn_connection_options_details() :: %{
         "StaticRoutesOnly" => boolean(),
-        "TunnelOptions" => list(aws_ec2_vpn_connection_options_tunnel_options_details()())
+        "TunnelOptions" => list(aws_ec2_vpn_connection_options_tunnel_options_details())
       }
 
   """
@@ -12934,14 +12934,14 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_elbv2_load_balancer_details() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "CanonicalHostedZoneId" => String.t(),
         "CreatedTime" => String.t(),
         "DNSName" => String.t(),
         "IpAddressType" => String.t(),
-        "LoadBalancerAttributes" => list(aws_elbv2_load_balancer_attribute()()),
+        "LoadBalancerAttributes" => list(aws_elbv2_load_balancer_attribute()),
         "Scheme" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "State" => load_balancer_state(),
         "Type" => String.t(),
         "VpcId" => String.t()
@@ -12966,10 +12966,10 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_ec2_route_table_details() :: %{
-        "AssociationSet" => list(association_set_details()()),
+        "AssociationSet" => list(association_set_details()),
         "OwnerId" => String.t(),
-        "PropagatingVgwSet" => list(propagating_vgw_set_details()()),
-        "RouteSet" => list(route_set_details()()),
+        "PropagatingVgwSet" => list(propagating_vgw_set_details()),
+        "RouteSet" => list(route_set_details()),
         "RouteTableId" => String.t(),
         "VpcId" => String.t()
       }
@@ -13005,21 +13005,21 @@ defmodule AWS.SecurityHub do
 
       aws_cloud_watch_alarm_details() :: %{
         "ActionsEnabled" => boolean(),
-        "AlarmActions" => list(String.t()()),
+        "AlarmActions" => list(String.t()),
         "AlarmArn" => String.t(),
         "AlarmConfigurationUpdatedTimestamp" => String.t(),
         "AlarmDescription" => String.t(),
         "AlarmName" => String.t(),
         "ComparisonOperator" => String.t(),
         "DatapointsToAlarm" => integer(),
-        "Dimensions" => list(aws_cloud_watch_alarm_dimensions_details()()),
+        "Dimensions" => list(aws_cloud_watch_alarm_dimensions_details()),
         "EvaluateLowSampleCountPercentile" => String.t(),
         "EvaluationPeriods" => integer(),
         "ExtendedStatistic" => String.t(),
-        "InsufficientDataActions" => list(String.t()()),
+        "InsufficientDataActions" => list(String.t()),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
-        "OkActions" => list(String.t()()),
+        "OkActions" => list(String.t()),
         "Period" => integer(),
         "Statistic" => String.t(),
         "Threshold" => float(),
@@ -13127,7 +13127,7 @@ defmodule AWS.SecurityHub do
         "MultiAZ" => boolean(),
         "PendingCloudWatchLogsExports" => aws_rds_pending_cloud_watch_logs_exports(),
         "Port" => integer(),
-        "ProcessorFeatures" => list(aws_rds_db_processor_feature()()),
+        "ProcessorFeatures" => list(aws_rds_db_processor_feature()),
         "StorageType" => String.t()
       }
 
@@ -13152,8 +13152,8 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       aws_lambda_function_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -13230,10 +13230,10 @@ defmodule AWS.SecurityHub do
         "Logs" => aws_amazon_mq_broker_logs_details(),
         "MaintenanceWindowStartTime" => aws_amazon_mq_broker_maintenance_window_start_time_details(),
         "PubliclyAccessible" => boolean(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "StorageType" => String.t(),
-        "SubnetIds" => list(String.t()()),
-        "Users" => list(aws_amazon_mq_broker_users_details()())
+        "SubnetIds" => list(String.t()),
+        "Users" => list(aws_amazon_mq_broker_users_details())
       }
 
   """
@@ -13247,7 +13247,7 @@ defmodule AWS.SecurityHub do
         "FindingAggregationRegion" => String.t(),
         "FindingAggregatorArn" => String.t(),
         "RegionLinkingMode" => String.t(),
-        "Regions" => list(String.t()())
+        "Regions" => list(String.t())
       }
 
   """
@@ -13319,7 +13319,7 @@ defmodule AWS.SecurityHub do
   ## Example:
 
       list_invitations_response() :: %{
-        "Invitations" => list(invitation()()),
+        "Invitations" => list(invitation()),
         "NextToken" => String.t()
       }
 
@@ -13368,7 +13368,7 @@ defmodule AWS.SecurityHub do
         "Key" => String.t(),
         "Title" => String.t(),
         "Type" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """

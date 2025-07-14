@@ -91,7 +91,7 @@ defmodule AWS.CloudWatchEvents do
       
       create_event_bus_request() :: %{
         optional("EventSourceName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -104,7 +104,7 @@ defmodule AWS.CloudWatchEvents do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -126,7 +126,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_archives_response() :: %{
-        "Archives" => list(archive()()),
+        "Archives" => list(archive()),
         "NextToken" => String.t()
       }
       
@@ -140,7 +140,7 @@ defmodule AWS.CloudWatchEvents do
       put_partner_events_request_entry() :: %{
         "Detail" => String.t(),
         "DetailType" => String.t(),
-        "Resources" => list(String.t()()),
+        "Resources" => list(String.t()),
         "Source" => String.t(),
         "Time" => non_neg_integer()
       }
@@ -192,7 +192,7 @@ defmodule AWS.CloudWatchEvents do
       
       run_command_target() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -345,7 +345,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_event_sources_response() :: %{
-        "EventSources" => list(event_source()()),
+        "EventSources" => list(event_source()),
         "NextToken" => String.t()
       }
       
@@ -408,7 +408,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_connections_response() :: %{
-        "Connections" => list(connection()()),
+        "Connections" => list(connection()),
         "NextToken" => String.t()
       }
       
@@ -447,7 +447,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       run_command_parameters() :: %{
-        "RunCommandTargets" => list(run_command_target()())
+        "RunCommandTargets" => list(run_command_target())
       }
       
   """
@@ -459,7 +459,7 @@ defmodule AWS.CloudWatchEvents do
       
       http_parameters() :: %{
         "HeaderParameters" => map(),
-        "PathParameterValues" => list(String.t()()),
+        "PathParameterValues" => list(String.t()),
         "QueryStringParameters" => map()
       }
       
@@ -516,7 +516,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       put_events_response() :: %{
-        "Entries" => list(put_events_result_entry()()),
+        "Entries" => list(put_events_result_entry()),
         "FailedEntryCount" => integer()
       }
       
@@ -531,7 +531,7 @@ defmodule AWS.CloudWatchEvents do
         "Detail" => String.t(),
         "DetailType" => String.t(),
         "EventBusName" => String.t(),
-        "Resources" => list(String.t()()),
+        "Resources" => list(String.t()),
         "Source" => String.t(),
         "Time" => non_neg_integer(),
         "TraceHeader" => String.t()
@@ -546,7 +546,7 @@ defmodule AWS.CloudWatchEvents do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -958,9 +958,9 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       connection_http_parameters() :: %{
-        "BodyParameters" => list(connection_body_parameter()()),
-        "HeaderParameters" => list(connection_header_parameter()()),
-        "QueryStringParameters" => list(connection_query_string_parameter()())
+        "BodyParameters" => list(connection_body_parameter()),
+        "HeaderParameters" => list(connection_header_parameter()),
+        "QueryStringParameters" => list(connection_query_string_parameter())
       }
       
   """
@@ -999,7 +999,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       put_events_request() :: %{
-        required("Entries") => list(put_events_request_entry()())
+        required("Entries") => list(put_events_request_entry())
       }
       
   """
@@ -1040,7 +1040,7 @@ defmodule AWS.CloudWatchEvents do
       
       replay_destination() :: %{
         "Arn" => String.t(),
-        "FilterArns" => list(String.t()())
+        "FilterArns" => list(String.t())
       }
       
   """
@@ -1052,7 +1052,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_replays_response() :: %{
         "NextToken" => String.t(),
-        "Replays" => list(replay()())
+        "Replays" => list(replay())
       }
       
   """
@@ -1114,7 +1114,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1125,7 +1125,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       sage_maker_pipeline_parameters() :: %{
-        "PipelineParameterList" => list(sage_maker_pipeline_parameter()())
+        "PipelineParameterList" => list(sage_maker_pipeline_parameter())
       }
       
   """
@@ -1201,7 +1201,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_api_destinations_response() :: %{
-        "ApiDestinations" => list(api_destination()()),
+        "ApiDestinations" => list(api_destination()),
         "NextToken" => String.t()
       }
       
@@ -1237,7 +1237,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       put_partner_events_response() :: %{
-        "Entries" => list(put_partner_events_result_entry()()),
+        "Entries" => list(put_partner_events_result_entry()),
         "FailedEntryCount" => integer()
       }
       
@@ -1423,7 +1423,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_rules_response() :: %{
         "NextToken" => String.t(),
-        "Rules" => list(rule()())
+        "Rules" => list(rule())
       }
       
   """
@@ -1505,7 +1505,7 @@ defmodule AWS.CloudWatchEvents do
       remove_targets_request() :: %{
         optional("EventBusName") => String.t(),
         optional("Force") => boolean(),
-        required("Ids") => list(String.t()()),
+        required("Ids") => list(String.t()),
         required("Rule") => String.t()
       }
       
@@ -1598,7 +1598,7 @@ defmodule AWS.CloudWatchEvents do
         optional("RoleArn") => String.t(),
         optional("ScheduleExpression") => String.t(),
         optional("State") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -1611,7 +1611,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_partner_event_sources_response() :: %{
         "NextToken" => String.t(),
-        "PartnerEventSources" => list(partner_event_source()())
+        "PartnerEventSources" => list(partner_event_source())
       }
       
   """
@@ -1709,7 +1709,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       remove_targets_response() :: %{
-        "FailedEntries" => list(remove_targets_result_entry()()),
+        "FailedEntries" => list(remove_targets_result_entry()),
         "FailedEntryCount" => integer()
       }
       
@@ -1746,7 +1746,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       list_event_buses_response() :: %{
-        "EventBuses" => list(event_bus()()),
+        "EventBuses" => list(event_bus()),
         "NextToken" => String.t()
       }
       
@@ -1787,8 +1787,8 @@ defmodule AWS.CloudWatchEvents do
       
       aws_vpc_configuration() :: %{
         "AssignPublicIp" => list(any()),
-        "SecurityGroups" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroups" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -1824,7 +1824,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       put_partner_events_request() :: %{
-        required("Entries") => list(put_partner_events_request_entry()())
+        required("Entries") => list(put_partner_events_request_entry())
       }
       
   """
@@ -1858,7 +1858,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_targets_by_rule_response() :: %{
         "NextToken" => String.t(),
-        "Targets" => list(target()())
+        "Targets" => list(target())
       }
       
   """
@@ -1968,7 +1968,7 @@ defmodule AWS.CloudWatchEvents do
       put_targets_request() :: %{
         optional("EventBusName") => String.t(),
         required("Rule") => String.t(),
-        required("Targets") => list(target()())
+        required("Targets") => list(target())
       }
       
   """
@@ -2075,7 +2075,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_partner_event_source_accounts_response() :: %{
         "NextToken" => String.t(),
-        "PartnerEventSourceAccounts" => list(partner_event_source_account()())
+        "PartnerEventSourceAccounts" => list(partner_event_source_account())
       }
       
   """
@@ -2087,7 +2087,7 @@ defmodule AWS.CloudWatchEvents do
       
       list_rule_names_by_target_response() :: %{
         "NextToken" => String.t(),
-        "RuleNames" => list(String.t()())
+        "RuleNames" => list(String.t())
       }
       
   """
@@ -2122,18 +2122,18 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       ecs_parameters() :: %{
-        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()()),
+        "CapacityProviderStrategy" => list(capacity_provider_strategy_item()),
         "EnableECSManagedTags" => boolean(),
         "EnableExecuteCommand" => boolean(),
         "Group" => String.t(),
         "LaunchType" => list(any()),
         "NetworkConfiguration" => network_configuration(),
-        "PlacementConstraints" => list(placement_constraint()()),
-        "PlacementStrategy" => list(placement_strategy()()),
+        "PlacementConstraints" => list(placement_constraint()),
+        "PlacementStrategy" => list(placement_strategy()),
         "PlatformVersion" => String.t(),
         "PropagateTags" => list(any()),
         "ReferenceId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskCount" => integer(),
         "TaskDefinitionArn" => String.t()
       }
@@ -2146,7 +2146,7 @@ defmodule AWS.CloudWatchEvents do
   ## Example:
       
       put_targets_response() :: %{
-        "FailedEntries" => list(put_targets_result_entry()()),
+        "FailedEntries" => list(put_targets_result_entry()),
         "FailedEntryCount" => integer()
       }
       
@@ -2405,7 +2405,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, activate_event_source_errors()}
   def activate_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateEventSource", input, options)
   end
@@ -2419,7 +2420,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, cancel_replay_errors()}
   def cancel_replay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelReplay", input, options)
   end
@@ -2435,7 +2437,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, create_api_destination_errors()}
   def create_api_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApiDestination", input, options)
   end
@@ -2458,7 +2461,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, create_archive_errors()}
   def create_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateArchive", input, options)
   end
@@ -2475,7 +2479,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateConnection", input, options)
   end
@@ -2494,7 +2499,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, create_event_bus_errors()}
   def create_event_bus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventBus", input, options)
   end
@@ -2544,7 +2550,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, create_partner_event_source_errors()}
   def create_partner_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePartnerEventSource", input, options)
   end
@@ -2569,7 +2576,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, deactivate_event_source_errors()}
   def deactivate_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivateEventSource", input, options)
   end
@@ -2587,7 +2595,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, deauthorize_connection_errors()}
   def deauthorize_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeauthorizeConnection", input, options)
   end
@@ -2601,7 +2610,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_api_destination_errors()}
   def delete_api_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApiDestination", input, options)
   end
@@ -2615,7 +2625,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_archive_errors()}
   def delete_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteArchive", input, options)
   end
@@ -2629,7 +2640,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_connection_errors()}
   def delete_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteConnection", input, options)
   end
@@ -2647,7 +2659,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_event_bus_errors()}
   def delete_event_bus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventBus", input, options)
   end
@@ -2668,7 +2681,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_partner_event_source_errors()}
   def delete_partner_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePartnerEventSource", input, options)
   end
@@ -2703,7 +2717,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -2717,7 +2732,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_api_destination_errors()}
   def describe_api_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApiDestination", input, options)
   end
@@ -2731,7 +2747,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_archive_errors()}
   def describe_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeArchive", input, options)
   end
@@ -2745,7 +2762,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_connection_errors()}
   def describe_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeConnection", input, options)
   end
@@ -2772,7 +2790,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_event_bus_errors()}
   def describe_event_bus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventBus", input, options)
   end
@@ -2788,7 +2807,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_event_source_errors()}
   def describe_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSource", input, options)
   end
@@ -2810,7 +2830,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_partner_event_source_errors()}
   def describe_partner_event_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePartnerEventSource", input, options)
   end
@@ -2836,7 +2857,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_replay_errors()}
   def describe_replay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReplay", input, options)
   end
@@ -2855,7 +2877,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, describe_rule_errors()}
   def describe_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRule", input, options)
   end
@@ -2876,7 +2899,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, disable_rule_errors()}
   def disable_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableRule", input, options)
   end
@@ -2896,7 +2920,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, enable_rule_errors()}
   def enable_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableRule", input, options)
   end
@@ -2910,7 +2935,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_api_destinations_errors()}
   def list_api_destinations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApiDestinations", input, options)
   end
@@ -2927,7 +2953,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_archives_errors()}
   def list_archives(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListArchives", input, options)
   end
@@ -2941,7 +2968,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_connections_errors()}
   def list_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListConnections", input, options)
   end
@@ -2957,7 +2985,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_event_buses_errors()}
   def list_event_buses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventBuses", input, options)
   end
@@ -2976,7 +3005,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_event_sources_errors()}
   def list_event_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventSources", input, options)
   end
@@ -2999,7 +3029,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_partner_event_source_accounts_errors()}
   def list_partner_event_source_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPartnerEventSourceAccounts", input, options)
   end
@@ -3017,7 +3048,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_partner_event_sources_errors()}
   def list_partner_event_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPartnerEventSources", input, options)
   end
@@ -3034,7 +3066,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_replays_errors()}
   def list_replays(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListReplays", input, options)
   end
@@ -3051,7 +3084,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_rule_names_by_target_errors()}
   def list_rule_names_by_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleNamesByTarget", input, options)
   end
@@ -3073,7 +3107,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRules", input, options)
   end
@@ -3090,7 +3125,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3104,7 +3140,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, list_targets_by_rule_errors()}
   def list_targets_by_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTargetsByRule", input, options)
   end
@@ -3118,7 +3155,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, put_events_errors()}
   def put_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEvents", input, options)
   end
@@ -3135,7 +3173,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, put_partner_events_errors()}
   def put_partner_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPartnerEvents", input, options)
   end
@@ -3178,7 +3217,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, put_permission_errors()}
   def put_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPermission", input, options)
   end
@@ -3267,7 +3307,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, put_rule_errors()}
   def put_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRule", input, options)
   end
@@ -3470,7 +3511,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, put_targets_errors()}
   def put_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutTargets", input, options)
   end
@@ -3491,7 +3533,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemovePermission", input, options)
   end
@@ -3517,7 +3560,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, remove_targets_errors()}
   def remove_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTargets", input, options)
   end
@@ -3545,7 +3589,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, start_replay_errors()}
   def start_replay(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartReplay", input, options)
   end
@@ -3580,7 +3625,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3602,7 +3648,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, test_event_pattern_errors()}
   def test_event_pattern(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestEventPattern", input, options)
   end
@@ -3619,7 +3666,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3633,7 +3681,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, update_api_destination_errors()}
   def update_api_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApiDestination", input, options)
   end
@@ -3647,7 +3696,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, update_archive_errors()}
   def update_archive(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateArchive", input, options)
   end
@@ -3661,7 +3711,8 @@ defmodule AWS.CloudWatchEvents do
           | {:error, term()}
           | {:error, update_connection_errors()}
   def update_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateConnection", input, options)
   end

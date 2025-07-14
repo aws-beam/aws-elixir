@@ -33,7 +33,7 @@ defmodule AWS.LexModelBuilding do
 
       get_slot_types_response() :: %{
         "nextToken" => String.t(),
-        "slotTypes" => list(slot_type_metadata()())
+        "slotTypes" => list(slot_type_metadata())
       }
 
   """
@@ -52,10 +52,10 @@ defmodule AWS.LexModelBuilding do
         optional("detectSentiment") => boolean(),
         optional("enableModelImprovements") => boolean(),
         optional("idleSessionTTLInSeconds") => integer(),
-        optional("intents") => list(intent()()),
+        optional("intents") => list(intent()),
         optional("nluIntentConfidenceThreshold") => float(),
         optional("processBehavior") => list(any()),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("voiceId") => String.t(),
         required("childDirected") => boolean(),
         required("locale") => list(any())
@@ -69,7 +69,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       tag_resource_request() :: %{
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -80,7 +80,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_bot_channel_associations_response() :: %{
-        "botChannelAssociations" => list(bot_channel_association()()),
+        "botChannelAssociations" => list(bot_channel_association()),
         "nextToken" => String.t()
       }
 
@@ -148,7 +148,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_migration_response() :: %{
-        "alerts" => list(migration_alert()()),
+        "alerts" => list(migration_alert()),
         "migrationId" => String.t(),
         "migrationStatus" => list(any()),
         "migrationStrategy" => list(any()),
@@ -181,7 +181,7 @@ defmodule AWS.LexModelBuilding do
 
       get_builtin_slot_types_response() :: %{
         "nextToken" => String.t(),
-        "slotTypes" => list(builtin_slot_type_metadata()())
+        "slotTypes" => list(builtin_slot_type_metadata())
       }
 
   """
@@ -205,11 +205,11 @@ defmodule AWS.LexModelBuilding do
         "createVersion" => boolean(),
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
-        "enumerationValues" => list(enumeration_value()()),
+        "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
         "parentSlotTypeSignature" => String.t(),
-        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
         "version" => String.t()
       }
@@ -223,7 +223,7 @@ defmodule AWS.LexModelBuilding do
 
       get_import_response() :: %{
         "createdDate" => non_neg_integer(),
-        "failureReason" => list(String.t()()),
+        "failureReason" => list(String.t()),
         "importId" => String.t(),
         "importStatus" => list(any()),
         "mergeStrategy" => list(any()),
@@ -278,11 +278,11 @@ defmodule AWS.LexModelBuilding do
         "checksum" => String.t(),
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
-        "enumerationValues" => list(enumeration_value()()),
+        "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
         "parentSlotTypeSignature" => String.t(),
-        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
         "version" => String.t()
       }
@@ -328,7 +328,7 @@ defmodule AWS.LexModelBuilding do
         "enableModelImprovements" => boolean(),
         "failureReason" => String.t(),
         "idleSessionTTLInSeconds" => integer(),
-        "intents" => list(intent()()),
+        "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
         "name" => String.t(),
@@ -377,7 +377,7 @@ defmodule AWS.LexModelBuilding do
         "obfuscationSetting" => list(any()),
         "priority" => integer(),
         "responseCard" => String.t(),
-        "sampleUtterances" => list(String.t()()),
+        "sampleUtterances" => list(String.t()),
         "slotConstraint" => list(any()),
         "slotType" => String.t(),
         "slotTypeVersion" => String.t(),
@@ -437,7 +437,7 @@ defmodule AWS.LexModelBuilding do
 
       get_builtin_intent_response() :: %{
         "signature" => String.t(),
-        "slots" => list(builtin_intent_slot()()),
+        "slots" => list(builtin_intent_slot()),
         "supportedLocales" => list(list(any())())
       }
 
@@ -461,7 +461,7 @@ defmodule AWS.LexModelBuilding do
 
       get_slot_type_versions_response() :: %{
         "nextToken" => String.t(),
-        "slotTypes" => list(slot_type_metadata()())
+        "slotTypes" => list(slot_type_metadata())
       }
 
   """
@@ -481,7 +481,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       statement() :: %{
-        "messages" => list(message()()),
+        "messages" => list(message()),
         "responseCard" => String.t()
       }
 
@@ -493,7 +493,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_bots_response() :: %{
-        "bots" => list(bot_metadata()()),
+        "bots" => list(bot_metadata()),
         "nextToken" => String.t()
       }
 
@@ -517,7 +517,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_migrations_response() :: %{
-        "migrationSummaries" => list(migration_summary()()),
+        "migrationSummaries" => list(migration_summary()),
         "nextToken" => String.t()
       }
 
@@ -529,7 +529,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -605,7 +605,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_intents_response() :: %{
-        "intents" => list(intent_metadata()()),
+        "intents" => list(intent_metadata()),
         "nextToken" => String.t()
       }
 
@@ -617,7 +617,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_intent_versions_response() :: %{
-        "intents" => list(intent_metadata()()),
+        "intents" => list(intent_metadata()),
         "nextToken" => String.t()
       }
 
@@ -670,15 +670,15 @@ defmodule AWS.LexModelBuilding do
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()()),
-        "slots" => list(slot()()),
+        "sampleUtterances" => list(String.t()),
+        "slots" => list(slot()),
         "version" => String.t()
       }
 
@@ -743,7 +743,7 @@ defmodule AWS.LexModelBuilding do
 
       conversation_logs_response() :: %{
         "iamRoleArn" => String.t(),
-        "logSettings" => list(log_settings_response()())
+        "logSettings" => list(log_settings_response())
       }
 
   """
@@ -778,7 +778,7 @@ defmodule AWS.LexModelBuilding do
         optional("checksum") => String.t(),
         optional("conversationLogs") => conversation_logs_request(),
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("botVersion") => String.t()
       }
 
@@ -801,7 +801,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       slot_default_value_spec() :: %{
-        "defaultValueList" => list(slot_default_value()())
+        "defaultValueList" => list(slot_default_value())
       }
 
   """
@@ -821,7 +821,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -833,7 +833,7 @@ defmodule AWS.LexModelBuilding do
 
       get_utterances_view_response() :: %{
         "botName" => String.t(),
-        "utterances" => list(utterance_list()())
+        "utterances" => list(utterance_list())
       }
 
   """
@@ -855,13 +855,13 @@ defmodule AWS.LexModelBuilding do
         "enableModelImprovements" => boolean(),
         "failureReason" => String.t(),
         "idleSessionTTLInSeconds" => integer(),
-        "intents" => list(intent()()),
+        "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
         "name" => String.t(),
         "nluIntentConfidenceThreshold" => float(),
         "status" => list(any()),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "version" => String.t(),
         "voiceId" => String.t()
       }
@@ -928,7 +928,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_bot_aliases_response() :: %{
-        "BotAliases" => list(bot_alias_metadata()()),
+        "BotAliases" => list(bot_alias_metadata()),
         "nextToken" => String.t()
       }
 
@@ -943,11 +943,11 @@ defmodule AWS.LexModelBuilding do
         "checksum" => String.t(),
         "createdDate" => non_neg_integer(),
         "description" => String.t(),
-        "enumerationValues" => list(enumeration_value()()),
+        "enumerationValues" => list(enumeration_value()),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
         "parentSlotTypeSignature" => String.t(),
-        "slotTypeConfigurations" => list(slot_type_configuration()()),
+        "slotTypeConfigurations" => list(slot_type_configuration()),
         "valueSelectionStrategy" => list(any()),
         "version" => String.t()
       }
@@ -961,7 +961,7 @@ defmodule AWS.LexModelBuilding do
 
       utterance_list() :: %{
         "botVersion" => String.t(),
-        "utterances" => list(utterance_data()())
+        "utterances" => list(utterance_data())
       }
 
   """
@@ -999,7 +999,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_bot_versions_response() :: %{
-        "bots" => list(bot_metadata()()),
+        "bots" => list(bot_metadata()),
         "nextToken" => String.t()
       }
 
@@ -1019,13 +1019,13 @@ defmodule AWS.LexModelBuilding do
         optional("dialogCodeHook") => code_hook(),
         optional("followUpPrompt") => follow_up_prompt(),
         optional("fulfillmentActivity") => fulfillment_activity(),
-        optional("inputContexts") => list(input_context()()),
+        optional("inputContexts") => list(input_context()),
         optional("kendraConfiguration") => kendra_configuration(),
-        optional("outputContexts") => list(output_context()()),
+        optional("outputContexts") => list(output_context()),
         optional("parentIntentSignature") => String.t(),
         optional("rejectionStatement") => statement(),
-        optional("sampleUtterances") => list(String.t()()),
-        optional("slots") => list(slot()())
+        optional("sampleUtterances") => list(String.t()),
+        optional("slots") => list(slot())
       }
 
   """
@@ -1066,9 +1066,9 @@ defmodule AWS.LexModelBuilding do
         optional("checksum") => String.t(),
         optional("createVersion") => boolean(),
         optional("description") => String.t(),
-        optional("enumerationValues") => list(enumeration_value()()),
+        optional("enumerationValues") => list(enumeration_value()),
         optional("parentSlotTypeSignature") => String.t(),
-        optional("slotTypeConfigurations") => list(slot_type_configuration()()),
+        optional("slotTypeConfigurations") => list(slot_type_configuration()),
         optional("valueSelectionStrategy") => list(any())
       }
 
@@ -1099,7 +1099,7 @@ defmodule AWS.LexModelBuilding do
 
       conversation_logs_request() :: %{
         "iamRoleArn" => String.t(),
-        "logSettings" => list(log_settings_request()())
+        "logSettings" => list(log_settings_request())
       }
 
   """
@@ -1121,7 +1121,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_builtin_intents_response() :: %{
-        "intents" => list(builtin_intent_metadata()()),
+        "intents" => list(builtin_intent_metadata()),
         "nextToken" => String.t()
       }
 
@@ -1142,15 +1142,15 @@ defmodule AWS.LexModelBuilding do
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()()),
-        "slots" => list(slot()()),
+        "sampleUtterances" => list(String.t()),
+        "slots" => list(slot()),
         "version" => String.t()
       }
 
@@ -1338,15 +1338,15 @@ defmodule AWS.LexModelBuilding do
         "dialogCodeHook" => code_hook(),
         "followUpPrompt" => follow_up_prompt(),
         "fulfillmentActivity" => fulfillment_activity(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "rejectionStatement" => statement(),
-        "sampleUtterances" => list(String.t()()),
-        "slots" => list(slot()()),
+        "sampleUtterances" => list(String.t()),
+        "slots" => list(slot()),
         "version" => String.t()
       }
 
@@ -1406,7 +1406,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       enumeration_value() :: %{
-        "synonyms" => list(String.t()()),
+        "synonyms" => list(String.t()),
         "value" => String.t()
       }
 
@@ -1418,7 +1418,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       get_utterances_view_request() :: %{
-        required("botVersions") => list(String.t()()),
+        required("botVersions") => list(String.t()),
         required("statusType") => list(any())
       }
 
@@ -1438,7 +1438,7 @@ defmodule AWS.LexModelBuilding do
         "description" => String.t(),
         "lastUpdatedDate" => non_neg_integer(),
         "name" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1460,9 +1460,9 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       migration_alert() :: %{
-        "details" => list(String.t()()),
+        "details" => list(String.t()),
         "message" => String.t(),
-        "referenceURLs" => list(String.t()()),
+        "referenceURLs" => list(String.t()),
         "type" => list(any())
       }
 
@@ -1514,7 +1514,7 @@ defmodule AWS.LexModelBuilding do
   ## Example:
 
       start_import_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("mergeStrategy") => list(any()),
         required("payload") => binary(),
         required("resourceType") => list(any())
@@ -1549,7 +1549,7 @@ defmodule AWS.LexModelBuilding do
         "mergeStrategy" => list(any()),
         "name" => String.t(),
         "resourceType" => list(any()),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -1561,7 +1561,7 @@ defmodule AWS.LexModelBuilding do
 
       prompt() :: %{
         "maxAttempts" => integer(),
-        "messages" => list(message()()),
+        "messages" => list(message()),
         "responseCard" => String.t()
       }
 
@@ -1583,7 +1583,7 @@ defmodule AWS.LexModelBuilding do
         "enableModelImprovements" => boolean(),
         "failureReason" => String.t(),
         "idleSessionTTLInSeconds" => integer(),
-        "intents" => list(intent()()),
+        "intents" => list(intent()),
         "lastUpdatedDate" => non_neg_integer(),
         "locale" => list(any()),
         "name" => String.t(),

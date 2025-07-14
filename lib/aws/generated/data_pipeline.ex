@@ -45,7 +45,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       set_status_input() :: %{
-        required("objectIds") => list(String.t()()),
+        required("objectIds") => list(String.t()),
         required("pipelineId") => String.t(),
         required("status") => String.t()
       }
@@ -108,8 +108,8 @@ defmodule AWS.DataPipeline do
       
       validate_pipeline_definition_output() :: %{
         "errored" => boolean(),
-        "validationErrors" => list(validation_error()()),
-        "validationWarnings" => list(validation_warning()())
+        "validationErrors" => list(validation_error()),
+        "validationWarnings" => list(validation_warning())
       }
       
   """
@@ -120,7 +120,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       pipeline_object() :: %{
-        "fields" => list(field()()),
+        "fields" => list(field()),
         "id" => String.t(),
         "name" => String.t()
       }
@@ -146,10 +146,10 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       validate_pipeline_definition_input() :: %{
-        optional("parameterObjects") => list(parameter_object()()),
-        optional("parameterValues") => list(parameter_value()()),
+        optional("parameterObjects") => list(parameter_object()),
+        optional("parameterValues") => list(parameter_value()),
         required("pipelineId") => String.t(),
-        required("pipelineObjects") => list(pipeline_object()())
+        required("pipelineObjects") => list(pipeline_object())
       }
       
   """
@@ -221,7 +221,7 @@ defmodule AWS.DataPipeline do
       
       add_tags_input() :: %{
         required("pipelineId") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -232,9 +232,9 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       get_pipeline_definition_output() :: %{
-        "parameterObjects" => list(parameter_object()()),
-        "parameterValues" => list(parameter_value()()),
-        "pipelineObjects" => list(pipeline_object()())
+        "parameterObjects" => list(parameter_object()),
+        "parameterValues" => list(parameter_value()),
+        "pipelineObjects" => list(pipeline_object())
       }
       
   """
@@ -245,7 +245,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       describe_pipelines_input() :: %{
-        required("pipelineIds") => list(String.t()())
+        required("pipelineIds") => list(String.t())
       }
       
   """
@@ -266,7 +266,7 @@ defmodule AWS.DataPipeline do
       
       operator() :: %{
         "type" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
       
   """
@@ -301,7 +301,7 @@ defmodule AWS.DataPipeline do
       
       create_pipeline_input() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("name") => String.t(),
         required("uniqueId") => String.t()
       }
@@ -368,7 +368,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       describe_pipelines_output() :: %{
-        "pipelineDescriptionList" => list(pipeline_description()())
+        "pipelineDescriptionList" => list(pipeline_description())
       }
       
   """
@@ -392,7 +392,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       validation_error() :: %{
-        "errors" => list(String.t()()),
+        "errors" => list(String.t()),
         "id" => String.t()
       }
       
@@ -444,7 +444,7 @@ defmodule AWS.DataPipeline do
       describe_objects_output() :: %{
         "hasMoreResults" => boolean(),
         "marker" => String.t(),
-        "pipelineObjects" => list(pipeline_object()())
+        "pipelineObjects" => list(pipeline_object())
       }
       
   """
@@ -468,7 +468,7 @@ defmodule AWS.DataPipeline do
       
       query_objects_output() :: %{
         "hasMoreResults" => boolean(),
-        "ids" => list(String.t()()),
+        "ids" => list(String.t()),
         "marker" => String.t()
       }
       
@@ -481,7 +481,7 @@ defmodule AWS.DataPipeline do
       
       validation_warning() :: %{
         "id" => String.t(),
-        "warnings" => list(String.t()())
+        "warnings" => list(String.t())
       }
       
   """
@@ -493,10 +493,10 @@ defmodule AWS.DataPipeline do
       
       pipeline_description() :: %{
         "description" => String.t(),
-        "fields" => list(field()()),
+        "fields" => list(field()),
         "name" => String.t(),
         "pipelineId" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -538,7 +538,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       activate_pipeline_input() :: %{
-        optional("parameterValues") => list(parameter_value()()),
+        optional("parameterValues") => list(parameter_value()),
         optional("startTimestamp") => non_neg_integer(),
         required("pipelineId") => String.t()
       }
@@ -564,7 +564,7 @@ defmodule AWS.DataPipeline do
       list_pipelines_output() :: %{
         "hasMoreResults" => boolean(),
         "marker" => String.t(),
-        "pipelineIdList" => list(pipeline_id_name()())
+        "pipelineIdList" => list(pipeline_id_name())
       }
       
   """
@@ -587,8 +587,8 @@ defmodule AWS.DataPipeline do
       
       put_pipeline_definition_output() :: %{
         "errored" => boolean(),
-        "validationErrors" => list(validation_error()()),
-        "validationWarnings" => list(validation_warning()())
+        "validationErrors" => list(validation_error()),
+        "validationWarnings" => list(validation_warning())
       }
       
   """
@@ -599,10 +599,10 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       put_pipeline_definition_input() :: %{
-        optional("parameterObjects") => list(parameter_object()()),
-        optional("parameterValues") => list(parameter_value()()),
+        optional("parameterObjects") => list(parameter_object()),
+        optional("parameterValues") => list(parameter_value()),
         required("pipelineId") => String.t(),
-        required("pipelineObjects") => list(pipeline_object()())
+        required("pipelineObjects") => list(pipeline_object())
       }
       
   """
@@ -613,7 +613,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       query() :: %{
-        "selectors" => list(selector()())
+        "selectors" => list(selector())
       }
       
   """
@@ -625,7 +625,7 @@ defmodule AWS.DataPipeline do
       
       remove_tags_input() :: %{
         required("pipelineId") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -638,7 +638,7 @@ defmodule AWS.DataPipeline do
       describe_objects_input() :: %{
         optional("evaluateExpressions") => boolean(),
         optional("marker") => String.t(),
-        required("objectIds") => list(String.t()()),
+        required("objectIds") => list(String.t()),
         required("pipelineId") => String.t()
       }
       
@@ -650,7 +650,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       report_task_progress_input() :: %{
-        optional("fields") => list(field()()),
+        optional("fields") => list(field()),
         required("taskId") => String.t()
       }
       
@@ -695,7 +695,7 @@ defmodule AWS.DataPipeline do
   ## Example:
       
       parameter_object() :: %{
-        "attributes" => list(parameter_attribute()()),
+        "attributes" => list(parameter_attribute()),
         "id" => String.t()
       }
       
@@ -876,7 +876,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, activate_pipeline_errors()}
   def activate_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivatePipeline", input, options)
   end
@@ -890,7 +891,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -936,7 +938,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -957,7 +960,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, deactivate_pipeline_errors()}
   def deactivate_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivatePipeline", input, options)
   end
@@ -1007,7 +1011,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -1080,7 +1085,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_objects_errors()}
   def describe_objects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeObjects", input, options)
   end
@@ -1161,7 +1167,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_pipelines_errors()}
   def describe_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePipelines", input, options)
   end
@@ -1208,7 +1215,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, evaluate_expression_errors()}
   def evaluate_expression(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EvaluateExpression", input, options)
   end
@@ -1287,7 +1295,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, get_pipeline_definition_errors()}
   def get_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPipelineDefinition", input, options)
   end
@@ -1333,7 +1342,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -1435,7 +1445,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, poll_for_task_errors()}
   def poll_for_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PollForTask", input, options)
   end
@@ -1616,7 +1627,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, put_pipeline_definition_errors()}
   def put_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPipelineDefinition", input, options)
   end
@@ -1668,7 +1680,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, query_objects_errors()}
   def query_objects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "QueryObjects", input, options)
   end
@@ -1682,7 +1695,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -1743,7 +1757,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_progress_errors()}
   def report_task_progress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReportTaskProgress", input, options)
   end
@@ -1793,7 +1808,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_runner_heartbeat_errors()}
   def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReportTaskRunnerHeartbeat", input, options)
   end
@@ -1844,7 +1860,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_status_errors()}
   def set_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetStatus", input, options)
   end
@@ -1893,7 +1910,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_task_status_errors()}
   def set_task_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTaskStatus", input, options)
   end
@@ -2060,7 +2078,8 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, validate_pipeline_definition_errors()}
   def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidatePipelineDefinition", input, options)
   end

@@ -22,7 +22,7 @@ defmodule AWS.Shield do
   ## Example:
       
       update_protection_group_request() :: %{
-        optional("Members") => list(String.t()()),
+        optional("Members") => list(String.t()),
         optional("ResourceType") => list(any()),
         required("Aggregation") => list(any()),
         required("Pattern") => list(any()),
@@ -47,7 +47,7 @@ defmodule AWS.Shield do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -59,7 +59,7 @@ defmodule AWS.Shield do
       
       list_resources_in_protection_group_response() :: %{
         "NextToken" => String.t(),
-        "ResourceArns" => list(String.t()())
+        "ResourceArns" => list(String.t())
       }
       
   """
@@ -108,7 +108,7 @@ defmodule AWS.Shield do
   ## Example:
       
       update_emergency_contact_settings_request() :: %{
-        optional("EmergencyContactList") => list(emergency_contact()())
+        optional("EmergencyContactList") => list(emergency_contact())
       }
       
   """
@@ -159,8 +159,8 @@ defmodule AWS.Shield do
   ## Example:
       
       inclusion_protection_filters() :: %{
-        "ProtectionNames" => list(String.t()()),
-        "ResourceArns" => list(String.t()()),
+        "ProtectionNames" => list(String.t()),
+        "ResourceArns" => list(String.t()),
         "ResourceTypes" => list(list(any())())
       }
       
@@ -209,7 +209,7 @@ defmodule AWS.Shield do
         optional("EndTime") => time_range(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceArns") => list(String.t()()),
+        optional("ResourceArns") => list(String.t()),
         optional("StartTime") => time_range()
       }
       
@@ -221,7 +221,7 @@ defmodule AWS.Shield do
   ## Example:
       
       describe_emergency_contact_settings_response() :: %{
-        "EmergencyContactList" => list(emergency_contact()())
+        "EmergencyContactList" => list(emergency_contact())
       }
       
   """
@@ -273,7 +273,7 @@ defmodule AWS.Shield do
   ## Example:
       
       protection_limits() :: %{
-        "ProtectedResourceTypeLimits" => list(limit()())
+        "ProtectedResourceTypeLimits" => list(limit())
       }
       
   """
@@ -285,7 +285,7 @@ defmodule AWS.Shield do
       
       list_protections_response() :: %{
         "NextToken" => String.t(),
-        "Protections" => list(protection()())
+        "Protections" => list(protection())
       }
       
   """
@@ -309,7 +309,7 @@ defmodule AWS.Shield do
       
       protection_group() :: %{
         "Aggregation" => list(any()),
-        "Members" => list(String.t()()),
+        "Members" => list(String.t()),
         "Pattern" => list(any()),
         "ProtectionGroupArn" => String.t(),
         "ProtectionGroupId" => String.t(),
@@ -337,7 +337,7 @@ defmodule AWS.Shield do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -371,7 +371,7 @@ defmodule AWS.Shield do
       
       list_protection_groups_response() :: %{
         "NextToken" => String.t(),
-        "ProtectionGroups" => list(protection_group()())
+        "ProtectionGroups" => list(protection_group())
       }
       
   """
@@ -402,14 +402,14 @@ defmodule AWS.Shield do
   ## Example:
       
       attack_detail() :: %{
-        "AttackCounters" => list(summarized_counter()()),
+        "AttackCounters" => list(summarized_counter()),
         "AttackId" => String.t(),
-        "AttackProperties" => list(attack_property()()),
+        "AttackProperties" => list(attack_property()),
         "EndTime" => non_neg_integer(),
-        "Mitigations" => list(mitigation()()),
+        "Mitigations" => list(mitigation()),
         "ResourceArn" => String.t(),
         "StartTime" => non_neg_integer(),
-        "SubResources" => list(sub_resource_summary()())
+        "SubResources" => list(sub_resource_summary())
       }
       
   """
@@ -505,7 +505,7 @@ defmodule AWS.Shield do
       
       protection() :: %{
         "ApplicationLayerAutomaticResponseConfiguration" => application_layer_automatic_response_configuration(),
-        "HealthCheckIds" => list(String.t()()),
+        "HealthCheckIds" => list(String.t()),
         "Id" => String.t(),
         "Name" => String.t(),
         "ProtectionArn" => String.t(),
@@ -520,7 +520,7 @@ defmodule AWS.Shield do
   ## Example:
       
       list_attacks_response() :: %{
-        "AttackSummaries" => list(attack_summary()()),
+        "AttackSummaries" => list(attack_summary()),
         "NextToken" => String.t()
       }
       
@@ -556,7 +556,7 @@ defmodule AWS.Shield do
   ## Example:
       
       describe_attack_statistics_response() :: %{
-        "DataItems" => list(attack_statistics_data_item()()),
+        "DataItems" => list(attack_statistics_data_item()),
         "TimeRange" => time_range()
       }
       
@@ -577,9 +577,9 @@ defmodule AWS.Shield do
   ## Example:
       
       create_protection_group_request() :: %{
-        optional("Members") => list(String.t()()),
+        optional("Members") => list(String.t()),
         optional("ResourceType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Aggregation") => list(any()),
         required("Pattern") => list(any()),
         required("ProtectionGroupId") => String.t()
@@ -613,7 +613,7 @@ defmodule AWS.Shield do
       inclusion_protection_group_filters() :: %{
         "Aggregations" => list(list(any())()),
         "Patterns" => list(list(any())()),
-        "ProtectionGroupIds" => list(String.t()()),
+        "ProtectionGroupIds" => list(String.t()),
         "ResourceTypes" => list(list(any())())
       }
       
@@ -637,7 +637,7 @@ defmodule AWS.Shield do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -729,7 +729,7 @@ defmodule AWS.Shield do
   ## Example:
       
       associate_proactive_engagement_details_request() :: %{
-        required("EmergencyContactList") => list(emergency_contact()())
+        required("EmergencyContactList") => list(emergency_contact())
       }
       
   """
@@ -749,8 +749,8 @@ defmodule AWS.Shield do
   ## Example:
       
       sub_resource_summary() :: %{
-        "AttackVectors" => list(summarized_attack_vector()()),
-        "Counters" => list(summarized_counter()()),
+        "AttackVectors" => list(summarized_attack_vector()),
+        "Counters" => list(summarized_counter()),
         "Id" => String.t(),
         "Type" => list(any())
       }
@@ -802,7 +802,7 @@ defmodule AWS.Shield do
       
       attack_summary() :: %{
         "AttackId" => String.t(),
-        "AttackVectors" => list(attack_vector_description()()),
+        "AttackVectors" => list(attack_vector_description()),
         "EndTime" => non_neg_integer(),
         "ResourceArn" => String.t(),
         "StartTime" => non_neg_integer()
@@ -848,7 +848,7 @@ defmodule AWS.Shield do
   ## Example:
       
       summarized_attack_vector() :: %{
-        "VectorCounters" => list(summarized_counter()()),
+        "VectorCounters" => list(summarized_counter()),
         "VectorType" => String.t()
       }
       
@@ -882,7 +882,7 @@ defmodule AWS.Shield do
   ## Example:
       
       invalid_parameter_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -915,7 +915,7 @@ defmodule AWS.Shield do
       attack_property() :: %{
         "AttackLayer" => list(any()),
         "AttackPropertyIdentifier" => list(any()),
-        "TopContributors" => list(contributor()()),
+        "TopContributors" => list(contributor()),
         "Total" => float(),
         "Unit" => list(any())
       }
@@ -1005,7 +1005,7 @@ defmodule AWS.Shield do
       subscription() :: %{
         "AutoRenew" => list(any()),
         "EndTime" => non_neg_integer(),
-        "Limits" => list(limit()()),
+        "Limits" => list(limit()),
         "ProactiveEngagementStatus" => list(any()),
         "StartTime" => non_neg_integer(),
         "SubscriptionArn" => String.t(),
@@ -1097,7 +1097,7 @@ defmodule AWS.Shield do
   ## Example:
       
       describe_drt_access_response() :: %{
-        "LogBucketList" => list(String.t()()),
+        "LogBucketList" => list(String.t()),
         "RoleArn" => String.t()
       }
       
@@ -1284,7 +1284,7 @@ defmodule AWS.Shield do
   ## Example:
       
       create_protection_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("ResourceArn") => String.t()
       }
@@ -1562,7 +1562,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_drt_log_bucket_errors()}
   def associate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTLogBucket", input, options)
   end
@@ -1605,7 +1606,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_drt_role_errors()}
   def associate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDRTRole", input, options)
   end
@@ -1627,7 +1629,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_health_check_errors()}
   def associate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateHealthCheck", input, options)
   end
@@ -1661,7 +1664,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, associate_proactive_engagement_details_errors()}
   def associate_proactive_engagement_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateProactiveEngagementDetails", input, options)
   end
@@ -1689,7 +1693,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_protection_errors()}
   def create_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtection", input, options)
   end
@@ -1707,7 +1712,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_protection_group_errors()}
   def create_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProtectionGroup", input, options)
   end
@@ -1729,7 +1735,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, create_subscription_errors()}
   def create_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubscription", input, options)
   end
@@ -1743,7 +1750,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_protection_errors()}
   def delete_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtection", input, options)
   end
@@ -1757,7 +1765,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_protection_group_errors()}
   def delete_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtectionGroup", input, options)
   end
@@ -1774,7 +1783,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, delete_subscription_errors()}
   def delete_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubscription", input, options)
   end
@@ -1788,7 +1798,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_attack_errors()}
   def describe_attack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttack", input, options)
   end
@@ -1814,7 +1825,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_attack_statistics_errors()}
   def describe_attack_statistics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAttackStatistics", input, options)
   end
@@ -1830,7 +1842,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_drt_access_errors()}
   def describe_drt_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDRTAccess", input, options)
   end
@@ -1850,7 +1863,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_emergency_contact_settings_errors()}
   def describe_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEmergencyContactSettings", input, options)
   end
@@ -1864,7 +1878,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_protection_errors()}
   def describe_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtection", input, options)
   end
@@ -1878,7 +1893,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_protection_group_errors()}
   def describe_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProtectionGroup", input, options)
   end
@@ -1892,7 +1908,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, describe_subscription_errors()}
   def describe_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscription", input, options)
   end
@@ -1915,7 +1932,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disable_application_layer_automatic_response_errors()}
   def disable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableApplicationLayerAutomaticResponse", input, options)
   end
@@ -1930,7 +1948,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disable_proactive_engagement_errors()}
   def disable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableProactiveEngagement", input, options)
   end
@@ -1945,7 +1964,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_drt_log_bucket_errors()}
   def disassociate_drt_log_bucket(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTLogBucket", input, options)
   end
@@ -1960,7 +1980,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_drt_role_errors()}
   def disassociate_drt_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDRTRole", input, options)
   end
@@ -1984,7 +2005,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, disassociate_health_check_errors()}
   def disassociate_health_check(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateHealthCheck", input, options)
   end
@@ -2030,7 +2052,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, enable_application_layer_automatic_response_errors()}
   def enable_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableApplicationLayerAutomaticResponse", input, options)
   end
@@ -2046,7 +2069,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, enable_proactive_engagement_errors()}
   def enable_proactive_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableProactiveEngagement", input, options)
   end
@@ -2060,7 +2084,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, get_subscription_state_errors()}
   def get_subscription_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubscriptionState", input, options)
   end
@@ -2075,7 +2100,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_attacks_errors()}
   def list_attacks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAttacks", input, options)
   end
@@ -2093,7 +2119,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_protection_groups_errors()}
   def list_protection_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtectionGroups", input, options)
   end
@@ -2111,7 +2138,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_protections_errors()}
   def list_protections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtections", input, options)
   end
@@ -2129,7 +2157,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_resources_in_protection_group_errors()}
   def list_resources_in_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesInProtectionGroup", input, options)
   end
@@ -2144,7 +2173,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2158,7 +2188,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2172,7 +2203,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2191,7 +2223,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_application_layer_automatic_response_errors()}
   def update_application_layer_automatic_response(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplicationLayerAutomaticResponse", input, options)
   end
@@ -2212,7 +2245,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_emergency_contact_settings_errors()}
   def update_emergency_contact_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEmergencyContactSettings", input, options)
   end
@@ -2230,7 +2264,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_protection_group_errors()}
   def update_protection_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProtectionGroup", input, options)
   end
@@ -2251,7 +2286,8 @@ defmodule AWS.Shield do
           | {:error, term()}
           | {:error, update_subscription_errors()}
   def update_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscription", input, options)
   end

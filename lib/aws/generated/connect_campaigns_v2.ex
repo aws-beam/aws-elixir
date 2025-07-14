@@ -196,8 +196,8 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       get_campaign_state_batch_response() :: %{
-        "failedRequests" => list(failed_campaign_state_response()()),
-        "successfulRequests" => list(successful_campaign_state_response()())
+        "failedRequests" => list(failed_campaign_state_response()),
+        "successfulRequests" => list(successful_campaign_state_response())
       }
 
   """
@@ -221,8 +221,8 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       put_outbound_request_batch_response() :: %{
-        "failedRequests" => list(failed_request()()),
-        "successfulRequests" => list(successful_request()())
+        "failedRequests" => list(failed_request()),
+        "successfulRequests" => list(successful_request())
       }
 
   """
@@ -244,7 +244,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       list_campaigns_response() :: %{
-        "campaignSummaryList" => list(campaign_summary()()),
+        "campaignSummaryList" => list(campaign_summary()),
         "nextToken" => String.t()
       }
 
@@ -288,7 +288,7 @@ defmodule AWS.ConnectCampaignsV2 do
 
       local_time_zone_config() :: %{
         "defaultTimeZone" => String.t(),
-        "localTimeZoneDetection" => list(String.t()())
+        "localTimeZoneDetection" => list(String.t())
       }
 
   """
@@ -332,7 +332,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -389,8 +389,8 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       put_profile_outbound_request_batch_response() :: %{
-        "failedRequests" => list(failed_profile_outbound_request()()),
-        "successfulRequests" => list(successful_profile_outbound_request()())
+        "failedRequests" => list(failed_profile_outbound_request()),
+        "successfulRequests" => list(successful_profile_outbound_request())
       }
 
   """
@@ -542,7 +542,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       put_profile_outbound_request_batch_request() :: %{
-        required("profileOutboundRequests") => list(profile_outbound_request()())
+        required("profileOutboundRequests") => list(profile_outbound_request())
       }
 
   """
@@ -616,7 +616,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       get_campaign_state_batch_request() :: %{
-        required("campaignIds") => list(String.t()())
+        required("campaignIds") => list(String.t())
       }
 
   """
@@ -647,7 +647,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       list_connect_instance_integrations_response() :: %{
-        "integrationSummaryList" => list(list()()),
+        "integrationSummaryList" => list(list()),
         "nextToken" => String.t()
       }
 
@@ -1092,7 +1092,7 @@ defmodule AWS.ConnectCampaignsV2 do
   ## Example:
 
       put_outbound_request_batch_request() :: %{
-        required("outboundRequests") => list(outbound_request()())
+        required("outboundRequests") => list(outbound_request())
       }
 
   """
@@ -1140,7 +1140,7 @@ defmodule AWS.ConnectCampaignsV2 do
 
       campaign_summary() :: %{
         "arn" => String.t(),
-        "channelSubtypes" => list(String.t()()),
+        "channelSubtypes" => list(String.t()),
         "connectCampaignFlowArn" => String.t(),
         "connectInstanceId" => String.t(),
         "id" => String.t(),

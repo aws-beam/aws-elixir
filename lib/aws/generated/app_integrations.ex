@@ -42,7 +42,7 @@ defmodule AWS.AppIntegrations do
 
       external_url_config() :: %{
         "AccessUrl" => String.t(),
-        "ApprovedOrigins" => list(String.t()())
+        "ApprovedOrigins" => list(String.t())
       }
 
   """
@@ -142,7 +142,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_data_integration_associations_response() :: %{
-        "DataIntegrationAssociations" => list(data_integration_association_summary()()),
+        "DataIntegrationAssociations" => list(data_integration_association_summary()),
         "NextToken" => String.t()
       }
 
@@ -154,7 +154,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_data_integrations_response() :: %{
-        "DataIntegrations" => list(data_integration_summary()()),
+        "DataIntegrations" => list(data_integration_summary()),
         "NextToken" => String.t()
       }
 
@@ -230,7 +230,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -241,7 +241,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_event_integration_associations_response() :: %{
-        "EventIntegrationAssociations" => list(event_integration_association()()),
+        "EventIntegrationAssociations" => list(event_integration_association()),
         "NextToken" => String.t()
       }
 
@@ -380,9 +380,9 @@ defmodule AWS.AppIntegrations do
       create_application_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Permissions") => list(String.t()()),
-        optional("Publications") => list(publication()()),
-        optional("Subscriptions") => list(subscription()()),
+        optional("Permissions") => list(String.t()),
+        optional("Publications") => list(publication()),
+        optional("Subscriptions") => list(subscription()),
         optional("Tags") => map(),
         required("ApplicationSourceConfig") => application_source_config(),
         required("Name") => String.t(),
@@ -517,9 +517,9 @@ defmodule AWS.AppIntegrations do
         optional("ApplicationSourceConfig") => application_source_config(),
         optional("Description") => String.t(),
         optional("Name") => String.t(),
-        optional("Permissions") => list(String.t()()),
-        optional("Publications") => list(publication()()),
-        optional("Subscriptions") => list(subscription()())
+        optional("Permissions") => list(String.t()),
+        optional("Publications") => list(publication()),
+        optional("Subscriptions") => list(subscription())
       }
 
   """
@@ -560,9 +560,9 @@ defmodule AWS.AppIntegrations do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Namespace" => String.t(),
-        "Permissions" => list(String.t()()),
-        "Publications" => list(publication()()),
-        "Subscriptions" => list(subscription()()),
+        "Permissions" => list(String.t()),
+        "Publications" => list(publication()),
+        "Subscriptions" => list(subscription()),
         "Tags" => map()
       }
 
@@ -749,7 +749,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_application_associations_response() :: %{
-        "ApplicationAssociations" => list(application_association_summary()()),
+        "ApplicationAssociations" => list(application_association_summary()),
         "NextToken" => String.t()
       }
 
@@ -761,7 +761,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_applications_response() :: %{
-        "Applications" => list(application_summary()()),
+        "Applications" => list(application_summary()),
         "NextToken" => String.t()
       }
 
@@ -773,7 +773,7 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       list_event_integrations_response() :: %{
-        "EventIntegrations" => list(event_integration()()),
+        "EventIntegrations" => list(event_integration()),
         "NextToken" => String.t()
       }
 
@@ -798,7 +798,7 @@ defmodule AWS.AppIntegrations do
 
       file_configuration() :: %{
         "Filters" => map(),
-        "Folders" => list(String.t()())
+        "Folders" => list(String.t())
       }
 
   """

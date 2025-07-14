@@ -116,7 +116,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       list_job_run_attempts_response() :: %{
-        "jobRunAttempts" => list(job_run_attempt_summary()()),
+        "jobRunAttempts" => list(job_run_attempt_summary()),
         "nextToken" => String.t()
       }
 
@@ -230,7 +230,7 @@ defmodule AWS.EMRServerless do
         optional("maxResults") => [integer()],
         optional("mode") => String.t(),
         optional("nextToken") => String.t(),
-        optional("states") => list(String.t()())
+        optional("states") => list(String.t())
       }
 
   """
@@ -255,7 +255,7 @@ defmodule AWS.EMRServerless do
 
       configuration() :: %{
         "classification" => String.t(),
-        "configurations" => list(configuration()()),
+        "configurations" => list(configuration()),
         "properties" => map()
       }
 
@@ -306,7 +306,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -363,7 +363,7 @@ defmodule AWS.EMRServerless do
 
       job_run_execution_iam_policy() :: %{
         "policy" => String.t(),
-        "policyArns" => list(String.t()())
+        "policyArns" => list(String.t())
       }
 
   """
@@ -375,7 +375,7 @@ defmodule AWS.EMRServerless do
 
       spark_submit() :: %{
         "entryPoint" => String.t(),
-        "entryPointArguments" => list(String.t()()),
+        "entryPointArguments" => list(String.t()),
         "sparkSubmitParameters" => String.t()
       }
 
@@ -477,7 +477,7 @@ defmodule AWS.EMRServerless do
 
       list_job_runs_response() :: %{
         optional("nextToken") => String.t(),
-        required("jobRuns") => list(job_run_summary()())
+        required("jobRuns") => list(job_run_summary())
       }
 
   """
@@ -503,7 +503,7 @@ defmodule AWS.EMRServerless do
         "name" => String.t(),
         "networkConfiguration" => network_configuration(),
         "releaseLabel" => String.t(),
-        "runtimeConfiguration" => list(configuration()()),
+        "runtimeConfiguration" => list(configuration()),
         "schedulerConfiguration" => scheduler_configuration(),
         "state" => String.t(),
         "stateDetails" => String.t(),
@@ -543,7 +543,7 @@ defmodule AWS.EMRServerless do
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("name") => String.t(),
         optional("networkConfiguration") => network_configuration(),
-        optional("runtimeConfiguration") => list(configuration()()),
+        optional("runtimeConfiguration") => list(configuration()),
         optional("schedulerConfiguration") => scheduler_configuration(),
         optional("tags") => map(),
         optional("workerTypeSpecifications") => map(),
@@ -638,7 +638,7 @@ defmodule AWS.EMRServerless do
         optional("monitoringConfiguration") => monitoring_configuration(),
         optional("networkConfiguration") => network_configuration(),
         optional("releaseLabel") => String.t(),
-        optional("runtimeConfiguration") => list(configuration()()),
+        optional("runtimeConfiguration") => list(configuration()),
         optional("schedulerConfiguration") => scheduler_configuration(),
         optional("workerTypeSpecifications") => map(),
         required("clientToken") => String.t()
@@ -728,7 +728,7 @@ defmodule AWS.EMRServerless do
       list_applications_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
-        optional("states") => list(String.t()())
+        optional("states") => list(String.t())
       }
 
   """
@@ -739,8 +739,8 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       network_configuration() :: %{
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -826,7 +826,7 @@ defmodule AWS.EMRServerless do
   ## Example:
 
       configuration_overrides() :: %{
-        "applicationConfiguration" => list(configuration()()),
+        "applicationConfiguration" => list(configuration()),
         "monitoringConfiguration" => monitoring_configuration()
       }
 
@@ -859,7 +859,7 @@ defmodule AWS.EMRServerless do
 
       list_applications_response() :: %{
         optional("nextToken") => String.t(),
-        required("applications") => list(application_summary()())
+        required("applications") => list(application_summary())
       }
 
   """

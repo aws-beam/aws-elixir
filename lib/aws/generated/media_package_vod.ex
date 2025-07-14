@@ -99,7 +99,7 @@ defmodule AWS.MediaPackageVod do
       describe_asset_response() :: %{
         "Arn" => String.t(),
         "CreatedAt" => String.t(),
-        "EgressEndpoints" => list(egress_endpoint()()),
+        "EgressEndpoints" => list(egress_endpoint()),
         "Id" => String.t(),
         "PackagingGroupId" => String.t(),
         "ResourceId" => String.t(),
@@ -159,7 +159,7 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -232,7 +232,7 @@ defmodule AWS.MediaPackageVod do
 
       cmaf_package() :: %{
         "Encryption" => cmaf_encryption(),
-        "HlsManifests" => list(hls_manifest()()),
+        "HlsManifests" => list(hls_manifest()),
         "IncludeEncoderConfigurationInSegments" => boolean(),
         "SegmentDurationSeconds" => integer()
       }
@@ -310,7 +310,7 @@ defmodule AWS.MediaPackageVod do
       speke_key_provider() :: %{
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "RoleArn" => String.t(),
-        "SystemIds" => list(String.t()()),
+        "SystemIds" => list(String.t()),
         "Url" => String.t()
       }
 
@@ -343,7 +343,7 @@ defmodule AWS.MediaPackageVod do
 
       hls_package() :: %{
         "Encryption" => hls_encryption(),
-        "HlsManifests" => list(hls_manifest()()),
+        "HlsManifests" => list(hls_manifest()),
         "IncludeDvbSubtitles" => boolean(),
         "SegmentDurationSeconds" => integer(),
         "UseAudioRenditionGroup" => boolean()
@@ -368,7 +368,7 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       dash_package() :: %{
-        "DashManifests" => list(dash_manifest()()),
+        "DashManifests" => list(dash_manifest()),
         "Encryption" => dash_encryption(),
         "IncludeEncoderConfigurationInSegments" => boolean(),
         "IncludeIframeOnlyStream" => boolean(),
@@ -405,7 +405,7 @@ defmodule AWS.MediaPackageVod do
 
       list_packaging_configurations_response() :: %{
         "NextToken" => String.t(),
-        "PackagingConfigurations" => list(packaging_configuration()())
+        "PackagingConfigurations" => list(packaging_configuration())
       }
 
   """
@@ -568,7 +568,7 @@ defmodule AWS.MediaPackageVod do
       create_asset_response() :: %{
         "Arn" => String.t(),
         "CreatedAt" => String.t(),
-        "EgressEndpoints" => list(egress_endpoint()()),
+        "EgressEndpoints" => list(egress_endpoint()),
         "Id" => String.t(),
         "PackagingGroupId" => String.t(),
         "ResourceId" => String.t(),
@@ -690,7 +690,7 @@ defmodule AWS.MediaPackageVod do
   ## Example:
 
       list_assets_response() :: %{
-        "Assets" => list(asset_shallow()()),
+        "Assets" => list(asset_shallow()),
         "NextToken" => String.t()
       }
 
@@ -712,7 +712,7 @@ defmodule AWS.MediaPackageVod do
 
       list_packaging_groups_response() :: %{
         "NextToken" => String.t(),
-        "PackagingGroups" => list(packaging_group()())
+        "PackagingGroups" => list(packaging_group())
       }
 
   """
@@ -760,7 +760,7 @@ defmodule AWS.MediaPackageVod do
 
       mss_package() :: %{
         "Encryption" => mss_encryption(),
-        "MssManifests" => list(mss_manifest()()),
+        "MssManifests" => list(mss_manifest()),
         "SegmentDurationSeconds" => integer()
       }
 

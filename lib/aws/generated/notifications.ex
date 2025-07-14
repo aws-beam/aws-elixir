@@ -174,7 +174,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_managed_notification_child_events_response() :: %{
-        "managedNotificationChildEvents" => list(managed_notification_child_event_overview()()),
+        "managedNotificationChildEvents" => list(managed_notification_child_event_overview()),
         "nextToken" => String.t()
       }
 
@@ -210,7 +210,7 @@ defmodule AWS.Notifications do
 
       update_event_rule_request() :: %{
         optional("eventPattern") => String.t(),
-        optional("regions") => list(String.t()())
+        optional("regions") => list(String.t())
       }
 
   """
@@ -253,7 +253,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       managed_notification_event_overview() :: %{
-        "aggregatedNotificationRegions" => list(String.t()()),
+        "aggregatedNotificationRegions" => list(String.t()),
         "aggregationEventType" => String.t(),
         "aggregationSummary" => aggregation_summary(),
         "arn" => String.t(),
@@ -385,9 +385,9 @@ defmodule AWS.Notifications do
   ## Example:
 
       aggregation_summary() :: %{
-        "additionalSummarizationDimensions" => list(summarization_dimension_overview()()),
+        "additionalSummarizationDimensions" => list(summarization_dimension_overview()),
         "aggregatedAccounts" => summarization_dimension_overview(),
-        "aggregatedBy" => list(aggregation_key()()),
+        "aggregatedBy" => list(aggregation_key()),
         "aggregatedOrganizationalUnits" => summarization_dimension_overview(),
         "aggregatedRegions" => summarization_dimension_overview(),
         "eventCount" => [integer()]
@@ -456,7 +456,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -476,7 +476,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_managed_notification_configurations_response() :: %{
-        "managedNotificationConfigurations" => list(managed_notification_configuration_structure()()),
+        "managedNotificationConfigurations" => list(managed_notification_configuration_structure()),
         "nextToken" => String.t()
       }
 
@@ -536,7 +536,7 @@ defmodule AWS.Notifications do
         "endTime" => [non_neg_integer()],
         "eventStatus" => String.t(),
         "id" => String.t(),
-        "media" => list(media_element()()),
+        "media" => list(media_element()),
         "messageComponents" => message_components(),
         "notificationType" => String.t(),
         "schemaVersion" => String.t(),
@@ -623,7 +623,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       aggregation_detail() :: %{
-        "summarizationDimensions" => list(summarization_dimension_detail()())
+        "summarizationDimensions" => list(summarization_dimension_detail())
       }
 
   """
@@ -704,7 +704,7 @@ defmodule AWS.Notifications do
 
       list_notification_configurations_response() :: %{
         "nextToken" => String.t(),
-        "notificationConfigurations" => list(notification_configuration_structure()())
+        "notificationConfigurations" => list(notification_configuration_structure())
       }
 
   """
@@ -815,9 +815,9 @@ defmodule AWS.Notifications do
         "creationTime" => non_neg_integer(),
         "eventPattern" => String.t(),
         "eventType" => String.t(),
-        "managedRules" => list(String.t()()),
+        "managedRules" => list(String.t()),
         "notificationConfigurationArn" => String.t(),
-        "regions" => list(String.t()()),
+        "regions" => list(String.t()),
         "source" => String.t(),
         "statusSummaryByRegion" => map()
       }
@@ -831,7 +831,7 @@ defmodule AWS.Notifications do
 
       list_notification_hubs_response() :: %{
         "nextToken" => String.t(),
-        "notificationHubs" => list(notification_hub_overview()())
+        "notificationHubs" => list(notification_hub_overview())
       }
 
   """
@@ -882,7 +882,7 @@ defmodule AWS.Notifications do
 
       list_notification_events_response() :: %{
         "nextToken" => String.t(),
-        "notificationEvents" => list(notification_event_overview()())
+        "notificationEvents" => list(notification_event_overview())
       }
 
   """
@@ -941,7 +941,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_channels_response() :: %{
-        "channels" => list(String.t()()),
+        "channels" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -968,7 +968,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_managed_notification_channel_associations_response() :: %{
-        "channelAssociations" => list(managed_notification_channel_association_summary()()),
+        "channelAssociations" => list(managed_notification_channel_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -992,7 +992,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_event_rules_response() :: %{
-        "eventRules" => list(event_rule_structure()()),
+        "eventRules" => list(event_rule_structure()),
         "nextToken" => String.t()
       }
 
@@ -1019,7 +1019,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       list_managed_notification_events_response() :: %{
-        "managedNotificationEvents" => list(managed_notification_event_overview()()),
+        "managedNotificationEvents" => list(managed_notification_event_overview()),
         "nextToken" => String.t()
       }
 
@@ -1088,7 +1088,7 @@ defmodule AWS.Notifications do
 
       message_components() :: %{
         "completeDescription" => String.t(),
-        "dimensions" => list(dimension()()),
+        "dimensions" => list(dimension()),
         "headline" => String.t(),
         "paragraphSummary" => String.t()
       }
@@ -1163,7 +1163,7 @@ defmodule AWS.Notifications do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -1213,7 +1213,7 @@ defmodule AWS.Notifications do
         "eventType" => [String.t()],
         "eventTypeVersion" => [String.t()],
         "relatedAccount" => String.t(),
-        "relatedResources" => list(resource()()),
+        "relatedResources" => list(resource()),
         "source" => String.t(),
         "sourceEventId" => [String.t()]
       }
@@ -1301,9 +1301,9 @@ defmodule AWS.Notifications do
         "creationTime" => non_neg_integer(),
         "eventPattern" => String.t(),
         "eventType" => String.t(),
-        "managedRules" => list(String.t()()),
+        "managedRules" => list(String.t()),
         "notificationConfigurationArn" => String.t(),
-        "regions" => list(String.t()()),
+        "regions" => list(String.t()),
         "source" => String.t(),
         "statusSummaryByRegion" => map()
       }
@@ -1374,7 +1374,7 @@ defmodule AWS.Notifications do
         optional("eventPattern") => String.t(),
         required("eventType") => String.t(),
         required("notificationConfigurationArn") => String.t(),
-        required("regions") => list(String.t()()),
+        required("regions") => list(String.t()),
         required("source") => String.t()
       }
 

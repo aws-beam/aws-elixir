@@ -84,7 +84,7 @@ defmodule AWS.Budgets do
       expression_dimension_values() :: %{
         "Key" => list(any()),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -96,7 +96,7 @@ defmodule AWS.Budgets do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("ResourceTags") => list(resource_tag()())
+        required("ResourceTags") => list(resource_tag())
       }
       
   """
@@ -107,7 +107,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budgets_response() :: %{
-        "Budgets" => list(budget()()),
+        "Budgets" => list(budget()),
         "NextToken" => String.t()
       }
       
@@ -213,7 +213,7 @@ defmodule AWS.Budgets do
       tag_values() :: %{
         "Key" => String.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -246,7 +246,7 @@ defmodule AWS.Budgets do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("ResourceTagKeys") => list(String.t()())
+        required("ResourceTagKeys") => list(String.t())
       }
       
   """
@@ -262,7 +262,7 @@ defmodule AWS.Budgets do
         optional("Definition") => definition(),
         optional("ExecutionRoleArn") => String.t(),
         optional("NotificationType") => list(any()),
-        optional("Subscribers") => list(subscriber()()),
+        optional("Subscribers") => list(subscriber()),
         required("AccountId") => String.t(),
         required("ActionId") => String.t(),
         required("BudgetName") => String.t()
@@ -324,7 +324,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budget_actions_for_budget_response() :: %{
-        "Actions" => list(action()()),
+        "Actions" => list(action()),
         "NextToken" => String.t()
       }
       
@@ -383,7 +383,7 @@ defmodule AWS.Budgets do
       
       describe_subscribers_for_notification_response() :: %{
         "NextToken" => String.t(),
-        "Subscribers" => list(subscriber()())
+        "Subscribers" => list(subscriber())
       }
       
   """
@@ -394,7 +394,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budget_notifications_for_account_response() :: %{
-        "BudgetNotificationsForAccount" => list(budget_notifications_for_account()()),
+        "BudgetNotificationsForAccount" => list(budget_notifications_for_account()),
         "NextToken" => String.t()
       }
       
@@ -448,7 +448,7 @@ defmodule AWS.Budgets do
       
       scp_action_definition() :: %{
         "PolicyId" => String.t(),
-        "TargetIds" => list(String.t()())
+        "TargetIds" => list(String.t())
       }
       
   """
@@ -497,7 +497,7 @@ defmodule AWS.Budgets do
       
       ssm_action_definition() :: %{
         "ActionSubType" => list(any()),
-        "InstanceIds" => list(String.t()()),
+        "InstanceIds" => list(String.t()),
         "Region" => String.t()
       }
       
@@ -520,7 +520,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budget_action_histories_response() :: %{
-        "ActionHistories" => list(action_history()()),
+        "ActionHistories" => list(action_history()),
         "NextToken" => String.t()
       }
       
@@ -573,7 +573,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "ResourceTags" => list(resource_tag()())
+        "ResourceTags" => list(resource_tag())
       }
       
   """
@@ -598,7 +598,7 @@ defmodule AWS.Budgets do
       
       notification_with_subscribers() :: %{
         "Notification" => notification(),
-        "Subscribers" => list(subscriber()())
+        "Subscribers" => list(subscriber())
       }
       
   """
@@ -621,7 +621,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       create_budget_action_request() :: %{
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ResourceTags") => list(resource_tag()),
         required("AccountId") => String.t(),
         required("ActionThreshold") => action_threshold(),
         required("ActionType") => list(any()),
@@ -630,7 +630,7 @@ defmodule AWS.Budgets do
         required("Definition") => definition(),
         required("ExecutionRoleArn") => String.t(),
         required("NotificationType") => list(any()),
-        required("Subscribers") => list(subscriber()())
+        required("Subscribers") => list(subscriber())
       }
       
   """
@@ -707,7 +707,7 @@ defmodule AWS.Budgets do
   ## Example:
       
       describe_budget_actions_for_account_response() :: %{
-        "Actions" => list(action()()),
+        "Actions" => list(action()),
         "NextToken" => String.t()
       }
       
@@ -728,7 +728,7 @@ defmodule AWS.Budgets do
         "ExecutionRoleArn" => String.t(),
         "NotificationType" => list(any()),
         "Status" => list(any()),
-        "Subscribers" => list(subscriber()())
+        "Subscribers" => list(subscriber())
       }
       
   """
@@ -741,7 +741,7 @@ defmodule AWS.Budgets do
       cost_category_values() :: %{
         "Key" => String.t(),
         "MatchOptions" => list(list(any())()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -818,8 +818,8 @@ defmodule AWS.Budgets do
   ## Example:
       
       create_budget_request() :: %{
-        optional("NotificationsWithSubscribers") => list(notification_with_subscribers()()),
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("NotificationsWithSubscribers") => list(notification_with_subscribers()),
+        optional("ResourceTags") => list(resource_tag()),
         required("AccountId") => String.t(),
         required("Budget") => budget()
       }
@@ -889,7 +889,7 @@ defmodule AWS.Budgets do
       
       describe_notifications_for_budget_response() :: %{
         "NextToken" => String.t(),
-        "Notifications" => list(notification()())
+        "Notifications" => list(notification())
       }
       
   """
@@ -937,11 +937,11 @@ defmodule AWS.Budgets do
   ## Example:
       
       expression() :: %{
-        "And" => list(expression()()),
+        "And" => list(expression()),
         "CostCategories" => cost_category_values(),
         "Dimensions" => expression_dimension_values(),
         "Not" => expression(),
-        "Or" => list(expression()()),
+        "Or" => list(expression()),
         "Tags" => tag_values()
       }
       
@@ -997,7 +997,7 @@ defmodule AWS.Budgets do
       budget_performance_history() :: %{
         "BudgetName" => String.t(),
         "BudgetType" => list(any()),
-        "BudgetedAndActualAmountsList" => list(budgeted_and_actual_amounts()()),
+        "BudgetedAndActualAmountsList" => list(budgeted_and_actual_amounts()),
         "CostFilters" => map(),
         "CostTypes" => cost_types(),
         "TimeUnit" => list(any())
@@ -1050,10 +1050,10 @@ defmodule AWS.Budgets do
   ## Example:
       
       iam_action_definition() :: %{
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "PolicyArn" => String.t(),
-        "Roles" => list(String.t()()),
-        "Users" => list(String.t()())
+        "Roles" => list(String.t()),
+        "Users" => list(String.t())
       }
       
   """
@@ -1089,7 +1089,7 @@ defmodule AWS.Budgets do
       
       budget_notifications_for_account() :: %{
         "BudgetName" => String.t(),
-        "Notifications" => list(notification()())
+        "Notifications" => list(notification())
       }
       
   """
@@ -1112,7 +1112,7 @@ defmodule AWS.Budgets do
         required("AccountId") => String.t(),
         required("BudgetName") => String.t(),
         required("Notification") => notification(),
-        required("Subscribers") => list(subscriber()())
+        required("Subscribers") => list(subscriber())
       }
       
   """
@@ -1445,7 +1445,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBudget", input, options)
   end
@@ -1460,7 +1461,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_budget_action_errors()}
   def create_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBudgetAction", input, options)
   end
@@ -1476,7 +1478,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_notification_errors()}
   def create_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateNotification", input, options)
   end
@@ -1493,7 +1496,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_subscriber_errors()}
   def create_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubscriber", input, options)
   end
@@ -1512,7 +1516,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_budget_errors()}
   def delete_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBudget", input, options)
   end
@@ -1527,7 +1532,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_budget_action_errors()}
   def delete_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBudgetAction", input, options)
   end
@@ -1544,7 +1550,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_notification_errors()}
   def delete_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotification", input, options)
   end
@@ -1560,7 +1567,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_subscriber_errors()}
   def delete_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubscriber", input, options)
   end
@@ -1579,7 +1587,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_errors()}
   def describe_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudget", input, options)
   end
@@ -1594,7 +1603,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_action_errors()}
   def describe_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetAction", input, options)
   end
@@ -1613,7 +1623,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_action_histories_errors()}
   def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionHistories", input, options)
   end
@@ -1632,7 +1643,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_actions_for_account_errors()}
   def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForAccount", input, options)
   end
@@ -1651,7 +1663,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_actions_for_budget_errors()}
   def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForBudget", input, options)
   end
@@ -1669,7 +1682,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_notifications_for_account_errors()}
   def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetNotificationsForAccount", input, options)
   end
@@ -1689,7 +1703,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_performance_history_errors()}
   def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgetPerformanceHistory", input, options)
   end
@@ -1708,7 +1723,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budgets_errors()}
   def describe_budgets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBudgets", input, options)
   end
@@ -1726,7 +1742,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_notifications_for_budget_errors()}
   def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotificationsForBudget", input, options)
   end
@@ -1744,7 +1761,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_subscribers_for_notification_errors()}
   def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubscribersForNotification", input, options)
   end
@@ -1759,7 +1777,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, execute_budget_action_errors()}
   def execute_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteBudgetAction", input, options)
   end
@@ -1773,7 +1792,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1787,7 +1807,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1801,7 +1822,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1836,7 +1858,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBudget", input, options)
   end
@@ -1851,7 +1874,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_budget_action_errors()}
   def update_budget_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBudgetAction", input, options)
   end
@@ -1865,7 +1889,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_notification_errors()}
   def update_notification(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateNotification", input, options)
   end
@@ -1879,7 +1904,8 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_subscriber_errors()}
   def update_subscriber(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubscriber", input, options)
   end

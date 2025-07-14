@@ -23,7 +23,7 @@ defmodule AWS.Savingsplans do
 
       describe_savings_plans_offerings_response() :: %{
         "nextToken" => String.t(),
-        "searchResults" => list(savings_plan_offering()())
+        "searchResults" => list(savings_plan_offering())
       }
 
   """
@@ -34,7 +34,7 @@ defmodule AWS.Savingsplans do
   ## Example:
 
       describe_savings_plan_rates_request() :: %{
-        optional("filters") => list(savings_plan_rate_filter()()),
+        optional("filters") => list(savings_plan_rate_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("savingsPlanId") => String.t()
@@ -61,7 +61,7 @@ defmodule AWS.Savingsplans do
 
       savings_plan_rate_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -72,11 +72,11 @@ defmodule AWS.Savingsplans do
   ## Example:
 
       describe_savings_plans_request() :: %{
-        optional("filters") => list(savings_plan_filter()()),
+        optional("filters") => list(savings_plan_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("savingsPlanArns") => list(String.t()()),
-        optional("savingsPlanIds") => list(String.t()()),
+        optional("savingsPlanArns") => list(String.t()),
+        optional("savingsPlanIds") => list(String.t()),
         optional("states") => list(list(any())())
       }
 
@@ -110,7 +110,7 @@ defmodule AWS.Savingsplans do
       savings_plan_offering_rate() :: %{
         "operation" => String.t(),
         "productType" => list(any()),
-        "properties" => list(savings_plan_offering_rate_property()()),
+        "properties" => list(savings_plan_offering_rate_property()),
         "rate" => String.t(),
         "savingsPlanOffering" => parent_savings_plan_offering(),
         "serviceCode" => list(any()),
@@ -146,7 +146,7 @@ defmodule AWS.Savingsplans do
         "paymentOption" => list(any()),
         "planType" => list(any()),
         "productTypes" => list(list(any())()),
-        "properties" => list(savings_plan_offering_property()()),
+        "properties" => list(savings_plan_offering_property()),
         "serviceCode" => String.t(),
         "usageType" => String.t()
       }
@@ -159,16 +159,16 @@ defmodule AWS.Savingsplans do
   ## Example:
 
       describe_savings_plans_offering_rates_request() :: %{
-        optional("filters") => list(savings_plan_offering_rate_filter_element()()),
+        optional("filters") => list(savings_plan_offering_rate_filter_element()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("operations") => list(String.t()()),
+        optional("operations") => list(String.t()),
         optional("products") => list(list(any())()),
-        optional("savingsPlanOfferingIds") => list(String.t()()),
+        optional("savingsPlanOfferingIds") => list(String.t()),
         optional("savingsPlanPaymentOptions") => list(list(any())()),
         optional("savingsPlanTypes") => list(list(any())()),
         optional("serviceCodes") => list(list(any())()),
-        optional("usageTypes") => list(String.t()())
+        optional("usageTypes") => list(String.t())
       }
 
   """
@@ -182,7 +182,7 @@ defmodule AWS.Savingsplans do
         "currency" => list(any()),
         "operation" => String.t(),
         "productType" => list(any()),
-        "properties" => list(savings_plan_rate_property()()),
+        "properties" => list(savings_plan_rate_property()),
         "rate" => String.t(),
         "serviceCode" => list(any()),
         "unit" => list(any()),
@@ -207,7 +207,7 @@ defmodule AWS.Savingsplans do
 
       savings_plan_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -219,7 +219,7 @@ defmodule AWS.Savingsplans do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -349,7 +349,7 @@ defmodule AWS.Savingsplans do
 
       describe_savings_plans_response() :: %{
         "nextToken" => String.t(),
-        "savingsPlans" => list(savings_plan()())
+        "savingsPlans" => list(savings_plan())
       }
 
   """
@@ -361,7 +361,7 @@ defmodule AWS.Savingsplans do
 
       describe_savings_plans_offering_rates_response() :: %{
         "nextToken" => String.t(),
-        "searchResults" => list(savings_plan_offering_rate()())
+        "searchResults" => list(savings_plan_offering_rate())
       }
 
   """
@@ -374,7 +374,7 @@ defmodule AWS.Savingsplans do
       describe_savings_plan_rates_response() :: %{
         "nextToken" => String.t(),
         "savingsPlanId" => String.t(),
-        "searchResults" => list(savings_plan_rate()())
+        "searchResults" => list(savings_plan_rate())
       }
 
   """
@@ -462,7 +462,7 @@ defmodule AWS.Savingsplans do
 
       savings_plan_offering_filter_element() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -474,18 +474,18 @@ defmodule AWS.Savingsplans do
 
       describe_savings_plans_offerings_request() :: %{
         optional("currencies") => list(list(any())()),
-        optional("descriptions") => list(String.t()()),
-        optional("durations") => list(float()()),
-        optional("filters") => list(savings_plan_offering_filter_element()()),
+        optional("descriptions") => list(String.t()),
+        optional("durations") => list(float()),
+        optional("filters") => list(savings_plan_offering_filter_element()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("offeringIds") => list(String.t()()),
-        optional("operations") => list(String.t()()),
+        optional("offeringIds") => list(String.t()),
+        optional("operations") => list(String.t()),
         optional("paymentOptions") => list(list(any())()),
         optional("planTypes") => list(list(any())()),
         optional("productType") => list(any()),
-        optional("serviceCodes") => list(String.t()()),
-        optional("usageTypes") => list(String.t()())
+        optional("serviceCodes") => list(String.t()),
+        optional("usageTypes") => list(String.t())
       }
 
   """
@@ -497,7 +497,7 @@ defmodule AWS.Savingsplans do
 
       savings_plan_offering_rate_filter_element() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """

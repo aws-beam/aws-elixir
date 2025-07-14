@@ -41,14 +41,14 @@ defmodule AWS.FMS do
         "CurrentFirewallSubnetRouteTable" => String.t(),
         "CurrentInternetGatewayRouteTable" => String.t(),
         "FirewallSubnetId" => String.t(),
-        "FirewallSubnetRoutes" => list(route()()),
+        "FirewallSubnetRoutes" => list(route()),
         "InternetGatewayId" => String.t(),
-        "InternetGatewayRoutes" => list(route()()),
+        "InternetGatewayRoutes" => list(route()),
         "RouteTableId" => String.t(),
         "SubnetAvailabilityZone" => String.t(),
         "SubnetAvailabilityZoneId" => String.t(),
         "SubnetId" => String.t(),
-        "ViolatingRoutes" => list(route()()),
+        "ViolatingRoutes" => list(route()),
         "VpcId" => String.t()
       }
       
@@ -91,10 +91,10 @@ defmodule AWS.FMS do
   ## Example:
       
       network_acl_entry_set() :: %{
-        "FirstEntries" => list(network_acl_entry()()),
+        "FirstEntries" => list(network_acl_entry()),
         "ForceRemediateForFirstEntries" => boolean(),
         "ForceRemediateForLastEntries" => boolean(),
-        "LastEntries" => list(network_acl_entry()())
+        "LastEntries" => list(network_acl_entry())
       }
       
   """
@@ -118,7 +118,7 @@ defmodule AWS.FMS do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagList") => list(tag()())
+        required("TagList") => list(tag())
       }
       
   """
@@ -129,7 +129,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_apps_lists_response() :: %{
-        "AppsLists" => list(apps_list_data_summary()()),
+        "AppsLists" => list(apps_list_data_summary()),
         "NextToken" => String.t()
       }
       
@@ -156,7 +156,7 @@ defmodule AWS.FMS do
   ## Example:
       
       batch_disassociate_resource_response() :: %{
-        "FailedItems" => list(failed_item()()),
+        "FailedItems" => list(failed_item()),
         "ResourceSetIdentifier" => String.t()
       }
       
@@ -171,7 +171,7 @@ defmodule AWS.FMS do
         "ListArn" => String.t(),
         "ListId" => String.t(),
         "ListName" => String.t(),
-        "ProtocolsList" => list(String.t()())
+        "ProtocolsList" => list(String.t())
       }
       
   """
@@ -182,7 +182,7 @@ defmodule AWS.FMS do
   ## Example:
       
       batch_associate_resource_request() :: %{
-        required("Items") => list(String.t()()),
+        required("Items") => list(String.t()),
         required("ResourceSetIdentifier") => String.t()
       }
       
@@ -248,7 +248,7 @@ defmodule AWS.FMS do
       
       list_policies_response() :: %{
         "NextToken" => String.t(),
-        "PolicyList" => list(policy_summary()())
+        "PolicyList" => list(policy_summary())
       }
       
   """
@@ -293,7 +293,7 @@ defmodule AWS.FMS do
       
       invalid_network_acl_entries_violation() :: %{
         "CurrentAssociatedNetworkAcl" => String.t(),
-        "EntryViolations" => list(entry_violation()()),
+        "EntryViolations" => list(entry_violation()),
         "Subnet" => String.t(),
         "SubnetAvailabilityZone" => String.t(),
         "Vpc" => String.t()
@@ -348,7 +348,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_member_accounts_response() :: %{
-        "MemberAccounts" => list(String.t()()),
+        "MemberAccounts" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -428,7 +428,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_resource_set_resources_response() :: %{
-        "Items" => list(resource()()),
+        "Items" => list(resource()),
         "NextToken" => String.t()
       }
       
@@ -442,7 +442,7 @@ defmodule AWS.FMS do
       network_firewall_unexpected_gateway_routes_violation() :: %{
         "GatewayId" => String.t(),
         "RouteTableId" => String.t(),
-        "ViolatingRoutes" => list(route()()),
+        "ViolatingRoutes" => list(route()),
         "VpcId" => String.t()
       }
       
@@ -582,15 +582,15 @@ defmodule AWS.FMS do
       network_firewall_invalid_route_configuration_violation() :: %{
         "ActualFirewallEndpoint" => String.t(),
         "ActualFirewallSubnetId" => String.t(),
-        "ActualFirewallSubnetRoutes" => list(route()()),
-        "ActualInternetGatewayRoutes" => list(route()()),
-        "AffectedSubnets" => list(String.t()()),
+        "ActualFirewallSubnetRoutes" => list(route()),
+        "ActualInternetGatewayRoutes" => list(route()),
+        "AffectedSubnets" => list(String.t()),
         "CurrentFirewallSubnetRouteTable" => String.t(),
         "CurrentInternetGatewayRouteTable" => String.t(),
         "ExpectedFirewallEndpoint" => String.t(),
         "ExpectedFirewallSubnetId" => String.t(),
-        "ExpectedFirewallSubnetRoutes" => list(expected_route()()),
-        "ExpectedInternetGatewayRoutes" => list(expected_route()()),
+        "ExpectedFirewallSubnetRoutes" => list(expected_route()),
+        "ExpectedInternetGatewayRoutes" => list(expected_route()),
         "InternetGatewayId" => String.t(),
         "IsRouteTableUsedInDifferentAZ" => boolean(),
         "RouteTableId" => String.t(),
@@ -618,13 +618,13 @@ defmodule AWS.FMS do
   ## Example:
       
       network_firewall_policy_description() :: %{
-        "StatefulDefaultActions" => list(String.t()()),
+        "StatefulDefaultActions" => list(String.t()),
         "StatefulEngineOptions" => stateful_engine_options(),
-        "StatefulRuleGroups" => list(stateful_rule_group()()),
-        "StatelessCustomActions" => list(String.t()()),
-        "StatelessDefaultActions" => list(String.t()()),
-        "StatelessFragmentDefaultActions" => list(String.t()()),
-        "StatelessRuleGroups" => list(stateless_rule_group()())
+        "StatefulRuleGroups" => list(stateful_rule_group()),
+        "StatelessCustomActions" => list(String.t()),
+        "StatelessDefaultActions" => list(String.t()),
+        "StatelessFragmentDefaultActions" => list(String.t()),
+        "StatelessRuleGroups" => list(stateless_rule_group())
       }
       
   """
@@ -638,7 +638,7 @@ defmodule AWS.FMS do
         "FirewallEndpoint" => String.t(),
         "FirewallSubnetId" => String.t(),
         "RouteTableId" => String.t(),
-        "ViolatingRoutes" => list(route()()),
+        "ViolatingRoutes" => list(route()),
         "VpcId" => String.t()
       }
       
@@ -666,9 +666,9 @@ defmodule AWS.FMS do
         "PolicyId" => String.t(),
         "ResourceDescription" => String.t(),
         "ResourceId" => String.t(),
-        "ResourceTags" => list(tag()()),
+        "ResourceTags" => list(tag()),
         "ResourceType" => String.t(),
-        "ResourceViolations" => list(resource_violation()())
+        "ResourceViolations" => list(resource_violation())
       }
       
   """
@@ -680,7 +680,7 @@ defmodule AWS.FMS do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -706,7 +706,7 @@ defmodule AWS.FMS do
       
       list_protocols_lists_response() :: %{
         "NextToken" => String.t(),
-        "ProtocolsLists" => list(protocols_list_data_summary()())
+        "ProtocolsLists" => list(protocols_list_data_summary())
       }
       
   """
@@ -752,7 +752,7 @@ defmodule AWS.FMS do
   ## Example:
       
       apps_list_data() :: %{
-        "AppsList" => list(app()()),
+        "AppsList" => list(app()),
         "CreateTime" => non_neg_integer(),
         "LastUpdateTime" => non_neg_integer(),
         "ListId" => String.t(),
@@ -780,7 +780,7 @@ defmodule AWS.FMS do
   ## Example:
       
       put_protocols_list_request() :: %{
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("ProtocolsList") => protocols_list_data()
       }
       
@@ -794,7 +794,7 @@ defmodule AWS.FMS do
       delete_network_acl_entries_action() :: %{
         "Description" => String.t(),
         "FMSCanRemediate" => boolean(),
-        "NetworkAclEntriesToBeDeleted" => list(entry_description()()),
+        "NetworkAclEntriesToBeDeleted" => list(entry_description()),
         "NetworkAclId" => action_target()
       }
       
@@ -840,7 +840,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_discovered_resources_response() :: %{
-        "Items" => list(discovered_resource()()),
+        "Items" => list(discovered_resource()),
         "NextToken" => String.t()
       }
       
@@ -887,20 +887,20 @@ defmodule AWS.FMS do
   ## Example:
       
       network_firewall_internet_traffic_not_inspected_violation() :: %{
-        "ActualFirewallSubnetRoutes" => list(route()()),
-        "ActualInternetGatewayRoutes" => list(route()()),
+        "ActualFirewallSubnetRoutes" => list(route()),
+        "ActualInternetGatewayRoutes" => list(route()),
         "CurrentFirewallSubnetRouteTable" => String.t(),
         "CurrentInternetGatewayRouteTable" => String.t(),
         "ExpectedFirewallEndpoint" => String.t(),
-        "ExpectedFirewallSubnetRoutes" => list(expected_route()()),
-        "ExpectedInternetGatewayRoutes" => list(expected_route()()),
+        "ExpectedFirewallSubnetRoutes" => list(expected_route()),
+        "ExpectedInternetGatewayRoutes" => list(expected_route()),
         "FirewallSubnetId" => String.t(),
         "InternetGatewayId" => String.t(),
         "IsRouteTableUsedInDifferentAZ" => boolean(),
         "RouteTableId" => String.t(),
         "SubnetAvailabilityZone" => String.t(),
         "SubnetId" => String.t(),
-        "ViolatingRoutes" => list(route()()),
+        "ViolatingRoutes" => list(route()),
         "VpcId" => String.t()
       }
       
@@ -926,7 +926,7 @@ defmodule AWS.FMS do
   ## Example:
       
       apps_list_data_summary() :: %{
-        "AppsList" => list(app()()),
+        "AppsList" => list(app()),
         "ListArn" => String.t(),
         "ListId" => String.t(),
         "ListName" => String.t()
@@ -988,7 +988,7 @@ defmodule AWS.FMS do
       
       region_scope() :: %{
         "AllRegionsEnabled" => boolean(),
-        "Regions" => list(String.t()())
+        "Regions" => list(String.t())
       }
       
   """
@@ -1040,7 +1040,7 @@ defmodule AWS.FMS do
       dns_rule_group_priority_conflict_violation() :: %{
         "ConflictingPolicyId" => String.t(),
         "ConflictingPriority" => integer(),
-        "UnavailablePriorities" => list(integer()()),
+        "UnavailablePriorities" => list(integer()),
         "ViolationTarget" => String.t(),
         "ViolationTargetDescription" => String.t()
       }
@@ -1139,7 +1139,7 @@ defmodule AWS.FMS do
       
       entry_violation() :: %{
         "ActualEvaluationOrder" => String.t(),
-        "EntriesWithConflicts" => list(entry_description()()),
+        "EntriesWithConflicts" => list(entry_description()),
         "EntryAtExpectedEvaluationOrder" => entry_description(),
         "EntryViolationReasons" => list(list(any())()),
         "ExpectedEntry" => entry_description(),
@@ -1155,7 +1155,7 @@ defmodule AWS.FMS do
       
       partial_match() :: %{
         "Reference" => String.t(),
-        "TargetViolationReasons" => list(String.t()())
+        "TargetViolationReasons" => list(String.t())
       }
       
   """
@@ -1168,7 +1168,7 @@ defmodule AWS.FMS do
       possible_remediation_action() :: %{
         "Description" => String.t(),
         "IsDefaultAction" => boolean(),
-        "OrderedRemediationActions" => list(remediation_action_with_order()())
+        "OrderedRemediationActions" => list(remediation_action_with_order())
       }
       
   """
@@ -1204,7 +1204,7 @@ defmodule AWS.FMS do
   ## Example:
       
       put_apps_list_request() :: %{
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("AppsList") => apps_list_data()
       }
       
@@ -1216,7 +1216,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_admins_managing_account_response() :: %{
-        "AdminAccounts" => list(String.t()()),
+        "AdminAccounts" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -1254,7 +1254,7 @@ defmodule AWS.FMS do
       list_discovered_resources_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("MemberAccountIds") => list(String.t()()),
+        required("MemberAccountIds") => list(String.t()),
         required("ResourceType") => String.t()
       }
       
@@ -1282,7 +1282,7 @@ defmodule AWS.FMS do
       organizational_unit_scope() :: %{
         "AllOrganizationalUnitsEnabled" => boolean(),
         "ExcludeSpecifiedOrganizationalUnits" => boolean(),
-        "OrganizationalUnits" => list(String.t()())
+        "OrganizationalUnits" => list(String.t())
       }
       
   """
@@ -1295,7 +1295,7 @@ defmodule AWS.FMS do
       create_network_acl_entries_action() :: %{
         "Description" => String.t(),
         "FMSCanRemediate" => boolean(),
-        "NetworkAclEntriesToBeCreated" => list(entry_description()()),
+        "NetworkAclEntriesToBeCreated" => list(entry_description()),
         "NetworkAclId" => action_target()
       }
       
@@ -1331,7 +1331,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -1342,7 +1342,7 @@ defmodule AWS.FMS do
   ## Example:
       
       batch_disassociate_resource_request() :: %{
-        required("Items") => list(String.t()()),
+        required("Items") => list(String.t()),
         required("ResourceSetIdentifier") => String.t()
       }
       
@@ -1393,7 +1393,7 @@ defmodule AWS.FMS do
   ## Example:
       
       possible_remediation_actions() :: %{
-        "Actions" => list(possible_remediation_action()()),
+        "Actions" => list(possible_remediation_action()),
         "Description" => String.t()
       }
       
@@ -1405,7 +1405,7 @@ defmodule AWS.FMS do
   ## Example:
       
       policy_compliance_status() :: %{
-        "EvaluationResults" => list(evaluation_result()()),
+        "EvaluationResults" => list(evaluation_result()),
         "IssueInfoMap" => map(),
         "LastUpdated" => non_neg_integer(),
         "MemberAccount" => String.t(),
@@ -1474,7 +1474,7 @@ defmodule AWS.FMS do
   ## Example:
       
       aws_ec2_instance_violation() :: %{
-        "AwsEc2NetworkInterfaceViolations" => list(aws_ec2_network_interface_violation()()),
+        "AwsEc2NetworkInterfaceViolations" => list(aws_ec2_network_interface_violation()),
         "ViolationTarget" => String.t()
       }
       
@@ -1538,7 +1538,7 @@ defmodule AWS.FMS do
       
       list_resource_sets_response() :: %{
         "NextToken" => String.t(),
-        "ResourceSets" => list(resource_set_summary()())
+        "ResourceSets" => list(resource_set_summary())
       }
       
   """
@@ -1632,11 +1632,11 @@ defmodule AWS.FMS do
         "PolicyStatus" => list(any()),
         "PolicyUpdateToken" => String.t(),
         "RemediationEnabled" => boolean(),
-        "ResourceSetIds" => list(String.t()()),
+        "ResourceSetIds" => list(String.t()),
         "ResourceTagLogicalOperator" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => String.t(),
-        "ResourceTypeList" => list(String.t()()),
+        "ResourceTypeList" => list(String.t()),
         "SecurityServicePolicyData" => security_service_policy_data()
       }
       
@@ -1648,8 +1648,8 @@ defmodule AWS.FMS do
   ## Example:
       
       aws_vpc_security_group_violation() :: %{
-        "PartialMatches" => list(partial_match()()),
-        "PossibleSecurityGroupRemediationActions" => list(security_group_remediation_action()()),
+        "PartialMatches" => list(partial_match()),
+        "PossibleSecurityGroupRemediationActions" => list(security_group_remediation_action()),
         "ViolationTarget" => String.t(),
         "ViolationTargetDescription" => String.t()
       }
@@ -1663,7 +1663,7 @@ defmodule AWS.FMS do
       
       list_third_party_firewall_firewall_policies_response() :: %{
         "NextToken" => String.t(),
-        "ThirdPartyFirewallFirewallPolicies" => list(third_party_firewall_firewall_policy()())
+        "ThirdPartyFirewallFirewallPolicies" => list(third_party_firewall_firewall_policy())
       }
       
   """
@@ -1703,7 +1703,7 @@ defmodule AWS.FMS do
         "LastUpdateTime" => non_neg_integer(),
         "Name" => String.t(),
         "ResourceSetStatus" => list(any()),
-        "ResourceTypeList" => list(String.t()()),
+        "ResourceTypeList" => list(String.t()),
         "UpdateToken" => String.t()
       }
       
@@ -1736,7 +1736,7 @@ defmodule AWS.FMS do
         "ListName" => String.t(),
         "ListUpdateToken" => String.t(),
         "PreviousProtocolsList" => map(),
-        "ProtocolsList" => list(String.t()())
+        "ProtocolsList" => list(String.t())
       }
       
   """
@@ -1748,7 +1748,7 @@ defmodule AWS.FMS do
       
       network_firewall_black_hole_route_detected_violation() :: %{
         "RouteTableId" => String.t(),
-        "ViolatingRoutes" => list(route()()),
+        "ViolatingRoutes" => list(route()),
         "ViolationTarget" => String.t(),
         "VpcId" => String.t()
       }
@@ -1824,8 +1824,8 @@ defmodule AWS.FMS do
   ## Example:
       
       expected_route() :: %{
-        "AllowedTargets" => list(String.t()()),
-        "ContributingSubnets" => list(String.t()()),
+        "AllowedTargets" => list(String.t()),
+        "ContributingSubnets" => list(String.t()),
         "IpV4Cidr" => String.t(),
         "IpV6Cidr" => String.t(),
         "PrefixListId" => String.t(),
@@ -1866,7 +1866,7 @@ defmodule AWS.FMS do
   ## Example:
       
       web_acl_has_out_of_scope_resources_violation() :: %{
-        "OutOfScopeResourceList" => list(String.t()()),
+        "OutOfScopeResourceList" => list(String.t()),
         "WebACLArn" => String.t()
       }
       
@@ -1884,7 +1884,7 @@ defmodule AWS.FMS do
         "MemberAccount" => String.t(),
         "PolicyId" => String.t(),
         "PolicyOwner" => String.t(),
-        "Violators" => list(compliance_violator()())
+        "Violators" => list(compliance_violator())
       }
       
   """
@@ -1949,7 +1949,7 @@ defmodule AWS.FMS do
   ## Example:
       
       aws_ec2_network_interface_violation() :: %{
-        "ViolatingSecurityGroups" => list(String.t()()),
+        "ViolatingSecurityGroups" => list(String.t()),
         "ViolationTarget" => String.t()
       }
       
@@ -1972,7 +1972,7 @@ defmodule AWS.FMS do
   ## Example:
       
       batch_associate_resource_response() :: %{
-        "FailedItems" => list(failed_item()()),
+        "FailedItems" => list(failed_item()),
         "ResourceSetIdentifier" => String.t()
       }
       
@@ -2015,7 +2015,7 @@ defmodule AWS.FMS do
   ## Example:
       
       account_scope() :: %{
-        "Accounts" => list(String.t()()),
+        "Accounts" => list(String.t()),
         "AllAccountsEnabled" => boolean(),
         "ExcludeSpecifiedAccounts" => boolean()
       }
@@ -2063,7 +2063,7 @@ defmodule AWS.FMS do
   ## Example:
       
       put_policy_request() :: %{
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("Policy") => policy()
       }
       
@@ -2088,7 +2088,7 @@ defmodule AWS.FMS do
   ## Example:
       
       put_resource_set_request() :: %{
-        optional("TagList") => list(tag()()),
+        optional("TagList") => list(tag()),
         required("ResourceSet") => resource_set()
       }
       
@@ -2151,7 +2151,7 @@ defmodule AWS.FMS do
   ## Example:
       
       list_admin_accounts_for_organization_response() :: %{
-        "AdminAccounts" => list(admin_account_summary()()),
+        "AdminAccounts" => list(admin_account_summary()),
         "NextToken" => String.t()
       }
       
@@ -2188,7 +2188,7 @@ defmodule AWS.FMS do
   ## Example:
       
       network_firewall_missing_expected_routes_violation() :: %{
-        "ExpectedRoutes" => list(expected_route()()),
+        "ExpectedRoutes" => list(expected_route()),
         "ViolationTarget" => String.t(),
         "VpcId" => String.t()
       }
@@ -2248,7 +2248,7 @@ defmodule AWS.FMS do
       
       list_compliance_status_response() :: %{
         "NextToken" => String.t(),
-        "PolicyComplianceStatusList" => list(policy_compliance_status()())
+        "PolicyComplianceStatusList" => list(policy_compliance_status())
       }
       
   """
@@ -2543,7 +2543,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, associate_admin_account_errors()}
   def associate_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAdminAccount", input, options)
   end
@@ -2561,7 +2562,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, associate_third_party_firewall_errors()}
   def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateThirdPartyFirewall", input, options)
   end
@@ -2575,7 +2577,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, batch_associate_resource_errors()}
   def batch_associate_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchAssociateResource", input, options)
   end
@@ -2589,7 +2592,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, batch_disassociate_resource_errors()}
   def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDisassociateResource", input, options)
   end
@@ -2603,7 +2607,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_apps_list_errors()}
   def delete_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAppsList", input, options)
   end
@@ -2619,7 +2624,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_notification_channel_errors()}
   def delete_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotificationChannel", input, options)
   end
@@ -2633,7 +2639,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -2647,7 +2654,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_protocols_list_errors()}
   def delete_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProtocolsList", input, options)
   end
@@ -2661,7 +2669,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceSet", input, options)
   end
@@ -2684,7 +2693,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, disassociate_admin_account_errors()}
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAdminAccount", input, options)
   end
@@ -2706,7 +2716,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, disassociate_third_party_firewall_errors()}
   def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateThirdPartyFirewall", input, options)
   end
@@ -2721,7 +2732,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_admin_account_errors()}
   def get_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdminAccount", input, options)
   end
@@ -2738,7 +2750,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_admin_scope_errors()}
   def get_admin_scope(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAdminScope", input, options)
   end
@@ -2752,7 +2765,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_apps_list_errors()}
   def get_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAppsList", input, options)
   end
@@ -2772,7 +2786,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_compliance_detail_errors()}
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComplianceDetail", input, options)
   end
@@ -2788,7 +2803,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_notification_channel_errors()}
   def get_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNotificationChannel", input, options)
   end
@@ -2802,7 +2818,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -2820,7 +2837,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_protection_status_errors()}
   def get_protection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProtectionStatus", input, options)
   end
@@ -2834,7 +2852,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_protocols_list_errors()}
   def get_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProtocolsList", input, options)
   end
@@ -2848,7 +2867,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceSet", input, options)
   end
@@ -2867,7 +2887,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_third_party_firewall_association_status_errors()}
   def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetThirdPartyFirewallAssociationStatus", input, options)
   end
@@ -2882,7 +2903,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_violation_details_errors()}
   def get_violation_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetViolationDetails", input, options)
   end
@@ -2904,7 +2926,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_admin_accounts_for_organization_errors()}
   def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdminAccountsForOrganization", input, options)
   end
@@ -2922,7 +2945,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_admins_managing_account_errors()}
   def list_admins_managing_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAdminsManagingAccount", input, options)
   end
@@ -2936,7 +2960,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_apps_lists_errors()}
   def list_apps_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAppsLists", input, options)
   end
@@ -2954,7 +2979,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_compliance_status_errors()}
   def list_compliance_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComplianceStatus", input, options)
   end
@@ -2969,7 +2995,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -2987,7 +3014,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_member_accounts_errors()}
   def list_member_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMemberAccounts", input, options)
   end
@@ -3001,7 +3029,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -3015,7 +3044,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_protocols_lists_errors()}
   def list_protocols_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProtocolsLists", input, options)
   end
@@ -3029,7 +3059,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_resource_set_resources_errors()}
   def list_resource_set_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSetResources", input, options)
   end
@@ -3043,7 +3074,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSets", input, options)
   end
@@ -3057,7 +3089,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3076,7 +3109,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_third_party_firewall_firewall_policies_errors()}
   def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListThirdPartyFirewallFirewallPolicies", input, options)
   end
@@ -3100,7 +3134,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_admin_account_errors()}
   def put_admin_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAdminAccount", input, options)
   end
@@ -3114,7 +3149,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_apps_list_errors()}
   def put_apps_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutAppsList", input, options)
   end
@@ -3138,7 +3174,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_notification_channel_errors()}
   def put_notification_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutNotificationChannel", input, options)
   end
@@ -3220,7 +3257,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPolicy", input, options)
   end
@@ -3234,7 +3272,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_protocols_list_errors()}
   def put_protocols_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutProtocolsList", input, options)
   end
@@ -3251,7 +3290,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_resource_set_errors()}
   def put_resource_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceSet", input, options)
   end
@@ -3265,7 +3305,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3279,7 +3320,8 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

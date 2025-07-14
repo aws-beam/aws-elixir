@@ -60,10 +60,10 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       ebs_item_filter() :: %{
-        "CreationTimes" => list(time_condition()()),
-        "FilePaths" => list(string_condition()()),
-        "LastModificationTimes" => list(time_condition()()),
-        "Sizes" => list(long_condition()())
+        "CreationTimes" => list(time_condition()),
+        "FilePaths" => list(string_condition()),
+        "LastModificationTimes" => list(time_condition()),
+        "Sizes" => list(long_condition())
       }
 
   """
@@ -75,7 +75,7 @@ defmodule AWS.BackupSearch do
 
       list_search_job_backups_output() :: %{
         "NextToken" => [String.t()],
-        "Results" => list(search_job_backups_result()())
+        "Results" => list(search_job_backups_result())
       }
 
   """
@@ -87,7 +87,7 @@ defmodule AWS.BackupSearch do
 
       list_search_job_results_output() :: %{
         "NextToken" => [String.t()],
-        "Results" => list(list()())
+        "Results" => list(list())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.BackupSearch do
 
       list_search_jobs_output() :: %{
         "NextToken" => [String.t()],
-        "SearchJobs" => list(search_job_summary()())
+        "SearchJobs" => list(search_job_summary())
       }
 
   """
@@ -191,11 +191,11 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       s3_item_filter() :: %{
-        "CreationTimes" => list(time_condition()()),
-        "ETags" => list(string_condition()()),
-        "ObjectKeys" => list(string_condition()()),
-        "Sizes" => list(long_condition()()),
-        "VersionIds" => list(string_condition()())
+        "CreationTimes" => list(time_condition()),
+        "ETags" => list(string_condition()),
+        "ObjectKeys" => list(string_condition()),
+        "Sizes" => list(long_condition()),
+        "VersionIds" => list(string_condition())
       }
 
   """
@@ -367,7 +367,7 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       list_search_result_export_jobs_output() :: %{
-        "ExportJobs" => list(export_job_summary()()),
+        "ExportJobs" => list(export_job_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -541,7 +541,7 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       search_scope() :: %{
-        "BackupResourceArns" => list(String.t()()),
+        "BackupResourceArns" => list(String.t()),
         "BackupResourceCreationTime" => backup_creation_time_filter(),
         "BackupResourceTags" => map(),
         "BackupResourceTypes" => list(list(any())()),
@@ -597,8 +597,8 @@ defmodule AWS.BackupSearch do
   ## Example:
 
       item_filters() :: %{
-        "EBSItemFilters" => list(ebs_item_filter()()),
-        "S3ItemFilters" => list(s3_item_filter()())
+        "EBSItemFilters" => list(ebs_item_filter()),
+        "S3ItemFilters" => list(s3_item_filter())
       }
 
   """

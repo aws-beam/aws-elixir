@@ -59,7 +59,7 @@ defmodule AWS.MPA do
 
       list_policy_versions_response() :: %{
         "NextToken" => String.t(),
-        "PolicyVersions" => list(policy_version_summary()())
+        "PolicyVersions" => list(policy_version_summary())
       }
 
   """
@@ -124,7 +124,7 @@ defmodule AWS.MPA do
         "ApprovalStrategy" => list(),
         "ApprovalTeamArn" => String.t(),
         "ApprovalTeamName" => String.t(),
-        "ApproverResponses" => list(get_session_response_approver_response()()),
+        "ApproverResponses" => list(get_session_response_approver_response()),
         "CompletionTime" => non_neg_integer(),
         "Description" => String.t(),
         "ExecutionStatus" => list(any()),
@@ -162,7 +162,7 @@ defmodule AWS.MPA do
 
       list_policies_response() :: %{
         "NextToken" => String.t(),
-        "Policies" => list(policy()())
+        "Policies" => list(policy())
       }
 
   """
@@ -212,7 +212,7 @@ defmodule AWS.MPA do
 
       get_approval_team_response() :: %{
         "ApprovalStrategy" => list(),
-        "Approvers" => list(get_approval_team_response_approver()()),
+        "Approvers" => list(get_approval_team_response_approver()),
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
         "Description" => String.t(),
@@ -220,7 +220,7 @@ defmodule AWS.MPA do
         "Name" => String.t(),
         "NumberOfApprovers" => [integer()],
         "PendingUpdate" => pending_update(),
-        "Policies" => list(policy_reference()()),
+        "Policies" => list(policy_reference()),
         "Status" => list(any()),
         "StatusCode" => list(any()),
         "StatusMessage" => String.t(),
@@ -271,7 +271,7 @@ defmodule AWS.MPA do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -381,7 +381,7 @@ defmodule AWS.MPA do
 
       list_sessions_response() :: %{
         "NextToken" => String.t(),
-        "Sessions" => list(list_sessions_response_session()())
+        "Sessions" => list(list_sessions_response_session())
       }
 
   """
@@ -436,7 +436,7 @@ defmodule AWS.MPA do
   ## Example:
 
       list_identity_sources_response() :: %{
-        "IdentitySources" => list(identity_source_for_list()()),
+        "IdentitySources" => list(identity_source_for_list()),
         "NextToken" => String.t()
       }
 
@@ -498,7 +498,7 @@ defmodule AWS.MPA do
   ## Example:
 
       list_sessions_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -560,7 +560,7 @@ defmodule AWS.MPA do
   ## Example:
 
       list_approval_teams_response() :: %{
-        "ApprovalTeams" => list(list_approval_teams_response_approval_team()()),
+        "ApprovalTeams" => list(list_approval_teams_response_approval_team()),
         "NextToken" => String.t()
       }
 
@@ -692,10 +692,10 @@ defmodule AWS.MPA do
         optional("ClientToken") => String.t(),
         optional("Tags") => map(),
         required("ApprovalStrategy") => list(),
-        required("Approvers") => list(approval_team_request_approver()()),
+        required("Approvers") => list(approval_team_request_approver()),
         required("Description") => String.t(),
         required("Name") => String.t(),
-        required("Policies") => list(policy_reference()())
+        required("Policies") => list(policy_reference())
       }
 
   """
@@ -751,7 +751,7 @@ defmodule AWS.MPA do
 
       list_resource_policies_response() :: %{
         "NextToken" => String.t(),
-        "ResourcePolicies" => list(list_resource_policies_response_resource_policy()())
+        "ResourcePolicies" => list(list_resource_policies_response_resource_policy())
       }
 
   """
@@ -863,7 +863,7 @@ defmodule AWS.MPA do
 
       pending_update() :: %{
         "ApprovalStrategy" => list(),
-        "Approvers" => list(get_approval_team_response_approver()()),
+        "Approvers" => list(get_approval_team_response_approver()),
         "Description" => String.t(),
         "NumberOfApprovers" => [integer()],
         "Status" => list(any()),
@@ -894,7 +894,7 @@ defmodule AWS.MPA do
 
       update_approval_team_request() :: %{
         optional("ApprovalStrategy") => list(),
-        optional("Approvers") => list(approval_team_request_approver()()),
+        optional("Approvers") => list(approval_team_request_approver()),
         optional("Description") => String.t()
       }
 

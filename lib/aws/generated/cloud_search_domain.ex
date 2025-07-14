@@ -35,7 +35,7 @@ defmodule AWS.CloudSearchDomain do
   ## Example:
 
       bucket_info() :: %{
-        "buckets" => list(bucket()())
+        "buckets" => list(bucket())
       }
 
   """
@@ -103,7 +103,7 @@ defmodule AWS.CloudSearchDomain do
       hits() :: %{
         "cursor" => String.t(),
         "found" => float(),
-        "hit" => list(hit()()),
+        "hit" => list(hit()),
         "start" => float()
       }
 
@@ -178,7 +178,7 @@ defmodule AWS.CloudSearchDomain do
       suggest_model() :: %{
         "found" => float(),
         "query" => String.t(),
-        "suggestions" => list(suggestion_match()())
+        "suggestions" => list(suggestion_match())
       }
 
   """
@@ -254,7 +254,7 @@ defmodule AWS.CloudSearchDomain do
         "adds" => float(),
         "deletes" => float(),
         "status" => String.t(),
-        "warnings" => list(document_service_warning()())
+        "warnings" => list(document_service_warning())
       }
 
   """

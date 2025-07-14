@@ -14,7 +14,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       one_drive_users() :: %{
-        "OneDriveUserList" => list(String.t()()),
+        "OneDriveUserList" => list(String.t()),
         "OneDriveUserS3Path" => s3_path()
       }
       
@@ -50,7 +50,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       salesforce_knowledge_article_configuration() :: %{
-        "CustomKnowledgeArticleTypeConfigurations" => list(salesforce_custom_knowledge_article_type_configuration()()),
+        "CustomKnowledgeArticleTypeConfigurations" => list(salesforce_custom_knowledge_article_type_configuration()),
         "IncludedStates" => list(list(any())()),
         "StandardKnowledgeArticleTypeConfiguration" => salesforce_standard_knowledge_article_type_configuration()
       }
@@ -97,8 +97,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       featured_results_item() :: %{
-        "AdditionalAttributes" => list(additional_result_attribute()()),
-        "DocumentAttributes" => list(document_attribute()()),
+        "AdditionalAttributes" => list(additional_result_attribute()),
+        "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
         "DocumentId" => String.t(),
         "DocumentTitle" => text_with_highlights(),
@@ -133,7 +133,7 @@ defmodule AWS.Kendra do
       
       retrieve_result_item() :: %{
         "Content" => String.t(),
-        "DocumentAttributes" => list(document_attribute()()),
+        "DocumentAttributes" => list(document_attribute()),
         "DocumentId" => String.t(),
         "DocumentTitle" => String.t(),
         "DocumentURI" => String.t(),
@@ -149,19 +149,19 @@ defmodule AWS.Kendra do
   ## Example:
       
       box_configuration() :: %{
-        "CommentFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "CommentFieldMappings" => list(data_source_to_index_field_mapping()),
         "CrawlComments" => boolean(),
         "CrawlTasks" => boolean(),
         "CrawlWebLinks" => boolean(),
         "EnterpriseId" => String.t(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FileFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FileFieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "SecretArn" => String.t(),
-        "TaskFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "TaskFieldMappings" => list(data_source_to_index_field_mapping()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration(),
-        "WebLinkFieldMappings" => list(data_source_to_index_field_mapping()())
+        "WebLinkFieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -173,7 +173,7 @@ defmodule AWS.Kendra do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -184,9 +184,9 @@ defmodule AWS.Kendra do
   ## Example:
       
       update_access_control_configuration_request() :: %{
-        optional("AccessControlList") => list(principal()()),
+        optional("AccessControlList") => list(principal()),
         optional("Description") => String.t(),
-        optional("HierarchicalAccessControlList") => list(hierarchical_principal()()),
+        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
         optional("Name") => String.t(),
         required("Id") => String.t(),
         required("IndexId") => String.t()
@@ -200,8 +200,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       data_source_vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -272,7 +272,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       text_with_highlights() :: %{
-        "Highlights" => list(highlight()()),
+        "Highlights" => list(highlight()),
         "Text" => String.t()
       }
       
@@ -304,7 +304,7 @@ defmodule AWS.Kendra do
         optional("LanguageCode") => String.t(),
         optional("RoleArn") => String.t(),
         optional("Schedule") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VpcConfiguration") => data_source_vpc_configuration(),
         required("IndexId") => String.t(),
         required("Name") => String.t(),
@@ -332,7 +332,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       site_maps_configuration() :: %{
-        "SiteMaps" => list(String.t()())
+        "SiteMaps" => list(String.t())
       }
       
   """
@@ -371,9 +371,9 @@ defmodule AWS.Kendra do
   ## Example:
       
       content_source_configuration() :: %{
-        "DataSourceIds" => list(String.t()()),
+        "DataSourceIds" => list(String.t()),
         "DirectPutContent" => boolean(),
-        "FaqIds" => list(String.t()())
+        "FaqIds" => list(String.t())
       }
       
   """
@@ -385,7 +385,7 @@ defmodule AWS.Kendra do
       
       list_thesauri_response() :: %{
         "NextToken" => String.t(),
-        "ThesaurusSummaryItems" => list(thesaurus_summary()())
+        "ThesaurusSummaryItems" => list(thesaurus_summary())
       }
       
   """
@@ -418,7 +418,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       custom_document_enrichment_configuration() :: %{
-        "InlineConfigurations" => list(inline_custom_document_enrichment_configuration()()),
+        "InlineConfigurations" => list(inline_custom_document_enrichment_configuration()),
         "PostExtractionHookConfiguration" => hook_configuration(),
         "PreExtractionHookConfiguration" => hook_configuration(),
         "RoleArn" => String.t()
@@ -432,23 +432,23 @@ defmodule AWS.Kendra do
   ## Example:
       
       git_hub_configuration() :: %{
-        "ExclusionFileNamePatterns" => list(String.t()()),
-        "ExclusionFileTypePatterns" => list(String.t()()),
-        "ExclusionFolderNamePatterns" => list(String.t()()),
-        "GitHubCommitConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "ExclusionFileNamePatterns" => list(String.t()),
+        "ExclusionFileTypePatterns" => list(String.t()),
+        "ExclusionFolderNamePatterns" => list(String.t()),
+        "GitHubCommitConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
         "GitHubDocumentCrawlProperties" => git_hub_document_crawl_properties(),
-        "GitHubIssueAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubIssueCommentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubIssueDocumentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubPullRequestCommentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubPullRequestDocumentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "GitHubRepositoryConfigurationFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionFileNamePatterns" => list(String.t()()),
-        "InclusionFileTypePatterns" => list(String.t()()),
-        "InclusionFolderNamePatterns" => list(String.t()()),
+        "GitHubIssueAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubIssueCommentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubIssueDocumentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubPullRequestCommentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubPullRequestDocumentAttachmentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubPullRequestDocumentConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "GitHubRepositoryConfigurationFieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionFileNamePatterns" => list(String.t()),
+        "InclusionFileTypePatterns" => list(String.t()),
+        "InclusionFolderNamePatterns" => list(String.t()),
         "OnPremiseConfiguration" => on_premise_configuration(),
-        "RepositoryFilter" => list(String.t()()),
+        "RepositoryFilter" => list(String.t()),
         "SaaSConfiguration" => saa_s_configuration(),
         "SecretArn" => String.t(),
         "Type" => list(any()),
@@ -735,7 +735,7 @@ defmodule AWS.Kendra do
       salesforce_standard_knowledge_article_type_configuration() :: %{
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()())
+        "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -771,7 +771,7 @@ defmodule AWS.Kendra do
       
       salesforce_standard_object_attachment_configuration() :: %{
         "DocumentTitleFieldName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()())
+        "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -812,7 +812,7 @@ defmodule AWS.Kendra do
       
       list_experience_entities_response() :: %{
         "NextToken" => String.t(),
-        "SummaryItems" => list(experience_entities_summary()())
+        "SummaryItems" => list(experience_entities_summary())
       }
       
   """
@@ -825,7 +825,7 @@ defmodule AWS.Kendra do
       salesforce_standard_object_configuration() :: %{
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
         "Name" => list(any())
       }
       
@@ -864,13 +864,13 @@ defmodule AWS.Kendra do
   ## Example:
       
       query_result() :: %{
-        "FacetResults" => list(facet_result()()),
-        "FeaturedResultsItems" => list(featured_results_item()()),
+        "FacetResults" => list(facet_result()),
+        "FeaturedResultsItems" => list(featured_results_item()),
         "QueryId" => String.t(),
-        "ResultItems" => list(query_result_item()()),
-        "SpellCorrectedQueries" => list(spell_corrected_query()()),
+        "ResultItems" => list(query_result_item()),
+        "SpellCorrectedQueries" => list(spell_corrected_query()),
         "TotalNumberOfResults" => integer(),
-        "Warnings" => list(warning()())
+        "Warnings" => list(warning())
       }
       
   """
@@ -881,7 +881,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       confluence_attachment_configuration() :: %{
-        "AttachmentFieldMappings" => list(confluence_attachment_to_index_field_mapping()()),
+        "AttachmentFieldMappings" => list(confluence_attachment_to_index_field_mapping()),
         "CrawlAttachments" => boolean()
       }
       
@@ -895,12 +895,12 @@ defmodule AWS.Kendra do
       describe_featured_results_set_response() :: %{
         "CreationTimestamp" => float(),
         "Description" => String.t(),
-        "FeaturedDocumentsMissing" => list(featured_document_missing()()),
-        "FeaturedDocumentsWithMetadata" => list(featured_document_with_metadata()()),
+        "FeaturedDocumentsMissing" => list(featured_document_missing()),
+        "FeaturedDocumentsWithMetadata" => list(featured_document_with_metadata()),
         "FeaturedResultsSetId" => String.t(),
         "FeaturedResultsSetName" => String.t(),
         "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t()()),
+        "QueryTexts" => list(String.t()),
         "Status" => list(any())
       }
       
@@ -958,7 +958,7 @@ defmodule AWS.Kendra do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1011,7 +1011,7 @@ defmodule AWS.Kendra do
       document_attribute_value_count_pair() :: %{
         "Count" => integer(),
         "DocumentAttributeValue" => document_attribute_value(),
-        "FacetResults" => list(facet_result()())
+        "FacetResults" => list(facet_result())
       }
       
   """
@@ -1025,7 +1025,7 @@ defmodule AWS.Kendra do
         "CapacityUnits" => capacity_units_configuration(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "DocumentMetadataConfigurations" => list(document_metadata_configuration()()),
+        "DocumentMetadataConfigurations" => list(document_metadata_configuration()),
         "Edition" => list(any()),
         "ErrorMessage" => String.t(),
         "Id" => String.t(),
@@ -1037,7 +1037,7 @@ defmodule AWS.Kendra do
         "UpdatedAt" => non_neg_integer(),
         "UserContextPolicy" => list(any()),
         "UserGroupResolutionConfiguration" => user_group_resolution_configuration(),
-        "UserTokenConfigurations" => list(user_token_configuration()())
+        "UserTokenConfigurations" => list(user_token_configuration())
       }
       
   """
@@ -1059,7 +1059,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       table_row() :: %{
-        "Cells" => list(table_cell()())
+        "Cells" => list(table_cell())
       }
       
   """
@@ -1070,7 +1070,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       disassociate_entities_from_experience_response() :: %{
-        "FailedEntityList" => list(failed_entity()())
+        "FailedEntityList" => list(failed_entity())
       }
       
   """
@@ -1132,13 +1132,13 @@ defmodule AWS.Kendra do
       salesforce_configuration() :: %{
         "ChatterFeedConfiguration" => salesforce_chatter_feed_configuration(),
         "CrawlAttachments" => boolean(),
-        "ExcludeAttachmentFilePatterns" => list(String.t()()),
-        "IncludeAttachmentFilePatterns" => list(String.t()()),
+        "ExcludeAttachmentFilePatterns" => list(String.t()),
+        "IncludeAttachmentFilePatterns" => list(String.t()),
         "KnowledgeArticleConfiguration" => salesforce_knowledge_article_configuration(),
         "SecretArn" => String.t(),
         "ServerUrl" => String.t(),
         "StandardObjectAttachmentConfiguration" => salesforce_standard_object_attachment_configuration(),
-        "StandardObjectConfigurations" => list(salesforce_standard_object_configuration()())
+        "StandardObjectConfigurations" => list(salesforce_standard_object_configuration())
       }
       
   """
@@ -1230,8 +1230,8 @@ defmodule AWS.Kendra do
         "AttachmentConfiguration" => confluence_attachment_configuration(),
         "AuthenticationType" => list(any()),
         "BlogConfiguration" => confluence_blog_configuration(),
-        "ExclusionPatterns" => list(String.t()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "InclusionPatterns" => list(String.t()),
         "PageConfiguration" => confluence_page_configuration(),
         "ProxyConfiguration" => proxy_configuration(),
         "SecretArn" => String.t(),
@@ -1290,7 +1290,7 @@ defmodule AWS.Kendra do
         "Expand" => boolean(),
         "ExpandConfiguration" => expand_configuration(),
         "MissingAttributeKeyStrategy" => list(any()),
-        "SortingConfigurations" => list(sorting_configuration()())
+        "SortingConfigurations" => list(sorting_configuration())
       }
       
   """
@@ -1302,7 +1302,7 @@ defmodule AWS.Kendra do
       
       experiences_summary() :: %{
         "CreatedAt" => non_neg_integer(),
-        "Endpoints" => list(experience_endpoint()()),
+        "Endpoints" => list(experience_endpoint()),
         "Id" => String.t(),
         "Name" => String.t(),
         "Status" => list(any())
@@ -1361,12 +1361,12 @@ defmodule AWS.Kendra do
       slack_configuration() :: %{
         "CrawlBotMessage" => boolean(),
         "ExcludeArchived" => boolean(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "LookBackPeriod" => integer(),
-        "PrivateChannelFilter" => list(String.t()()),
-        "PublicChannelFilter" => list(String.t()()),
+        "PrivateChannelFilter" => list(String.t()),
+        "PublicChannelFilter" => list(String.t()),
         "SecretArn" => String.t(),
         "SinceCrawlDate" => String.t(),
         "SlackEntityList" => list(list(any())()),
@@ -1518,9 +1518,9 @@ defmodule AWS.Kendra do
       
       work_docs_configuration() :: %{
         "CrawlComments" => boolean(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "OrganizationId" => String.t(),
         "UseChangeLog" => boolean()
       }
@@ -1559,7 +1559,7 @@ defmodule AWS.Kendra do
       
       attribute_suggestions_describe_config() :: %{
         "AttributeSuggestionsMode" => list(any()),
-        "SuggestableConfigList" => list(suggestable_config()())
+        "SuggestableConfigList" => list(suggestable_config())
       }
       
   """
@@ -1608,8 +1608,8 @@ defmodule AWS.Kendra do
       get_snapshots_response() :: %{
         "NextToken" => String.t(),
         "SnapShotTimeFilter" => time_range(),
-        "SnapshotsData" => list(list(String.t()())()),
-        "SnapshotsDataHeader" => list(String.t()())
+        "SnapshotsData" => list(list(String.t())()),
+        "SnapshotsDataHeader" => list(String.t())
       }
       
   """
@@ -1633,7 +1633,7 @@ defmodule AWS.Kendra do
       salesforce_custom_knowledge_article_type_configuration() :: %{
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
         "Name" => String.t()
       }
       
@@ -1645,7 +1645,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_delete_document_response() :: %{
-        "FailedDocuments" => list(batch_delete_document_response_failed_document()())
+        "FailedDocuments" => list(batch_delete_document_response_failed_document())
       }
       
   """
@@ -1657,7 +1657,7 @@ defmodule AWS.Kendra do
       
       get_query_suggestions_response() :: %{
         "QuerySuggestionsId" => String.t(),
-        "Suggestions" => list(suggestion()())
+        "Suggestions" => list(suggestion())
       }
       
   """
@@ -1691,7 +1691,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       table_excerpt() :: %{
-        "Rows" => list(table_row()()),
+        "Rows" => list(table_row()),
         "TotalNumberOfRows" => integer()
       }
       
@@ -1705,7 +1705,7 @@ defmodule AWS.Kendra do
       salesforce_chatter_feed_configuration() :: %{
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
         "IncludeFilterTypes" => list(list(any())())
       }
       
@@ -1739,7 +1739,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       featured_results_conflict_exception() :: %{
-        "ConflictingItems" => list(conflicting_item()()),
+        "ConflictingItems" => list(conflicting_item()),
         "Message" => String.t()
       }
       
@@ -1753,7 +1753,7 @@ defmodule AWS.Kendra do
       create_query_suggestions_block_list_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IndexId") => String.t(),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
@@ -1784,9 +1784,9 @@ defmodule AWS.Kendra do
       
       update_featured_results_set_request() :: %{
         optional("Description") => String.t(),
-        optional("FeaturedDocuments") => list(featured_document()()),
+        optional("FeaturedDocuments") => list(featured_document()),
         optional("FeaturedResultsSetName") => String.t(),
-        optional("QueryTexts") => list(String.t()()),
+        optional("QueryTexts") => list(String.t()),
         optional("Status") => list(any()),
         required("FeaturedResultsSetId") => String.t(),
         required("IndexId") => String.t()
@@ -1814,7 +1814,7 @@ defmodule AWS.Kendra do
       
       list_data_sources_response() :: %{
         "NextToken" => String.t(),
-        "SummaryItems" => list(data_source_summary()())
+        "SummaryItems" => list(data_source_summary())
       }
       
   """
@@ -1837,12 +1837,12 @@ defmodule AWS.Kendra do
   ## Example:
       
       google_drive_configuration() :: %{
-        "ExcludeMimeTypes" => list(String.t()()),
-        "ExcludeSharedDrives" => list(String.t()()),
-        "ExcludeUserAccounts" => list(String.t()()),
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExcludeMimeTypes" => list(String.t()),
+        "ExcludeSharedDrives" => list(String.t()),
+        "ExcludeUserAccounts" => list(String.t()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "SecretArn" => String.t()
       }
       
@@ -1865,7 +1865,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       seed_url_configuration() :: %{
-        "SeedUrls" => list(String.t()()),
+        "SeedUrls" => list(String.t()),
         "WebCrawlerMode" => list(any())
       }
       
@@ -1878,7 +1878,7 @@ defmodule AWS.Kendra do
       
       retrieve_result() :: %{
         "QueryId" => String.t(),
-        "ResultItems" => list(retrieve_result_item()())
+        "ResultItems" => list(retrieve_result_item())
       }
       
   """
@@ -1901,7 +1901,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1912,7 +1912,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_access_control_configurations_response() :: %{
-        "AccessControlConfigurations" => list(access_control_configuration_summary()()),
+        "AccessControlConfigurations" => list(access_control_configuration_summary()),
         "NextToken" => String.t()
       }
       
@@ -1941,14 +1941,14 @@ defmodule AWS.Kendra do
         "CrawlAttachments" => boolean(),
         "DisableLocalGroups" => boolean(),
         "DocumentTitleFieldName" => String.t(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "ProxyConfiguration" => proxy_configuration(),
         "SecretArn" => String.t(),
         "SharePointVersion" => list(any()),
         "SslCertificateS3Path" => s3_path(),
-        "Urls" => list(String.t()()),
+        "Urls" => list(String.t()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
@@ -1975,7 +1975,7 @@ defmodule AWS.Kendra do
       create_thesaurus_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IndexId") => String.t(),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
@@ -2016,7 +2016,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       spell_corrected_query() :: %{
-        "Corrections" => list(correction()()),
+        "Corrections" => list(correction()),
         "SuggestedQueryText" => String.t()
       }
       
@@ -2051,7 +2051,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       expanded_result_item() :: %{
-        "DocumentAttributes" => list(document_attribute()()),
+        "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
         "DocumentId" => String.t(),
         "DocumentTitle" => text_with_highlights(),
@@ -2067,7 +2067,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_indices_response() :: %{
-        "IndexConfigurationSummaryItems" => list(index_configuration_summary()()),
+        "IndexConfigurationSummaryItems" => list(index_configuration_summary()),
         "NextToken" => String.t()
       }
       
@@ -2145,7 +2145,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_delete_featured_results_set_response() :: %{
-        "Errors" => list(batch_delete_featured_results_set_error()())
+        "Errors" => list(batch_delete_featured_results_set_error())
       }
       
   """
@@ -2191,7 +2191,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       suggestion_text_with_highlights() :: %{
-        "Highlights" => list(suggestion_highlight()()),
+        "Highlights" => list(suggestion_highlight()),
         "Text" => String.t()
       }
       
@@ -2203,11 +2203,11 @@ defmodule AWS.Kendra do
   ## Example:
       
       fsx_configuration() :: %{
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
         "FileSystemId" => String.t(),
         "FileSystemType" => list(any()),
-        "InclusionPatterns" => list(String.t()()),
+        "InclusionPatterns" => list(String.t()),
         "SecretArn" => String.t(),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
@@ -2244,9 +2244,9 @@ defmodule AWS.Kendra do
   ## Example:
       
       source_document() :: %{
-        "AdditionalAttributes" => list(document_attribute()()),
+        "AdditionalAttributes" => list(document_attribute()),
         "DocumentId" => String.t(),
-        "SuggestionAttributes" => list(String.t()())
+        "SuggestionAttributes" => list(String.t())
       }
       
   """
@@ -2302,9 +2302,9 @@ defmodule AWS.Kendra do
         "CrawlAttachments" => boolean(),
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "ExcludeAttachmentFilePatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "IncludeAttachmentFilePatterns" => list(String.t()())
+        "ExcludeAttachmentFilePatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "IncludeAttachmentFilePatterns" => list(String.t())
       }
       
   """
@@ -2316,7 +2316,7 @@ defmodule AWS.Kendra do
       
       attribute_suggestions_update_config() :: %{
         "AttributeSuggestionsMode" => list(any()),
-        "SuggestableConfigList" => list(suggestable_config()())
+        "SuggestableConfigList" => list(suggestable_config())
       }
       
   """
@@ -2333,8 +2333,8 @@ defmodule AWS.Kendra do
         "MaxLinksPerPage" => integer(),
         "MaxUrlsPerMinuteCrawlRate" => integer(),
         "ProxyConfiguration" => proxy_configuration(),
-        "UrlExclusionPatterns" => list(String.t()()),
-        "UrlInclusionPatterns" => list(String.t()()),
+        "UrlExclusionPatterns" => list(String.t()),
+        "UrlInclusionPatterns" => list(String.t()),
         "Urls" => urls()
       }
       
@@ -2369,7 +2369,7 @@ defmodule AWS.Kendra do
       
       facet_result() :: %{
         "DocumentAttributeKey" => String.t(),
-        "DocumentAttributeValueCountPairs" => list(document_attribute_value_count_pair()()),
+        "DocumentAttributeValueCountPairs" => list(document_attribute_value_count_pair()),
         "DocumentAttributeValueType" => list(any())
       }
       
@@ -2382,7 +2382,7 @@ defmodule AWS.Kendra do
       
       list_experiences_response() :: %{
         "NextToken" => String.t(),
-        "SummaryItems" => list(experiences_summary()())
+        "SummaryItems" => list(experiences_summary())
       }
       
   """
@@ -2405,7 +2405,7 @@ defmodule AWS.Kendra do
       
       batch_delete_document_request() :: %{
         optional("DataSourceSyncJobMetricTarget") => data_source_sync_job_metric_target(),
-        required("DocumentIdList") => list(String.t()()),
+        required("DocumentIdList") => list(String.t()),
         required("IndexId") => String.t()
       }
       
@@ -2434,7 +2434,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_put_document_response() :: %{
-        "FailedDocuments" => list(batch_put_document_response_failed_document()())
+        "FailedDocuments" => list(batch_put_document_response_failed_document())
       }
       
   """
@@ -2460,7 +2460,7 @@ defmodule AWS.Kendra do
       
       suggestion() :: %{
         "Id" => String.t(),
-        "SourceDocuments" => list(source_document()()),
+        "SourceDocuments" => list(source_document()),
         "Value" => suggestion_value()
       }
       
@@ -2472,7 +2472,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_delete_featured_results_set_request() :: %{
-        required("FeaturedResultsSetIds") => list(String.t()()),
+        required("FeaturedResultsSetIds") => list(String.t()),
         required("IndexId") => String.t()
       }
       
@@ -2488,10 +2488,10 @@ defmodule AWS.Kendra do
         optional("Description") => String.t(),
         optional("Edition") => list(any()),
         optional("ServerSideEncryptionConfiguration") => server_side_encryption_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UserContextPolicy") => list(any()),
         optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
-        optional("UserTokenConfigurations") => list(user_token_configuration()()),
+        optional("UserTokenConfigurations") => list(user_token_configuration()),
         required("Name") => String.t(),
         required("RoleArn") => String.t()
       }
@@ -2506,12 +2506,12 @@ defmodule AWS.Kendra do
       update_index_request() :: %{
         optional("CapacityUnits") => capacity_units_configuration(),
         optional("Description") => String.t(),
-        optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()()),
+        optional("DocumentMetadataConfigurationUpdates") => list(document_metadata_configuration()),
         optional("Name") => String.t(),
         optional("RoleArn") => String.t(),
         optional("UserContextPolicy") => list(any()),
         optional("UserGroupResolutionConfiguration") => user_group_resolution_configuration(),
-        optional("UserTokenConfigurations") => list(user_token_configuration()()),
+        optional("UserTokenConfigurations") => list(user_token_configuration()),
         required("Id") => String.t()
       }
       
@@ -2523,11 +2523,11 @@ defmodule AWS.Kendra do
   ## Example:
       
       column_configuration() :: %{
-        "ChangeDetectingColumns" => list(String.t()()),
+        "ChangeDetectingColumns" => list(String.t()),
         "DocumentDataColumnName" => String.t(),
         "DocumentIdColumnName" => String.t(),
         "DocumentTitleColumnName" => String.t(),
-        "FieldMappings" => list(data_source_to_index_field_mapping()())
+        "FieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -2538,7 +2538,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       hierarchical_principal() :: %{
-        "PrincipalList" => list(principal()())
+        "PrincipalList" => list(principal())
       }
       
   """
@@ -2587,10 +2587,10 @@ defmodule AWS.Kendra do
         "CrawlAttachments" => boolean(),
         "DocumentDataFieldName" => String.t(),
         "DocumentTitleFieldName" => String.t(),
-        "ExcludeAttachmentFilePatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
+        "ExcludeAttachmentFilePatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
         "FilterQuery" => String.t(),
-        "IncludeAttachmentFilePatterns" => list(String.t()())
+        "IncludeAttachmentFilePatterns" => list(String.t())
       }
       
   """
@@ -2640,7 +2640,7 @@ defmodule AWS.Kendra do
       document_attribute_value() :: %{
         "DateValue" => non_neg_integer(),
         "LongValue" => float(),
-        "StringListValue" => list(String.t()()),
+        "StringListValue" => list(String.t()),
         "StringValue" => String.t()
       }
       
@@ -2665,7 +2665,7 @@ defmodule AWS.Kendra do
         optional("Description") => String.t(),
         optional("FileFormat") => list(any()),
         optional("LanguageCode") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IndexId") => String.t(),
         required("Name") => String.t(),
         required("RoleArn") => String.t(),
@@ -2756,7 +2756,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       disassociate_personas_from_entities_response() :: %{
-        "FailedEntityList" => list(failed_entity()())
+        "FailedEntityList" => list(failed_entity())
       }
       
   """
@@ -2809,7 +2809,7 @@ defmodule AWS.Kendra do
         "Configuration" => experience_configuration(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "Endpoints" => list(experience_endpoint()()),
+        "Endpoints" => list(experience_endpoint()),
         "ErrorMessage" => String.t(),
         "Id" => String.t(),
         "IndexId" => String.t(),
@@ -2827,7 +2827,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       associate_entities_to_experience_request() :: %{
-        required("EntityList") => list(entity_configuration()()),
+        required("EntityList") => list(entity_configuration()),
         required("Id") => String.t(),
         required("IndexId") => String.t()
       }
@@ -2879,10 +2879,10 @@ defmodule AWS.Kendra do
   ## Example:
       
       describe_access_control_configuration_response() :: %{
-        "AccessControlList" => list(principal()()),
+        "AccessControlList" => list(principal()),
         "Description" => String.t(),
         "ErrorMessage" => String.t(),
-        "HierarchicalAccessControlList" => list(hierarchical_principal()()),
+        "HierarchicalAccessControlList" => list(hierarchical_principal()),
         "Name" => String.t()
       }
       
@@ -2906,7 +2906,7 @@ defmodule AWS.Kendra do
       
       facet() :: %{
         "DocumentAttributeKey" => String.t(),
-        "Facets" => list(facet()()),
+        "Facets" => list(facet()),
         "MaxResults" => integer()
       }
       
@@ -2952,7 +2952,7 @@ defmodule AWS.Kendra do
       batch_put_document_request() :: %{
         optional("CustomDocumentEnrichmentConfiguration") => custom_document_enrichment_configuration(),
         optional("RoleArn") => String.t(),
-        required("Documents") => list(document()()),
+        required("Documents") => list(document()),
         required("IndexId") => String.t()
       }
       
@@ -2988,8 +2988,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       group_members() :: %{
-        "MemberGroups" => list(member_group()()),
-        "MemberUsers" => list(member_user()()),
+        "MemberGroups" => list(member_group()),
+        "MemberUsers" => list(member_user()),
         "S3PathforGroupMembers" => s3_path()
       }
       
@@ -3036,7 +3036,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_data_source_sync_jobs_response() :: %{
-        "History" => list(data_source_sync_job()()),
+        "History" => list(data_source_sync_job()),
         "NextToken" => String.t()
       }
       
@@ -3048,8 +3048,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       submit_feedback_request() :: %{
-        optional("ClickFeedbackItems") => list(click_feedback()()),
-        optional("RelevanceFeedbackItems") => list(relevance_feedback()()),
+        optional("ClickFeedbackItems") => list(click_feedback()),
+        optional("RelevanceFeedbackItems") => list(relevance_feedback()),
         required("IndexId") => String.t(),
         required("QueryId") => String.t()
       }
@@ -3062,21 +3062,21 @@ defmodule AWS.Kendra do
   ## Example:
       
       jira_configuration() :: %{
-        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "CommentFieldMappings" => list(data_source_to_index_field_mapping()()),
-        "ExclusionPatterns" => list(String.t()()),
-        "InclusionPatterns" => list(String.t()()),
-        "IssueFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
+        "CommentFieldMappings" => list(data_source_to_index_field_mapping()),
+        "ExclusionPatterns" => list(String.t()),
+        "InclusionPatterns" => list(String.t()),
+        "IssueFieldMappings" => list(data_source_to_index_field_mapping()),
         "IssueSubEntityFilter" => list(list(any())()),
-        "IssueType" => list(String.t()()),
+        "IssueType" => list(String.t()),
         "JiraAccountUrl" => String.t(),
-        "Project" => list(String.t()()),
-        "ProjectFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "Project" => list(String.t()),
+        "ProjectFieldMappings" => list(data_source_to_index_field_mapping()),
         "SecretArn" => String.t(),
-        "Status" => list(String.t()()),
+        "Status" => list(String.t()),
         "UseChangeLog" => boolean(),
         "VpcConfiguration" => data_source_vpc_configuration(),
-        "WorkLogFieldMappings" => list(data_source_to_index_field_mapping()())
+        "WorkLogFieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -3087,17 +3087,17 @@ defmodule AWS.Kendra do
   ## Example:
       
       quip_configuration() :: %{
-        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "AttachmentFieldMappings" => list(data_source_to_index_field_mapping()),
         "CrawlAttachments" => boolean(),
         "CrawlChatRooms" => boolean(),
         "CrawlFileComments" => boolean(),
         "Domain" => String.t(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FolderIds" => list(String.t()()),
-        "InclusionPatterns" => list(String.t()()),
-        "MessageFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FolderIds" => list(String.t()),
+        "InclusionPatterns" => list(String.t()),
+        "MessageFieldMappings" => list(data_source_to_index_field_mapping()),
         "SecretArn" => String.t(),
-        "ThreadFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "ThreadFieldMappings" => list(data_source_to_index_field_mapping()),
         "VpcConfiguration" => data_source_vpc_configuration()
       }
       
@@ -3109,7 +3109,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_groups_older_than_ordering_id_response() :: %{
-        "GroupsSummaries" => list(group_summary()()),
+        "GroupsSummaries" => list(group_summary()),
         "NextToken" => String.t()
       }
       
@@ -3123,9 +3123,9 @@ defmodule AWS.Kendra do
       confluence_space_configuration() :: %{
         "CrawlArchivedSpaces" => boolean(),
         "CrawlPersonalSpaces" => boolean(),
-        "ExcludeSpaces" => list(String.t()()),
-        "IncludeSpaces" => list(String.t()()),
-        "SpaceFieldMappings" => list(confluence_space_to_index_field_mapping()())
+        "ExcludeSpaces" => list(String.t()),
+        "IncludeSpaces" => list(String.t()),
+        "SpaceFieldMappings" => list(confluence_space_to_index_field_mapping())
       }
       
   """
@@ -3136,7 +3136,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       associate_personas_to_entities_response() :: %{
-        "FailedEntityList" => list(failed_entity()())
+        "FailedEntityList" => list(failed_entity())
       }
       
   """
@@ -3161,7 +3161,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       attribute_filter() :: %{
-        "AndAllFilters" => list(attribute_filter()()),
+        "AndAllFilters" => list(attribute_filter()),
         "ContainsAll" => document_attribute(),
         "ContainsAny" => document_attribute(),
         "EqualsTo" => document_attribute(),
@@ -3170,7 +3170,7 @@ defmodule AWS.Kendra do
         "LessThan" => document_attribute(),
         "LessThanOrEquals" => document_attribute(),
         "NotFilter" => attribute_filter(),
-        "OrAllFilters" => list(attribute_filter()())
+        "OrAllFilters" => list(attribute_filter())
       }
       
   """
@@ -3199,7 +3199,7 @@ defmodule AWS.Kendra do
       describe_principal_mapping_response() :: %{
         "DataSourceId" => String.t(),
         "GroupId" => String.t(),
-        "GroupOrderingIdSummaries" => list(group_ordering_id_summary()()),
+        "GroupOrderingIdSummaries" => list(group_ordering_id_summary()),
         "IndexId" => String.t()
       }
       
@@ -3213,11 +3213,11 @@ defmodule AWS.Kendra do
       featured_results_set() :: %{
         "CreationTimestamp" => float(),
         "Description" => String.t(),
-        "FeaturedDocuments" => list(featured_document()()),
+        "FeaturedDocuments" => list(featured_document()),
         "FeaturedResultsSetId" => String.t(),
         "FeaturedResultsSetName" => String.t(),
         "LastUpdatedTimestamp" => float(),
-        "QueryTexts" => list(String.t()()),
+        "QueryTexts" => list(String.t()),
         "Status" => list(any())
       }
       
@@ -3242,7 +3242,7 @@ defmodule AWS.Kendra do
       
       collapsed_result_detail() :: %{
         "DocumentAttribute" => document_attribute(),
-        "ExpandedResults" => list(expanded_result_item()())
+        "ExpandedResults" => list(expanded_result_item())
       }
       
   """
@@ -3253,7 +3253,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_query_suggestions_block_lists_response() :: %{
-        "BlockListSummaryItems" => list(query_suggestions_block_list_summary()()),
+        "BlockListSummaryItems" => list(query_suggestions_block_list_summary()),
         "NextToken" => String.t()
       }
       
@@ -3265,9 +3265,9 @@ defmodule AWS.Kendra do
   ## Example:
       
       attribute_suggestions_get_config() :: %{
-        "AdditionalResponseAttributes" => list(String.t()()),
+        "AdditionalResponseAttributes" => list(String.t()),
         "AttributeFilter" => attribute_filter(),
-        "SuggestionAttributes" => list(String.t()()),
+        "SuggestionAttributes" => list(String.t()),
         "UserContext" => user_context()
       }
       
@@ -3281,15 +3281,15 @@ defmodule AWS.Kendra do
       query_request() :: %{
         optional("AttributeFilter") => attribute_filter(),
         optional("CollapseConfiguration") => collapse_configuration(),
-        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()()),
-        optional("Facets") => list(facet()()),
+        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
+        optional("Facets") => list(facet()),
         optional("PageNumber") => integer(),
         optional("PageSize") => integer(),
         optional("QueryResultTypeFilter") => list(any()),
         optional("QueryText") => String.t(),
-        optional("RequestedDocumentAttributes") => list(String.t()()),
+        optional("RequestedDocumentAttributes") => list(String.t()),
         optional("SortingConfiguration") => sorting_configuration(),
-        optional("SortingConfigurations") => list(sorting_configuration()()),
+        optional("SortingConfigurations") => list(sorting_configuration()),
         optional("SpellCorrectionConfiguration") => spell_correction_configuration(),
         optional("UserContext") => user_context(),
         optional("VisitorId") => String.t(),
@@ -3304,8 +3304,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       user_context() :: %{
-        "DataSourceGroups" => list(data_source_group()()),
-        "Groups" => list(String.t()()),
+        "DataSourceGroups" => list(data_source_group()),
+        "Groups" => list(String.t()),
         "Token" => String.t(),
         "UserId" => String.t()
       }
@@ -3331,9 +3331,9 @@ defmodule AWS.Kendra do
       
       one_drive_configuration() :: %{
         "DisableLocalGroups" => boolean(),
-        "ExclusionPatterns" => list(String.t()()),
-        "FieldMappings" => list(data_source_to_index_field_mapping()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "FieldMappings" => list(data_source_to_index_field_mapping()),
+        "InclusionPatterns" => list(String.t()),
         "OneDriveUsers" => one_drive_users(),
         "SecretArn" => String.t(),
         "TenantDomain" => String.t()
@@ -3347,9 +3347,9 @@ defmodule AWS.Kendra do
   ## Example:
       
       query_result_item() :: %{
-        "AdditionalAttributes" => list(additional_result_attribute()()),
+        "AdditionalAttributes" => list(additional_result_attribute()),
         "CollapsedResultDetail" => collapsed_result_detail(),
-        "DocumentAttributes" => list(document_attribute()()),
+        "DocumentAttributes" => list(document_attribute()),
         "DocumentExcerpt" => text_with_highlights(),
         "DocumentId" => String.t(),
         "DocumentTitle" => text_with_highlights(),
@@ -3370,7 +3370,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       associate_entities_to_experience_response() :: %{
-        "FailedEntityList" => list(failed_entity()())
+        "FailedEntityList" => list(failed_entity())
       }
       
   """
@@ -3392,7 +3392,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       confluence_blog_configuration() :: %{
-        "BlogFieldMappings" => list(confluence_blog_to_index_field_mapping()())
+        "BlogFieldMappings" => list(confluence_blog_to_index_field_mapping())
       }
       
   """
@@ -3447,7 +3447,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       authentication_configuration() :: %{
-        "BasicAuthentication" => list(basic_authentication_configuration()())
+        "BasicAuthentication" => list(basic_authentication_configuration())
       }
       
   """
@@ -3469,19 +3469,19 @@ defmodule AWS.Kendra do
   ## Example:
       
       alfresco_configuration() :: %{
-        "BlogFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "BlogFieldMappings" => list(data_source_to_index_field_mapping()),
         "CrawlComments" => boolean(),
         "CrawlSystemFolders" => boolean(),
-        "DocumentLibraryFieldMappings" => list(data_source_to_index_field_mapping()()),
+        "DocumentLibraryFieldMappings" => list(data_source_to_index_field_mapping()),
         "EntityFilter" => list(list(any())()),
-        "ExclusionPatterns" => list(String.t()()),
-        "InclusionPatterns" => list(String.t()()),
+        "ExclusionPatterns" => list(String.t()),
+        "InclusionPatterns" => list(String.t()),
         "SecretArn" => String.t(),
         "SiteId" => String.t(),
         "SiteUrl" => String.t(),
         "SslCertificateS3Path" => s3_path(),
         "VpcConfiguration" => data_source_vpc_configuration(),
-        "WikiFieldMappings" => list(data_source_to_index_field_mapping()())
+        "WikiFieldMappings" => list(data_source_to_index_field_mapping())
       }
       
   """
@@ -3492,8 +3492,8 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_get_document_status_response() :: %{
-        "DocumentStatusList" => list(status()()),
-        "Errors" => list(batch_get_document_status_response_error()())
+        "DocumentStatusList" => list(status()),
+        "Errors" => list(batch_get_document_status_response_error())
       }
       
   """
@@ -3504,7 +3504,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       confluence_page_configuration() :: %{
-        "PageFieldMappings" => list(confluence_page_to_index_field_mapping()())
+        "PageFieldMappings" => list(confluence_page_to_index_field_mapping())
       }
       
   """
@@ -3515,7 +3515,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       disassociate_personas_from_entities_request() :: %{
-        required("EntityIds") => list(String.t()()),
+        required("EntityIds") => list(String.t()),
         required("Id") => String.t(),
         required("IndexId") => String.t()
       }
@@ -3557,10 +3557,10 @@ defmodule AWS.Kendra do
       
       retrieve_request() :: %{
         optional("AttributeFilter") => attribute_filter(),
-        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()()),
+        optional("DocumentRelevanceOverrideConfigurations") => list(document_relevance_configuration()),
         optional("PageNumber") => integer(),
         optional("PageSize") => integer(),
-        optional("RequestedDocumentAttributes") => list(String.t()()),
+        optional("RequestedDocumentAttributes") => list(String.t()),
         optional("UserContext") => user_context(),
         required("IndexId") => String.t(),
         required("QueryText") => String.t()
@@ -3574,7 +3574,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_featured_results_sets_response() :: %{
-        "FeaturedResultsSetSummaryItems" => list(featured_results_set_summary()()),
+        "FeaturedResultsSetSummaryItems" => list(featured_results_set_summary()),
         "NextToken" => String.t()
       }
       
@@ -3627,10 +3627,10 @@ defmodule AWS.Kendra do
   ## Example:
       
       create_access_control_configuration_request() :: %{
-        optional("AccessControlList") => list(principal()()),
+        optional("AccessControlList") => list(principal()),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("HierarchicalAccessControlList") => list(hierarchical_principal()()),
+        optional("HierarchicalAccessControlList") => list(hierarchical_principal()),
         required("IndexId") => String.t(),
         required("Name") => String.t()
       }
@@ -3643,7 +3643,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       document_info() :: %{
-        "Attributes" => list(document_attribute()()),
+        "Attributes" => list(document_attribute()),
         "DocumentId" => String.t()
       }
       
@@ -3656,7 +3656,7 @@ defmodule AWS.Kendra do
       
       list_entity_personas_response() :: %{
         "NextToken" => String.t(),
-        "SummaryItems" => list(personas_summary()())
+        "SummaryItems" => list(personas_summary())
       }
       
   """
@@ -3692,11 +3692,11 @@ defmodule AWS.Kendra do
       
       document() :: %{
         "AccessControlConfigurationId" => String.t(),
-        "AccessControlList" => list(principal()()),
-        "Attributes" => list(document_attribute()()),
+        "AccessControlList" => list(principal()),
+        "Attributes" => list(document_attribute()),
         "Blob" => binary(),
         "ContentType" => list(any()),
-        "HierarchicalAccessControlList" => list(hierarchical_principal()()),
+        "HierarchicalAccessControlList" => list(hierarchical_principal()),
         "Id" => String.t(),
         "S3Path" => s3_path(),
         "Title" => String.t()
@@ -3710,7 +3710,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       list_faqs_response() :: %{
-        "FaqSummaryItems" => list(faq_summary()()),
+        "FaqSummaryItems" => list(faq_summary()),
         "NextToken" => String.t()
       }
       
@@ -3738,7 +3738,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       batch_get_document_status_request() :: %{
-        required("DocumentInfoList") => list(document_info()()),
+        required("DocumentInfoList") => list(document_info()),
         required("IndexId") => String.t()
       }
       
@@ -3750,7 +3750,7 @@ defmodule AWS.Kendra do
   ## Example:
       
       disassociate_entities_from_experience_request() :: %{
-        required("EntityList") => list(entity_configuration()()),
+        required("EntityList") => list(entity_configuration()),
         required("Id") => String.t(),
         required("IndexId") => String.t()
       }
@@ -3765,10 +3765,10 @@ defmodule AWS.Kendra do
       create_featured_results_set_request() :: %{
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("FeaturedDocuments") => list(featured_document()()),
-        optional("QueryTexts") => list(String.t()()),
+        optional("FeaturedDocuments") => list(featured_document()),
+        optional("QueryTexts") => list(String.t()),
         optional("Status") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FeaturedResultsSetName") => String.t(),
         required("IndexId") => String.t()
       }
@@ -3816,9 +3816,9 @@ defmodule AWS.Kendra do
         "AccessControlListConfiguration" => access_control_list_configuration(),
         "BucketName" => String.t(),
         "DocumentsMetadataConfiguration" => documents_metadata_configuration(),
-        "ExclusionPatterns" => list(String.t()()),
-        "InclusionPatterns" => list(String.t()()),
-        "InclusionPrefixes" => list(String.t()())
+        "ExclusionPatterns" => list(String.t()),
+        "InclusionPatterns" => list(String.t()),
+        "InclusionPrefixes" => list(String.t())
       }
       
   """
@@ -3855,7 +3855,7 @@ defmodule AWS.Kendra do
       associate_personas_to_entities_request() :: %{
         required("Id") => String.t(),
         required("IndexId") => String.t(),
-        required("Personas") => list(entity_persona_configuration()())
+        required("Personas") => list(entity_persona_configuration())
       }
       
   """
@@ -4447,7 +4447,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_entities_to_experience_errors()}
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateEntitiesToExperience", input, options)
   end
@@ -4467,7 +4468,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_personas_to_entities_errors()}
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociatePersonasToEntities", input, options)
   end
@@ -4496,7 +4498,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteDocument", input, options)
   end
@@ -4518,7 +4521,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_featured_results_set_errors()}
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteFeaturedResultsSet", input, options)
   end
@@ -4546,7 +4550,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_get_document_status_errors()}
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchGetDocumentStatus", input, options)
   end
@@ -4578,7 +4583,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutDocument", input, options)
   end
@@ -4602,7 +4608,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, clear_query_suggestions_errors()}
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClearQuerySuggestions", input, options)
   end
@@ -4660,7 +4667,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_access_control_configuration_errors()}
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccessControlConfiguration", input, options)
   end
@@ -4687,7 +4695,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataSource", input, options)
   end
@@ -4707,7 +4716,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_experience_errors()}
   def create_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExperience", input, options)
   end
@@ -4728,7 +4738,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_faq_errors()}
   def create_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFaq", input, options)
   end
@@ -4751,7 +4762,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_featured_results_set_errors()}
   def create_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFeaturedResultsSet", input, options)
   end
@@ -4779,7 +4791,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
   end
@@ -4814,7 +4827,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_query_suggestions_block_list_errors()}
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateQuerySuggestionsBlockList", input, options)
   end
@@ -4835,7 +4849,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_thesaurus_errors()}
   def create_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateThesaurus", input, options)
   end
@@ -4860,7 +4875,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_access_control_configuration_errors()}
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlConfiguration", input, options)
   end
@@ -4886,7 +4902,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
@@ -4904,7 +4921,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_experience_errors()}
   def delete_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExperience", input, options)
   end
@@ -4918,7 +4936,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_faq_errors()}
   def delete_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFaq", input, options)
   end
@@ -4937,7 +4956,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIndex", input, options)
   end
@@ -4970,7 +4990,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_principal_mapping_errors()}
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePrincipalMapping", input, options)
   end
@@ -4995,7 +5016,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_query_suggestions_block_list_errors()}
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteQuerySuggestionsBlockList", input, options)
   end
@@ -5009,7 +5031,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_thesaurus_errors()}
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteThesaurus", input, options)
   end
@@ -5033,7 +5056,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_access_control_configuration_errors()}
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccessControlConfiguration", input, options)
   end
@@ -5047,7 +5071,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataSource", input, options)
   end
@@ -5066,7 +5091,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_experience_errors()}
   def describe_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExperience", input, options)
   end
@@ -5080,7 +5106,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_faq_errors()}
   def describe_faq(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFaq", input, options)
   end
@@ -5099,7 +5126,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_featured_results_set_errors()}
   def describe_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFeaturedResultsSet", input, options)
   end
@@ -5113,7 +5141,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIndex", input, options)
   end
@@ -5139,7 +5168,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_principal_mapping_errors()}
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePrincipalMapping", input, options)
   end
@@ -5164,7 +5194,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_block_list_errors()}
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsBlockList", input, options)
   end
@@ -5188,7 +5219,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_config_errors()}
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsConfig", input, options)
   end
@@ -5202,7 +5234,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_thesaurus_errors()}
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeThesaurus", input, options)
   end
@@ -5226,7 +5259,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_entities_from_experience_errors()}
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateEntitiesFromExperience", input, options)
   end
@@ -5250,7 +5284,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_personas_from_entities_errors()}
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociatePersonasFromEntities", input, options)
   end
@@ -5267,7 +5302,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_query_suggestions_errors()}
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetQuerySuggestions", input, options)
   end
@@ -5284,7 +5320,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_snapshots_errors()}
   def get_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnapshots", input, options)
   end
@@ -5308,7 +5345,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_access_control_configurations_errors()}
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccessControlConfigurations", input, options)
   end
@@ -5322,7 +5360,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSourceSyncJobs", input, options)
   end
@@ -5336,7 +5375,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDataSources", input, options)
   end
@@ -5351,7 +5391,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_entity_personas_errors()}
   def list_entity_personas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntityPersonas", input, options)
   end
@@ -5371,7 +5412,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experience_entities_errors()}
   def list_experience_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperienceEntities", input, options)
   end
@@ -5390,7 +5432,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experiences_errors()}
   def list_experiences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExperiences", input, options)
   end
@@ -5404,7 +5447,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_faqs_errors()}
   def list_faqs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFaqs", input, options)
   end
@@ -5424,7 +5468,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_featured_results_sets_errors()}
   def list_featured_results_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFeaturedResultsSets", input, options)
   end
@@ -5446,7 +5491,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_groups_older_than_ordering_id_errors()}
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupsOlderThanOrderingId", input, options)
   end
@@ -5460,7 +5506,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIndices", input, options)
   end
@@ -5484,7 +5531,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_query_suggestions_block_lists_errors()}
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListQuerySuggestionsBlockLists", input, options)
   end
@@ -5501,7 +5549,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5515,7 +5564,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_thesauri_errors()}
   def list_thesauri(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListThesauri", input, options)
   end
@@ -5550,7 +5600,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, put_principal_mapping_errors()}
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPrincipalMapping", input, options)
   end
@@ -5608,7 +5659,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -5670,7 +5722,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Retrieve", input, options)
   end
@@ -5693,7 +5746,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDataSourceSyncJob", input, options)
   end
@@ -5710,7 +5764,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDataSourceSyncJob", input, options)
   end
@@ -5728,7 +5783,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, submit_feedback_errors()}
   def submit_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitFeedback", input, options)
   end
@@ -5746,7 +5802,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5760,7 +5817,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5816,7 +5874,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_access_control_configuration_errors()}
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccessControlConfiguration", input, options)
   end
@@ -5830,7 +5889,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
@@ -5848,7 +5908,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_experience_errors()}
   def update_experience(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateExperience", input, options)
   end
@@ -5870,7 +5931,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_featured_results_set_errors()}
   def update_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFeaturedResultsSet", input, options)
   end
@@ -5884,7 +5946,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIndex", input, options)
   end
@@ -5915,7 +5978,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_block_list_errors()}
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsBlockList", input, options)
   end
@@ -5944,7 +6008,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_config_errors()}
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsConfig", input, options)
   end
@@ -5958,7 +6023,8 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_thesaurus_errors()}
   def update_thesaurus(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateThesaurus", input, options)
   end

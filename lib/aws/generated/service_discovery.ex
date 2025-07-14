@@ -91,7 +91,7 @@ defmodule AWS.ServiceDiscovery do
       create_http_namespace_request() :: %{
         optional("CreatorRequestId") => String.t(),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -115,7 +115,7 @@ defmodule AWS.ServiceDiscovery do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -229,7 +229,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_namespaces_request() :: %{
-        optional("Filters") => list(namespace_filter()()),
+        optional("Filters") => list(namespace_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -295,7 +295,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       get_instances_health_status_request() :: %{
-        optional("Instances") => list(String.t()()),
+        optional("Instances") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ServiceId") => String.t()
@@ -342,7 +342,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       discover_instances_response() :: %{
-        "Instances" => list(http_instance_summary()()),
+        "Instances" => list(http_instance_summary()),
         "InstancesRevision" => float()
       }
       
@@ -411,7 +411,7 @@ defmodule AWS.ServiceDiscovery do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -464,7 +464,7 @@ defmodule AWS.ServiceDiscovery do
         optional("CreatorRequestId") => String.t(),
         optional("Description") => String.t(),
         optional("Properties") => private_dns_namespace_properties(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("Vpc") => String.t()
       }
@@ -511,7 +511,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_services_request() :: %{
-        optional("Filters") => list(service_filter()()),
+        optional("Filters") => list(service_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -558,7 +558,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_operations_request() :: %{
-        optional("Filters") => list(operation_filter()()),
+        optional("Filters") => list(operation_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -607,7 +607,7 @@ defmodule AWS.ServiceDiscovery do
       service_filter() :: %{
         "Condition" => list(any()),
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -653,7 +653,7 @@ defmodule AWS.ServiceDiscovery do
       
       list_services_response() :: %{
         "NextToken" => String.t(),
-        "Services" => list(service_summary()())
+        "Services" => list(service_summary())
       }
       
   """
@@ -724,7 +724,7 @@ defmodule AWS.ServiceDiscovery do
         optional("HealthCheckConfig") => health_check_config(),
         optional("HealthCheckCustomConfig") => health_check_custom_config(),
         optional("NamespaceId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Type") => list(any()),
         required("Name") => String.t()
       }
@@ -774,7 +774,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       delete_service_attributes_request() :: %{
-        required("Attributes") => list(String.t()()),
+        required("Attributes") => list(String.t()),
         required("ServiceId") => String.t()
       }
       
@@ -798,7 +798,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -844,7 +844,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       dns_config() :: %{
-        "DnsRecords" => list(dns_record()()),
+        "DnsRecords" => list(dns_record()),
         "NamespaceId" => String.t(),
         "RoutingPolicy" => list(any())
       }
@@ -882,7 +882,7 @@ defmodule AWS.ServiceDiscovery do
         optional("CreatorRequestId") => String.t(),
         optional("Description") => String.t(),
         optional("Properties") => public_dns_namespace_properties(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -909,7 +909,7 @@ defmodule AWS.ServiceDiscovery do
       namespace_filter() :: %{
         "Condition" => list(any()),
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -932,7 +932,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_instances_response() :: %{
-        "Instances" => list(instance_summary()()),
+        "Instances" => list(instance_summary()),
         "NextToken" => String.t()
       }
       
@@ -992,7 +992,7 @@ defmodule AWS.ServiceDiscovery do
       
       list_operations_response() :: %{
         "NextToken" => String.t(),
-        "Operations" => list(operation_summary()())
+        "Operations" => list(operation_summary())
       }
       
   """
@@ -1127,7 +1127,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       list_namespaces_response() :: %{
-        "Namespaces" => list(namespace_summary()()),
+        "Namespaces" => list(namespace_summary()),
         "NextToken" => String.t()
       }
       
@@ -1150,7 +1150,7 @@ defmodule AWS.ServiceDiscovery do
   ## Example:
       
       dns_config_change() :: %{
-        "DnsRecords" => list(dns_record()())
+        "DnsRecords" => list(dns_record())
       }
       
   """
@@ -1303,7 +1303,7 @@ defmodule AWS.ServiceDiscovery do
       operation_filter() :: %{
         "Condition" => list(any()),
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1489,7 +1489,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, create_http_namespace_errors()}
   def create_http_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHttpNamespace", input, options)
   end
@@ -1517,7 +1518,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, create_private_dns_namespace_errors()}
   def create_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePrivateDnsNamespace", input, options)
   end
@@ -1548,7 +1550,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, create_public_dns_namespace_errors()}
   def create_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePublicDnsNamespace", input, options)
   end
@@ -1602,7 +1605,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -1619,7 +1623,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, delete_namespace_errors()}
   def delete_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNamespace", input, options)
   end
@@ -1636,7 +1641,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -1650,7 +1656,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, delete_service_attributes_errors()}
   def delete_service_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteServiceAttributes", input, options)
   end
@@ -1666,7 +1673,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, deregister_instance_errors()}
   def deregister_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterInstance", input, options)
   end
@@ -1688,7 +1696,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, discover_instances_errors()}
   def discover_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_post(client, meta, "DiscoverInstances", input, options)
   end
@@ -1702,7 +1711,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, discover_instances_revision_errors()}
   def discover_instances_revision(%Client{} = client, input, options \\ []) do
-    meta = metadata() |> Map.put_new(:host_prefix, "data-")
+    meta =
+      metadata() |> Map.put_new(:host_prefix, "data-")
 
     Request.request_post(client, meta, "DiscoverInstancesRevision", input, options)
   end
@@ -1716,7 +1726,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_instance_errors()}
   def get_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstance", input, options)
   end
@@ -1735,7 +1746,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_instances_health_status_errors()}
   def get_instances_health_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstancesHealthStatus", input, options)
   end
@@ -1749,7 +1761,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_namespace_errors()}
   def get_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetNamespace", input, options)
   end
@@ -1768,7 +1781,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_operation_errors()}
   def get_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOperation", input, options)
   end
@@ -1782,7 +1796,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetService", input, options)
   end
@@ -1796,7 +1811,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, get_service_attributes_errors()}
   def get_service_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceAttributes", input, options)
   end
@@ -1811,7 +1827,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInstances", input, options)
   end
@@ -1826,7 +1843,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, list_namespaces_errors()}
   def list_namespaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNamespaces", input, options)
   end
@@ -1840,7 +1858,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, list_operations_errors()}
   def list_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOperations", input, options)
   end
@@ -1856,7 +1875,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -1870,7 +1890,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1930,7 +1951,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, register_instance_errors()}
   def register_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterInstance", input, options)
   end
@@ -1944,7 +1966,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1958,7 +1981,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1973,7 +1997,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_http_namespace_errors()}
   def update_http_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHttpNamespace", input, options)
   end
@@ -2002,7 +2027,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_instance_custom_health_status_errors()}
   def update_instance_custom_health_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateInstanceCustomHealthStatus", input, options)
   end
@@ -2017,7 +2043,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_private_dns_namespace_errors()}
   def update_private_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePrivateDnsNamespace", input, options)
   end
@@ -2032,7 +2059,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_public_dns_namespace_errors()}
   def update_public_dns_namespace(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePublicDnsNamespace", input, options)
   end
@@ -2069,7 +2097,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -2083,7 +2112,8 @@ defmodule AWS.ServiceDiscovery do
           | {:error, term()}
           | {:error, update_service_attributes_errors()}
   def update_service_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceAttributes", input, options)
   end

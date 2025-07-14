@@ -49,7 +49,7 @@ defmodule AWS.Comprehend do
         optional("ModelKmsKeyId") => String.t(),
         optional("ModelPolicy") => String.t(),
         optional("OutputDataConfig") => document_classifier_output_data_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VersionName") => String.t(),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
@@ -104,7 +104,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_entity_recognizers_response() :: %{
-        "EntityRecognizerPropertiesList" => list(entity_recognizer_properties()()),
+        "EntityRecognizerPropertiesList" => list(entity_recognizer_properties()),
         "NextToken" => String.t()
       }
       
@@ -166,7 +166,7 @@ defmodule AWS.Comprehend do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -208,7 +208,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       document_classifier_input_data_config() :: %{
-        "AugmentedManifests" => list(augmented_manifests_list_item()()),
+        "AugmentedManifests" => list(augmented_manifests_list_item()),
         "DataFormat" => list(any()),
         "DocumentReaderConfig" => document_reader_config(),
         "DocumentType" => list(any()),
@@ -226,8 +226,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_dominant_language_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_dominant_language_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_dominant_language_item_result())
       }
       
   """
@@ -240,12 +240,12 @@ defmodule AWS.Comprehend do
       start_events_detection_job_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DataAccessRoleArn") => String.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
         required("OutputDataConfig") => output_data_config(),
-        required("TargetEventTypes") => list(String.t()())
+        required("TargetEventTypes") => list(String.t())
       }
       
   """
@@ -309,7 +309,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_dominant_language_item_result() :: %{
         "Index" => integer(),
-        "Languages" => list(dominant_language()())
+        "Languages" => list(dominant_language())
       }
       
   """
@@ -331,7 +331,7 @@ defmodule AWS.Comprehend do
         "Message" => String.t(),
         "OutputDataConfig" => output_data_config(),
         "SubmitTime" => non_neg_integer(),
-        "TargetEventTypes" => list(String.t()())
+        "TargetEventTypes" => list(String.t())
       }
       
   """
@@ -367,7 +367,7 @@ defmodule AWS.Comprehend do
       
       geometry() :: %{
         "BoundingBox" => bounding_box(),
-        "Polygon" => list(point()())
+        "Polygon" => list(point())
       }
       
   """
@@ -382,7 +382,7 @@ defmodule AWS.Comprehend do
         optional("DocumentClassifierArn") => String.t(),
         optional("FlywheelArn") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -407,7 +407,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_flywheel_iteration_history_response() :: %{
-        "FlywheelIterationPropertiesList" => list(flywheel_iteration_properties()()),
+        "FlywheelIterationPropertiesList" => list(flywheel_iteration_properties()),
         "NextToken" => String.t()
       }
       
@@ -420,7 +420,7 @@ defmodule AWS.Comprehend do
       
       entity() :: %{
         "BeginOffset" => integer(),
-        "BlockReferences" => list(block_reference()()),
+        "BlockReferences" => list(block_reference()),
         "EndOffset" => integer(),
         "Score" => float(),
         "Text" => String.t(),
@@ -539,7 +539,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_flywheels_response() :: %{
-        "FlywheelSummaryList" => list(flywheel_summary()()),
+        "FlywheelSummaryList" => list(flywheel_summary()),
         "NextToken" => String.t()
       }
       
@@ -552,7 +552,7 @@ defmodule AWS.Comprehend do
       
       dataset_augmented_manifests_list_item() :: %{
         "AnnotationDataS3Uri" => String.t(),
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "DocumentType" => list(any()),
         "S3Uri" => String.t(),
         "SourceDocumentsS3Uri" => String.t()
@@ -592,7 +592,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_syntax_item_result() :: %{
         "Index" => integer(),
-        "SyntaxTokens" => list(syntax_token()())
+        "SyntaxTokens" => list(syntax_token())
       }
       
   """
@@ -632,7 +632,7 @@ defmodule AWS.Comprehend do
         optional("DataAccessRoleArn") => String.t(),
         optional("FlywheelArn") => String.t(),
         optional("ModelArn") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DesiredInferenceUnits") => integer(),
         required("EndpointName") => String.t()
       }
@@ -706,7 +706,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       contains_pii_entities_response() :: %{
-        "Labels" => list(entity_label()())
+        "Labels" => list(entity_label())
       }
       
   """
@@ -727,7 +727,7 @@ defmodule AWS.Comprehend do
       
       augmented_manifests_list_item() :: %{
         "AnnotationDataS3Uri" => String.t(),
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "DocumentType" => list(any()),
         "S3Uri" => String.t(),
         "SourceDocumentsS3Uri" => String.t(),
@@ -781,7 +781,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_pii_entities_response() :: %{
-        "Entities" => list(pii_entity()())
+        "Entities" => list(pii_entity())
       }
       
   """
@@ -804,7 +804,7 @@ defmodule AWS.Comprehend do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -862,7 +862,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_syntax_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -964,7 +964,7 @@ defmodule AWS.Comprehend do
         optional("ClientRequestToken") => String.t(),
         optional("ModelKmsKeyId") => String.t(),
         optional("ModelPolicy") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VersionName") => String.t(),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
@@ -983,7 +983,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_targeted_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -998,7 +998,7 @@ defmodule AWS.Comprehend do
         optional("EntityRecognizerArn") => String.t(),
         optional("FlywheelArn") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -1088,11 +1088,11 @@ defmodule AWS.Comprehend do
       
       entity_recognizer_input_data_config() :: %{
         "Annotations" => entity_recognizer_annotations(),
-        "AugmentedManifests" => list(augmented_manifests_list_item()()),
+        "AugmentedManifests" => list(augmented_manifests_list_item()),
         "DataFormat" => list(any()),
         "Documents" => entity_recognizer_documents(),
         "EntityList" => entity_recognizer_entity_list(),
-        "EntityTypes" => list(entity_types_list_item()())
+        "EntityTypes" => list(entity_types_list_item())
       }
       
   """
@@ -1161,11 +1161,11 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_entities_response() :: %{
-        "Blocks" => list(block()()),
+        "Blocks" => list(block()),
         "DocumentMetadata" => document_metadata(),
-        "DocumentType" => list(document_type_list_item()()),
-        "Entities" => list(entity()()),
-        "Errors" => list(errors_list_item()())
+        "DocumentType" => list(document_type_list_item()),
+        "Entities" => list(entity()),
+        "Errors" => list(errors_list_item())
       }
       
   """
@@ -1200,7 +1200,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_document_classifier_summaries_response() :: %{
-        "DocumentClassifierSummariesList" => list(document_classifier_summary()()),
+        "DocumentClassifierSummariesList" => list(document_classifier_summary()),
         "NextToken" => String.t()
       }
       
@@ -1248,7 +1248,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_document_classification_jobs_response() :: %{
-        "DocumentClassificationJobPropertiesList" => list(document_classification_job_properties()()),
+        "DocumentClassificationJobPropertiesList" => list(document_classification_job_properties()),
         "NextToken" => String.t()
       }
       
@@ -1338,7 +1338,7 @@ defmodule AWS.Comprehend do
       start_targeted_sentiment_detection_job_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -1431,7 +1431,7 @@ defmodule AWS.Comprehend do
       block_reference() :: %{
         "BeginOffset" => integer(),
         "BlockId" => String.t(),
-        "ChildBlocks" => list(child_block()()),
+        "ChildBlocks" => list(child_block()),
         "EndOffset" => integer()
       }
       
@@ -1445,7 +1445,7 @@ defmodule AWS.Comprehend do
       start_sentiment_detection_job_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -1488,7 +1488,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       relationships_list_item() :: %{
-        "Ids" => list(String.t()()),
+        "Ids" => list(String.t()),
         "Type" => list(any())
       }
       
@@ -1547,8 +1547,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_key_phrases_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_key_phrases_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_key_phrases_item_result())
       }
       
   """
@@ -1605,7 +1605,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_endpoints_response() :: %{
-        "EndpointPropertiesList" => list(endpoint_properties()()),
+        "EndpointPropertiesList" => list(endpoint_properties()),
         "NextToken" => String.t()
       }
       
@@ -1618,7 +1618,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_entities_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -1629,7 +1629,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       dataset_input_data_config() :: %{
-        "AugmentedManifests" => list(dataset_augmented_manifests_list_item()()),
+        "AugmentedManifests" => list(dataset_augmented_manifests_list_item()),
         "DataFormat" => list(any()),
         "DocumentClassifierInputDataConfig" => dataset_document_classifier_input_data_config(),
         "EntityRecognizerInputDataConfig" => dataset_entity_recognizer_input_data_config()
@@ -1691,7 +1691,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_events_detection_jobs_response() :: %{
-        "EventsDetectionJobPropertiesList" => list(events_detection_job_properties()()),
+        "EventsDetectionJobPropertiesList" => list(events_detection_job_properties()),
         "NextToken" => String.t()
       }
       
@@ -1774,8 +1774,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_sentiment_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_sentiment_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_sentiment_item_result())
       }
       
   """
@@ -1786,7 +1786,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_document_classifiers_response() :: %{
-        "DocumentClassifierPropertiesList" => list(document_classifier_properties()()),
+        "DocumentClassifierPropertiesList" => list(document_classifier_properties()),
         "NextToken" => String.t()
       }
       
@@ -1809,8 +1809,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "Subnets" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "Subnets" => list(String.t())
       }
       
   """
@@ -1851,7 +1851,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_dominant_language_request() :: %{
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -1887,7 +1887,7 @@ defmodule AWS.Comprehend do
       
       list_tags_for_resource_response() :: %{
         "ResourceArn" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1944,7 +1944,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_syntax_response() :: %{
-        "SyntaxTokens" => list(syntax_token()())
+        "SyntaxTokens" => list(syntax_token())
       }
       
   """
@@ -1955,7 +1955,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_key_phrases_response() :: %{
-        "KeyPhrases" => list(key_phrase()())
+        "KeyPhrases" => list(key_phrase())
       }
       
   """
@@ -1981,7 +1981,7 @@ defmodule AWS.Comprehend do
       start_dominant_language_detection_job_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -2021,7 +2021,7 @@ defmodule AWS.Comprehend do
         optional("ClientRequestToken") => String.t(),
         optional("DataSecurityConfig") => data_security_config(),
         optional("ModelType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TaskConfig") => task_config(),
         required("DataAccessRoleArn") => String.t(),
         required("DataLakeS3Uri") => String.t(),
@@ -2071,7 +2071,7 @@ defmodule AWS.Comprehend do
       
       detect_toxic_content_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextSegments") => list(text_segment()())
+        required("TextSegments") => list(text_segment())
       }
       
   """
@@ -2177,7 +2177,7 @@ defmodule AWS.Comprehend do
       
       list_sentiment_detection_jobs_response() :: %{
         "NextToken" => String.t(),
-        "SentimentDetectionJobPropertiesList" => list(sentiment_detection_job_properties()())
+        "SentimentDetectionJobPropertiesList" => list(sentiment_detection_job_properties())
       }
       
   """
@@ -2225,7 +2225,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_entities_detection_jobs_response() :: %{
-        "EntitiesDetectionJobPropertiesList" => list(entities_detection_job_properties()()),
+        "EntitiesDetectionJobPropertiesList" => list(entities_detection_job_properties()),
         "NextToken" => String.t()
       }
       
@@ -2250,8 +2250,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       targeted_sentiment_entity() :: %{
-        "DescriptiveMentionIndex" => list(integer()()),
-        "Mentions" => list(targeted_sentiment_mention()())
+        "DescriptiveMentionIndex" => list(integer()),
+        "Mentions" => list(targeted_sentiment_mention())
       }
       
   """
@@ -2338,7 +2338,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_sentiment_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -2420,7 +2420,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_dominant_language_response() :: %{
-        "Languages" => list(dominant_language()())
+        "Languages" => list(dominant_language())
       }
       
   """
@@ -2542,7 +2542,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       entity_recognition_config() :: %{
-        "EntityTypes" => list(entity_types_list_item()())
+        "EntityTypes" => list(entity_types_list_item())
       }
       
   """
@@ -2748,7 +2748,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       entity_recognizer_metadata() :: %{
-        "EntityTypes" => list(entity_recognizer_metadata_entity_types_list_item()()),
+        "EntityTypes" => list(entity_recognizer_metadata_entity_types_list_item()),
         "EvaluationMetrics" => entity_recognizer_evaluation_metrics(),
         "NumberOfTestDocuments" => integer(),
         "NumberOfTrainedDocuments" => integer()
@@ -2817,7 +2817,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_key_phrases_item_result() :: %{
         "Index" => integer(),
-        "KeyPhrases" => list(key_phrase()())
+        "KeyPhrases" => list(key_phrase())
       }
       
   """
@@ -2831,7 +2831,7 @@ defmodule AWS.Comprehend do
         optional("ClientRequestToken") => String.t(),
         optional("DatasetType") => list(any()),
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DatasetName") => String.t(),
         required("FlywheelArn") => String.t(),
         required("InputDataConfig") => dataset_input_data_config()
@@ -2856,7 +2856,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       document_metadata() :: %{
-        "ExtractedCharacters" => list(extracted_characters_list_item()()),
+        "ExtractedCharacters" => list(extracted_characters_list_item()),
         "Pages" => integer()
       }
       
@@ -2931,7 +2931,7 @@ defmodule AWS.Comprehend do
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
         optional("RedactionConfig") => redaction_config(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DataAccessRoleArn") => String.t(),
         required("InputDataConfig") => input_data_config(),
         required("LanguageCode") => list(any()),
@@ -3010,7 +3010,7 @@ defmodule AWS.Comprehend do
       
       list_topics_detection_jobs_response() :: %{
         "NextToken" => String.t(),
-        "TopicsDetectionJobPropertiesList" => list(topics_detection_job_properties()())
+        "TopicsDetectionJobPropertiesList" => list(topics_detection_job_properties())
       }
       
   """
@@ -3021,7 +3021,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_targeted_sentiment_item_result() :: %{
-        "Entities" => list(targeted_sentiment_entity()()),
+        "Entities" => list(targeted_sentiment_entity()),
         "Index" => integer()
       }
       
@@ -3034,7 +3034,7 @@ defmodule AWS.Comprehend do
       
       list_targeted_sentiment_detection_jobs_response() :: %{
         "NextToken" => String.t(),
-        "TargetedSentimentDetectionJobPropertiesList" => list(targeted_sentiment_detection_job_properties()())
+        "TargetedSentimentDetectionJobPropertiesList" => list(targeted_sentiment_detection_job_properties())
       }
       
   """
@@ -3133,7 +3133,7 @@ defmodule AWS.Comprehend do
       
       batch_detect_key_phrases_request() :: %{
         required("LanguageCode") => list(any()),
-        required("TextList") => list(String.t()())
+        required("TextList") => list(String.t())
       }
       
   """
@@ -3155,7 +3155,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_entities_item_result() :: %{
-        "Entities" => list(entity()()),
+        "Entities" => list(entity()),
         "Index" => integer()
       }
       
@@ -3167,7 +3167,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       toxic_labels() :: %{
-        "Labels" => list(toxic_content()()),
+        "Labels" => list(toxic_content()),
         "Toxicity" => float()
       }
       
@@ -3179,7 +3179,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_targeted_sentiment_response() :: %{
-        "Entities" => list(targeted_sentiment_entity()())
+        "Entities" => list(targeted_sentiment_entity())
       }
       
   """
@@ -3224,7 +3224,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_key_phrases_detection_jobs_response() :: %{
-        "KeyPhrasesDetectionJobPropertiesList" => list(key_phrases_detection_job_properties()()),
+        "KeyPhrasesDetectionJobPropertiesList" => list(key_phrases_detection_job_properties()),
         "NextToken" => String.t()
       }
       
@@ -3262,8 +3262,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_targeted_sentiment_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_targeted_sentiment_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_targeted_sentiment_item_result())
       }
       
   """
@@ -3299,7 +3299,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_datasets_response() :: %{
-        "DatasetPropertiesList" => list(dataset_properties()()),
+        "DatasetPropertiesList" => list(dataset_properties()),
         "NextToken" => String.t()
       }
       
@@ -3359,7 +3359,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       detect_toxic_content_response() :: %{
-        "ResultList" => list(toxic_labels()())
+        "ResultList" => list(toxic_labels())
       }
       
   """
@@ -3385,7 +3385,7 @@ defmodule AWS.Comprehend do
       start_key_phrases_detection_job_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -3417,7 +3417,7 @@ defmodule AWS.Comprehend do
         "Geometry" => geometry(),
         "Id" => String.t(),
         "Page" => integer(),
-        "Relationships" => list(relationships_list_item()()),
+        "Relationships" => list(relationships_list_item()),
         "Text" => String.t()
       }
       
@@ -3469,7 +3469,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_entity_recognizer_summaries_response() :: %{
-        "EntityRecognizerSummariesList" => list(entity_recognizer_summary()()),
+        "EntityRecognizerSummariesList" => list(entity_recognizer_summary()),
         "NextToken" => String.t()
       }
       
@@ -3504,8 +3504,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_entities_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_entities_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_entities_item_result())
       }
       
   """
@@ -3519,7 +3519,7 @@ defmodule AWS.Comprehend do
         optional("DataAccessRoleArn") => String.t(),
         optional("ModelKmsKeyId") => String.t(),
         optional("ModelName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VersionName") => String.t(),
         required("SourceModelArn") => String.t()
       }
@@ -3581,7 +3581,7 @@ defmodule AWS.Comprehend do
       
       list_pii_entities_detection_jobs_response() :: %{
         "NextToken" => String.t(),
-        "PiiEntitiesDetectionJobPropertiesList" => list(pii_entities_detection_job_properties()())
+        "PiiEntitiesDetectionJobPropertiesList" => list(pii_entities_detection_job_properties())
       }
       
   """
@@ -3653,8 +3653,8 @@ defmodule AWS.Comprehend do
   ## Example:
       
       batch_detect_syntax_response() :: %{
-        "ErrorList" => list(batch_item_error()()),
-        "ResultList" => list(batch_detect_syntax_item_result()())
+        "ErrorList" => list(batch_item_error()),
+        "ResultList" => list(batch_detect_syntax_item_result())
       }
       
   """
@@ -3688,7 +3688,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       document_classification_config() :: %{
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "Mode" => list(any())
       }
       
@@ -3711,12 +3711,12 @@ defmodule AWS.Comprehend do
   ## Example:
       
       classify_document_response() :: %{
-        "Classes" => list(document_class()()),
+        "Classes" => list(document_class()),
         "DocumentMetadata" => document_metadata(),
-        "DocumentType" => list(document_type_list_item()()),
-        "Errors" => list(errors_list_item()()),
-        "Labels" => list(document_label()()),
-        "Warnings" => list(warnings_list_item()())
+        "DocumentType" => list(document_type_list_item()),
+        "Errors" => list(errors_list_item()),
+        "Labels" => list(document_label()),
+        "Warnings" => list(warnings_list_item())
       }
       
   """
@@ -3741,7 +3741,7 @@ defmodule AWS.Comprehend do
         optional("ClientRequestToken") => String.t(),
         optional("JobName") => String.t(),
         optional("NumberOfTopics") => integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeKmsKeyId") => String.t(),
         optional("VpcConfig") => vpc_config(),
         required("DataAccessRoleArn") => String.t(),
@@ -3832,7 +3832,7 @@ defmodule AWS.Comprehend do
   ## Example:
       
       list_dominant_language_detection_jobs_response() :: %{
-        "DominantLanguageDetectionJobPropertiesList" => list(dominant_language_detection_job_properties()()),
+        "DominantLanguageDetectionJobPropertiesList" => list(dominant_language_detection_job_properties()),
         "NextToken" => String.t()
       }
       
@@ -4418,7 +4418,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_dominant_language_errors()}
   def batch_detect_dominant_language(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectDominantLanguage", input, options)
   end
@@ -4438,7 +4439,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_entities_errors()}
   def batch_detect_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectEntities", input, options)
   end
@@ -4452,7 +4454,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_key_phrases_errors()}
   def batch_detect_key_phrases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectKeyPhrases", input, options)
   end
@@ -4469,7 +4472,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_sentiment_errors()}
   def batch_detect_sentiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectSentiment", input, options)
   end
@@ -4489,7 +4493,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_syntax_errors()}
   def batch_detect_syntax(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectSyntax", input, options)
   end
@@ -4507,7 +4512,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, batch_detect_targeted_sentiment_errors()}
   def batch_detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDetectTargetedSentiment", input, options)
   end
@@ -4553,7 +4559,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, classify_document_errors()}
   def classify_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClassifyDocument", input, options)
   end
@@ -4571,7 +4578,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, contains_pii_entities_errors()}
   def contains_pii_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ContainsPiiEntities", input, options)
   end
@@ -4591,7 +4599,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -4612,7 +4621,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, create_document_classifier_errors()}
   def create_document_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDocumentClassifier", input, options)
   end
@@ -4629,7 +4639,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, create_endpoint_errors()}
   def create_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpoint", input, options)
   end
@@ -4648,7 +4659,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, create_entity_recognizer_errors()}
   def create_entity_recognizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEntityRecognizer", input, options)
   end
@@ -4684,7 +4696,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, create_flywheel_errors()}
   def create_flywheel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFlywheel", input, options)
   end
@@ -4711,7 +4724,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, delete_document_classifier_errors()}
   def delete_document_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDocumentClassifier", input, options)
   end
@@ -4729,7 +4743,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -4755,7 +4770,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, delete_entity_recognizer_errors()}
   def delete_entity_recognizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEntityRecognizer", input, options)
   end
@@ -4777,7 +4793,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, delete_flywheel_errors()}
   def delete_flywheel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFlywheel", input, options)
   end
@@ -4791,7 +4808,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4810,7 +4828,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -4831,7 +4850,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_document_classification_job_errors()}
   def describe_document_classification_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDocumentClassificationJob", input, options)
   end
@@ -4845,7 +4865,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_document_classifier_errors()}
   def describe_document_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDocumentClassifier", input, options)
   end
@@ -4866,7 +4887,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_dominant_language_detection_job_errors()}
   def describe_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDominantLanguageDetectionJob", input, options)
   end
@@ -4884,7 +4906,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_endpoint_errors()}
   def describe_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoint", input, options)
   end
@@ -4901,7 +4924,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_entities_detection_job_errors()}
   def describe_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntitiesDetectionJob", input, options)
   end
@@ -4917,7 +4941,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_entity_recognizer_errors()}
   def describe_entity_recognizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEntityRecognizer", input, options)
   end
@@ -4931,7 +4956,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_events_detection_job_errors()}
   def describe_events_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventsDetectionJob", input, options)
   end
@@ -4950,7 +4976,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_flywheel_errors()}
   def describe_flywheel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlywheel", input, options)
   end
@@ -4969,7 +4996,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_flywheel_iteration_errors()}
   def describe_flywheel_iteration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlywheelIteration", input, options)
   end
@@ -4990,7 +5018,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_key_phrases_detection_job_errors()}
   def describe_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeKeyPhrasesDetectionJob", input, options)
   end
@@ -5011,7 +5040,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_pii_entities_detection_job_errors()}
   def describe_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePiiEntitiesDetectionJob", input, options)
   end
@@ -5027,7 +5057,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -5048,7 +5079,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_sentiment_detection_job_errors()}
   def describe_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSentimentDetectionJob", input, options)
   end
@@ -5069,7 +5101,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_targeted_sentiment_detection_job_errors()}
   def describe_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetedSentimentDetectionJob", input, options)
   end
@@ -5086,7 +5119,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, describe_topics_detection_job_errors()}
   def describe_topics_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTopicsDetectionJob", input, options)
   end
@@ -5103,7 +5137,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_dominant_language_errors()}
   def detect_dominant_language(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectDominantLanguage", input, options)
   end
@@ -5141,7 +5176,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_entities_errors()}
   def detect_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectEntities", input, options)
   end
@@ -5155,7 +5191,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_key_phrases_errors()}
   def detect_key_phrases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectKeyPhrases", input, options)
   end
@@ -5171,7 +5208,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_pii_entities_errors()}
   def detect_pii_entities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectPiiEntities", input, options)
   end
@@ -5186,7 +5224,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_sentiment_errors()}
   def detect_sentiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectSentiment", input, options)
   end
@@ -5205,7 +5244,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_syntax_errors()}
   def detect_syntax(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectSyntax", input, options)
   end
@@ -5223,7 +5263,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_targeted_sentiment_errors()}
   def detect_targeted_sentiment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectTargetedSentiment", input, options)
   end
@@ -5243,7 +5284,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, detect_toxic_content_errors()}
   def detect_toxic_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectToxicContent", input, options)
   end
@@ -5269,7 +5311,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, import_model_errors()}
   def import_model(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportModel", input, options)
   end
@@ -5288,7 +5331,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -5306,7 +5350,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_document_classification_jobs_errors()}
   def list_document_classification_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocumentClassificationJobs", input, options)
   end
@@ -5324,7 +5369,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_document_classifier_summaries_errors()}
   def list_document_classifier_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocumentClassifierSummaries", input, options)
   end
@@ -5338,7 +5384,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_document_classifiers_errors()}
   def list_document_classifiers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocumentClassifiers", input, options)
   end
@@ -5356,7 +5403,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_dominant_language_detection_jobs_errors()}
   def list_dominant_language_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDominantLanguageDetectionJobs", input, options)
   end
@@ -5372,7 +5420,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_endpoints_errors()}
   def list_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpoints", input, options)
   end
@@ -5386,7 +5435,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_entities_detection_jobs_errors()}
   def list_entities_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntitiesDetectionJobs", input, options)
   end
@@ -5404,7 +5454,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_entity_recognizer_summaries_errors()}
   def list_entity_recognizer_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntityRecognizerSummaries", input, options)
   end
@@ -5429,7 +5480,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_entity_recognizers_errors()}
   def list_entity_recognizers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEntityRecognizers", input, options)
   end
@@ -5443,7 +5495,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_events_detection_jobs_errors()}
   def list_events_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventsDetectionJobs", input, options)
   end
@@ -5462,7 +5515,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_flywheel_iteration_history_errors()}
   def list_flywheel_iteration_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlywheelIterationHistory", input, options)
   end
@@ -5476,7 +5530,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_flywheels_errors()}
   def list_flywheels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlywheels", input, options)
   end
@@ -5490,7 +5545,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_key_phrases_detection_jobs_errors()}
   def list_key_phrases_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListKeyPhrasesDetectionJobs", input, options)
   end
@@ -5508,7 +5564,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_pii_entities_detection_jobs_errors()}
   def list_pii_entities_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPiiEntitiesDetectionJobs", input, options)
   end
@@ -5522,7 +5579,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_sentiment_detection_jobs_errors()}
   def list_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSentimentDetectionJobs", input, options)
   end
@@ -5536,7 +5594,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5554,7 +5613,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_targeted_sentiment_detection_jobs_errors()}
   def list_targeted_sentiment_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTargetedSentimentDetectionJobs", input, options)
   end
@@ -5568,7 +5628,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, list_topics_detection_jobs_errors()}
   def list_topics_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTopicsDetectionJobs", input, options)
   end
@@ -5587,7 +5648,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -5610,7 +5672,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_document_classification_job_errors()}
   def start_document_classification_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDocumentClassificationJob", input, options)
   end
@@ -5633,7 +5696,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_dominant_language_detection_job_errors()}
   def start_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDominantLanguageDetectionJob", input, options)
   end
@@ -5657,7 +5721,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_entities_detection_job_errors()}
   def start_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEntitiesDetectionJob", input, options)
   end
@@ -5671,7 +5736,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_events_detection_job_errors()}
   def start_events_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEventsDetectionJob", input, options)
   end
@@ -5691,7 +5757,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_flywheel_iteration_errors()}
   def start_flywheel_iteration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFlywheelIteration", input, options)
   end
@@ -5709,7 +5776,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_key_phrases_detection_job_errors()}
   def start_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartKeyPhrasesDetectionJob", input, options)
   end
@@ -5727,7 +5795,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_pii_entities_detection_job_errors()}
   def start_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPiiEntitiesDetectionJob", input, options)
   end
@@ -5745,7 +5814,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_sentiment_detection_job_errors()}
   def start_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSentimentDetectionJob", input, options)
   end
@@ -5768,7 +5838,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_targeted_sentiment_detection_job_errors()}
   def start_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTargetedSentimentDetectionJob", input, options)
   end
@@ -5785,7 +5856,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, start_topics_detection_job_errors()}
   def start_topics_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTopicsDetectionJob", input, options)
   end
@@ -5816,7 +5888,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_dominant_language_detection_job_errors()}
   def stop_dominant_language_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDominantLanguageDetectionJob", input, options)
   end
@@ -5843,7 +5916,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_entities_detection_job_errors()}
   def stop_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEntitiesDetectionJob", input, options)
   end
@@ -5857,7 +5931,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_events_detection_job_errors()}
   def stop_events_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEventsDetectionJob", input, options)
   end
@@ -5884,7 +5959,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_key_phrases_detection_job_errors()}
   def stop_key_phrases_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopKeyPhrasesDetectionJob", input, options)
   end
@@ -5898,7 +5974,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_pii_entities_detection_job_errors()}
   def stop_pii_entities_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopPiiEntitiesDetectionJob", input, options)
   end
@@ -5926,7 +6003,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_sentiment_detection_job_errors()}
   def stop_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopSentimentDetectionJob", input, options)
   end
@@ -5958,7 +6036,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_targeted_sentiment_detection_job_errors()}
   def stop_targeted_sentiment_detection_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTargetedSentimentDetectionJob", input, options)
   end
@@ -5984,7 +6063,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_training_document_classifier_errors()}
   def stop_training_document_classifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrainingDocumentClassifier", input, options)
   end
@@ -6005,7 +6085,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, stop_training_entity_recognizer_errors()}
   def stop_training_entity_recognizer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopTrainingEntityRecognizer", input, options)
   end
@@ -6025,7 +6106,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -6039,7 +6121,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -6055,7 +6138,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, update_endpoint_errors()}
   def update_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpoint", input, options)
   end
@@ -6069,7 +6153,8 @@ defmodule AWS.Comprehend do
           | {:error, term()}
           | {:error, update_flywheel_errors()}
   def update_flywheel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFlywheel", input, options)
   end

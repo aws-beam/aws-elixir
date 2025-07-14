@@ -89,7 +89,7 @@ defmodule AWS.Pricing do
       describe_services_response() :: %{
         "FormatVersion" => String.t(),
         "NextToken" => String.t(),
-        "Services" => list(service()())
+        "Services" => list(service())
       }
       
   """
@@ -138,7 +138,7 @@ defmodule AWS.Pricing do
   ## Example:
       
       get_attribute_values_response() :: %{
-        "AttributeValues" => list(attribute_value()()),
+        "AttributeValues" => list(attribute_value()),
         "NextToken" => String.t()
       }
       
@@ -173,7 +173,7 @@ defmodule AWS.Pricing do
   ## Example:
       
       get_products_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("FormatVersion") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -190,7 +190,7 @@ defmodule AWS.Pricing do
       get_products_response() :: %{
         "FormatVersion" => String.t(),
         "NextToken" => String.t(),
-        "PriceList" => list(String.t()())
+        "PriceList" => list(String.t())
       }
       
   """
@@ -251,7 +251,7 @@ defmodule AWS.Pricing do
       
       list_price_lists_response() :: %{
         "NextToken" => String.t(),
-        "PriceLists" => list(price_list()())
+        "PriceLists" => list(price_list())
       }
       
   """
@@ -274,7 +274,7 @@ defmodule AWS.Pricing do
       
       price_list() :: %{
         "CurrencyCode" => String.t(),
-        "FileFormats" => list(String.t()()),
+        "FileFormats" => list(String.t()),
         "PriceListArn" => String.t(),
         "RegionCode" => String.t()
       }
@@ -298,7 +298,7 @@ defmodule AWS.Pricing do
   ## Example:
       
       service() :: %{
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "ServiceCode" => String.t()
       }
       
@@ -392,7 +392,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -411,7 +412,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_attribute_values_errors()}
   def get_attribute_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAttributeValues", input, options)
   end
@@ -437,7 +439,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_price_list_file_url_errors()}
   def get_price_list_file_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPriceListFileUrl", input, options)
   end
@@ -451,7 +454,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_products_errors()}
   def get_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProducts", input, options)
   end
@@ -482,7 +486,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, list_price_lists_errors()}
   def list_price_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPriceLists", input, options)
   end

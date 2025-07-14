@@ -21,7 +21,7 @@ defmodule AWS.SageMakerMetrics do
   ## Example:
 
       batch_get_metrics_request() :: %{
-        required("MetricQueries") => list(metric_query()())
+        required("MetricQueries") => list(metric_query())
       }
 
   """
@@ -32,7 +32,7 @@ defmodule AWS.SageMakerMetrics do
   ## Example:
 
       batch_get_metrics_response() :: %{
-        "MetricQueryResults" => list(metric_query_result()())
+        "MetricQueryResults" => list(metric_query_result())
       }
 
   """
@@ -55,7 +55,7 @@ defmodule AWS.SageMakerMetrics do
   ## Example:
 
       batch_put_metrics_request() :: %{
-        required("MetricData") => list(raw_metric_data()()),
+        required("MetricData") => list(raw_metric_data()),
         required("TrialComponentName") => String.t()
       }
 
@@ -67,7 +67,7 @@ defmodule AWS.SageMakerMetrics do
   ## Example:
 
       batch_put_metrics_response() :: %{
-        "Errors" => list(batch_put_metrics_error()())
+        "Errors" => list(batch_put_metrics_error())
       }
 
   """
@@ -96,9 +96,9 @@ defmodule AWS.SageMakerMetrics do
 
       metric_query_result() :: %{
         "Message" => String.t(),
-        "MetricValues" => list(float()()),
+        "MetricValues" => list(float()),
         "Status" => list(any()),
-        "XAxisValues" => list(float()())
+        "XAxisValues" => list(float())
       }
 
   """

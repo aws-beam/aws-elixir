@@ -27,7 +27,7 @@ defmodule AWS.FSx do
   ## Example:
       
       file_system() :: %{
-        "AdministrativeActions" => list(administrative_action()()),
+        "AdministrativeActions" => list(administrative_action()),
         "CreationTime" => non_neg_integer(),
         "DNSName" => String.t(),
         "FailureDetails" => file_system_failure_details(),
@@ -37,15 +37,15 @@ defmodule AWS.FSx do
         "KmsKeyId" => String.t(),
         "Lifecycle" => list(any()),
         "LustreConfiguration" => lustre_file_system_configuration(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceIds" => list(String.t()),
         "OntapConfiguration" => ontap_file_system_configuration(),
         "OpenZFSConfiguration" => open_z_f_s_file_system_configuration(),
         "OwnerId" => String.t(),
         "ResourceARN" => String.t(),
         "StorageCapacity" => integer(),
         "StorageType" => list(any()),
-        "SubnetIds" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SubnetIds" => list(String.t()),
+        "Tags" => list(tag()),
         "VpcId" => String.t(),
         "WindowsConfiguration" => windows_file_system_configuration()
       }
@@ -60,15 +60,15 @@ defmodule AWS.FSx do
       create_file_cache_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("CopyTagsToDataRepositoryAssociations") => boolean(),
-        optional("DataRepositoryAssociations") => list(file_cache_data_repository_association()()),
+        optional("DataRepositoryAssociations") => list(file_cache_data_repository_association()),
         optional("KmsKeyId") => String.t(),
         optional("LustreConfiguration") => create_file_cache_lustre_configuration(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("FileCacheType") => list(any()),
         required("FileCacheTypeVersion") => String.t(),
         required("StorageCapacity") => integer(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -139,7 +139,7 @@ defmodule AWS.FSx do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -213,7 +213,7 @@ defmodule AWS.FSx do
       
       open_z_f_s_client_configuration() :: %{
         "Clients" => String.t(),
-        "Options" => list(String.t()())
+        "Options" => list(String.t())
       }
       
   """
@@ -248,7 +248,7 @@ defmodule AWS.FSx do
       
       create_file_system_windows_configuration() :: %{
         "ActiveDirectoryId" => String.t(),
-        "Aliases" => list(String.t()()),
+        "Aliases" => list(String.t()),
         "AuditLogConfiguration" => windows_audit_log_create_configuration(),
         "AutomaticBackupRetentionDays" => integer(),
         "CopyTagsToBackups" => boolean(),
@@ -282,7 +282,7 @@ defmodule AWS.FSx do
       file_cache() :: %{
         "CreationTime" => non_neg_integer(),
         "DNSName" => String.t(),
-        "DataRepositoryAssociationIds" => list(String.t()()),
+        "DataRepositoryAssociationIds" => list(String.t()),
         "FailureDetails" => file_cache_failure_details(),
         "FileCacheId" => String.t(),
         "FileCacheType" => list(any()),
@@ -290,11 +290,11 @@ defmodule AWS.FSx do
         "KmsKeyId" => String.t(),
         "Lifecycle" => list(any()),
         "LustreConfiguration" => file_cache_lustre_configuration(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceIds" => list(String.t()),
         "OwnerId" => String.t(),
         "ResourceARN" => String.t(),
         "StorageCapacity" => integer(),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -317,7 +317,7 @@ defmodule AWS.FSx do
   ## Example:
       
       aggregate_configuration() :: %{
-        "Aggregates" => list(String.t()()),
+        "Aggregates" => list(String.t()),
         "TotalConstituents" => integer()
       }
       
@@ -343,7 +343,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_file_caches_response() :: %{
-        "FileCaches" => list(file_cache()()),
+        "FileCaches" => list(file_cache()),
         "NextToken" => String.t()
       }
       
@@ -388,7 +388,7 @@ defmodule AWS.FSx do
         "PreferredSubnetId" => String.t(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeConfiguration" => open_z_f_s_create_root_volume_configuration(),
-        "RouteTableIds" => list(String.t()()),
+        "RouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
@@ -443,7 +443,7 @@ defmodule AWS.FSx do
         "FsxAdminPassword" => String.t(),
         "HAPairs" => integer(),
         "PreferredSubnetId" => String.t(),
-        "RouteTableIds" => list(String.t()()),
+        "RouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "ThroughputCapacityPerHAPair" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -469,7 +469,7 @@ defmodule AWS.FSx do
       
       create_snapshot_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("VolumeId") => String.t()
       }
@@ -506,7 +506,7 @@ defmodule AWS.FSx do
       
       nfs_data_repository_configuration() :: %{
         "AutoExportPolicy" => auto_export_policy(),
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "Version" => list(any())
       }
       
@@ -533,7 +533,7 @@ defmodule AWS.FSx do
       
       describe_snapshots_response() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -579,10 +579,10 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_volumes_request() :: %{
-        optional("Filters") => list(volume_filter()()),
+        optional("Filters") => list(volume_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VolumeIds") => list(String.t()())
+        optional("VolumeIds") => list(String.t())
       }
       
   """
@@ -632,7 +632,7 @@ defmodule AWS.FSx do
       
       delete_volume_ontap_configuration() :: %{
         "BypassSnaplockEnterpriseRetention" => boolean(),
-        "FinalBackupTags" => list(tag()()),
+        "FinalBackupTags" => list(tag()),
         "SkipFinalBackup" => boolean()
       }
       
@@ -705,7 +705,7 @@ defmodule AWS.FSx do
       
       describe_storage_virtual_machines_response() :: %{
         "NextToken" => String.t(),
-        "StorageVirtualMachines" => list(storage_virtual_machine()())
+        "StorageVirtualMachines" => list(storage_virtual_machine())
       }
       
   """
@@ -716,7 +716,7 @@ defmodule AWS.FSx do
   ## Example:
       
       file_cache_nfs_configuration() :: %{
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "Version" => list(any())
       }
       
@@ -742,7 +742,7 @@ defmodule AWS.FSx do
       
       s3_access_point_attachments_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -777,7 +777,7 @@ defmodule AWS.FSx do
         optional("CopyTags") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("SourceRegion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceBackupId") => String.t()
       }
       
@@ -821,7 +821,7 @@ defmodule AWS.FSx do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -835,7 +835,7 @@ defmodule AWS.FSx do
         "CopyTagsToDataRepositoryAssociations" => boolean(),
         "CreationTime" => non_neg_integer(),
         "DNSName" => String.t(),
-        "DataRepositoryAssociationIds" => list(String.t()()),
+        "DataRepositoryAssociationIds" => list(String.t()),
         "FailureDetails" => file_cache_failure_details(),
         "FileCacheId" => String.t(),
         "FileCacheType" => list(any()),
@@ -843,12 +843,12 @@ defmodule AWS.FSx do
         "KmsKeyId" => String.t(),
         "Lifecycle" => list(any()),
         "LustreConfiguration" => file_cache_lustre_configuration(),
-        "NetworkInterfaceIds" => list(String.t()()),
+        "NetworkInterfaceIds" => list(String.t()),
         "OwnerId" => String.t(),
         "ResourceARN" => String.t(),
         "StorageCapacity" => integer(),
-        "SubnetIds" => list(String.t()()),
-        "Tags" => list(tag()()),
+        "SubnetIds" => list(String.t()),
+        "Tags" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -860,7 +860,7 @@ defmodule AWS.FSx do
   ## Example:
       
       lustre_root_squash_configuration() :: %{
-        "NoSquashNids" => list(String.t()()),
+        "NoSquashNids" => list(String.t()),
         "RootSquash" => String.t()
       }
       
@@ -872,7 +872,7 @@ defmodule AWS.FSx do
   ## Example:
       
       open_z_f_s_nfs_export() :: %{
-        "ClientConfigurations" => list(open_z_f_s_client_configuration()())
+        "ClientConfigurations" => list(open_z_f_s_client_configuration())
       }
       
   """
@@ -932,13 +932,13 @@ defmodule AWS.FSx do
   ## Example:
       
       update_file_system_ontap_configuration() :: %{
-        "AddRouteTableIds" => list(String.t()()),
+        "AddRouteTableIds" => list(String.t()),
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "FsxAdminPassword" => String.t(),
         "HAPairs" => integer(),
-        "RemoveRouteTableIds" => list(String.t()()),
+        "RemoveRouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "ThroughputCapacityPerHAPair" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -953,7 +953,7 @@ defmodule AWS.FSx do
       
       storage_virtual_machine_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -965,7 +965,7 @@ defmodule AWS.FSx do
       
       associate_file_system_aliases_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        required("Aliases") => list(String.t()()),
+        required("Aliases") => list(String.t()),
         required("FileSystemId") => String.t()
       }
       
@@ -1000,7 +1000,7 @@ defmodule AWS.FSx do
   ## Example:
       
       self_managed_active_directory_attributes() :: %{
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "DomainName" => String.t(),
         "FileSystemAdministratorsGroup" => String.t(),
         "OrganizationalUnitDistinguishedName" => String.t(),
@@ -1038,7 +1038,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_file_system_aliases_response() :: %{
-        "Aliases" => list(alias()()),
+        "Aliases" => list(alias()),
         "NextToken" => String.t()
       }
       
@@ -1051,7 +1051,7 @@ defmodule AWS.FSx do
       
       delete_file_system_lustre_response() :: %{
         "FinalBackupId" => String.t(),
-        "FinalBackupTags" => list(tag()())
+        "FinalBackupTags" => list(tag())
       }
       
   """
@@ -1074,7 +1074,7 @@ defmodule AWS.FSx do
       
       file_system_endpoint() :: %{
         "DNSName" => String.t(),
-        "IpAddresses" => list(String.t()())
+        "IpAddresses" => list(String.t())
       }
       
   """
@@ -1098,7 +1098,7 @@ defmodule AWS.FSx do
       create_volume_from_backup_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("OntapConfiguration") => create_ontap_volume_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("BackupId") => String.t(),
         required("Name") => String.t()
       }
@@ -1111,7 +1111,7 @@ defmodule AWS.FSx do
   ## Example:
       
       self_managed_active_directory_configuration_updates() :: %{
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "DomainName" => String.t(),
         "FileSystemAdministratorsGroup" => String.t(),
         "OrganizationalUnitDistinguishedName" => String.t(),
@@ -1200,7 +1200,7 @@ defmodule AWS.FSx do
       
       delete_volume_ontap_response() :: %{
         "FinalBackupId" => String.t(),
-        "FinalBackupTags" => list(tag()())
+        "FinalBackupTags" => list(tag())
       }
       
   """
@@ -1215,7 +1215,7 @@ defmodule AWS.FSx do
         optional("ClientRequestToken") => String.t(),
         optional("RootVolumeSecurityStyle") => list(any()),
         optional("SvmAdminPassword") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FileSystemId") => String.t(),
         required("Name") => String.t()
       }
@@ -1228,7 +1228,7 @@ defmodule AWS.FSx do
   ## Example:
       
       disassociate_file_system_aliases_response() :: %{
-        "Aliases" => list(alias()())
+        "Aliases" => list(alias())
       }
       
   """
@@ -1239,7 +1239,7 @@ defmodule AWS.FSx do
   ## Example:
       
       copy_snapshot_and_update_volume_response() :: %{
-        "AdministrativeActions" => list(administrative_action()()),
+        "AdministrativeActions" => list(administrative_action()),
         "Lifecycle" => list(any()),
         "VolumeId" => String.t()
       }
@@ -1267,7 +1267,7 @@ defmodule AWS.FSx do
   ## Example:
       
       create_aggregate_configuration() :: %{
-        "Aggregates" => list(String.t()()),
+        "Aggregates" => list(String.t()),
         "ConstituentsPerAggregate" => integer()
       }
       
@@ -1279,8 +1279,8 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_backups_request() :: %{
-        optional("BackupIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("BackupIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1294,12 +1294,12 @@ defmodule AWS.FSx do
       
       update_open_z_f_s_volume_configuration() :: %{
         "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
         "ReadOnly" => boolean(),
         "RecordSizeKiB" => integer(),
         "StorageCapacityQuotaGiB" => integer(),
         "StorageCapacityReservationGiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota()())
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
       }
       
   """
@@ -1420,7 +1420,7 @@ defmodule AWS.FSx do
   ## Example:
       
       associate_file_system_aliases_response() :: %{
-        "Aliases" => list(alias()())
+        "Aliases" => list(alias())
       }
       
   """
@@ -1458,7 +1458,7 @@ defmodule AWS.FSx do
   ## Example:
       
       delete_file_system_open_z_f_s_configuration() :: %{
-        "FinalBackupTags" => list(tag()()),
+        "FinalBackupTags" => list(tag()),
         "Options" => list(list(any())()),
         "SkipFinalBackup" => boolean()
       }
@@ -1528,13 +1528,13 @@ defmodule AWS.FSx do
         optional("LustreConfiguration") => create_file_system_lustre_configuration(),
         optional("OntapConfiguration") => create_file_system_ontap_configuration(),
         optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("StorageCapacity") => integer(),
         optional("StorageType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("WindowsConfiguration") => create_file_system_windows_configuration(),
         required("FileSystemType") => list(any()),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -1558,7 +1558,7 @@ defmodule AWS.FSx do
       
       delete_file_system_open_z_f_s_response() :: %{
         "FinalBackupId" => String.t(),
-        "FinalBackupTags" => list(tag()())
+        "FinalBackupTags" => list(tag())
       }
       
   """
@@ -1580,7 +1580,7 @@ defmodule AWS.FSx do
         "RootVolumeSecurityStyle" => list(any()),
         "StorageVirtualMachineId" => String.t(),
         "Subtype" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "UUID" => String.t()
       }
       
@@ -1625,7 +1625,7 @@ defmodule AWS.FSx do
       
       svm_endpoint() :: %{
         "DNSName" => String.t(),
-        "IpAddresses" => list(String.t()())
+        "IpAddresses" => list(String.t())
       }
       
   """
@@ -1671,7 +1671,7 @@ defmodule AWS.FSx do
         "PreferredSubnetId" => String.t(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
         "RootVolumeId" => String.t(),
-        "RouteTableIds" => list(String.t()()),
+        "RouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
@@ -1698,9 +1698,9 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_s3_access_point_attachments_request() :: %{
-        optional("Filters") => list(s3_access_point_attachments_filter()()),
+        optional("Filters") => list(s3_access_point_attachments_filter()),
         optional("MaxResults") => integer(),
-        optional("Names") => list(String.t()()),
+        optional("Names") => list(String.t()),
         optional("NextToken") => String.t()
       }
       
@@ -1717,7 +1717,7 @@ defmodule AWS.FSx do
         optional("FileSystemPath") => String.t(),
         optional("ImportedFileChunkSize") => integer(),
         optional("S3") => s3_data_repository_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DataRepositoryPath") => String.t(),
         required("FileSystemId") => String.t()
       }
@@ -1819,7 +1819,7 @@ defmodule AWS.FSx do
       
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1916,7 +1916,7 @@ defmodule AWS.FSx do
       
       describe_volumes_response() :: %{
         "NextToken" => String.t(),
-        "Volumes" => list(volume()())
+        "Volumes" => list(volume())
       }
       
   """
@@ -1938,7 +1938,7 @@ defmodule AWS.FSx do
   ## Example:
       
       restore_volume_from_snapshot_response() :: %{
-        "AdministrativeActions" => list(administrative_action()()),
+        "AdministrativeActions" => list(administrative_action()),
         "Lifecycle" => list(any()),
         "VolumeId" => String.t()
       }
@@ -2009,7 +2009,7 @@ defmodule AWS.FSx do
       
       filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2035,9 +2035,9 @@ defmodule AWS.FSx do
       create_data_repository_task_request() :: %{
         optional("CapacityToRelease") => float(),
         optional("ClientRequestToken") => String.t(),
-        optional("Paths") => list(String.t()()),
+        optional("Paths") => list(String.t()),
         optional("ReleaseConfiguration") => release_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("FileSystemId") => String.t(),
         required("Report") => completion_report(),
         required("Type") => list(any())
@@ -2064,14 +2064,14 @@ defmodule AWS.FSx do
       create_open_z_f_s_volume_configuration() :: %{
         "CopyTagsToSnapshots" => boolean(),
         "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
         "OriginSnapshot" => create_open_z_f_s_origin_snapshot_configuration(),
         "ParentVolumeId" => String.t(),
         "ReadOnly" => boolean(),
         "RecordSizeKiB" => integer(),
         "StorageCapacityQuotaGiB" => integer(),
         "StorageCapacityReservationGiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota()())
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
       }
       
   """
@@ -2132,7 +2132,7 @@ defmodule AWS.FSx do
         "SizeInBytes" => float(),
         "SourceBackupId" => String.t(),
         "SourceBackupRegion" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Type" => list(any()),
         "Volume" => volume()
       }
@@ -2220,7 +2220,7 @@ defmodule AWS.FSx do
       
       snapshot_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2295,7 +2295,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_file_systems_request() :: %{
-        optional("FileSystemIds") => list(String.t()()),
+        optional("FileSystemIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2308,7 +2308,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_data_repository_tasks_response() :: %{
-        "DataRepositoryTasks" => list(data_repository_task()()),
+        "DataRepositoryTasks" => list(data_repository_task()),
         "NextToken" => String.t()
       }
       
@@ -2357,7 +2357,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_data_repository_associations_response() :: %{
-        "Associations" => list(data_repository_association()()),
+        "Associations" => list(data_repository_association()),
         "NextToken" => String.t()
       }
       
@@ -2380,14 +2380,14 @@ defmodule AWS.FSx do
   ## Example:
       
       snapshot() :: %{
-        "AdministrativeActions" => list(administrative_action()()),
+        "AdministrativeActions" => list(administrative_action()),
         "CreationTime" => non_neg_integer(),
         "Lifecycle" => list(any()),
         "LifecycleTransitionReason" => lifecycle_transition_reason(),
         "Name" => String.t(),
         "ResourceARN" => String.t(),
         "SnapshotId" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeId" => String.t()
       }
       
@@ -2411,7 +2411,7 @@ defmodule AWS.FSx do
   ## Example:
       
       delete_file_system_windows_configuration() :: %{
-        "FinalBackupTags" => list(tag()()),
+        "FinalBackupTags" => list(tag()),
         "SkipFinalBackup" => boolean()
       }
       
@@ -2434,14 +2434,14 @@ defmodule AWS.FSx do
   ## Example:
       
       update_file_system_open_z_f_s_configuration() :: %{
-        "AddRouteTableIds" => list(String.t()()),
+        "AddRouteTableIds" => list(String.t()),
         "AutomaticBackupRetentionDays" => integer(),
         "CopyTagsToBackups" => boolean(),
         "CopyTagsToVolumes" => boolean(),
         "DailyAutomaticBackupStartTime" => String.t(),
         "DiskIopsConfiguration" => disk_iops_configuration(),
         "ReadCacheConfiguration" => open_z_f_s_read_cache_configuration(),
-        "RemoveRouteTableIds" => list(String.t()()),
+        "RemoveRouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
       }
@@ -2463,7 +2463,7 @@ defmodule AWS.FSx do
         "FsxAdminPassword" => String.t(),
         "HAPairs" => integer(),
         "PreferredSubnetId" => String.t(),
-        "RouteTableIds" => list(String.t()()),
+        "RouteTableIds" => list(String.t()),
         "ThroughputCapacity" => integer(),
         "ThroughputCapacityPerHAPair" => integer(),
         "WeeklyMaintenanceStartTime" => String.t()
@@ -2477,7 +2477,7 @@ defmodule AWS.FSx do
   ## Example:
       
       volume() :: %{
-        "AdministrativeActions" => list(administrative_action()()),
+        "AdministrativeActions" => list(administrative_action()),
         "CreationTime" => non_neg_integer(),
         "FileSystemId" => String.t(),
         "Lifecycle" => list(any()),
@@ -2486,7 +2486,7 @@ defmodule AWS.FSx do
         "OntapConfiguration" => ontap_volume_configuration(),
         "OpenZFSConfiguration" => open_z_f_s_volume_configuration(),
         "ResourceARN" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VolumeId" => String.t(),
         "VolumeType" => list(any())
       }
@@ -2532,7 +2532,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_file_caches_request() :: %{
-        optional("FileCacheIds") => list(String.t()()),
+        optional("FileCacheIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2546,7 +2546,7 @@ defmodule AWS.FSx do
       
       volume_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2568,10 +2568,10 @@ defmodule AWS.FSx do
       open_z_f_s_create_root_volume_configuration() :: %{
         "CopyTagsToSnapshots" => boolean(),
         "DataCompressionType" => list(any()),
-        "NfsExports" => list(open_z_f_s_nfs_export()()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
         "ReadOnly" => boolean(),
         "RecordSizeKiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota()())
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota())
       }
       
   """
@@ -2585,7 +2585,7 @@ defmodule AWS.FSx do
         optional("ClientRequestToken") => String.t(),
         optional("OntapConfiguration") => create_ontap_volume_configuration(),
         optional("OpenZFSConfiguration") => create_open_z_f_s_volume_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
         required("VolumeType") => list(any())
       }
@@ -2610,10 +2610,10 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_data_repository_tasks_request() :: %{
-        optional("Filters") => list(data_repository_task_filter()()),
+        optional("Filters") => list(data_repository_task_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("TaskIds") => list(String.t()())
+        optional("TaskIds") => list(String.t())
       }
       
   """
@@ -2636,7 +2636,7 @@ defmodule AWS.FSx do
   ## Example:
       
       self_managed_active_directory_configuration() :: %{
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "DomainName" => String.t(),
         "FileSystemAdministratorsGroup" => String.t(),
         "OrganizationalUnitDistinguishedName" => String.t(),
@@ -2663,8 +2663,8 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_data_repository_associations_request() :: %{
-        optional("AssociationIds") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("AssociationIds") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2678,7 +2678,7 @@ defmodule AWS.FSx do
       
       open_z_f_s_posix_file_system_user() :: %{
         "Gid" => float(),
-        "SecondaryGids" => list(float()()),
+        "SecondaryGids" => list(float()),
         "Uid" => float()
       }
       
@@ -2697,13 +2697,13 @@ defmodule AWS.FSx do
         "FileCacheId" => String.t(),
         "FileSystemId" => String.t(),
         "Lifecycle" => list(any()),
-        "Paths" => list(String.t()()),
+        "Paths" => list(String.t()),
         "ReleaseConfiguration" => release_configuration(),
         "Report" => completion_report(),
         "ResourceARN" => String.t(),
         "StartTime" => non_neg_integer(),
         "Status" => data_repository_task_status(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TaskId" => String.t(),
         "Type" => list(any())
       }
@@ -2743,7 +2743,7 @@ defmodule AWS.FSx do
       
       windows_file_system_configuration() :: %{
         "ActiveDirectoryId" => String.t(),
-        "Aliases" => list(alias()()),
+        "Aliases" => list(alias()),
         "AuditLogConfiguration" => windows_audit_log_configuration(),
         "AutomaticBackupRetentionDays" => integer(),
         "CopyTagsToBackups" => boolean(),
@@ -2778,7 +2778,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_file_systems_response() :: %{
-        "FileSystems" => list(file_system()()),
+        "FileSystems" => list(file_system()),
         "NextToken" => String.t()
       }
       
@@ -2843,7 +2843,7 @@ defmodule AWS.FSx do
       
       data_repository_task_filter() :: %{
         "Name" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2854,11 +2854,11 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_snapshots_request() :: %{
-        optional("Filters") => list(snapshot_filter()()),
+        optional("Filters") => list(snapshot_filter()),
         optional("IncludeShared") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("SnapshotIds") => list(String.t()())
+        optional("SnapshotIds") => list(String.t())
       }
       
   """
@@ -2892,7 +2892,7 @@ defmodule AWS.FSx do
       
       file_cache_data_repository_association() :: %{
         "DataRepositoryPath" => String.t(),
-        "DataRepositorySubdirectories" => list(String.t()()),
+        "DataRepositorySubdirectories" => list(String.t()),
         "FileCachePath" => String.t(),
         "NFS" => file_cache_nfs_configuration()
       }
@@ -2957,7 +2957,7 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_backups_response() :: %{
-        "Backups" => list(backup()()),
+        "Backups" => list(backup()),
         "NextToken" => String.t()
       }
       
@@ -3006,7 +3006,7 @@ defmodule AWS.FSx do
       create_backup_request() :: %{
         optional("ClientRequestToken") => String.t(),
         optional("FileSystemId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("VolumeId") => String.t()
       }
       
@@ -3031,7 +3031,7 @@ defmodule AWS.FSx do
       
       delete_file_system_windows_response() :: %{
         "FinalBackupId" => String.t(),
-        "FinalBackupTags" => list(tag()())
+        "FinalBackupTags" => list(tag())
       }
       
   """
@@ -3111,7 +3111,7 @@ defmodule AWS.FSx do
       
       disassociate_file_system_aliases_request() :: %{
         optional("ClientRequestToken") => String.t(),
-        required("Aliases") => list(String.t()()),
+        required("Aliases") => list(String.t()),
         required("FileSystemId") => String.t()
       }
       
@@ -3179,7 +3179,7 @@ defmodule AWS.FSx do
         "DeleteIntermediateData" => boolean(),
         "DeleteIntermediateSnaphots" => boolean(),
         "DestinationSnapshot" => String.t(),
-        "NfsExports" => list(open_z_f_s_nfs_export()()),
+        "NfsExports" => list(open_z_f_s_nfs_export()),
         "OriginSnapshot" => open_z_f_s_origin_snapshot_configuration(),
         "ParentVolumeId" => String.t(),
         "ReadOnly" => boolean(),
@@ -3188,7 +3188,7 @@ defmodule AWS.FSx do
         "SourceSnapshotARN" => String.t(),
         "StorageCapacityQuotaGiB" => integer(),
         "StorageCapacityReservationGiB" => integer(),
-        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota()()),
+        "UserAndGroupQuotas" => list(open_z_f_s_user_or_group_quota()),
         "VolumePath" => String.t()
       }
       
@@ -3220,7 +3220,7 @@ defmodule AWS.FSx do
         "BatchImportMetaDataOnCreate" => boolean(),
         "CreationTime" => non_neg_integer(),
         "DataRepositoryPath" => String.t(),
-        "DataRepositorySubdirectories" => list(String.t()()),
+        "DataRepositorySubdirectories" => list(String.t()),
         "FailureDetails" => data_repository_failure_details(),
         "FileCacheId" => String.t(),
         "FileCachePath" => String.t(),
@@ -3231,7 +3231,7 @@ defmodule AWS.FSx do
         "NFS" => nfs_data_repository_configuration(),
         "ResourceARN" => String.t(),
         "S3" => s3_data_repository_configuration(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -3290,7 +3290,7 @@ defmodule AWS.FSx do
       
       describe_s3_access_point_attachments_response() :: %{
         "NextToken" => String.t(),
-        "S3AccessPointAttachments" => list(s3_access_point_attachment()())
+        "S3AccessPointAttachments" => list(s3_access_point_attachment())
       }
       
   """
@@ -3301,10 +3301,10 @@ defmodule AWS.FSx do
   ## Example:
       
       describe_storage_virtual_machines_request() :: %{
-        optional("Filters") => list(storage_virtual_machine_filter()()),
+        optional("Filters") => list(storage_virtual_machine_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("StorageVirtualMachineIds") => list(String.t()())
+        optional("StorageVirtualMachineIds") => list(String.t())
       }
       
   """
@@ -3370,7 +3370,7 @@ defmodule AWS.FSx do
   ## Example:
       
       delete_file_system_lustre_configuration() :: %{
-        "FinalBackupTags" => list(tag()()),
+        "FinalBackupTags" => list(tag()),
         "SkipFinalBackup" => boolean()
       }
       
@@ -3399,13 +3399,13 @@ defmodule AWS.FSx do
         optional("KmsKeyId") => String.t(),
         optional("LustreConfiguration") => create_file_system_lustre_configuration(),
         optional("OpenZFSConfiguration") => create_file_system_open_z_f_s_configuration(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("StorageCapacity") => integer(),
         optional("StorageType") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("WindowsConfiguration") => create_file_system_windows_configuration(),
         required("BackupId") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -3764,7 +3764,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, associate_file_system_aliases_errors()}
   def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFileSystemAliases", input, options)
   end
@@ -3797,7 +3798,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, cancel_data_repository_task_errors()}
   def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelDataRepositoryTask", input, options)
   end
@@ -3847,7 +3849,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, copy_backup_errors()}
   def copy_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyBackup", input, options)
   end
@@ -3866,7 +3869,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, copy_snapshot_and_update_volume_errors()}
   def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshotAndUpdateVolume", input, options)
   end
@@ -3922,7 +3926,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_and_attach_s3_access_point_errors()}
   def create_and_attach_s3_access_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAndAttachS3AccessPoint", input, options)
   end
@@ -3999,7 +4004,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBackup", input, options)
   end
@@ -4035,7 +4041,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_data_repository_association_errors()}
   def create_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataRepositoryAssociation", input, options)
   end
@@ -4074,7 +4081,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_data_repository_task_errors()}
   def create_data_repository_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataRepositoryTask", input, options)
   end
@@ -4111,7 +4119,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_cache_errors()}
   def create_file_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFileCache", input, options)
   end
@@ -4178,7 +4187,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_system_errors()}
   def create_file_system(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFileSystem", input, options)
   end
@@ -4234,7 +4244,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_system_from_backup_errors()}
   def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFileSystemFromBackup", input, options)
   end
@@ -4285,7 +4296,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4299,7 +4311,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_storage_virtual_machine_errors()}
   def create_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStorageVirtualMachine", input, options)
   end
@@ -4313,7 +4326,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -4328,7 +4342,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_volume_from_backup_errors()}
   def create_volume_from_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVolumeFromBackup", input, options)
   end
@@ -4351,7 +4366,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -4377,7 +4393,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_data_repository_association_errors()}
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataRepositoryAssociation", input, options)
   end
@@ -4406,7 +4423,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_file_cache_errors()}
   def delete_file_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFileCache", input, options)
   end
@@ -4476,7 +4494,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_file_system_errors()}
   def delete_file_system(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFileSystem", input, options)
   end
@@ -4498,7 +4517,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -4516,7 +4536,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_storage_virtual_machine_errors()}
   def delete_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStorageVirtualMachine", input, options)
   end
@@ -4531,7 +4552,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -4576,7 +4598,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
   end
@@ -4620,7 +4643,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_data_repository_associations_errors()}
   def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataRepositoryAssociations", input, options)
   end
@@ -4652,7 +4676,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_data_repository_tasks_errors()}
   def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataRepositoryTasks", input, options)
   end
@@ -4697,7 +4722,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_caches_errors()}
   def describe_file_caches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFileCaches", input, options)
   end
@@ -4717,7 +4743,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_system_aliases_errors()}
   def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFileSystemAliases", input, options)
   end
@@ -4763,7 +4790,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_systems_errors()}
   def describe_file_systems(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFileSystems", input, options)
   end
@@ -4787,7 +4815,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_s3_access_point_attachments_errors()}
   def describe_s3_access_point_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeS3AccessPointAttachments", input, options)
   end
@@ -4810,7 +4839,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_shared_vpc_configuration_errors()}
   def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSharedVpcConfiguration", input, options)
   end
@@ -4855,7 +4885,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -4874,7 +4905,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_storage_virtual_machines_errors()}
   def describe_storage_virtual_machines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStorageVirtualMachines", input, options)
   end
@@ -4889,7 +4921,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -4918,7 +4951,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, detach_and_delete_s3_access_point_errors()}
   def detach_and_delete_s3_access_point(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachAndDeleteS3AccessPoint", input, options)
   end
@@ -4949,7 +4983,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, disassociate_file_system_aliases_errors()}
   def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFileSystemAliases", input, options)
   end
@@ -4988,7 +5023,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5007,7 +5043,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, release_file_system_nfs_v3_locks_errors()}
   def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ReleaseFileSystemNfsV3Locks", input, options)
   end
@@ -5022,7 +5059,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, restore_volume_from_snapshot_errors()}
   def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreVolumeFromSnapshot", input, options)
   end
@@ -5042,7 +5080,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, start_misconfigured_state_recovery_errors()}
   def start_misconfigured_state_recovery(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMisconfiguredStateRecovery", input, options)
   end
@@ -5056,7 +5095,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5070,7 +5110,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5093,7 +5134,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_data_repository_association_errors()}
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDataRepositoryAssociation", input, options)
   end
@@ -5109,7 +5151,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_file_cache_errors()}
   def update_file_cache(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFileCache", input, options)
   end
@@ -5314,7 +5357,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_file_system_errors()}
   def update_file_system(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFileSystem", input, options)
   end
@@ -5341,7 +5385,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_shared_vpc_configuration_errors()}
   def update_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSharedVpcConfiguration", input, options)
   end
@@ -5355,7 +5400,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
@@ -5369,7 +5415,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_storage_virtual_machine_errors()}
   def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStorageVirtualMachine", input, options)
   end
@@ -5384,7 +5431,8 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVolume", input, options)
   end

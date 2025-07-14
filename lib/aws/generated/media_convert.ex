@@ -29,7 +29,7 @@ defmodule AWS.MediaConvert do
         "Input" => video_overlay_input(),
         "Playback" => list(any()),
         "StartTimecode" => String.t(),
-        "Transitions" => list(video_overlay_transition()())
+        "Transitions" => list(video_overlay_transition())
       }
 
   """
@@ -178,7 +178,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("Category") => String.t(),
         optional("Description") => String.t(),
-        optional("HopDestinations") => list(hop_destination()()),
+        optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
         optional("Queue") => String.t(),
         optional("Settings") => job_template_settings(),
@@ -267,7 +267,7 @@ defmodule AWS.MediaConvert do
       container() :: %{
         "Duration" => float(),
         "Format" => list(any()),
-        "Tracks" => list(track()())
+        "Tracks" => list(track())
       }
 
   """
@@ -734,7 +734,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()()),
+        "Endpoints" => list(endpoint()),
         "NextToken" => String.t()
       }
 
@@ -766,7 +766,7 @@ defmodule AWS.MediaConvert do
         "Category" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t(),
-        "HopDestinations" => list(hop_destination()()),
+        "HopDestinations" => list(hop_destination()),
         "LastUpdated" => non_neg_integer(),
         "Name" => String.t(),
         "Priority" => integer(),
@@ -784,8 +784,8 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       automated_abr_rule() :: %{
-        "AllowedRenditions" => list(allowed_rendition_size()()),
-        "ForceIncludeRenditions" => list(force_include_rendition_size()()),
+        "AllowedRenditions" => list(allowed_rendition_size()),
+        "ForceIncludeRenditions" => list(force_include_rendition_size()),
         "MinBottomRenditionSize" => min_bottom_rendition_size(),
         "MinTopRenditionSize" => min_top_rendition_size(),
         "Type" => list(any())
@@ -801,7 +801,7 @@ defmodule AWS.MediaConvert do
       m3u8_settings() :: %{
         "AudioDuration" => list(any()),
         "AudioFramesPerPes" => integer(),
-        "AudioPids" => list(integer()()),
+        "AudioPids" => list(integer()),
         "AudioPtsOffsetDelta" => integer(),
         "DataPTSControl" => list(any()),
         "MaxPcrInterval" => integer(),
@@ -831,7 +831,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       list_jobs_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextToken" => String.t()
       }
 
@@ -846,7 +846,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("BillingTagsSource") => list(any()),
         optional("ClientRequestToken") => String.t(),
-        optional("HopDestinations") => list(hop_destination()()),
+        optional("HopDestinations") => list(hop_destination()),
         optional("JobEngineVersion") => String.t(),
         optional("JobTemplate") => String.t(),
         optional("Priority") => integer(),
@@ -925,7 +925,7 @@ defmodule AWS.MediaConvert do
         "PricingPlan" => list(any()),
         "ProgressingJobsCount" => integer(),
         "ReservationPlan" => reservation_plan(),
-        "ServiceOverrides" => list(service_override()()),
+        "ServiceOverrides" => list(service_override()),
         "Status" => list(any()),
         "SubmittedJobsCount" => integer(),
         "Type" => list(any())
@@ -948,7 +948,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       untag_resource_request() :: %{
-        optional("TagKeys") => list(String.t()())
+        optional("TagKeys") => list(String.t())
       }
 
   """
@@ -1024,16 +1024,16 @@ defmodule AWS.MediaConvert do
       job_template_settings() :: %{
         "AdAvailOffset" => integer(),
         "AvailBlanking" => avail_blanking(),
-        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()()),
+        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()),
         "Esam" => esam_settings(),
         "ExtendedDataServices" => extended_data_services(),
         "FollowSource" => integer(),
-        "Inputs" => list(input_template()()),
+        "Inputs" => list(input_template()),
         "KantarWatermark" => kantar_watermark_settings(),
         "MotionImageInserter" => motion_image_inserter(),
         "NielsenConfiguration" => nielsen_configuration(),
         "NielsenNonLinearWatermark" => nielsen_non_linear_watermark_settings(),
-        "OutputGroups" => list(output_group()()),
+        "OutputGroups" => list(output_group()),
         "TimecodeConfig" => timecode_config(),
         "TimedMetadataInsertion" => timed_metadata_insertion()
       }
@@ -1063,9 +1063,9 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       track_mapping() :: %{
-        "AudioTrackIndexes" => list(integer()()),
-        "DataTrackIndexes" => list(integer()()),
-        "VideoTrackIndexes" => list(integer()())
+        "AudioTrackIndexes" => list(integer()),
+        "DataTrackIndexes" => list(integer()),
+        "VideoTrackIndexes" => list(integer())
       }
 
   """
@@ -1077,9 +1077,9 @@ defmodule AWS.MediaConvert do
 
       speke_key_provider_cmaf() :: %{
         "CertificateArn" => String.t(),
-        "DashSignaledSystemIds" => list(String.t()()),
+        "DashSignaledSystemIds" => list(String.t()),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "HlsSignaledSystemIds" => list(String.t()()),
+        "HlsSignaledSystemIds" => list(String.t()),
         "ResourceId" => String.t(),
         "Url" => String.t()
       }
@@ -1132,14 +1132,14 @@ defmodule AWS.MediaConvert do
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
         "ImageInserter" => image_inserter(),
-        "InputClippings" => list(input_clipping()()),
+        "InputClippings" => list(input_clipping()),
         "InputScanType" => list(any()),
         "Position" => rectangle(),
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
         "TimecodeSource" => list(any()),
         "TimecodeStart" => String.t(),
-        "VideoOverlays" => list(video_overlay()()),
+        "VideoOverlays" => list(video_overlay()),
         "VideoSelector" => video_selector()
       }
 
@@ -1225,7 +1225,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       audio_selector_group() :: %{
-        "AudioSelectorNames" => list(String.t()())
+        "AudioSelectorNames" => list(String.t())
       }
 
   """
@@ -1266,7 +1266,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       cmaf_group_settings() :: %{
-        "AdditionalManifests" => list(cmaf_additional_manifest()()),
+        "AdditionalManifests" => list(cmaf_additional_manifest()),
         "BaseUrl" => String.t(),
         "ClientCache" => list(any()),
         "CodecSpecification" => list(any()),
@@ -1319,7 +1319,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       image_inserter() :: %{
-        "InsertableImages" => list(insertable_image()()),
+        "InsertableImages" => list(insertable_image()),
         "SdrReferenceWhiteLevel" => integer()
       }
 
@@ -1344,16 +1344,16 @@ defmodule AWS.MediaConvert do
       job_settings() :: %{
         "AdAvailOffset" => integer(),
         "AvailBlanking" => avail_blanking(),
-        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()()),
+        "ColorConversion3DLUTSettings" => list(color_conversion3_d_l_u_t_setting()),
         "Esam" => esam_settings(),
         "ExtendedDataServices" => extended_data_services(),
         "FollowSource" => integer(),
-        "Inputs" => list(input()()),
+        "Inputs" => list(input()),
         "KantarWatermark" => kantar_watermark_settings(),
         "MotionImageInserter" => motion_image_inserter(),
         "NielsenConfiguration" => nielsen_configuration(),
         "NielsenNonLinearWatermark" => nielsen_non_linear_watermark_settings(),
-        "OutputGroups" => list(output_group()()),
+        "OutputGroups" => list(output_group()),
         "TimecodeConfig" => timecode_config(),
         "TimedMetadataInsertion" => timed_metadata_insertion()
       }
@@ -1366,7 +1366,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       timed_metadata_insertion() :: %{
-        "Id3Insertions" => list(id3_insertion()())
+        "Id3Insertions" => list(id3_insertion())
       }
 
   """
@@ -1377,7 +1377,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       ms_smooth_group_settings() :: %{
-        "AdditionalManifests" => list(ms_smooth_additional_manifest()()),
+        "AdditionalManifests" => list(ms_smooth_additional_manifest()),
         "AudioDeduplication" => list(any()),
         "Destination" => String.t(),
         "DestinationSettings" => destination_settings(),
@@ -1467,16 +1467,16 @@ defmodule AWS.MediaConvert do
         "FilterEnable" => list(any()),
         "FilterStrength" => integer(),
         "ImageInserter" => image_inserter(),
-        "InputClippings" => list(input_clipping()()),
+        "InputClippings" => list(input_clipping()),
         "InputScanType" => list(any()),
         "Position" => rectangle(),
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
-        "SupplementalImps" => list(String.t()()),
+        "SupplementalImps" => list(String.t()),
         "TimecodeSource" => list(any()),
         "TimecodeStart" => String.t(),
         "VideoGenerator" => input_video_generator(),
-        "VideoOverlays" => list(video_overlay()()),
+        "VideoOverlays" => list(video_overlay()),
         "VideoSelector" => video_selector()
       }
 
@@ -1558,7 +1558,7 @@ defmodule AWS.MediaConvert do
         "CustomName" => String.t(),
         "Name" => String.t(),
         "OutputGroupSettings" => output_group_settings(),
-        "Outputs" => list(output()())
+        "Outputs" => list(output())
       }
 
   """
@@ -1626,8 +1626,8 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       preset_settings() :: %{
-        "AudioDescriptions" => list(audio_description()()),
-        "CaptionDescriptions" => list(caption_description_preset()()),
+        "AudioDescriptions" => list(audio_description()),
+        "CaptionDescriptions" => list(caption_description_preset()),
         "ContainerSettings" => container_settings(),
         "VideoDescription" => video_description()
       }
@@ -1801,7 +1801,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       output_group_detail() :: %{
-        "OutputDetails" => list(output_detail()())
+        "OutputDetails" => list(output_detail())
       }
 
   """
@@ -1846,7 +1846,7 @@ defmodule AWS.MediaConvert do
         "CertificateArn" => String.t(),
         "EncryptionContractConfiguration" => encryption_contract_configuration(),
         "ResourceId" => String.t(),
-        "SystemIds" => list(String.t()()),
+        "SystemIds" => list(String.t()),
         "Url" => String.t()
       }
 
@@ -1992,7 +1992,7 @@ defmodule AWS.MediaConvert do
 
       hls_additional_manifest() :: %{
         "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t()())
+        "SelectedOutputs" => list(String.t())
       }
 
   """
@@ -2041,7 +2041,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       search_jobs_response() :: %{
-        "Jobs" => list(job()()),
+        "Jobs" => list(job()),
         "NextToken" => String.t()
       }
 
@@ -2068,7 +2068,7 @@ defmodule AWS.MediaConvert do
 
       list_presets_response() :: %{
         "NextToken" => String.t(),
-        "Presets" => list(preset()())
+        "Presets" => list(preset())
       }
 
   """
@@ -2095,7 +2095,7 @@ defmodule AWS.MediaConvert do
 
       list_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(job_engine_version()())
+        "Versions" => list(job_engine_version())
       }
 
   """
@@ -2136,8 +2136,8 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       job_messages() :: %{
-        "Info" => list(String.t()()),
-        "Warning" => list(String.t()())
+        "Info" => list(String.t()),
+        "Warning" => list(String.t())
       }
 
   """
@@ -2281,10 +2281,10 @@ defmodule AWS.MediaConvert do
 
       hls_group_settings() :: %{
         "AdMarkers" => list(list(any())()),
-        "AdditionalManifests" => list(hls_additional_manifest()()),
+        "AdditionalManifests" => list(hls_additional_manifest()),
         "AudioOnlyHeader" => list(any()),
         "BaseUrl" => String.t(),
-        "CaptionLanguageMappings" => list(hls_caption_language_mapping()()),
+        "CaptionLanguageMappings" => list(hls_caption_language_mapping()),
         "CaptionLanguageSetting" => list(any()),
         "CaptionSegmentLengthControl" => list(any()),
         "ClientCache" => list(any()),
@@ -2340,11 +2340,11 @@ defmodule AWS.MediaConvert do
         "HlsRenditionGroupSettings" => hls_rendition_group_settings(),
         "LanguageCode" => list(any()),
         "Offset" => integer(),
-        "Pids" => list(integer()()),
+        "Pids" => list(integer()),
         "ProgramSelection" => integer(),
         "RemixSettings" => remix_settings(),
         "SelectorType" => list(any()),
-        "Tracks" => list(integer()())
+        "Tracks" => list(integer())
       }
 
   """
@@ -2488,7 +2488,7 @@ defmodule AWS.MediaConvert do
 
       dash_additional_manifest() :: %{
         "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t()())
+        "SelectedOutputs" => list(String.t())
       }
 
   """
@@ -2663,7 +2663,7 @@ defmodule AWS.MediaConvert do
       probe_result() :: %{
         "Container" => container(),
         "Metadata" => metadata(),
-        "TrackMappings" => list(track_mapping()())
+        "TrackMappings" => list(track_mapping())
       }
 
   """
@@ -2675,7 +2675,7 @@ defmodule AWS.MediaConvert do
 
       cmaf_additional_manifest() :: %{
         "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t()())
+        "SelectedOutputs" => list(String.t())
       }
 
   """
@@ -2689,7 +2689,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("Category") => String.t(),
         optional("Description") => String.t(),
-        optional("HopDestinations") => list(hop_destination()()),
+        optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
         optional("Queue") => String.t(),
         optional("StatusUpdateInterval") => list(any()),
@@ -2973,7 +2973,7 @@ defmodule AWS.MediaConvert do
 
       ms_smooth_additional_manifest() :: %{
         "ManifestNameModifier" => String.t(),
-        "SelectedOutputs" => list(String.t()())
+        "SelectedOutputs" => list(String.t())
       }
 
   """
@@ -2997,7 +2997,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       probe_response() :: %{
-        "ProbeResults" => list(probe_result()())
+        "ProbeResults" => list(probe_result())
       }
 
   """
@@ -3046,17 +3046,17 @@ defmodule AWS.MediaConvert do
         "CurrentPhase" => list(any()),
         "ErrorCode" => integer(),
         "ErrorMessage" => String.t(),
-        "HopDestinations" => list(hop_destination()()),
+        "HopDestinations" => list(hop_destination()),
         "Id" => String.t(),
         "JobEngineVersionRequested" => String.t(),
         "JobEngineVersionUsed" => String.t(),
         "JobPercentComplete" => integer(),
         "JobTemplate" => String.t(),
         "Messages" => job_messages(),
-        "OutputGroupDetails" => list(output_group_detail()()),
+        "OutputGroupDetails" => list(output_group_detail()),
         "Priority" => integer(),
         "Queue" => String.t(),
-        "QueueTransitions" => list(queue_transition()()),
+        "QueueTransitions" => list(queue_transition()),
         "RetryCount" => integer(),
         "Role" => String.t(),
         "Settings" => job_settings(),
@@ -3065,7 +3065,7 @@ defmodule AWS.MediaConvert do
         "StatusUpdateInterval" => list(any()),
         "Timing" => timing(),
         "UserMetadata" => map(),
-        "Warnings" => list(warning_group()())
+        "Warnings" => list(warning_group())
       }
 
   """
@@ -3137,7 +3137,7 @@ defmodule AWS.MediaConvert do
 
       video_overlay_input() :: %{
         "FileInput" => String.t(),
-        "InputClippings" => list(video_overlay_input_clipping()()),
+        "InputClippings" => list(video_overlay_input_clipping()),
         "TimecodeSource" => list(any()),
         "TimecodeStart" => String.t()
       }
@@ -3319,8 +3319,8 @@ defmodule AWS.MediaConvert do
         "VideoPid" => integer(),
         "PreventBufferUnderflow" => list(any()),
         "DvbTdtSettings" => dvb_tdt_settings(),
-        "DvbSubPids" => list(integer()()),
-        "AudioPids" => list(integer()()),
+        "DvbSubPids" => list(integer()),
+        "AudioPids" => list(integer()),
         "PtsOffsetMode" => list(any()),
         "PtsOffset" => integer(),
         "AudioPtsOffsetDelta" => integer(),
@@ -3358,7 +3358,7 @@ defmodule AWS.MediaConvert do
 
       list_queues_response() :: %{
         "NextToken" => String.t(),
-        "Queues" => list(queue()()),
+        "Queues" => list(queue()),
         "TotalConcurrentJobs" => integer(),
         "UnallocatedConcurrentJobs" => integer()
       }
@@ -3492,7 +3492,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       channel_mapping() :: %{
-        "OutputChannels" => list(output_channel_mapping()())
+        "OutputChannels" => list(output_channel_mapping())
       }
 
   """
@@ -3564,7 +3564,7 @@ defmodule AWS.MediaConvert do
         "MaxQualityLevel" => float(),
         "MaxRenditions" => integer(),
         "MinAbrBitrate" => integer(),
-        "Rules" => list(automated_abr_rule()())
+        "Rules" => list(automated_abr_rule())
       }
 
   """
@@ -3609,7 +3609,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       list_job_templates_response() :: %{
-        "JobTemplates" => list(job_template()()),
+        "JobTemplates" => list(job_template()),
         "NextToken" => String.t()
       }
 
@@ -3709,8 +3709,8 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       output_channel_mapping() :: %{
-        "InputChannels" => list(integer()()),
-        "InputChannelsFineTune" => list(float()())
+        "InputChannels" => list(integer()),
+        "InputChannelsFineTune" => list(float())
       }
 
   """
@@ -3721,7 +3721,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       probe_request() :: %{
-        optional("InputFiles") => list(probe_input_file()())
+        optional("InputFiles") => list(probe_input_file())
       }
 
   """
@@ -3732,7 +3732,7 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       dash_iso_group_settings() :: %{
-        "AdditionalManifests" => list(dash_additional_manifest()()),
+        "AdditionalManifests" => list(dash_additional_manifest()),
         "AudioChannelConfigSchemeIdUri" => list(any()),
         "BaseUrl" => String.t(),
         "DashIFrameTrickPlayNameModifier" => String.t(),
@@ -3953,8 +3953,8 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       output() :: %{
-        "AudioDescriptions" => list(audio_description()()),
-        "CaptionDescriptions" => list(caption_description()()),
+        "AudioDescriptions" => list(audio_description()),
+        "CaptionDescriptions" => list(caption_description()),
         "ContainerSettings" => container_settings(),
         "Extension" => String.t(),
         "NameModifier" => String.t(),

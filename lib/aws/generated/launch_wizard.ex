@@ -170,7 +170,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       list_deployment_events_output() :: %{
-        "deploymentEvents" => list(deployment_event_data_summary()()),
+        "deploymentEvents" => list(deployment_event_data_summary()),
         "nextToken" => String.t()
       }
 
@@ -194,7 +194,7 @@ defmodule AWS.LaunchWizard do
 
       list_workload_deployment_patterns_output() :: %{
         "nextToken" => String.t(),
-        "workloadDeploymentPatterns" => list(workload_deployment_pattern_data_summary()())
+        "workloadDeploymentPatterns" => list(workload_deployment_pattern_data_summary())
       }
 
   """
@@ -264,7 +264,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -304,7 +304,7 @@ defmodule AWS.LaunchWizard do
 
       list_workloads_output() :: %{
         "nextToken" => String.t(),
-        "workloads" => list(workload_data_summary()())
+        "workloads" => list(workload_data_summary())
       }
 
   """
@@ -357,8 +357,8 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       deployment_specifications_field() :: %{
-        "allowedValues" => list(String.t()()),
-        "conditionals" => list(deployment_conditional_field()()),
+        "allowedValues" => list(String.t()),
+        "conditionals" => list(deployment_conditional_field()),
         "description" => [String.t()],
         "name" => [String.t()],
         "required" => [String.t()]
@@ -410,7 +410,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       list_deployments_output() :: %{
-        "deployments" => list(deployment_data_summary()()),
+        "deployments" => list(deployment_data_summary()),
         "nextToken" => String.t()
       }
 
@@ -433,7 +433,7 @@ defmodule AWS.LaunchWizard do
   ## Example:
 
       list_deployments_input() :: %{
-        optional("filters") => list(deployment_filter()()),
+        optional("filters") => list(deployment_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -470,7 +470,7 @@ defmodule AWS.LaunchWizard do
         "deploymentPatternName" => String.t(),
         "description" => [String.t()],
         "displayName" => [String.t()],
-        "specifications" => list(deployment_specifications_field()()),
+        "specifications" => list(deployment_specifications_field()),
         "status" => list(any()),
         "statusMessage" => [String.t()],
         "workloadName" => String.t(),

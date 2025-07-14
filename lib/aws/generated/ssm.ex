@@ -110,7 +110,7 @@ defmodule AWS.SSM do
       list_command_invocations_request() :: %{
         optional("CommandId") => String.t(),
         optional("Details") => boolean(),
-        optional("Filters") => list(command_filter()()),
+        optional("Filters") => list(command_filter()),
         optional("InstanceId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -126,7 +126,7 @@ defmodule AWS.SSM do
       compliance_string_filter() :: %{
         "Key" => String.t(),
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -190,7 +190,7 @@ defmodule AWS.SSM do
       
       list_ops_item_events_response() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(ops_item_event_summary()())
+        "Summaries" => list(ops_item_event_summary())
       }
       
   """
@@ -235,7 +235,7 @@ defmodule AWS.SSM do
       
       create_patch_baseline_request() :: %{
         optional("ApprovalRules") => patch_rule_group(),
-        optional("ApprovedPatches") => list(String.t()()),
+        optional("ApprovedPatches") => list(String.t()),
         optional("ApprovedPatchesComplianceLevel") => list(any()),
         optional("ApprovedPatchesEnableNonSecurity") => boolean(),
         optional("AvailableSecurityUpdatesComplianceStatus") => list(any()),
@@ -243,10 +243,10 @@ defmodule AWS.SSM do
         optional("Description") => String.t(),
         optional("GlobalFilters") => patch_filter_group(),
         optional("OperatingSystem") => list(any()),
-        optional("RejectedPatches") => list(String.t()()),
+        optional("RejectedPatches") => list(String.t()),
         optional("RejectedPatchesAction") => list(any()),
-        optional("Sources") => list(patch_source()()),
-        optional("Tags") => list(tag()()),
+        optional("Sources") => list(patch_source()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -294,7 +294,7 @@ defmodule AWS.SSM do
       node_filter() :: %{
         "Key" => list(any()),
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -315,7 +315,7 @@ defmodule AWS.SSM do
         optional("Priority") => integer(),
         optional("Replace") => boolean(),
         optional("ServiceRoleArn") => String.t(),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         optional("TaskArn") => String.t(),
         optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
         optional("TaskParameters") => map(),
@@ -365,8 +365,8 @@ defmodule AWS.SSM do
   ## Example:
       
       get_parameters_result() :: %{
-        "InvalidParameters" => list(String.t()()),
-        "Parameters" => list(parameter()())
+        "InvalidParameters" => list(String.t()),
+        "Parameters" => list(parameter())
       }
       
   """
@@ -440,7 +440,7 @@ defmodule AWS.SSM do
         "LastModifiedDate" => non_neg_integer(),
         "LastModifiedUser" => String.t(),
         "Name" => String.t(),
-        "Policies" => list(parameter_inline_policy()()),
+        "Policies" => list(parameter_inline_policy()),
         "Tier" => list(any()),
         "Type" => list(any()),
         "Version" => float()
@@ -490,7 +490,7 @@ defmodule AWS.SSM do
       
       describe_available_patches_result() :: %{
         "NextToken" => String.t(),
-        "Patches" => list(patch()())
+        "Patches" => list(patch())
       }
       
   """
@@ -511,7 +511,7 @@ defmodule AWS.SSM do
       
       describe_patch_properties_result() :: %{
         "NextToken" => String.t(),
-        "Properties" => list(map()())
+        "Properties" => list(map())
       }
       
   """
@@ -532,7 +532,7 @@ defmodule AWS.SSM do
       
       describe_activations_filter() :: %{
         "FilterKey" => list(any()),
-        "FilterValues" => list(String.t()())
+        "FilterValues" => list(String.t())
       }
       
   """
@@ -551,7 +551,7 @@ defmodule AWS.SSM do
         "Description" => String.t(),
         "LastModifiedBy" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
-        "Notifications" => list(ops_item_notification()()),
+        "Notifications" => list(ops_item_notification()),
         "OperationalData" => map(),
         "OpsItemArn" => String.t(),
         "OpsItemId" => String.t(),
@@ -559,7 +559,7 @@ defmodule AWS.SSM do
         "PlannedEndTime" => non_neg_integer(),
         "PlannedStartTime" => non_neg_integer(),
         "Priority" => integer(),
-        "RelatedOpsItems" => list(related_ops_item()()),
+        "RelatedOpsItems" => list(related_ops_item()),
         "Severity" => String.t(),
         "Source" => String.t(),
         "Status" => list(any()),
@@ -597,7 +597,7 @@ defmodule AWS.SSM do
   ## Example:
       
       start_associations_once_request() :: %{
-        required("AssociationIds") => list(String.t()())
+        required("AssociationIds") => list(String.t())
       }
       
   """
@@ -670,7 +670,7 @@ defmodule AWS.SSM do
         optional("KeyId") => String.t(),
         optional("Overwrite") => boolean(),
         optional("Policies") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Tier") => list(any()),
         optional("Type") => list(any()),
         required("Name") => String.t(),
@@ -686,7 +686,7 @@ defmodule AWS.SSM do
       
       instance_property_filter() :: %{
         "key" => list(any()),
-        "valueSet" => list(String.t()())
+        "valueSet" => list(String.t())
       }
       
   """
@@ -713,7 +713,7 @@ defmodule AWS.SSM do
   ## Example:
       
       unlabel_parameter_version_request() :: %{
-        required("Labels") => list(String.t()()),
+        required("Labels") => list(String.t()),
         required("Name") => String.t(),
         required("ParameterVersion") => float()
       }
@@ -739,7 +739,7 @@ defmodule AWS.SSM do
       
       list_nodes_summary_result() :: %{
         "NextToken" => String.t(),
-        "Summary" => list(map()())
+        "Summary" => list(map())
       }
       
   """
@@ -778,7 +778,7 @@ defmodule AWS.SSM do
       describe_instance_patch_states_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("InstanceIds") => list(String.t()())
+        required("InstanceIds") => list(String.t())
       }
       
   """
@@ -826,7 +826,7 @@ defmodule AWS.SSM do
       
       step_execution_filter() :: %{
         "Key" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -848,7 +848,7 @@ defmodule AWS.SSM do
   ## Example:
       
       inventory_group() :: %{
-        "Filters" => list(inventory_filter()()),
+        "Filters" => list(inventory_filter()),
         "Name" => String.t()
       }
       
@@ -927,7 +927,7 @@ defmodule AWS.SSM do
   ## Example:
       
       update_ops_metadata_request() :: %{
-        optional("KeysToDelete") => list(String.t()()),
+        optional("KeysToDelete") => list(String.t()),
         optional("MetadataToUpdate") => map(),
         required("OpsMetadataArn") => String.t()
       }
@@ -975,7 +975,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_resource_compliance_summaries_request() :: %{
-        optional("Filters") => list(compliance_string_filter()()),
+        optional("Filters") => list(compliance_string_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1080,7 +1080,7 @@ defmodule AWS.SSM do
       
       ops_metadata_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1193,7 +1193,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_targets_result() :: %{
         "NextToken" => String.t(),
-        "Targets" => list(maintenance_window_target()())
+        "Targets" => list(maintenance_window_target())
       }
       
   """
@@ -1204,10 +1204,10 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_parameters_request() :: %{
-        optional("Filters") => list(parameters_filter()()),
+        optional("Filters") => list(parameters_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ParameterFilters") => list(parameter_string_filter()()),
+        optional("ParameterFilters") => list(parameter_string_filter()),
         optional("Shared") => boolean()
       }
       
@@ -1244,7 +1244,7 @@ defmodule AWS.SSM do
       
       automation_execution_filter() :: %{
         "Key" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1293,7 +1293,7 @@ defmodule AWS.SSM do
       
       resource_policy_invalid_parameter_exception() :: %{
         "Message" => String.t(),
-        "ParameterNames" => list(String.t()())
+        "ParameterNames" => list(String.t())
       }
       
   """
@@ -1330,7 +1330,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_execution_task_invocations_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("TaskId") => String.t(),
@@ -1368,7 +1368,7 @@ defmodule AWS.SSM do
       
       patch_filter() :: %{
         "Key" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1402,7 +1402,7 @@ defmodule AWS.SSM do
   ## Example:
       
       document_reviewer_response_source() :: %{
-        "Comment" => list(document_review_comment_source()()),
+        "Comment" => list(document_review_comment_source()),
         "CreateTime" => non_neg_integer(),
         "ReviewStatus" => list(any()),
         "Reviewer" => String.t(),
@@ -1426,7 +1426,7 @@ defmodule AWS.SSM do
         "IamRole" => String.t(),
         "RegistrationLimit" => integer(),
         "RegistrationsCount" => integer(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1437,7 +1437,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_available_patches_request() :: %{
-        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("Filters") => list(patch_orchestrator_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1451,17 +1451,17 @@ defmodule AWS.SSM do
       
       update_patch_baseline_request() :: %{
         optional("ApprovalRules") => patch_rule_group(),
-        optional("ApprovedPatches") => list(String.t()()),
+        optional("ApprovedPatches") => list(String.t()),
         optional("ApprovedPatchesComplianceLevel") => list(any()),
         optional("ApprovedPatchesEnableNonSecurity") => boolean(),
         optional("AvailableSecurityUpdatesComplianceStatus") => list(any()),
         optional("Description") => String.t(),
         optional("GlobalFilters") => patch_filter_group(),
         optional("Name") => String.t(),
-        optional("RejectedPatches") => list(String.t()()),
+        optional("RejectedPatches") => list(String.t()),
         optional("RejectedPatchesAction") => list(any()),
         optional("Replace") => boolean(),
-        optional("Sources") => list(patch_source()()),
+        optional("Sources") => list(patch_source()),
         required("BaselineId") => String.t()
       }
       
@@ -1489,7 +1489,7 @@ defmodule AWS.SSM do
       inventory_filter() :: %{
         "Key" => String.t(),
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1503,7 +1503,7 @@ defmodule AWS.SSM do
         "Description" => String.t(),
         "Name" => String.t(),
         "OwnerInformation" => String.t(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "WindowId" => String.t(),
         "WindowTargetId" => String.t()
       }
@@ -1540,7 +1540,7 @@ defmodule AWS.SSM do
       add_tags_to_resource_request() :: %{
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any()),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1641,7 +1641,7 @@ defmodule AWS.SSM do
   ## Example:
       
       maintenance_window_task_parameter_value_expression() :: %{
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1758,7 +1758,7 @@ defmodule AWS.SSM do
         "AssociationId" => String.t(),
         "AssociationName" => String.t(),
         "AssociationVersion" => String.t(),
-        "CalendarNames" => list(String.t()()),
+        "CalendarNames" => list(String.t()),
         "ComplianceSeverity" => list(any()),
         "CreatedDate" => non_neg_integer(),
         "DocumentVersion" => String.t(),
@@ -1771,9 +1771,9 @@ defmodule AWS.SSM do
         "ScheduleExpression" => String.t(),
         "ScheduleOffset" => integer(),
         "SyncCompliance" => list(any()),
-        "TargetLocations" => list(target_location()()),
-        "TargetMaps" => list(map()()),
-        "Targets" => list(target()())
+        "TargetLocations" => list(target_location()),
+        "TargetMaps" => list(map()),
+        "Targets" => list(target())
       }
       
   """
@@ -1806,11 +1806,11 @@ defmodule AWS.SSM do
   ## Example:
       
       get_ops_summary_request() :: %{
-        optional("Aggregators") => list(ops_aggregator()()),
-        optional("Filters") => list(ops_filter()()),
+        optional("Aggregators") => list(ops_aggregator()),
+        optional("Filters") => list(ops_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResultAttributes") => list(ops_result_attribute()()),
+        optional("ResultAttributes") => list(ops_result_attribute()),
         optional("SyncName") => String.t()
       }
       
@@ -1822,7 +1822,7 @@ defmodule AWS.SSM do
   ## Example:
       
       update_document_request() :: %{
-        optional("Attachments") => list(attachments_source()()),
+        optional("Attachments") => list(attachments_source()),
         optional("DisplayName") => String.t(),
         optional("DocumentFormat") => list(any()),
         optional("DocumentVersion") => String.t(),
@@ -1841,7 +1841,7 @@ defmodule AWS.SSM do
       
       patch_orchestrator_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1852,7 +1852,7 @@ defmodule AWS.SSM do
   ## Example:
       
       delete_parameters_request() :: %{
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -1865,7 +1865,7 @@ defmodule AWS.SSM do
       parameter_string_filter() :: %{
         "Key" => String.t(),
         "Option" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1909,7 +1909,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_patch_baselines_request() :: %{
-        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("Filters") => list(patch_orchestrator_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1922,8 +1922,8 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_information_request() :: %{
-        optional("Filters") => list(instance_information_string_filter()()),
-        optional("InstanceInformationFilterList") => list(instance_information_filter()()),
+        optional("Filters") => list(instance_information_string_filter()),
+        optional("InstanceInformationFilterList") => list(instance_information_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1950,7 +1950,7 @@ defmodule AWS.SSM do
         "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
         "EnableAllOpsDataSources" => boolean(),
         "IncludeFutureRegions" => boolean(),
-        "SourceRegions" => list(String.t()()),
+        "SourceRegions" => list(String.t()),
         "SourceType" => String.t(),
         "State" => String.t()
       }
@@ -1976,9 +1976,9 @@ defmodule AWS.SSM do
   ## Example:
       
       inventory_aggregator() :: %{
-        "Aggregators" => list(inventory_aggregator()()),
+        "Aggregators" => list(inventory_aggregator()),
         "Expression" => String.t(),
-        "Groups" => list(inventory_group()())
+        "Groups" => list(inventory_group())
       }
       
   """
@@ -2004,7 +2004,7 @@ defmodule AWS.SSM do
       instance_patch_state_filter() :: %{
         "Key" => String.t(),
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2015,7 +2015,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_automation_executions_result() :: %{
-        "AutomationExecutionMetadataList" => list(automation_execution_metadata()()),
+        "AutomationExecutionMetadataList" => list(automation_execution_metadata()),
         "NextToken" => String.t()
       }
       
@@ -2027,7 +2027,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_ops_metadata_request() :: %{
-        optional("Filters") => list(ops_metadata_filter()()),
+        optional("Filters") => list(ops_metadata_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2041,7 +2041,7 @@ defmodule AWS.SSM do
       
       label_parameter_version_request() :: %{
         optional("ParameterVersion") => float(),
-        required("Labels") => list(String.t()()),
+        required("Labels") => list(String.t()),
         required("Name") => String.t()
       }
       
@@ -2078,8 +2078,8 @@ defmodule AWS.SSM do
   ## Example:
       
       create_association_batch_result() :: %{
-        "Failed" => list(failed_create_association()()),
-        "Successful" => list(association_description()())
+        "Failed" => list(failed_create_association()),
+        "Successful" => list(association_description())
       }
       
   """
@@ -2090,7 +2090,7 @@ defmodule AWS.SSM do
   ## Example:
       
       inventory_item_schema() :: %{
-        "Attributes" => list(inventory_item_attribute()()),
+        "Attributes" => list(inventory_item_attribute()),
         "DisplayName" => String.t(),
         "TypeName" => String.t(),
         "Version" => String.t()
@@ -2128,7 +2128,7 @@ defmodule AWS.SSM do
   ## Example:
       
       create_association_batch_request() :: %{
-        required("Entries") => list(create_association_batch_request_entry()())
+        required("Entries") => list(create_association_batch_request_entry())
       }
       
   """
@@ -2205,10 +2205,10 @@ defmodule AWS.SSM do
         "Name" => String.t(),
         "Owner" => String.t(),
         "PlatformTypes" => list(list(any())()),
-        "Requires" => list(document_requires()()),
+        "Requires" => list(document_requires()),
         "ReviewStatus" => list(any()),
         "SchemaVersion" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetType" => String.t(),
         "VersionName" => String.t()
       }
@@ -2233,9 +2233,9 @@ defmodule AWS.SSM do
       
       ops_aggregator() :: %{
         "AggregatorType" => String.t(),
-        "Aggregators" => list(ops_aggregator()()),
+        "Aggregators" => list(ops_aggregator()),
         "AttributeName" => String.t(),
-        "Filters" => list(ops_filter()()),
+        "Filters" => list(ops_filter()),
         "TypeName" => String.t(),
         "Values" => map()
       }
@@ -2273,7 +2273,7 @@ defmodule AWS.SSM do
       
       put_inventory_request() :: %{
         required("InstanceId") => String.t(),
-        required("Items") => list(inventory_item()())
+        required("Items") => list(inventory_item())
       }
       
   """
@@ -2285,7 +2285,7 @@ defmodule AWS.SSM do
       
       list_resource_compliance_summaries_result() :: %{
         "NextToken" => String.t(),
-        "ResourceComplianceSummaryItems" => list(resource_compliance_summary_item()())
+        "ResourceComplianceSummaryItems" => list(resource_compliance_summary_item())
       }
       
   """
@@ -2319,7 +2319,7 @@ defmodule AWS.SSM do
       
       list_commands_request() :: %{
         optional("CommandId") => String.t(),
-        optional("Filters") => list(command_filter()()),
+        optional("Filters") => list(command_filter()),
         optional("InstanceId") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
@@ -2333,7 +2333,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_patch_groups_request() :: %{
-        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("Filters") => list(patch_orchestrator_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2418,8 +2418,8 @@ defmodule AWS.SSM do
   ## Example:
       
       delete_parameters_result() :: %{
-        "DeletedParameters" => list(String.t()()),
-        "InvalidParameters" => list(String.t()())
+        "DeletedParameters" => list(String.t()),
+        "InvalidParameters" => list(String.t())
       }
       
   """
@@ -2454,7 +2454,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_association_versions_result() :: %{
-        "AssociationVersions" => list(association_version_info()()),
+        "AssociationVersions" => list(association_version_info()),
         "NextToken" => String.t()
       }
       
@@ -2544,7 +2544,7 @@ defmodule AWS.SSM do
   ## Example:
       
       get_document_result() :: %{
-        "AttachmentsContent" => list(attachment_content()()),
+        "AttachmentsContent" => list(attachment_content()),
         "Content" => String.t(),
         "CreatedDate" => non_neg_integer(),
         "DisplayName" => String.t(),
@@ -2552,7 +2552,7 @@ defmodule AWS.SSM do
         "DocumentType" => list(any()),
         "DocumentVersion" => String.t(),
         "Name" => String.t(),
-        "Requires" => list(document_requires()()),
+        "Requires" => list(document_requires()),
         "ReviewStatus" => list(any()),
         "Status" => list(any()),
         "StatusInformation" => String.t(),
@@ -2608,12 +2608,12 @@ defmodule AWS.SSM do
         optional("MaxErrors") => String.t(),
         optional("Mode") => list(any()),
         optional("Parameters") => map(),
-        optional("Tags") => list(tag()()),
-        optional("TargetLocations") => list(target_location()()),
+        optional("Tags") => list(tag()),
+        optional("TargetLocations") => list(target_location()),
         optional("TargetLocationsURL") => String.t(),
-        optional("TargetMaps") => list(map()()),
+        optional("TargetMaps") => list(map()),
         optional("TargetParameterName") => String.t(),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         required("DocumentName") => String.t()
       }
       
@@ -2625,9 +2625,9 @@ defmodule AWS.SSM do
   ## Example:
       
       automation_execution_preview() :: %{
-        "Regions" => list(String.t()()),
+        "Regions" => list(String.t()),
         "StepPreviews" => map(),
-        "TargetPreviews" => list(target_preview()()),
+        "TargetPreviews" => list(target_preview()),
         "TotalAccounts" => integer()
       }
       
@@ -2640,7 +2640,7 @@ defmodule AWS.SSM do
       
       list_nodes_result() :: %{
         "NextToken" => String.t(),
-        "Nodes" => list(ssm_node()())
+        "Nodes" => list(node())
       }
       
   """
@@ -2664,7 +2664,7 @@ defmodule AWS.SSM do
       
       get_inventory_schema_result() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(inventory_item_schema()())
+        "Schemas" => list(inventory_item_schema())
       }
       
   """
@@ -2712,7 +2712,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_patches_request() :: %{
-        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("Filters") => list(patch_orchestrator_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("InstanceId") => String.t()
@@ -2759,7 +2759,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_activations_request() :: %{
-        optional("Filters") => list(describe_activations_filter()()),
+        optional("Filters") => list(describe_activations_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2784,7 +2784,7 @@ defmodule AWS.SSM do
       
       target() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -2821,7 +2821,7 @@ defmodule AWS.SSM do
       
       create_ops_metadata_request() :: %{
         optional("Metadata") => map(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ResourceId") => String.t()
       }
       
@@ -2833,12 +2833,12 @@ defmodule AWS.SSM do
   ## Example:
       
       automation_execution() :: %{
-        "TriggeredAlarms" => list(alarm_state_information()()),
+        "TriggeredAlarms" => list(alarm_state_information()),
         "MaxErrors" => String.t(),
         "AlarmConfiguration" => alarm_configuration(),
         "AutomationSubtype" => list(any()),
         "ExecutedBy" => String.t(),
-        "TargetLocations" => list(target_location()()),
+        "TargetLocations" => list(target_location()),
         "FailureMessage" => String.t(),
         "Mode" => list(any()),
         "Variables" => map(),
@@ -2848,7 +2848,7 @@ defmodule AWS.SSM do
         "Parameters" => map(),
         "ExecutionEndTime" => non_neg_integer(),
         "MaxConcurrency" => String.t(),
-        "StepExecutions" => list(step_execution()()),
+        "StepExecutions" => list(step_execution()),
         "ParentAutomationExecutionId" => String.t(),
         "DocumentVersion" => String.t(),
         "AssociationId" => String.t(),
@@ -2857,14 +2857,14 @@ defmodule AWS.SSM do
         "ProgressCounters" => progress_counters(),
         "StepExecutionsTruncated" => boolean(),
         "ResolvedTargets" => resolved_targets(),
-        "Runbooks" => list(runbook()()),
-        "TargetMaps" => list(map()()),
+        "Runbooks" => list(runbook()),
+        "TargetMaps" => list(map()),
         "Outputs" => map(),
         "CurrentAction" => String.t(),
         "TargetLocationsURL" => String.t(),
         "CurrentStepName" => String.t(),
         "ScheduledTime" => non_neg_integer(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "AutomationExecutionStatus" => list(any()),
         "OpsItemId" => String.t(),
         "DocumentName" => String.t()
@@ -2879,7 +2879,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_tasks_result() :: %{
         "NextToken" => String.t(),
-        "Tasks" => list(maintenance_window_task()())
+        "Tasks" => list(maintenance_window_task())
       }
       
   """
@@ -2890,7 +2890,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_association_execution_targets_result() :: %{
-        "AssociationExecutionTargets" => list(association_execution_target()()),
+        "AssociationExecutionTargets" => list(association_execution_target()),
         "NextToken" => String.t()
       }
       
@@ -2902,7 +2902,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_patch_groups_result() :: %{
-        "Mappings" => list(patch_group_patch_baseline_mapping()()),
+        "Mappings" => list(patch_group_patch_baseline_mapping()),
         "NextToken" => String.t()
       }
       
@@ -2924,7 +2924,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_executions_result() :: %{
         "NextToken" => String.t(),
-        "WindowExecutions" => list(maintenance_window_execution()())
+        "WindowExecutions" => list(maintenance_window_execution())
       }
       
   """
@@ -2995,7 +2995,7 @@ defmodule AWS.SSM do
   ## Example:
       
       document_metadata_response_info() :: %{
-        "ReviewerResponse" => list(document_reviewer_response_source()())
+        "ReviewerResponse" => list(document_reviewer_response_source())
       }
       
   """
@@ -3006,9 +3006,9 @@ defmodule AWS.SSM do
   ## Example:
       
       start_access_request_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Reason") => String.t(),
-        required("Targets") => list(target()())
+        required("Targets") => list(target())
       }
       
   """
@@ -3020,15 +3020,15 @@ defmodule AWS.SSM do
       
       baseline_override() :: %{
         "ApprovalRules" => patch_rule_group(),
-        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatches" => list(String.t()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
         "AvailableSecurityUpdatesComplianceStatus" => list(any()),
         "GlobalFilters" => patch_filter_group(),
         "OperatingSystem" => list(any()),
-        "RejectedPatches" => list(String.t()()),
+        "RejectedPatches" => list(String.t()),
         "RejectedPatchesAction" => list(any()),
-        "Sources" => list(patch_source()())
+        "Sources" => list(patch_source())
       }
       
   """
@@ -3041,7 +3041,7 @@ defmodule AWS.SSM do
       get_parameters_by_path_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ParameterFilters") => list(parameter_string_filter()()),
+        optional("ParameterFilters") => list(parameter_string_filter()),
         optional("Recursive") => boolean(),
         optional("WithDecryption") => boolean(),
         required("Path") => String.t()
@@ -3071,10 +3071,10 @@ defmodule AWS.SSM do
         "MaxConcurrency" => String.t(),
         "MaxErrors" => String.t(),
         "Parameters" => map(),
-        "TargetLocations" => list(target_location()()),
-        "TargetMaps" => list(map()()),
+        "TargetLocations" => list(target_location()),
+        "TargetMaps" => list(map()),
         "TargetParameterName" => String.t(),
-        "Targets" => list(target()())
+        "Targets" => list(target())
       }
       
   """
@@ -3086,7 +3086,7 @@ defmodule AWS.SSM do
       
       describe_automation_step_executions_result() :: %{
         "NextToken" => String.t(),
-        "StepExecutions" => list(step_execution()())
+        "StepExecutions" => list(step_execution())
       }
       
   """
@@ -3097,11 +3097,11 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_schedule_request() :: %{
-        optional("Filters") => list(patch_orchestrator_filter()()),
+        optional("Filters") => list(patch_orchestrator_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceType") => list(any()),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         optional("WindowId") => String.t()
       }
       
@@ -3134,7 +3134,7 @@ defmodule AWS.SSM do
         optional("Name") => String.t(),
         optional("Priority") => integer(),
         optional("ServiceRoleArn") => String.t(),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         optional("TaskInvocationParameters") => maintenance_window_task_invocation_parameters(),
         optional("TaskParameters") => map(),
         required("TaskArn") => String.t(),
@@ -3258,7 +3258,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_tasks_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("WindowId") => String.t()
@@ -3487,8 +3487,8 @@ defmodule AWS.SSM do
   ## Example:
       
       modify_document_permission_request() :: %{
-        optional("AccountIdsToAdd") => list(String.t()()),
-        optional("AccountIdsToRemove") => list(String.t()()),
+        optional("AccountIdsToAdd") => list(String.t()),
+        optional("AccountIdsToRemove") => list(String.t()),
         optional("SharedDocumentVersion") => String.t(),
         required("Name") => String.t(),
         required("PermissionType") => list(any())
@@ -3514,7 +3514,7 @@ defmodule AWS.SSM do
       
       node_aggregator() :: %{
         "AggregatorType" => list(any()),
-        "Aggregators" => list(node_aggregator()()),
+        "Aggregators" => list(node_aggregator()),
         "AttributeName" => list(any()),
         "TypeName" => list(any())
       }
@@ -3533,7 +3533,7 @@ defmodule AWS.SSM do
         optional("DocumentHash") => String.t(),
         optional("DocumentHashType") => list(any()),
         optional("DocumentVersion") => String.t(),
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxConcurrency") => String.t(),
         optional("MaxErrors") => String.t(),
         optional("NotificationConfig") => notification_config(),
@@ -3542,7 +3542,7 @@ defmodule AWS.SSM do
         optional("OutputS3Region") => String.t(),
         optional("Parameters") => map(),
         optional("ServiceRoleArn") => String.t(),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         optional("TimeoutSeconds") => integer(),
         required("DocumentName") => String.t()
       }
@@ -3611,7 +3611,7 @@ defmodule AWS.SSM do
       ops_filter() :: %{
         "Key" => String.t(),
         "Type" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -3653,10 +3653,10 @@ defmodule AWS.SSM do
   ## Example:
       
       patch() :: %{
-        "AdvisoryIds" => list(String.t()()),
+        "AdvisoryIds" => list(String.t()),
         "Arch" => String.t(),
-        "BugzillaIds" => list(String.t()()),
-        "CVEIds" => list(String.t()()),
+        "BugzillaIds" => list(String.t()),
+        "CVEIds" => list(String.t()),
         "Classification" => String.t(),
         "ContentUrl" => String.t(),
         "Description" => String.t(),
@@ -3686,7 +3686,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_commands_result() :: %{
-        "Commands" => list(command()()),
+        "Commands" => list(command()),
         "NextToken" => String.t()
       }
       
@@ -3699,7 +3699,7 @@ defmodule AWS.SSM do
       
       get_calendar_state_request() :: %{
         optional("AtTime") => String.t(),
-        required("CalendarNames") => list(String.t()())
+        required("CalendarNames") => list(String.t())
       }
       
   """
@@ -3710,11 +3710,11 @@ defmodule AWS.SSM do
   ## Example:
       
       list_nodes_summary_request() :: %{
-        optional("Filters") => list(node_filter()()),
+        optional("Filters") => list(node_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SyncName") => String.t(),
-        required("Aggregators") => list(node_aggregator()())
+        required("Aggregators") => list(node_aggregator())
       }
       
   """
@@ -3725,11 +3725,11 @@ defmodule AWS.SSM do
   ## Example:
       
       get_inventory_request() :: %{
-        optional("Aggregators") => list(inventory_aggregator()()),
-        optional("Filters") => list(inventory_filter()()),
+        optional("Aggregators") => list(inventory_aggregator()),
+        optional("Filters") => list(inventory_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResultAttributes") => list(result_attribute()())
+        optional("ResultAttributes") => list(result_attribute())
       }
       
   """
@@ -3753,7 +3753,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_execution_tasks_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("WindowExecutionId") => String.t()
@@ -3802,7 +3802,7 @@ defmodule AWS.SSM do
       
       get_parameter_history_result() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter_history()())
+        "Parameters" => list(parameter_history())
       }
       
   """
@@ -3878,7 +3878,7 @@ defmodule AWS.SSM do
         optional("ScheduleOffset") => integer(),
         optional("ScheduleTimezone") => String.t(),
         optional("StartDate") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AllowUnassociatedTargets") => boolean(),
         required("Cutoff") => integer(),
         required("Duration") => integer(),
@@ -3895,7 +3895,7 @@ defmodule AWS.SSM do
       
       describe_ops_items_response() :: %{
         "NextToken" => String.t(),
-        "OpsItemSummaries" => list(ops_item_summary()())
+        "OpsItemSummaries" => list(ops_item_summary())
       }
       
   """
@@ -3907,7 +3907,7 @@ defmodule AWS.SSM do
       
       document_reviews() :: %{
         "Action" => list(any()),
-        "Comment" => list(document_review_comment_source()())
+        "Comment" => list(document_review_comment_source())
       }
       
   """
@@ -3960,7 +3960,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_patch_states_result() :: %{
-        "InstancePatchStates" => list(instance_patch_state()()),
+        "InstancePatchStates" => list(instance_patch_state()),
         "NextToken" => String.t()
       }
       
@@ -4074,7 +4074,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_automation_step_executions_request() :: %{
-        optional("Filters") => list(step_execution_filter()()),
+        optional("Filters") => list(step_execution_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ReverseOrder") => boolean(),
@@ -4101,7 +4101,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_properties_result() :: %{
-        "InstanceProperties" => list(instance_property()()),
+        "InstanceProperties" => list(instance_property()),
         "NextToken" => String.t()
       }
       
@@ -4114,7 +4114,7 @@ defmodule AWS.SSM do
       
       parameters_filter() :: %{
         "Key" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -4136,8 +4136,8 @@ defmodule AWS.SSM do
         "Overview" => association_overview(),
         "ScheduleExpression" => String.t(),
         "ScheduleOffset" => integer(),
-        "TargetMaps" => list(map()()),
-        "Targets" => list(target()())
+        "TargetMaps" => list(map()),
+        "Targets" => list(target())
       }
       
   """
@@ -4148,7 +4148,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_nodes_request() :: %{
-        optional("Filters") => list(node_filter()()),
+        optional("Filters") => list(node_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("SyncName") => String.t()
@@ -4177,7 +4177,7 @@ defmodule AWS.SSM do
       describe_ops_items_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OpsItemFilters") => list(ops_item_filter()())
+        optional("OpsItemFilters") => list(ops_item_filter())
       }
       
   """
@@ -4192,7 +4192,7 @@ defmodule AWS.SSM do
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "StatusDetails" => String.t(),
-        "TaskIds" => list(String.t()()),
+        "TaskIds" => list(String.t()),
         "WindowExecutionId" => String.t()
       }
       
@@ -4204,7 +4204,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_associations_result() :: %{
-        "Associations" => list(association()()),
+        "Associations" => list(association()),
         "NextToken" => String.t()
       }
       
@@ -4267,8 +4267,8 @@ defmodule AWS.SSM do
         optional("Description") => String.t(),
         optional("ExpirationDate") => non_neg_integer(),
         optional("RegistrationLimit") => integer(),
-        optional("RegistrationMetadata") => list(registration_metadata_item()()),
-        optional("Tags") => list(tag()()),
+        optional("RegistrationMetadata") => list(registration_metadata_item()),
+        optional("Tags") => list(tag()),
         required("IamRole") => String.t()
       }
       
@@ -4281,7 +4281,7 @@ defmodule AWS.SSM do
       
       get_parameters_request() :: %{
         optional("WithDecryption") => boolean(),
-        required("Names") => list(String.t()())
+        required("Names") => list(String.t())
       }
       
   """
@@ -4304,7 +4304,7 @@ defmodule AWS.SSM do
       
       inventory_deletion_summary() :: %{
         "RemainingCount" => integer(),
-        "SummaryItems" => list(inventory_deletion_summary_item()()),
+        "SummaryItems" => list(inventory_deletion_summary_item()),
         "TotalCount" => integer()
       }
       
@@ -4329,7 +4329,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_execution_tasks_result() :: %{
         "NextToken" => String.t(),
-        "WindowExecutionTaskIdentities" => list(maintenance_window_execution_task_identity()())
+        "WindowExecutionTaskIdentities" => list(maintenance_window_execution_task_identity())
       }
       
   """
@@ -4432,7 +4432,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_executions_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("WindowId") => String.t()
@@ -4457,8 +4457,8 @@ defmodule AWS.SSM do
         "StatusDetails" => String.t(),
         "TaskArn" => String.t(),
         "TaskExecutionId" => String.t(),
-        "TaskParameters" => list(map()()),
-        "TriggeredAlarms" => list(alarm_state_information()()),
+        "TaskParameters" => list(map()),
+        "TriggeredAlarms" => list(alarm_state_information()),
         "Type" => list(any()),
         "WindowExecutionId" => String.t()
       }
@@ -4485,7 +4485,7 @@ defmodule AWS.SSM do
   ## Example:
       
       patch_rule_group() :: %{
-        "PatchRules" => list(patch_rule()())
+        "PatchRules" => list(patch_rule())
       }
       
   """
@@ -4531,7 +4531,7 @@ defmodule AWS.SSM do
       
       get_patch_baseline_result() :: %{
         "ApprovalRules" => patch_rule_group(),
-        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatches" => list(String.t()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
         "AvailableSecurityUpdatesComplianceStatus" => list(any()),
@@ -4542,10 +4542,10 @@ defmodule AWS.SSM do
         "ModifiedDate" => non_neg_integer(),
         "Name" => String.t(),
         "OperatingSystem" => list(any()),
-        "PatchGroups" => list(String.t()()),
-        "RejectedPatches" => list(String.t()()),
+        "PatchGroups" => list(String.t()),
+        "RejectedPatches" => list(String.t()),
         "RejectedPatchesAction" => list(any()),
-        "Sources" => list(patch_source()())
+        "Sources" => list(patch_source())
       }
       
   """
@@ -4556,8 +4556,8 @@ defmodule AWS.SSM do
   ## Example:
       
       list_documents_request() :: %{
-        optional("DocumentFilterList") => list(document_filter()()),
-        optional("Filters") => list(document_key_values_filter()()),
+        optional("DocumentFilterList") => list(document_filter()),
+        optional("Filters") => list(document_key_values_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4581,7 +4581,7 @@ defmodule AWS.SSM do
       remove_tags_from_resource_request() :: %{
         required("ResourceId") => String.t(),
         required("ResourceType") => list(any()),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -4593,7 +4593,7 @@ defmodule AWS.SSM do
       
       instance_information_string_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -4605,11 +4605,11 @@ defmodule AWS.SSM do
       
       automation_execution_inputs() :: %{
         "Parameters" => map(),
-        "TargetLocations" => list(target_location()()),
+        "TargetLocations" => list(target_location()),
         "TargetLocationsURL" => String.t(),
-        "TargetMaps" => list(map()()),
+        "TargetMaps" => list(map()),
         "TargetParameterName" => String.t(),
-        "Targets" => list(target()())
+        "Targets" => list(target())
       }
       
   """
@@ -4656,7 +4656,7 @@ defmodule AWS.SSM do
       
       get_resource_policies_response() :: %{
         "NextToken" => String.t(),
-        "Policies" => list(get_resource_policies_response_entry()())
+        "Policies" => list(get_resource_policies_response_entry())
       }
       
   """
@@ -4676,7 +4676,7 @@ defmodule AWS.SSM do
         "LastExecutionDate" => non_neg_integer(),
         "ResourceCountByStatus" => String.t(),
         "Status" => String.t(),
-        "TriggeredAlarms" => list(alarm_state_information()())
+        "TriggeredAlarms" => list(alarm_state_information())
       }
       
   """
@@ -4720,7 +4720,7 @@ defmodule AWS.SSM do
       
       list_ops_metadata_result() :: %{
         "NextToken" => String.t(),
-        "OpsMetadataList" => list(ops_metadata()())
+        "OpsMetadataList" => list(ops_metadata())
       }
       
   """
@@ -4752,7 +4752,7 @@ defmodule AWS.SSM do
       
       list_resource_data_sync_result() :: %{
         "NextToken" => String.t(),
-        "ResourceDataSyncItems" => list(resource_data_sync_item()())
+        "ResourceDataSyncItems" => list(resource_data_sync_item())
       }
       
   """
@@ -4798,7 +4798,7 @@ defmodule AWS.SSM do
       
       document_key_values_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -4822,8 +4822,8 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_properties_request() :: %{
-        optional("FiltersWithOperator") => list(instance_property_string_filter()()),
-        optional("InstancePropertyFilterList") => list(instance_property_filter()()),
+        optional("FiltersWithOperator") => list(instance_property_string_filter()),
+        optional("InstancePropertyFilterList") => list(instance_property_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4849,7 +4849,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_compliance_summaries_request() :: %{
-        optional("Filters") => list(compliance_string_filter()()),
+        optional("Filters") => list(compliance_string_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -4873,7 +4873,7 @@ defmodule AWS.SSM do
   ## Example:
       
       get_ops_summary_result() :: %{
-        "Entities" => list(ops_entity()()),
+        "Entities" => list(ops_entity()),
         "NextToken" => String.t()
       }
       
@@ -4966,7 +4966,7 @@ defmodule AWS.SSM do
       
       resource_data_sync_aws_organizations_source() :: %{
         "OrganizationSourceType" => String.t(),
-        "OrganizationalUnits" => list(resource_data_sync_organizational_unit()())
+        "OrganizationalUnits" => list(resource_data_sync_organizational_unit())
       }
       
   """
@@ -5028,7 +5028,7 @@ defmodule AWS.SSM do
   ## Example:
       
       cancel_command_request() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         required("CommandId") => String.t()
       }
       
@@ -5060,7 +5060,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_patch_states_for_patch_group_request() :: %{
-        optional("Filters") => list(instance_patch_state_filter()()),
+        optional("Filters") => list(instance_patch_state_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("PatchGroup") => String.t()
@@ -5187,7 +5187,7 @@ defmodule AWS.SSM do
       
       describe_parameters_result() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter_metadata()())
+        "Parameters" => list(parameter_metadata())
       }
       
   """
@@ -5198,7 +5198,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_tags_for_resource_result() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -5223,7 +5223,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_automation_executions_request() :: %{
-        optional("Filters") => list(automation_execution_filter()()),
+        optional("Filters") => list(automation_execution_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -5260,7 +5260,7 @@ defmodule AWS.SSM do
       instance_property_string_filter() :: %{
         "Key" => String.t(),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -5298,7 +5298,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_associations_request() :: %{
-        optional("AssociationFilterList") => list(association_filter()()),
+        optional("AssociationFilterList") => list(association_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -5311,7 +5311,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_inventory_deletions_result() :: %{
-        "InventoryDeletions" => list(inventory_deletion_status_item()()),
+        "InventoryDeletions" => list(inventory_deletion_status_item()),
         "NextToken" => String.t()
       }
       
@@ -5335,7 +5335,7 @@ defmodule AWS.SSM do
       
       describe_sessions_response() :: %{
         "NextToken" => String.t(),
-        "Sessions" => list(session()())
+        "Sessions" => list(session())
       }
       
   """
@@ -5362,7 +5362,7 @@ defmodule AWS.SSM do
         optional("ApplyOnlyAtCronInterval") => boolean(),
         optional("AssociationName") => String.t(),
         optional("AutomationTargetParameterName") => String.t(),
-        optional("CalendarNames") => list(String.t()()),
+        optional("CalendarNames") => list(String.t()),
         optional("ComplianceSeverity") => list(any()),
         optional("DocumentVersion") => String.t(),
         optional("Duration") => integer(),
@@ -5374,10 +5374,10 @@ defmodule AWS.SSM do
         optional("ScheduleExpression") => String.t(),
         optional("ScheduleOffset") => integer(),
         optional("SyncCompliance") => list(any()),
-        optional("Tags") => list(tag()()),
-        optional("TargetLocations") => list(target_location()()),
-        optional("TargetMaps") => list(map()()),
-        optional("Targets") => list(target()()),
+        optional("Tags") => list(tag()),
+        optional("TargetLocations") => list(target_location()),
+        optional("TargetMaps") => list(map()),
+        optional("Targets") => list(target()),
         required("Name") => String.t()
       }
       
@@ -5398,7 +5398,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_command_invocations_result() :: %{
-        "CommandInvocations" => list(command_invocation()()),
+        "CommandInvocations" => list(command_invocation()),
         "NextToken" => String.t()
       }
       
@@ -5424,7 +5424,7 @@ defmodule AWS.SSM do
   ## Example:
       
       label_parameter_version_result() :: %{
-        "InvalidLabels" => list(String.t()()),
+        "InvalidLabels" => list(String.t()),
         "ParameterVersion" => float()
       }
       
@@ -5437,10 +5437,10 @@ defmodule AWS.SSM do
       
       document_description() :: %{
         "ApprovedVersion" => String.t(),
-        "AttachmentsInformation" => list(attachment_information()()),
+        "AttachmentsInformation" => list(attachment_information()),
         "Author" => String.t(),
-        "Category" => list(String.t()()),
-        "CategoryEnum" => list(String.t()()),
+        "Category" => list(String.t()),
+        "CategoryEnum" => list(String.t()),
         "CreatedDate" => non_neg_integer(),
         "DefaultVersion" => String.t(),
         "Description" => String.t(),
@@ -5453,17 +5453,17 @@ defmodule AWS.SSM do
         "LatestVersion" => String.t(),
         "Name" => String.t(),
         "Owner" => String.t(),
-        "Parameters" => list(document_parameter()()),
+        "Parameters" => list(document_parameter()),
         "PendingReviewVersion" => String.t(),
         "PlatformTypes" => list(list(any())()),
-        "Requires" => list(document_requires()()),
-        "ReviewInformation" => list(review_information()()),
+        "Requires" => list(document_requires()),
+        "ReviewInformation" => list(review_information()),
         "ReviewStatus" => list(any()),
         "SchemaVersion" => String.t(),
         "Sha1" => String.t(),
         "Status" => list(any()),
         "StatusInformation" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetType" => String.t(),
         "VersionName" => String.t()
       }
@@ -5591,7 +5591,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_windows_result() :: %{
         "NextToken" => String.t(),
-        "WindowIdentities" => list(maintenance_window_identity()())
+        "WindowIdentities" => list(maintenance_window_identity())
       }
       
   """
@@ -5602,7 +5602,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_association_execution_targets_request() :: %{
-        optional("Filters") => list(association_execution_targets_filter()()),
+        optional("Filters") => list(association_execution_targets_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AssociationId") => String.t(),
@@ -5628,7 +5628,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_patch_states_for_patch_group_result() :: %{
-        "InstancePatchStates" => list(instance_patch_state()()),
+        "InstancePatchStates" => list(instance_patch_state()),
         "NextToken" => String.t()
       }
       
@@ -5651,15 +5651,15 @@ defmodule AWS.SSM do
   ## Example:
       
       target_location() :: %{
-        "Accounts" => list(String.t()()),
-        "ExcludeAccounts" => list(String.t()()),
+        "Accounts" => list(String.t()),
+        "ExcludeAccounts" => list(String.t()),
         "ExecutionRoleName" => String.t(),
         "IncludeChildOrganizationUnits" => boolean(),
-        "Regions" => list(String.t()()),
+        "Regions" => list(String.t()),
         "TargetLocationAlarmConfiguration" => alarm_configuration(),
         "TargetLocationMaxConcurrency" => String.t(),
         "TargetLocationMaxErrors" => String.t(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TargetsMaxConcurrency" => String.t(),
         "TargetsMaxErrors" => String.t()
       }
@@ -5683,7 +5683,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_information_result() :: %{
-        "InstanceInformationList" => list(instance_information()()),
+        "InstanceInformationList" => list(instance_information()),
         "NextToken" => String.t()
       }
       
@@ -5718,7 +5718,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_document_versions_result() :: %{
-        "DocumentVersions" => list(document_version_info()()),
+        "DocumentVersions" => list(document_version_info()),
         "NextToken" => String.t()
       }
       
@@ -5731,7 +5731,7 @@ defmodule AWS.SSM do
       
       ops_entity_item() :: %{
         "CaptureTime" => String.t(),
-        "Content" => list(map()())
+        "Content" => list(map())
       }
       
   """
@@ -5835,7 +5835,7 @@ defmodule AWS.SSM do
       
       ops_item_invalid_parameter_exception() :: %{
         "Message" => String.t(),
-        "ParameterNames" => list(String.t()())
+        "ParameterNames" => list(String.t())
       }
       
   """
@@ -5861,7 +5861,7 @@ defmodule AWS.SSM do
         "Name" => String.t(),
         "OwnerInformation" => String.t(),
         "ResourceType" => list(any()),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "WindowId" => String.t(),
         "WindowTargetId" => String.t()
       }
@@ -5875,7 +5875,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_schedule_result() :: %{
         "NextToken" => String.t(),
-        "ScheduledWindowExecutions" => list(scheduled_window_execution()())
+        "ScheduledWindowExecutions" => list(scheduled_window_execution())
       }
       
   """
@@ -5918,7 +5918,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_effective_patches_for_patch_baseline_result() :: %{
-        "EffectivePatches" => list(effective_patch()()),
+        "EffectivePatches" => list(effective_patch()),
         "NextToken" => String.t()
       }
       
@@ -5944,7 +5944,7 @@ defmodule AWS.SSM do
       
       list_ops_item_related_items_response() :: %{
         "NextToken" => String.t(),
-        "Summaries" => list(ops_item_related_item_summary()())
+        "Summaries" => list(ops_item_related_item_summary())
       }
       
   """
@@ -5955,7 +5955,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_association_executions_request() :: %{
-        optional("Filters") => list(association_execution_filter()()),
+        optional("Filters") => list(association_execution_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("AssociationId") => String.t()
@@ -6010,7 +6010,7 @@ defmodule AWS.SSM do
         "Name" => String.t(),
         "Priority" => integer(),
         "ServiceRoleArn" => String.t(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TaskArn" => String.t(),
         "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
         "TaskParameters" => map(),
@@ -6029,7 +6029,7 @@ defmodule AWS.SSM do
         "AwsOrganizationsSource" => resource_data_sync_aws_organizations_source(),
         "EnableAllOpsDataSources" => boolean(),
         "IncludeFutureRegions" => boolean(),
-        "SourceRegions" => list(String.t()()),
+        "SourceRegions" => list(String.t()),
         "SourceType" => String.t()
       }
       
@@ -6067,7 +6067,7 @@ defmodule AWS.SSM do
       ops_item_event_filter() :: %{
         "Key" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -6136,7 +6136,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_compliance_summaries_result() :: %{
-        "ComplianceSummaryItems" => list(compliance_summary_item()()),
+        "ComplianceSummaryItems" => list(compliance_summary_item()),
         "NextToken" => String.t()
       }
       
@@ -6171,14 +6171,14 @@ defmodule AWS.SSM do
         "Outputs" => map(),
         "ParentAutomationExecutionId" => String.t(),
         "ResolvedTargets" => resolved_targets(),
-        "Runbooks" => list(runbook()()),
+        "Runbooks" => list(runbook()),
         "ScheduledTime" => non_neg_integer(),
         "Target" => String.t(),
         "TargetLocationsURL" => String.t(),
-        "TargetMaps" => list(map()()),
+        "TargetMaps" => list(map()),
         "TargetParameterName" => String.t(),
-        "Targets" => list(target()()),
-        "TriggeredAlarms" => list(alarm_state_information()())
+        "Targets" => list(target()),
+        "TriggeredAlarms" => list(alarm_state_information())
       }
       
   """
@@ -6198,7 +6198,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_window_targets_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("WindowId") => String.t()
@@ -6256,7 +6256,7 @@ defmodule AWS.SSM do
         optional("Name") => String.t(),
         optional("OwnerInformation") => String.t(),
         required("ResourceType") => list(any()),
-        required("Targets") => list(target()()),
+        required("Targets") => list(target()),
         required("WindowId") => String.t()
       }
       
@@ -6290,7 +6290,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_compliance_items_result() :: %{
-        "ComplianceItems" => list(compliance_item()()),
+        "ComplianceItems" => list(compliance_item()),
         "NextToken" => String.t()
       }
       
@@ -6355,7 +6355,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_sessions_request() :: %{
-        optional("Filters") => list(session_filter()()),
+        optional("Filters") => list(session_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("State") => list(any())
@@ -6402,7 +6402,7 @@ defmodule AWS.SSM do
       command_invocation() :: %{
         "CloudWatchOutputConfig" => cloud_watch_output_config(),
         "CommandId" => String.t(),
-        "CommandPlugins" => list(command_plugin()()),
+        "CommandPlugins" => list(command_plugin()),
         "Comment" => String.t(),
         "DocumentName" => String.t(),
         "DocumentVersion" => String.t(),
@@ -6487,7 +6487,7 @@ defmodule AWS.SSM do
         "Limit" => integer(),
         "LimitType" => String.t(),
         "Message" => String.t(),
-        "ResourceTypes" => list(String.t()())
+        "ResourceTypes" => list(String.t())
       }
       
   """
@@ -6498,7 +6498,7 @@ defmodule AWS.SSM do
   ## Example:
       
       get_inventory_result() :: %{
-        "Entities" => list(inventory_result_entity()()),
+        "Entities" => list(inventory_result_entity()),
         "NextToken" => String.t()
       }
       
@@ -6511,7 +6511,7 @@ defmodule AWS.SSM do
       
       list_inventory_entries_result() :: %{
         "CaptureTime" => String.t(),
-        "Entries" => list(map()()),
+        "Entries" => list(map()),
         "InstanceId" => String.t(),
         "NextToken" => String.t(),
         "SchemaVersion" => String.t(),
@@ -6562,7 +6562,7 @@ defmodule AWS.SSM do
       attachments_source() :: %{
         "Key" => list(any()),
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -6574,7 +6574,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_window_execution_task_invocations_result() :: %{
         "NextToken" => String.t(),
-        "WindowExecutionTaskInvocationIdentities" => list(maintenance_window_execution_task_invocation_identity()())
+        "WindowExecutionTaskInvocationIdentities" => list(maintenance_window_execution_task_invocation_identity())
       }
       
   """
@@ -6597,7 +6597,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_activations_result() :: %{
-        "ActivationList" => list(activation()()),
+        "ActivationList" => list(activation()),
         "NextToken" => String.t()
       }
       
@@ -6757,11 +6757,11 @@ defmodule AWS.SSM do
   ## Example:
       
       list_compliance_items_request() :: %{
-        optional("Filters") => list(compliance_string_filter()()),
+        optional("Filters") => list(compliance_string_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceIds") => list(String.t()()),
-        optional("ResourceTypes") => list(String.t()())
+        optional("ResourceIds") => list(String.t()),
+        optional("ResourceTypes") => list(String.t())
       }
       
   """
@@ -6773,7 +6773,7 @@ defmodule AWS.SSM do
       
       describe_instance_patches_result() :: %{
         "NextToken" => String.t(),
-        "Patches" => list(patch_compliance_data()())
+        "Patches" => list(patch_compliance_data())
       }
       
   """
@@ -6794,7 +6794,7 @@ defmodule AWS.SSM do
         "DocumentVersion" => String.t(),
         "ErrorCount" => integer(),
         "ExpiresAfter" => non_neg_integer(),
-        "InstanceIds" => list(String.t()()),
+        "InstanceIds" => list(String.t()),
         "MaxConcurrency" => String.t(),
         "MaxErrors" => String.t(),
         "NotificationConfig" => notification_config(),
@@ -6807,9 +6807,9 @@ defmodule AWS.SSM do
         "Status" => list(any()),
         "StatusDetails" => String.t(),
         "TargetCount" => integer(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TimeoutSeconds" => integer(),
-        "TriggeredAlarms" => list(alarm_state_information()())
+        "TriggeredAlarms" => list(alarm_state_information())
       }
       
   """
@@ -6824,11 +6824,11 @@ defmodule AWS.SSM do
         "DataType" => String.t(),
         "Description" => String.t(),
         "KeyId" => String.t(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LastModifiedDate" => non_neg_integer(),
         "LastModifiedUser" => String.t(),
         "Name" => String.t(),
-        "Policies" => list(parameter_inline_policy()()),
+        "Policies" => list(parameter_inline_policy()),
         "Tier" => list(any()),
         "Type" => list(any()),
         "Value" => String.t(),
@@ -6901,7 +6901,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_ops_item_related_items_request() :: %{
-        optional("Filters") => list(ops_item_related_items_filter()()),
+        optional("Filters") => list(ops_item_related_items_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("OpsItemId") => String.t()
@@ -6919,15 +6919,15 @@ defmodule AWS.SSM do
         optional("ActualEndTime") => non_neg_integer(),
         optional("ActualStartTime") => non_neg_integer(),
         optional("Category") => String.t(),
-        optional("Notifications") => list(ops_item_notification()()),
+        optional("Notifications") => list(ops_item_notification()),
         optional("OperationalData") => map(),
         optional("OpsItemType") => String.t(),
         optional("PlannedEndTime") => non_neg_integer(),
         optional("PlannedStartTime") => non_neg_integer(),
         optional("Priority") => integer(),
-        optional("RelatedOpsItems") => list(related_ops_item()()),
+        optional("RelatedOpsItems") => list(related_ops_item()),
         optional("Severity") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Description") => String.t(),
         required("Source") => String.t(),
         required("Title") => String.t()
@@ -7065,7 +7065,7 @@ defmodule AWS.SSM do
         "ApplyOnlyAtCronInterval" => boolean(),
         "AssociationName" => String.t(),
         "AutomationTargetParameterName" => String.t(),
-        "CalendarNames" => list(String.t()()),
+        "CalendarNames" => list(String.t()),
         "ComplianceSeverity" => list(any()),
         "DocumentVersion" => String.t(),
         "Duration" => integer(),
@@ -7078,9 +7078,9 @@ defmodule AWS.SSM do
         "ScheduleExpression" => String.t(),
         "ScheduleOffset" => integer(),
         "SyncCompliance" => list(any()),
-        "TargetLocations" => list(target_location()()),
-        "TargetMaps" => list(map()()),
-        "Targets" => list(target()())
+        "TargetLocations" => list(target_location()),
+        "TargetMaps" => list(map()),
+        "Targets" => list(target())
       }
       
   """
@@ -7131,7 +7131,7 @@ defmodule AWS.SSM do
   ## Example:
       
       patch_filter_group() :: %{
-        "PatchFilters" => list(patch_filter()())
+        "PatchFilters" => list(patch_filter())
       }
       
   """
@@ -7153,7 +7153,7 @@ defmodule AWS.SSM do
   ## Example:
       
       resolved_targets() :: %{
-        "ParameterValues" => list(String.t()()),
+        "ParameterValues" => list(String.t()),
         "Truncated" => boolean()
       }
       
@@ -7165,7 +7165,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_effective_instance_associations_result() :: %{
-        "Associations" => list(instance_association()()),
+        "Associations" => list(instance_association()),
         "NextToken" => String.t()
       }
       
@@ -7221,7 +7221,7 @@ defmodule AWS.SSM do
         "Name" => String.t(),
         "Priority" => integer(),
         "ServiceRoleArn" => String.t(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TaskArn" => String.t(),
         "TaskInvocationParameters" => maintenance_window_task_invocation_parameters(),
         "TaskParameters" => map(),
@@ -7260,7 +7260,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_instance_associations_status_result() :: %{
-        "InstanceAssociationStatusInfos" => list(instance_association_status_info()()),
+        "InstanceAssociationStatusInfos" => list(instance_association_status_info()),
         "NextToken" => String.t()
       }
       
@@ -7273,7 +7273,7 @@ defmodule AWS.SSM do
       
       inventory_result_item() :: %{
         "CaptureTime" => String.t(),
-        "Content" => list(map()()),
+        "Content" => list(map()),
         "ContentHash" => String.t(),
         "SchemaVersion" => String.t(),
         "TypeName" => String.t()
@@ -7347,10 +7347,10 @@ defmodule AWS.SSM do
         "StepName" => String.t(),
         "StepStatus" => list(any()),
         "TargetLocation" => target_location(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TimeoutSeconds" => float(),
-        "TriggeredAlarms" => list(alarm_state_information()()),
-        "ValidNextSteps" => list(String.t()())
+        "TriggeredAlarms" => list(alarm_state_information()),
+        "ValidNextSteps" => list(String.t())
       }
       
   """
@@ -7375,7 +7375,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_association_executions_result() :: %{
-        "AssociationExecutions" => list(association_execution()()),
+        "AssociationExecutions" => list(association_execution()),
         "NextToken" => String.t()
       }
       
@@ -7391,7 +7391,7 @@ defmodule AWS.SSM do
         optional("Name") => String.t(),
         optional("OwnerInformation") => String.t(),
         optional("Replace") => boolean(),
-        optional("Targets") => list(target()()),
+        optional("Targets") => list(target()),
         required("WindowId") => String.t(),
         required("WindowTargetId") => String.t()
       }
@@ -7423,7 +7423,7 @@ defmodule AWS.SSM do
         "TaskArn" => String.t(),
         "TaskExecutionId" => String.t(),
         "TaskType" => list(any()),
-        "TriggeredAlarms" => list(alarm_state_information()()),
+        "TriggeredAlarms" => list(alarm_state_information()),
         "WindowExecutionId" => String.t()
       }
       
@@ -7480,7 +7480,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_documents_result() :: %{
-        "DocumentIdentifiers" => list(document_identifier()()),
+        "DocumentIdentifiers" => list(document_identifier()),
         "NextToken" => String.t()
       }
       
@@ -7515,7 +7515,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_patch_baselines_result() :: %{
-        "BaselineIdentities" => list(patch_baseline_identity()()),
+        "BaselineIdentities" => list(patch_baseline_identity()),
         "NextToken" => String.t()
       }
       
@@ -7532,7 +7532,7 @@ defmodule AWS.SSM do
         optional("AssociationName") => String.t(),
         optional("AssociationVersion") => String.t(),
         optional("AutomationTargetParameterName") => String.t(),
-        optional("CalendarNames") => list(String.t()()),
+        optional("CalendarNames") => list(String.t()),
         optional("ComplianceSeverity") => list(any()),
         optional("DocumentVersion") => String.t(),
         optional("Duration") => integer(),
@@ -7544,9 +7544,9 @@ defmodule AWS.SSM do
         optional("ScheduleExpression") => String.t(),
         optional("ScheduleOffset") => integer(),
         optional("SyncCompliance") => list(any()),
-        optional("TargetLocations") => list(target_location()()),
-        optional("TargetMaps") => list(map()()),
-        optional("Targets") => list(target()()),
+        optional("TargetLocations") => list(target_location()),
+        optional("TargetMaps") => list(map()),
+        optional("Targets") => list(target()),
         required("AssociationId") => String.t()
       }
       
@@ -7561,7 +7561,7 @@ defmodule AWS.SSM do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ResourceType") => list(any()),
-        required("Targets") => list(target()())
+        required("Targets") => list(target())
       }
       
   """
@@ -7584,7 +7584,7 @@ defmodule AWS.SSM do
       
       instance_information_filter() :: %{
         "key" => list(any()),
-        "valueSet" => list(String.t()())
+        "valueSet" => list(String.t())
       }
       
   """
@@ -7615,7 +7615,7 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_maintenance_windows_request() :: %{
-        optional("Filters") => list(maintenance_window_filter()()),
+        optional("Filters") => list(maintenance_window_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -7636,9 +7636,9 @@ defmodule AWS.SSM do
         optional("Parameters") => map(),
         optional("ScheduledEndTime") => non_neg_integer(),
         optional("ScheduledTime") => non_neg_integer(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DocumentName") => String.t(),
-        required("Runbooks") => list(runbook()())
+        required("Runbooks") => list(runbook())
       }
       
   """
@@ -7653,14 +7653,14 @@ defmodule AWS.SSM do
         optional("ActualStartTime") => non_neg_integer(),
         optional("Category") => String.t(),
         optional("Description") => String.t(),
-        optional("Notifications") => list(ops_item_notification()()),
+        optional("Notifications") => list(ops_item_notification()),
         optional("OperationalData") => map(),
-        optional("OperationalDataToDelete") => list(String.t()()),
+        optional("OperationalDataToDelete") => list(String.t()),
         optional("OpsItemArn") => String.t(),
         optional("PlannedEndTime") => non_neg_integer(),
         optional("PlannedStartTime") => non_neg_integer(),
         optional("Priority") => integer(),
-        optional("RelatedOpsItems") => list(related_ops_item()()),
+        optional("RelatedOpsItems") => list(related_ops_item()),
         optional("Severity") => String.t(),
         optional("Status") => list(any()),
         optional("Title") => String.t(),
@@ -7675,8 +7675,8 @@ defmodule AWS.SSM do
   ## Example:
       
       unlabel_parameter_version_result() :: %{
-        "InvalidLabels" => list(String.t()()),
-        "RemovedLabels" => list(String.t()())
+        "InvalidLabels" => list(String.t()),
+        "RemovedLabels" => list(String.t())
       }
       
   """
@@ -7700,7 +7700,7 @@ defmodule AWS.SSM do
       
       inventory_item() :: %{
         "CaptureTime" => String.t(),
-        "Content" => list(map()()),
+        "Content" => list(map()),
         "ContentHash" => String.t(),
         "Context" => map(),
         "SchemaVersion" => String.t(),
@@ -7748,8 +7748,8 @@ defmodule AWS.SSM do
   ## Example:
       
       describe_document_permission_response() :: %{
-        "AccountIds" => list(String.t()()),
-        "AccountSharingInfoList" => list(account_sharing_info()()),
+        "AccountIds" => list(String.t()),
+        "AccountSharingInfoList" => list(account_sharing_info()),
         "NextToken" => String.t()
       }
       
@@ -7763,7 +7763,7 @@ defmodule AWS.SSM do
       ops_item_related_items_filter() :: %{
         "Key" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -7789,7 +7789,7 @@ defmodule AWS.SSM do
       ops_item_filter() :: %{
         "Key" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -7801,7 +7801,7 @@ defmodule AWS.SSM do
       
       maintenance_window_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -7816,7 +7816,7 @@ defmodule AWS.SSM do
         optional("UploadType") => list(any()),
         required("ComplianceType") => String.t(),
         required("ExecutionSummary") => compliance_execution_summary(),
-        required("Items") => list(compliance_item_entry()()),
+        required("Items") => list(compliance_item_entry()),
         required("ResourceId") => String.t(),
         required("ResourceType") => String.t()
       }
@@ -7841,7 +7841,7 @@ defmodule AWS.SSM do
       
       describe_maintenance_windows_for_target_result() :: %{
         "NextToken" => String.t(),
-        "WindowIdentities" => list(maintenance_window_identity_for_target()())
+        "WindowIdentities" => list(maintenance_window_identity_for_target())
       }
       
   """
@@ -7853,7 +7853,7 @@ defmodule AWS.SSM do
       
       get_parameters_by_path_result() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -7864,7 +7864,7 @@ defmodule AWS.SSM do
   ## Example:
       
       alarm_configuration() :: %{
-        "Alarms" => list(alarm()()),
+        "Alarms" => list(alarm()),
         "IgnorePollAlarmFailure" => boolean()
       }
       
@@ -7885,7 +7885,7 @@ defmodule AWS.SSM do
         "Name" => String.t(),
         "Priority" => integer(),
         "ServiceRoleArn" => String.t(),
-        "Targets" => list(target()()),
+        "Targets" => list(target()),
         "TaskArn" => String.t(),
         "TaskParameters" => map(),
         "Type" => list(any()),
@@ -7912,12 +7912,12 @@ defmodule AWS.SSM do
   ## Example:
       
       create_document_request() :: %{
-        optional("Attachments") => list(attachments_source()()),
+        optional("Attachments") => list(attachments_source()),
         optional("DisplayName") => String.t(),
         optional("DocumentFormat") => list(any()),
         optional("DocumentType") => list(any()),
-        optional("Requires") => list(document_requires()()),
-        optional("Tags") => list(tag()()),
+        optional("Requires") => list(document_requires()),
+        optional("Tags") => list(tag()),
         optional("TargetType") => String.t(),
         optional("VersionName") => String.t(),
         required("Content") => String.t(),
@@ -7938,7 +7938,7 @@ defmodule AWS.SSM do
         "AssociationName" => String.t(),
         "AssociationVersion" => String.t(),
         "AutomationTargetParameterName" => String.t(),
-        "CalendarNames" => list(String.t()()),
+        "CalendarNames" => list(String.t()),
         "ComplianceSeverity" => list(any()),
         "Date" => non_neg_integer(),
         "DocumentVersion" => String.t(),
@@ -7957,10 +7957,10 @@ defmodule AWS.SSM do
         "ScheduleOffset" => integer(),
         "Status" => association_status(),
         "SyncCompliance" => list(any()),
-        "TargetLocations" => list(target_location()()),
-        "TargetMaps" => list(map()()),
-        "Targets" => list(target()()),
-        "TriggeredAlarms" => list(alarm_state_information()())
+        "TargetLocations" => list(target_location()),
+        "TargetMaps" => list(map()),
+        "Targets" => list(target()),
+        "TriggeredAlarms" => list(alarm_state_information())
       }
       
   """
@@ -7983,7 +7983,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_ops_item_events_request() :: %{
-        optional("Filters") => list(ops_item_event_filter()()),
+        optional("Filters") => list(ops_item_event_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -7997,7 +7997,7 @@ defmodule AWS.SSM do
       
       update_patch_baseline_result() :: %{
         "ApprovalRules" => patch_rule_group(),
-        "ApprovedPatches" => list(String.t()()),
+        "ApprovedPatches" => list(String.t()),
         "ApprovedPatchesComplianceLevel" => list(any()),
         "ApprovedPatchesEnableNonSecurity" => boolean(),
         "AvailableSecurityUpdatesComplianceStatus" => list(any()),
@@ -8008,9 +8008,9 @@ defmodule AWS.SSM do
         "ModifiedDate" => non_neg_integer(),
         "Name" => String.t(),
         "OperatingSystem" => list(any()),
-        "RejectedPatches" => list(String.t()()),
+        "RejectedPatches" => list(String.t()),
         "RejectedPatchesAction" => list(any()),
-        "Sources" => list(patch_source()())
+        "Sources" => list(patch_source())
       }
       
   """
@@ -8036,7 +8036,7 @@ defmodule AWS.SSM do
       patch_source() :: %{
         "Configuration" => String.t(),
         "Name" => String.t(),
-        "Products" => list(String.t()())
+        "Products" => list(String.t())
       }
       
   """
@@ -8059,7 +8059,7 @@ defmodule AWS.SSM do
   ## Example:
       
       list_inventory_entries_request() :: %{
-        optional("Filters") => list(inventory_filter()()),
+        optional("Filters") => list(inventory_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("InstanceId") => String.t(),
@@ -8949,7 +8949,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -8968,7 +8969,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, associate_ops_item_related_item_errors()}
   def associate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateOpsItemRelatedItem", input, options)
   end
@@ -8985,7 +8987,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, cancel_command_errors()}
   def cancel_command(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCommand", input, options)
   end
@@ -9008,7 +9011,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, cancel_maintenance_window_execution_errors()}
   def cancel_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelMaintenanceWindowExecution", input, options)
   end
@@ -9039,7 +9043,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_activation_errors()}
   def create_activation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateActivation", input, options)
   end
@@ -9073,7 +9078,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_association_errors()}
   def create_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAssociation", input, options)
   end
@@ -9099,7 +9105,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_association_batch_errors()}
   def create_association_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAssociationBatch", input, options)
   end
@@ -9121,7 +9128,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_document_errors()}
   def create_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDocument", input, options)
   end
@@ -9146,7 +9154,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_maintenance_window_errors()}
   def create_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMaintenanceWindow", input, options)
   end
@@ -9173,7 +9182,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_ops_item_errors()}
   def create_ops_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOpsItem", input, options)
   end
@@ -9189,7 +9199,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_ops_metadata_errors()}
   def create_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOpsMetadata", input, options)
   end
@@ -9206,7 +9217,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_patch_baseline_errors()}
   def create_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePatchBaseline", input, options)
   end
@@ -9257,7 +9269,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, create_resource_data_sync_errors()}
   def create_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceDataSync", input, options)
   end
@@ -9276,7 +9289,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_activation_errors()}
   def delete_activation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteActivation", input, options)
   end
@@ -9303,7 +9317,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_association_errors()}
   def delete_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssociation", input, options)
   end
@@ -9322,7 +9337,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_document_errors()}
   def delete_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDocument", input, options)
   end
@@ -9341,7 +9357,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_inventory_errors()}
   def delete_inventory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteInventory", input, options)
   end
@@ -9355,7 +9372,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_maintenance_window_errors()}
   def delete_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMaintenanceWindow", input, options)
   end
@@ -9401,7 +9419,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_ops_item_errors()}
   def delete_ops_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOpsItem", input, options)
   end
@@ -9415,7 +9434,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_ops_metadata_errors()}
   def delete_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOpsMetadata", input, options)
   end
@@ -9432,7 +9452,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_parameter_errors()}
   def delete_parameter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameter", input, options)
   end
@@ -9449,7 +9470,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_parameters_errors()}
   def delete_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameters", input, options)
   end
@@ -9463,7 +9485,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_patch_baseline_errors()}
   def delete_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePatchBaseline", input, options)
   end
@@ -9482,7 +9505,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_resource_data_sync_errors()}
   def delete_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceDataSync", input, options)
   end
@@ -9514,7 +9538,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -9540,7 +9565,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_managed_instance_errors()}
   def deregister_managed_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterManagedInstance", input, options)
   end
@@ -9558,7 +9584,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_patch_baseline_for_patch_group_errors()}
   def deregister_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterPatchBaselineForPatchGroup", input, options)
   end
@@ -9576,7 +9603,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_target_from_maintenance_window_errors()}
   def deregister_target_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTargetFromMaintenanceWindow", input, options)
   end
@@ -9594,7 +9622,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, deregister_task_from_maintenance_window_errors()}
   def deregister_task_from_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTaskFromMaintenanceWindow", input, options)
   end
@@ -9614,7 +9643,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_activations_errors()}
   def describe_activations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeActivations", input, options)
   end
@@ -9633,7 +9663,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_errors()}
   def describe_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssociation", input, options)
   end
@@ -9651,7 +9682,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_execution_targets_errors()}
   def describe_association_execution_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssociationExecutionTargets", input, options)
   end
@@ -9665,7 +9697,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_association_executions_errors()}
   def describe_association_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssociationExecutions", input, options)
   end
@@ -9679,7 +9712,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_automation_executions_errors()}
   def describe_automation_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutomationExecutions", input, options)
   end
@@ -9698,7 +9732,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_automation_step_executions_errors()}
   def describe_automation_step_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutomationStepExecutions", input, options)
   end
@@ -9715,7 +9750,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_available_patches_errors()}
   def describe_available_patches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAvailablePatches", input, options)
   end
@@ -9730,7 +9766,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_document_errors()}
   def describe_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDocument", input, options)
   end
@@ -9750,7 +9787,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_document_permission_errors()}
   def describe_document_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDocumentPermission", input, options)
   end
@@ -9768,7 +9806,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_effective_instance_associations_errors()}
   def describe_effective_instance_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEffectiveInstanceAssociations", input, options)
   end
@@ -9790,7 +9829,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_effective_patches_for_patch_baseline_errors()}
   def describe_effective_patches_for_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEffectivePatchesForPatchBaseline", input, options)
   end
@@ -9808,7 +9848,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_associations_status_errors()}
   def describe_instance_associations_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceAssociationsStatus", input, options)
   end
@@ -9839,7 +9880,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_information_errors()}
   def describe_instance_information(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceInformation", input, options)
   end
@@ -9853,7 +9895,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patch_states_errors()}
   def describe_instance_patch_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatchStates", input, options)
   end
@@ -9873,7 +9916,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patch_states_for_patch_group_errors()}
   def describe_instance_patch_states_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatchStatesForPatchGroup", input, options)
   end
@@ -9889,7 +9933,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_patches_errors()}
   def describe_instance_patches(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstancePatches", input, options)
   end
@@ -9905,7 +9950,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_instance_properties_errors()}
   def describe_instance_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceProperties", input, options)
   end
@@ -9919,7 +9965,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_inventory_deletions_errors()}
   def describe_inventory_deletions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInventoryDeletions", input, options)
   end
@@ -9943,7 +9990,8 @@ defmodule AWS.SSM do
         input,
         options \\ []
       ) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -9967,7 +10015,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_execution_tasks_errors()}
   def describe_maintenance_window_execution_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowExecutionTasks", input, options)
   end
@@ -9990,7 +10039,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_executions_errors()}
   def describe_maintenance_window_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowExecutions", input, options)
   end
@@ -10008,7 +10058,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_schedule_errors()}
   def describe_maintenance_window_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowSchedule", input, options)
   end
@@ -10026,7 +10077,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_targets_errors()}
   def describe_maintenance_window_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowTargets", input, options)
   end
@@ -10050,7 +10102,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_window_tasks_errors()}
   def describe_maintenance_window_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowTasks", input, options)
   end
@@ -10064,7 +10117,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_windows_errors()}
   def describe_maintenance_windows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindows", input, options)
   end
@@ -10084,7 +10138,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_maintenance_windows_for_target_errors()}
   def describe_maintenance_windows_for_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceWindowsForTarget", input, options)
   end
@@ -10111,7 +10166,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_ops_items_errors()}
   def describe_ops_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOpsItems", input, options)
   end
@@ -10145,7 +10201,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -10159,7 +10216,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_baselines_errors()}
   def describe_patch_baselines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePatchBaselines", input, options)
   end
@@ -10174,7 +10232,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_group_state_errors()}
   def describe_patch_group_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePatchGroupState", input, options)
   end
@@ -10188,7 +10247,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_groups_errors()}
   def describe_patch_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePatchGroups", input, options)
   end
@@ -10266,7 +10326,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_patch_properties_errors()}
   def describe_patch_properties(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePatchProperties", input, options)
   end
@@ -10282,7 +10343,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, describe_sessions_errors()}
   def describe_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSessions", input, options)
   end
@@ -10305,7 +10367,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, disassociate_ops_item_related_item_errors()}
   def disassociate_ops_item_related_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateOpsItemRelatedItem", input, options)
   end
@@ -10319,7 +10382,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_access_token_errors()}
   def get_access_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessToken", input, options)
   end
@@ -10333,7 +10397,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_automation_execution_errors()}
   def get_automation_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAutomationExecution", input, options)
   end
@@ -10365,7 +10430,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_calendar_state_errors()}
   def get_calendar_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCalendarState", input, options)
   end
@@ -10398,7 +10464,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_command_invocation_errors()}
   def get_command_invocation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCommandInvocation", input, options)
   end
@@ -10414,7 +10481,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_connection_status_errors()}
   def get_connection_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetConnectionStatus", input, options)
   end
@@ -10436,7 +10504,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_default_patch_baseline_errors()}
   def get_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDefaultPatchBaseline", input, options)
   end
@@ -10468,7 +10537,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_deployable_patch_snapshot_for_instance_errors()}
   def get_deployable_patch_snapshot_for_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDeployablePatchSnapshotForInstance", input, options)
   end
@@ -10483,7 +10553,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_document_errors()}
   def get_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDocument", input, options)
   end
@@ -10499,7 +10570,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_execution_preview_errors()}
   def get_execution_preview(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExecutionPreview", input, options)
   end
@@ -10516,7 +10588,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_inventory_errors()}
   def get_inventory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInventory", input, options)
   end
@@ -10532,7 +10605,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_inventory_schema_errors()}
   def get_inventory_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInventorySchema", input, options)
   end
@@ -10546,7 +10620,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_errors()}
   def get_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindow", input, options)
   end
@@ -10564,7 +10639,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_errors()}
   def get_maintenance_window_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowExecution", input, options)
   end
@@ -10583,7 +10659,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_task_errors()}
   def get_maintenance_window_execution_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowExecutionTask", input, options)
   end
@@ -10601,7 +10678,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_execution_task_invocation_errors()}
   def get_maintenance_window_execution_task_invocation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -10630,7 +10708,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_maintenance_window_task_errors()}
   def get_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMaintenanceWindowTask", input, options)
   end
@@ -10658,7 +10737,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_item_errors()}
   def get_ops_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpsItem", input, options)
   end
@@ -10672,7 +10752,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_metadata_errors()}
   def get_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpsMetadata", input, options)
   end
@@ -10693,7 +10774,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_ops_summary_errors()}
   def get_ops_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpsSummary", input, options)
   end
@@ -10710,7 +10792,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameter_errors()}
   def get_parameter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParameter", input, options)
   end
@@ -10730,7 +10813,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameter_history_errors()}
   def get_parameter_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParameterHistory", input, options)
   end
@@ -10748,7 +10832,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameters_errors()}
   def get_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParameters", input, options)
   end
@@ -10773,7 +10858,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_parameters_by_path_errors()}
   def get_parameters_by_path(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetParametersByPath", input, options)
   end
@@ -10787,7 +10873,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_patch_baseline_errors()}
   def get_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPatchBaseline", input, options)
   end
@@ -10805,7 +10892,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_patch_baseline_for_patch_group_errors()}
   def get_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPatchBaselineForPatchGroup", input, options)
   end
@@ -10819,7 +10907,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_resource_policies_errors()}
   def get_resource_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicies", input, options)
   end
@@ -10856,7 +10945,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, get_service_setting_errors()}
   def get_service_setting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetServiceSetting", input, options)
   end
@@ -10916,7 +11006,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, label_parameter_version_errors()}
   def label_parameter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LabelParameterVersion", input, options)
   end
@@ -10930,7 +11021,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_association_versions_errors()}
   def list_association_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociationVersions", input, options)
   end
@@ -10951,7 +11043,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_associations_errors()}
   def list_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssociations", input, options)
   end
@@ -10974,7 +11067,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_command_invocations_errors()}
   def list_command_invocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommandInvocations", input, options)
   end
@@ -10988,7 +11082,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_commands_errors()}
   def list_commands(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCommands", input, options)
   end
@@ -11007,7 +11102,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_compliance_items_errors()}
   def list_compliance_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComplianceItems", input, options)
   end
@@ -11027,7 +11123,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_compliance_summaries_errors()}
   def list_compliance_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListComplianceSummaries", input, options)
   end
@@ -11042,7 +11139,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_document_metadata_history_errors()}
   def list_document_metadata_history(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocumentMetadataHistory", input, options)
   end
@@ -11056,7 +11154,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_document_versions_errors()}
   def list_document_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocumentVersions", input, options)
   end
@@ -11074,7 +11173,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_documents_errors()}
   def list_documents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDocuments", input, options)
   end
@@ -11088,7 +11188,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_inventory_entries_errors()}
   def list_inventory_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListInventoryEntries", input, options)
   end
@@ -11103,7 +11204,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_nodes_errors()}
   def list_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNodes", input, options)
   end
@@ -11121,7 +11223,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_nodes_summary_errors()}
   def list_nodes_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListNodesSummary", input, options)
   end
@@ -11140,7 +11243,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_item_events_errors()}
   def list_ops_item_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOpsItemEvents", input, options)
   end
@@ -11158,7 +11262,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_item_related_items_errors()}
   def list_ops_item_related_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOpsItemRelatedItems", input, options)
   end
@@ -11174,7 +11279,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_ops_metadata_errors()}
   def list_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOpsMetadata", input, options)
   end
@@ -11197,7 +11303,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_resource_compliance_summaries_errors()}
   def list_resource_compliance_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceComplianceSummaries", input, options)
   end
@@ -11227,7 +11334,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_resource_data_sync_errors()}
   def list_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceDataSync", input, options)
   end
@@ -11244,7 +11352,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -11265,7 +11374,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, modify_document_permission_errors()}
   def modify_document_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDocumentPermission", input, options)
   end
@@ -11342,7 +11452,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_compliance_items_errors()}
   def put_compliance_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutComplianceItems", input, options)
   end
@@ -11361,7 +11472,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_inventory_errors()}
   def put_inventory(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutInventory", input, options)
   end
@@ -11375,7 +11487,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_parameter_errors()}
   def put_parameter(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutParameter", input, options)
   end
@@ -11433,7 +11546,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -11455,7 +11569,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_default_patch_baseline_errors()}
   def register_default_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDefaultPatchBaseline", input, options)
   end
@@ -11473,7 +11588,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_patch_baseline_for_patch_group_errors()}
   def register_patch_baseline_for_patch_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterPatchBaselineForPatchGroup", input, options)
   end
@@ -11491,7 +11607,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_target_with_maintenance_window_errors()}
   def register_target_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTargetWithMaintenanceWindow", input, options)
   end
@@ -11509,7 +11626,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, register_task_with_maintenance_window_errors()}
   def register_task_with_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTaskWithMaintenanceWindow", input, options)
   end
@@ -11523,7 +11641,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -11564,7 +11683,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, reset_service_setting_errors()}
   def reset_service_setting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetServiceSetting", input, options)
   end
@@ -11585,7 +11705,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, resume_session_errors()}
   def resume_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeSession", input, options)
   end
@@ -11601,7 +11722,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, send_automation_signal_errors()}
   def send_automation_signal(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendAutomationSignal", input, options)
   end
@@ -11615,7 +11737,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, send_command_errors()}
   def send_command(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendCommand", input, options)
   end
@@ -11629,7 +11752,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_access_request_errors()}
   def start_access_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAccessRequest", input, options)
   end
@@ -11646,7 +11770,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_associations_once_errors()}
   def start_associations_once(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAssociationsOnce", input, options)
   end
@@ -11660,7 +11785,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_automation_execution_errors()}
   def start_automation_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAutomationExecution", input, options)
   end
@@ -11679,7 +11805,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_change_request_execution_errors()}
   def start_change_request_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartChangeRequestExecution", input, options)
   end
@@ -11695,7 +11822,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_execution_preview_errors()}
   def start_execution_preview(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExecutionPreview", input, options)
   end
@@ -11725,7 +11853,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
   end
@@ -11739,7 +11868,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, stop_automation_execution_errors()}
   def stop_automation_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAutomationExecution", input, options)
   end
@@ -11757,7 +11887,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateSession", input, options)
   end
@@ -11771,7 +11902,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, unlabel_parameter_version_errors()}
   def unlabel_parameter_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnlabelParameterVersion", input, options)
   end
@@ -11818,7 +11950,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_association_errors()}
   def update_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAssociation", input, options)
   end
@@ -11840,7 +11973,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_association_status_errors()}
   def update_association_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAssociationStatus", input, options)
   end
@@ -11854,7 +11988,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_errors()}
   def update_document(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDocument", input, options)
   end
@@ -11873,7 +12008,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_default_version_errors()}
   def update_document_default_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDocumentDefaultVersion", input, options)
   end
@@ -11889,7 +12025,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_document_metadata_errors()}
   def update_document_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDocumentMetadata", input, options)
   end
@@ -11916,7 +12053,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_errors()}
   def update_maintenance_window(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindow", input, options)
   end
@@ -11959,7 +12097,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_target_errors()}
   def update_maintenance_window_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindowTarget", input, options)
   end
@@ -12028,7 +12167,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_maintenance_window_task_errors()}
   def update_maintenance_window_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceWindowTask", input, options)
   end
@@ -12047,7 +12187,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_managed_instance_role_errors()}
   def update_managed_instance_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateManagedInstanceRole", input, options)
   end
@@ -12074,7 +12215,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_ops_item_errors()}
   def update_ops_item(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateOpsItem", input, options)
   end
@@ -12089,7 +12231,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_ops_metadata_errors()}
   def update_ops_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateOpsMetadata", input, options)
   end
@@ -12109,7 +12252,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_patch_baseline_errors()}
   def update_patch_baseline(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePatchBaseline", input, options)
   end
@@ -12141,7 +12285,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_resource_data_sync_errors()}
   def update_resource_data_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResourceDataSync", input, options)
   end
@@ -12179,7 +12324,8 @@ defmodule AWS.SSM do
           | {:error, term()}
           | {:error, update_service_setting_errors()}
   def update_service_setting(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateServiceSetting", input, options)
   end

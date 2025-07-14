@@ -23,7 +23,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_application_states_request() :: %{
-        optional("ApplicationIds") => list(String.t()()),
+        optional("ApplicationIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -89,7 +89,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_migration_tasks_result() :: %{
-        "MigrationTaskSummaryList" => list(migration_task_summary()()),
+        "MigrationTaskSummaryList" => list(migration_task_summary()),
         "NextToken" => String.t()
       }
       
@@ -122,7 +122,7 @@ defmodule AWS.MigrationHub do
         optional("DryRun") => boolean(),
         required("MigrationTaskName") => String.t(),
         required("ProgressUpdateStream") => String.t(),
-        required("ResourceAttributeList") => list(resource_attribute()())
+        required("ResourceAttributeList") => list(resource_attribute())
       }
       
   """
@@ -134,7 +134,7 @@ defmodule AWS.MigrationHub do
       
       list_progress_update_streams_result() :: %{
         "NextToken" => String.t(),
-        "ProgressUpdateStreamSummaryList" => list(progress_update_stream_summary()())
+        "ProgressUpdateStreamSummaryList" => list(progress_update_stream_summary())
       }
       
   """
@@ -176,7 +176,7 @@ defmodule AWS.MigrationHub do
       
       list_source_resources_result() :: %{
         "NextToken" => String.t(),
-        "SourceResourceList" => list(source_resource()())
+        "SourceResourceList" => list(source_resource())
       }
       
   """
@@ -244,7 +244,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_application_states_result() :: %{
-        "ApplicationStateList" => list(application_state()()),
+        "ApplicationStateList" => list(application_state()),
         "NextToken" => String.t()
       }
       
@@ -345,7 +345,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_created_artifacts_result() :: %{
-        "CreatedArtifactList" => list(created_artifact()()),
+        "CreatedArtifactList" => list(created_artifact()),
         "NextToken" => String.t()
       }
       
@@ -427,7 +427,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_migration_task_updates_result() :: %{
-        "MigrationTaskUpdateList" => list(migration_task_update()()),
+        "MigrationTaskUpdateList" => list(migration_task_update()),
         "NextToken" => String.t()
       }
       
@@ -687,7 +687,7 @@ defmodule AWS.MigrationHub do
   ## Example:
       
       list_discovered_resources_result() :: %{
-        "DiscoveredResourceList" => list(discovered_resource()()),
+        "DiscoveredResourceList" => list(discovered_resource()),
         "NextToken" => String.t()
       }
       
@@ -748,7 +748,7 @@ defmodule AWS.MigrationHub do
       migration_task() :: %{
         "MigrationTaskName" => String.t(),
         "ProgressUpdateStream" => String.t(),
-        "ResourceAttributeList" => list(resource_attribute()()),
+        "ResourceAttributeList" => list(resource_attribute()),
         "Task" => task(),
         "UpdateDateTime" => non_neg_integer()
       }
@@ -1009,7 +1009,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_created_artifact_errors()}
   def associate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateCreatedArtifact", input, options)
   end
@@ -1025,7 +1026,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_discovered_resource_errors()}
   def associate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateDiscoveredResource", input, options)
   end
@@ -1042,7 +1044,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, associate_source_resource_errors()}
   def associate_source_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSourceResource", input, options)
   end
@@ -1065,7 +1068,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, create_progress_update_stream_errors()}
   def create_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProgressUpdateStream", input, options)
   end
@@ -1112,7 +1116,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, delete_progress_update_stream_errors()}
   def delete_progress_update_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProgressUpdateStream", input, options)
   end
@@ -1126,7 +1131,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, describe_application_state_errors()}
   def describe_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationState", input, options)
   end
@@ -1140,7 +1146,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, describe_migration_task_errors()}
   def describe_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMigrationTask", input, options)
   end
@@ -1172,7 +1179,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_created_artifact_errors()}
   def disassociate_created_artifact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateCreatedArtifact", input, options)
   end
@@ -1192,7 +1200,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_discovered_resource_errors()}
   def disassociate_discovered_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateDiscoveredResource", input, options)
   end
@@ -1206,7 +1215,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, disassociate_source_resource_errors()}
   def disassociate_source_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSourceResource", input, options)
   end
@@ -1225,7 +1235,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, import_migration_task_errors()}
   def import_migration_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportMigrationTask", input, options)
   end
@@ -1243,7 +1254,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_application_states_errors()}
   def list_application_states(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationStates", input, options)
   end
@@ -1272,7 +1284,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_created_artifacts_errors()}
   def list_created_artifacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCreatedArtifacts", input, options)
   end
@@ -1286,7 +1299,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -1302,7 +1316,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_migration_task_updates_errors()}
   def list_migration_task_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMigrationTaskUpdates", input, options)
   end
@@ -1330,7 +1345,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_migration_tasks_errors()}
   def list_migration_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMigrationTasks", input, options)
   end
@@ -1344,7 +1360,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_progress_update_streams_errors()}
   def list_progress_update_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProgressUpdateStreams", input, options)
   end
@@ -1359,7 +1376,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, list_source_resources_errors()}
   def list_source_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSourceResources", input, options)
   end
@@ -1384,7 +1402,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, notify_application_state_errors()}
   def notify_application_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyApplicationState", input, options)
   end
@@ -1416,7 +1435,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, notify_migration_task_state_errors()}
   def notify_migration_task_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "NotifyMigrationTaskState", input, options)
   end
@@ -1454,7 +1474,8 @@ defmodule AWS.MigrationHub do
           | {:error, term()}
           | {:error, put_resource_attributes_errors()}
   def put_resource_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourceAttributes", input, options)
   end

@@ -75,7 +75,7 @@ defmodule AWS.ECRPUBLIC do
       
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -141,7 +141,7 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       describe_images_request() :: %{
-        optional("imageIds") => list(image_identifier()()),
+        optional("imageIds") => list(image_identifier()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("registryId") => String.t(),
@@ -204,8 +204,8 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       batch_check_layer_availability_response() :: %{
-        "failures" => list(layer_failure()()),
-        "layers" => list(layer()())
+        "failures" => list(layer_failure()),
+        "layers" => list(layer())
       }
       
   """
@@ -285,7 +285,7 @@ defmodule AWS.ECRPUBLIC do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -331,7 +331,7 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       describe_images_response() :: %{
-        "imageDetails" => list(image_detail()()),
+        "imageDetails" => list(image_detail()),
         "nextToken" => String.t()
       }
       
@@ -346,7 +346,7 @@ defmodule AWS.ECRPUBLIC do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("registryId") => String.t(),
-        optional("repositoryNames") => list(String.t()())
+        optional("repositoryNames") => list(String.t())
       }
       
   """
@@ -374,7 +374,7 @@ defmodule AWS.ECRPUBLIC do
       
       complete_layer_upload_request() :: %{
         optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()()),
+        required("layerDigests") => list(String.t()),
         required("repositoryName") => String.t(),
         required("uploadId") => String.t()
       }
@@ -427,7 +427,7 @@ defmodule AWS.ECRPUBLIC do
       
       batch_delete_image_request() :: %{
         optional("registryId") => String.t(),
-        required("imageIds") => list(image_identifier()()),
+        required("imageIds") => list(image_identifier()),
         required("repositoryName") => String.t()
       }
       
@@ -602,11 +602,11 @@ defmodule AWS.ECRPUBLIC do
       
       repository_catalog_data() :: %{
         "aboutText" => String.t(),
-        "architectures" => list(String.t()()),
+        "architectures" => list(String.t()),
         "description" => String.t(),
         "logoUrl" => String.t(),
         "marketplaceCertified" => boolean(),
-        "operatingSystems" => list(String.t()()),
+        "operatingSystems" => list(String.t()),
         "usageText" => String.t()
       }
       
@@ -618,7 +618,7 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -664,7 +664,7 @@ defmodule AWS.ECRPUBLIC do
       
       describe_registries_response() :: %{
         "nextToken" => String.t(),
-        "registries" => list(registry()())
+        "registries" => list(registry())
       }
       
   """
@@ -676,10 +676,10 @@ defmodule AWS.ECRPUBLIC do
       
       repository_catalog_data_input() :: %{
         "aboutText" => String.t(),
-        "architectures" => list(String.t()()),
+        "architectures" => list(String.t()),
         "description" => String.t(),
         "logoImageBlob" => binary(),
-        "operatingSystems" => list(String.t()()),
+        "operatingSystems" => list(String.t()),
         "usageText" => String.t()
       }
       
@@ -717,7 +717,7 @@ defmodule AWS.ECRPUBLIC do
       
       create_repository_request() :: %{
         optional("catalogData") => repository_catalog_data_input(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("repositoryName") => String.t()
       }
       
@@ -777,8 +777,8 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       batch_delete_image_response() :: %{
-        "failures" => list(image_failure()()),
-        "imageIds" => list(image_identifier()())
+        "failures" => list(image_failure()),
+        "imageIds" => list(image_identifier())
       }
       
   """
@@ -860,7 +860,7 @@ defmodule AWS.ECRPUBLIC do
       
       batch_check_layer_availability_request() :: %{
         optional("registryId") => String.t(),
-        required("layerDigests") => list(String.t()()),
+        required("layerDigests") => list(String.t()),
         required("repositoryName") => String.t()
       }
       
@@ -917,7 +917,7 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       registry() :: %{
-        "aliases" => list(registry_alias()()),
+        "aliases" => list(registry_alias()),
         "registryArn" => String.t(),
         "registryId" => String.t(),
         "registryUri" => String.t(),
@@ -955,7 +955,7 @@ defmodule AWS.ECRPUBLIC do
       
       describe_repositories_response() :: %{
         "nextToken" => String.t(),
-        "repositories" => list(repository()())
+        "repositories" => list(repository())
       }
       
   """
@@ -977,7 +977,7 @@ defmodule AWS.ECRPUBLIC do
   ## Example:
       
       describe_image_tags_response() :: %{
-        "imageTagDetails" => list(image_tag_detail()()),
+        "imageTagDetails" => list(image_tag_detail()),
         "nextToken" => String.t()
       }
       
@@ -1006,7 +1006,7 @@ defmodule AWS.ECRPUBLIC do
         "imageManifestMediaType" => String.t(),
         "imagePushedAt" => non_neg_integer(),
         "imageSizeInBytes" => float(),
-        "imageTags" => list(String.t()()),
+        "imageTags" => list(String.t()),
         "registryId" => String.t(),
         "repositoryName" => String.t()
       }
@@ -1269,7 +1269,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
@@ -1296,7 +1297,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
@@ -1323,7 +1325,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
@@ -1340,7 +1343,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -1358,7 +1362,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -1372,7 +1377,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
@@ -1386,7 +1392,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_image_tags_errors()}
   def describe_image_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImageTags", input, options)
   end
@@ -1408,7 +1415,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -1422,7 +1430,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_registries_errors()}
   def describe_registries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRegistries", input, options)
   end
@@ -1436,7 +1445,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
@@ -1458,7 +1468,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
@@ -1472,7 +1483,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_registry_catalog_data_errors()}
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegistryCatalogData", input, options)
   end
@@ -1489,7 +1501,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_catalog_data_errors()}
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositoryCatalogData", input, options)
   end
@@ -1503,7 +1516,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
@@ -1527,7 +1541,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
@@ -1541,7 +1556,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1566,7 +1582,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutImage", input, options)
   end
@@ -1580,7 +1597,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_registry_catalog_data_errors()}
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRegistryCatalogData", input, options)
   end
@@ -1594,7 +1612,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_repository_catalog_data_errors()}
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRepositoryCatalogData", input, options)
   end
@@ -1612,7 +1631,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
@@ -1632,7 +1652,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1646,7 +1667,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1670,7 +1692,8 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UploadLayerPart", input, options)
   end

@@ -52,10 +52,10 @@ defmodule AWS.Rbin do
 
       create_rule_request() :: %{
         optional("Description") => String.t(),
-        optional("ExcludeResourceTags") => list(resource_tag()()),
+        optional("ExcludeResourceTags") => list(resource_tag()),
         optional("LockConfiguration") => lock_configuration(),
-        optional("ResourceTags") => list(resource_tag()()),
-        optional("Tags") => list(tag()()),
+        optional("ResourceTags") => list(resource_tag()),
+        optional("Tags") => list(tag()),
         required("ResourceType") => list(any()),
         required("RetentionPeriod") => retention_period()
       }
@@ -69,16 +69,16 @@ defmodule AWS.Rbin do
 
       create_rule_response() :: %{
         "Description" => String.t(),
-        "ExcludeResourceTags" => list(resource_tag()()),
+        "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
         "RuleArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -117,12 +117,12 @@ defmodule AWS.Rbin do
 
       get_rule_response() :: %{
         "Description" => String.t(),
-        "ExcludeResourceTags" => list(resource_tag()()),
+        "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
         "RuleArn" => String.t(),
@@ -148,11 +148,11 @@ defmodule AWS.Rbin do
   ## Example:
 
       list_rules_request() :: %{
-        optional("ExcludeResourceTags") => list(resource_tag()()),
+        optional("ExcludeResourceTags") => list(resource_tag()),
         optional("LockState") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ResourceTags") => list(resource_tag()),
         required("ResourceType") => list(any())
       }
 
@@ -165,7 +165,7 @@ defmodule AWS.Rbin do
 
       list_rules_response() :: %{
         "NextToken" => String.t(),
-        "Rules" => list(rule_summary()())
+        "Rules" => list(rule_summary())
       }
 
   """
@@ -185,7 +185,7 @@ defmodule AWS.Rbin do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -219,11 +219,11 @@ defmodule AWS.Rbin do
 
       lock_rule_response() :: %{
         "Description" => String.t(),
-        "ExcludeResourceTags" => list(resource_tag()()),
+        "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
         "RuleArn" => String.t(),
@@ -313,7 +313,7 @@ defmodule AWS.Rbin do
   ## Example:
 
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -355,12 +355,12 @@ defmodule AWS.Rbin do
 
       unlock_rule_response() :: %{
         "Description" => String.t(),
-        "ExcludeResourceTags" => list(resource_tag()()),
+        "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t(),
         "LockConfiguration" => lock_configuration(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
         "RuleArn" => String.t(),
@@ -375,7 +375,7 @@ defmodule AWS.Rbin do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -396,8 +396,8 @@ defmodule AWS.Rbin do
 
       update_rule_request() :: %{
         optional("Description") => String.t(),
-        optional("ExcludeResourceTags") => list(resource_tag()()),
-        optional("ResourceTags") => list(resource_tag()()),
+        optional("ExcludeResourceTags") => list(resource_tag()),
+        optional("ResourceTags") => list(resource_tag()),
         optional("ResourceType") => list(any()),
         optional("RetentionPeriod") => retention_period()
       }
@@ -411,11 +411,11 @@ defmodule AWS.Rbin do
 
       update_rule_response() :: %{
         "Description" => String.t(),
-        "ExcludeResourceTags" => list(resource_tag()()),
+        "ExcludeResourceTags" => list(resource_tag()),
         "Identifier" => String.t(),
         "LockEndTime" => non_neg_integer(),
         "LockState" => list(any()),
-        "ResourceTags" => list(resource_tag()()),
+        "ResourceTags" => list(resource_tag()),
         "ResourceType" => list(any()),
         "RetentionPeriod" => retention_period(),
         "RuleArn" => String.t(),

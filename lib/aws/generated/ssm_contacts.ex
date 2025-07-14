@@ -49,12 +49,12 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       recurrence_settings() :: %{
-        "DailySettings" => list(hand_off_time()()),
-        "MonthlySettings" => list(monthly_setting()()),
+        "DailySettings" => list(hand_off_time()),
+        "MonthlySettings" => list(monthly_setting()),
         "NumberOfOnCalls" => integer(),
         "RecurrenceMultiplier" => integer(),
         "ShiftCoverages" => map(),
-        "WeeklySettings" => list(weekly_setting()())
+        "WeeklySettings" => list(weekly_setting())
       }
       
   """
@@ -67,8 +67,8 @@ defmodule AWS.SSMContacts do
       create_rotation_request() :: %{
         optional("IdempotencyToken") => String.t(),
         optional("StartTime") => non_neg_integer(),
-        optional("Tags") => list(tag()()),
-        required("ContactIds") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        required("ContactIds") => list(String.t()),
         required("Name") => String.t(),
         required("Recurrence") => recurrence_settings(),
         required("TimeZoneId") => String.t()
@@ -103,7 +103,7 @@ defmodule AWS.SSMContacts do
       
       stage() :: %{
         "DurationInMinutes" => integer(),
-        "Targets" => list(target()())
+        "Targets" => list(target())
       }
       
   """
@@ -115,7 +115,7 @@ defmodule AWS.SSMContacts do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -157,7 +157,7 @@ defmodule AWS.SSMContacts do
       create_rotation_override_request() :: %{
         optional("IdempotencyToken") => String.t(),
         required("EndTime") => non_neg_integer(),
-        required("NewContactIds") => list(String.t()()),
+        required("NewContactIds") => list(String.t()),
         required("RotationId") => String.t(),
         required("StartTime") => non_neg_integer()
       }
@@ -275,7 +275,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       shift_details() :: %{
-        "OverriddenContactIds" => list(String.t()())
+        "OverriddenContactIds" => list(String.t())
       }
       
   """
@@ -312,7 +312,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       update_rotation_request() :: %{
-        optional("ContactIds") => list(String.t()()),
+        optional("ContactIds") => list(String.t()),
         optional("StartTime") => non_neg_integer(),
         optional("TimeZoneId") => String.t(),
         required("Recurrence") => recurrence_settings(),
@@ -328,7 +328,7 @@ defmodule AWS.SSMContacts do
       
       list_page_resolutions_result() :: %{
         "NextToken" => String.t(),
-        "PageResolutions" => list(resolution_contact()())
+        "PageResolutions" => list(resolution_contact())
       }
       
   """
@@ -340,7 +340,7 @@ defmodule AWS.SSMContacts do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -362,7 +362,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       rotation() :: %{
-        "ContactIds" => list(String.t()()),
+        "ContactIds" => list(String.t()),
         "Name" => String.t(),
         "Recurrence" => recurrence_settings(),
         "RotationArn" => String.t(),
@@ -414,7 +414,7 @@ defmodule AWS.SSMContacts do
       rotation_override() :: %{
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t()()),
+        "NewContactIds" => list(String.t()),
         "RotationOverrideId" => String.t(),
         "StartTime" => non_neg_integer()
       }
@@ -472,7 +472,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_engagements_result() :: %{
-        "Engagements" => list(engagement()()),
+        "Engagements" => list(engagement()),
         "NextToken" => String.t()
       }
       
@@ -508,7 +508,7 @@ defmodule AWS.SSMContacts do
       
       list_pages_by_engagement_result() :: %{
         "NextToken" => String.t(),
-        "Pages" => list(page()())
+        "Pages" => list(page())
       }
       
   """
@@ -556,7 +556,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       conflict_exception() :: %{
-        "DependentEntities" => list(dependent_entity()()),
+        "DependentEntities" => list(dependent_entity()),
         "Message" => String.t(),
         "ResourceId" => String.t(),
         "ResourceType" => String.t()
@@ -570,7 +570,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_contacts_result() :: %{
-        "Contacts" => list(contact()()),
+        "Contacts" => list(contact()),
         "NextToken" => String.t()
       }
       
@@ -605,7 +605,7 @@ defmodule AWS.SSMContacts do
       
       list_page_receipts_result() :: %{
         "NextToken" => String.t(),
-        "Receipts" => list(receipt()())
+        "Receipts" => list(receipt())
       }
       
   """
@@ -630,7 +630,7 @@ defmodule AWS.SSMContacts do
       
       list_pages_by_contact_result() :: %{
         "NextToken" => String.t(),
-        "Pages" => list(page()())
+        "Pages" => list(page())
       }
       
   """
@@ -698,7 +698,7 @@ defmodule AWS.SSMContacts do
       get_rotation_override_result() :: %{
         "CreateTime" => non_neg_integer(),
         "EndTime" => non_neg_integer(),
-        "NewContactIds" => list(String.t()()),
+        "NewContactIds" => list(String.t()),
         "RotationArn" => String.t(),
         "RotationOverrideId" => String.t(),
         "StartTime" => non_neg_integer()
@@ -728,7 +728,7 @@ defmodule AWS.SSMContacts do
       
       list_preview_rotation_shifts_result() :: %{
         "NextToken" => String.t(),
-        "RotationShifts" => list(rotation_shift()())
+        "RotationShifts" => list(rotation_shift())
       }
       
   """
@@ -759,7 +759,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_contact_channels_result() :: %{
-        "ContactChannels" => list(contact_channel()()),
+        "ContactChannels" => list(contact_channel()),
         "NextToken" => String.t()
       }
       
@@ -786,7 +786,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       get_rotation_result() :: %{
-        "ContactIds" => list(String.t()()),
+        "ContactIds" => list(String.t()),
         "Name" => String.t(),
         "Recurrence" => recurrence_settings(),
         "RotationArn" => String.t(),
@@ -850,7 +850,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       dependent_entity() :: %{
-        "DependentResourceIds" => list(String.t()()),
+        "DependentResourceIds" => list(String.t()),
         "RelationType" => String.t()
       }
       
@@ -899,7 +899,7 @@ defmodule AWS.SSMContacts do
       
       list_rotation_shifts_result() :: %{
         "NextToken" => String.t(),
-        "RotationShifts" => list(rotation_shift()())
+        "RotationShifts" => list(rotation_shift())
       }
       
   """
@@ -910,7 +910,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       rotation_shift() :: %{
-        "ContactIds" => list(String.t()()),
+        "ContactIds" => list(String.t()),
         "EndTime" => non_neg_integer(),
         "ShiftDetails" => shift_details(),
         "StartTime" => non_neg_integer(),
@@ -959,7 +959,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       list_tags_for_resource_result() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -996,7 +996,7 @@ defmodule AWS.SSMContacts do
       
       list_rotations_result() :: %{
         "NextToken" => String.t(),
-        "Rotations" => list(rotation()())
+        "Rotations" => list(rotation())
       }
       
   """
@@ -1059,7 +1059,7 @@ defmodule AWS.SSMContacts do
       
       list_rotation_overrides_result() :: %{
         "NextToken" => String.t(),
-        "RotationOverrides" => list(rotation_override()())
+        "RotationOverrides" => list(rotation_override())
       }
       
   """
@@ -1135,7 +1135,7 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
@@ -1175,7 +1175,7 @@ defmodule AWS.SSMContacts do
       create_contact_request() :: %{
         optional("DisplayName") => String.t(),
         optional("IdempotencyToken") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Alias") => String.t(),
         required("Plan") => plan(),
         required("Type") => list(any())
@@ -1212,11 +1212,11 @@ defmodule AWS.SSMContacts do
       list_preview_rotation_shifts_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("Overrides") => list(preview_override()()),
+        optional("Overrides") => list(preview_override()),
         optional("RotationStartTime") => non_neg_integer(),
         optional("StartTime") => non_neg_integer(),
         required("EndTime") => non_neg_integer(),
-        required("Members") => list(String.t()()),
+        required("Members") => list(String.t()),
         required("Recurrence") => recurrence_settings(),
         required("TimeZoneId") => String.t()
       }
@@ -1253,7 +1253,7 @@ defmodule AWS.SSMContacts do
       
       preview_override() :: %{
         "EndTime" => non_neg_integer(),
-        "NewMembers" => list(String.t()()),
+        "NewMembers" => list(String.t()),
         "StartTime" => non_neg_integer()
       }
       
@@ -1421,8 +1421,8 @@ defmodule AWS.SSMContacts do
   ## Example:
       
       plan() :: %{
-        "RotationIds" => list(String.t()()),
-        "Stages" => list(stage()())
+        "RotationIds" => list(String.t()),
+        "Stages" => list(stage())
       }
       
   """
@@ -1746,7 +1746,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, accept_page_errors()}
   def accept_page(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptPage", input, options)
   end
@@ -1763,7 +1764,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, activate_contact_channel_errors()}
   def activate_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ActivateContactChannel", input, options)
   end
@@ -1781,7 +1783,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, create_contact_errors()}
   def create_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContact", input, options)
   end
@@ -1796,7 +1799,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, create_contact_channel_errors()}
   def create_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContactChannel", input, options)
   end
@@ -1810,7 +1814,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, create_rotation_errors()}
   def create_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRotation", input, options)
   end
@@ -1824,7 +1829,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, create_rotation_override_errors()}
   def create_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRotationOverride", input, options)
   end
@@ -1840,7 +1846,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, deactivate_contact_channel_errors()}
   def deactivate_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeactivateContactChannel", input, options)
   end
@@ -1861,7 +1868,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, delete_contact_errors()}
   def delete_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContact", input, options)
   end
@@ -1883,7 +1891,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, delete_contact_channel_errors()}
   def delete_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContactChannel", input, options)
   end
@@ -1900,7 +1909,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, delete_rotation_errors()}
   def delete_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRotation", input, options)
   end
@@ -1914,7 +1924,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, delete_rotation_override_errors()}
   def delete_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRotationOverride", input, options)
   end
@@ -1931,7 +1942,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, describe_engagement_errors()}
   def describe_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngagement", input, options)
   end
@@ -1945,7 +1957,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, describe_page_errors()}
   def describe_page(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePage", input, options)
   end
@@ -1959,7 +1972,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, get_contact_errors()}
   def get_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContact", input, options)
   end
@@ -1973,7 +1987,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, get_contact_channel_errors()}
   def get_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactChannel", input, options)
   end
@@ -1988,7 +2003,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, get_contact_policy_errors()}
   def get_contact_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContactPolicy", input, options)
   end
@@ -2002,7 +2018,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, get_rotation_errors()}
   def get_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRotation", input, options)
   end
@@ -2016,7 +2033,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, get_rotation_override_errors()}
   def get_rotation_override(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRotationOverride", input, options)
   end
@@ -2030,7 +2048,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_contact_channels_errors()}
   def list_contact_channels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContactChannels", input, options)
   end
@@ -2044,7 +2063,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_contacts_errors()}
   def list_contacts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContacts", input, options)
   end
@@ -2058,7 +2078,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagements", input, options)
   end
@@ -2072,7 +2093,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_page_receipts_errors()}
   def list_page_receipts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPageReceipts", input, options)
   end
@@ -2094,7 +2116,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_page_resolutions_errors()}
   def list_page_resolutions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPageResolutions", input, options)
   end
@@ -2108,7 +2131,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_pages_by_contact_errors()}
   def list_pages_by_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPagesByContact", input, options)
   end
@@ -2122,7 +2146,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_pages_by_engagement_errors()}
   def list_pages_by_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPagesByEngagement", input, options)
   end
@@ -2139,7 +2164,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_preview_rotation_shifts_errors()}
   def list_preview_rotation_shifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPreviewRotationShifts", input, options)
   end
@@ -2153,7 +2179,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_rotation_overrides_errors()}
   def list_rotation_overrides(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotationOverrides", input, options)
   end
@@ -2167,7 +2194,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_rotation_shifts_errors()}
   def list_rotation_shifts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotationShifts", input, options)
   end
@@ -2181,7 +2209,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_rotations_errors()}
   def list_rotations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRotations", input, options)
   end
@@ -2195,7 +2224,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2214,7 +2244,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, put_contact_policy_errors()}
   def put_contact_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutContactPolicy", input, options)
   end
@@ -2232,7 +2263,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, send_activation_code_errors()}
   def send_activation_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendActivationCode", input, options)
   end
@@ -2249,7 +2281,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, start_engagement_errors()}
   def start_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEngagement", input, options)
   end
@@ -2266,7 +2299,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, stop_engagement_errors()}
   def stop_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopEngagement", input, options)
   end
@@ -2283,7 +2317,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2297,7 +2332,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2311,7 +2347,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, update_contact_errors()}
   def update_contact(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContact", input, options)
   end
@@ -2325,7 +2362,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, update_contact_channel_errors()}
   def update_contact_channel(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContactChannel", input, options)
   end
@@ -2339,7 +2377,8 @@ defmodule AWS.SSMContacts do
           | {:error, term()}
           | {:error, update_rotation_errors()}
   def update_rotation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRotation", input, options)
   end

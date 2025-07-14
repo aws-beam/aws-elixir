@@ -23,13 +23,13 @@ defmodule AWS.STS do
         optional("DurationSeconds") => integer(),
         optional("ExternalId") => String.t(),
         optional("Policy") => String.t(),
-        optional("PolicyArns") => list(policy_descriptor_type()()),
-        optional("ProvidedContexts") => list(provided_context()()),
+        optional("PolicyArns") => list(policy_descriptor_type()),
+        optional("ProvidedContexts") => list(provided_context()),
         optional("SerialNumber") => String.t(),
         optional("SourceIdentity") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TokenCode") => String.t(),
-        optional("TransitiveTagKeys") => list(String.t()()),
+        optional("TransitiveTagKeys") => list(String.t()),
         required("RoleArn") => String.t(),
         required("RoleSessionName") => String.t()
       }
@@ -58,7 +58,7 @@ defmodule AWS.STS do
       assume_role_with_saml_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("Policy") => String.t(),
-        optional("PolicyArns") => list(policy_descriptor_type()()),
+        optional("PolicyArns") => list(policy_descriptor_type()),
         required("PrincipalArn") => String.t(),
         required("RoleArn") => String.t(),
         required("SAMLAssertion") => String.t()
@@ -93,7 +93,7 @@ defmodule AWS.STS do
       assume_role_with_web_identity_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("Policy") => String.t(),
-        optional("PolicyArns") => list(policy_descriptor_type()()),
+        optional("PolicyArns") => list(policy_descriptor_type()),
         optional("ProviderId") => String.t(),
         required("RoleArn") => String.t(),
         required("RoleSessionName") => String.t(),
@@ -267,8 +267,8 @@ defmodule AWS.STS do
       get_federation_token_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("Policy") => String.t(),
-        optional("PolicyArns") => list(policy_descriptor_type()()),
-        optional("Tags") => list(tag()()),
+        optional("PolicyArns") => list(policy_descriptor_type()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -609,7 +609,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_errors()}
   def assume_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRole", input, options)
   end
@@ -800,7 +801,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_with_saml_errors()}
   def assume_role_with_saml(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoleWithSAML", input, options)
   end
@@ -985,7 +987,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_role_with_web_identity_errors()}
   def assume_role_with_web_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoleWithWebIdentity", input, options)
   end
@@ -1020,7 +1023,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, assume_root_errors()}
   def assume_root(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssumeRoot", input, options)
   end
@@ -1082,7 +1086,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, decode_authorization_message_errors()}
   def decode_authorization_message(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DecodeAuthorizationMessage", input, options)
   end
@@ -1121,7 +1126,8 @@ defmodule AWS.STS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_access_key_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccessKeyInfo", input, options)
   end
@@ -1145,7 +1151,8 @@ defmodule AWS.STS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_caller_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCallerIdentity", input, options)
   end
@@ -1288,7 +1295,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, get_federation_token_errors()}
   def get_federation_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFederationToken", input, options)
   end
@@ -1377,7 +1385,8 @@ defmodule AWS.STS do
           | {:error, term()}
           | {:error, get_session_token_errors()}
   def get_session_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSessionToken", input, options)
   end

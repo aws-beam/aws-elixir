@@ -72,8 +72,8 @@ defmodule AWS.DevOpsGuru do
 
       list_organization_insights_response() :: %{
         "NextToken" => String.t(),
-        "ProactiveInsights" => list(proactive_organization_insight_summary()()),
-        "ReactiveInsights" => list(reactive_organization_insight_summary()())
+        "ProactiveInsights" => list(proactive_organization_insight_summary()),
+        "ReactiveInsights" => list(reactive_organization_insight_summary())
       }
 
   """
@@ -168,7 +168,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       performance_insights_metric_dimension_group() :: %{
-        "Dimensions" => list(String.t()()),
+        "Dimensions" => list(String.t()),
         "Group" => String.t(),
         "Limit" => integer()
       }
@@ -214,8 +214,8 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       describe_organization_overview_request() :: %{
-        optional("AccountIds") => list(String.t()()),
-        optional("OrganizationalUnitIds") => list(String.t()()),
+        optional("AccountIds") => list(String.t()),
+        optional("OrganizationalUnitIds") => list(String.t()),
         optional("ToTime") => non_neg_integer(),
         required("FromTime") => non_neg_integer()
       }
@@ -241,7 +241,7 @@ defmodule AWS.DevOpsGuru do
 
       recommendation_related_event() :: %{
         "Name" => String.t(),
-        "Resources" => list(recommendation_related_event_resource()())
+        "Resources" => list(recommendation_related_event_resource())
       }
 
   """
@@ -323,7 +323,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       recommendation_related_anomaly_source_detail() :: %{
-        "CloudWatchMetrics" => list(recommendation_related_cloud_watch_metrics_source_detail()())
+        "CloudWatchMetrics" => list(recommendation_related_cloud_watch_metrics_source_detail())
       }
 
   """
@@ -347,7 +347,7 @@ defmodule AWS.DevOpsGuru do
 
       proactive_anomaly() :: %{
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
-        "AnomalyResources" => list(anomaly_resource()()),
+        "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
         "AssociatedInsightId" => String.t(),
         "Description" => String.t(),
@@ -380,8 +380,8 @@ defmodule AWS.DevOpsGuru do
 
       list_insights_response() :: %{
         "NextToken" => String.t(),
-        "ProactiveInsights" => list(proactive_insight_summary()()),
-        "ReactiveInsights" => list(reactive_insight_summary()())
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
@@ -463,7 +463,7 @@ defmodule AWS.DevOpsGuru do
       anomalous_log_group() :: %{
         "ImpactEndTime" => non_neg_integer(),
         "ImpactStartTime" => non_neg_integer(),
-        "LogAnomalyShowcases" => list(log_anomaly_showcase()()),
+        "LogAnomalyShowcases" => list(log_anomaly_showcase()),
         "LogGroupName" => String.t(),
         "NumberOfLogLinesScanned" => integer()
       }
@@ -485,7 +485,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       proactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t()()),
+        "AssociatedResourceArns" => list(String.t()),
         "Id" => String.t(),
         "InsightTimeRange" => insight_time_range(),
         "Name" => String.t(),
@@ -517,7 +517,7 @@ defmodule AWS.DevOpsGuru do
 
       update_resource_collection_filter() :: %{
         "CloudFormation" => update_cloud_formation_collection_filter(),
-        "Tags" => list(update_tag_collection_filter()())
+        "Tags" => list(update_tag_collection_filter())
       }
 
   """
@@ -595,8 +595,8 @@ defmodule AWS.DevOpsGuru do
 
       search_insights_response() :: %{
         "NextToken" => String.t(),
-        "ProactiveInsights" => list(proactive_insight_summary()()),
-        "ReactiveInsights" => list(reactive_insight_summary()())
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
@@ -619,7 +619,7 @@ defmodule AWS.DevOpsGuru do
 
       cloud_watch_metrics_data_summary() :: %{
         "StatusCode" => list(any()),
-        "TimestampMetricValuePairList" => list(timestamp_metric_value_pair()())
+        "TimestampMetricValuePairList" => list(timestamp_metric_value_pair())
       }
 
   """
@@ -631,7 +631,7 @@ defmodule AWS.DevOpsGuru do
 
       update_tag_collection_filter() :: %{
         "AppBoundaryKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -680,7 +680,7 @@ defmodule AWS.DevOpsGuru do
 
       tag_collection() :: %{
         "AppBoundaryKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -691,7 +691,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       get_cost_estimation_response() :: %{
-        "Costs" => list(service_resource_cost()()),
+        "Costs" => list(service_resource_cost()),
         "NextToken" => String.t(),
         "ResourceCollection" => cost_estimation_resource_collection_filter(),
         "Status" => list(any()),
@@ -808,7 +808,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_notification_channels_response() :: %{
-        "Channels" => list(notification_channel()()),
+        "Channels" => list(notification_channel()),
         "NextToken" => String.t()
       }
 
@@ -820,7 +820,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       reactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t()()),
+        "AssociatedResourceArns" => list(String.t()),
         "Id" => String.t(),
         "InsightTimeRange" => insight_time_range(),
         "Name" => String.t(),
@@ -849,7 +849,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       cloud_formation_cost_estimation_resource_collection_filter() :: %{
-        "StackNames" => list(String.t()())
+        "StackNames" => list(String.t())
       }
 
   """
@@ -881,7 +881,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       log_anomaly_showcase() :: %{
-        "LogAnomalyClasses" => list(log_anomaly_class()())
+        "LogAnomalyClasses" => list(log_anomaly_class())
       }
 
   """
@@ -925,10 +925,10 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       describe_resource_collection_health_response() :: %{
-        "CloudFormation" => list(cloud_formation_health()()),
+        "CloudFormation" => list(cloud_formation_health()),
         "NextToken" => String.t(),
-        "Service" => list(service_health()()),
-        "Tags" => list(tag_health()())
+        "Service" => list(service_health()),
+        "Tags" => list(tag_health())
       }
 
   """
@@ -944,8 +944,8 @@ defmodule AWS.DevOpsGuru do
         "Link" => String.t(),
         "Name" => String.t(),
         "Reason" => String.t(),
-        "RelatedAnomalies" => list(recommendation_related_anomaly()()),
-        "RelatedEvents" => list(recommendation_related_event()())
+        "RelatedAnomalies" => list(recommendation_related_anomaly()),
+        "RelatedEvents" => list(recommendation_related_event())
       }
 
   """
@@ -957,7 +957,7 @@ defmodule AWS.DevOpsGuru do
 
       reactive_anomaly() :: %{
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
-        "AnomalyResources" => list(anomaly_resource()()),
+        "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
         "AssociatedInsightId" => String.t(),
         "CausalAnomalyId" => String.t(),
@@ -982,7 +982,7 @@ defmodule AWS.DevOpsGuru do
         optional("Filters") => search_organization_insights_filters(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("StartTimeRange") => start_time_range(),
         required("Type") => list(any())
       }
@@ -995,7 +995,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       update_cloud_formation_collection_filter() :: %{
-        "StackNames" => list(String.t()())
+        "StackNames" => list(String.t())
       }
 
   """
@@ -1033,8 +1033,8 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       anomaly_source_details() :: %{
-        "CloudWatchMetrics" => list(cloud_watch_metrics_detail()()),
-        "PerformanceInsightsMetrics" => list(performance_insights_metrics_detail()())
+        "CloudWatchMetrics" => list(cloud_watch_metrics_detail()),
+        "PerformanceInsightsMetrics" => list(performance_insights_metrics_detail())
       }
 
   """
@@ -1068,7 +1068,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_monitored_resources_response() :: %{
-        "MonitoredResourceIdentifiers" => list(monitored_resource_identifier()()),
+        "MonitoredResourceIdentifiers" => list(monitored_resource_identifier()),
         "NextToken" => String.t()
       }
 
@@ -1096,7 +1096,7 @@ defmodule AWS.DevOpsGuru do
 
       tag_collection_filter() :: %{
         "AppBoundaryKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -1145,7 +1145,7 @@ defmodule AWS.DevOpsGuru do
 
       reactive_anomaly_summary() :: %{
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
-        "AnomalyResources" => list(anomaly_resource()()),
+        "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
         "AssociatedInsightId" => String.t(),
         "CausalAnomalyId" => String.t(),
@@ -1192,7 +1192,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       cloud_watch_metrics_detail() :: %{
-        "Dimensions" => list(cloud_watch_metrics_dimension()()),
+        "Dimensions" => list(cloud_watch_metrics_dimension()),
         "MetricDataSummary" => cloud_watch_metrics_data_summary(),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
@@ -1210,8 +1210,8 @@ defmodule AWS.DevOpsGuru do
 
       search_organization_insights_response() :: %{
         "NextToken" => String.t(),
-        "ProactiveInsights" => list(proactive_insight_summary()()),
-        "ReactiveInsights" => list(reactive_insight_summary()())
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
       }
 
   """
@@ -1222,7 +1222,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       cloud_formation_collection_filter() :: %{
-        "StackNames" => list(String.t()())
+        "StackNames" => list(String.t())
       }
 
   """
@@ -1234,8 +1234,8 @@ defmodule AWS.DevOpsGuru do
 
       recommendation_related_anomaly() :: %{
         "AnomalyId" => String.t(),
-        "Resources" => list(recommendation_related_anomaly_resource()()),
-        "SourceDetails" => list(recommendation_related_anomaly_source_detail()())
+        "Resources" => list(recommendation_related_anomaly_resource()),
+        "SourceDetails" => list(recommendation_related_anomaly_source_detail())
       }
 
   """
@@ -1247,7 +1247,7 @@ defmodule AWS.DevOpsGuru do
 
       tag_cost_estimation_resource_collection_filter() :: %{
         "AppBoundaryKey" => String.t(),
-        "TagValues" => list(String.t()())
+        "TagValues" => list(String.t())
       }
 
   """
@@ -1271,7 +1271,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_events_response() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "NextToken" => String.t()
       }
 
@@ -1372,11 +1372,11 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       describe_organization_resource_collection_health_response() :: %{
-        "Account" => list(account_health()()),
-        "CloudFormation" => list(cloud_formation_health()()),
+        "Account" => list(account_health()),
+        "CloudFormation" => list(cloud_formation_health()),
         "NextToken" => String.t(),
-        "Service" => list(service_health()()),
-        "Tags" => list(tag_health()())
+        "Service" => list(service_health()),
+        "Tags" => list(tag_health())
       }
 
   """
@@ -1438,7 +1438,7 @@ defmodule AWS.DevOpsGuru do
         "Id" => String.t(),
         "Name" => String.t(),
         "ResourceCollection" => resource_collection(),
-        "Resources" => list(event_resource()()),
+        "Resources" => list(event_resource()),
         "Time" => non_neg_integer()
       }
 
@@ -1464,7 +1464,7 @@ defmodule AWS.DevOpsGuru do
 
       resource_collection_filter() :: %{
         "CloudFormation" => cloud_formation_collection_filter(),
-        "Tags" => list(tag_collection_filter()())
+        "Tags" => list(tag_collection_filter())
       }
 
   """
@@ -1475,10 +1475,10 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       describe_organization_resource_collection_health_request() :: %{
-        optional("AccountIds") => list(String.t()()),
+        optional("AccountIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationalUnitIds") => list(String.t()()),
+        optional("OrganizationalUnitIds") => list(String.t()),
         required("OrganizationResourceCollectionType") => list(any())
       }
 
@@ -1491,8 +1491,8 @@ defmodule AWS.DevOpsGuru do
 
       list_anomalies_for_insight_response() :: %{
         "NextToken" => String.t(),
-        "ProactiveAnomalies" => list(proactive_anomaly_summary()()),
-        "ReactiveAnomalies" => list(reactive_anomaly_summary()())
+        "ProactiveAnomalies" => list(proactive_anomaly_summary()),
+        "ReactiveAnomalies" => list(reactive_anomaly_summary())
       }
 
   """
@@ -1518,7 +1518,7 @@ defmodule AWS.DevOpsGuru do
 
       cost_estimation_resource_collection_filter() :: %{
         "CloudFormation" => cloud_formation_cost_estimation_resource_collection_filter(),
-        "Tags" => list(tag_cost_estimation_resource_collection_filter()())
+        "Tags" => list(tag_cost_estimation_resource_collection_filter())
       }
 
   """
@@ -1613,7 +1613,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       cloud_formation_collection() :: %{
-        "StackNames" => list(String.t()())
+        "StackNames" => list(String.t())
       }
 
   """
@@ -1624,7 +1624,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       validation_exception() :: %{
-        "Fields" => list(validation_exception_field()()),
+        "Fields" => list(validation_exception_field()),
         "Message" => String.t(),
         "Reason" => list(any())
       }
@@ -1646,7 +1646,7 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_anomalous_log_groups_response() :: %{
-        "AnomalousLogGroups" => list(anomalous_log_group()()),
+        "AnomalousLogGroups" => list(anomalous_log_group()),
         "InsightId" => String.t(),
         "NextToken" => String.t()
       }
@@ -1706,9 +1706,9 @@ defmodule AWS.DevOpsGuru do
       performance_insights_metrics_detail() :: %{
         "MetricDisplayName" => String.t(),
         "MetricQuery" => performance_insights_metric_query(),
-        "ReferenceData" => list(performance_insights_reference_data()()),
-        "StatsAtAnomaly" => list(performance_insights_stat()()),
-        "StatsAtBaseline" => list(performance_insights_stat()()),
+        "ReferenceData" => list(performance_insights_reference_data()),
+        "StatsAtAnomaly" => list(performance_insights_stat()),
+        "StatsAtBaseline" => list(performance_insights_stat()),
         "Unit" => String.t()
       }
 
@@ -1873,10 +1873,10 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       list_organization_insights_request() :: %{
-        optional("AccountIds") => list(String.t()()),
+        optional("AccountIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("OrganizationalUnitIds") => list(String.t()()),
+        optional("OrganizationalUnitIds") => list(String.t()),
         required("StatusFilter") => list_insights_status_filter()
       }
 
@@ -1915,7 +1915,7 @@ defmodule AWS.DevOpsGuru do
 
       list_recommendations_response() :: %{
         "NextToken" => String.t(),
-        "Recommendations" => list(recommendation()())
+        "Recommendations" => list(recommendation())
       }
 
   """
@@ -1978,7 +1978,7 @@ defmodule AWS.DevOpsGuru do
 
       resource_collection() :: %{
         "CloudFormation" => cloud_formation_collection(),
-        "Tags" => list(tag_collection()())
+        "Tags" => list(tag_collection())
       }
 
   """
@@ -1990,7 +1990,7 @@ defmodule AWS.DevOpsGuru do
 
       proactive_anomaly_summary() :: %{
         "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
-        "AnomalyResources" => list(anomaly_resource()()),
+        "AnomalyResources" => list(anomaly_resource()),
         "AnomalyTimeRange" => anomaly_time_range(),
         "AssociatedInsightId" => String.t(),
         "Description" => String.t(),
@@ -2040,8 +2040,8 @@ defmodule AWS.DevOpsGuru do
   ## Example:
 
       describe_organization_health_request() :: %{
-        optional("AccountIds") => list(String.t()()),
-        optional("OrganizationalUnitIds") => list(String.t()())
+        optional("AccountIds") => list(String.t()),
+        optional("OrganizationalUnitIds") => list(String.t())
       }
 
   """

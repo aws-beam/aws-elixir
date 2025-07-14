@@ -43,7 +43,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_lifecycle_hooks_type() :: %{
-        optional("LifecycleHookNames") => list(String.t()()),
+        optional("LifecycleHookNames") => list(String.t()),
         required("AutoScalingGroupName") => String.t()
       }
       
@@ -55,8 +55,8 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_metric_collection_types_answer() :: %{
-        optional("Granularities") => list(metric_granularity_type()()),
-        optional("Metrics") => list(metric_collection_type()())
+        optional("Granularities") => list(metric_granularity_type()),
+        optional("Metrics") => list(metric_collection_type())
       }
       
   """
@@ -133,7 +133,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_notification_configurations_type() :: %{
-        optional("AutoScalingGroupNames") => list(String.t()()),
+        optional("AutoScalingGroupNames") => list(String.t()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -146,7 +146,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       policy_arn_type() :: %{
-        "Alarms" => list(alarm()()),
+        "Alarms" => list(alarm()),
         "PolicyARN" => String.t()
       }
       
@@ -181,9 +181,9 @@ defmodule AWS.AutoScaling do
       
       create_launch_configuration_type() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
-        optional("BlockDeviceMappings") => list(block_device_mapping()()),
+        optional("BlockDeviceMappings") => list(block_device_mapping()),
         optional("ClassicLinkVPCId") => String.t(),
-        optional("ClassicLinkVPCSecurityGroups") => list(String.t()()),
+        optional("ClassicLinkVPCSecurityGroups") => list(String.t()),
         optional("EbsOptimized") => boolean(),
         optional("IamInstanceProfile") => String.t(),
         optional("ImageId") => String.t(),
@@ -195,7 +195,7 @@ defmodule AWS.AutoScaling do
         optional("MetadataOptions") => instance_metadata_options(),
         optional("PlacementTenancy") => String.t(),
         optional("RamdiskId") => String.t(),
-        optional("SecurityGroups") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
         optional("SpotPrice") => String.t(),
         optional("UserData") => String.t(),
         required("LaunchConfigurationName") => String.t()
@@ -231,7 +231,7 @@ defmodule AWS.AutoScaling do
       
       tags_type() :: %{
         optional("NextToken") => String.t(),
-        optional("Tags") => list(tag_description()())
+        optional("Tags") => list(tag_description())
       }
       
   """
@@ -254,7 +254,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       exit_standby_query() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         required("AutoScalingGroupName") => String.t()
       }
       
@@ -266,7 +266,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       delete_tags_type() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -306,7 +306,7 @@ defmodule AWS.AutoScaling do
         optional("EndTime") => non_neg_integer(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t(),
-        optional("ScheduledActionNames") => list(String.t()()),
+        optional("ScheduledActionNames") => list(String.t()),
         optional("StartTime") => non_neg_integer()
       }
       
@@ -332,7 +332,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       metric() :: %{
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t()
       }
@@ -357,7 +357,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       enter_standby_answer() :: %{
-        optional("Activities") => list(activity()())
+        optional("Activities") => list(activity())
       }
       
   """
@@ -508,8 +508,8 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       capacity_reservation_target() :: %{
-        "CapacityReservationIds" => list(String.t()()),
-        "CapacityReservationResourceGroupArns" => list(String.t()())
+        "CapacityReservationIds" => list(String.t()),
+        "CapacityReservationResourceGroupArns" => list(String.t())
       }
       
   """
@@ -529,7 +529,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_lifecycle_hooks_answer() :: %{
-        optional("LifecycleHooks") => list(lifecycle_hook()())
+        optional("LifecycleHooks") => list(lifecycle_hook())
       }
       
   """
@@ -573,7 +573,7 @@ defmodule AWS.AutoScaling do
       
       scaling_policy() :: %{
         "AdjustmentType" => String.t(),
-        "Alarms" => list(alarm()()),
+        "Alarms" => list(alarm()),
         "AutoScalingGroupName" => String.t(),
         "Cooldown" => integer(),
         "Enabled" => boolean(),
@@ -586,7 +586,7 @@ defmodule AWS.AutoScaling do
         "PolicyType" => String.t(),
         "PredictiveScalingConfiguration" => predictive_scaling_configuration(),
         "ScalingAdjustment" => integer(),
-        "StepAdjustments" => list(step_adjustment()()),
+        "StepAdjustments" => list(step_adjustment()),
         "TargetTrackingConfiguration" => target_tracking_configuration()
       }
       
@@ -599,7 +599,7 @@ defmodule AWS.AutoScaling do
       
       describe_notification_configurations_answer() :: %{
         optional("NextToken") => String.t(),
-        required("NotificationConfigurations") => list(notification_configuration()())
+        required("NotificationConfigurations") => list(notification_configuration())
       }
       
   """
@@ -623,7 +623,7 @@ defmodule AWS.AutoScaling do
       
       scheduled_actions_type() :: %{
         optional("NextToken") => String.t(),
-        optional("ScheduledUpdateGroupActions") => list(scheduled_update_group_action()())
+        optional("ScheduledUpdateGroupActions") => list(scheduled_update_group_action())
       }
       
   """
@@ -635,7 +635,7 @@ defmodule AWS.AutoScaling do
       
       attach_load_balancers_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("LoadBalancerNames") => list(String.t()())
+        required("LoadBalancerNames") => list(String.t())
       }
       
   """
@@ -663,7 +663,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_load_balancer_target_groups_response() :: %{
-        "LoadBalancerTargetGroups" => list(load_balancer_target_group_state()()),
+        "LoadBalancerTargetGroups" => list(load_balancer_target_group_state()),
         "NextToken" => String.t()
       }
       
@@ -675,7 +675,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       scaling_process_query() :: %{
-        optional("ScalingProcesses") => list(String.t()()),
+        optional("ScalingProcesses") => list(String.t()),
         required("AutoScalingGroupName") => String.t()
       }
       
@@ -687,7 +687,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       launch_configuration_names_type() :: %{
-        optional("LaunchConfigurationNames") => list(String.t()()),
+        optional("LaunchConfigurationNames") => list(String.t()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -709,7 +709,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       detach_instances_answer() :: %{
-        optional("Activities") => list(activity()())
+        optional("Activities") => list(activity())
       }
       
   """
@@ -733,7 +733,7 @@ defmodule AWS.AutoScaling do
       
       get_predictive_scaling_forecast_answer() :: %{
         required("CapacityForecast") => capacity_forecast(),
-        required("LoadForecast") => list(load_forecast()()),
+        required("LoadForecast") => list(load_forecast()),
         required("UpdateTime") => non_neg_integer()
       }
       
@@ -759,8 +759,8 @@ defmodule AWS.AutoScaling do
         optional("AutoScalingGroupName") => String.t(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t(),
-        optional("PolicyNames") => list(String.t()()),
-        optional("PolicyTypes") => list(String.t()())
+        optional("PolicyNames") => list(String.t()),
+        optional("PolicyTypes") => list(String.t())
       }
       
   """
@@ -784,7 +784,7 @@ defmodule AWS.AutoScaling do
       
       launch_configurations_type() :: %{
         optional("NextToken") => String.t(),
-        required("LaunchConfigurations") => list(launch_configuration()())
+        required("LaunchConfigurations") => list(launch_configuration())
       }
       
   """
@@ -819,9 +819,9 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       customized_metric_specification() :: %{
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "MetricName" => String.t(),
-        "Metrics" => list(target_tracking_metric_data_query()()),
+        "Metrics" => list(target_tracking_metric_data_query()),
         "Namespace" => String.t(),
         "Period" => integer(),
         "Statistic" => list(any()),
@@ -836,8 +836,8 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       auto_scaling_group_names_type() :: %{
-        optional("AutoScalingGroupNames") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("AutoScalingGroupNames") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("IncludeInstances") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
@@ -852,7 +852,7 @@ defmodule AWS.AutoScaling do
       
       describe_traffic_sources_response() :: %{
         "NextToken" => String.t(),
-        "TrafficSources" => list(traffic_source_state()())
+        "TrafficSources" => list(traffic_source_state())
       }
       
   """
@@ -863,7 +863,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_instance_refreshes_type() :: %{
-        optional("InstanceRefreshIds") => list(String.t()()),
+        optional("InstanceRefreshIds") => list(String.t()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t(),
         required("AutoScalingGroupName") => String.t()
@@ -878,7 +878,7 @@ defmodule AWS.AutoScaling do
       
       put_notification_configuration_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("NotificationTypes") => list(String.t()()),
+        required("NotificationTypes") => list(String.t()),
         required("TopicARN") => String.t()
       }
       
@@ -891,7 +891,7 @@ defmodule AWS.AutoScaling do
       
       policies_type() :: %{
         optional("NextToken") => String.t(),
-        optional("ScalingPolicies") => list(scaling_policy()())
+        optional("ScalingPolicies") => list(scaling_policy())
       }
       
   """
@@ -960,7 +960,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       predictive_scaling_customized_load_metric() :: %{
-        "MetricDataQueries" => list(metric_data_query()())
+        "MetricDataQueries" => list(metric_data_query())
       }
       
   """
@@ -971,7 +971,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_tags_type() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1085,7 +1085,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_load_balancers_response() :: %{
-        "LoadBalancers" => list(load_balancer_state()()),
+        "LoadBalancers" => list(load_balancer_state()),
         "NextToken" => String.t()
       }
       
@@ -1134,8 +1134,8 @@ defmodule AWS.AutoScaling do
       
       load_forecast() :: %{
         "MetricSpecification" => predictive_scaling_metric_specification(),
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
@@ -1265,7 +1265,7 @@ defmodule AWS.AutoScaling do
       
       detach_traffic_sources_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("TrafficSources") => list(traffic_source_identifier()())
+        required("TrafficSources") => list(traffic_source_identifier())
       }
       
   """
@@ -1277,7 +1277,7 @@ defmodule AWS.AutoScaling do
       
       detach_load_balancers_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("LoadBalancerNames") => list(String.t()())
+        required("LoadBalancerNames") => list(String.t())
       }
       
   """
@@ -1333,7 +1333,7 @@ defmodule AWS.AutoScaling do
       attach_traffic_sources_type() :: %{
         optional("SkipZonalShiftValidation") => boolean(),
         required("AutoScalingGroupName") => String.t(),
-        required("TrafficSources") => list(traffic_source_identifier()())
+        required("TrafficSources") => list(traffic_source_identifier())
       }
       
   """
@@ -1344,7 +1344,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       predictive_scaling_customized_scaling_metric() :: %{
-        "MetricDataQueries" => list(metric_data_query()())
+        "MetricDataQueries" => list(metric_data_query())
       }
       
   """
@@ -1396,7 +1396,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       enter_standby_query() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         required("AutoScalingGroupName") => String.t(),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
@@ -1418,7 +1418,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_lifecycle_hook_types_answer() :: %{
-        optional("LifecycleHookTypes") => list(String.t()())
+        optional("LifecycleHookTypes") => list(String.t())
       }
       
   """
@@ -1430,7 +1430,7 @@ defmodule AWS.AutoScaling do
       
       detach_load_balancer_target_groups_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("TargetGroupARNs") => list(String.t()())
+        required("TargetGroupARNs") => list(String.t())
       }
       
   """
@@ -1485,7 +1485,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_termination_policy_types_answer() :: %{
-        optional("TerminationPolicyTypes") => list(String.t()())
+        optional("TerminationPolicyTypes") => list(String.t())
       }
       
   """
@@ -1496,7 +1496,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       create_or_update_tags_type() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1521,7 +1521,7 @@ defmodule AWS.AutoScaling do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1546,7 +1546,7 @@ defmodule AWS.AutoScaling do
       create_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("CapacityRebalance") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("Context") => String.t(),
@@ -1560,18 +1560,18 @@ defmodule AWS.AutoScaling do
         optional("InstanceMaintenancePolicy") => instance_maintenance_policy(),
         optional("LaunchConfigurationName") => String.t(),
         optional("LaunchTemplate") => launch_template_specification(),
-        optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()()),
-        optional("LoadBalancerNames") => list(String.t()()),
+        optional("LifecycleHookSpecificationList") => list(lifecycle_hook_specification()),
+        optional("LoadBalancerNames") => list(String.t()),
         optional("MaxInstanceLifetime") => integer(),
         optional("MixedInstancesPolicy") => mixed_instances_policy(),
         optional("NewInstancesProtectedFromScaleIn") => boolean(),
         optional("PlacementGroup") => String.t(),
         optional("ServiceLinkedRoleARN") => String.t(),
         optional("SkipZonalShiftValidation") => boolean(),
-        optional("Tags") => list(tag()()),
-        optional("TargetGroupARNs") => list(String.t()()),
-        optional("TerminationPolicies") => list(String.t()()),
-        optional("TrafficSources") => list(traffic_source_identifier()()),
+        optional("Tags") => list(tag()),
+        optional("TargetGroupARNs") => list(String.t()),
+        optional("TerminationPolicies") => list(String.t()),
+        optional("TrafficSources") => list(traffic_source_identifier()),
         optional("VPCZoneIdentifier") => String.t(),
         required("AutoScalingGroupName") => String.t(),
         required("MaxSize") => integer(),
@@ -1675,7 +1675,7 @@ defmodule AWS.AutoScaling do
       
       batch_delete_scheduled_action_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("ScheduledActionNames") => list(String.t()())
+        required("ScheduledActionNames") => list(String.t())
       }
       
   """
@@ -1686,7 +1686,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       exit_standby_answer() :: %{
-        optional("Activities") => list(activity()())
+        optional("Activities") => list(activity())
       }
       
   """
@@ -1697,7 +1697,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_adjustment_types_answer() :: %{
-        optional("AdjustmentTypes") => list(adjustment_type()())
+        optional("AdjustmentTypes") => list(adjustment_type())
       }
       
   """
@@ -1753,7 +1753,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       processes_type() :: %{
-        optional("Processes") => list(process_type()())
+        optional("Processes") => list(process_type())
       }
       
   """
@@ -1785,7 +1785,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_warm_pool_answer() :: %{
-        optional("Instances") => list(instance()()),
+        optional("Instances") => list(instance()),
         optional("NextToken") => String.t(),
         optional("WarmPoolConfiguration") => warm_pool_configuration()
       }
@@ -1817,7 +1817,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       detach_instances_query() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         required("AutoScalingGroupName") => String.t(),
         required("ShouldDecrementDesiredCapacity") => boolean()
       }
@@ -1881,7 +1881,7 @@ defmodule AWS.AutoScaling do
       
       activities_type() :: %{
         optional("NextToken") => String.t(),
-        required("Activities") => list(activity()())
+        required("Activities") => list(activity())
       }
       
   """
@@ -1892,7 +1892,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       attach_instances_query() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         required("AutoScalingGroupName") => String.t()
       }
       
@@ -1909,13 +1909,13 @@ defmodule AWS.AutoScaling do
         "AcceleratorNames" => list(list(any())()),
         "AcceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_request(),
         "AcceleratorTypes" => list(list(any())()),
-        "AllowedInstanceTypes" => list(String.t()()),
+        "AllowedInstanceTypes" => list(String.t()),
         "BareMetal" => list(any()),
         "BaselineEbsBandwidthMbps" => baseline_ebs_bandwidth_mbps_request(),
         "BaselinePerformanceFactors" => baseline_performance_factors_request(),
         "BurstablePerformance" => list(any()),
         "CpuManufacturers" => list(list(any())()),
-        "ExcludedInstanceTypes" => list(String.t()()),
+        "ExcludedInstanceTypes" => list(String.t()),
         "InstanceGenerations" => list(list(any())()),
         "LocalStorage" => list(any()),
         "LocalStorageTypes" => list(list(any())()),
@@ -1965,26 +1965,26 @@ defmodule AWS.AutoScaling do
       auto_scaling_group() :: %{
         "Status" => String.t(),
         "InstanceMaintenancePolicy" => instance_maintenance_policy(),
-        "EnabledMetrics" => list(enabled_metric()()),
-        "SuspendedProcesses" => list(suspended_process()()),
-        "Tags" => list(tag_description()()),
+        "EnabledMetrics" => list(enabled_metric()),
+        "SuspendedProcesses" => list(suspended_process()),
+        "Tags" => list(tag_description()),
         "WarmPoolSize" => integer(),
         "ServiceLinkedRoleARN" => String.t(),
         "Context" => String.t(),
         "DefaultCooldown" => integer(),
         "MaxInstanceLifetime" => integer(),
-        "LoadBalancerNames" => list(String.t()()),
+        "LoadBalancerNames" => list(String.t()),
         "CapacityReservationSpecification" => capacity_reservation_specification(),
         "MinSize" => integer(),
         "HealthCheckGracePeriod" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "DesiredCapacityType" => String.t(),
-        "TrafficSources" => list(traffic_source_identifier()()),
+        "TrafficSources" => list(traffic_source_identifier()),
         "VPCZoneIdentifier" => String.t(),
         "MaxSize" => integer(),
         "CapacityRebalance" => boolean(),
-        "Instances" => list(instance()()),
-        "TerminationPolicies" => list(String.t()()),
+        "Instances" => list(instance()),
+        "TerminationPolicies" => list(String.t()),
         "AvailabilityZoneDistribution" => availability_zone_distribution(),
         "LaunchConfigurationName" => String.t(),
         "HealthCheckType" => String.t(),
@@ -1996,7 +1996,7 @@ defmodule AWS.AutoScaling do
         "DefaultInstanceWarmup" => integer(),
         "AutoScalingGroupName" => String.t(),
         "PredictedCapacity" => integer(),
-        "TargetGroupARNs" => list(String.t()()),
+        "TargetGroupARNs" => list(String.t()),
         "MixedInstancesPolicy" => mixed_instances_policy(),
         "CreatedTime" => non_neg_integer(),
         "NewInstancesProtectedFromScaleIn" => boolean(),
@@ -2011,7 +2011,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       batch_put_scheduled_update_group_action_answer() :: %{
-        optional("FailedScheduledUpdateGroupActions") => list(failed_scheduled_update_group_action_request()())
+        optional("FailedScheduledUpdateGroupActions") => list(failed_scheduled_update_group_action_request())
       }
       
   """
@@ -2022,7 +2022,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_auto_scaling_notification_types_answer() :: %{
-        optional("AutoScalingNotificationTypes") => list(String.t()())
+        optional("AutoScalingNotificationTypes") => list(String.t())
       }
       
   """
@@ -2037,7 +2037,7 @@ defmodule AWS.AutoScaling do
         "AutoRollback" => boolean(),
         "BakeTime" => integer(),
         "CheckpointDelay" => integer(),
-        "CheckpointPercentages" => list(integer()()),
+        "CheckpointPercentages" => list(integer()),
         "InstanceWarmup" => integer(),
         "MaxHealthyPercentage" => integer(),
         "MinHealthyPercentage" => integer(),
@@ -2055,7 +2055,7 @@ defmodule AWS.AutoScaling do
       
       launch_template() :: %{
         "LaunchTemplateSpecification" => launch_template_specification(),
-        "Overrides" => list(launch_template_overrides()())
+        "Overrides" => list(launch_template_overrides())
       }
       
   """
@@ -2067,7 +2067,7 @@ defmodule AWS.AutoScaling do
       
       batch_put_scheduled_update_group_action_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request()())
+        required("ScheduledUpdateGroupActions") => list(scheduled_update_group_action_request())
       }
       
   """
@@ -2078,7 +2078,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_instance_refreshes_answer() :: %{
-        optional("InstanceRefreshes") => list(instance_refresh()()),
+        optional("InstanceRefreshes") => list(instance_refresh()),
         optional("NextToken") => String.t()
       }
       
@@ -2101,7 +2101,7 @@ defmodule AWS.AutoScaling do
       update_auto_scaling_group_type() :: %{
         optional("AvailabilityZoneDistribution") => availability_zone_distribution(),
         optional("AvailabilityZoneImpairmentPolicy") => availability_zone_impairment_policy(),
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("CapacityRebalance") => boolean(),
         optional("CapacityReservationSpecification") => capacity_reservation_specification(),
         optional("Context") => String.t(),
@@ -2122,7 +2122,7 @@ defmodule AWS.AutoScaling do
         optional("PlacementGroup") => String.t(),
         optional("ServiceLinkedRoleARN") => String.t(),
         optional("SkipZonalShiftValidation") => boolean(),
-        optional("TerminationPolicies") => list(String.t()()),
+        optional("TerminationPolicies") => list(String.t()),
         optional("VPCZoneIdentifier") => String.t(),
         required("AutoScalingGroupName") => String.t()
       }
@@ -2172,9 +2172,9 @@ defmodule AWS.AutoScaling do
       
       launch_configuration() :: %{
         "AssociatePublicIpAddress" => boolean(),
-        "BlockDeviceMappings" => list(block_device_mapping()()),
+        "BlockDeviceMappings" => list(block_device_mapping()),
         "ClassicLinkVPCId" => String.t(),
-        "ClassicLinkVPCSecurityGroups" => list(String.t()()),
+        "ClassicLinkVPCSecurityGroups" => list(String.t()),
         "CreatedTime" => non_neg_integer(),
         "EbsOptimized" => boolean(),
         "IamInstanceProfile" => String.t(),
@@ -2188,7 +2188,7 @@ defmodule AWS.AutoScaling do
         "MetadataOptions" => instance_metadata_options(),
         "PlacementTenancy" => String.t(),
         "RamdiskId" => String.t(),
-        "SecurityGroups" => list(String.t()()),
+        "SecurityGroups" => list(String.t()),
         "SpotPrice" => String.t(),
         "UserData" => String.t()
       }
@@ -2201,7 +2201,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       cpu_performance_factor_request() :: %{
-        "References" => list(performance_factor_reference_request()())
+        "References" => list(performance_factor_reference_request())
       }
       
   """
@@ -2213,7 +2213,7 @@ defmodule AWS.AutoScaling do
       
       attach_load_balancer_target_groups_type() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("TargetGroupARNs") => list(String.t()())
+        required("TargetGroupARNs") => list(String.t())
       }
       
   """
@@ -2253,7 +2253,7 @@ defmodule AWS.AutoScaling do
       
       set_instance_protection_query() :: %{
         required("AutoScalingGroupName") => String.t(),
-        required("InstanceIds") => list(String.t()()),
+        required("InstanceIds") => list(String.t()),
         required("ProtectedFromScaleIn") => boolean()
       }
       
@@ -2314,7 +2314,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       disable_metrics_collection_query() :: %{
-        optional("Metrics") => list(String.t()()),
+        optional("Metrics") => list(String.t()),
         required("AutoScalingGroupName") => String.t()
       }
       
@@ -2358,7 +2358,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       predictive_scaling_customized_capacity_metric() :: %{
-        "MetricDataQueries" => list(metric_data_query()())
+        "MetricDataQueries" => list(metric_data_query())
       }
       
   """
@@ -2407,8 +2407,8 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       capacity_forecast() :: %{
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
       
   """
@@ -2419,7 +2419,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       auto_scaling_instances_type() :: %{
-        optional("AutoScalingInstances") => list(auto_scaling_instance_details()()),
+        optional("AutoScalingInstances") => list(auto_scaling_instance_details()),
         optional("NextToken") => String.t()
       }
       
@@ -2440,7 +2440,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       alarm_specification() :: %{
-        "Alarms" => list(String.t()())
+        "Alarms" => list(String.t())
       }
       
   """
@@ -2451,7 +2451,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_scaling_activities_type() :: %{
-        optional("ActivityIds") => list(String.t()()),
+        optional("ActivityIds") => list(String.t()),
         optional("AutoScalingGroupName") => String.t(),
         optional("IncludeDeletedGroups") => boolean(),
         optional("MaxRecords") => integer(),
@@ -2475,7 +2475,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_auto_scaling_instances_type() :: %{
-        optional("InstanceIds") => list(String.t()()),
+        optional("InstanceIds") => list(String.t()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t()
       }
@@ -2501,7 +2501,7 @@ defmodule AWS.AutoScaling do
       
       auto_scaling_groups_type() :: %{
         optional("NextToken") => String.t(),
-        required("AutoScalingGroups") => list(auto_scaling_group()())
+        required("AutoScalingGroups") => list(auto_scaling_group())
       }
       
   """
@@ -2523,7 +2523,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       batch_delete_scheduled_action_answer() :: %{
-        optional("FailedScheduledActions") => list(failed_scheduled_update_group_action_request()())
+        optional("FailedScheduledActions") => list(failed_scheduled_update_group_action_request())
       }
       
   """
@@ -2534,7 +2534,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       enable_metrics_collection_query() :: %{
-        optional("Metrics") => list(String.t()()),
+        optional("Metrics") => list(String.t()),
         required("AutoScalingGroupName") => String.t(),
         required("Granularity") => String.t()
       }
@@ -2592,7 +2592,7 @@ defmodule AWS.AutoScaling do
         optional("PolicyType") => String.t(),
         optional("PredictiveScalingConfiguration") => predictive_scaling_configuration(),
         optional("ScalingAdjustment") => integer(),
-        optional("StepAdjustments") => list(step_adjustment()()),
+        optional("StepAdjustments") => list(step_adjustment()),
         optional("TargetTrackingConfiguration") => target_tracking_configuration(),
         required("AutoScalingGroupName") => String.t(),
         required("PolicyName") => String.t()
@@ -2617,7 +2617,7 @@ defmodule AWS.AutoScaling do
       predictive_scaling_configuration() :: %{
         "MaxCapacityBreachBehavior" => list(any()),
         "MaxCapacityBuffer" => integer(),
-        "MetricSpecifications" => list(predictive_scaling_metric_specification()()),
+        "MetricSpecifications" => list(predictive_scaling_metric_specification()),
         "Mode" => list(any()),
         "SchedulingBufferTime" => integer()
       }
@@ -2871,7 +2871,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_instances_errors()}
   def attach_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachInstances", input, options)
   end
@@ -2931,7 +2932,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancer_target_groups_errors()}
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerTargetGroups", input, options)
   end
@@ -2974,7 +2976,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancers_errors()}
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancers", input, options)
   end
@@ -3017,7 +3020,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_traffic_sources_errors()}
   def attach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachTrafficSources", input, options)
   end
@@ -3031,7 +3035,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_delete_scheduled_action_errors()}
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchDeleteScheduledAction", input, options)
   end
@@ -3050,7 +3055,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_put_scheduled_update_group_action_errors()}
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchPutScheduledUpdateGroupAction", input, options)
   end
@@ -3079,7 +3085,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, cancel_instance_refresh_errors()}
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelInstanceRefresh", input, options)
   end
@@ -3135,7 +3142,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, complete_lifecycle_action_errors()}
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteLifecycleAction", input, options)
   end
@@ -3175,7 +3183,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_auto_scaling_group_errors()}
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoScalingGroup", input, options)
   end
@@ -3210,7 +3219,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_launch_configuration_errors()}
   def create_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLaunchConfiguration", input, options)
   end
@@ -3231,7 +3241,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_or_update_tags_errors()}
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOrUpdateTags", input, options)
   end
@@ -3271,7 +3282,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_auto_scaling_group_errors()}
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAutoScalingGroup", input, options)
   end
@@ -3289,7 +3301,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_launch_configuration_errors()}
   def delete_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLaunchConfiguration", input, options)
   end
@@ -3307,7 +3320,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_lifecycle_hook_errors()}
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLifecycleHook", input, options)
   end
@@ -3321,7 +3335,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteNotificationConfiguration", input, options)
   end
@@ -3343,7 +3358,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -3357,7 +3373,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -3371,7 +3388,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -3389,7 +3407,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_warm_pool_errors()}
   def delete_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWarmPool", input, options)
   end
@@ -3411,7 +3430,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3440,7 +3460,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_adjustment_types_errors()}
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAdjustmentTypes", input, options)
   end
@@ -3468,7 +3489,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_groups_errors()}
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingGroups", input, options)
   end
@@ -3482,7 +3504,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_instances_errors()}
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingInstances", input, options)
   end
@@ -3496,7 +3519,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_notification_types_errors()}
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingNotificationTypes", input, options)
   end
@@ -3529,7 +3553,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_instance_refreshes_errors()}
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstanceRefreshes", input, options)
   end
@@ -3543,7 +3568,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_launch_configurations_errors()}
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLaunchConfigurations", input, options)
   end
@@ -3567,7 +3593,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hook_types_errors()}
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHookTypes", input, options)
   end
@@ -3581,7 +3608,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hooks_errors()}
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHooks", input, options)
   end
@@ -3648,7 +3676,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancer_target_groups_errors()}
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerTargetGroups", input, options)
   end
@@ -3709,7 +3738,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3723,7 +3753,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_metric_collection_types_errors()}
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMetricCollectionTypes", input, options)
   end
@@ -3743,7 +3774,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_notification_configurations_errors()}
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeNotificationConfigurations", input, options)
   end
@@ -3757,7 +3789,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_policies_errors()}
   def describe_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePolicies", input, options)
   end
@@ -3785,7 +3818,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
@@ -3802,7 +3836,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_process_types_errors()}
   def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingProcessTypes", input, options)
   end
@@ -3824,7 +3859,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -3852,7 +3888,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3871,7 +3908,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_termination_policy_types_errors()}
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTerminationPolicyTypes", input, options)
   end
@@ -3893,7 +3931,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_traffic_sources_errors()}
   def describe_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrafficSources", input, options)
   end
@@ -3911,7 +3950,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_warm_pool_errors()}
   def describe_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWarmPool", input, options)
   end
@@ -3943,7 +3983,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_instances_errors()}
   def detach_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachInstances", input, options)
   end
@@ -3985,7 +4026,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancer_target_groups_errors()}
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancerTargetGroups", input, options)
   end
@@ -4024,7 +4066,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancers_errors()}
   def detach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancers", input, options)
   end
@@ -4046,7 +4089,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_traffic_sources_errors()}
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachTrafficSources", input, options)
   end
@@ -4060,7 +4104,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, disable_metrics_collection_errors()}
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableMetricsCollection", input, options)
   end
@@ -4083,7 +4128,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enable_metrics_collection_errors()}
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableMetricsCollection", input, options)
   end
@@ -4113,7 +4159,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enter_standby_errors()}
   def enter_standby(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnterStandby", input, options)
   end
@@ -4130,7 +4177,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, execute_policy_errors()}
   def execute_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecutePolicy", input, options)
   end
@@ -4152,7 +4200,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, exit_standby_errors()}
   def exit_standby(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExitStandby", input, options)
   end
@@ -4182,7 +4231,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
@@ -4250,7 +4300,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_lifecycle_hook_errors()}
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecycleHook", input, options)
   end
@@ -4280,7 +4331,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_notification_configuration_errors()}
   def put_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutNotificationConfiguration", input, options)
   end
@@ -4314,7 +4366,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -4342,7 +4395,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scheduled_update_group_action_errors()}
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScheduledUpdateGroupAction", input, options)
   end
@@ -4377,7 +4431,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_warm_pool_errors()}
   def put_warm_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutWarmPool", input, options)
   end
@@ -4434,7 +4489,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, record_lifecycle_action_heartbeat_errors()}
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RecordLifecycleActionHeartbeat", input, options)
   end
@@ -4454,7 +4510,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, resume_processes_errors()}
   def resume_processes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeProcesses", input, options)
   end
@@ -4502,7 +4559,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, rollback_instance_refresh_errors()}
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackInstanceRefresh", input, options)
   end
@@ -4524,7 +4582,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_desired_capacity_errors()}
   def set_desired_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetDesiredCapacity", input, options)
   end
@@ -4543,7 +4602,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_health_errors()}
   def set_instance_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetInstanceHealth", input, options)
   end
@@ -4569,7 +4629,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_protection_errors()}
   def set_instance_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetInstanceProtection", input, options)
   end
@@ -4625,7 +4686,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, start_instance_refresh_errors()}
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartInstanceRefresh", input, options)
   end
@@ -4652,7 +4714,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, suspend_processes_errors()}
   def suspend_processes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SuspendProcesses", input, options)
   end
@@ -4691,7 +4754,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, terminate_instance_in_auto_scaling_group_errors()}
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateInstanceInAutoScalingGroup", input, options)
   end
@@ -4766,7 +4830,8 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, update_auto_scaling_group_errors()}
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAutoScalingGroup", input, options)
   end

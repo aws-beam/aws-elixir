@@ -42,7 +42,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_templates_request() :: %{
-        required("assessmentTemplateArns") => list(String.t()())
+        required("assessmentTemplateArns") => list(String.t())
       }
       
   """
@@ -53,8 +53,8 @@ defmodule AWS.Inspector do
   ## Example:
       
       add_attributes_to_findings_request() :: %{
-        required("attributes") => list(attribute()()),
-        required("findingArns") => list(String.t()())
+        required("attributes") => list(attribute()),
+        required("findingArns") => list(String.t())
       }
       
   """
@@ -77,7 +77,7 @@ defmodule AWS.Inspector do
       
       list_event_subscriptions_response() :: %{
         "nextToken" => String.t(),
-        "subscriptions" => list(subscription()())
+        "subscriptions" => list(subscription())
       }
       
   """
@@ -88,11 +88,11 @@ defmodule AWS.Inspector do
   ## Example:
       
       create_assessment_template_request() :: %{
-        optional("userAttributesForFindings") => list(attribute()()),
+        optional("userAttributesForFindings") => list(attribute()),
         required("assessmentTargetArn") => String.t(),
         required("assessmentTemplateName") => String.t(),
         required("durationInSeconds") => integer(),
-        required("rulesPackageArns") => list(String.t()())
+        required("rulesPackageArns") => list(String.t())
       }
       
   """
@@ -116,7 +116,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_exclusions_response() :: %{
-        "exclusionArns" => list(String.t()()),
+        "exclusionArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -132,10 +132,10 @@ defmodule AWS.Inspector do
         "amiId" => String.t(),
         "autoScalingGroup" => String.t(),
         "hostname" => String.t(),
-        "ipv4Addresses" => list(String.t()()),
-        "networkInterfaces" => list(network_interface()()),
+        "ipv4Addresses" => list(String.t()),
+        "networkInterfaces" => list(network_interface()),
         "schemaVersion" => integer(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -158,7 +158,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_targets_response() :: %{
-        "assessmentTargets" => list(assessment_target()()),
+        "assessmentTargets" => list(assessment_target()),
         "failedItems" => map()
       }
       
@@ -208,7 +208,7 @@ defmodule AWS.Inspector do
         "completionTimeRange" => timestamp_range(),
         "durationRange" => duration_range(),
         "namePattern" => String.t(),
-        "rulesPackageArns" => list(String.t()()),
+        "rulesPackageArns" => list(String.t()),
         "startTimeRange" => timestamp_range(),
         "stateChangeTimeRange" => timestamp_range(),
         "states" => list(list(any())())
@@ -234,8 +234,8 @@ defmodule AWS.Inspector do
   ## Example:
       
       remove_attributes_from_findings_request() :: %{
-        required("attributeKeys") => list(String.t()()),
-        required("findingArns") => list(String.t()())
+        required("attributeKeys") => list(String.t()),
+        required("findingArns") => list(String.t())
       }
       
   """
@@ -257,14 +257,14 @@ defmodule AWS.Inspector do
   ## Example:
       
       network_interface() :: %{
-        "ipv6Addresses" => list(String.t()()),
+        "ipv6Addresses" => list(String.t()),
         "networkInterfaceId" => String.t(),
         "privateDnsName" => String.t(),
         "privateIpAddress" => String.t(),
-        "privateIpAddresses" => list(private_ip()()),
+        "privateIpAddresses" => list(private_ip()),
         "publicDnsName" => String.t(),
         "publicIp" => String.t(),
-        "securityGroups" => list(security_group()()),
+        "securityGroups" => list(security_group()),
         "subnetId" => String.t(),
         "vpcId" => String.t()
       }
@@ -277,7 +277,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_templates_response() :: %{
-        "assessmentTemplates" => list(assessment_template()()),
+        "assessmentTemplates" => list(assessment_template()),
         "failedItems" => map()
       }
       
@@ -305,7 +305,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_findings_response() :: %{
-        "findingArns" => list(String.t()()),
+        "findingArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -334,7 +334,7 @@ defmodule AWS.Inspector do
         "agentId" => String.t(),
         "assessmentRunArn" => String.t(),
         "autoScalingGroup" => String.t(),
-        "telemetryMetadata" => list(telemetry_metadata()())
+        "telemetryMetadata" => list(telemetry_metadata())
       }
       
   """
@@ -379,7 +379,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       get_exclusions_preview_response() :: %{
-        "exclusionPreviews" => list(exclusion_preview()()),
+        "exclusionPreviews" => list(exclusion_preview()),
         "nextToken" => String.t(),
         "previewStatus" => list(any())
       }
@@ -393,10 +393,10 @@ defmodule AWS.Inspector do
       
       exclusion() :: %{
         "arn" => String.t(),
-        "attributes" => list(attribute()()),
+        "attributes" => list(attribute()),
         "description" => String.t(),
         "recommendation" => String.t(),
-        "scopes" => list(scope()()),
+        "scopes" => list(scope()),
         "title" => String.t()
       }
       
@@ -420,7 +420,7 @@ defmodule AWS.Inspector do
       
       list_rules_packages_response() :: %{
         "nextToken" => String.t(),
-        "rulesPackageArns" => list(String.t()())
+        "rulesPackageArns" => list(String.t())
       }
       
   """
@@ -505,7 +505,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_targets_response() :: %{
-        "assessmentTargetArns" => list(String.t()()),
+        "assessmentTargetArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -517,7 +517,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_templates_request() :: %{
-        optional("assessmentTargetArns") => list(String.t()()),
+        optional("assessmentTargetArns") => list(String.t()),
         optional("filter") => assessment_template_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -544,10 +544,10 @@ defmodule AWS.Inspector do
   ## Example:
       
       exclusion_preview() :: %{
-        "attributes" => list(attribute()()),
+        "attributes" => list(attribute()),
         "description" => String.t(),
         "recommendation" => String.t(),
-        "scopes" => list(scope()()),
+        "scopes" => list(scope()),
         "title" => String.t()
       }
       
@@ -571,7 +571,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       agents_already_running_assessment_exception() :: %{
-        "agents" => list(agent_already_running_assessment()()),
+        "agents" => list(agent_already_running_assessment()),
         "agentsTruncated" => boolean(),
         "canRetry" => boolean(),
         "message" => String.t()
@@ -585,7 +585,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_targets_request() :: %{
-        required("assessmentTargetArns") => list(String.t()())
+        required("assessmentTargetArns") => list(String.t())
       }
       
   """
@@ -611,7 +611,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       assessment_run_in_progress_exception() :: %{
-        "assessmentRunArns" => list(String.t()()),
+        "assessmentRunArns" => list(String.t()),
         "assessmentRunArnsTruncated" => boolean(),
         "canRetry" => boolean(),
         "message" => String.t()
@@ -641,7 +641,7 @@ defmodule AWS.Inspector do
         "arn" => String.t(),
         "assetAttributes" => asset_attributes(),
         "assetType" => list(any()),
-        "attributes" => list(attribute()()),
+        "attributes" => list(attribute()),
         "confidence" => integer(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
@@ -655,7 +655,7 @@ defmodule AWS.Inspector do
         "severity" => list(any()),
         "title" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "userAttributes" => list(attribute()())
+        "userAttributes" => list(attribute())
       }
       
   """
@@ -709,7 +709,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -720,7 +720,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_runs_response() :: %{
-        "assessmentRuns" => list(assessment_run()()),
+        "assessmentRuns" => list(assessment_run()),
         "failedItems" => map()
       }
       
@@ -732,7 +732,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_findings_request() :: %{
-        optional("assessmentRunArns") => list(String.t()()),
+        optional("assessmentRunArns") => list(String.t()),
         optional("filter") => finding_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -746,7 +746,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_run_agents_response() :: %{
-        "assessmentRunAgents" => list(assessment_run_agent()()),
+        "assessmentRunAgents" => list(assessment_run_agent()),
         "nextToken" => String.t()
       }
       
@@ -758,7 +758,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       set_tags_for_resource_request() :: %{
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("resourceArn") => String.t()
       }
       
@@ -794,7 +794,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_runs_request() :: %{
-        optional("assessmentTemplateArns") => list(String.t()()),
+        optional("assessmentTemplateArns") => list(String.t()),
         optional("filter") => assessment_run_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -810,7 +810,7 @@ defmodule AWS.Inspector do
       resource_group() :: %{
         "arn" => String.t(),
         "createdAt" => non_neg_integer(),
-        "tags" => list(resource_group_tag()())
+        "tags" => list(resource_group_tag())
       }
       
   """
@@ -848,7 +848,7 @@ defmodule AWS.Inspector do
       assessment_template_filter() :: %{
         "durationRange" => duration_range(),
         "namePattern" => String.t(),
-        "rulesPackageArns" => list(String.t()())
+        "rulesPackageArns" => list(String.t())
       }
       
   """
@@ -871,7 +871,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       preview_agents_response() :: %{
-        "agentPreviews" => list(agent_preview()()),
+        "agentPreviews" => list(agent_preview()),
         "nextToken" => String.t()
       }
       
@@ -918,7 +918,7 @@ defmodule AWS.Inspector do
       
       describe_rules_packages_request() :: %{
         optional("locale") => list(any()),
-        required("rulesPackageArns") => list(String.t()())
+        required("rulesPackageArns") => list(String.t())
       }
       
   """
@@ -941,7 +941,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_runs_response() :: %{
-        "assessmentRunArns" => list(String.t()()),
+        "assessmentRunArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1016,7 +1016,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       create_resource_group_request() :: %{
-        required("resourceGroupTags") => list(resource_group_tag()())
+        required("resourceGroupTags") => list(resource_group_tag())
       }
       
   """
@@ -1028,7 +1028,7 @@ defmodule AWS.Inspector do
       
       describe_exclusions_request() :: %{
         optional("locale") => list(any()),
-        required("exclusionArns") => list(String.t()())
+        required("exclusionArns") => list(String.t())
       }
       
   """
@@ -1040,7 +1040,7 @@ defmodule AWS.Inspector do
       
       describe_findings_response() :: %{
         "failedItems" => map(),
-        "findings" => list(finding()())
+        "findings" => list(finding())
       }
       
   """
@@ -1051,14 +1051,14 @@ defmodule AWS.Inspector do
   ## Example:
       
       finding_filter() :: %{
-        "agentIds" => list(String.t()()),
-        "attributes" => list(attribute()()),
-        "autoScalingGroups" => list(String.t()()),
+        "agentIds" => list(String.t()),
+        "attributes" => list(attribute()),
+        "autoScalingGroups" => list(String.t()),
         "creationTimeRange" => timestamp_range(),
-        "ruleNames" => list(String.t()()),
-        "rulesPackageArns" => list(String.t()()),
+        "ruleNames" => list(String.t()),
+        "rulesPackageArns" => list(String.t()),
         "severities" => list(list(any())()),
-        "userAttributes" => list(attribute()())
+        "userAttributes" => list(attribute())
       }
       
   """
@@ -1089,8 +1089,8 @@ defmodule AWS.Inspector do
         "durationInSeconds" => integer(),
         "lastAssessmentRunArn" => String.t(),
         "name" => String.t(),
-        "rulesPackageArns" => list(String.t()()),
-        "userAttributesForFindings" => list(attribute()())
+        "rulesPackageArns" => list(String.t()),
+        "userAttributesForFindings" => list(attribute())
       }
       
   """
@@ -1137,7 +1137,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       subscription() :: %{
-        "eventSubscriptions" => list(event_subscription()()),
+        "eventSubscriptions" => list(event_subscription()),
         "resourceArn" => String.t(),
         "topicArn" => String.t()
       }
@@ -1151,7 +1151,7 @@ defmodule AWS.Inspector do
       
       describe_rules_packages_response() :: %{
         "failedItems" => map(),
-        "rulesPackages" => list(rules_package()())
+        "rulesPackages" => list(rules_package())
       }
       
   """
@@ -1174,7 +1174,7 @@ defmodule AWS.Inspector do
       
       describe_resource_groups_response() :: %{
         "failedItems" => map(),
-        "resourceGroups" => list(resource_group()())
+        "resourceGroups" => list(resource_group())
       }
       
   """
@@ -1217,13 +1217,13 @@ defmodule AWS.Inspector do
         "durationInSeconds" => integer(),
         "findingCounts" => map(),
         "name" => String.t(),
-        "notifications" => list(assessment_run_notification()()),
-        "rulesPackageArns" => list(String.t()()),
+        "notifications" => list(assessment_run_notification()),
+        "rulesPackageArns" => list(String.t()),
         "startedAt" => non_neg_integer(),
         "state" => list(any()),
         "stateChangedAt" => non_neg_integer(),
-        "stateChanges" => list(assessment_run_state_change()()),
-        "userAttributesForFindings" => list(attribute()())
+        "stateChanges" => list(assessment_run_state_change()),
+        "userAttributesForFindings" => list(attribute())
       }
       
   """
@@ -1260,7 +1260,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       list_assessment_templates_response() :: %{
-        "assessmentTemplateArns" => list(String.t()()),
+        "assessmentTemplateArns" => list(String.t()),
         "nextToken" => String.t()
       }
       
@@ -1297,7 +1297,7 @@ defmodule AWS.Inspector do
       
       describe_findings_request() :: %{
         optional("locale") => list(any()),
-        required("findingArns") => list(String.t()())
+        required("findingArns") => list(String.t())
       }
       
   """
@@ -1320,7 +1320,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       get_telemetry_metadata_response() :: %{
-        "telemetryMetadata" => list(telemetry_metadata()())
+        "telemetryMetadata" => list(telemetry_metadata())
       }
       
   """
@@ -1331,7 +1331,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_resource_groups_request() :: %{
-        required("resourceGroupArns") => list(String.t()())
+        required("resourceGroupArns") => list(String.t())
       }
       
   """
@@ -1396,7 +1396,7 @@ defmodule AWS.Inspector do
   ## Example:
       
       describe_assessment_runs_request() :: %{
-        required("assessmentRunArns") => list(String.t()())
+        required("assessmentRunArns") => list(String.t())
       }
       
   """
@@ -1657,7 +1657,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, add_attributes_to_findings_errors()}
   def add_attributes_to_findings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddAttributesToFindings", input, options)
   end
@@ -1687,7 +1688,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_assessment_target_errors()}
   def create_assessment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAssessmentTarget", input, options)
   end
@@ -1709,7 +1711,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_assessment_template_errors()}
   def create_assessment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAssessmentTemplate", input, options)
   end
@@ -1728,7 +1731,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_exclusions_preview_errors()}
   def create_exclusions_preview(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExclusionsPreview", input, options)
   end
@@ -1749,7 +1753,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, create_resource_group_errors()}
   def create_resource_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceGroup", input, options)
   end
@@ -1764,7 +1769,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_run_errors()}
   def delete_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentRun", input, options)
   end
@@ -1779,7 +1785,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_target_errors()}
   def delete_assessment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentTarget", input, options)
   end
@@ -1794,7 +1801,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, delete_assessment_template_errors()}
   def delete_assessment_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAssessmentTemplate", input, options)
   end
@@ -1809,7 +1817,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_runs_errors()}
   def describe_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentRuns", input, options)
   end
@@ -1825,7 +1834,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_targets_errors()}
   def describe_assessment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentTargets", input, options)
   end
@@ -1841,7 +1851,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_assessment_templates_errors()}
   def describe_assessment_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAssessmentTemplates", input, options)
   end
@@ -1856,7 +1867,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_cross_account_access_role_errors()}
   def describe_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCrossAccountAccessRole", input, options)
   end
@@ -1870,7 +1882,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_exclusions_errors()}
   def describe_exclusions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExclusions", input, options)
   end
@@ -1884,7 +1897,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_findings_errors()}
   def describe_findings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFindings", input, options)
   end
@@ -1899,7 +1913,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_resource_groups_errors()}
   def describe_resource_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourceGroups", input, options)
   end
@@ -1914,7 +1929,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, describe_rules_packages_errors()}
   def describe_rules_packages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRulesPackages", input, options)
   end
@@ -1930,7 +1946,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_assessment_report_errors()}
   def get_assessment_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAssessmentReport", input, options)
   end
@@ -1949,7 +1966,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_exclusions_preview_errors()}
   def get_exclusions_preview(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetExclusionsPreview", input, options)
   end
@@ -1964,7 +1982,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, get_telemetry_metadata_errors()}
   def get_telemetry_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTelemetryMetadata", input, options)
   end
@@ -1979,7 +1998,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_run_agents_errors()}
   def list_assessment_run_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssessmentRunAgents", input, options)
   end
@@ -1994,7 +2014,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_runs_errors()}
   def list_assessment_runs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssessmentRuns", input, options)
   end
@@ -2011,7 +2032,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_targets_errors()}
   def list_assessment_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssessmentTargets", input, options)
   end
@@ -2027,7 +2049,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_assessment_templates_errors()}
   def list_assessment_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAssessmentTemplates", input, options)
   end
@@ -2045,7 +2068,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_event_subscriptions_errors()}
   def list_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEventSubscriptions", input, options)
   end
@@ -2059,7 +2083,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_exclusions_errors()}
   def list_exclusions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExclusions", input, options)
   end
@@ -2075,7 +2100,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFindings", input, options)
   end
@@ -2089,7 +2115,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_rules_packages_errors()}
   def list_rules_packages(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRulesPackages", input, options)
   end
@@ -2103,7 +2130,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2119,7 +2147,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, preview_agents_errors()}
   def preview_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PreviewAgents", input, options)
   end
@@ -2139,7 +2168,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, register_cross_account_access_role_errors()}
   def register_cross_account_access_role(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCrossAccountAccessRole", input, options)
   end
@@ -2155,7 +2185,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, remove_attributes_from_findings_errors()}
   def remove_attributes_from_findings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveAttributesFromFindings", input, options)
   end
@@ -2171,7 +2202,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, set_tags_for_resource_errors()}
   def set_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTagsForResource", input, options)
   end
@@ -2190,7 +2222,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, start_assessment_run_errors()}
   def start_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAssessmentRun", input, options)
   end
@@ -2205,7 +2238,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, stop_assessment_run_errors()}
   def stop_assessment_run(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAssessmentRun", input, options)
   end
@@ -2221,7 +2255,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, subscribe_to_event_errors()}
   def subscribe_to_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubscribeToEvent", input, options)
   end
@@ -2236,7 +2271,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, unsubscribe_from_event_errors()}
   def unsubscribe_from_event(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnsubscribeFromEvent", input, options)
   end
@@ -2255,7 +2291,8 @@ defmodule AWS.Inspector do
           | {:error, term()}
           | {:error, update_assessment_target_errors()}
   def update_assessment_target(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAssessmentTarget", input, options)
   end

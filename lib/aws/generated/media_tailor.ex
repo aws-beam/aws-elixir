@@ -93,7 +93,7 @@ defmodule AWS.MediaTailor do
       vod_source() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
-        "HttpPackageConfigurations" => list(http_package_configuration()()),
+        "HttpPackageConfigurations" => list(http_package_configuration()),
         "LastModifiedTime" => non_neg_integer(),
         "SourceLocationName" => String.t(),
         "Tags" => map(),
@@ -145,7 +145,7 @@ defmodule AWS.MediaTailor do
       update_vod_source_response() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map(),
@@ -169,10 +169,10 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       describe_vod_source_response() :: %{
-        optional("AdBreakOpportunities") => list(ad_break_opportunity()()),
+        optional("AdBreakOpportunities") => list(ad_break_opportunity()),
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map(),
@@ -194,7 +194,7 @@ defmodule AWS.MediaTailor do
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("Outputs") => list(response_output_item()()),
+        optional("Outputs") => list(response_output_item()),
         optional("PlaybackMode") => String.t(),
         optional("Tags") => map(),
         optional("Tier") => String.t(),
@@ -306,7 +306,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_prefetch_schedules_response() :: %{
-        optional("Items") => list(prefetch_schedule()()),
+        optional("Items") => list(prefetch_schedule()),
         optional("NextToken") => String.t()
       }
 
@@ -318,7 +318,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       prefetch_consumption() :: %{
-        "AvailMatchingCriteria" => list(avail_matching_criteria()()),
+        "AvailMatchingCriteria" => list(avail_matching_criteria()),
         "EndTime" => non_neg_integer(),
         "StartTime" => non_neg_integer()
       }
@@ -351,7 +351,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_vod_sources_response() :: %{
-        optional("Items") => list(vod_source()()),
+        optional("Items") => list(vod_source()),
         optional("NextToken") => String.t()
       }
 
@@ -395,7 +395,7 @@ defmodule AWS.MediaTailor do
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map()
       }
@@ -433,7 +433,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       get_channel_schedule_response() :: %{
-        optional("Items") => list(schedule_entry()()),
+        optional("Items") => list(schedule_entry()),
         optional("NextToken") => String.t()
       }
 
@@ -445,7 +445,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -510,7 +510,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       audience_media() :: %{
-        "AlternateMedia" => list(alternate_media()()),
+        "AlternateMedia" => list(alternate_media()),
         "Audience" => String.t()
       }
 
@@ -528,7 +528,7 @@ defmodule AWS.MediaTailor do
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map()
       }
@@ -583,9 +583,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       create_program_response() :: %{
-        optional("AdBreaks") => list(ad_break()()),
+        optional("AdBreaks") => list(ad_break()),
         optional("Arn") => String.t(),
-        optional("AudienceMedia") => list(audience_media()()),
+        optional("AudienceMedia") => list(audience_media()),
         optional("ChannelName") => String.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
@@ -605,7 +605,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_live_sources_response() :: %{
-        optional("Items") => list(live_source()()),
+        optional("Items") => list(live_source()),
         optional("NextToken") => String.t()
       }
 
@@ -623,7 +623,7 @@ defmodule AWS.MediaTailor do
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
         optional("HttpConfiguration") => http_configuration(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map()
       }
@@ -636,7 +636,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       update_live_source_request() :: %{
-        required("HttpPackageConfigurations") => list(http_package_configuration()())
+        required("HttpPackageConfigurations") => list(http_package_configuration())
       }
 
   """
@@ -749,7 +749,7 @@ defmodule AWS.MediaTailor do
 
       create_live_source_request() :: %{
         optional("Tags") => map(),
-        required("HttpPackageConfigurations") => list(http_package_configuration()())
+        required("HttpPackageConfigurations") => list(http_package_configuration())
       }
 
   """
@@ -794,7 +794,7 @@ defmodule AWS.MediaTailor do
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("Outputs") => list(response_output_item()()),
+        optional("Outputs") => list(response_output_item()),
         optional("PlaybackMode") => String.t(),
         optional("Tags") => map(),
         optional("Tier") => String.t(),
@@ -830,7 +830,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       alternate_media() :: %{
-        "AdBreaks" => list(ad_break()()),
+        "AdBreaks" => list(ad_break()),
         "ClipRange" => clip_range(),
         "DurationMillis" => float(),
         "LiveSourceName" => String.t(),
@@ -849,7 +849,7 @@ defmodule AWS.MediaTailor do
       live_source() :: %{
         "Arn" => String.t(),
         "CreationTime" => non_neg_integer(),
-        "HttpPackageConfigurations" => list(http_package_configuration()()),
+        "HttpPackageConfigurations" => list(http_package_configuration()),
         "LastModifiedTime" => non_neg_integer(),
         "LiveSourceName" => String.t(),
         "SourceLocationName" => String.t(),
@@ -871,7 +871,7 @@ defmodule AWS.MediaTailor do
         "ChannelName" => String.t(),
         "LiveSourceName" => String.t(),
         "ProgramName" => String.t(),
-        "ScheduleAdBreaks" => list(schedule_ad_break()()),
+        "ScheduleAdBreaks" => list(schedule_ad_break()),
         "ScheduleEntryType" => list(any()),
         "SourceLocationName" => String.t(),
         "VodSourceName" => String.t()
@@ -890,7 +890,7 @@ defmodule AWS.MediaTailor do
         optional("Tags") => map(),
         optional("Tier") => list(any()),
         optional("TimeShiftConfiguration") => time_shift_configuration(),
-        required("Outputs") => list(request_output_item()()),
+        required("Outputs") => list(request_output_item()),
         required("PlaybackMode") => list(any())
       }
 
@@ -960,7 +960,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_channels_response() :: %{
-        optional("Items") => list(channel()()),
+        optional("Items") => list(channel()),
         optional("NextToken") => String.t()
       }
 
@@ -1022,7 +1022,7 @@ defmodule AWS.MediaTailor do
         optional("Audiences") => list([String.t()]()),
         optional("FillerSlate") => slate_source(),
         optional("TimeShiftConfiguration") => time_shift_configuration(),
-        required("Outputs") => list(request_output_item()())
+        required("Outputs") => list(request_output_item())
       }
 
   """
@@ -1057,7 +1057,7 @@ defmodule AWS.MediaTailor do
       update_source_location_request() :: %{
         optional("AccessConfiguration") => access_configuration(),
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
         required("HttpConfiguration") => http_configuration()
       }
 
@@ -1092,9 +1092,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       describe_program_response() :: %{
-        optional("AdBreaks") => list(ad_break()()),
+        optional("AdBreaks") => list(ad_break()),
         optional("Arn") => String.t(),
-        optional("AudienceMedia") => list(audience_media()()),
+        optional("AudienceMedia") => list(audience_media()),
         optional("ChannelName") => String.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
@@ -1114,7 +1114,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       ad_break() :: %{
-        "AdBreakMetadata" => list(key_value_pair()()),
+        "AdBreakMetadata" => list(key_value_pair()),
         "MessageType" => list(any()),
         "OffsetMillis" => float(),
         "Slate" => slate_source(),
@@ -1165,8 +1165,8 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       create_program_request() :: %{
-        optional("AdBreaks") => list(ad_break()()),
-        optional("AudienceMedia") => list(audience_media()()),
+        optional("AdBreaks") => list(ad_break()),
+        optional("AudienceMedia") => list(audience_media()),
         optional("LiveSourceName") => String.t(),
         optional("VodSourceName") => String.t(),
         required("ScheduleConfiguration") => schedule_configuration(),
@@ -1223,8 +1223,8 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       update_program_request() :: %{
-        optional("AdBreaks") => list(ad_break()()),
-        optional("AudienceMedia") => list(audience_media()()),
+        optional("AdBreaks") => list(ad_break()),
+        optional("AudienceMedia") => list(audience_media()),
         required("ScheduleConfiguration") => update_program_schedule_configuration()
       }
 
@@ -1291,7 +1291,7 @@ defmodule AWS.MediaTailor do
         "DefaultSegmentDeliveryConfiguration" => default_segment_delivery_configuration(),
         "HttpConfiguration" => http_configuration(),
         "LastModifiedTime" => non_neg_integer(),
-        "SegmentDeliveryConfigurations" => list(segment_delivery_configuration()()),
+        "SegmentDeliveryConfigurations" => list(segment_delivery_configuration()),
         "SourceLocationName" => String.t(),
         "Tags" => map()
       }
@@ -1304,7 +1304,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       time_signal_message() :: %{
-        "SegmentationDescriptors" => list(segmentation_descriptor()())
+        "SegmentationDescriptors" => list(segmentation_descriptor())
       }
 
   """
@@ -1338,7 +1338,7 @@ defmodule AWS.MediaTailor do
       update_live_source_response() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("LiveSourceName") => String.t(),
         optional("SourceLocationName") => String.t(),
@@ -1355,7 +1355,7 @@ defmodule AWS.MediaTailor do
       create_live_source_response() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("LiveSourceName") => String.t(),
         optional("SourceLocationName") => String.t(),
@@ -1400,7 +1400,7 @@ defmodule AWS.MediaTailor do
         "AlertMessage" => String.t(),
         "Category" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
-        "RelatedResourceArns" => list(String.t()()),
+        "RelatedResourceArns" => list(String.t()),
         "ResourceArn" => String.t()
       }
 
@@ -1438,7 +1438,7 @@ defmodule AWS.MediaTailor do
         "FillerSlate" => slate_source(),
         "LastModifiedTime" => non_neg_integer(),
         "LogConfiguration" => log_configuration_for_channel(),
-        "Outputs" => list(response_output_item()()),
+        "Outputs" => list(response_output_item()),
         "PlaybackMode" => String.t(),
         "Tags" => map(),
         "Tier" => String.t()
@@ -1452,7 +1452,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       update_vod_source_request() :: %{
-        required("HttpPackageConfigurations") => list(http_package_configuration()())
+        required("HttpPackageConfigurations") => list(http_package_configuration())
       }
 
   """
@@ -1498,9 +1498,9 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       update_program_response() :: %{
-        optional("AdBreaks") => list(ad_break()()),
+        optional("AdBreaks") => list(ad_break()),
         optional("Arn") => String.t(),
-        optional("AudienceMedia") => list(audience_media()()),
+        optional("AudienceMedia") => list(audience_media()),
         optional("ChannelName") => String.t(),
         optional("ClipRange") => clip_range(),
         optional("CreationTime") => non_neg_integer(),
@@ -1534,7 +1534,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_alerts_response() :: %{
-        optional("Items") => list(alert()()),
+        optional("Items") => list(alert()),
         optional("NextToken") => String.t()
       }
 
@@ -1573,7 +1573,7 @@ defmodule AWS.MediaTailor do
       create_vod_source_response() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("SourceLocationName") => String.t(),
         optional("Tags") => map(),
@@ -1625,7 +1625,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       recurring_consumption() :: %{
-        "AvailMatchingCriteria" => list(avail_matching_criteria()()),
+        "AvailMatchingCriteria" => list(avail_matching_criteria()),
         "RetrievedAdExpirationSeconds" => integer()
       }
 
@@ -1638,7 +1638,7 @@ defmodule AWS.MediaTailor do
 
       create_vod_source_request() :: %{
         optional("Tags") => map(),
-        required("HttpPackageConfigurations") => list(http_package_configuration()())
+        required("HttpPackageConfigurations") => list(http_package_configuration())
       }
 
   """
@@ -1656,7 +1656,7 @@ defmodule AWS.MediaTailor do
         optional("CreationTime") => non_neg_integer(),
         optional("FillerSlate") => slate_source(),
         optional("LastModifiedTime") => non_neg_integer(),
-        optional("Outputs") => list(response_output_item()()),
+        optional("Outputs") => list(response_output_item()),
         optional("PlaybackMode") => String.t(),
         optional("Tags") => map(),
         optional("Tier") => String.t(),
@@ -1713,7 +1713,7 @@ defmodule AWS.MediaTailor do
       describe_live_source_response() :: %{
         optional("Arn") => String.t(),
         optional("CreationTime") => non_neg_integer(),
-        optional("HttpPackageConfigurations") => list(http_package_configuration()()),
+        optional("HttpPackageConfigurations") => list(http_package_configuration()),
         optional("LastModifiedTime") => non_neg_integer(),
         optional("LiveSourceName") => String.t(),
         optional("SourceLocationName") => String.t(),
@@ -1754,7 +1754,7 @@ defmodule AWS.MediaTailor do
       create_source_location_request() :: %{
         optional("AccessConfiguration") => access_configuration(),
         optional("DefaultSegmentDeliveryConfiguration") => default_segment_delivery_configuration(),
-        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()()),
+        optional("SegmentDeliveryConfigurations") => list(segment_delivery_configuration()),
         optional("Tags") => map(),
         required("HttpConfiguration") => http_configuration()
       }
@@ -1826,7 +1826,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_source_locations_response() :: %{
-        optional("Items") => list(source_location()()),
+        optional("Items") => list(source_location()),
         optional("NextToken") => String.t()
       }
 
@@ -1889,7 +1889,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       list_playback_configurations_response() :: %{
-        optional("Items") => list(playback_configuration()()),
+        optional("Items") => list(playback_configuration()),
         optional("NextToken") => String.t()
       }
 

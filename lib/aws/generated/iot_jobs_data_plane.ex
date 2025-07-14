@@ -120,8 +120,8 @@ defmodule AWS.IoTJobsDataPlane do
   ## Example:
 
       get_pending_job_executions_response() :: %{
-        "inProgressJobs" => list(job_execution_summary()()),
-        "queuedJobs" => list(job_execution_summary()())
+        "inProgressJobs" => list(job_execution_summary()),
+        "queuedJobs" => list(job_execution_summary())
       }
 
   """

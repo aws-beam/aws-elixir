@@ -14,7 +14,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       campaign_response() :: %{
-        "AdditionalTreatments" => list(treatment_resource()()),
+        "AdditionalTreatments" => list(treatment_resource()),
         "ApplicationId" => String.t(),
         "Arn" => String.t(),
         "CreationDate" => String.t(),
@@ -330,7 +330,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       endpoints_response() :: %{
-        "Item" => list(endpoint_response()())
+        "Item" => list(endpoint_response())
       }
 
   """
@@ -518,7 +518,7 @@ defmodule AWS.Pinpoint do
 
       email_template_request() :: %{
         "DefaultSubstitutions" => String.t(),
-        "Headers" => list(message_header()()),
+        "Headers" => list(message_header()),
         "HtmlPart" => String.t(),
         "RecommenderId" => String.t(),
         "Subject" => String.t(),
@@ -580,7 +580,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       export_jobs_response() :: %{
-        "Item" => list(export_job_response()()),
+        "Item" => list(export_job_response()),
         "NextToken" => String.t()
       }
 
@@ -691,7 +691,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       campaigns_response() :: %{
-        "Item" => list(campaign_response()()),
+        "Item" => list(campaign_response()),
         "NextToken" => String.t()
       }
 
@@ -815,7 +815,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       base_kpi_result() :: %{
-        "Rows" => list(result_row()())
+        "Rows" => list(result_row())
       }
 
   """
@@ -848,7 +848,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       endpoint_batch_request() :: %{
-        "Item" => list(endpoint_batch_item()())
+        "Item" => list(endpoint_batch_item())
       }
 
   """
@@ -1292,7 +1292,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       templates_response() :: %{
-        "Item" => list(template_response()()),
+        "Item" => list(template_response()),
         "NextToken" => String.t()
       }
 
@@ -1317,7 +1317,7 @@ defmodule AWS.Pinpoint do
       attributes_resource() :: %{
         "ApplicationId" => String.t(),
         "AttributeType" => String.t(),
-        "Attributes" => list(String.t()())
+        "Attributes" => list(String.t())
       }
 
   """
@@ -1594,7 +1594,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       journeys_response() :: %{
-        "Item" => list(journey_response()()),
+        "Item" => list(journey_response()),
         "NextToken" => String.t()
       }
 
@@ -1666,7 +1666,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1986,7 +1986,7 @@ defmodule AWS.Pinpoint do
         "CreationDate" => String.t(),
         "Definition" => import_job_resource(),
         "FailedPieces" => integer(),
-        "Failures" => list(String.t()()),
+        "Failures" => list(String.t()),
         "Id" => String.t(),
         "JobStatus" => list(any()),
         "TotalFailures" => integer(),
@@ -2067,8 +2067,8 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       result_row() :: %{
-        "GroupedBys" => list(result_row_value()()),
-        "Values" => list(result_row_value()())
+        "GroupedBys" => list(result_row_value()),
+        "Values" => list(result_row_value())
       }
 
   """
@@ -2346,7 +2346,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       update_attributes_request() :: %{
-        "Blacklist" => list(String.t()())
+        "Blacklist" => list(String.t())
       }
 
   """
@@ -2943,7 +2943,7 @@ defmodule AWS.Pinpoint do
         "CreationDate" => String.t(),
         "Definition" => export_job_resource(),
         "FailedPieces" => integer(),
-        "Failures" => list(String.t()()),
+        "Failures" => list(String.t()),
         "Id" => String.t(),
         "JobStatus" => list(any()),
         "TotalFailures" => integer(),
@@ -2960,7 +2960,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       applications_response() :: %{
-        "Item" => list(application_response()()),
+        "Item" => list(application_response()),
         "NextToken" => String.t()
       }
 
@@ -3191,7 +3191,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       template_versions_response() :: %{
-        "Item" => list(template_version_response()()),
+        "Item" => list(template_version_response()),
         "Message" => String.t(),
         "NextToken" => String.t(),
         "RequestID" => String.t()
@@ -3303,7 +3303,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       in_app_message() :: %{
-        "Content" => list(in_app_message_content()()),
+        "Content" => list(in_app_message_content()),
         "CustomConfig" => map(),
         "Layout" => list(any())
       }
@@ -3395,7 +3395,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       import_jobs_response() :: %{
-        "Item" => list(import_job_response()()),
+        "Item" => list(import_job_response()),
         "NextToken" => String.t()
       }
 
@@ -3407,7 +3407,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       condition() :: %{
-        "Conditions" => list(simple_condition()()),
+        "Conditions" => list(simple_condition()),
         "Operator" => list(any())
       }
 
@@ -3445,7 +3445,7 @@ defmodule AWS.Pinpoint do
 
       campaign_in_app_message() :: %{
         "Body" => String.t(),
-        "Content" => list(in_app_message_content()()),
+        "Content" => list(in_app_message_content()),
         "CustomConfig" => map(),
         "Layout" => list(any())
       }
@@ -3557,7 +3557,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       list_recommender_configurations_response() :: %{
-        "Item" => list(recommender_configuration_response()()),
+        "Item" => list(recommender_configuration_response()),
         "NextToken" => String.t()
       }
 
@@ -3651,7 +3651,7 @@ defmodule AWS.Pinpoint do
         "FeedbackForwardingAddress" => String.t(),
         "FromAddress" => String.t(),
         "RawEmail" => raw_email(),
-        "ReplyToAddresses" => list(String.t()()),
+        "ReplyToAddresses" => list(String.t()),
         "SimpleEmail" => simple_email(),
         "Substitutions" => map()
       }
@@ -3782,8 +3782,8 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       segment_group() :: %{
-        "Dimensions" => list(segment_dimensions()()),
-        "SourceSegments" => list(segment_reference()()),
+        "Dimensions" => list(segment_dimensions()),
+        "SourceSegments" => list(segment_reference()),
         "SourceType" => list(any()),
         "Type" => list(any())
       }
@@ -3942,7 +3942,7 @@ defmodule AWS.Pinpoint do
         "Arn" => String.t(),
         "CreationDate" => String.t(),
         "DefaultSubstitutions" => String.t(),
-        "Headers" => list(message_header()()),
+        "Headers" => list(message_header()),
         "HtmlPart" => String.t(),
         "LastModifiedDate" => String.t(),
         "RecommenderId" => String.t(),
@@ -4030,7 +4030,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       activities_response() :: %{
-        "Item" => list(activity_response()()),
+        "Item" => list(activity_response()),
         "NextToken" => String.t()
       }
 
@@ -4062,7 +4062,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       in_app_messages_response() :: %{
-        "InAppMessageCampaigns" => list(in_app_message_campaign()())
+        "InAppMessageCampaigns" => list(in_app_message_campaign())
       }
 
   """
@@ -4195,7 +4195,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       write_campaign_request() :: %{
-        "AdditionalTreatments" => list(write_treatment_resource()()),
+        "AdditionalTreatments" => list(write_treatment_resource()),
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
         "Description" => String.t(),
         "HoldoutPercent" => integer(),
@@ -4298,7 +4298,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       journey_runs_response() :: %{
-        "Item" => list(journey_run_response()()),
+        "Item" => list(journey_run_response()),
         "NextToken" => String.t()
       }
 
@@ -4331,7 +4331,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       segments_response() :: %{
-        "Item" => list(segment_response()()),
+        "Item" => list(segment_response()),
         "NextToken" => String.t()
       }
 
@@ -4343,11 +4343,11 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       closed_days() :: %{
-        "CUSTOM" => list(closed_days_rule()()),
-        "EMAIL" => list(closed_days_rule()()),
-        "PUSH" => list(closed_days_rule()()),
-        "SMS" => list(closed_days_rule()()),
-        "VOICE" => list(closed_days_rule()())
+        "CUSTOM" => list(closed_days_rule()),
+        "EMAIL" => list(closed_days_rule()),
+        "PUSH" => list(closed_days_rule()),
+        "SMS" => list(closed_days_rule()),
+        "VOICE" => list(closed_days_rule())
       }
 
   """
@@ -4549,7 +4549,7 @@ defmodule AWS.Pinpoint do
       campaign_email_message() :: %{
         "Body" => String.t(),
         "FromAddress" => String.t(),
-        "Headers" => list(message_header()()),
+        "Headers" => list(message_header()),
         "HtmlBody" => String.t(),
         "Title" => String.t()
       }
@@ -4824,7 +4824,7 @@ defmodule AWS.Pinpoint do
 
       attribute_dimension() :: %{
         "AttributeType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -4897,7 +4897,7 @@ defmodule AWS.Pinpoint do
 
       set_dimension() :: %{
         "DimensionType" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -4959,7 +4959,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       simple_email() :: %{
-        "Headers" => list(message_header()()),
+        "Headers" => list(message_header()),
         "HtmlPart" => simple_email_part(),
         "Subject" => simple_email_part(),
         "TextPart" => simple_email_part()
@@ -5044,7 +5044,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       multi_conditional_split_activity() :: %{
-        "Branches" => list(multi_conditional_branch()()),
+        "Branches" => list(multi_conditional_branch()),
         "DefaultActivity" => String.t(),
         "EvaluationWaitTime" => wait_time()
       }
@@ -5495,7 +5495,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       random_split_activity() :: %{
-        "Branches" => list(random_split_entry()())
+        "Branches" => list(random_split_entry())
       }
 
   """
@@ -5517,7 +5517,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       segment_group_list() :: %{
-        "Groups" => list(segment_group()()),
+        "Groups" => list(segment_group()),
         "Include" => list(any())
       }
 
@@ -5529,7 +5529,7 @@ defmodule AWS.Pinpoint do
   ## Example:
 
       in_app_template_request() :: %{
-        "Content" => list(in_app_message_content()()),
+        "Content" => list(in_app_message_content()),
         "CustomConfig" => map(),
         "Layout" => list(any()),
         "TemplateDescription" => String.t(),
@@ -5900,7 +5900,7 @@ defmodule AWS.Pinpoint do
 
       in_app_template_response() :: %{
         "Arn" => String.t(),
-        "Content" => list(in_app_message_content()()),
+        "Content" => list(in_app_message_content()),
         "CreationDate" => String.t(),
         "CustomConfig" => map(),
         "LastModifiedDate" => String.t(),

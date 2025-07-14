@@ -92,7 +92,7 @@ defmodule AWS.RDS do
         optional("EnableIAMDatabaseAuthentication") => boolean(),
         optional("CopyTagsToSnapshot") => boolean(),
         optional("ScalingConfiguration") => scaling_configuration(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("DBClusterInstanceClass") => String.t(),
         optional("PubliclyAccessible") => boolean(),
         optional("EngineVersion") => String.t(),
@@ -104,15 +104,15 @@ defmodule AWS.RDS do
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("SnapshotIdentifier") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("DBSubnetGroupName") => String.t(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         required("Engine") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -157,7 +157,7 @@ defmodule AWS.RDS do
       
       db_parameter_group_details() :: %{
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -179,7 +179,7 @@ defmodule AWS.RDS do
   ## Example:
       
       event_subscriptions_message() :: %{
-        "EventSubscriptionsList" => list(event_subscription()()),
+        "EventSubscriptionsList" => list(event_subscription()),
         "Marker" => String.t()
       }
       
@@ -203,7 +203,7 @@ defmodule AWS.RDS do
       
       db_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t()())
+        "AttributeValues" => list(String.t())
       }
       
   """
@@ -238,7 +238,7 @@ defmodule AWS.RDS do
       db_major_engine_version() :: %{
         "Engine" => String.t(),
         "MajorEngineVersion" => String.t(),
-        "SupportedEngineLifecycles" => list(supported_engine_lifecycle()())
+        "SupportedEngineLifecycles" => list(supported_engine_lifecycle())
       }
       
   """
@@ -261,12 +261,12 @@ defmodule AWS.RDS do
       
       recommended_action() :: %{
         "ActionId" => String.t(),
-        "ApplyModes" => list(String.t()()),
-        "ContextAttributes" => list(context_attribute()()),
+        "ApplyModes" => list(String.t()),
+        "ContextAttributes" => list(context_attribute()),
         "Description" => String.t(),
         "IssueDetails" => issue_details(),
         "Operation" => String.t(),
-        "Parameters" => list(recommended_action_parameter()()),
+        "Parameters" => list(recommended_action_parameter()),
         "Status" => String.t(),
         "Title" => String.t()
       }
@@ -391,7 +391,7 @@ defmodule AWS.RDS do
       
       db_cluster_snapshot() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "DBClusterIdentifier" => String.t(),
         "DBClusterSnapshotArn" => String.t(),
@@ -414,7 +414,7 @@ defmodule AWS.RDS do
         "StorageEncrypted" => boolean(),
         "StorageThroughput" => integer(),
         "StorageType" => String.t(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "VpcId" => String.t()
       }
       
@@ -465,7 +465,7 @@ defmodule AWS.RDS do
       modify_db_subnet_group_message() :: %{
         optional("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -476,7 +476,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_subnet_group_message() :: %{
-        "DBSubnetGroups" => list(db_subnet_group()()),
+        "DBSubnetGroups" => list(db_subnet_group()),
         "Marker" => String.t()
       }
       
@@ -497,8 +497,8 @@ defmodule AWS.RDS do
         "Status" => list(any()),
         "TargetRole" => list(any()),
         "VpcId" => String.t(),
-        "VpcSecurityGroupIds" => list(String.t()()),
-        "VpcSubnetIds" => list(String.t()())
+        "VpcSecurityGroupIds" => list(String.t()),
+        "VpcSubnetIds" => list(String.t())
       }
       
   """
@@ -509,7 +509,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("Source") => String.t(),
@@ -524,7 +524,7 @@ defmodule AWS.RDS do
   ## Example:
       
       resource_pending_maintenance_actions() :: %{
-        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()()),
+        "PendingMaintenanceActionDetails" => list(pending_maintenance_action()),
         "ResourceIdentifier" => String.t()
       }
       
@@ -548,7 +548,7 @@ defmodule AWS.RDS do
   ## Example:
       
       event_categories_map() :: %{
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "SourceType" => String.t()
       }
       
@@ -563,13 +563,13 @@ defmodule AWS.RDS do
         optional("DebugLogging") => boolean(),
         optional("IdleClientTimeout") => integer(),
         optional("RequireTLS") => boolean(),
-        optional("Tags") => list(tag()()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
-        required("Auth") => list(user_auth_config()()),
+        optional("Tags") => list(tag()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
+        required("Auth") => list(user_auth_config()),
         required("DBProxyName") => String.t(),
         required("EngineFamily") => list(any()),
         required("RoleArn") => String.t(),
-        required("VpcSubnetIds") => list(String.t()())
+        required("VpcSubnetIds") => list(String.t())
       }
       
   """
@@ -611,7 +611,7 @@ defmodule AWS.RDS do
         "InitQuery" => String.t(),
         "MaxConnectionsPercent" => integer(),
         "MaxIdleConnectionsPercent" => integer(),
-        "SessionPinningFilters" => list(String.t()())
+        "SessionPinningFilters" => list(String.t())
       }
       
   """
@@ -649,7 +649,7 @@ defmodule AWS.RDS do
         optional("MasterUserPassword") => String.t(),
         optional("MasterUserSecretKmsKeyId") => String.t(),
         optional("NcharCharacterSetName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBInstanceIdentifier") => String.t(),
         required("MasterUsername") => String.t(),
         required("TenantDBName") => String.t()
@@ -663,7 +663,7 @@ defmodule AWS.RDS do
   ## Example:
       
       performance_insights_metric_dimension_group() :: %{
-        "Dimensions" => list(String.t()()),
+        "Dimensions" => list(String.t()),
         "Group" => String.t(),
         "Limit" => integer()
       }
@@ -754,7 +754,7 @@ defmodule AWS.RDS do
       
       reserved_db_instance_message() :: %{
         "Marker" => String.t(),
-        "ReservedDBInstances" => list(reserved_db_instance()())
+        "ReservedDBInstances" => list(reserved_db_instance())
       }
       
   """
@@ -782,11 +782,11 @@ defmodule AWS.RDS do
         optional("DedicatedLogVolume") => boolean(),
         optional("AvailabilityZone") => String.t(),
         optional("PreSignedUrl") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()()),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("DomainDnsIps") => list(String.t()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("MonitoringRoleArn") => String.t(),
         optional("DBInstanceClass") => String.t(),
         optional("MaxAllocatedStorage") => integer(),
@@ -800,7 +800,7 @@ defmodule AWS.RDS do
         optional("CustomIamInstanceProfile") => String.t(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
         optional("DatabaseInsightsMode") => list(any()),
@@ -811,7 +811,7 @@ defmodule AWS.RDS do
         optional("DBSubnetGroupName") => String.t(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         optional("UseDefaultProcessorFeatures") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -845,7 +845,7 @@ defmodule AWS.RDS do
       
       describe_db_instances_message() :: %{
         optional("DBInstanceIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -880,13 +880,13 @@ defmodule AWS.RDS do
   ## Example:
       
       modify_db_proxy_request() :: %{
-        optional("Auth") => list(user_auth_config()()),
+        optional("Auth") => list(user_auth_config()),
         optional("DebugLogging") => boolean(),
         optional("IdleClientTimeout") => integer(),
         optional("NewDBProxyName") => String.t(),
         optional("RequireTLS") => boolean(),
         optional("RoleArn") => String.t(),
-        optional("SecurityGroups") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
         required("DBProxyName") => String.t()
       }
       
@@ -909,7 +909,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBParameterGroupFamily") => String.t(),
         required("DBParameterGroupName") => String.t(),
         required("Description") => String.t()
@@ -930,10 +930,10 @@ defmodule AWS.RDS do
         "Source" => String.t(),
         "Status" => String.t(),
         "StatusDetails" => String.t(),
-        "SwitchoverDetails" => list(switchover_detail()()),
-        "TagList" => list(tag()()),
+        "SwitchoverDetails" => list(switchover_detail()),
+        "TagList" => list(tag()),
         "Target" => String.t(),
-        "Tasks" => list(blue_green_deployment_task()())
+        "Tasks" => list(blue_green_deployment_task())
       }
       
   """
@@ -958,7 +958,7 @@ defmodule AWS.RDS do
       performance_issue_details() :: %{
         "Analysis" => String.t(),
         "EndTime" => non_neg_integer(),
-        "Metrics" => list(metric()()),
+        "Metrics" => list(metric()),
         "StartTime" => non_neg_integer()
       }
       
@@ -1000,13 +1000,13 @@ defmodule AWS.RDS do
         "CreateTime" => non_neg_integer(),
         "DataFilter" => String.t(),
         "Description" => String.t(),
-        "Errors" => list(integration_error()()),
+        "Errors" => list(integration_error()),
         "IntegrationArn" => String.t(),
         "IntegrationName" => String.t(),
         "KMSKeyId" => String.t(),
         "SourceArn" => String.t(),
         "Status" => list(any()),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TargetArn" => String.t()
       }
       
@@ -1027,7 +1027,7 @@ defmodule AWS.RDS do
         "NcharCharacterSetName" => String.t(),
         "PendingModifiedValues" => tenant_database_pending_modified_values(),
         "Status" => String.t(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "TenantDBName" => String.t(),
         "TenantDatabaseARN" => String.t(),
         "TenantDatabaseCreateTime" => non_neg_integer(),
@@ -1053,7 +1053,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterParameterGroupName") => String.t(),
         required("DBParameterGroupFamily") => String.t(),
         required("Description") => String.t()
@@ -1071,7 +1071,7 @@ defmodule AWS.RDS do
         "InitQuery" => String.t(),
         "MaxConnectionsPercent" => integer(),
         "MaxIdleConnectionsPercent" => integer(),
-        "SessionPinningFilters" => list(String.t()())
+        "SessionPinningFilters" => list(String.t())
       }
       
   """
@@ -1106,7 +1106,7 @@ defmodule AWS.RDS do
       
       modify_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
         optional("SnsTopicArn") => String.t(),
         optional("SourceType") => String.t(),
         required("SubscriptionName") => String.t()
@@ -1120,7 +1120,7 @@ defmodule AWS.RDS do
   ## Example:
       
       copy_db_cluster_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterParameterGroupIdentifier") => String.t(),
         required("TargetDBClusterParameterGroupDescription") => String.t(),
         required("TargetDBClusterParameterGroupIdentifier") => String.t()
@@ -1146,7 +1146,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_pending_maintenance_actions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("ResourceIdentifier") => String.t()
@@ -1163,7 +1163,7 @@ defmodule AWS.RDS do
         optional("AvailabilityZoneGroup") => String.t(),
         optional("DBInstanceClass") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LicenseModel") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -1195,8 +1195,8 @@ defmodule AWS.RDS do
   ## Example:
       
       pending_cloudwatch_logs_exports() :: %{
-        "LogTypesToDisable" => list(String.t()()),
-        "LogTypesToEnable" => list(String.t()())
+        "LogTypesToDisable" => list(String.t()),
+        "LogTypesToEnable" => list(String.t())
       }
       
   """
@@ -1209,7 +1209,7 @@ defmodule AWS.RDS do
       metric() :: %{
         "MetricQuery" => metric_query(),
         "Name" => String.t(),
-        "References" => list(metric_reference()()),
+        "References" => list(metric_reference()),
         "StatisticsDetails" => String.t()
       }
       
@@ -1238,12 +1238,12 @@ defmodule AWS.RDS do
         optional("DedicatedLogVolume") => boolean(),
         optional("BackupRetentionPeriod") => integer(),
         optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
         optional("EngineVersion") => String.t(),
         required("S3IngestionRoleArn") => String.t(),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("MonitoringRoleArn") => String.t(),
         optional("LicenseModel") => String.t(),
         optional("MaxAllocatedStorage") => integer(),
@@ -1251,14 +1251,14 @@ defmodule AWS.RDS do
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
-        optional("DBSecurityGroups") => list(String.t()()),
+        optional("DBSecurityGroups") => list(String.t()),
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         required("DBInstanceClass") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("StorageEncrypted") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
         optional("DatabaseInsightsMode") => list(any()),
@@ -1272,7 +1272,7 @@ defmodule AWS.RDS do
         required("Engine") => String.t(),
         required("S3BucketName") => String.t(),
         optional("UseDefaultProcessorFeatures") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1295,7 +1295,7 @@ defmodule AWS.RDS do
       
       describe_db_proxy_targets_response() :: %{
         "Marker" => String.t(),
-        "Targets" => list(db_proxy_target()())
+        "Targets" => list(db_proxy_target())
       }
       
   """
@@ -1320,7 +1320,7 @@ defmodule AWS.RDS do
       engine_defaults() :: %{
         "DBParameterGroupFamily" => String.t(),
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -1333,7 +1333,7 @@ defmodule AWS.RDS do
       purchase_reserved_db_instances_offering_message() :: %{
         optional("DBInstanceCount") => integer(),
         optional("ReservedDBInstanceId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ReservedDBInstancesOfferingId") => String.t()
       }
       
@@ -1359,7 +1359,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_backtrack_message() :: %{
-        "DBClusterBacktracks" => list(db_cluster_backtrack()()),
+        "DBClusterBacktracks" => list(db_cluster_backtrack()),
         "Marker" => String.t()
       }
       
@@ -1371,7 +1371,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_snapshot_attributes_result() :: %{
-        "DBSnapshotAttributes" => list(db_snapshot_attribute()()),
+        "DBSnapshotAttributes" => list(db_snapshot_attribute()),
         "DBSnapshotIdentifier" => String.t()
       }
       
@@ -1416,8 +1416,8 @@ defmodule AWS.RDS do
   ## Example:
       
       cloudwatch_logs_export_configuration() :: %{
-        "DisableLogTypes" => list(String.t()()),
-        "EnableLogTypes" => list(String.t()())
+        "DisableLogTypes" => list(String.t()),
+        "EnableLogTypes" => list(String.t())
       }
       
   """
@@ -1503,7 +1503,7 @@ defmodule AWS.RDS do
         optional("DBInstanceIdentifier") => String.t(),
         optional("DBSnapshotIdentifier") => String.t(),
         optional("DbiResourceId") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
         optional("Marker") => String.t(),
@@ -1544,10 +1544,10 @@ defmodule AWS.RDS do
         "CustSubscriptionId" => String.t(),
         "CustomerAwsId" => String.t(),
         "Enabled" => boolean(),
-        "EventCategoriesList" => list(String.t()()),
+        "EventCategoriesList" => list(String.t()),
         "EventSubscriptionArn" => String.t(),
         "SnsTopicArn" => String.t(),
-        "SourceIdsList" => list(String.t()()),
+        "SourceIdsList" => list(String.t()),
         "SourceType" => String.t(),
         "Status" => String.t(),
         "SubscriptionCreationTime" => String.t()
@@ -1562,7 +1562,7 @@ defmodule AWS.RDS do
       
       describe_blue_green_deployments_request() :: %{
         optional("BlueGreenDeploymentIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1592,7 +1592,7 @@ defmodule AWS.RDS do
         "DBClusterArn" => String.t(),
         "GlobalWriteForwardingStatus" => list(any()),
         "IsWriter" => boolean(),
-        "Readers" => list(String.t()()),
+        "Readers" => list(String.t()),
         "SynchronizationStatus" => list(any())
       }
       
@@ -1627,8 +1627,8 @@ defmodule AWS.RDS do
   ## Example:
       
       modify_db_cluster_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()()),
-        optional("ValuesToRemove") => list(String.t()()),
+        optional("ValuesToAdd") => list(String.t()),
+        optional("ValuesToRemove") => list(String.t()),
         required("AttributeName") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -1686,7 +1686,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_blue_green_deployments_response() :: %{
-        "BlueGreenDeployments" => list(blue_green_deployment()()),
+        "BlueGreenDeployments" => list(blue_green_deployment()),
         "Marker" => String.t()
       }
       
@@ -1710,7 +1710,7 @@ defmodule AWS.RDS do
       
       describe_certificates_message() :: %{
         optional("CertificateIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -1750,7 +1750,7 @@ defmodule AWS.RDS do
         optional("SourceDBClusterIdentifier") => String.t(),
         optional("RestoreType") => String.t(),
         optional("ScalingConfiguration") => scaling_configuration(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("SourceDbClusterResourceId") => String.t(),
         optional("DBClusterInstanceClass") => String.t(),
         optional("PubliclyAccessible") => boolean(),
@@ -1763,13 +1763,13 @@ defmodule AWS.RDS do
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
         optional("DBSubnetGroupName") => String.t(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         optional("UseLatestRestorableTime") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1819,7 +1819,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_security_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBSecurityGroupDescription") => String.t(),
         required("DBSecurityGroupName") => String.t()
       }
@@ -1869,7 +1869,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_snapshot_message() :: %{
-        "DBClusterSnapshots" => list(db_cluster_snapshot()()),
+        "DBClusterSnapshots" => list(db_cluster_snapshot()),
         "Marker" => String.t()
       }
       
@@ -1892,7 +1892,7 @@ defmodule AWS.RDS do
   ## Example:
       
       list_tags_for_resource_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         required("ResourceName") => String.t()
       }
       
@@ -1907,7 +1907,7 @@ defmodule AWS.RDS do
         optional("DBClusterIdentifier") => String.t(),
         optional("DBClusterSnapshotIdentifier") => String.t(),
         optional("DbClusterResourceId") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludePublic") => boolean(),
         optional("IncludeShared") => boolean(),
         optional("Marker") => String.t(),
@@ -1941,7 +1941,7 @@ defmodule AWS.RDS do
         optional("KMSKeyId") => String.t(),
         optional("Manifest") => String.t(),
         optional("SourceCustomDbEngineVersionIdentifier") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("UseAwsProvidedLatestImage") => boolean(),
         required("Engine") => String.t(),
         required("EngineVersion") => String.t()
@@ -1988,12 +1988,12 @@ defmodule AWS.RDS do
         optional("NcharCharacterSetName") => String.t(),
         optional("BackupRetentionPeriod") => integer(),
         optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
         optional("EngineVersion") => String.t(),
-        optional("DomainDnsIps") => list(String.t()()),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("DomainDnsIps") => list(String.t()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("MonitoringRoleArn") => String.t(),
         optional("LicenseModel") => String.t(),
         optional("MaxAllocatedStorage") => integer(),
@@ -2004,7 +2004,7 @@ defmodule AWS.RDS do
         optional("ManageMasterUserPassword") => boolean(),
         optional("Port") => integer(),
         optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()()),
+        optional("DBSecurityGroups") => list(String.t()),
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         required("DBInstanceClass") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
@@ -2013,7 +2013,7 @@ defmodule AWS.RDS do
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
         optional("DBSystemId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
         optional("DatabaseInsightsMode") => list(any()),
@@ -2029,7 +2029,7 @@ defmodule AWS.RDS do
         optional("PreferredMaintenanceWindow") => String.t(),
         required("Engine") => String.t(),
         optional("TdeCredentialArn") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -2085,7 +2085,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_option_group_options_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MajorEngineVersion") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -2159,10 +2159,10 @@ defmodule AWS.RDS do
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => master_user_secret(),
         "DBName" => String.t(),
-        "StatusInfos" => list(db_instance_status_info()()),
+        "StatusInfos" => list(db_instance_status_info()),
         "Engine" => String.t(),
         "MultiTenant" => boolean(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "NetworkType" => String.t(),
         "ActivityStreamKmsKeyId" => String.t(),
         "NcharCharacterSetName" => String.t(),
@@ -2172,10 +2172,10 @@ defmodule AWS.RDS do
         "PreferredMaintenanceWindow" => String.t(),
         "Iops" => integer(),
         "MonitoringInterval" => integer(),
-        "ReadReplicaDBInstanceIdentifiers" => list(String.t()()),
+        "ReadReplicaDBInstanceIdentifiers" => list(String.t()),
         "CustomerOwnedIpEnabled" => boolean(),
         "AwsBackupRecoveryPointArn" => String.t(),
-        "OptionGroupMemberships" => list(option_group_membership()()),
+        "OptionGroupMemberships" => list(option_group_membership()),
         "ReadReplicaSourceDBClusterIdentifier" => String.t(),
         "ActivityStreamKinesisStreamName" => String.t(),
         "PreferredBackupWindow" => String.t(),
@@ -2189,31 +2189,31 @@ defmodule AWS.RDS do
         "ActivityStreamMode" => list(any()),
         "AvailabilityZone" => String.t(),
         "CopyTagsToSnapshot" => boolean(),
-        "ProcessorFeatures" => list(processor_feature()()),
+        "ProcessorFeatures" => list(processor_feature()),
         "DBInstanceClass" => String.t(),
-        "ReadReplicaDBClusterIdentifiers" => list(String.t()()),
+        "ReadReplicaDBClusterIdentifiers" => list(String.t()),
         "CustomIamInstanceProfile" => String.t(),
         "BackupTarget" => String.t(),
         "ActivityStreamEngineNativeAuditFieldsIncluded" => boolean(),
         "EnhancedMonitoringResourceArn" => String.t(),
         "DedicatedLogVolume" => boolean(),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "AutoMinorVersionUpgrade" => boolean(),
         "IsStorageConfigUpgradeAvailable" => boolean(),
         "DBInstanceArn" => String.t(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "PercentProgress" => String.t(),
         "ReplicaMode" => list(any()),
         "EngineLifecycleSupport" => String.t(),
         "DbiResourceId" => String.t(),
-        "DBParameterGroups" => list(db_parameter_group_status()()),
+        "DBParameterGroups" => list(db_parameter_group_status()),
         "AutomationMode" => list(any()),
         "StorageThroughput" => integer(),
         "DBInstanceStatus" => String.t(),
         "ActivityStreamPolicyStatus" => list(any()),
         "TdeCredentialArn" => String.t(),
         "PerformanceInsightsKMSKeyId" => String.t(),
-        "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()()),
+        "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()),
         "MasterUsername" => String.t(),
         "LicenseModel" => String.t(),
         "AutomaticRestartTime" => non_neg_integer(),
@@ -2224,7 +2224,7 @@ defmodule AWS.RDS do
         "DBSubnetGroup" => db_subnet_group(),
         "PerformanceInsightsRetentionPeriod" => integer(),
         "InstanceCreateTime" => non_neg_integer(),
-        "DomainMemberships" => list(domain_membership()()),
+        "DomainMemberships" => list(domain_membership()),
         "DbInstancePort" => integer(),
         "SecondaryAvailabilityZone" => String.t(),
         "ActivityStreamStatus" => list(any()),
@@ -2232,10 +2232,10 @@ defmodule AWS.RDS do
         "PubliclyAccessible" => boolean(),
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
-        "AssociatedRoles" => list(db_instance_role()()),
+        "AssociatedRoles" => list(db_instance_role()),
         "MaxAllocatedStorage" => integer(),
         "StorageEncrypted" => boolean(),
-        "DBSecurityGroups" => list(db_security_group_membership()()),
+        "DBSecurityGroups" => list(db_security_group_membership()),
         "Endpoint" => endpoint(),
         "ResumeFullAutomationModeTime" => non_neg_integer(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
@@ -2372,7 +2372,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_message() :: %{
-        "DBClusters" => list(db_cluster()()),
+        "DBClusters" => list(db_cluster()),
         "Marker" => String.t()
       }
       
@@ -2384,7 +2384,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_snapshot_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBInstanceIdentifier") => String.t(),
         required("DBSnapshotIdentifier") => String.t()
       }
@@ -2431,7 +2431,7 @@ defmodule AWS.RDS do
   ## Example:
       
       copy_option_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceOptionGroupIdentifier") => String.t(),
         required("TargetOptionGroupDescription") => String.t(),
         required("TargetOptionGroupIdentifier") => String.t()
@@ -2445,7 +2445,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_engine_default_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBParameterGroupFamily") => String.t()
@@ -2540,7 +2540,7 @@ defmodule AWS.RDS do
         optional("DefaultOnly") => boolean(),
         optional("Engine") => String.t(),
         optional("EngineVersion") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludeAll") => boolean(),
         optional("ListSupportedCharacterSets") => boolean(),
         optional("ListSupportedTimezones") => boolean(),
@@ -2567,7 +2567,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_blue_green_deployment_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetAllocatedStorage") => integer(),
         optional("TargetDBClusterParameterGroupName") => String.t(),
         optional("TargetDBInstanceClass") => String.t(),
@@ -2622,7 +2622,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_endpoint_message() :: %{
-        "DBClusterEndpoints" => list(db_cluster_endpoint()()),
+        "DBClusterEndpoints" => list(db_cluster_endpoint()),
         "Marker" => String.t()
       }
       
@@ -2719,7 +2719,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_instance_automated_backup_message() :: %{
-        "DBInstanceAutomatedBackups" => list(db_instance_automated_backup()()),
+        "DBInstanceAutomatedBackups" => list(db_instance_automated_backup()),
         "Marker" => String.t()
       }
       
@@ -2734,8 +2734,8 @@ defmodule AWS.RDS do
         "DBSecurityGroupArn" => String.t(),
         "DBSecurityGroupDescription" => String.t(),
         "DBSecurityGroupName" => String.t(),
-        "EC2SecurityGroups" => list(ec2_security_group()()),
-        "IPRanges" => list(ip_range()()),
+        "EC2SecurityGroups" => list(ec2_security_group()),
+        "IPRanges" => list(ip_range()),
         "OwnerId" => String.t(),
         "VpcId" => String.t()
       }
@@ -2748,7 +2748,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_proxy_endpoints_response() :: %{
-        "DBProxyEndpoints" => list(db_proxy_endpoint()()),
+        "DBProxyEndpoints" => list(db_proxy_endpoint()),
         "Marker" => String.t()
       }
       
@@ -2829,7 +2829,7 @@ defmodule AWS.RDS do
       describe_reserved_db_instances_offerings_message() :: %{
         optional("DBInstanceClass") => String.t(),
         optional("Duration") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("MultiAZ") => boolean(),
@@ -2941,7 +2941,7 @@ defmodule AWS.RDS do
   ## Example:
       
       reset_db_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("DBParameterGroupName") => String.t()
       }
@@ -2955,10 +2955,10 @@ defmodule AWS.RDS do
       
       create_event_subscription_message() :: %{
         optional("Enabled") => boolean(),
-        optional("EventCategories") => list(String.t()()),
-        optional("SourceIds") => list(String.t()()),
+        optional("EventCategories") => list(String.t()),
+        optional("SourceIds") => list(String.t()),
         optional("SourceType") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SnsTopicArn") => String.t(),
         required("SubscriptionName") => String.t()
       }
@@ -2994,7 +2994,7 @@ defmodule AWS.RDS do
       
       describe_db_proxies_request() :: %{
         optional("DBProxyName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3009,7 +3009,7 @@ defmodule AWS.RDS do
       describe_db_cluster_endpoints_message() :: %{
         optional("DBClusterEndpointIdentifier") => String.t(),
         optional("DBClusterIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3045,7 +3045,7 @@ defmodule AWS.RDS do
       
       orderable_db_instance_options_message() :: %{
         "Marker" => String.t(),
-        "OrderableDBInstanceOptions" => list(orderable_db_instance_option()())
+        "OrderableDBInstanceOptions" => list(orderable_db_instance_option())
       }
       
   """
@@ -3106,7 +3106,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_recommendations_message() :: %{
-        "DBRecommendations" => list(db_recommendation()()),
+        "DBRecommendations" => list(db_recommendation()),
         "Marker" => String.t()
       }
       
@@ -3118,7 +3118,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_event_subscriptions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SubscriptionName") => String.t()
@@ -3135,7 +3135,7 @@ defmodule AWS.RDS do
         optional("ComputeRedundancy") => integer(),
         optional("MinACU") => float(),
         optional("PubliclyAccessible") => boolean(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterIdentifier") => String.t(),
         required("DBShardGroupIdentifier") => String.t(),
         required("MaxACU") => float()
@@ -3152,7 +3152,7 @@ defmodule AWS.RDS do
         optional("DBInstanceAutomatedBackupsArn") => String.t(),
         optional("DBInstanceIdentifier") => String.t(),
         optional("DbiResourceId") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3187,9 +3187,9 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_cluster_endpoint_message() :: %{
-        optional("ExcludedMembers") => list(String.t()()),
-        optional("StaticMembers") => list(String.t()()),
-        optional("Tags") => list(tag()()),
+        optional("ExcludedMembers") => list(String.t()),
+        optional("StaticMembers") => list(String.t()),
+        optional("Tags") => list(tag()),
         required("DBClusterEndpointIdentifier") => String.t(),
         required("DBClusterIdentifier") => String.t(),
         required("EndpointType") => String.t()
@@ -3226,7 +3226,7 @@ defmodule AWS.RDS do
       
       db_cluster_snapshot_attribute() :: %{
         "AttributeName" => String.t(),
-        "AttributeValues" => list(String.t()())
+        "AttributeValues" => list(String.t())
       }
       
   """
@@ -3264,7 +3264,7 @@ defmodule AWS.RDS do
       
       describe_db_security_groups_message() :: %{
         optional("DBSecurityGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3295,7 +3295,7 @@ defmodule AWS.RDS do
         "MultiTenant" => boolean(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
         "Port" => integer(),
-        "ProcessorFeatures" => list(processor_feature()()),
+        "ProcessorFeatures" => list(processor_feature()),
         "ResumeFullAutomationModeTime" => non_neg_integer(),
         "StorageThroughput" => integer(),
         "StorageType" => String.t()
@@ -3333,15 +3333,15 @@ defmodule AWS.RDS do
         "MaxStorageThroughputPerIops" => float(),
         "SupportsIAMDatabaseAuthentication" => boolean(),
         "SupportsPerformanceInsights" => boolean(),
-        "SupportedEngineModes" => list(String.t()()),
+        "SupportedEngineModes" => list(String.t()),
         "SupportsKerberosAuthentication" => boolean(),
         "SupportsIops" => boolean(),
         "DBInstanceClass" => String.t(),
         "MaxStorageThroughputPerDbInstance" => integer(),
         "SupportsGlobalDatabases" => boolean(),
         "MaxIopsPerDbInstance" => integer(),
-        "AvailableProcessorFeatures" => list(available_processor_feature()()),
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailableProcessorFeatures" => list(available_processor_feature()),
+        "AvailabilityZones" => list(availability_zone()),
         "SupportsDedicatedLogVolume" => boolean(),
         "MinIopsPerDbInstance" => integer(),
         "SupportsClusters" => boolean(),
@@ -3349,11 +3349,11 @@ defmodule AWS.RDS do
         "SupportsStorageEncryption" => boolean(),
         "SupportsStorageThroughput" => boolean(),
         "StorageType" => String.t(),
-        "SupportedNetworkTypes" => list(String.t()()),
+        "SupportedNetworkTypes" => list(String.t()),
         "SupportsStorageAutoscaling" => boolean(),
         "ReadReplicaCapable" => boolean(),
         "MinIopsPerGib" => float(),
-        "SupportedActivityStreamModes" => list(String.t()()),
+        "SupportedActivityStreamModes" => list(String.t()),
         "EngineVersion" => String.t(),
         "AvailabilityZoneGroup" => String.t()
       }
@@ -3393,7 +3393,7 @@ defmodule AWS.RDS do
         "DefaultValue" => String.t(),
         "IsModifiable" => boolean(),
         "IsRequired" => boolean(),
-        "MinimumEngineVersionPerAllowedValue" => list(minimum_engine_version_per_allowed_value()()),
+        "MinimumEngineVersionPerAllowedValue" => list(minimum_engine_version_per_allowed_value()),
         "SettingDescription" => String.t(),
         "SettingName" => String.t()
       }
@@ -3417,7 +3417,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_parameter_groups_message() :: %{
-        "DBClusterParameterGroups" => list(db_cluster_parameter_group()()),
+        "DBClusterParameterGroups" => list(db_cluster_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -3452,7 +3452,7 @@ defmodule AWS.RDS do
       
       describe_db_cluster_parameter_groups_message() :: %{
         optional("DBClusterParameterGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -3476,7 +3476,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_security_group_message() :: %{
-        "DBSecurityGroups" => list(db_security_group()()),
+        "DBSecurityGroups" => list(db_security_group()),
         "Marker" => String.t()
       }
       
@@ -3512,7 +3512,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_recommendations_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LastUpdatedAfter") => non_neg_integer(),
         optional("LastUpdatedBefore") => non_neg_integer(),
         optional("Locale") => String.t(),
@@ -3564,7 +3564,7 @@ defmodule AWS.RDS do
         optional("CopyTags") => boolean(),
         optional("KmsKeyId") => String.t(),
         optional("PreSignedUrl") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBClusterSnapshotIdentifier") => String.t(),
         required("TargetDBClusterSnapshotIdentifier") => String.t()
       }
@@ -3608,11 +3608,11 @@ defmodule AWS.RDS do
         "FailoverState" => failover_state(),
         "GlobalClusterArn" => String.t(),
         "GlobalClusterIdentifier" => String.t(),
-        "GlobalClusterMembers" => list(global_cluster_member()()),
+        "GlobalClusterMembers" => list(global_cluster_member()),
         "GlobalClusterResourceId" => String.t(),
         "Status" => String.t(),
         "StorageEncrypted" => boolean(),
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -3646,7 +3646,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_proxies_response() :: %{
-        "DBProxies" => list(db_proxy()()),
+        "DBProxies" => list(db_proxy()),
         "Marker" => String.t()
       }
       
@@ -3716,7 +3716,7 @@ defmodule AWS.RDS do
   ## Example:
       
       certificate_message() :: %{
-        "Certificates" => list(certificate()()),
+        "Certificates" => list(certificate()),
         "DefaultCertificateForNewLaunches" => String.t(),
         "Marker" => String.t()
       }
@@ -3741,8 +3741,8 @@ defmodule AWS.RDS do
   ## Example:
       
       deregister_db_proxy_targets_request() :: %{
-        optional("DBClusterIdentifiers") => list(String.t()()),
-        optional("DBInstanceIdentifiers") => list(String.t()()),
+        optional("DBClusterIdentifiers") => list(String.t()),
+        optional("DBInstanceIdentifiers") => list(String.t()),
         optional("TargetGroupName") => String.t(),
         required("DBProxyName") => String.t()
       }
@@ -3766,7 +3766,7 @@ defmodule AWS.RDS do
   ## Example:
       
       global_clusters_message() :: %{
-        "GlobalClusters" => list(global_cluster()()),
+        "GlobalClusters" => list(global_cluster()),
         "Marker" => String.t()
       }
       
@@ -3778,7 +3778,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_major_engine_versions_response() :: %{
-        "DBMajorEngineVersions" => list(db_major_engine_version()()),
+        "DBMajorEngineVersions" => list(db_major_engine_version()),
         "Marker" => String.t()
       }
       
@@ -3883,7 +3883,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_snapshot_tenant_databases_message() :: %{
-        "DBSnapshotTenantDatabases" => list(db_snapshot_tenant_database()()),
+        "DBSnapshotTenantDatabases" => list(db_snapshot_tenant_database()),
         "Marker" => String.t()
       }
       
@@ -3907,7 +3907,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("Source") => String.t(),
@@ -3922,7 +3922,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_proxy_target_groups_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("TargetGroupName") => String.t(),
@@ -3959,7 +3959,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_engine_version_message() :: %{
-        "DBEngineVersions" => list(db_engine_version()()),
+        "DBEngineVersions" => list(db_engine_version()),
         "Marker" => String.t()
       }
       
@@ -4010,9 +4010,9 @@ defmodule AWS.RDS do
       db_engine_version() :: %{
         "Status" => String.t(),
         "DatabaseInstallationFilesS3BucketName" => String.t(),
-        "SupportedCACertificateIdentifiers" => list(String.t()()),
+        "SupportedCACertificateIdentifiers" => list(String.t()),
         "Engine" => String.t(),
-        "ValidUpgradeTarget" => list(upgrade_target()()),
+        "ValidUpgradeTarget" => list(upgrade_target()),
         "SupportsReadReplica" => boolean(),
         "MajorEngineVersion" => String.t(),
         "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
@@ -4024,22 +4024,22 @@ defmodule AWS.RDS do
         "CreateTime" => non_neg_integer(),
         "SupportsLimitlessDatabase" => boolean(),
         "SupportsIntegrations" => boolean(),
-        "SupportedEngineModes" => list(String.t()()),
-        "ExportableLogTypes" => list(String.t()()),
-        "SupportedFeatureNames" => list(String.t()()),
+        "SupportedEngineModes" => list(String.t()),
+        "ExportableLogTypes" => list(String.t()),
+        "SupportedFeatureNames" => list(String.t()),
         "KMSKeyId" => String.t(),
         "DBEngineVersionArn" => String.t(),
         "SupportsParallelQuery" => boolean(),
         "DBParameterGroupFamily" => String.t(),
         "DBEngineVersionDescription" => String.t(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
-        "SupportedTimezones" => list(timezone()()),
+        "SupportedTimezones" => list(timezone()),
         "SupportsGlobalDatabases" => boolean(),
-        "TagList" => list(tag()()),
-        "SupportedCharacterSets" => list(character_set()()),
+        "TagList" => list(tag()),
+        "SupportedCharacterSets" => list(character_set()),
         "SupportsBabelfish" => boolean(),
         "DBEngineDescription" => String.t(),
-        "SupportedNcharCharacterSets" => list(character_set()()),
+        "SupportedNcharCharacterSets" => list(character_set()),
         "SupportsCertificateRotationWithoutRestart" => boolean(),
         "DatabaseInstallationFilesS3Prefix" => String.t(),
         "EngineVersion" => String.t()
@@ -4054,7 +4054,7 @@ defmodule AWS.RDS do
       
       modify_db_proxy_endpoint_request() :: %{
         optional("NewDBProxyEndpointName") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBProxyEndpointName") => String.t()
       }
       
@@ -4104,7 +4104,7 @@ defmodule AWS.RDS do
         "ParameterName" => String.t(),
         "ParameterValue" => String.t(),
         "Source" => String.t(),
-        "SupportedEngineModes" => list(String.t()())
+        "SupportedEngineModes" => list(String.t())
       }
       
   """
@@ -4129,7 +4129,7 @@ defmodule AWS.RDS do
       
       describe_db_shard_groups_message() :: %{
         optional("DBShardGroupIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -4199,7 +4199,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_source_regions_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("RegionName") => String.t()
@@ -4213,7 +4213,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_cluster_snapshot_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBClusterIdentifier") => String.t(),
         required("DBClusterSnapshotIdentifier") => String.t()
       }
@@ -4236,7 +4236,7 @@ defmodule AWS.RDS do
         "MinACU" => float(),
         "PubliclyAccessible" => boolean(),
         "Status" => String.t(),
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -4260,12 +4260,12 @@ defmodule AWS.RDS do
         "OriginalSnapshotCreateTime" => non_neg_integer(),
         "VpcId" => String.t(),
         "AvailabilityZone" => String.t(),
-        "ProcessorFeatures" => list(processor_feature()()),
+        "ProcessorFeatures" => list(processor_feature()),
         "SourceDBSnapshotIdentifier" => String.t(),
         "DedicatedLogVolume" => boolean(),
         "SnapshotTarget" => String.t(),
         "SnapshotDatabaseTime" => non_neg_integer(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "PercentProgress" => integer(),
         "Port" => integer(),
         "DbiResourceId" => String.t(),
@@ -4367,7 +4367,7 @@ defmodule AWS.RDS do
       
       describe_db_clusters_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IncludeShared") => boolean(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -4442,8 +4442,8 @@ defmodule AWS.RDS do
         "DBClusterIdentifier" => String.t(),
         "Endpoint" => String.t(),
         "EndpointType" => String.t(),
-        "ExcludedMembers" => list(String.t()()),
-        "StaticMembers" => list(String.t()()),
+        "ExcludedMembers" => list(String.t()),
+        "StaticMembers" => list(String.t()),
         "Status" => String.t()
       }
       
@@ -4466,7 +4466,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_log_files_response() :: %{
-        "DescribeDBLogFiles" => list(describe_db_log_files_details()()),
+        "DescribeDBLogFiles" => list(describe_db_log_files_details()),
         "Marker" => String.t()
       }
       
@@ -4478,7 +4478,7 @@ defmodule AWS.RDS do
   ## Example:
       
       start_export_task_message() :: %{
-        optional("ExportOnly") => list(String.t()()),
+        optional("ExportOnly") => list(String.t()),
         optional("S3Prefix") => String.t(),
         required("ExportTaskIdentifier") => String.t(),
         required("IamRoleArn") => String.t(),
@@ -4496,7 +4496,7 @@ defmodule AWS.RDS do
       
       describe_db_parameter_groups_message() :: %{
         optional("DBParameterGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -4521,7 +4521,7 @@ defmodule AWS.RDS do
       
       modify_db_parameter_group_message() :: %{
         required("DBParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -4574,11 +4574,11 @@ defmodule AWS.RDS do
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
         optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()()),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("DomainDnsIps") => list(String.t()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("DBInstanceClass") => String.t(),
         optional("LicenseModel") => String.t(),
         optional("MaxAllocatedStorage") => integer(),
@@ -4590,7 +4590,7 @@ defmodule AWS.RDS do
         optional("CustomIamInstanceProfile") => String.t(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
         optional("DomainFqdn") => String.t(),
@@ -4602,7 +4602,7 @@ defmodule AWS.RDS do
         optional("TdeCredentialArn") => String.t(),
         optional("UseDefaultProcessorFeatures") => boolean(),
         optional("UseLatestRestorableTime") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -4613,7 +4613,7 @@ defmodule AWS.RDS do
   ## Example:
       
       export_tasks_message() :: %{
-        "ExportTasks" => list(export_task()()),
+        "ExportTasks" => list(export_task()),
         "Marker" => String.t()
       }
       
@@ -4626,7 +4626,7 @@ defmodule AWS.RDS do
       
       describe_option_groups_message() :: %{
         optional("EngineName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MajorEngineVersion") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -4653,7 +4653,7 @@ defmodule AWS.RDS do
       
       modify_db_cluster_parameter_group_message() :: %{
         required("DBClusterParameterGroupName") => String.t(),
-        required("Parameters") => list(parameter()())
+        required("Parameters") => list(parameter())
       }
       
   """
@@ -4676,7 +4676,7 @@ defmodule AWS.RDS do
       
       domain_membership() :: %{
         "AuthSecretArn" => String.t(),
-        "DnsIps" => list(String.t()()),
+        "DnsIps" => list(String.t()),
         "Domain" => String.t(),
         "FQDN" => String.t(),
         "IAMRoleName" => String.t(),
@@ -4693,7 +4693,7 @@ defmodule AWS.RDS do
       
       source_region_message() :: %{
         "Marker" => String.t(),
-        "SourceRegions" => list(source_region()())
+        "SourceRegions" => list(source_region())
       }
       
   """
@@ -4773,7 +4773,7 @@ defmodule AWS.RDS do
         optional("ScalingConfiguration") => scaling_configuration(),
         optional("BackupRetentionPeriod") => integer(),
         optional("PreSignedUrl") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EnableGlobalWriteForwarding") => boolean(),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("DBClusterInstanceClass") => String.t(),
@@ -4793,17 +4793,17 @@ defmodule AWS.RDS do
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("DeletionProtection") => boolean(),
         optional("DBSystemId") => String.t(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DatabaseInsightsMode") => list(any()),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("DBSubnetGroupName") => String.t(),
         optional("PerformanceInsightsRetentionPeriod") => integer(),
         optional("PreferredMaintenanceWindow") => String.t(),
         required("Engine") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -4814,11 +4814,11 @@ defmodule AWS.RDS do
   ## Example:
       
       valid_storage_options() :: %{
-        "IopsToStorageRatio" => list(double_range()()),
-        "ProvisionedIops" => list(range()()),
-        "ProvisionedStorageThroughput" => list(range()()),
-        "StorageSize" => list(range()()),
-        "StorageThroughputToIopsRatio" => list(double_range()()),
+        "IopsToStorageRatio" => list(double_range()),
+        "ProvisionedIops" => list(range()),
+        "ProvisionedStorageThroughput" => list(range()),
+        "StorageSize" => list(range()),
+        "StorageThroughputToIopsRatio" => list(double_range()),
         "StorageType" => String.t(),
         "SupportsStorageAutoscaling" => boolean()
       }
@@ -4854,7 +4854,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_parameter_groups_message() :: %{
-        "DBParameterGroups" => list(db_parameter_group()()),
+        "DBParameterGroups" => list(db_parameter_group()),
         "Marker" => String.t()
       }
       
@@ -4867,7 +4867,7 @@ defmodule AWS.RDS do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -4879,7 +4879,7 @@ defmodule AWS.RDS do
       
       reserved_db_instances_offering_message() :: %{
         "Marker" => String.t(),
-        "ReservedDBInstancesOfferings" => list(reserved_db_instances_offering()())
+        "ReservedDBInstancesOfferings" => list(reserved_db_instances_offering())
       }
       
   """
@@ -4902,7 +4902,7 @@ defmodule AWS.RDS do
       
       modify_db_recommendation_message() :: %{
         optional("Locale") => String.t(),
-        optional("RecommendedActionUpdates") => list(recommended_action_update()()),
+        optional("RecommendedActionUpdates") => list(recommended_action_update()),
         optional("Status") => String.t(),
         required("RecommendationId") => String.t()
       }
@@ -4915,9 +4915,9 @@ defmodule AWS.RDS do
   ## Example:
       
       valid_db_instance_modifications_message() :: %{
-        "Storage" => list(valid_storage_options()()),
+        "Storage" => list(valid_storage_options()),
         "SupportsDedicatedLogVolume" => boolean(),
-        "ValidProcessorFeatures" => list(available_processor_feature()())
+        "ValidProcessorFeatures" => list(available_processor_feature())
       }
       
   """
@@ -4939,7 +4939,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_shard_groups_response() :: %{
-        "DBShardGroups" => list(db_shard_group()()),
+        "DBShardGroups" => list(db_shard_group()),
         "Marker" => String.t()
       }
       
@@ -4959,7 +4959,7 @@ defmodule AWS.RDS do
         optional("GlobalClusterIdentifier") => String.t(),
         optional("SourceDBClusterIdentifier") => String.t(),
         optional("StorageEncrypted") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -5075,12 +5075,12 @@ defmodule AWS.RDS do
   ## Example:
       
       option_configuration() :: %{
-        "DBSecurityGroupMemberships" => list(String.t()()),
+        "DBSecurityGroupMemberships" => list(String.t()),
         "OptionName" => String.t(),
-        "OptionSettings" => list(option_setting()()),
+        "OptionSettings" => list(option_setting()),
         "OptionVersion" => String.t(),
         "Port" => integer(),
-        "VpcSecurityGroupMemberships" => list(String.t()())
+        "VpcSecurityGroupMemberships" => list(String.t())
       }
       
   """
@@ -5115,7 +5115,7 @@ defmodule AWS.RDS do
       describe_reserved_db_instances_message() :: %{
         optional("DBInstanceClass") => String.t(),
         optional("Duration") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("LeaseId") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
@@ -5161,7 +5161,7 @@ defmodule AWS.RDS do
   ## Example:
       
       events_message() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "Marker" => String.t()
       }
       
@@ -5195,7 +5195,7 @@ defmodule AWS.RDS do
   ## Example:
       
       reset_db_cluster_parameter_group_message() :: %{
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("ResetAllParameters") => boolean(),
         required("DBClusterParameterGroupName") => String.t()
       }
@@ -5208,7 +5208,7 @@ defmodule AWS.RDS do
   ## Example:
       
       export_task() :: %{
-        "ExportOnly" => list(String.t()()),
+        "ExportOnly" => list(String.t()),
         "ExportTaskIdentifier" => String.t(),
         "FailureCause" => String.t(),
         "IamRoleArn" => String.t(),
@@ -5285,7 +5285,7 @@ defmodule AWS.RDS do
         "OptionGroupArn" => String.t(),
         "OptionGroupDescription" => String.t(),
         "OptionGroupName" => String.t(),
-        "Options" => list(option()()),
+        "Options" => list(option()),
         "SourceAccountId" => String.t(),
         "SourceOptionGroup" => String.t(),
         "VpcId" => String.t()
@@ -5311,7 +5311,7 @@ defmodule AWS.RDS do
       
       describe_db_proxy_target_groups_response() :: %{
         "Marker" => String.t(),
-        "TargetGroups" => list(db_proxy_target_group()())
+        "TargetGroups" => list(db_proxy_target_group())
       }
       
   """
@@ -5344,8 +5344,8 @@ defmodule AWS.RDS do
   ## Example:
       
       register_db_proxy_targets_request() :: %{
-        optional("DBClusterIdentifiers") => list(String.t()()),
-        optional("DBInstanceIdentifiers") => list(String.t()()),
+        optional("DBClusterIdentifiers") => list(String.t()),
+        optional("DBInstanceIdentifiers") => list(String.t()),
         optional("TargetGroupName") => String.t(),
         required("DBProxyName") => String.t()
       }
@@ -5424,7 +5424,7 @@ defmodule AWS.RDS do
         optional("DataFilter") => String.t(),
         optional("Description") => String.t(),
         optional("KMSKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("IntegrationName") => String.t(),
         required("SourceArn") => String.t(),
         required("TargetArn") => String.t()
@@ -5529,7 +5529,7 @@ defmodule AWS.RDS do
       
       event() :: %{
         "Date" => non_neg_integer(),
-        "EventCategories" => list(String.t()()),
+        "EventCategories" => list(String.t()),
         "Message" => String.t(),
         "SourceArn" => String.t(),
         "SourceIdentifier" => String.t(),
@@ -5562,7 +5562,7 @@ defmodule AWS.RDS do
         "MultiAZ" => boolean(),
         "OfferingType" => String.t(),
         "ProductDescription" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedDBInstancesOfferingId" => String.t(),
         "UsagePrice" => float()
       }
@@ -5600,8 +5600,8 @@ defmodule AWS.RDS do
   ## Example:
       
       modify_db_snapshot_attribute_message() :: %{
-        optional("ValuesToAdd") => list(String.t()()),
-        optional("ValuesToRemove") => list(String.t()()),
+        optional("ValuesToAdd") => list(String.t()),
+        optional("ValuesToRemove") => list(String.t()),
         required("AttributeName") => String.t(),
         required("DBSnapshotIdentifier") => String.t()
       }
@@ -5638,7 +5638,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_instance_message() :: %{
-        "DBInstances" => list(db_instance()()),
+        "DBInstances" => list(db_instance()),
         "Marker" => String.t()
       }
       
@@ -5650,7 +5650,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_engine_default_cluster_parameters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBParameterGroupFamily") => String.t()
@@ -5664,7 +5664,7 @@ defmodule AWS.RDS do
   ## Example:
       
       tag_list_message() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -5675,7 +5675,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_db_proxy_targets_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("TargetGroupName") => String.t(),
@@ -5691,7 +5691,7 @@ defmodule AWS.RDS do
       
       describe_tenant_databases_message() :: %{
         optional("DBInstanceIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("TenantDBName") => String.t()
@@ -5743,10 +5743,10 @@ defmodule AWS.RDS do
         "DBSystemId" => String.t(),
         "LatestRestorableTime" => non_neg_integer(),
         "MasterUserSecret" => master_user_secret(),
-        "StatusInfos" => list(db_cluster_status_info()()),
+        "StatusInfos" => list(db_cluster_status_info()),
         "Engine" => String.t(),
         "GlobalWriteForwardingRequested" => boolean(),
-        "VpcSecurityGroups" => list(vpc_security_group_membership()()),
+        "VpcSecurityGroups" => list(vpc_security_group_membership()),
         "NetworkType" => String.t(),
         "ActivityStreamKmsKeyId" => String.t(),
         "MultiAZ" => boolean(),
@@ -5769,16 +5769,16 @@ defmodule AWS.RDS do
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
         "ActivityStreamMode" => list(any()),
-        "ReadReplicaIdentifiers" => list(String.t()()),
+        "ReadReplicaIdentifiers" => list(String.t()),
         "CopyTagsToSnapshot" => boolean(),
         "RdsCustomClusterConfiguration" => rds_custom_cluster_configuration(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
         "DBClusterInstanceClass" => String.t(),
         "Capacity" => integer(),
-        "EnabledCloudwatchLogsExports" => list(String.t()()),
+        "EnabledCloudwatchLogsExports" => list(String.t()),
         "HttpEndpointEnabled" => boolean(),
         "AutoMinorVersionUpgrade" => boolean(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "BacktrackWindow" => float(),
         "ClusterCreateTime" => non_neg_integer(),
         "PercentProgress" => String.t(),
@@ -5786,7 +5786,7 @@ defmodule AWS.RDS do
         "EngineLifecycleSupport" => String.t(),
         "Port" => integer(),
         "DBClusterArn" => String.t(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "CrossAccountClone" => boolean(),
         "BacktrackConsumedChangeRecords" => float(),
         "LimitlessDatabase" => limitless_database(),
@@ -5794,18 +5794,18 @@ defmodule AWS.RDS do
         "PerformanceInsightsKMSKeyId" => String.t(),
         "MasterUsername" => String.t(),
         "DbClusterResourceId" => String.t(),
-        "DBClusterMembers" => list(db_cluster_member()()),
+        "DBClusterMembers" => list(db_cluster_member()),
         "ReaderEndpoint" => String.t(),
         "AutomaticRestartTime" => non_neg_integer(),
-        "CustomEndpoints" => list(String.t()()),
+        "CustomEndpoints" => list(String.t()),
         "EarliestBacktrackTime" => non_neg_integer(),
         "DBClusterIdentifier" => String.t(),
         "DeletionProtection" => boolean(),
         "StorageType" => String.t(),
         "DBSubnetGroup" => String.t(),
         "PerformanceInsightsRetentionPeriod" => integer(),
-        "DomainMemberships" => list(domain_membership()()),
-        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()()),
+        "DomainMemberships" => list(domain_membership()),
+        "DBClusterOptionGroupMemberships" => list(db_cluster_option_group_status()),
         "EngineMode" => String.t(),
         "ActivityStreamStatus" => list(any()),
         "CertificateDetails" => certificate_details(),
@@ -5813,7 +5813,7 @@ defmodule AWS.RDS do
         "EngineVersion" => String.t(),
         "AllocatedStorage" => integer(),
         "HostedZoneId" => String.t(),
-        "AssociatedRoles" => list(db_cluster_role()()),
+        "AssociatedRoles" => list(db_cluster_role()),
         "GlobalClusterIdentifier" => String.t(),
         "IOOptimizedNextAllowedModificationTime" => non_neg_integer(),
         "StorageEncrypted" => boolean(),
@@ -5865,8 +5865,8 @@ defmodule AWS.RDS do
       
       modify_option_group_message() :: %{
         optional("ApplyImmediately") => boolean(),
-        optional("OptionsToInclude") => list(option_configuration()()),
-        optional("OptionsToRemove") => list(String.t()()),
+        optional("OptionsToInclude") => list(option_configuration()),
+        optional("OptionsToRemove") => list(String.t()),
         required("OptionGroupName") => String.t()
       }
       
@@ -6001,7 +6001,7 @@ defmodule AWS.RDS do
       
       add_tags_to_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -6012,7 +6012,7 @@ defmodule AWS.RDS do
   ## Example:
       
       register_db_proxy_targets_response() :: %{
-        "DBProxyTargets" => list(db_proxy_target()())
+        "DBProxyTargets" => list(db_proxy_target())
       }
       
   """
@@ -6034,7 +6034,7 @@ defmodule AWS.RDS do
   ## Example:
       
       event_categories_message() :: %{
-        "EventCategoriesMapList" => list(event_categories_map()())
+        "EventCategoriesMapList" => list(event_categories_map())
       }
       
   """
@@ -6108,10 +6108,10 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_subnet_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DBSubnetGroupDescription") => String.t(),
         required("DBSubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -6134,7 +6134,7 @@ defmodule AWS.RDS do
       
       describe_db_cluster_backtracks_message() :: %{
         optional("BacktrackIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBClusterIdentifier") => String.t()
@@ -6177,11 +6177,11 @@ defmodule AWS.RDS do
         optional("CopyTagsToSnapshot") => boolean(),
         optional("DedicatedLogVolume") => boolean(),
         optional("AvailabilityZone") => String.t(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
-        optional("DomainDnsIps") => list(String.t()()),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("DomainDnsIps") => list(String.t()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("DBInstanceClass") => String.t(),
         optional("LicenseModel") => String.t(),
         required("DBInstanceIdentifier") => String.t(),
@@ -6193,7 +6193,7 @@ defmodule AWS.RDS do
         optional("CustomIamInstanceProfile") => String.t(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CACertificateIdentifier") => String.t(),
         optional("DBParameterGroupName") => String.t(),
         optional("DomainFqdn") => String.t(),
@@ -6203,7 +6203,7 @@ defmodule AWS.RDS do
         optional("DBSubnetGroupName") => String.t(),
         optional("TdeCredentialArn") => String.t(),
         optional("UseDefaultProcessorFeatures") => boolean(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -6214,7 +6214,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_integrations_response() :: %{
-        "Integrations" => list(integration()()),
+        "Integrations" => list(integration()),
         "Marker" => String.t()
       }
       
@@ -6254,7 +6254,7 @@ defmodule AWS.RDS do
         optional("FileLastWritten") => float(),
         optional("FileSize") => float(),
         optional("FilenameContains") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         required("DBInstanceIdentifier") => String.t()
@@ -6268,7 +6268,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_global_clusters_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("GlobalClusterIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -6295,8 +6295,8 @@ defmodule AWS.RDS do
       describe_events_message() :: %{
         optional("Duration") => integer(),
         optional("EndTime") => non_neg_integer(),
-        optional("EventCategories") => list(String.t()()),
-        optional("Filters") => list(filter()()),
+        optional("EventCategories") => list(String.t()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SourceIdentifier") => String.t(),
@@ -6360,7 +6360,7 @@ defmodule AWS.RDS do
         optional("DBInstanceIdentifier") => String.t(),
         optional("DBSnapshotIdentifier") => String.t(),
         optional("DbiResourceId") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SnapshotType") => String.t()
@@ -6381,7 +6381,7 @@ defmodule AWS.RDS do
         optional("PreSignedUrl") => String.t(),
         optional("SnapshotAvailabilityZone") => String.t(),
         optional("SnapshotTarget") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetCustomAvailabilityZone") => String.t(),
         required("SourceDBSnapshotIdentifier") => String.t(),
         required("TargetDBSnapshotIdentifier") => String.t()
@@ -6445,7 +6445,7 @@ defmodule AWS.RDS do
       
       option_groups() :: %{
         "Marker" => String.t(),
-        "OptionGroupsList" => list(option_group()())
+        "OptionGroupsList" => list(option_group())
       }
       
   """
@@ -6467,7 +6467,7 @@ defmodule AWS.RDS do
   ## Example:
       
       account_attributes_message() :: %{
-        "AccountQuotas" => list(account_quota()())
+        "AccountQuotas" => list(account_quota())
       }
       
   """
@@ -6500,7 +6500,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_snapshot_attributes_result() :: %{
-        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()()),
+        "DBClusterSnapshotAttributes" => list(db_cluster_snapshot_attribute()),
         "DBClusterSnapshotIdentifier" => String.t()
       }
       
@@ -6567,7 +6567,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_cluster_automated_backup_message() :: %{
-        "DBClusterAutomatedBackups" => list(db_cluster_automated_backup()()),
+        "DBClusterAutomatedBackups" => list(db_cluster_automated_backup()),
         "Marker" => String.t()
       }
       
@@ -6617,7 +6617,7 @@ defmodule AWS.RDS do
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
         "IsMajorVersionUpgrade" => boolean(),
-        "SupportedEngineModes" => list(String.t()()),
+        "SupportedEngineModes" => list(String.t()),
         "SupportsBabelfish" => boolean(),
         "SupportsGlobalDatabases" => boolean(),
         "SupportsIntegrations" => boolean(),
@@ -6686,10 +6686,10 @@ defmodule AWS.RDS do
         "MajorEngineVersion" => String.t(),
         "MinimumRequiredMinorEngineVersion" => String.t(),
         "Name" => String.t(),
-        "OptionGroupOptionSettings" => list(option_group_option_setting()()),
-        "OptionGroupOptionVersions" => list(option_version()()),
-        "OptionsConflictsWith" => list(String.t()()),
-        "OptionsDependedOn" => list(String.t()()),
+        "OptionGroupOptionSettings" => list(option_group_option_setting()),
+        "OptionGroupOptionVersions" => list(option_version()),
+        "OptionsConflictsWith" => list(String.t()),
+        "OptionsDependedOn" => list(String.t()),
         "Permanent" => boolean(),
         "Persistent" => boolean(),
         "PortRequired" => boolean(),
@@ -6727,7 +6727,7 @@ defmodule AWS.RDS do
         "BackupTarget" => String.t(),
         "DBInstanceArn" => String.t(),
         "DBInstanceAutomatedBackupsArn" => String.t(),
-        "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()()),
+        "DBInstanceAutomatedBackupsReplications" => list(db_instance_automated_backups_replication()),
         "DBInstanceIdentifier" => String.t(),
         "DbiResourceId" => String.t(),
         "DedicatedLogVolume" => boolean(),
@@ -6825,7 +6825,7 @@ defmodule AWS.RDS do
       
       describe_export_tasks_message() :: %{
         optional("ExportTaskIdentifier") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer(),
         optional("SourceArn") => String.t(),
@@ -6840,15 +6840,15 @@ defmodule AWS.RDS do
   ## Example:
       
       option() :: %{
-        "DBSecurityGroupMemberships" => list(db_security_group_membership()()),
+        "DBSecurityGroupMemberships" => list(db_security_group_membership()),
         "OptionDescription" => String.t(),
         "OptionName" => String.t(),
-        "OptionSettings" => list(option_setting()()),
+        "OptionSettings" => list(option_setting()),
         "OptionVersion" => String.t(),
         "Permanent" => boolean(),
         "Persistent" => boolean(),
         "Port" => integer(),
-        "VpcSecurityGroupMemberships" => list(vpc_security_group_membership()())
+        "VpcSecurityGroupMemberships" => list(vpc_security_group_membership())
       }
       
   """
@@ -6917,7 +6917,7 @@ defmodule AWS.RDS do
       describe_db_proxy_endpoints_request() :: %{
         optional("DBProxyEndpointName") => String.t(),
         optional("DBProxyName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -6931,7 +6931,7 @@ defmodule AWS.RDS do
       
       describe_db_subnet_groups_message() :: %{
         optional("DBSubnetGroupName") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -6967,11 +6967,11 @@ defmodule AWS.RDS do
         "Detection" => String.t(),
         "Impact" => String.t(),
         "IssueDetails" => issue_details(),
-        "Links" => list(doc_link()()),
+        "Links" => list(doc_link()),
         "Reason" => String.t(),
         "Recommendation" => String.t(),
         "RecommendationId" => String.t(),
-        "RecommendedActions" => list(recommended_action()()),
+        "RecommendedActions" => list(recommended_action()),
         "ResourceArn" => String.t(),
         "Severity" => String.t(),
         "Source" => String.t(),
@@ -7002,7 +7002,7 @@ defmodule AWS.RDS do
       
       option_group_options_message() :: %{
         "Marker" => String.t(),
-        "OptionGroupOptions" => list(option_group_option()())
+        "OptionGroupOptions" => list(option_group_option())
       }
       
   """
@@ -7083,7 +7083,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_integrations_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("IntegrationIdentifier") => String.t(),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
@@ -7114,7 +7114,7 @@ defmodule AWS.RDS do
         optional("CopyTagsToSnapshot") => boolean(),
         required("SourceEngine") => String.t(),
         optional("BackupRetentionPeriod") => integer(),
-        optional("EnableCloudwatchLogsExports") => list(String.t()()),
+        optional("EnableCloudwatchLogsExports") => list(String.t()),
         optional("EngineVersion") => String.t(),
         required("S3IngestionRoleArn") => String.t(),
         optional("BacktrackWindow") => float(),
@@ -7125,15 +7125,15 @@ defmodule AWS.RDS do
         optional("Port") => integer(),
         optional("StorageEncrypted") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("KmsKeyId") => String.t(),
         optional("OptionGroupName") => String.t(),
-        optional("AvailabilityZones") => list(String.t()()),
+        optional("AvailabilityZones") => list(String.t()),
         optional("DBSubnetGroupName") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         required("Engine") => String.t(),
         required("S3BucketName") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -7166,7 +7166,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_snapshot_message() :: %{
-        "DBSnapshots" => list(db_snapshot()()),
+        "DBSnapshots" => list(db_snapshot()),
         "Marker" => String.t()
       }
       
@@ -7182,8 +7182,8 @@ defmodule AWS.RDS do
         "DBSubnetGroupDescription" => String.t(),
         "DBSubnetGroupName" => String.t(),
         "SubnetGroupStatus" => String.t(),
-        "Subnets" => list(subnet()()),
-        "SupportedNetworkTypes" => list(String.t()()),
+        "Subnets" => list(subnet()),
+        "SupportedNetworkTypes" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -7204,7 +7204,7 @@ defmodule AWS.RDS do
         "MasterUsername" => String.t(),
         "NcharCharacterSetName" => String.t(),
         "SnapshotType" => String.t(),
-        "TagList" => list(tag()()),
+        "TagList" => list(tag()),
         "TenantDBName" => String.t(),
         "TenantDatabaseCreateTime" => non_neg_integer(),
         "TenantDatabaseResourceId" => String.t()
@@ -7303,7 +7303,7 @@ defmodule AWS.RDS do
       
       remove_tags_from_resource_message() :: %{
         required("ResourceName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -7314,7 +7314,7 @@ defmodule AWS.RDS do
   ## Example:
       
       db_proxy() :: %{
-        "Auth" => list(user_auth_config_info()()),
+        "Auth" => list(user_auth_config_info()),
         "CreatedDate" => non_neg_integer(),
         "DBProxyArn" => String.t(),
         "DBProxyName" => String.t(),
@@ -7327,8 +7327,8 @@ defmodule AWS.RDS do
         "Status" => list(any()),
         "UpdatedDate" => non_neg_integer(),
         "VpcId" => String.t(),
-        "VpcSecurityGroupIds" => list(String.t()()),
-        "VpcSubnetIds" => list(String.t()())
+        "VpcSecurityGroupIds" => list(String.t()),
+        "VpcSubnetIds" => list(String.t())
       }
       
   """
@@ -7430,7 +7430,7 @@ defmodule AWS.RDS do
         optional("EnablePerformanceInsights") => boolean(),
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("AllowEngineModeChange") => boolean(),
         optional("CACertificateIdentifier") => String.t(),
         optional("ApplyImmediately") => boolean(),
@@ -7461,7 +7461,7 @@ defmodule AWS.RDS do
   ## Example:
       
       describe_event_categories_message() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("SourceType") => String.t()
       }
       
@@ -7513,7 +7513,7 @@ defmodule AWS.RDS do
       describe_db_cluster_automated_backups_message() :: %{
         optional("DBClusterIdentifier") => String.t(),
         optional("DbClusterResourceId") => String.t(),
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("Marker") => String.t(),
         optional("MaxRecords") => integer()
       }
@@ -7594,8 +7594,8 @@ defmodule AWS.RDS do
       
       modify_db_cluster_endpoint_message() :: %{
         optional("EndpointType") => String.t(),
-        optional("ExcludedMembers") => list(String.t()()),
-        optional("StaticMembers") => list(String.t()()),
+        optional("ExcludedMembers") => list(String.t()),
+        optional("StaticMembers") => list(String.t()),
         required("DBClusterEndpointIdentifier") => String.t()
       }
       
@@ -7738,7 +7738,7 @@ defmodule AWS.RDS do
         "MultiAZ" => boolean(),
         "OfferingType" => String.t(),
         "ProductDescription" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedDBInstanceArn" => String.t(),
         "ReservedDBInstanceId" => String.t(),
         "ReservedDBInstancesOfferingId" => String.t(),
@@ -7756,7 +7756,7 @@ defmodule AWS.RDS do
       
       db_cluster_automated_backup() :: %{
         "AllocatedStorage" => integer(),
-        "AvailabilityZones" => list(String.t()()),
+        "AvailabilityZones" => list(String.t()),
         "AwsBackupRecoveryPointArn" => String.t(),
         "BackupRetentionPeriod" => integer(),
         "ClusterCreateTime" => non_neg_integer(),
@@ -7849,8 +7849,8 @@ defmodule AWS.RDS do
         optional("AutoMinorVersionUpgrade") => boolean(),
         optional("PubliclyAccessible") => boolean(),
         optional("EngineVersion") => String.t(),
-        optional("DomainDnsIps") => list(String.t()()),
-        optional("ProcessorFeatures") => list(processor_feature()()),
+        optional("DomainDnsIps") => list(String.t()),
+        optional("ProcessorFeatures") => list(processor_feature()),
         optional("MonitoringRoleArn") => String.t(),
         optional("DBInstanceClass") => String.t(),
         optional("LicenseModel") => String.t(),
@@ -7863,12 +7863,12 @@ defmodule AWS.RDS do
         optional("Iops") => integer(),
         optional("ManageMasterUserPassword") => boolean(),
         optional("TdeCredentialPassword") => String.t(),
-        optional("DBSecurityGroups") => list(String.t()()),
+        optional("DBSecurityGroups") => list(String.t()),
         optional("PerformanceInsightsKMSKeyId") => String.t(),
         optional("EnablePerformanceInsights") => boolean(),
         optional("MultiAZ") => boolean(),
         optional("DeletionProtection") => boolean(),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         optional("CertificateRotationRestart") => boolean(),
         optional("CACertificateIdentifier") => String.t(),
         optional("ApplyImmediately") => boolean(),
@@ -7896,7 +7896,7 @@ defmodule AWS.RDS do
       
       tenant_databases_message() :: %{
         "Marker" => String.t(),
-        "TenantDatabases" => list(tenant_database()())
+        "TenantDatabases" => list(tenant_database())
       }
       
   """
@@ -7990,7 +7990,7 @@ defmodule AWS.RDS do
       
       db_cluster_parameter_group_details() :: %{
         "Marker" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -8013,7 +8013,7 @@ defmodule AWS.RDS do
       
       pending_maintenance_actions_message() :: %{
         "Marker" => String.t(),
-        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions()())
+        "PendingMaintenanceActions" => list(resource_pending_maintenance_actions())
       }
       
   """
@@ -8035,7 +8035,7 @@ defmodule AWS.RDS do
   ## Example:
       
       create_option_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EngineName") => String.t(),
         required("MajorEngineVersion") => String.t(),
         required("OptionGroupDescription") => String.t(),
@@ -8072,12 +8072,12 @@ defmodule AWS.RDS do
   ## Example:
       
       create_db_proxy_endpoint_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetRole") => list(any()),
-        optional("VpcSecurityGroupIds") => list(String.t()()),
+        optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBProxyEndpointName") => String.t(),
         required("DBProxyName") => String.t(),
-        required("VpcSubnetIds") => list(String.t()())
+        required("VpcSubnetIds") => list(String.t())
       }
       
   """
@@ -8088,7 +8088,7 @@ defmodule AWS.RDS do
   ## Example:
       
       copy_db_parameter_group_message() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SourceDBParameterGroupIdentifier") => String.t(),
         required("TargetDBParameterGroupDescription") => String.t(),
         required("TargetDBParameterGroupIdentifier") => String.t()
@@ -9055,7 +9055,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBCluster", input, options)
   end
@@ -9075,7 +9076,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_instance_errors()}
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddRoleToDBInstance", input, options)
   end
@@ -9093,7 +9095,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -9115,7 +9118,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -9134,7 +9138,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -9180,7 +9185,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, authorize_db_security_group_ingress_errors()}
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AuthorizeDBSecurityGroupIngress", input, options)
   end
@@ -9203,7 +9209,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, backtrack_db_cluster_errors()}
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BacktrackDBCluster", input, options)
   end
@@ -9220,7 +9227,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -9239,7 +9247,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -9310,7 +9319,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -9328,7 +9338,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBParameterGroup", input, options)
   end
@@ -9356,7 +9367,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_snapshot_errors()}
   def copy_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyDBSnapshot", input, options)
   end
@@ -9370,7 +9382,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_option_group_errors()}
   def copy_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyOptionGroup", input, options)
   end
@@ -9410,7 +9423,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_blue_green_deployment_errors()}
   def create_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBlueGreenDeployment", input, options)
   end
@@ -9424,7 +9438,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_custom_db_engine_version_errors()}
   def create_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomDBEngineVersion", input, options)
   end
@@ -9463,7 +9478,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -9480,7 +9496,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterEndpoint", input, options)
   end
@@ -9546,7 +9563,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -9568,7 +9586,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -9599,7 +9618,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -9639,7 +9659,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_read_replica_errors()}
   def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBInstanceReadReplica", input, options)
   end
@@ -9664,7 +9685,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBParameterGroup", input, options)
   end
@@ -9678,7 +9700,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_errors()}
   def create_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBProxy", input, options)
   end
@@ -9698,7 +9721,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_endpoint_errors()}
   def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBProxyEndpoint", input, options)
   end
@@ -9728,7 +9752,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_security_group_errors()}
   def create_db_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSecurityGroup", input, options)
   end
@@ -9746,7 +9771,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_shard_group_errors()}
   def create_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBShardGroup", input, options)
   end
@@ -9763,7 +9789,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_snapshot_errors()}
   def create_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSnapshot", input, options)
   end
@@ -9780,7 +9807,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -9834,7 +9862,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -9862,7 +9891,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -9876,7 +9906,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -9894,7 +9925,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_option_group_errors()}
   def create_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOptionGroup", input, options)
   end
@@ -9911,7 +9943,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_tenant_database_errors()}
   def create_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTenantDatabase", input, options)
   end
@@ -9933,7 +9966,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_blue_green_deployment_errors()}
   def delete_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBlueGreenDeployment", input, options)
   end
@@ -9973,7 +10007,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_custom_db_engine_version_errors()}
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomDBEngineVersion", input, options)
   end
@@ -10006,7 +10041,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -10026,7 +10062,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_automated_backup_errors()}
   def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterAutomatedBackup", input, options)
   end
@@ -10042,7 +10079,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterEndpoint", input, options)
   end
@@ -10074,7 +10112,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -10104,7 +10143,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -10154,7 +10194,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -10173,7 +10214,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_automated_backup_errors()}
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBInstanceAutomatedBackup", input, options)
   end
@@ -10189,7 +10231,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBParameterGroup", input, options)
   end
@@ -10203,7 +10246,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_errors()}
   def delete_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBProxy", input, options)
   end
@@ -10223,7 +10267,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_endpoint_errors()}
   def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBProxyEndpoint", input, options)
   end
@@ -10250,7 +10295,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_security_group_errors()}
   def delete_db_security_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSecurityGroup", input, options)
   end
@@ -10264,7 +10310,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_shard_group_errors()}
   def delete_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBShardGroup", input, options)
   end
@@ -10283,7 +10330,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_snapshot_errors()}
   def delete_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSnapshot", input, options)
   end
@@ -10300,7 +10348,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -10314,7 +10363,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -10333,7 +10383,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -10347,7 +10398,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -10361,7 +10413,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_option_group_errors()}
   def delete_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteOptionGroup", input, options)
   end
@@ -10381,7 +10434,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_tenant_database_errors()}
   def delete_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTenantDatabase", input, options)
   end
@@ -10396,7 +10450,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, deregister_db_proxy_targets_errors()}
   def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterDBProxyTargets", input, options)
   end
@@ -10415,7 +10470,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -10438,7 +10494,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_blue_green_deployments_errors()}
   def describe_blue_green_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBlueGreenDeployments", input, options)
   end
@@ -10461,7 +10518,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
@@ -10486,7 +10544,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_automated_backups_errors()}
   def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterAutomatedBackups", input, options)
   end
@@ -10508,7 +10567,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_backtracks_errors()}
   def describe_db_cluster_backtracks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterBacktracks", input, options)
   end
@@ -10524,7 +10584,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterEndpoints", input, options)
   end
@@ -10558,7 +10619,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -10583,7 +10645,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -10617,7 +10680,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -10644,7 +10708,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -10674,7 +10739,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -10687,7 +10753,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -10715,7 +10782,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instance_automated_backups_errors()}
   def describe_db_instance_automated_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstanceAutomatedBackups", input, options)
   end
@@ -10734,7 +10802,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -10750,7 +10819,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_log_files_errors()}
   def describe_db_log_files(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBLogFiles", input, options)
   end
@@ -10767,7 +10837,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_major_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBMajorEngineVersions", input, options)
   end
@@ -10784,7 +10855,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameterGroups", input, options)
   end
@@ -10798,7 +10870,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBParameters", input, options)
   end
@@ -10812,7 +10885,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxies_errors()}
   def describe_db_proxies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxies", input, options)
   end
@@ -10826,7 +10900,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_endpoints_errors()}
   def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyEndpoints", input, options)
   end
@@ -10841,7 +10916,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_target_groups_errors()}
   def describe_db_proxy_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargetGroups", input, options)
   end
@@ -10857,7 +10933,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_targets_errors()}
   def describe_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargets", input, options)
   end
@@ -10871,7 +10948,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBRecommendations", input, options)
   end
@@ -10899,7 +10977,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_security_groups_errors()}
   def describe_db_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSecurityGroups", input, options)
   end
@@ -10913,7 +10992,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_shard_groups_errors()}
   def describe_db_shard_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBShardGroups", input, options)
   end
@@ -10942,7 +11022,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_attributes_errors()}
   def describe_db_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotAttributes", input, options)
   end
@@ -10970,7 +11051,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_tenant_databases_errors()}
   def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotTenantDatabases", input, options)
   end
@@ -10986,7 +11068,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshots_errors()}
   def describe_db_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshots", input, options)
   end
@@ -11006,7 +11089,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -11030,7 +11114,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -11048,7 +11133,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -11071,7 +11157,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -11092,7 +11179,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -11117,7 +11205,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -11134,7 +11223,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -11156,7 +11246,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -11170,7 +11261,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -11183,7 +11275,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroupOptions", input, options)
   end
@@ -11197,7 +11290,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_option_groups_errors()}
   def describe_option_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroups", input, options)
   end
@@ -11214,7 +11308,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -11240,7 +11335,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -11255,7 +11351,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_errors()}
   def describe_reserved_db_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstances", input, options)
   end
@@ -11273,7 +11370,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_offerings_errors()}
   def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstancesOfferings", input, options)
   end
@@ -11299,7 +11397,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_source_regions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSourceRegions", input, options)
   end
@@ -11316,7 +11415,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_tenant_databases_errors()}
   def describe_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTenantDatabases", input, options)
   end
@@ -11340,7 +11440,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeValidDBInstanceModifications", input, options)
   end
@@ -11364,7 +11465,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, disable_http_endpoint_errors()}
   def disable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisableHttpEndpoint", input, options)
   end
@@ -11387,7 +11489,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, download_db_log_file_portion_errors()}
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DownloadDBLogFilePortion", input, options)
   end
@@ -11418,7 +11521,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, enable_http_endpoint_errors()}
   def enable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "EnableHttpEndpoint", input, options)
   end
@@ -11465,7 +11569,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -11528,7 +11633,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -11548,7 +11654,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -11573,7 +11680,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_activity_stream_errors()}
   def modify_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyActivityStream", input, options)
   end
@@ -11625,7 +11733,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_certificates_errors()}
   def modify_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCertificates", input, options)
   end
@@ -11671,7 +11780,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_current_db_cluster_capacity_errors()}
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCurrentDBClusterCapacity", input, options)
   end
@@ -11701,7 +11811,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_custom_db_engine_version_errors()}
   def modify_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCustomDBEngineVersion", input, options)
   end
@@ -11730,7 +11841,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -11746,7 +11858,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterEndpoint", input, options)
   end
@@ -11804,7 +11917,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -11849,7 +11963,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -11869,7 +11984,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -11902,7 +12018,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBParameterGroup", input, options)
   end
@@ -11916,7 +12033,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_errors()}
   def modify_db_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxy", input, options)
   end
@@ -11930,7 +12048,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_endpoint_errors()}
   def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyEndpoint", input, options)
   end
@@ -11944,7 +12063,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_target_group_errors()}
   def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyTargetGroup", input, options)
   end
@@ -11958,7 +12078,8 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_db_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBRecommendation", input, options)
   end
@@ -11975,7 +12096,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_shard_group_errors()}
   def modify_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBShardGroup", input, options)
   end
@@ -11996,7 +12118,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_errors()}
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshot", input, options)
   end
@@ -12036,7 +12159,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_attribute_errors()}
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshotAttribute", input, options)
   end
@@ -12053,7 +12177,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -12079,7 +12204,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -12102,7 +12228,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -12116,7 +12243,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -12130,7 +12258,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_option_group_errors()}
   def modify_option_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyOptionGroup", input, options)
   end
@@ -12149,7 +12278,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_tenant_database_errors()}
   def modify_tenant_database(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTenantDatabase", input, options)
   end
@@ -12177,7 +12307,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_errors()}
   def promote_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplica", input, options)
   end
@@ -12191,7 +12322,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PromoteReadReplicaDBCluster", input, options)
   end
@@ -12209,7 +12341,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, purchase_reserved_db_instances_offering_errors()}
   def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedDBInstancesOffering", input, options)
   end
@@ -12238,7 +12371,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_cluster_errors()}
   def reboot_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBCluster", input, options)
   end
@@ -12268,7 +12402,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -12287,7 +12422,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_shard_group_errors()}
   def reboot_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RebootDBShardGroup", input, options)
   end
@@ -12302,7 +12438,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, register_db_proxy_targets_errors()}
   def register_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterDBProxyTargets", input, options)
   end
@@ -12323,7 +12460,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -12350,7 +12488,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBCluster", input, options)
   end
@@ -12365,7 +12504,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_instance_errors()}
   def remove_role_from_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBInstance", input, options)
   end
@@ -12384,7 +12524,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -12404,7 +12545,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -12446,7 +12588,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -12469,7 +12612,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetDBParameterGroup", input, options)
   end
@@ -12508,7 +12652,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_s3_errors()}
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromS3", input, options)
   end
@@ -12549,7 +12694,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -12598,7 +12744,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -12648,7 +12795,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_db_snapshot_errors()}
   def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromDBSnapshot", input, options)
   end
@@ -12672,7 +12820,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_s3_errors()}
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromS3", input, options)
   end
@@ -12708,7 +12857,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_to_point_in_time_errors()}
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceToPointInTime", input, options)
   end
@@ -12743,7 +12893,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, revoke_db_security_group_ingress_errors()}
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeDBSecurityGroupIngress", input, options)
   end
@@ -12767,7 +12918,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_activity_stream_errors()}
   def start_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartActivityStream", input, options)
   end
@@ -12791,7 +12943,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -12816,7 +12969,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_errors()}
   def start_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDBInstance", input, options)
   end
@@ -12842,7 +12996,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_automated_backups_replication_errors()}
   def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -12883,7 +13038,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartExportTask", input, options)
   end
@@ -12909,7 +13065,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_activity_stream_errors()}
   def stop_activity_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopActivityStream", input, options)
   end
@@ -12935,7 +13092,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -12966,7 +13124,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_errors()}
   def stop_db_instance(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDBInstance", input, options)
   end
@@ -12991,7 +13150,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_automated_backups_replication_errors()}
   def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -13028,7 +13188,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_blue_green_deployment_errors()}
   def switchover_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverBlueGreenDeployment", input, options)
   end
@@ -13061,7 +13222,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end
@@ -13079,7 +13241,8 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_read_replica_errors()}
   def switchover_read_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SwitchoverReadReplica", input, options)
   end

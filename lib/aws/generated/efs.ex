@@ -64,7 +64,7 @@ defmodule AWS.EFS do
   ## Example:
 
       tag_resource_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -75,7 +75,7 @@ defmodule AWS.EFS do
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -178,7 +178,7 @@ defmodule AWS.EFS do
 
       describe_replication_configurations_response() :: %{
         "NextToken" => String.t(),
-        "Replications" => list(replication_configuration_description()())
+        "Replications" => list(replication_configuration_description())
       }
 
   """
@@ -217,7 +217,7 @@ defmodule AWS.EFS do
         optional("IpAddress") => String.t(),
         optional("IpAddressType") => list(any()),
         optional("Ipv6Address") => String.t(),
-        optional("SecurityGroups") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
         required("FileSystemId") => String.t(),
         required("SubnetId") => String.t()
       }
@@ -230,7 +230,7 @@ defmodule AWS.EFS do
   ## Example:
 
       put_lifecycle_configuration_request() :: %{
-        required("LifecyclePolicies") => list(lifecycle_policy()())
+        required("LifecyclePolicies") => list(lifecycle_policy())
       }
 
   """
@@ -241,7 +241,7 @@ defmodule AWS.EFS do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -277,7 +277,7 @@ defmodule AWS.EFS do
       describe_tags_response() :: %{
         "Marker" => String.t(),
         "NextMarker" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -328,7 +328,7 @@ defmodule AWS.EFS do
 
       describe_mount_targets_response() :: %{
         "Marker" => String.t(),
-        "MountTargets" => list(mount_target_description()()),
+        "MountTargets" => list(mount_target_description()),
         "NextMarker" => String.t()
       }
 
@@ -342,7 +342,7 @@ defmodule AWS.EFS do
       create_access_point_request() :: %{
         optional("PosixUser") => posix_user(),
         optional("RootDirectory") => root_directory(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientToken") => String.t(),
         required("FileSystemId") => String.t()
       }
@@ -378,7 +378,7 @@ defmodule AWS.EFS do
   ## Example:
 
       create_tags_request() :: %{
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -434,7 +434,7 @@ defmodule AWS.EFS do
 
       posix_user() :: %{
         "Gid" => float(),
-        "SecondaryGids" => list(float()()),
+        "SecondaryGids" => list(float()),
         "Uid" => float()
       }
 
@@ -523,7 +523,7 @@ defmodule AWS.EFS do
         optional("KmsKeyId") => String.t(),
         optional("PerformanceMode") => list(any()),
         optional("ProvisionedThroughputInMibps") => float(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("ThroughputMode") => list(any()),
         required("CreationToken") => String.t()
       }
@@ -536,7 +536,7 @@ defmodule AWS.EFS do
   ## Example:
 
       describe_mount_target_security_groups_response() :: %{
-        "SecurityGroups" => list(String.t()())
+        "SecurityGroups" => list(String.t())
       }
 
   """
@@ -575,7 +575,7 @@ defmodule AWS.EFS do
         "PerformanceMode" => list(any()),
         "ProvisionedThroughputInMibps" => float(),
         "SizeInBytes" => file_system_size(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "ThroughputMode" => list(any())
       }
 
@@ -611,7 +611,7 @@ defmodule AWS.EFS do
 
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -658,7 +658,7 @@ defmodule AWS.EFS do
   ## Example:
 
       modify_mount_target_security_groups_request() :: %{
-        optional("SecurityGroups") => list(String.t()())
+        optional("SecurityGroups") => list(String.t())
       }
 
   """
@@ -740,7 +740,7 @@ defmodule AWS.EFS do
 
       replication_configuration_description() :: %{
         "CreationTime" => non_neg_integer(),
-        "Destinations" => list(destination()()),
+        "Destinations" => list(destination()),
         "OriginalSourceFileSystemArn" => String.t(),
         "SourceFileSystemArn" => String.t(),
         "SourceFileSystemId" => String.t(),
@@ -790,7 +790,7 @@ defmodule AWS.EFS do
   ## Example:
 
       create_replication_configuration_request() :: %{
-        required("Destinations") => list(destination_to_create()())
+        required("Destinations") => list(destination_to_create())
       }
 
   """
@@ -951,7 +951,7 @@ defmodule AWS.EFS do
   ## Example:
 
       describe_file_systems_response() :: %{
-        "FileSystems" => list(file_system_description()()),
+        "FileSystems" => list(file_system_description()),
         "Marker" => String.t(),
         "NextMarker" => String.t()
       }
@@ -1049,7 +1049,7 @@ defmodule AWS.EFS do
   ## Example:
 
       describe_access_points_response() :: %{
-        "AccessPoints" => list(access_point_description()()),
+        "AccessPoints" => list(access_point_description()),
         "NextToken" => String.t()
       }
 
@@ -1092,7 +1092,7 @@ defmodule AWS.EFS do
   ## Example:
 
       lifecycle_configuration_description() :: %{
-        optional("LifecyclePolicies") => list(lifecycle_policy()())
+        optional("LifecyclePolicies") => list(lifecycle_policy())
       }
 
   """
@@ -1112,7 +1112,7 @@ defmodule AWS.EFS do
         "OwnerId" => String.t(),
         "PosixUser" => posix_user(),
         "RootDirectory" => root_directory(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """

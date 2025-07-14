@@ -74,7 +74,7 @@ defmodule AWS.InspectorScan do
   ## Example:
 
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }

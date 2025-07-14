@@ -15,7 +15,7 @@ defmodule AWS.TimestreamQuery do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -45,7 +45,7 @@ defmodule AWS.TimestreamQuery do
         "NotificationConfiguration" => notification_configuration(),
         "PreviousInvocationTime" => non_neg_integer(),
         "QueryString" => String.t(),
-        "RecentlyFailedRuns" => list(scheduled_query_run_summary()()),
+        "RecentlyFailedRuns" => list(scheduled_query_run_summary()),
         "ScheduleConfiguration" => schedule_configuration(),
         "ScheduledQueryExecutionRoleArn" => String.t(),
         "State" => list(any()),
@@ -191,11 +191,11 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       datum() :: %{
-        "ArrayValue" => list(datum()()),
+        "ArrayValue" => list(datum()),
         "NullValue" => boolean(),
         "RowValue" => row(),
         "ScalarValue" => String.t(),
-        "TimeSeriesValue" => list(time_series_data_point()())
+        "TimeSeriesValue" => list(time_series_data_point())
       }
       
   """
@@ -206,7 +206,7 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       describe_endpoints_response() :: %{
-        "Endpoints" => list(endpoint()())
+        "Endpoints" => list(endpoint())
       }
       
   """
@@ -259,7 +259,7 @@ defmodule AWS.TimestreamQuery do
       create_scheduled_query_request() :: %{
         optional("ClientToken") => String.t(),
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetConfiguration") => target_configuration(),
         required("ErrorReportConfiguration") => error_report_configuration(),
         required("Name") => String.t(),
@@ -315,7 +315,7 @@ defmodule AWS.TimestreamQuery do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -425,12 +425,12 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       query_response() :: %{
-        "ColumnInfo" => list(column_info()()),
+        "ColumnInfo" => list(column_info()),
         "NextToken" => String.t(),
         "QueryId" => String.t(),
         "QueryInsightsResponse" => query_insights_response(),
         "QueryStatus" => query_status(),
-        "Rows" => list(row()())
+        "Rows" => list(row())
       }
       
   """
@@ -453,7 +453,7 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       row() :: %{
-        "Data" => list(datum()())
+        "Data" => list(datum())
       }
       
   """
@@ -487,7 +487,7 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       query_spatial_coverage_max() :: %{
-        "PartitionKey" => list(String.t()()),
+        "PartitionKey" => list(String.t()),
         "TableArn" => String.t(),
         "Value" => float()
       }
@@ -501,7 +501,7 @@ defmodule AWS.TimestreamQuery do
       
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -552,9 +552,9 @@ defmodule AWS.TimestreamQuery do
       
       timestream_configuration() :: %{
         "DatabaseName" => String.t(),
-        "DimensionMappings" => list(dimension_mapping()()),
+        "DimensionMappings" => list(dimension_mapping()),
         "MeasureNameColumn" => String.t(),
-        "MixedMeasureMappings" => list(mixed_measure_mapping()()),
+        "MixedMeasureMappings" => list(mixed_measure_mapping()),
         "MultiMeasureMappings" => multi_measure_mappings(),
         "TableName" => String.t(),
         "TimeColumn" => String.t()
@@ -647,7 +647,7 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       multi_measure_mappings() :: %{
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
         "TargetMultiMeasureName" => String.t()
       }
       
@@ -692,7 +692,7 @@ defmodule AWS.TimestreamQuery do
       
       list_scheduled_queries_response() :: %{
         "NextToken" => String.t(),
-        "ScheduledQueries" => list(scheduled_query()())
+        "ScheduledQueries" => list(scheduled_query())
       }
       
   """
@@ -792,7 +792,7 @@ defmodule AWS.TimestreamQuery do
       
       type() :: %{
         "ArrayColumnInfo" => column_info(),
-        "RowColumnInfo" => list(column_info()()),
+        "RowColumnInfo" => list(column_info()),
         "ScalarType" => list(any()),
         "TimeSeriesMeasureValueColumnInfo" => column_info()
       }
@@ -820,7 +820,7 @@ defmodule AWS.TimestreamQuery do
       mixed_measure_mapping() :: %{
         "MeasureName" => String.t(),
         "MeasureValueType" => list(any()),
-        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()()),
+        "MultiMeasureAttributeMappings" => list(multi_measure_attribute_mapping()),
         "SourceColumn" => String.t(),
         "TargetMeasureName" => String.t()
       }
@@ -833,8 +833,8 @@ defmodule AWS.TimestreamQuery do
   ## Example:
       
       prepare_query_response() :: %{
-        "Columns" => list(select_column()()),
-        "Parameters" => list(parameter_mapping()()),
+        "Columns" => list(select_column()),
+        "Parameters" => list(parameter_mapping()),
         "QueryString" => String.t()
       }
       
@@ -1139,7 +1139,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelQuery", input, options)
   end
@@ -1159,7 +1160,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, create_scheduled_query_errors()}
   def create_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScheduledQuery", input, options)
   end
@@ -1175,7 +1177,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, delete_scheduled_query_errors()}
   def delete_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScheduledQuery", input, options)
   end
@@ -1192,7 +1195,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_account_settings_errors()}
   def describe_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountSettings", input, options)
   end
@@ -1229,7 +1233,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -1243,7 +1248,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, describe_scheduled_query_errors()}
   def describe_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScheduledQuery", input, options)
   end
@@ -1263,7 +1269,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, execute_scheduled_query_errors()}
   def execute_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteScheduledQuery", input, options)
   end
@@ -1279,7 +1286,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, list_scheduled_queries_errors()}
   def list_scheduled_queries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListScheduledQueries", input, options)
   end
@@ -1293,7 +1301,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1312,7 +1321,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, prepare_query_errors()}
   def prepare_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PrepareQuery", input, options)
   end
@@ -1374,7 +1384,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -1393,7 +1404,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1407,7 +1419,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1428,7 +1441,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -1442,7 +1456,8 @@ defmodule AWS.TimestreamQuery do
           | {:error, term()}
           | {:error, update_scheduled_query_errors()}
   def update_scheduled_query(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScheduledQuery", input, options)
   end

@@ -117,7 +117,7 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       backend_api_resource_config() :: %{
-        "AdditionalAuthTypes" => list(backend_api_auth_type()()),
+        "AdditionalAuthTypes" => list(backend_api_auth_type()),
         "ApiName" => String.t(),
         "ConflictResolution" => backend_api_conflict_resolution(),
         "DefaultAuthType" => backend_api_auth_type(),
@@ -281,8 +281,8 @@ defmodule AWS.AmplifyBackend do
         "DomainPrefix" => String.t(),
         "OAuthGrantType" => list(any()),
         "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t()()),
-        "RedirectSignOutURIs" => list(String.t()()),
+        "RedirectSignInURIs" => list(String.t()),
+        "RedirectSignOutURIs" => list(String.t()),
         "SocialProviderSettings" => social_provider_settings()
       }
 
@@ -383,7 +383,7 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       list_s3_buckets_response() :: %{
-        "Buckets" => list(s3_bucket_info()()),
+        "Buckets" => list(s3_bucket_info()),
         "NextToken" => String.t()
       }
 
@@ -475,7 +475,7 @@ defmodule AWS.AmplifyBackend do
   ## Example:
 
       list_backend_jobs_response() :: %{
-        "Jobs" => list(backend_job_resp_obj()()),
+        "Jobs" => list(backend_job_resp_obj()),
         "NextToken" => String.t()
       }
 
@@ -960,7 +960,7 @@ defmodule AWS.AmplifyBackend do
         "AmplifyMetaConfig" => String.t(),
         "AppId" => String.t(),
         "AppName" => String.t(),
-        "BackendEnvironmentList" => list(String.t()()),
+        "BackendEnvironmentList" => list(String.t()),
         "BackendEnvironmentName" => String.t(),
         "Error" => String.t()
       }
@@ -1064,8 +1064,8 @@ defmodule AWS.AmplifyBackend do
         "DomainPrefix" => String.t(),
         "OAuthGrantType" => list(any()),
         "OAuthScopes" => list(list(any())()),
-        "RedirectSignInURIs" => list(String.t()()),
-        "RedirectSignOutURIs" => list(String.t()()),
+        "RedirectSignInURIs" => list(String.t()),
+        "RedirectSignOutURIs" => list(String.t()),
         "SocialProviderSettings" => social_provider_settings()
       }
 

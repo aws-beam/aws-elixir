@@ -137,7 +137,7 @@ defmodule AWS.Neptunedata do
         "format" => [String.t()],
         "lastEventId" => map(),
         "lastTrxTimestampInMillis" => [float()],
-        "records" => list(propertygraph_record()()),
+        "records" => list(propertygraph_record()),
         "totalRecords" => [integer()]
       }
 
@@ -313,7 +313,7 @@ defmodule AWS.Neptunedata do
       get_ml_model_transform_job_output() :: %{
         "baseProcessingJob" => ml_resource_definition(),
         "id" => [String.t()],
-        "models" => list(ml_config_definition()()),
+        "models" => list(ml_config_definition()),
         "remoteModelTransformJob" => ml_resource_definition(),
         "status" => [String.t()]
       }
@@ -472,7 +472,7 @@ defmodule AWS.Neptunedata do
         "format" => [String.t()],
         "lastEventId" => map(),
         "lastTrxTimestampInMillis" => [float()],
-        "records" => list(sparql_record()()),
+        "records" => list(sparql_record()),
         "totalRecords" => [integer()]
       }
 
@@ -960,11 +960,11 @@ defmodule AWS.Neptunedata do
 
       propertygraph_summary() :: %{
         "edgeLabels" => list([String.t()]()),
-        "edgeProperties" => list(map()()),
-        "edgeStructures" => list(edge_structure()()),
+        "edgeProperties" => list(map()),
+        "edgeStructures" => list(edge_structure()),
         "nodeLabels" => list([String.t()]()),
-        "nodeProperties" => list(map()()),
-        "nodeStructures" => list(node_structure()()),
+        "nodeProperties" => list(map()),
+        "nodeStructures" => list(node_structure()),
         "numEdgeLabels" => [float()],
         "numEdgeProperties" => [float()],
         "numEdges" => [float()],
@@ -1043,8 +1043,8 @@ defmodule AWS.Neptunedata do
         "numDistinctPredicates" => [float()],
         "numDistinctSubjects" => [float()],
         "numQuads" => [float()],
-        "predicates" => list(map()()),
-        "subjectStructures" => list(subject_structure()())
+        "predicates" => list(map()),
+        "subjectStructures" => list(subject_structure())
       }
 
   """
@@ -1141,7 +1141,7 @@ defmodule AWS.Neptunedata do
 
       list_gremlin_queries_output() :: %{
         "acceptedQueryCount" => [integer()],
-        "queries" => list(gremlin_query_status()()),
+        "queries" => list(gremlin_query_status()),
         "runningQueryCount" => [integer()]
       }
 
@@ -1680,7 +1680,7 @@ defmodule AWS.Neptunedata do
 
       list_open_cypher_queries_output() :: %{
         "acceptedQueryCount" => [integer()],
-        "queries" => list(gremlin_query_status()()),
+        "queries" => list(gremlin_query_status()),
         "runningQueryCount" => [integer()]
       }
 
@@ -1741,7 +1741,7 @@ defmodule AWS.Neptunedata do
       get_ml_model_training_job_output() :: %{
         "hpoJob" => ml_resource_definition(),
         "id" => [String.t()],
-        "mlModels" => list(ml_config_definition()()),
+        "mlModels" => list(ml_config_definition()),
         "modelTransformJob" => ml_resource_definition(),
         "processingJob" => ml_resource_definition(),
         "status" => [String.t()]

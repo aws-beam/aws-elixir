@@ -83,7 +83,7 @@ defmodule AWS.SNS do
       
       list_origination_numbers_result() :: %{
         "NextToken" => String.t(),
-        "PhoneNumbers" => list(phone_number_information()())
+        "PhoneNumbers" => list(phone_number_information())
       }
       
   """
@@ -111,7 +111,7 @@ defmodule AWS.SNS do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -146,7 +146,7 @@ defmodule AWS.SNS do
       create_topic_input() :: %{
         optional("Attributes") => map(),
         optional("DataProtectionPolicy") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t()
       }
       
@@ -290,7 +290,7 @@ defmodule AWS.SNS do
       
       list_subscriptions_by_topic_response() :: %{
         "NextToken" => String.t(),
-        "Subscriptions" => list(subscription()())
+        "Subscriptions" => list(subscription())
       }
       
   """
@@ -337,7 +337,7 @@ defmodule AWS.SNS do
       
       list_phone_numbers_opted_out_response() :: %{
         "nextToken" => String.t(),
-        "phoneNumbers" => list(String.t()())
+        "phoneNumbers" => list(String.t())
       }
       
   """
@@ -436,7 +436,7 @@ defmodule AWS.SNS do
       
       list_sms_sandbox_phone_numbers_result() :: %{
         "NextToken" => String.t(),
-        "PhoneNumbers" => list(sms_sandbox_phone_number()())
+        "PhoneNumbers" => list(sms_sandbox_phone_number())
       }
       
   """
@@ -448,7 +448,7 @@ defmodule AWS.SNS do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -496,8 +496,8 @@ defmodule AWS.SNS do
   ## Example:
       
       publish_batch_response() :: %{
-        "Failed" => list(batch_result_error_entry()()),
-        "Successful" => list(publish_batch_result_entry()())
+        "Failed" => list(batch_result_error_entry()),
+        "Successful" => list(publish_batch_result_entry())
       }
       
   """
@@ -758,7 +758,7 @@ defmodule AWS.SNS do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -769,7 +769,7 @@ defmodule AWS.SNS do
   ## Example:
       
       get_sms_attributes_input() :: %{
-        optional("attributes") => list(String.t()())
+        optional("attributes") => list(String.t())
       }
       
   """
@@ -781,7 +781,7 @@ defmodule AWS.SNS do
       
       list_topics_response() :: %{
         "NextToken" => String.t(),
-        "Topics" => list(topic()())
+        "Topics" => list(topic())
       }
       
   """
@@ -939,7 +939,7 @@ defmodule AWS.SNS do
       
       list_platform_applications_response() :: %{
         "NextToken" => String.t(),
-        "PlatformApplications" => list(platform_application()())
+        "PlatformApplications" => list(platform_application())
       }
       
   """
@@ -1043,7 +1043,7 @@ defmodule AWS.SNS do
       
       list_subscriptions_response() :: %{
         "NextToken" => String.t(),
-        "Subscriptions" => list(subscription()())
+        "Subscriptions" => list(subscription())
       }
       
   """
@@ -1099,8 +1099,8 @@ defmodule AWS.SNS do
   ## Example:
       
       add_permission_input() :: %{
-        required("AWSAccountId") => list(String.t()()),
-        required("ActionName") => list(String.t()()),
+        required("AWSAccountId") => list(String.t()),
+        required("ActionName") => list(String.t()),
         required("Label") => String.t(),
         required("TopicArn") => String.t()
       }
@@ -1189,7 +1189,7 @@ defmodule AWS.SNS do
   ## Example:
       
       list_endpoints_by_platform_application_response() :: %{
-        "Endpoints" => list(endpoint()()),
+        "Endpoints" => list(endpoint()),
         "NextToken" => String.t()
       }
       
@@ -1364,7 +1364,7 @@ defmodule AWS.SNS do
   ## Example:
       
       publish_batch_input() :: %{
-        required("PublishBatchRequestEntries") => list(publish_batch_request_entry()()),
+        required("PublishBatchRequestEntries") => list(publish_batch_request_entry()),
         required("TopicArn") => String.t()
       }
       
@@ -1732,7 +1732,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, add_permission_errors()}
   def add_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddPermission", input, options)
   end
@@ -1757,7 +1758,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, check_if_phone_number_is_opted_out_errors()}
   def check_if_phone_number_is_opted_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckIfPhoneNumberIsOptedOut", input, options)
   end
@@ -1779,7 +1781,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, confirm_subscription_errors()}
   def confirm_subscription(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmSubscription", input, options)
   end
@@ -1865,7 +1868,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_platform_application_errors()}
   def create_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformApplication", input, options)
   end
@@ -1895,7 +1899,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_platform_endpoint_errors()}
   def create_platform_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlatformEndpoint", input, options)
   end
@@ -1924,7 +1929,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_sms_sandbox_phone_number_errors()}
   def create_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSMSSandboxPhoneNumber", input, options)
   end
@@ -1946,7 +1952,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, create_topic_errors()}
   def create_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTopic", input, options)
   end
@@ -1967,7 +1974,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_endpoint_errors()}
   def delete_endpoint(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpoint", input, options)
   end
@@ -1986,7 +1994,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_platform_application_errors()}
   def delete_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlatformApplication", input, options)
   end
@@ -2015,7 +2024,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_sms_sandbox_phone_number_errors()}
   def delete_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSMSSandboxPhoneNumber", input, options)
   end
@@ -2035,7 +2045,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, delete_topic_errors()}
   def delete_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTopic", input, options)
   end
@@ -2050,7 +2061,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataProtectionPolicy", input, options)
   end
@@ -2068,7 +2080,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_endpoint_attributes_errors()}
   def get_endpoint_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEndpointAttributes", input, options)
   end
@@ -2091,7 +2104,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_platform_application_attributes_errors()}
   def get_platform_application_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlatformApplicationAttributes", input, options)
   end
@@ -2108,7 +2122,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_sms_attributes_errors()}
   def get_sms_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSMSAttributes", input, options)
   end
@@ -2137,7 +2152,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_sms_sandbox_account_status_errors()}
   def get_sms_sandbox_account_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSMSSandboxAccountStatus", input, options)
   end
@@ -2151,7 +2167,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_subscription_attributes_errors()}
   def get_subscription_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSubscriptionAttributes", input, options)
   end
@@ -2168,7 +2185,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, get_topic_attributes_errors()}
   def get_topic_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTopicAttributes", input, options)
   end
@@ -2200,7 +2218,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_endpoints_by_platform_application_errors()}
   def list_endpoints_by_platform_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointsByPlatformApplication", input, options)
   end
@@ -2219,7 +2238,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_origination_numbers_errors()}
   def list_origination_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOriginationNumbers", input, options)
   end
@@ -2242,7 +2262,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_phone_numbers_opted_out_errors()}
   def list_phone_numbers_opted_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPhoneNumbersOptedOut", input, options)
   end
@@ -2270,7 +2291,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_platform_applications_errors()}
   def list_platform_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlatformApplications", input, options)
   end
@@ -2299,7 +2321,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_sms_sandbox_phone_numbers_errors()}
   def list_sms_sandbox_phone_numbers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSMSSandboxPhoneNumbers", input, options)
   end
@@ -2320,7 +2343,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_subscriptions_errors()}
   def list_subscriptions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscriptions", input, options)
   end
@@ -2341,7 +2365,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_subscriptions_by_topic_errors()}
   def list_subscriptions_by_topic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscriptionsByTopic", input, options)
   end
@@ -2358,7 +2383,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2379,7 +2405,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, list_topics_errors()}
   def list_topics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTopics", input, options)
   end
@@ -2397,7 +2424,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, opt_in_phone_number_errors()}
   def opt_in_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "OptInPhoneNumber", input, options)
   end
@@ -2435,7 +2463,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, publish_errors()}
   def publish(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Publish", input, options)
   end
@@ -2485,7 +2514,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, publish_batch_errors()}
   def publish_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PublishBatch", input, options)
   end
@@ -2501,7 +2531,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
   end
@@ -2519,7 +2550,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, remove_permission_errors()}
   def remove_permission(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemovePermission", input, options)
   end
@@ -2537,7 +2569,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_endpoint_attributes_errors()}
   def set_endpoint_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetEndpointAttributes", input, options)
   end
@@ -2563,7 +2596,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_platform_application_attributes_errors()}
   def set_platform_application_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPlatformApplicationAttributes", input, options)
   end
@@ -2588,7 +2622,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_sms_attributes_errors()}
   def set_sms_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSMSAttributes", input, options)
   end
@@ -2603,7 +2638,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_subscription_attributes_errors()}
   def set_subscription_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSubscriptionAttributes", input, options)
   end
@@ -2621,7 +2657,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, set_topic_attributes_errors()}
   def set_topic_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetTopicAttributes", input, options)
   end
@@ -2645,7 +2682,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, subscribe_errors()}
   def subscribe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Subscribe", input, options)
   end
@@ -2683,7 +2721,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2715,7 +2754,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, unsubscribe_errors()}
   def unsubscribe(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "Unsubscribe", input, options)
   end
@@ -2732,7 +2772,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2761,7 +2802,8 @@ defmodule AWS.SNS do
           | {:error, term()}
           | {:error, verify_sms_sandbox_phone_number_errors()}
   def verify_sms_sandbox_phone_number(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifySMSSandboxPhoneNumber", input, options)
   end

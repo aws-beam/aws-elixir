@@ -95,7 +95,7 @@ defmodule AWS.Snowball do
       
       describe_job_result() :: %{
         "JobMetadata" => job_metadata(),
-        "SubJobMetadata" => list(job_metadata()())
+        "SubJobMetadata" => list(job_metadata())
       }
       
   """
@@ -106,7 +106,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_compatible_images_result() :: %{
-        "CompatibleImages" => list(compatible_image()()),
+        "CompatibleImages" => list(compatible_image()),
         "NextToken" => String.t()
       }
       
@@ -118,7 +118,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_jobs_result() :: %{
-        "JobListEntries" => list(job_list_entry()()),
+        "JobListEntries" => list(job_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -346,7 +346,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       lambda_resource() :: %{
-        "EventTriggers" => list(event_trigger_definition()()),
+        "EventTriggers" => list(event_trigger_definition()),
         "LambdaArn" => String.t()
       }
       
@@ -377,7 +377,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_service_versions_request() :: %{
-        optional("DependentServices") => list(dependent_service()()),
+        optional("DependentServices") => list(dependent_service()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         required("ServiceName") => list(any())
@@ -463,7 +463,7 @@ defmodule AWS.Snowball do
       s3_resource() :: %{
         "BucketArn" => String.t(),
         "KeyRange" => key_range(),
-        "TargetOnDeviceServices" => list(target_on_device_service()())
+        "TargetOnDeviceServices" => list(target_on_device_service())
       }
       
   """
@@ -479,7 +479,7 @@ defmodule AWS.Snowball do
         optional("ForwardingAddressId") => String.t(),
         optional("InitialClusterSize") => integer(),
         optional("KmsKeyARN") => String.t(),
-        optional("LongTermPricingIds") => list(String.t()()),
+        optional("LongTermPricingIds") => list(String.t()),
         optional("Notification") => notification(),
         optional("OnDeviceServiceConfiguration") => on_device_service_configuration(),
         optional("RemoteManagement") => list(any()),
@@ -609,7 +609,7 @@ defmodule AWS.Snowball do
       
       create_cluster_result() :: %{
         "ClusterId" => String.t(),
-        "JobListEntries" => list(job_list_entry()())
+        "JobListEntries" => list(job_list_entry())
       }
       
   """
@@ -642,7 +642,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_long_term_pricing_result() :: %{
-        "LongTermPricingEntries" => list(long_term_pricing_list_entry()()),
+        "LongTermPricingEntries" => list(long_term_pricing_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -699,10 +699,10 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_service_versions_result() :: %{
-        "DependentServices" => list(dependent_service()()),
+        "DependentServices" => list(dependent_service()),
         "NextToken" => String.t(),
         "ServiceName" => list(any()),
-        "ServiceVersions" => list(service_version()())
+        "ServiceVersions" => list(service_version())
       }
       
   """
@@ -724,7 +724,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       describe_addresses_result() :: %{
-        "Addresses" => list(address()()),
+        "Addresses" => list(address()),
         "NextToken" => String.t()
       }
       
@@ -770,7 +770,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_pickup_locations_result() :: %{
-        "Addresses" => list(address()()),
+        "Addresses" => list(address()),
         "NextToken" => String.t()
       }
       
@@ -877,7 +877,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_cluster_jobs_result() :: %{
-        "JobListEntries" => list(job_list_entry()()),
+        "JobListEntries" => list(job_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -928,7 +928,7 @@ defmodule AWS.Snowball do
   ## Example:
       
       list_clusters_result() :: %{
-        "ClusterListEntries" => list(cluster_list_entry()()),
+        "ClusterListEntries" => list(cluster_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -1106,7 +1106,7 @@ defmodule AWS.Snowball do
       long_term_pricing_list_entry() :: %{
         "CurrentActiveJob" => String.t(),
         "IsLongTermPricingAutoRenew" => boolean(),
-        "JobIds" => list(String.t()()),
+        "JobIds" => list(String.t()),
         "LongTermPricingEndDate" => non_neg_integer(),
         "LongTermPricingId" => String.t(),
         "LongTermPricingStartDate" => non_neg_integer(),
@@ -1174,9 +1174,9 @@ defmodule AWS.Snowball do
   ## Example:
       
       job_resource() :: %{
-        "Ec2AmiResources" => list(ec2_ami_resource()()),
-        "LambdaResources" => list(lambda_resource()()),
-        "S3Resources" => list(s3_resource()())
+        "Ec2AmiResources" => list(ec2_ami_resource()),
+        "LambdaResources" => list(lambda_resource()),
+        "S3Resources" => list(s3_resource())
       }
       
   """
@@ -1387,7 +1387,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_cluster_errors()}
   def cancel_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelCluster", input, options)
   end
@@ -1406,7 +1407,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, cancel_job_errors()}
   def cancel_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelJob", input, options)
   end
@@ -1429,7 +1431,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_address_errors()}
   def create_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAddress", input, options)
   end
@@ -1447,7 +1450,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1579,7 +1583,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_job_errors()}
   def create_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateJob", input, options)
   end
@@ -1597,7 +1602,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_long_term_pricing_errors()}
   def create_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLongTermPricing", input, options)
   end
@@ -1612,7 +1618,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, create_return_shipping_label_errors()}
   def create_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateReturnShippingLabel", input, options)
   end
@@ -1627,7 +1634,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_address_errors()}
   def describe_address(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddress", input, options)
   end
@@ -1646,7 +1654,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_addresses_errors()}
   def describe_addresses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAddresses", input, options)
   end
@@ -1662,7 +1671,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -1678,7 +1688,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_job_errors()}
   def describe_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeJob", input, options)
   end
@@ -1693,7 +1704,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, describe_return_shipping_label_errors()}
   def describe_return_shipping_label(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReturnShippingLabel", input, options)
   end
@@ -1735,7 +1747,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_manifest_errors()}
   def get_job_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobManifest", input, options)
   end
@@ -1769,7 +1782,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_job_unlock_code_errors()}
   def get_job_unlock_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetJobUnlockCode", input, options)
   end
@@ -1789,7 +1803,8 @@ defmodule AWS.Snowball do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_snowball_usage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSnowballUsage", input, options)
   end
@@ -1805,7 +1820,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, get_software_updates_errors()}
   def get_software_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSoftwareUpdates", input, options)
   end
@@ -1823,7 +1839,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_cluster_jobs_errors()}
   def list_cluster_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusterJobs", input, options)
   end
@@ -1841,7 +1858,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1865,7 +1883,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_compatible_images_errors()}
   def list_compatible_images(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompatibleImages", input, options)
   end
@@ -1887,7 +1906,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -1901,7 +1921,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_long_term_pricing_errors()}
   def list_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLongTermPricing", input, options)
   end
@@ -1915,7 +1936,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_pickup_locations_errors()}
   def list_pickup_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPickupLocations", input, options)
   end
@@ -1933,7 +1955,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, list_service_versions_errors()}
   def list_service_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListServiceVersions", input, options)
   end
@@ -1953,7 +1976,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -1971,7 +1995,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_errors()}
   def update_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJob", input, options)
   end
@@ -1985,7 +2010,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_job_shipment_state_errors()}
   def update_job_shipment_state(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateJobShipmentState", input, options)
   end
@@ -1999,7 +2025,8 @@ defmodule AWS.Snowball do
           | {:error, term()}
           | {:error, update_long_term_pricing_errors()}
   def update_long_term_pricing(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLongTermPricing", input, options)
   end

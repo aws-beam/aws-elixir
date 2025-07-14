@@ -44,7 +44,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       record() :: %{
-        "values" => list(list()())
+        "values" => list(list())
       }
 
   """
@@ -56,7 +56,7 @@ defmodule AWS.RDSData do
 
       result_set_metadata() :: %{
         "columnCount" => float(),
-        "columnMetadata" => list(column_metadata()())
+        "columnMetadata" => list(column_metadata())
       }
 
   """
@@ -176,7 +176,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       update_result() :: %{
-        "generatedFields" => list(list()())
+        "generatedFields" => list(list())
       }
 
   """
@@ -201,7 +201,7 @@ defmodule AWS.RDSData do
 
       batch_execute_statement_request() :: %{
         "database" => String.t(),
-        "parameterSets" => list(list(sql_parameter()())()),
+        "parameterSets" => list(list(sql_parameter())()),
         "resourceArn" => String.t(),
         "schema" => String.t(),
         "secretArn" => String.t(),
@@ -231,11 +231,11 @@ defmodule AWS.RDSData do
   ## Example:
 
       execute_statement_response() :: %{
-        "columnMetadata" => list(column_metadata()()),
+        "columnMetadata" => list(column_metadata()),
         "formattedRecords" => String.t(),
-        "generatedFields" => list(list()()),
+        "generatedFields" => list(list()),
         "numberOfRecordsUpdated" => float(),
-        "records" => list(list(list()())())
+        "records" => list(list(list())())
       }
 
   """
@@ -406,7 +406,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       result_frame() :: %{
-        "records" => list(record()()),
+        "records" => list(record()),
         "resultSetMetadata" => result_set_metadata()
       }
 
@@ -422,7 +422,7 @@ defmodule AWS.RDSData do
         "database" => String.t(),
         "formatRecordsAs" => String.t(),
         "includeResultMetadata" => boolean(),
-        "parameters" => list(sql_parameter()()),
+        "parameters" => list(sql_parameter()),
         "resourceArn" => String.t(),
         "resultSetOptions" => result_set_options(),
         "schema" => String.t(),
@@ -462,7 +462,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       execute_sql_response() :: %{
-        "sqlStatementResults" => list(sql_statement_result()())
+        "sqlStatementResults" => list(sql_statement_result())
       }
 
   """
@@ -473,7 +473,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       struct_value() :: %{
-        "attributes" => list(list()())
+        "attributes" => list(list())
       }
 
   """
@@ -484,7 +484,7 @@ defmodule AWS.RDSData do
   ## Example:
 
       batch_execute_statement_response() :: %{
-        "updateResults" => list(update_result()())
+        "updateResults" => list(update_result())
       }
 
   """

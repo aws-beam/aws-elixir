@@ -111,9 +111,9 @@ defmodule AWS.DataExchange do
   ## Example:
 
       scope_details() :: %{
-        "LakeFormationTagPolicies" => list(lake_formation_tag_policy_details()()),
-        "RedshiftDataShares" => list(redshift_data_share_details()()),
-        "S3DataAccesses" => list(s3_data_access_details()())
+        "LakeFormationTagPolicies" => list(lake_formation_tag_policy_details()),
+        "RedshiftDataShares" => list(redshift_data_share_details()),
+        "S3DataAccesses" => list(s3_data_access_details())
       }
 
   """
@@ -208,7 +208,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_received_data_grants_request() :: %{
-        optional("AcceptanceState") => list(String.t()()),
+        optional("AcceptanceState") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -221,7 +221,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_data_sets_response() :: %{
-        optional("DataSets") => list(data_set_entry()()),
+        optional("DataSets") => list(data_set_entry()),
         optional("NextToken") => String.t()
       }
 
@@ -236,7 +236,7 @@ defmodule AWS.DataExchange do
         "DataSetId" => String.t(),
         "Encryption" => export_server_side_encryption(),
         "EventActionArn" => String.t(),
-        "RevisionDestinations" => list(revision_destination_entry()())
+        "RevisionDestinations" => list(revision_destination_entry())
       }
 
   """
@@ -250,7 +250,7 @@ defmodule AWS.DataExchange do
         optional("Arn") => String.t(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
-        optional("Errors") => list(job_error()()),
+        optional("Errors") => list(job_error()),
         optional("Id") => String.t(),
         optional("State") => String.t(),
         optional("Type") => String.t(),
@@ -300,7 +300,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_received_data_grants_response() :: %{
-        "DataGrantSummaries" => list(received_data_grant_summaries_entry()()),
+        "DataGrantSummaries" => list(received_data_grant_summaries_entry()),
         "NextToken" => String.t()
       }
 
@@ -476,7 +476,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_jobs_response() :: %{
-        optional("Jobs") => list(job_entry()()),
+        optional("Jobs") => list(job_entry()),
         optional("NextToken") => String.t()
       }
 
@@ -500,7 +500,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -511,8 +511,8 @@ defmodule AWS.DataExchange do
   ## Example:
 
       database_l_f_tag_policy_and_permissions() :: %{
-        "Expression" => list(l_f_tag()()),
-        "Permissions" => list(String.t()())
+        "Expression" => list(l_f_tag()),
+        "Permissions" => list(String.t())
       }
 
   """
@@ -690,7 +690,7 @@ defmodule AWS.DataExchange do
 
       list_data_set_revisions_response() :: %{
         optional("NextToken") => String.t(),
-        optional("Revisions") => list(revision_entry()())
+        optional("Revisions") => list(revision_entry())
       }
 
   """
@@ -783,8 +783,8 @@ defmodule AWS.DataExchange do
   ## Example:
 
       table_l_f_tag_policy_and_permissions() :: %{
-        "Expression" => list(l_f_tag()()),
-        "Permissions" => list(String.t()())
+        "Expression" => list(l_f_tag()),
+        "Permissions" => list(String.t())
       }
 
   """
@@ -795,7 +795,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       export_assets_to_s3_request_details() :: %{
-        "AssetDestinations" => list(asset_destination_entry()()),
+        "AssetDestinations" => list(asset_destination_entry()),
         "DataSetId" => String.t(),
         "Encryption" => export_server_side_encryption(),
         "RevisionId" => String.t()
@@ -846,7 +846,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       export_assets_to_s3_response_details() :: %{
-        "AssetDestinations" => list(asset_destination_entry()()),
+        "AssetDestinations" => list(asset_destination_entry()),
         "DataSetId" => String.t(),
         "Encryption" => export_server_side_encryption(),
         "RevisionId" => String.t()
@@ -860,7 +860,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_revision_assets_response() :: %{
-        optional("Assets") => list(asset_entry()()),
+        optional("Assets") => list(asset_entry()),
         optional("NextToken") => String.t()
       }
 
@@ -873,7 +873,7 @@ defmodule AWS.DataExchange do
 
       details() :: %{
         "ImportAssetFromSignedUrlJobErrorDetails" => import_asset_from_signed_url_job_error_details(),
-        "ImportAssetsFromS3JobErrorDetails" => list(asset_source_entry()())
+        "ImportAssetsFromS3JobErrorDetails" => list(asset_source_entry())
       }
 
   """
@@ -932,7 +932,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       schema_change_request_details() :: %{
-        "Changes" => list(schema_change_details()()),
+        "Changes" => list(schema_change_details()),
         "SchemaChangeAt" => non_neg_integer()
       }
 
@@ -965,7 +965,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       database_l_f_tag_policy() :: %{
-        "Expression" => list(l_f_tag()())
+        "Expression" => list(l_f_tag())
       }
 
   """
@@ -977,9 +977,9 @@ defmodule AWS.DataExchange do
 
       s3_data_access_asset() :: %{
         "Bucket" => String.t(),
-        "KeyPrefixes" => list(String.t()()),
-        "Keys" => list(String.t()()),
-        "KmsKeysToGrant" => list(kms_key_to_grant()()),
+        "KeyPrefixes" => list(String.t()),
+        "Keys" => list(String.t()),
+        "KmsKeysToGrant" => list(kms_key_to_grant()),
         "S3AccessPointAlias" => String.t(),
         "S3AccessPointArn" => String.t()
       }
@@ -1014,7 +1014,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       table_l_f_tag_policy() :: %{
-        "Expression" => list(l_f_tag()())
+        "Expression" => list(l_f_tag())
       }
 
   """
@@ -1102,9 +1102,9 @@ defmodule AWS.DataExchange do
 
       s3_data_access_asset_source_entry() :: %{
         "Bucket" => String.t(),
-        "KeyPrefixes" => list(String.t()()),
-        "Keys" => list(String.t()()),
-        "KmsKeysToGrant" => list(kms_key_to_grant()())
+        "KeyPrefixes" => list(String.t()),
+        "Keys" => list(String.t()),
+        "KmsKeysToGrant" => list(kms_key_to_grant())
       }
 
   """
@@ -1253,8 +1253,8 @@ defmodule AWS.DataExchange do
   ## Example:
 
       s3_data_access_details() :: %{
-        "KeyPrefixes" => list(String.t()()),
-        "Keys" => list(String.t()())
+        "KeyPrefixes" => list(String.t()),
+        "Keys" => list(String.t())
       }
 
   """
@@ -1302,7 +1302,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       import_assets_from_s3_response_details() :: %{
-        "AssetSources" => list(asset_source_entry()()),
+        "AssetSources" => list(asset_source_entry()),
         "DataSetId" => String.t(),
         "RevisionId" => String.t()
       }
@@ -1324,7 +1324,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       import_assets_from_redshift_data_shares_request_details() :: %{
-        "AssetSources" => list(redshift_data_share_asset_source_entry()()),
+        "AssetSources" => list(redshift_data_share_asset_source_entry()),
         "DataSetId" => String.t(),
         "RevisionId" => String.t()
       }
@@ -1370,7 +1370,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       import_assets_from_redshift_data_shares_response_details() :: %{
-        "AssetSources" => list(redshift_data_share_asset_source_entry()()),
+        "AssetSources" => list(redshift_data_share_asset_source_entry()),
         "DataSetId" => String.t(),
         "RevisionId" => String.t()
       }
@@ -1432,7 +1432,7 @@ defmodule AWS.DataExchange do
         optional("Arn") => String.t(),
         optional("CreatedAt") => non_neg_integer(),
         optional("Details") => response_details(),
-        optional("Errors") => list(job_error()()),
+        optional("Errors") => list(job_error()),
         optional("Id") => String.t(),
         optional("State") => String.t(),
         optional("Type") => String.t(),
@@ -1615,7 +1615,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       import_assets_from_s3_request_details() :: %{
-        "AssetSources" => list(asset_source_entry()()),
+        "AssetSources" => list(asset_source_entry()),
         "DataSetId" => String.t(),
         "RevisionId" => String.t()
       }
@@ -1630,7 +1630,7 @@ defmodule AWS.DataExchange do
       lake_formation_data_permission_asset() :: %{
         "LakeFormationDataPermissionDetails" => lake_formation_data_permission_details(),
         "LakeFormationDataPermissionType" => String.t(),
-        "Permissions" => list(String.t()()),
+        "Permissions" => list(String.t()),
         "RoleArn" => String.t()
       }
 
@@ -1655,7 +1655,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_data_grants_response() :: %{
-        "DataGrantSummaries" => list(data_grant_summary_entry()()),
+        "DataGrantSummaries" => list(data_grant_summary_entry()),
         "NextToken" => String.t()
       }
 
@@ -1717,7 +1717,7 @@ defmodule AWS.DataExchange do
   ## Example:
 
       list_event_actions_response() :: %{
-        optional("EventActions") => list(event_action_entry()()),
+        optional("EventActions") => list(event_action_entry()),
         optional("NextToken") => String.t()
       }
 
@@ -1751,7 +1751,7 @@ defmodule AWS.DataExchange do
         "Arn" => String.t(),
         "CreatedAt" => non_neg_integer(),
         "Details" => response_details(),
-        "Errors" => list(job_error()()),
+        "Errors" => list(job_error()),
         "Id" => String.t(),
         "State" => String.t(),
         "Type" => String.t(),
@@ -1877,7 +1877,7 @@ defmodule AWS.DataExchange do
       export_revisions_to_s3_request_details() :: %{
         "DataSetId" => String.t(),
         "Encryption" => export_server_side_encryption(),
-        "RevisionDestinations" => list(revision_destination_entry()())
+        "RevisionDestinations" => list(revision_destination_entry())
       }
 
   """

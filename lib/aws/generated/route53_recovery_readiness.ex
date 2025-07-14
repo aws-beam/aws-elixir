@@ -40,7 +40,7 @@ defmodule AWS.Route53RecoveryReadiness do
         optional("Tags") => map(),
         required("ResourceSetName") => String.t(),
         required("ResourceSetType") => String.t(),
-        required("Resources") => list(resource()())
+        required("Resources") => list(resource())
       }
 
   """
@@ -51,7 +51,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       get_recovery_group_response() :: %{
-        "Cells" => list(String.t()()),
+        "Cells" => list(String.t()),
         "RecoveryGroupArn" => String.t(),
         "RecoveryGroupName" => String.t(),
         "Tags" => map()
@@ -67,8 +67,8 @@ defmodule AWS.Route53RecoveryReadiness do
       create_cell_response() :: %{
         "CellArn" => String.t(),
         "CellName" => String.t(),
-        "Cells" => list(String.t()()),
-        "ParentReadinessScopes" => list(String.t()()),
+        "Cells" => list(String.t()),
+        "ParentReadinessScopes" => list(String.t()),
         "Tags" => map()
       }
 
@@ -137,7 +137,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       list_cells_response() :: %{
-        "Cells" => list(cell_output()()),
+        "Cells" => list(cell_output()),
         "NextToken" => String.t()
       }
 
@@ -169,7 +169,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       recovery_group_output() :: %{
-        "Cells" => list(String.t()()),
+        "Cells" => list(String.t()),
         "RecoveryGroupArn" => String.t(),
         "RecoveryGroupName" => String.t(),
         "Tags" => map()
@@ -198,7 +198,7 @@ defmodule AWS.Route53RecoveryReadiness do
         "ResourceSetArn" => String.t(),
         "ResourceSetName" => String.t(),
         "ResourceSetType" => String.t(),
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "Tags" => map()
       }
 
@@ -223,7 +223,7 @@ defmodule AWS.Route53RecoveryReadiness do
       get_recovery_group_readiness_summary_response() :: %{
         "NextToken" => String.t(),
         "Readiness" => list(any()),
-        "ReadinessChecks" => list(readiness_check_summary()())
+        "ReadinessChecks" => list(readiness_check_summary())
       }
 
   """
@@ -234,7 +234,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -245,7 +245,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       update_recovery_group_response() :: %{
-        "Cells" => list(String.t()()),
+        "Cells" => list(String.t()),
         "RecoveryGroupArn" => String.t(),
         "RecoveryGroupName" => String.t(),
         "Tags" => map()
@@ -321,7 +321,7 @@ defmodule AWS.Route53RecoveryReadiness do
       get_cell_readiness_summary_response() :: %{
         "NextToken" => String.t(),
         "Readiness" => list(any()),
-        "ReadinessChecks" => list(readiness_check_summary()())
+        "ReadinessChecks" => list(readiness_check_summary())
       }
 
   """
@@ -365,7 +365,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       list_readiness_checks_response() :: %{
         "NextToken" => String.t(),
-        "ReadinessChecks" => list(readiness_check_output()())
+        "ReadinessChecks" => list(readiness_check_output())
       }
 
   """
@@ -422,10 +422,10 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       get_readiness_check_status_response() :: %{
-        "Messages" => list(message()()),
+        "Messages" => list(message()),
         "NextToken" => String.t(),
         "Readiness" => list(any()),
-        "Resources" => list(resource_result()())
+        "Resources" => list(resource_result())
       }
 
   """
@@ -436,7 +436,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       update_recovery_group_request() :: %{
-        required("Cells") => list(String.t()())
+        required("Cells") => list(String.t())
       }
 
   """
@@ -460,7 +460,7 @@ defmodule AWS.Route53RecoveryReadiness do
       get_architecture_recommendations_response() :: %{
         "LastAuditTimestamp" => non_neg_integer(),
         "NextToken" => String.t(),
-        "Recommendations" => list(recommendation()())
+        "Recommendations" => list(recommendation())
       }
 
   """
@@ -497,7 +497,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       list_cross_account_authorizations_response() :: %{
-        "CrossAccountAuthorizations" => list(String.t()()),
+        "CrossAccountAuthorizations" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -520,8 +520,8 @@ defmodule AWS.Route53RecoveryReadiness do
       update_cell_response() :: %{
         "CellArn" => String.t(),
         "CellName" => String.t(),
-        "Cells" => list(String.t()()),
-        "ParentReadinessScopes" => list(String.t()()),
+        "Cells" => list(String.t()),
+        "ParentReadinessScopes" => list(String.t()),
         "Tags" => map()
       }
 
@@ -550,7 +550,7 @@ defmodule AWS.Route53RecoveryReadiness do
         "ResourceSetArn" => String.t(),
         "ResourceSetName" => String.t(),
         "ResourceSetType" => String.t(),
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "Tags" => map()
       }
 
@@ -603,7 +603,7 @@ defmodule AWS.Route53RecoveryReadiness do
         "ResourceSetArn" => String.t(),
         "ResourceSetName" => String.t(),
         "ResourceSetType" => String.t(),
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "Tags" => map()
       }
 
@@ -616,7 +616,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       list_resource_sets_response() :: %{
         "NextToken" => String.t(),
-        "ResourceSets" => list(resource_set_output()())
+        "ResourceSets" => list(resource_set_output())
       }
 
   """
@@ -661,7 +661,7 @@ defmodule AWS.Route53RecoveryReadiness do
       get_readiness_check_resource_status_response() :: %{
         "NextToken" => String.t(),
         "Readiness" => list(any()),
-        "Rules" => list(rule_result()())
+        "Rules" => list(rule_result())
       }
 
   """
@@ -674,8 +674,8 @@ defmodule AWS.Route53RecoveryReadiness do
       get_cell_response() :: %{
         "CellArn" => String.t(),
         "CellName" => String.t(),
-        "Cells" => list(String.t()()),
-        "ParentReadinessScopes" => list(String.t()()),
+        "Cells" => list(String.t()),
+        "ParentReadinessScopes" => list(String.t()),
         "Tags" => map()
       }
 
@@ -699,7 +699,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       list_rules_response() :: %{
         "NextToken" => String.t(),
-        "Rules" => list(list_rules_output()())
+        "Rules" => list(list_rules_output())
       }
 
   """
@@ -720,7 +720,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       update_resource_set_request() :: %{
         required("ResourceSetType") => String.t(),
-        required("Resources") => list(resource()())
+        required("Resources") => list(resource())
       }
 
   """
@@ -731,7 +731,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       create_recovery_group_response() :: %{
-        "Cells" => list(String.t()()),
+        "Cells" => list(String.t()),
         "RecoveryGroupArn" => String.t(),
         "RecoveryGroupName" => String.t(),
         "Tags" => map()
@@ -746,7 +746,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       rule_result() :: %{
         "LastCheckedTimestamp" => non_neg_integer(),
-        "Messages" => list(message()()),
+        "Messages" => list(message()),
         "Readiness" => list(any()),
         "RuleId" => String.t()
       }
@@ -837,8 +837,8 @@ defmodule AWS.Route53RecoveryReadiness do
       cell_output() :: %{
         "CellArn" => String.t(),
         "CellName" => String.t(),
-        "Cells" => list(String.t()()),
-        "ParentReadinessScopes" => list(String.t()()),
+        "Cells" => list(String.t()),
+        "ParentReadinessScopes" => list(String.t()),
         "Tags" => map()
       }
 
@@ -850,7 +850,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       create_recovery_group_request() :: %{
-        optional("Cells") => list(String.t()()),
+        optional("Cells") => list(String.t()),
         optional("Tags") => map(),
         required("RecoveryGroupName") => String.t()
       }
@@ -863,7 +863,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       create_cell_request() :: %{
-        optional("Cells") => list(String.t()()),
+        optional("Cells") => list(String.t()),
         optional("Tags") => map(),
         required("CellName") => String.t()
       }
@@ -876,7 +876,7 @@ defmodule AWS.Route53RecoveryReadiness do
   ## Example:
 
       update_cell_request() :: %{
-        required("Cells") => list(String.t()())
+        required("Cells") => list(String.t())
       }
 
   """
@@ -916,7 +916,7 @@ defmodule AWS.Route53RecoveryReadiness do
         "ResourceSetArn" => String.t(),
         "ResourceSetName" => String.t(),
         "ResourceSetType" => String.t(),
-        "Resources" => list(resource()()),
+        "Resources" => list(resource()),
         "Tags" => map()
       }
 
@@ -947,7 +947,7 @@ defmodule AWS.Route53RecoveryReadiness do
 
       list_recovery_groups_response() :: %{
         "NextToken" => String.t(),
-        "RecoveryGroups" => list(recovery_group_output()())
+        "RecoveryGroups" => list(recovery_group_output())
       }
 
   """
@@ -971,7 +971,7 @@ defmodule AWS.Route53RecoveryReadiness do
       resource() :: %{
         "ComponentId" => String.t(),
         "DnsTargetResource" => dns_target_resource(),
-        "ReadinessScopes" => list(String.t()()),
+        "ReadinessScopes" => list(String.t()),
         "ResourceArn" => String.t()
       }
 

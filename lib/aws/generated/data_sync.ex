@@ -26,7 +26,7 @@ defmodule AWS.DataSync do
       
       update_location_azure_blob_request() :: %{
         optional("AccessTier") => list(any()),
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("AuthenticationType") => list(any()),
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
@@ -56,8 +56,8 @@ defmodule AWS.DataSync do
       
       private_link_config() :: %{
         "PrivateLinkEndpoint" => String.t(),
-        "SecurityGroupArns" => list(String.t()()),
-        "SubnetArns" => list(String.t()()),
+        "SecurityGroupArns" => list(String.t()),
+        "SubnetArns" => list(String.t()),
         "VpcEndpointId" => String.t()
       }
       
@@ -70,7 +70,7 @@ defmodule AWS.DataSync do
       
       create_location_object_storage_request() :: %{
         optional("AccessKey") => String.t(),
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
         optional("SecretKey") => String.t(),
@@ -78,7 +78,7 @@ defmodule AWS.DataSync do
         optional("ServerPort") => integer(),
         optional("ServerProtocol") => list(any()),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("BucketName") => String.t(),
         required("ServerHostname") => String.t()
       }
@@ -130,7 +130,7 @@ defmodule AWS.DataSync do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag_list_entry()())
+        required("Tags") => list(tag_list_entry())
       }
       
   """
@@ -258,7 +258,7 @@ defmodule AWS.DataSync do
         "Domain" => String.t(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
-        "SecurityGroupArns" => list(String.t()()),
+        "SecurityGroupArns" => list(String.t()),
         "User" => String.t()
       }
       
@@ -293,7 +293,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       list_agents_response() :: %{
-        "Agents" => list(agent_list_entry()()),
+        "Agents" => list(agent_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -318,9 +318,9 @@ defmodule AWS.DataSync do
       
       create_agent_request() :: %{
         optional("AgentName") => String.t(),
-        optional("SecurityGroupArns") => list(String.t()()),
-        optional("SubnetArns") => list(String.t()()),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("SecurityGroupArns") => list(String.t()),
+        optional("SubnetArns") => list(String.t()),
+        optional("Tags") => list(tag_list_entry()),
         optional("VpcEndpointId") => String.t(),
         required("ActivationKey") => String.t()
       }
@@ -345,7 +345,7 @@ defmodule AWS.DataSync do
       
       create_location_nfs_request() :: %{
         optional("MountOptions") => nfs_mount_options(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("OnPremConfig") => on_prem_config(),
         required("ServerHostname") => String.t(),
         required("Subdirectory") => String.t()
@@ -370,14 +370,14 @@ defmodule AWS.DataSync do
   ## Example:
       
       update_location_hdfs_request() :: %{
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("AuthenticationType") => list(any()),
         optional("BlockSize") => integer(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
         optional("KerberosPrincipal") => String.t(),
         optional("KmsKeyProviderUri") => String.t(),
-        optional("NameNodes") => list(hdfs_name_node()()),
+        optional("NameNodes") => list(hdfs_name_node()),
         optional("QopConfiguration") => qop_configuration(),
         optional("ReplicationFactor") => integer(),
         optional("SimpleUser") => String.t(),
@@ -395,7 +395,7 @@ defmodule AWS.DataSync do
       location_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -407,13 +407,13 @@ defmodule AWS.DataSync do
       
       create_task_request() :: %{
         optional("CloudWatchLogGroupArn") => String.t(),
-        optional("Excludes") => list(filter_rule()()),
-        optional("Includes") => list(filter_rule()()),
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
         optional("ManifestConfig") => manifest_config(),
         optional("Name") => String.t(),
         optional("Options") => options(),
         optional("Schedule") => task_schedule(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         optional("TaskMode") => list(any()),
         optional("TaskReportConfig") => task_report_config(),
         required("DestinationLocationArn") => String.t(),
@@ -510,7 +510,7 @@ defmodule AWS.DataSync do
         "CreationTime" => non_neg_integer(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
-        "SecurityGroupArns" => list(String.t()())
+        "SecurityGroupArns" => list(String.t())
       }
       
   """
@@ -540,7 +540,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       untag_resource_request() :: %{
-        required("Keys") => list(String.t()()),
+        required("Keys") => list(String.t()),
         required("ResourceArn") => String.t()
       }
       
@@ -642,13 +642,13 @@ defmodule AWS.DataSync do
       
       create_location_azure_blob_request() :: %{
         optional("AccessTier") => list(any()),
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("AuthenticationType") => list(any()),
         required("ContainerUrl") => String.t()
       }
@@ -742,9 +742,9 @@ defmodule AWS.DataSync do
   ## Example:
       
       update_location_smb_request() :: %{
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("AuthenticationType") => list(any()),
-        optional("DnsIpAddresses") => list(String.t()()),
+        optional("DnsIpAddresses") => list(String.t()),
         optional("Domain") => String.t(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
@@ -803,7 +803,7 @@ defmodule AWS.DataSync do
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
         "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t()()),
+        "SecurityGroupArns" => list(String.t()),
         "StorageVirtualMachineArn" => String.t()
       }
       
@@ -893,7 +893,7 @@ defmodule AWS.DataSync do
       
       list_task_executions_response() :: %{
         "NextToken" => String.t(),
-        "TaskExecutions" => list(task_execution_list_entry()())
+        "TaskExecutions" => list(task_execution_list_entry())
       }
       
   """
@@ -904,7 +904,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       on_prem_config() :: %{
-        "AgentArns" => list(String.t()())
+        "AgentArns" => list(String.t())
       }
       
   """
@@ -962,9 +962,9 @@ defmodule AWS.DataSync do
       
       create_location_fsx_ontap_request() :: %{
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t()()),
+        required("SecurityGroupArns") => list(String.t()),
         required("StorageVirtualMachineArn") => String.t()
       }
       
@@ -991,18 +991,18 @@ defmodule AWS.DataSync do
         "CreationTime" => non_neg_integer(),
         "CurrentTaskExecutionArn" => String.t(),
         "DestinationLocationArn" => String.t(),
-        "DestinationNetworkInterfaceArns" => list(String.t()()),
+        "DestinationNetworkInterfaceArns" => list(String.t()),
         "ErrorCode" => String.t(),
         "ErrorDetail" => String.t(),
-        "Excludes" => list(filter_rule()()),
-        "Includes" => list(filter_rule()()),
+        "Excludes" => list(filter_rule()),
+        "Includes" => list(filter_rule()),
         "ManifestConfig" => manifest_config(),
         "Name" => String.t(),
         "Options" => options(),
         "Schedule" => task_schedule(),
         "ScheduleDetails" => task_schedule_details(),
         "SourceLocationArn" => String.t(),
-        "SourceNetworkInterfaceArns" => list(String.t()()),
+        "SourceNetworkInterfaceArns" => list(String.t()),
         "Status" => list(any()),
         "TaskArn" => String.t(),
         "TaskMode" => list(any()),
@@ -1097,7 +1097,7 @@ defmodule AWS.DataSync do
       
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag_list_entry()())
+        "Tags" => list(tag_list_entry())
       }
       
   """
@@ -1112,7 +1112,7 @@ defmodule AWS.DataSync do
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
         "Protocol" => fsx_protocol(),
-        "SecurityGroupArns" => list(String.t()())
+        "SecurityGroupArns" => list(String.t())
       }
       
   """
@@ -1123,7 +1123,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       list_locations_request() :: %{
-        optional("Filters") => list(location_filter()()),
+        optional("Filters") => list(location_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1136,10 +1136,10 @@ defmodule AWS.DataSync do
   ## Example:
       
       create_location_s3_request() :: %{
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("S3StorageClass") => list(any()),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("S3BucketArn") => String.t(),
         required("S3Config") => s3_config()
       }
@@ -1156,7 +1156,7 @@ defmodule AWS.DataSync do
         optional("FileSystemAccessRoleArn") => String.t(),
         optional("InTransitEncryption") => list(any()),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("Ec2Config") => ec2_config(),
         required("EfsFilesystemArn") => String.t()
       }
@@ -1179,8 +1179,8 @@ defmodule AWS.DataSync do
       
       update_task_request() :: %{
         optional("CloudWatchLogGroupArn") => String.t(),
-        optional("Excludes") => list(filter_rule()()),
-        optional("Includes") => list(filter_rule()()),
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
         optional("ManifestConfig") => manifest_config(),
         optional("Name") => String.t(),
         optional("Options") => options(),
@@ -1241,10 +1241,10 @@ defmodule AWS.DataSync do
       
       create_location_fsx_open_zfs_request() :: %{
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("FsxFilesystemArn") => String.t(),
         required("Protocol") => fsx_protocol(),
-        required("SecurityGroupArns") => list(String.t()())
+        required("SecurityGroupArns") => list(String.t())
       }
       
   """
@@ -1262,7 +1262,7 @@ defmodule AWS.DataSync do
         "EstimatedBytesToTransfer" => float(),
         "EstimatedFilesToDelete" => float(),
         "EstimatedFilesToTransfer" => float(),
-        "Excludes" => list(filter_rule()()),
+        "Excludes" => list(filter_rule()),
         "FilesDeleted" => float(),
         "FilesFailed" => task_execution_files_failed_detail(),
         "FilesListed" => task_execution_files_listed_detail(),
@@ -1270,7 +1270,7 @@ defmodule AWS.DataSync do
         "FilesSkipped" => float(),
         "FilesTransferred" => float(),
         "FilesVerified" => float(),
-        "Includes" => list(filter_rule()()),
+        "Includes" => list(filter_rule()),
         "LaunchTime" => non_neg_integer(),
         "ManifestConfig" => manifest_config(),
         "Options" => options(),
@@ -1313,10 +1313,10 @@ defmodule AWS.DataSync do
       create_location_fsx_windows_request() :: %{
         optional("Domain") => String.t(),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("FsxFilesystemArn") => String.t(),
         required("Password") => String.t(),
-        required("SecurityGroupArns") => list(String.t()()),
+        required("SecurityGroupArns") => list(String.t()),
         required("User") => String.t()
       }
       
@@ -1338,16 +1338,16 @@ defmodule AWS.DataSync do
       
       create_location_smb_request() :: %{
         optional("AuthenticationType") => list(any()),
-        optional("DnsIpAddresses") => list(String.t()()),
+        optional("DnsIpAddresses") => list(String.t()),
         optional("Domain") => String.t(),
         optional("KerberosKeytab") => binary(),
         optional("KerberosKrb5Conf") => binary(),
         optional("KerberosPrincipal") => String.t(),
         optional("MountOptions") => smb_mount_options(),
         optional("Password") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         optional("User") => String.t(),
-        required("AgentArns") => list(String.t()()),
+        required("AgentArns") => list(String.t()),
         required("ServerHostname") => String.t(),
         required("Subdirectory") => String.t()
       }
@@ -1495,10 +1495,10 @@ defmodule AWS.DataSync do
         optional("ReplicationFactor") => integer(),
         optional("SimpleUser") => String.t(),
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
-        required("AgentArns") => list(String.t()()),
+        optional("Tags") => list(tag_list_entry()),
+        required("AgentArns") => list(String.t()),
         required("AuthenticationType") => list(any()),
-        required("NameNodes") => list(hdfs_name_node()())
+        required("NameNodes") => list(hdfs_name_node())
       }
       
   """
@@ -1568,9 +1568,9 @@ defmodule AWS.DataSync do
       
       create_location_fsx_lustre_request() :: %{
         optional("Subdirectory") => String.t(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         required("FsxFilesystemArn") => String.t(),
-        required("SecurityGroupArns") => list(String.t()())
+        required("SecurityGroupArns") => list(String.t())
       }
       
   """
@@ -1644,7 +1644,7 @@ defmodule AWS.DataSync do
       
       update_location_object_storage_request() :: %{
         optional("AccessKey") => String.t(),
-        optional("AgentArns") => list(String.t()()),
+        optional("AgentArns") => list(String.t()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
         optional("SecretKey") => String.t(),
@@ -1664,7 +1664,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       list_tasks_request() :: %{
-        optional("Filters") => list(task_filter()()),
+        optional("Filters") => list(task_filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t()
       }
@@ -1725,7 +1725,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       list_locations_response() :: %{
-        "Locations" => list(location_list_entry()()),
+        "Locations" => list(location_list_entry()),
         "NextToken" => String.t()
       }
       
@@ -1760,7 +1760,7 @@ defmodule AWS.DataSync do
       
       list_tasks_response() :: %{
         "NextToken" => String.t(),
-        "Tasks" => list(task_list_entry()())
+        "Tasks" => list(task_list_entry())
       }
       
   """
@@ -1781,7 +1781,7 @@ defmodule AWS.DataSync do
       
       describe_location_azure_blob_response() :: %{
         "AccessTier" => list(any()),
-        "AgentArns" => list(String.t()()),
+        "AgentArns" => list(String.t()),
         "AuthenticationType" => list(any()),
         "BlobType" => list(any()),
         "CmkSecretConfig" => cmk_secret_config(),
@@ -1813,7 +1813,7 @@ defmodule AWS.DataSync do
       task_filter() :: %{
         "Name" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1837,7 +1837,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       ec2_config() :: %{
-        "SecurityGroupArns" => list(String.t()()),
+        "SecurityGroupArns" => list(String.t()),
         "SubnetArn" => String.t()
       }
       
@@ -1849,7 +1849,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_location_hdfs_response() :: %{
-        "AgentArns" => list(String.t()()),
+        "AgentArns" => list(String.t()),
         "AuthenticationType" => list(any()),
         "BlockSize" => integer(),
         "CreationTime" => non_neg_integer(),
@@ -1857,7 +1857,7 @@ defmodule AWS.DataSync do
         "KmsKeyProviderUri" => String.t(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
-        "NameNodes" => list(hdfs_name_node()()),
+        "NameNodes" => list(hdfs_name_node()),
         "QopConfiguration" => qop_configuration(),
         "ReplicationFactor" => integer(),
         "SimpleUser" => String.t()
@@ -1894,7 +1894,7 @@ defmodule AWS.DataSync do
       
       describe_location_object_storage_response() :: %{
         "AccessKey" => String.t(),
-        "AgentArns" => list(String.t()()),
+        "AgentArns" => list(String.t()),
         "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
         "CustomSecretConfig" => custom_secret_config(),
@@ -1914,10 +1914,10 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_location_smb_response() :: %{
-        "AgentArns" => list(String.t()()),
+        "AgentArns" => list(String.t()),
         "AuthenticationType" => list(any()),
         "CreationTime" => non_neg_integer(),
-        "DnsIpAddresses" => list(String.t()()),
+        "DnsIpAddresses" => list(String.t()),
         "Domain" => String.t(),
         "KerberosPrincipal" => String.t(),
         "LocationArn" => String.t(),
@@ -1968,7 +1968,7 @@ defmodule AWS.DataSync do
   ## Example:
       
       describe_location_s3_response() :: %{
-        "AgentArns" => list(String.t()()),
+        "AgentArns" => list(String.t()),
         "CreationTime" => non_neg_integer(),
         "LocationArn" => String.t(),
         "LocationUri" => String.t(),
@@ -1984,11 +1984,11 @@ defmodule AWS.DataSync do
   ## Example:
       
       start_task_execution_request() :: %{
-        optional("Excludes") => list(filter_rule()()),
-        optional("Includes") => list(filter_rule()()),
+        optional("Excludes") => list(filter_rule()),
+        optional("Includes") => list(filter_rule()),
         optional("ManifestConfig") => manifest_config(),
         optional("OverrideOptions") => options(),
-        optional("Tags") => list(tag_list_entry()()),
+        optional("Tags") => list(tag_list_entry()),
         optional("TaskReportConfig") => task_report_config(),
         required("TaskArn") => String.t()
       }
@@ -2160,7 +2160,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, cancel_task_execution_errors()}
   def cancel_task_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelTaskExecution", input, options)
   end
@@ -2179,7 +2180,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_agent_errors()}
   def create_agent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAgent", input, options)
   end
@@ -2203,7 +2205,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_azure_blob_errors()}
   def create_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationAzureBlob", input, options)
   end
@@ -2224,7 +2227,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_efs_errors()}
   def create_location_efs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationEfs", input, options)
   end
@@ -2245,7 +2249,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_lustre_errors()}
   def create_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxLustre", input, options)
   end
@@ -2266,7 +2271,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_ontap_errors()}
   def create_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxOntap", input, options)
   end
@@ -2291,7 +2297,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_open_zfs_errors()}
   def create_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxOpenZfs", input, options)
   end
@@ -2313,7 +2320,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_fsx_windows_errors()}
   def create_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationFsxWindows", input, options)
   end
@@ -2334,7 +2342,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_hdfs_errors()}
   def create_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationHdfs", input, options)
   end
@@ -2355,7 +2364,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_nfs_errors()}
   def create_location_nfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationNfs", input, options)
   end
@@ -2377,7 +2387,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_object_storage_errors()}
   def create_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationObjectStorage", input, options)
   end
@@ -2408,7 +2419,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_s3_errors()}
   def create_location_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationS3", input, options)
   end
@@ -2429,7 +2441,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_location_smb_errors()}
   def create_location_smb(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocationSmb", input, options)
   end
@@ -2454,7 +2467,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, create_task_errors()}
   def create_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTask", input, options)
   end
@@ -2475,7 +2489,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_agent_errors()}
   def delete_agent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAgent", input, options)
   end
@@ -2489,7 +2504,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocation", input, options)
   end
@@ -2503,7 +2519,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, delete_task_errors()}
   def delete_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTask", input, options)
   end
@@ -2518,7 +2535,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_agent_errors()}
   def describe_agent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgent", input, options)
   end
@@ -2533,7 +2551,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_azure_blob_errors()}
   def describe_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationAzureBlob", input, options)
   end
@@ -2548,7 +2567,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_efs_errors()}
   def describe_location_efs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationEfs", input, options)
   end
@@ -2563,7 +2583,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_lustre_errors()}
   def describe_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxLustre", input, options)
   end
@@ -2581,7 +2602,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_ontap_errors()}
   def describe_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxOntap", input, options)
   end
@@ -2599,7 +2621,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_open_zfs_errors()}
   def describe_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxOpenZfs", input, options)
   end
@@ -2614,7 +2637,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_fsx_windows_errors()}
   def describe_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationFsxWindows", input, options)
   end
@@ -2629,7 +2653,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_hdfs_errors()}
   def describe_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationHdfs", input, options)
   end
@@ -2644,7 +2669,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_nfs_errors()}
   def describe_location_nfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationNfs", input, options)
   end
@@ -2663,7 +2689,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_object_storage_errors()}
   def describe_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationObjectStorage", input, options)
   end
@@ -2678,7 +2705,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_s3_errors()}
   def describe_location_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationS3", input, options)
   end
@@ -2693,7 +2721,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_location_smb_errors()}
   def describe_location_smb(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLocationSmb", input, options)
   end
@@ -2708,7 +2737,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_task_errors()}
   def describe_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTask", input, options)
   end
@@ -2732,7 +2762,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, describe_task_execution_errors()}
   def describe_task_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTaskExecution", input, options)
   end
@@ -2765,7 +2796,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_agents_errors()}
   def list_agents(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAgents", input, options)
   end
@@ -2785,7 +2817,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
   end
@@ -2799,7 +2832,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2813,7 +2847,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_task_executions_errors()}
   def list_task_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTaskExecutions", input, options)
   end
@@ -2827,7 +2862,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTasks", input, options)
   end
@@ -2853,7 +2889,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, start_task_execution_errors()}
   def start_task_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTaskExecution", input, options)
   end
@@ -2873,7 +2910,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2887,7 +2925,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2901,7 +2940,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_agent_errors()}
   def update_agent(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAgent", input, options)
   end
@@ -2919,7 +2959,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_azure_blob_errors()}
   def update_location_azure_blob(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationAzureBlob", input, options)
   end
@@ -2937,7 +2978,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_efs_errors()}
   def update_location_efs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationEfs", input, options)
   end
@@ -2955,7 +2997,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_lustre_errors()}
   def update_location_fsx_lustre(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxLustre", input, options)
   end
@@ -2974,7 +3017,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_ontap_errors()}
   def update_location_fsx_ontap(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxOntap", input, options)
   end
@@ -2995,7 +3039,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_open_zfs_errors()}
   def update_location_fsx_open_zfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxOpenZfs", input, options)
   end
@@ -3014,7 +3059,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_fsx_windows_errors()}
   def update_location_fsx_windows(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationFsxWindows", input, options)
   end
@@ -3033,7 +3079,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_hdfs_errors()}
   def update_location_hdfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationHdfs", input, options)
   end
@@ -3052,7 +3099,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_nfs_errors()}
   def update_location_nfs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationNfs", input, options)
   end
@@ -3071,7 +3119,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_object_storage_errors()}
   def update_location_object_storage(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationObjectStorage", input, options)
   end
@@ -3098,7 +3147,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_s3_errors()}
   def update_location_s3(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationS3", input, options)
   end
@@ -3117,7 +3167,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_location_smb_errors()}
   def update_location_smb(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLocationSmb", input, options)
   end
@@ -3132,7 +3183,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_task_errors()}
   def update_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTask", input, options)
   end
@@ -3158,7 +3210,8 @@ defmodule AWS.DataSync do
           | {:error, term()}
           | {:error, update_task_execution_errors()}
   def update_task_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTaskExecution", input, options)
   end

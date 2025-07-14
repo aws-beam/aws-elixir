@@ -108,8 +108,8 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       get_campaign_state_batch_response() :: %{
-        "failedRequests" => list(failed_campaign_state_response()()),
-        "successfulRequests" => list(successful_campaign_state_response()())
+        "failedRequests" => list(failed_campaign_state_response()),
+        "successfulRequests" => list(successful_campaign_state_response())
       }
 
   """
@@ -133,7 +133,7 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       list_campaigns_response() :: %{
-        "campaignSummaryList" => list(campaign_summary()()),
+        "campaignSummaryList" => list(campaign_summary()),
         "nextToken" => String.t()
       }
 
@@ -174,7 +174,7 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       untag_resource_request() :: %{
-        "tagKeys" => list(String.t()())
+        "tagKeys" => list(String.t())
       }
 
   """
@@ -315,8 +315,8 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       put_dial_request_batch_response() :: %{
-        "failedRequests" => list(failed_request()()),
-        "successfulRequests" => list(successful_request()())
+        "failedRequests" => list(failed_request()),
+        "successfulRequests" => list(successful_request())
       }
 
   """
@@ -357,7 +357,7 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       get_campaign_state_batch_request() :: %{
-        "campaignIds" => list(String.t()())
+        "campaignIds" => list(String.t())
       }
 
   """
@@ -390,7 +390,7 @@ defmodule AWS.ConnectCampaigns do
   ## Example:
 
       put_dial_request_batch_request() :: %{
-        "dialRequests" => list(dial_request()())
+        "dialRequests" => list(dial_request())
       }
 
   """

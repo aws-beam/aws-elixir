@@ -101,7 +101,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -124,7 +124,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         "ApplicationVersionRolledBackFrom" => float(),
         "ApplicationVersionRolledBackTo" => float(),
         "ApplicationVersionUpdatedFrom" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
         "ConditionalToken" => String.t(),
         "CreateTimestamp" => non_neg_integer(),
         "LastUpdateTimestamp" => non_neg_integer(),
@@ -209,8 +209,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       vpc_configuration() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -317,7 +317,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_cloud_watch_logging_option_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
         "OperationId" => String.t()
       }
       
@@ -329,7 +329,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       input_schema_update() :: %{
-        "RecordColumnUpdates" => list(record_column()()),
+        "RecordColumnUpdates" => list(record_column()),
         "RecordEncodingUpdate" => String.t(),
         "RecordFormatUpdate" => record_format()
       }
@@ -343,9 +343,9 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       discover_input_schema_response() :: %{
         "InputSchema" => source_schema(),
-        "ParsedInputRecords" => list(list(String.t()())()),
-        "ProcessedInputRecords" => list(String.t()()),
-        "RawInputRecords" => list(String.t()())
+        "ParsedInputRecords" => list(list(String.t())()),
+        "ProcessedInputRecords" => list(String.t()),
+        "RawInputRecords" => list(String.t())
       }
       
   """
@@ -356,9 +356,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       sql_application_configuration_update() :: %{
-        "InputUpdates" => list(input_update()()),
-        "OutputUpdates" => list(output_update()()),
-        "ReferenceDataSourceUpdates" => list(reference_data_source_update()())
+        "InputUpdates" => list(input_update()),
+        "OutputUpdates" => list(output_update()),
+        "ReferenceDataSourceUpdates" => list(reference_data_source_update())
       }
       
   """
@@ -453,8 +453,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       vpc_configuration_description() :: %{
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcConfigurationId" => String.t(),
         "VpcId" => String.t()
       }
@@ -480,7 +480,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_input_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "InputDescriptions" => list(input_description()())
+        "InputDescriptions" => list(input_description())
       }
       
   """
@@ -492,7 +492,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       zeppelin_application_configuration_description() :: %{
         "CatalogConfigurationDescription" => catalog_configuration_description(),
-        "CustomArtifactsConfigurationDescription" => list(custom_artifact_configuration_description()()),
+        "CustomArtifactsConfigurationDescription" => list(custom_artifact_configuration_description()),
         "DeployAsApplicationConfigurationDescription" => deploy_as_application_configuration_description(),
         "MonitoringConfigurationDescription" => zeppelin_monitoring_configuration_description()
       }
@@ -517,8 +517,8 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       vpc_configuration_update() :: %{
-        "SecurityGroupIdUpdates" => list(String.t()()),
-        "SubnetIdUpdates" => list(String.t()()),
+        "SecurityGroupIdUpdates" => list(String.t()),
+        "SubnetIdUpdates" => list(String.t()),
         "VpcConfigurationId" => String.t()
       }
       
@@ -625,7 +625,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       list_application_snapshots_response() :: %{
         "NextToken" => String.t(),
-        "SnapshotSummaries" => list(snapshot_details()())
+        "SnapshotSummaries" => list(snapshot_details())
       }
       
   """
@@ -701,7 +701,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -749,8 +749,8 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       unable_to_detect_schema_exception() :: %{
         "Message" => String.t(),
-        "ProcessedInputRecords" => list(String.t()()),
-        "RawInputRecords" => list(String.t()())
+        "ProcessedInputRecords" => list(String.t()),
+        "RawInputRecords" => list(String.t())
       }
       
   """
@@ -958,7 +958,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       run_configuration() :: %{
         "ApplicationRestoreConfiguration" => application_restore_configuration(),
         "FlinkRunConfiguration" => flink_run_configuration(),
-        "SqlRunConfigurations" => list(sql_run_configuration()())
+        "SqlRunConfigurations" => list(sql_run_configuration())
       }
       
   """
@@ -969,7 +969,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       environment_properties() :: %{
-        "PropertyGroups" => list(property_group()())
+        "PropertyGroups" => list(property_group())
       }
       
   """
@@ -1047,7 +1047,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         "EnvironmentProperties" => environment_properties(),
         "FlinkApplicationConfiguration" => flink_application_configuration(),
         "SqlApplicationConfiguration" => sql_application_configuration(),
-        "VpcConfigurations" => list(vpc_configuration()()),
+        "VpcConfigurations" => list(vpc_configuration()),
         "ZeppelinApplicationConfiguration" => zeppelin_application_configuration()
       }
       
@@ -1178,7 +1178,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       delete_application_cloud_watch_logging_option_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()()),
+        "CloudWatchLoggingOptionDescriptions" => list(cloud_watch_logging_option_description()),
         "OperationId" => String.t()
       }
       
@@ -1202,7 +1202,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1216,8 +1216,8 @@ defmodule AWS.KinesisAnalyticsV2 do
         optional("ApplicationConfiguration") => application_configuration(),
         optional("ApplicationDescription") => String.t(),
         optional("ApplicationMode") => list(any()),
-        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()()),
-        optional("Tags") => list(tag()()),
+        optional("CloudWatchLoggingOptions") => list(cloud_watch_logging_option()),
+        optional("Tags") => list(tag()),
         required("ApplicationName") => String.t(),
         required("RuntimeEnvironment") => list(any()),
         required("ServiceExecutionRole") => String.t()
@@ -1294,7 +1294,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_output_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "OutputDescriptions" => list(output_description()())
+        "OutputDescriptions" => list(output_description())
       }
       
   """
@@ -1401,7 +1401,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       zeppelin_application_configuration() :: %{
         "CatalogConfiguration" => catalog_configuration(),
-        "CustomArtifactsConfiguration" => list(custom_artifact_configuration()()),
+        "CustomArtifactsConfiguration" => list(custom_artifact_configuration()),
         "DeployAsApplicationConfiguration" => deploy_as_application_configuration(),
         "MonitoringConfiguration" => zeppelin_monitoring_configuration()
       }
@@ -1427,7 +1427,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       list_application_operations_response() :: %{
-        "ApplicationOperationInfoList" => list(application_operation_info()()),
+        "ApplicationOperationInfoList" => list(application_operation_info()),
         "NextToken" => String.t()
       }
       
@@ -1452,7 +1452,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       update_application_request() :: %{
         optional("ApplicationConfigurationUpdate") => application_configuration_update(),
-        optional("CloudWatchLoggingOptionUpdates") => list(cloud_watch_logging_option_update()()),
+        optional("CloudWatchLoggingOptionUpdates") => list(cloud_watch_logging_option_update()),
         optional("ConditionalToken") => String.t(),
         optional("CurrentApplicationVersionId") => float(),
         optional("RunConfigurationUpdate") => run_configuration_update(),
@@ -1641,7 +1641,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       environment_property_descriptions() :: %{
-        "PropertyGroupDescriptions" => list(property_group()())
+        "PropertyGroupDescriptions" => list(property_group())
       }
       
   """
@@ -1653,7 +1653,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       zeppelin_application_configuration_update() :: %{
         "CatalogConfigurationUpdate" => catalog_configuration_update(),
-        "CustomArtifactsConfigurationUpdate" => list(custom_artifact_configuration()()),
+        "CustomArtifactsConfigurationUpdate" => list(custom_artifact_configuration()),
         "DeployAsApplicationConfigurationUpdate" => deploy_as_application_configuration_update(),
         "MonitoringConfigurationUpdate" => zeppelin_monitoring_configuration_update()
       }
@@ -1834,7 +1834,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       environment_property_updates() :: %{
-        "PropertyGroups" => list(property_group()())
+        "PropertyGroups" => list(property_group())
       }
       
   """
@@ -1904,7 +1904,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       source_schema() :: %{
-        "RecordColumns" => list(record_column()()),
+        "RecordColumns" => list(record_column()),
         "RecordEncoding" => String.t(),
         "RecordFormat" => record_format()
       }
@@ -1954,7 +1954,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       input_description() :: %{
-        "InAppStreamNames" => list(String.t()()),
+        "InAppStreamNames" => list(String.t()),
         "InputId" => String.t(),
         "InputParallelism" => input_parallelism(),
         "InputProcessingConfigurationDescription" => input_processing_configuration_description(),
@@ -2072,7 +2072,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         "FlinkApplicationConfigurationDescription" => flink_application_configuration_description(),
         "RunConfigurationDescription" => run_configuration_description(),
         "SqlApplicationConfigurationDescription" => sql_application_configuration_description(),
-        "VpcConfigurationDescriptions" => list(vpc_configuration_description()()),
+        "VpcConfigurationDescriptions" => list(vpc_configuration_description()),
         "ZeppelinApplicationConfigurationDescription" => zeppelin_application_configuration_description()
       }
       
@@ -2132,7 +2132,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       list_applications_response() :: %{
-        "ApplicationSummaries" => list(application_summary()()),
+        "ApplicationSummaries" => list(application_summary()),
         "NextToken" => String.t()
       }
       
@@ -2171,7 +2171,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       list_application_versions_response() :: %{
-        "ApplicationVersionSummaries" => list(application_version_summary()()),
+        "ApplicationVersionSummaries" => list(application_version_summary()),
         "NextToken" => String.t()
       }
       
@@ -2276,9 +2276,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       sql_application_configuration() :: %{
-        "Inputs" => list(input()()),
-        "Outputs" => list(output()()),
-        "ReferenceDataSources" => list(reference_data_source()())
+        "Inputs" => list(input()),
+        "Outputs" => list(output()),
+        "ReferenceDataSources" => list(reference_data_source())
       }
       
   """
@@ -2405,7 +2405,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       add_application_reference_data_source_response() :: %{
         "ApplicationARN" => String.t(),
         "ApplicationVersionId" => float(),
-        "ReferenceDataSourceDescriptions" => list(reference_data_source_description()())
+        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
       }
       
   """
@@ -2416,9 +2416,9 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       sql_application_configuration_description() :: %{
-        "InputDescriptions" => list(input_description()()),
-        "OutputDescriptions" => list(output_description()()),
-        "ReferenceDataSourceDescriptions" => list(reference_data_source_description()())
+        "InputDescriptions" => list(input_description()),
+        "OutputDescriptions" => list(output_description()),
+        "ReferenceDataSourceDescriptions" => list(reference_data_source_description())
       }
       
   """
@@ -2484,7 +2484,7 @@ defmodule AWS.KinesisAnalyticsV2 do
         "EnvironmentPropertyUpdates" => environment_property_updates(),
         "FlinkApplicationConfigurationUpdate" => flink_application_configuration_update(),
         "SqlApplicationConfigurationUpdate" => sql_application_configuration_update(),
-        "VpcConfigurationUpdates" => list(vpc_configuration_update()()),
+        "VpcConfigurationUpdates" => list(vpc_configuration_update()),
         "ZeppelinApplicationConfigurationUpdate" => zeppelin_application_configuration_update()
       }
       
@@ -2842,7 +2842,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_cloud_watch_logging_option_errors()}
   def add_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationCloudWatchLoggingOption", input, options)
   end
@@ -2869,7 +2870,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_input_errors()}
   def add_application_input(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationInput", input, options)
   end
@@ -2893,7 +2895,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_input_processing_configuration_errors()}
   def add_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2936,7 +2939,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_output_errors()}
   def add_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationOutput", input, options)
   end
@@ -2965,7 +2969,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_reference_data_source_errors()}
   def add_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationReferenceDataSource", input, options)
   end
@@ -2998,7 +3003,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, add_application_vpc_configuration_errors()}
   def add_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddApplicationVpcConfiguration", input, options)
   end
@@ -3015,7 +3021,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3052,7 +3059,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_presigned_url_errors()}
   def create_application_presigned_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationPresignedUrl", input, options)
   end
@@ -3066,7 +3074,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, create_application_snapshot_errors()}
   def create_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateApplicationSnapshot", input, options)
   end
@@ -3083,7 +3092,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3102,7 +3112,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_cloud_watch_logging_option_errors()}
   def delete_application_cloud_watch_logging_option(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationCloudWatchLoggingOption", input, options)
   end
@@ -3120,7 +3131,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_input_processing_configuration_errors()}
   def delete_application_input_processing_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3144,7 +3156,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_output_errors()}
   def delete_application_output(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationOutput", input, options)
   end
@@ -3167,7 +3180,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_reference_data_source_errors()}
   def delete_application_reference_data_source(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationReferenceDataSource", input, options)
   end
@@ -3181,7 +3195,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_snapshot_errors()}
   def delete_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationSnapshot", input, options)
   end
@@ -3199,7 +3214,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, delete_application_vpc_configuration_errors()}
   def delete_application_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVpcConfiguration", input, options)
   end
@@ -3217,7 +3233,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -3232,7 +3249,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_operation_errors()}
   def describe_application_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationOperation", input, options)
   end
@@ -3246,7 +3264,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_snapshot_errors()}
   def describe_application_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationSnapshot", input, options)
   end
@@ -3265,7 +3284,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, describe_application_version_errors()}
   def describe_application_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersion", input, options)
   end
@@ -3291,7 +3311,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, discover_input_schema_errors()}
   def discover_input_schema(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
   end
@@ -3306,7 +3327,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_operations_errors()}
   def list_application_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationOperations", input, options)
   end
@@ -3320,7 +3342,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_snapshots_errors()}
   def list_application_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationSnapshots", input, options)
   end
@@ -3343,7 +3366,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_application_versions_errors()}
   def list_application_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplicationVersions", input, options)
   end
@@ -3365,7 +3389,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -3382,7 +3407,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3408,7 +3434,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, rollback_application_errors()}
   def rollback_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RollbackApplication", input, options)
   end
@@ -3425,7 +3452,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, start_application_errors()}
   def start_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartApplication", input, options)
   end
@@ -3449,7 +3477,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, stop_application_errors()}
   def stop_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopApplication", input, options)
   end
@@ -3469,7 +3498,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3486,7 +3516,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3507,7 +3538,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -3551,7 +3583,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | {:error, term()}
           | {:error, update_application_maintenance_configuration_errors()}
   def update_application_maintenance_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,

@@ -122,7 +122,7 @@ defmodule AWS.SSMGuiConnect do
   ## Example:
 
       recording_destinations() :: %{
-        "S3Buckets" => list(s3_bucket()())
+        "S3Buckets" => list(s3_bucket())
       }
 
   """

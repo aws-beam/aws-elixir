@@ -60,7 +60,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_get_link_attributes() :: %{
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "TypedLinkSpecifier" => typed_link_specifier()
       }
 
@@ -98,7 +98,7 @@ defmodule AWS.CloudDirectory do
 
       policy_to_path() :: %{
         "Path" => String.t(),
-        "Policies" => list(policy_attachment()())
+        "Policies" => list(policy_attachment())
       }
 
   """
@@ -109,7 +109,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_incoming_typed_links_response() :: %{
-        "LinkSpecifiers" => list(typed_link_specifier()()),
+        "LinkSpecifiers" => list(typed_link_specifier()),
         "NextToken" => String.t()
       }
 
@@ -121,7 +121,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       get_object_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()())
+        "Attributes" => list(attribute_key_and_value())
       }
 
   """
@@ -148,7 +148,7 @@ defmodule AWS.CloudDirectory do
         "IndexReference" => object_reference(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
-        "RangesOnIndexedValues" => list(object_attribute_range()())
+        "RangesOnIndexedValues" => list(object_attribute_range())
       }
 
   """
@@ -196,7 +196,7 @@ defmodule AWS.CloudDirectory do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -207,7 +207,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_object_policies_response() :: %{
-        "AttachedPolicyIds" => list(String.t()()),
+        "AttachedPolicyIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -220,7 +220,7 @@ defmodule AWS.CloudDirectory do
 
       list_published_schema_arns_response() :: %{
         "NextToken" => String.t(),
-        "SchemaArns" => list(String.t()())
+        "SchemaArns" => list(String.t())
       }
 
   """
@@ -253,7 +253,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_get_object_attributes() :: %{
-        "AttributeNames" => list(String.t()()),
+        "AttributeNames" => list(String.t()),
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }
@@ -266,7 +266,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       typed_link_specifier() :: %{
-        "IdentityAttributeValues" => list(attribute_name_and_value()()),
+        "IdentityAttributeValues" => list(attribute_name_and_value()),
         "SourceObjectReference" => object_reference(),
         "TargetObjectReference" => object_reference(),
         "TypedLinkFacet" => typed_link_schema_and_facet_name()
@@ -280,7 +280,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_incoming_typed_links() :: %{
-        "FilterAttributeRanges" => list(typed_link_attribute_range()()),
+        "FilterAttributeRanges" => list(typed_link_attribute_range()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
@@ -502,7 +502,7 @@ defmodule AWS.CloudDirectory do
 
       batch_write_request() :: %{
         required("DirectoryArn") => String.t(),
-        required("Operations") => list(batch_write_operation()())
+        required("Operations") => list(batch_write_operation())
       }
 
   """
@@ -525,7 +525,7 @@ defmodule AWS.CloudDirectory do
 
       batch_list_policy_attachments_response() :: %{
         "NextToken" => String.t(),
-        "ObjectIdentifiers" => list(String.t()())
+        "ObjectIdentifiers" => list(String.t())
       }
 
   """
@@ -547,7 +547,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_incoming_typed_links_response() :: %{
-        "LinkSpecifiers" => list(typed_link_specifier()()),
+        "LinkSpecifiers" => list(typed_link_specifier()),
         "NextToken" => String.t()
       }
 
@@ -867,7 +867,7 @@ defmodule AWS.CloudDirectory do
 
       get_link_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("AttributeNames") => list(String.t()()),
+        required("AttributeNames") => list(String.t()),
         required("DirectoryArn") => String.t(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
@@ -915,7 +915,7 @@ defmodule AWS.CloudDirectory do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1046,7 +1046,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_object_policies_response() :: %{
-        "AttachedPolicyIds" => list(String.t()()),
+        "AttachedPolicyIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1072,7 +1072,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       update_object_attributes_request() :: %{
-        required("AttributeUpdates") => list(object_attribute_update()()),
+        required("AttributeUpdates") => list(object_attribute_update()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference()
       }
@@ -1099,7 +1099,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_typed_link_facet_attributes_response() :: %{
-        "Attributes" => list(typed_link_attribute_definition()()),
+        "Attributes" => list(typed_link_attribute_definition()),
         "NextToken" => String.t()
       }
 
@@ -1123,7 +1123,7 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_parent_paths_response() :: %{
         "NextToken" => String.t(),
-        "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
+        "PathToObjectIdentifiersList" => list(path_to_object_identifiers())
       }
 
   """
@@ -1134,7 +1134,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       index_attachment() :: %{
-        "IndexedAttributes" => list(attribute_key_and_value()()),
+        "IndexedAttributes" => list(attribute_key_and_value()),
         "ObjectIdentifier" => String.t()
       }
 
@@ -1147,7 +1147,7 @@ defmodule AWS.CloudDirectory do
 
       batch_list_object_parents_response() :: %{
         "NextToken" => String.t(),
-        "ParentLinks" => list(object_identifier_and_link_name_tuple()())
+        "ParentLinks" => list(object_identifier_and_link_name_tuple())
       }
 
   """
@@ -1158,7 +1158,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_write_response() :: %{
-        "Responses" => list(batch_write_operation_response()())
+        "Responses" => list(batch_write_operation_response())
       }
 
   """
@@ -1203,7 +1203,7 @@ defmodule AWS.CloudDirectory do
 
       list_object_parents_response() :: %{
         "NextToken" => String.t(),
-        "ParentLinks" => list(object_identifier_and_link_name_tuple()()),
+        "ParentLinks" => list(object_identifier_and_link_name_tuple()),
         "Parents" => map()
       }
 
@@ -1295,7 +1295,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_facet_names_response() :: %{
-        "FacetNames" => list(String.t()()),
+        "FacetNames" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1374,7 +1374,7 @@ defmodule AWS.CloudDirectory do
 
       batch_lookup_policy_response() :: %{
         "NextToken" => String.t(),
-        "PolicyToPathList" => list(policy_to_path()())
+        "PolicyToPathList" => list(policy_to_path())
       }
 
   """
@@ -1429,7 +1429,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_update_link_attributes() :: %{
-        "AttributeUpdates" => list(link_attribute_update()()),
+        "AttributeUpdates" => list(link_attribute_update()),
         "TypedLinkSpecifier" => typed_link_specifier()
       }
 
@@ -1536,7 +1536,7 @@ defmodule AWS.CloudDirectory do
 
       batch_get_object_information_response() :: %{
         "ObjectIdentifier" => String.t(),
-        "SchemaFacets" => list(schema_facet()())
+        "SchemaFacets" => list(schema_facet())
       }
 
   """
@@ -1619,7 +1619,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_attached_indices_response() :: %{
-        "IndexAttachments" => list(index_attachment()()),
+        "IndexAttachments" => list(index_attachment()),
         "NextToken" => String.t()
       }
 
@@ -1660,9 +1660,9 @@ defmodule AWS.CloudDirectory do
       batch_create_object() :: %{
         "BatchReferenceName" => String.t(),
         "LinkName" => String.t(),
-        "ObjectAttributeList" => list(attribute_key_and_value()()),
+        "ObjectAttributeList" => list(attribute_key_and_value()),
         "ParentReference" => object_reference(),
-        "SchemaFacet" => list(schema_facet()())
+        "SchemaFacet" => list(schema_facet())
       }
 
   """
@@ -1698,7 +1698,7 @@ defmodule AWS.CloudDirectory do
 
       list_incoming_typed_links_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
+        optional("FilterAttributeRanges") => list(typed_link_attribute_range()),
         optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1714,7 +1714,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_facet_attributes_response() :: %{
-        "Attributes" => list(facet_attribute()()),
+        "Attributes" => list(facet_attribute()),
         "NextToken" => String.t()
       }
 
@@ -1727,7 +1727,7 @@ defmodule AWS.CloudDirectory do
 
       list_tags_for_resource_response() :: %{
         "NextToken" => String.t(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1771,7 +1771,7 @@ defmodule AWS.CloudDirectory do
 
       list_outgoing_typed_links_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        optional("FilterAttributeRanges") => list(typed_link_attribute_range()()),
+        optional("FilterAttributeRanges") => list(typed_link_attribute_range()),
         optional("FilterTypedLink") => typed_link_schema_and_facet_name(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
@@ -1798,7 +1798,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_index_response() :: %{
-        "IndexAttachments" => list(index_attachment()()),
+        "IndexAttachments" => list(index_attachment()),
         "NextToken" => String.t()
       }
 
@@ -1811,7 +1811,7 @@ defmodule AWS.CloudDirectory do
 
       list_outgoing_typed_links_response() :: %{
         "NextToken" => String.t(),
-        "TypedLinkSpecifiers" => list(typed_link_specifier()())
+        "TypedLinkSpecifiers" => list(typed_link_specifier())
       }
 
   """
@@ -1844,7 +1844,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       update_link_attributes_request() :: %{
-        required("AttributeUpdates") => list(link_attribute_update()()),
+        required("AttributeUpdates") => list(link_attribute_update()),
         required("DirectoryArn") => String.t(),
         required("TypedLinkSpecifier") => typed_link_specifier()
       }
@@ -1881,7 +1881,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       attach_typed_link_request() :: %{
-        required("Attributes") => list(attribute_name_and_value()()),
+        required("Attributes") => list(attribute_name_and_value()),
         required("DirectoryArn") => String.t(),
         required("SourceObjectReference") => object_reference(),
         required("TargetObjectReference") => object_reference(),
@@ -1897,7 +1897,7 @@ defmodule AWS.CloudDirectory do
 
       list_applied_schema_arns_response() :: %{
         "NextToken" => String.t(),
-        "SchemaArns" => list(String.t()())
+        "SchemaArns" => list(String.t())
       }
 
   """
@@ -1933,7 +1933,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_attach_typed_link() :: %{
-        "Attributes" => list(attribute_name_and_value()()),
+        "Attributes" => list(attribute_name_and_value()),
         "SourceObjectReference" => object_reference(),
         "TargetObjectReference" => object_reference(),
         "TypedLinkFacet" => typed_link_schema_and_facet_name()
@@ -1961,7 +1961,7 @@ defmodule AWS.CloudDirectory do
         optional("ConsistencyLevel") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("RangesOnIndexedValues") => list(object_attribute_range()()),
+        optional("RangesOnIndexedValues") => list(object_attribute_range()),
         required("DirectoryArn") => String.t(),
         required("IndexReference") => object_reference()
       }
@@ -2021,7 +2021,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_update_object_attributes() :: %{
-        "AttributeUpdates" => list(object_attribute_update()()),
+        "AttributeUpdates" => list(object_attribute_update()),
         "ObjectReference" => object_reference()
       }
 
@@ -2033,7 +2033,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_object_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()()),
+        "Attributes" => list(attribute_key_and_value()),
         "NextToken" => String.t()
       }
 
@@ -2054,7 +2054,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_object_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()()),
+        "Attributes" => list(attribute_key_and_value()),
         "NextToken" => String.t()
       }
 
@@ -2081,7 +2081,7 @@ defmodule AWS.CloudDirectory do
 
       get_object_information_response() :: %{
         "ObjectIdentifier" => String.t(),
-        "SchemaFacets" => list(schema_facet()())
+        "SchemaFacets" => list(schema_facet())
       }
 
   """
@@ -2092,7 +2092,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_read_response() :: %{
-        "Responses" => list(batch_read_operation_response()())
+        "Responses" => list(batch_read_operation_response())
       }
 
   """
@@ -2103,7 +2103,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       path_to_object_identifiers() :: %{
-        "ObjectIdentifiers" => list(String.t()()),
+        "ObjectIdentifiers" => list(String.t()),
         "Path" => String.t()
       }
 
@@ -2128,7 +2128,7 @@ defmodule AWS.CloudDirectory do
 
       list_object_parent_paths_response() :: %{
         "NextToken" => String.t(),
-        "PathToObjectIdentifiersList" => list(path_to_object_identifiers()())
+        "PathToObjectIdentifiersList" => list(path_to_object_identifiers())
       }
 
   """
@@ -2188,7 +2188,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       create_facet_request() :: %{
-        optional("Attributes") => list(facet_attribute()()),
+        optional("Attributes") => list(facet_attribute()),
         optional("FacetStyle") => list(any()),
         optional("ObjectType") => list(any()),
         required("Name") => String.t(),
@@ -2244,7 +2244,7 @@ defmodule AWS.CloudDirectory do
         optional("ParentReference") => object_reference(),
         required("DirectoryArn") => String.t(),
         required("IsUnique") => boolean(),
-        required("OrderedIndexedAttributeList") => list(attribute_key()())
+        required("OrderedIndexedAttributeList") => list(attribute_key())
       }
 
   """
@@ -2255,8 +2255,8 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       update_typed_link_facet_request() :: %{
-        required("AttributeUpdates") => list(typed_link_facet_attribute_update()()),
-        required("IdentityAttributeOrder") => list(String.t()()),
+        required("AttributeUpdates") => list(typed_link_facet_attribute_update()),
+        required("IdentityAttributeOrder") => list(String.t()),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
       }
@@ -2340,7 +2340,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_typed_link_facet_names_response() :: %{
-        "FacetNames" => list(String.t()()),
+        "FacetNames" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -2404,7 +2404,7 @@ defmodule AWS.CloudDirectory do
 
       list_development_schema_arns_response() :: %{
         "NextToken" => String.t(),
-        "SchemaArns" => list(String.t()())
+        "SchemaArns" => list(String.t())
       }
 
   """
@@ -2416,7 +2416,7 @@ defmodule AWS.CloudDirectory do
 
       list_managed_schema_arns_response() :: %{
         "NextToken" => String.t(),
-        "SchemaArns" => list(String.t()())
+        "SchemaArns" => list(String.t())
       }
 
   """
@@ -2436,7 +2436,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       get_link_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()())
+        "Attributes" => list(attribute_key_and_value())
       }
 
   """
@@ -2460,7 +2460,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_attached_indices_response() :: %{
-        "IndexAttachments" => list(index_attachment()()),
+        "IndexAttachments" => list(index_attachment()),
         "NextToken" => String.t()
       }
 
@@ -2509,7 +2509,7 @@ defmodule AWS.CloudDirectory do
         "BatchReferenceName" => String.t(),
         "IsUnique" => boolean(),
         "LinkName" => String.t(),
-        "OrderedIndexedAttributeList" => list(attribute_key()()),
+        "OrderedIndexedAttributeList" => list(attribute_key()),
         "ParentReference" => object_reference()
       }
 
@@ -2545,7 +2545,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       update_facet_request() :: %{
-        optional("AttributeUpdates") => list(facet_attribute_update()()),
+        optional("AttributeUpdates") => list(facet_attribute_update()),
         optional("ObjectType") => list(any()),
         required("Name") => String.t(),
         required("SchemaArn") => String.t()
@@ -2617,8 +2617,8 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       typed_link_facet() :: %{
-        "Attributes" => list(typed_link_attribute_definition()()),
-        "IdentityAttributeOrder" => list(String.t()()),
+        "Attributes" => list(typed_link_attribute_definition()),
+        "IdentityAttributeOrder" => list(String.t()),
         "Name" => String.t()
       }
 
@@ -2689,7 +2689,7 @@ defmodule AWS.CloudDirectory do
 
       list_policy_attachments_response() :: %{
         "NextToken" => String.t(),
-        "ObjectIdentifiers" => list(String.t()())
+        "ObjectIdentifiers" => list(String.t())
       }
 
   """
@@ -2700,7 +2700,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_get_object_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()())
+        "Attributes" => list(attribute_key_and_value())
       }
 
   """
@@ -2734,7 +2734,7 @@ defmodule AWS.CloudDirectory do
 
       batch_list_outgoing_typed_links_response() :: %{
         "NextToken" => String.t(),
-        "TypedLinkSpecifiers" => list(typed_link_specifier()())
+        "TypedLinkSpecifiers" => list(typed_link_specifier())
       }
 
   """
@@ -2799,7 +2799,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_index_response() :: %{
-        "IndexAttachments" => list(index_attachment()()),
+        "IndexAttachments" => list(index_attachment()),
         "NextToken" => String.t()
       }
 
@@ -2839,7 +2839,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       list_directories_response() :: %{
-        "Directories" => list(directory()()),
+        "Directories" => list(directory()),
         "NextToken" => String.t()
       }
 
@@ -2875,10 +2875,10 @@ defmodule AWS.CloudDirectory do
 
       create_object_request() :: %{
         optional("LinkName") => String.t(),
-        optional("ObjectAttributeList") => list(attribute_key_and_value()()),
+        optional("ObjectAttributeList") => list(attribute_key_and_value()),
         optional("ParentReference") => object_reference(),
         required("DirectoryArn") => String.t(),
-        required("SchemaFacets") => list(schema_facet()())
+        required("SchemaFacets") => list(schema_facet())
       }
 
   """
@@ -2900,7 +2900,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       add_facet_to_object_request() :: %{
-        optional("ObjectAttributeList") => list(attribute_key_and_value()()),
+        optional("ObjectAttributeList") => list(attribute_key_and_value()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
@@ -2914,7 +2914,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_list_outgoing_typed_links() :: %{
-        "FilterAttributeRanges" => list(typed_link_attribute_range()()),
+        "FilterAttributeRanges" => list(typed_link_attribute_range()),
         "FilterTypedLink" => typed_link_schema_and_facet_name(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
@@ -2966,7 +2966,7 @@ defmodule AWS.CloudDirectory do
 
       lookup_policy_response() :: %{
         "NextToken" => String.t(),
-        "PolicyToPathList" => list(policy_to_path()())
+        "PolicyToPathList" => list(policy_to_path())
       }
 
   """
@@ -3017,7 +3017,7 @@ defmodule AWS.CloudDirectory do
       batch_read_request() :: %{
         optional("ConsistencyLevel") => list(any()),
         required("DirectoryArn") => String.t(),
-        required("Operations") => list(batch_read_operation()())
+        required("Operations") => list(batch_read_operation())
       }
 
   """
@@ -3120,7 +3120,7 @@ defmodule AWS.CloudDirectory do
 
       get_object_attributes_request() :: %{
         optional("ConsistencyLevel") => list(any()),
-        required("AttributeNames") => list(String.t()()),
+        required("AttributeNames") => list(String.t()),
         required("DirectoryArn") => String.t(),
         required("ObjectReference") => object_reference(),
         required("SchemaFacet") => schema_facet()
@@ -3134,7 +3134,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_get_link_attributes_response() :: %{
-        "Attributes" => list(attribute_key_and_value()())
+        "Attributes" => list(attribute_key_and_value())
       }
 
   """
@@ -3145,7 +3145,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       get_typed_link_facet_information_response() :: %{
-        "IdentityAttributeOrder" => list(String.t()())
+        "IdentityAttributeOrder" => list(String.t())
       }
 
   """
@@ -3179,7 +3179,7 @@ defmodule AWS.CloudDirectory do
   ## Example:
 
       batch_add_facet_to_object() :: %{
-        "ObjectAttributeList" => list(attribute_key_and_value()()),
+        "ObjectAttributeList" => list(attribute_key_and_value()),
         "ObjectReference" => object_reference(),
         "SchemaFacet" => schema_facet()
       }

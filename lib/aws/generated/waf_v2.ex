@@ -122,10 +122,10 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       managed_rule_group_statement() :: %{
-        "ExcludedRules" => list(excluded_rule()()),
-        "ManagedRuleGroupConfigs" => list(managed_rule_group_config()()),
+        "ExcludedRules" => list(excluded_rule()),
+        "ManagedRuleGroupConfigs" => list(managed_rule_group_config()),
         "Name" => String.t(),
-        "RuleActionOverrides" => list(rule_action_override()()),
+        "RuleActionOverrides" => list(rule_action_override()),
         "ScopeDownStatement" => statement(),
         "VendorName" => String.t(),
         "Version" => String.t()
@@ -194,7 +194,7 @@ defmodule AWS.WAFV2 do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -205,7 +205,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       check_capacity_request() :: %{
-        required("Rules") => list(rule()()),
+        required("Rules") => list(rule()),
         required("Scope") => list(any())
       }
       
@@ -289,7 +289,7 @@ defmodule AWS.WAFV2 do
       
       get_decrypted_api_key_response() :: %{
         "CreationTimestamp" => non_neg_integer(),
-        "TokenDomains" => list(String.t()())
+        "TokenDomains" => list(String.t())
       }
       
   """
@@ -300,7 +300,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_api_keys_response() :: %{
-        "APIKeySummaries" => list(api_key_summary()()),
+        "APIKeySummaries" => list(api_key_summary()),
         "ApplicationIntegrationURL" => String.t(),
         "NextMarker" => String.t()
       }
@@ -315,7 +315,7 @@ defmodule AWS.WAFV2 do
       api_key_summary() :: %{
         "APIKey" => String.t(),
         "CreationTimestamp" => non_neg_integer(),
-        "TokenDomains" => list(String.t()()),
+        "TokenDomains" => list(String.t()),
         "Version" => integer()
       }
       
@@ -328,7 +328,7 @@ defmodule AWS.WAFV2 do
       
       rate_limit_query_argument() :: %{
         "Name" => String.t(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -353,7 +353,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       describe_managed_products_by_vendor_response() :: %{
-        "ManagedProducts" => list(managed_product_descriptor()())
+        "ManagedProducts" => list(managed_product_descriptor())
       }
       
   """
@@ -365,7 +365,7 @@ defmodule AWS.WAFV2 do
       
       list_rule_groups_response() :: %{
         "NextMarker" => String.t(),
-        "RuleGroups" => list(rule_group_summary()())
+        "RuleGroups" => list(rule_group_summary())
       }
       
   """
@@ -376,9 +376,9 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       response_inspection_json() :: %{
-        "FailureValues" => list(String.t()()),
+        "FailureValues" => list(String.t()),
         "Identifier" => String.t(),
-        "SuccessValues" => list(String.t()())
+        "SuccessValues" => list(String.t())
       }
       
   """
@@ -402,7 +402,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       rate_based_statement_managed_keys_ip_set() :: %{
-        "Addresses" => list(String.t()()),
+        "Addresses" => list(String.t()),
         "IPAddressVersion" => list(any())
       }
       
@@ -425,11 +425,11 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       request_inspection_a_c_f_p() :: %{
-        "AddressFields" => list(address_field()()),
+        "AddressFields" => list(address_field()),
         "EmailField" => email_field(),
         "PasswordField" => password_field(),
         "PayloadType" => list(any()),
-        "PhoneNumberFields" => list(phone_number_field()()),
+        "PhoneNumberFields" => list(phone_number_field()),
         "UsernameField" => username_field()
       }
       
@@ -496,7 +496,7 @@ defmodule AWS.WAFV2 do
       custom_response() :: %{
         "CustomResponseBodyKey" => String.t(),
         "ResponseCode" => integer(),
-        "ResponseHeaders" => list(custom_h_t_t_p_header()())
+        "ResponseHeaders" => list(custom_h_t_t_p_header())
       }
       
   """
@@ -507,7 +507,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       describe_all_managed_products_response() :: %{
-        "ManagedProducts" => list(managed_product_descriptor()())
+        "ManagedProducts" => list(managed_product_descriptor())
       }
       
   """
@@ -601,7 +601,7 @@ defmodule AWS.WAFV2 do
       regex_pattern_set_reference_statement() :: %{
         "ARN" => String.t(),
         "FieldToMatch" => field_to_match(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -659,15 +659,15 @@ defmodule AWS.WAFV2 do
       
       rule_group() :: %{
         "ARN" => String.t(),
-        "AvailableLabels" => list(label_summary()()),
+        "AvailableLabels" => list(label_summary()),
         "Capacity" => float(),
-        "ConsumedLabels" => list(label_summary()()),
+        "ConsumedLabels" => list(label_summary()),
         "CustomResponseBodies" => map(),
         "Description" => String.t(),
         "Id" => String.t(),
         "LabelNamespace" => String.t(),
         "Name" => String.t(),
-        "Rules" => list(rule()()),
+        "Rules" => list(rule()),
         "VisibilityConfig" => visibility_config()
       }
       
@@ -708,7 +708,7 @@ defmodule AWS.WAFV2 do
       
       rate_based_statement() :: %{
         "AggregateKeyType" => list(any()),
-        "CustomKeys" => list(rate_based_statement_custom_key()()),
+        "CustomKeys" => list(rate_based_statement_custom_key()),
         "EvaluationWindowSec" => float(),
         "ForwardedIPConfig" => forwarded_ip_config(),
         "Limit" => float(),
@@ -752,7 +752,7 @@ defmodule AWS.WAFV2 do
       sqli_match_statement() :: %{
         "FieldToMatch" => field_to_match(),
         "SensitivityLevel" => list(any()),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -803,7 +803,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       custom_request_handling() :: %{
-        "InsertHeaders" => list(custom_h_t_t_p_header()())
+        "InsertHeaders" => list(custom_h_t_t_p_header())
       }
       
   """
@@ -816,7 +816,7 @@ defmodule AWS.WAFV2 do
       regex_match_statement() :: %{
         "FieldToMatch" => field_to_match(),
         "RegexString" => String.t(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -863,8 +863,8 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       response_inspection_status_code() :: %{
-        "FailureCodes" => list(integer()()),
-        "SuccessCodes" => list(integer()())
+        "FailureCodes" => list(integer()),
+        "SuccessCodes" => list(integer())
       }
       
   """
@@ -889,7 +889,7 @@ defmodule AWS.WAFV2 do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -901,7 +901,7 @@ defmodule AWS.WAFV2 do
       
       tag_info_for_resource() :: %{
         "ResourceARN" => String.t(),
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -966,7 +966,7 @@ defmodule AWS.WAFV2 do
       list_available_managed_rule_group_versions_response() :: %{
         "CurrentDefaultVersion" => String.t(),
         "NextMarker" => String.t(),
-        "Versions" => list(managed_rule_group_version()())
+        "Versions" => list(managed_rule_group_version())
       }
       
   """
@@ -990,7 +990,7 @@ defmodule AWS.WAFV2 do
       
       update_ip_set_request() :: %{
         optional("Description") => String.t(),
-        required("Addresses") => list(String.t()()),
+        required("Addresses") => list(String.t()),
         required("Id") => String.t(),
         required("LockToken") => String.t(),
         required("Name") => String.t(),
@@ -1005,12 +1005,12 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       logging_configuration() :: %{
-        "LogDestinationConfigs" => list(String.t()()),
+        "LogDestinationConfigs" => list(String.t()),
         "LogScope" => list(any()),
         "LogType" => list(any()),
         "LoggingFilter" => logging_filter(),
         "ManagedByFirewallManager" => boolean(),
-        "RedactedFields" => list(field_to_match()()),
+        "RedactedFields" => list(field_to_match()),
         "ResourceArn" => String.t()
       }
       
@@ -1023,7 +1023,7 @@ defmodule AWS.WAFV2 do
       
       application_attribute() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1035,7 +1035,7 @@ defmodule AWS.WAFV2 do
       
       rate_limit_cookie() :: %{
         "Name" => String.t(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -1059,8 +1059,8 @@ defmodule AWS.WAFV2 do
       create_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
         optional("Description") => String.t(),
-        optional("Rules") => list(rule()()),
-        optional("Tags") => list(tag()()),
+        optional("Rules") => list(rule()),
+        optional("Tags") => list(tag()),
         required("Capacity") => float(),
         required("Name") => String.t(),
         required("Scope") => list(any()),
@@ -1119,7 +1119,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_available_managed_rule_groups_response() :: %{
-        "ManagedRuleGroups" => list(managed_rule_group_summary()()),
+        "ManagedRuleGroups" => list(managed_rule_group_summary()),
         "NextMarker" => String.t()
       }
       
@@ -1160,11 +1160,11 @@ defmodule AWS.WAFV2 do
         "ManagedByFirewallManager" => boolean(),
         "Name" => String.t(),
         "OnSourceDDoSProtectionConfig" => on_source_d_do_s_protection_config(),
-        "PostProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()()),
-        "PreProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()()),
+        "PostProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()),
+        "PreProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()),
         "RetrofittedByFirewallManager" => boolean(),
-        "Rules" => list(rule()()),
-        "TokenDomains" => list(String.t()()),
+        "Rules" => list(rule()),
+        "TokenDomains" => list(String.t()),
         "VisibilityConfig" => visibility_config()
       }
       
@@ -1252,7 +1252,7 @@ defmodule AWS.WAFV2 do
         required("Id") => String.t(),
         required("LockToken") => String.t(),
         required("Name") => String.t(),
-        required("RegularExpressionList") => list(regex()()),
+        required("RegularExpressionList") => list(regex()),
         required("Scope") => list(any())
       }
       
@@ -1278,7 +1278,7 @@ defmodule AWS.WAFV2 do
         "ComparisonOperator" => list(any()),
         "FieldToMatch" => field_to_match(),
         "Size" => float(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -1301,7 +1301,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_ip_sets_response() :: %{
-        "IPSets" => list(ip_set_summary()()),
+        "IPSets" => list(ip_set_summary()),
         "NextMarker" => String.t()
       }
       
@@ -1369,8 +1369,8 @@ defmodule AWS.WAFV2 do
       
       cookie_match_pattern() :: %{
         "All" => all(),
-        "ExcludedCookies" => list(String.t()()),
-        "IncludedCookies" => list(String.t()())
+        "ExcludedCookies" => list(String.t()),
+        "IncludedCookies" => list(String.t())
       }
       
   """
@@ -1404,7 +1404,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       data_protection_config() :: %{
-        "DataProtections" => list(data_protection()())
+        "DataProtections" => list(data_protection())
       }
       
   """
@@ -1415,7 +1415,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       client_side_action() :: %{
-        "ExemptUriRegularExpressions" => list(regex()()),
+        "ExemptUriRegularExpressions" => list(regex()),
         "Sensitivity" => list(any()),
         "UsageOfAction" => list(any())
       }
@@ -1438,8 +1438,8 @@ defmodule AWS.WAFV2 do
       
       rule_group_reference_statement() :: %{
         "ARN" => String.t(),
-        "ExcludedRules" => list(excluded_rule()()),
-        "RuleActionOverrides" => list(rule_action_override()())
+        "ExcludedRules" => list(excluded_rule()),
+        "RuleActionOverrides" => list(rule_action_override())
       }
       
   """
@@ -1484,8 +1484,8 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       response_inspection_body_contains() :: %{
-        "FailureStrings" => list(String.t()()),
-        "SuccessStrings" => list(String.t()())
+        "FailureStrings" => list(String.t()),
+        "SuccessStrings" => list(String.t())
       }
       
   """
@@ -1528,7 +1528,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       rate_limit_query_string() :: %{
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -1540,7 +1540,7 @@ defmodule AWS.WAFV2 do
       
       list_mobile_sdk_releases_response() :: %{
         "NextMarker" => String.t(),
-        "ReleaseSummaries" => list(release_summary()())
+        "ReleaseSummaries" => list(release_summary())
       }
       
   """
@@ -1551,7 +1551,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       field_to_protect() :: %{
-        "FieldKeys" => list(String.t()()),
+        "FieldKeys" => list(String.t()),
         "FieldType" => list(any())
       }
       
@@ -1595,7 +1595,7 @@ defmodule AWS.WAFV2 do
       
       ip_set() :: %{
         "ARN" => String.t(),
-        "Addresses" => list(String.t()()),
+        "Addresses" => list(String.t()),
         "Description" => String.t(),
         "IPAddressVersion" => list(any()),
         "Id" => String.t(),
@@ -1611,7 +1611,7 @@ defmodule AWS.WAFV2 do
       
       json_match_pattern() :: %{
         "All" => all(),
-        "IncludedPaths" => list(String.t()())
+        "IncludedPaths" => list(String.t())
       }
       
   """
@@ -1622,11 +1622,11 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       describe_managed_rule_group_response() :: %{
-        "AvailableLabels" => list(label_summary()()),
+        "AvailableLabels" => list(label_summary()),
         "Capacity" => float(),
-        "ConsumedLabels" => list(label_summary()()),
+        "ConsumedLabels" => list(label_summary()),
         "LabelNamespace" => String.t(),
-        "Rules" => list(rule_summary()()),
+        "Rules" => list(rule_summary()),
         "SnsTopicArn" => String.t(),
         "VersionName" => String.t()
       }
@@ -1699,10 +1699,10 @@ defmodule AWS.WAFV2 do
         "Action" => String.t(),
         "CaptchaResponse" => captcha_response(),
         "ChallengeResponse" => challenge_response(),
-        "Labels" => list(label()()),
+        "Labels" => list(label()),
         "OverriddenAction" => String.t(),
         "Request" => h_t_t_p_request(),
-        "RequestHeadersInserted" => list(h_t_t_p_header()()),
+        "RequestHeadersInserted" => list(h_t_t_p_header()),
         "ResponseCodeSent" => integer(),
         "RuleNameWithinRuleGroup" => String.t(),
         "Timestamp" => non_neg_integer(),
@@ -1735,8 +1735,8 @@ defmodule AWS.WAFV2 do
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
-        optional("Rules") => list(rule()()),
-        optional("TokenDomains") => list(String.t()()),
+        optional("Rules") => list(rule()),
+        optional("TokenDomains") => list(String.t()),
         required("DefaultAction") => default_action(),
         required("Id") => String.t(),
         required("LockToken") => String.t(),
@@ -1857,9 +1857,9 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       response_inspection_header() :: %{
-        "FailureValues" => list(String.t()()),
+        "FailureValues" => list(String.t()),
         "Name" => String.t(),
-        "SuccessValues" => list(String.t()())
+        "SuccessValues" => list(String.t())
       }
       
   """
@@ -1931,7 +1931,7 @@ defmodule AWS.WAFV2 do
       
       filter() :: %{
         "Behavior" => list(any()),
-        "Conditions" => list(condition()()),
+        "Conditions" => list(condition()),
         "Requirement" => list(any())
       }
       
@@ -1943,7 +1943,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       rate_limit_uri_path() :: %{
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -1960,7 +1960,7 @@ defmodule AWS.WAFV2 do
         "Name" => String.t(),
         "OverrideAction" => override_action(),
         "Priority" => integer(),
-        "RuleLabels" => list(label()()),
+        "RuleLabels" => list(label()),
         "Statement" => statement(),
         "VisibilityConfig" => visibility_config()
       }
@@ -1996,7 +1996,7 @@ defmodule AWS.WAFV2 do
       
       create_api_key_request() :: %{
         required("Scope") => list(any()),
-        required("TokenDomains") => list(String.t()())
+        required("TokenDomains") => list(String.t())
       }
       
   """
@@ -2085,7 +2085,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_managed_rule_sets_response() :: %{
-        "ManagedRuleSets" => list(managed_rule_set_summary()()),
+        "ManagedRuleSets" => list(managed_rule_set_summary()),
         "NextMarker" => String.t()
       }
       
@@ -2098,7 +2098,7 @@ defmodule AWS.WAFV2 do
       
       xss_match_statement() :: %{
         "FieldToMatch" => field_to_match(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -2190,7 +2190,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_logging_configurations_response() :: %{
-        "LoggingConfigurations" => list(logging_configuration()()),
+        "LoggingConfigurations" => list(logging_configuration()),
         "NextMarker" => String.t()
       }
       
@@ -2238,7 +2238,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       and_statement() :: %{
-        "Statements" => list(statement()())
+        "Statements" => list(statement())
       }
       
   """
@@ -2249,7 +2249,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       or_statement() :: %{
-        "Statements" => list(statement()())
+        "Statements" => list(statement())
       }
       
   """
@@ -2301,9 +2301,9 @@ defmodule AWS.WAFV2 do
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
-        optional("Rules") => list(rule()()),
-        optional("Tags") => list(tag()()),
-        optional("TokenDomains") => list(String.t()()),
+        optional("Rules") => list(rule()),
+        optional("Tags") => list(tag()),
+        optional("TokenDomains") => list(String.t()),
         required("DefaultAction") => default_action(),
         required("Name") => String.t(),
         required("Scope") => list(any()),
@@ -2319,8 +2319,8 @@ defmodule AWS.WAFV2 do
       
       create_ip_set_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
-        required("Addresses") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        required("Addresses") => list(String.t()),
         required("IPAddressVersion") => list(any()),
         required("Name") => String.t(),
         required("Scope") => list(any())
@@ -2336,7 +2336,7 @@ defmodule AWS.WAFV2 do
       update_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
         optional("Description") => String.t(),
-        optional("Rules") => list(rule()()),
+        optional("Rules") => list(rule()),
         required("Id") => String.t(),
         required("LockToken") => String.t(),
         required("Name") => String.t(),
@@ -2388,7 +2388,7 @@ defmodule AWS.WAFV2 do
         "ClientIP" => String.t(),
         "Country" => String.t(),
         "HTTPVersion" => String.t(),
-        "Headers" => list(h_t_t_p_header()()),
+        "Headers" => list(h_t_t_p_header()),
         "Method" => String.t(),
         "URI" => String.t()
       }
@@ -2410,7 +2410,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       asn_match_statement() :: %{
-        "AsnList" => list(float()()),
+        "AsnList" => list(float()),
         "ForwardedIPConfig" => forwarded_ip_config()
       }
       
@@ -2426,7 +2426,7 @@ defmodule AWS.WAFV2 do
         "Description" => String.t(),
         "Id" => String.t(),
         "Name" => String.t(),
-        "RegularExpressionList" => list(regex()())
+        "RegularExpressionList" => list(regex())
       }
       
   """
@@ -2450,7 +2450,7 @@ defmodule AWS.WAFV2 do
       
       logging_filter() :: %{
         "DefaultBehavior" => list(any()),
-        "Filters" => list(filter()())
+        "Filters" => list(filter())
       }
       
   """
@@ -2531,9 +2531,9 @@ defmodule AWS.WAFV2 do
       
       create_regex_pattern_set_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Name") => String.t(),
-        required("RegularExpressionList") => list(regex()()),
+        required("RegularExpressionList") => list(regex()),
         required("Scope") => list(any())
       }
       
@@ -2673,7 +2673,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       list_resources_for_web_acl_response() :: %{
-        "ResourceArns" => list(String.t()())
+        "ResourceArns" => list(String.t())
       }
       
   """
@@ -2844,7 +2844,7 @@ defmodule AWS.WAFV2 do
       
       rate_limit_header() :: %{
         "Name" => String.t(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -2901,7 +2901,7 @@ defmodule AWS.WAFV2 do
       
       get_sampled_requests_response() :: %{
         "PopulationSize" => float(),
-        "SampledRequests" => list(sampled_h_t_t_p_request()()),
+        "SampledRequests" => list(sampled_h_t_t_p_request()),
         "TimeWindow" => time_window()
       }
       
@@ -2931,7 +2931,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       application_config() :: %{
-        "Attributes" => list(application_attribute()())
+        "Attributes" => list(application_attribute())
       }
       
   """
@@ -2954,7 +2954,7 @@ defmodule AWS.WAFV2 do
       
       list_regex_pattern_sets_response() :: %{
         "NextMarker" => String.t(),
-        "RegexPatternSets" => list(regex_pattern_set_summary()())
+        "RegexPatternSets" => list(regex_pattern_set_summary())
       }
       
   """
@@ -2981,7 +2981,7 @@ defmodule AWS.WAFV2 do
         "FieldToMatch" => field_to_match(),
         "PositionalConstraint" => list(any()),
         "SearchString" => binary(),
-        "TextTransformations" => list(text_transformation()())
+        "TextTransformations" => list(text_transformation())
       }
       
   """
@@ -2993,7 +2993,7 @@ defmodule AWS.WAFV2 do
       
       list_web_acls_response() :: %{
         "NextMarker" => String.t(),
-        "WebACLs" => list(web_acl_summary()())
+        "WebACLs" => list(web_acl_summary())
       }
       
   """
@@ -3027,8 +3027,8 @@ defmodule AWS.WAFV2 do
       
       header_match_pattern() :: %{
         "All" => all(),
-        "ExcludedHeaders" => list(String.t()()),
-        "IncludedHeaders" => list(String.t()())
+        "ExcludedHeaders" => list(String.t()),
+        "IncludedHeaders" => list(String.t())
       }
       
   """
@@ -3315,7 +3315,7 @@ defmodule AWS.WAFV2 do
       mobile_sdk_release() :: %{
         "ReleaseNotes" => String.t(),
         "ReleaseVersion" => String.t(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "Timestamp" => non_neg_integer()
       }
       
@@ -3861,7 +3861,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, associate_web_acl_errors()}
   def associate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateWebACL", input, options)
   end
@@ -3891,7 +3892,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, check_capacity_errors()}
   def check_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CheckCapacity", input, options)
   end
@@ -3917,7 +3919,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_api_key_errors()}
   def create_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAPIKey", input, options)
   end
@@ -3937,7 +3940,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIPSet", input, options)
   end
@@ -3953,7 +3957,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexPatternSet", input, options)
   end
@@ -3973,7 +3978,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3999,7 +4005,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACL", input, options)
   end
@@ -4016,7 +4023,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_api_key_errors()}
   def delete_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAPIKey", input, options)
   end
@@ -4038,7 +4046,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_firewall_manager_rule_groups_errors()}
   def delete_firewall_manager_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallManagerRuleGroups", input, options)
   end
@@ -4052,7 +4061,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIPSet", input, options)
   end
@@ -4066,7 +4076,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoggingConfiguration", input, options)
   end
@@ -4082,7 +4093,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePermissionPolicy", input, options)
   end
@@ -4096,7 +4108,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexPatternSet", input, options)
   end
@@ -4110,7 +4123,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4153,7 +4167,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebACL", input, options)
   end
@@ -4168,7 +4183,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_all_managed_products_errors()}
   def describe_all_managed_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAllManagedProducts", input, options)
   end
@@ -4187,7 +4203,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_managed_products_by_vendor_errors()}
   def describe_managed_products_by_vendor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedProductsByVendor", input, options)
   end
@@ -4202,7 +4219,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, describe_managed_rule_group_errors()}
   def describe_managed_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedRuleGroup", input, options)
   end
@@ -4229,7 +4247,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, disassociate_web_acl_errors()}
   def disassociate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateWebACL", input, options)
   end
@@ -4249,7 +4268,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, generate_mobile_sdk_release_url_errors()}
   def generate_mobile_sdk_release_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GenerateMobileSdkReleaseUrl", input, options)
   end
@@ -4273,7 +4293,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_decrypted_api_key_errors()}
   def get_decrypted_api_key(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDecryptedAPIKey", input, options)
   end
@@ -4287,7 +4308,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIPSet", input, options)
   end
@@ -4301,7 +4323,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoggingConfiguration", input, options)
   end
@@ -4323,7 +4346,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_managed_rule_set_errors()}
   def get_managed_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetManagedRuleSet", input, options)
   end
@@ -4345,7 +4369,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_mobile_sdk_release_errors()}
   def get_mobile_sdk_release(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMobileSdkRelease", input, options)
   end
@@ -4361,7 +4386,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPermissionPolicy", input, options)
   end
@@ -4412,7 +4438,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_rate_based_statement_managed_keys_errors()}
   def get_rate_based_statement_managed_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedStatementManagedKeys", input, options)
   end
@@ -4426,7 +4453,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexPatternSet", input, options)
   end
@@ -4440,7 +4468,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRuleGroup", input, options)
   end
@@ -4469,7 +4498,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
   end
@@ -4483,7 +4513,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACL", input, options)
   end
@@ -4514,7 +4545,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, get_web_acl_for_resource_errors()}
   def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACLForResource", input, options)
   end
@@ -4536,7 +4568,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_api_keys_errors()}
   def list_api_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAPIKeys", input, options)
   end
@@ -4554,7 +4587,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_available_managed_rule_group_versions_errors()}
   def list_available_managed_rule_group_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagedRuleGroupVersions", input, options)
   end
@@ -4577,7 +4611,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_available_managed_rule_groups_errors()}
   def list_available_managed_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAvailableManagedRuleGroups", input, options)
   end
@@ -4592,7 +4627,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIPSets", input, options)
   end
@@ -4606,7 +4642,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLoggingConfigurations", input, options)
   end
@@ -4628,7 +4665,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_managed_rule_sets_errors()}
   def list_managed_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListManagedRuleSets", input, options)
   end
@@ -4650,7 +4688,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_mobile_sdk_releases_errors()}
   def list_mobile_sdk_releases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMobileSdkReleases", input, options)
   end
@@ -4665,7 +4704,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexPatternSets", input, options)
   end
@@ -4691,7 +4731,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_resources_for_web_acl_errors()}
   def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesForWebACL", input, options)
   end
@@ -4706,7 +4747,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -4735,7 +4777,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4750,7 +4793,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebACLs", input, options)
   end
@@ -4817,7 +4861,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLoggingConfiguration", input, options)
   end
@@ -4855,7 +4900,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_managed_rule_set_versions_errors()}
   def put_managed_rule_set_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutManagedRuleSetVersions", input, options)
   end
@@ -4891,7 +4937,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPermissionPolicy", input, options)
   end
@@ -4920,7 +4967,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4941,7 +4989,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4994,7 +5043,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIPSet", input, options)
   end
@@ -5026,7 +5076,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_managed_rule_set_version_expiry_date_errors()}
   def update_managed_rule_set_version_expiry_date(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateManagedRuleSetVersionExpiryDate", input, options)
   end
@@ -5079,7 +5130,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexPatternSet", input, options)
   end
@@ -5138,7 +5190,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -5206,7 +5259,8 @@ defmodule AWS.WAFV2 do
           | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebACL", input, options)
   end

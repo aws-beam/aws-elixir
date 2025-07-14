@@ -70,13 +70,13 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       gating_rule() :: %{
         "ControlPanelArn" => String.t(),
-        "GatingControls" => list(String.t()()),
+        "GatingControls" => list(String.t()),
         "Name" => String.t(),
         "Owner" => String.t(),
         "RuleConfig" => rule_config(),
         "SafetyRuleArn" => String.t(),
         "Status" => list(any()),
-        "TargetControls" => list(String.t()()),
+        "TargetControls" => list(String.t()),
         "WaitPeriodMs" => integer()
       }
 
@@ -196,7 +196,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       list_control_panels_response() :: %{
-        "ControlPanels" => list(control_panel()()),
+        "ControlPanels" => list(control_panel()),
         "NextToken" => String.t()
       }
 
@@ -220,7 +220,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -348,7 +348,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       cluster() :: %{
         "ClusterArn" => String.t(),
-        "ClusterEndpoints" => list(cluster_endpoint()()),
+        "ClusterEndpoints" => list(cluster_endpoint()),
         "Name" => String.t(),
         "NetworkType" => list(any()),
         "Owner" => String.t(),
@@ -459,7 +459,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_routing_controls_response() :: %{
         "NextToken" => String.t(),
-        "RoutingControls" => list(routing_control()())
+        "RoutingControls" => list(routing_control())
       }
 
   """
@@ -470,7 +470,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       list_clusters_response() :: %{
-        "Clusters" => list(cluster()()),
+        "Clusters" => list(cluster()),
         "NextToken" => String.t()
       }
 
@@ -570,10 +570,10 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       new_gating_rule() :: %{
         "ControlPanelArn" => String.t(),
-        "GatingControls" => list(String.t()()),
+        "GatingControls" => list(String.t()),
         "Name" => String.t(),
         "RuleConfig" => rule_config(),
-        "TargetControls" => list(String.t()()),
+        "TargetControls" => list(String.t()),
         "WaitPeriodMs" => integer()
       }
 
@@ -596,7 +596,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       assertion_rule() :: %{
-        "AssertedControls" => list(String.t()()),
+        "AssertedControls" => list(String.t()),
         "ControlPanelArn" => String.t(),
         "Name" => String.t(),
         "Owner" => String.t(),
@@ -614,7 +614,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       new_assertion_rule() :: %{
-        "AssertedControls" => list(String.t()()),
+        "AssertedControls" => list(String.t()),
         "ControlPanelArn" => String.t(),
         "Name" => String.t(),
         "RuleConfig" => rule_config(),
@@ -696,7 +696,7 @@ defmodule AWS.Route53RecoveryControlConfig do
   ## Example:
 
       list_associated_route53_health_checks_response() :: %{
-        "HealthCheckIds" => list(String.t()()),
+        "HealthCheckIds" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -740,7 +740,7 @@ defmodule AWS.Route53RecoveryControlConfig do
 
       list_safety_rules_response() :: %{
         "NextToken" => String.t(),
-        "SafetyRules" => list(rule()())
+        "SafetyRules" => list(rule())
       }
 
   """

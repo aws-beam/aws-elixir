@@ -183,8 +183,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       update_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t()()),
-        optional("allowedOrigins") => list(String.t()()),
+        optional("allowedCountries") => list(String.t()),
+        optional("allowedOrigins") => list(String.t()),
         optional("enableStrictOriginEnforcement") => boolean(),
         optional("name") => String.t(),
         required("arn") => String.t()
@@ -342,8 +342,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       playback_restriction_policy() :: %{
-        "allowedCountries" => list(String.t()()),
-        "allowedOrigins" => list(String.t()()),
+        "allowedCountries" => list(String.t()),
+        "allowedOrigins" => list(String.t()),
         "arn" => String.t(),
         "enableStrictOriginEnforcement" => boolean(),
         "name" => String.t(),
@@ -370,7 +370,7 @@ defmodule AWS.Ivs do
 
       list_stream_sessions_response() :: %{
         optional("nextToken") => String.t(),
-        required("streamSessions") => list(stream_session_summary()())
+        required("streamSessions") => list(stream_session_summary())
       }
 
   """
@@ -417,7 +417,7 @@ defmodule AWS.Ivs do
 
       list_playback_key_pairs_response() :: %{
         optional("nextToken") => String.t(),
-        required("keyPairs") => list(playback_key_pair_summary()())
+        required("keyPairs") => list(playback_key_pair_summary())
       }
 
   """
@@ -454,8 +454,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_get_channel_response() :: %{
-        optional("channels") => list(channel()()),
-        optional("errors") => list(batch_error()())
+        optional("channels") => list(channel()),
+        optional("errors") => list(batch_error())
       }
 
   """
@@ -497,7 +497,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -509,7 +509,7 @@ defmodule AWS.Ivs do
 
       list_stream_keys_response() :: %{
         optional("nextToken") => String.t(),
-        required("streamKeys") => list(stream_key_summary()())
+        required("streamKeys") => list(stream_key_summary())
       }
 
   """
@@ -559,7 +559,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_start_viewer_session_revocation_request() :: %{
-        required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session()())
+        required("viewerSessions") => list(batch_start_viewer_session_revocation_viewer_session())
       }
 
   """
@@ -612,7 +612,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_get_stream_key_request() :: %{
-        required("arns") => list(String.t()())
+        required("arns") => list(String.t())
       }
 
   """
@@ -623,8 +623,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       playback_restriction_policy_summary() :: %{
-        "allowedCountries" => list(String.t()()),
-        "allowedOrigins" => list(String.t()()),
+        "allowedCountries" => list(String.t()),
+        "allowedOrigins" => list(String.t()),
         "arn" => String.t(),
         "enableStrictOriginEnforcement" => boolean(),
         "name" => String.t(),
@@ -693,7 +693,7 @@ defmodule AWS.Ivs do
 
       list_streams_response() :: %{
         optional("nextToken") => String.t(),
-        required("streams") => list(stream_summary()())
+        required("streams") => list(stream_summary())
       }
 
   """
@@ -716,7 +716,7 @@ defmodule AWS.Ivs do
 
       list_recording_configurations_response() :: %{
         optional("nextToken") => String.t(),
-        required("recordingConfigurations") => list(recording_configuration_summary()())
+        required("recordingConfigurations") => list(recording_configuration_summary())
       }
 
   """
@@ -745,7 +745,7 @@ defmodule AWS.Ivs do
         "recordingConfiguration" => recording_configuration(),
         "startTime" => non_neg_integer(),
         "streamId" => String.t(),
-        "truncatedEvents" => list(stream_event()())
+        "truncatedEvents" => list(stream_event())
       }
 
   """
@@ -756,7 +756,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_get_channel_request() :: %{
-        required("arns") => list(String.t()())
+        required("arns") => list(String.t())
       }
 
   """
@@ -847,7 +847,7 @@ defmodule AWS.Ivs do
 
       list_channels_response() :: %{
         optional("nextToken") => String.t(),
-        required("channels") => list(channel_summary()())
+        required("channels") => list(channel_summary())
       }
 
   """
@@ -1052,7 +1052,7 @@ defmodule AWS.Ivs do
       thumbnail_configuration() :: %{
         "recordingMode" => String.t(),
         "resolution" => list(any()),
-        "storage" => list(String.t()()),
+        "storage" => list(String.t()),
         "targetIntervalSeconds" => float()
       }
 
@@ -1109,8 +1109,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       ingest_configurations() :: %{
-        "audioConfigurations" => list(audio_configuration()()),
-        "videoConfigurations" => list(video_configuration()())
+        "audioConfigurations" => list(audio_configuration()),
+        "videoConfigurations" => list(video_configuration())
       }
 
   """
@@ -1144,7 +1144,7 @@ defmodule AWS.Ivs do
 
       list_playback_restriction_policies_response() :: %{
         "nextToken" => String.t(),
-        "playbackRestrictionPolicies" => list(playback_restriction_policy_summary()())
+        "playbackRestrictionPolicies" => list(playback_restriction_policy_summary())
       }
 
   """
@@ -1196,7 +1196,7 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_start_viewer_session_revocation_response() :: %{
-        optional("errors") => list(batch_start_viewer_session_revocation_error()())
+        optional("errors") => list(batch_start_viewer_session_revocation_error())
       }
 
   """
@@ -1414,8 +1414,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       create_playback_restriction_policy_request() :: %{
-        optional("allowedCountries") => list(String.t()()),
-        optional("allowedOrigins") => list(String.t()()),
+        optional("allowedCountries") => list(String.t()),
+        optional("allowedOrigins") => list(String.t()),
         optional("enableStrictOriginEnforcement") => boolean(),
         optional("name") => String.t(),
         optional("tags") => map()
@@ -1463,8 +1463,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       batch_get_stream_key_response() :: %{
-        optional("errors") => list(batch_error()()),
-        optional("streamKeys") => list(stream_key()())
+        optional("errors") => list(batch_error()),
+        optional("streamKeys") => list(stream_key())
       }
 
   """

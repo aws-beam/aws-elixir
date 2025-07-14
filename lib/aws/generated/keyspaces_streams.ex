@@ -59,7 +59,7 @@ defmodule AWS.KeyspacesStreams do
   ## Example:
       
       get_records_output() :: %{
-        "changeRecords" => list(record()()),
+        "changeRecords" => list(record()),
         "nextShardIterator" => String.t()
       }
       
@@ -113,7 +113,7 @@ defmodule AWS.KeyspacesStreams do
         "creationRequestDateTime" => non_neg_integer(),
         "keyspaceName" => String.t(),
         "nextToken" => String.t(),
-        "shards" => list(shard()()),
+        "shards" => list(shard()),
         "streamArn" => String.t(),
         "streamLabel" => [String.t()],
         "streamStatus" => list(any()),
@@ -205,7 +205,7 @@ defmodule AWS.KeyspacesStreams do
       
       list_streams_output() :: %{
         "nextToken" => String.t(),
-        "streams" => list(stream()())
+        "streams" => list(stream())
       }
       
   """
@@ -257,7 +257,7 @@ defmodule AWS.KeyspacesStreams do
   ## Example:
       
       shard() :: %{
-        "parentShardIds" => list(String.t()()),
+        "parentShardIds" => list(String.t()),
         "sequenceNumberRange" => sequence_number_range(),
         "shardId" => String.t()
       }
@@ -373,7 +373,8 @@ defmodule AWS.KeyspacesStreams do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -392,7 +393,8 @@ defmodule AWS.KeyspacesStreams do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -412,7 +414,8 @@ defmodule AWS.KeyspacesStreams do
           | {:error, term()}
           | {:error, get_stream_errors()}
   def get_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStream", input, options)
   end
@@ -431,7 +434,8 @@ defmodule AWS.KeyspacesStreams do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end

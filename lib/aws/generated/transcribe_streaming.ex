@@ -117,7 +117,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       points_of_interest() :: %{
-        "TimestampRanges" => list(timestamp_range()())
+        "TimestampRanges" => list(timestamp_range())
       }
 
   """
@@ -128,7 +128,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       medical_scribe_stream_details() :: %{
-        "ChannelDefinitions" => list(medical_scribe_channel_definition()()),
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "EncryptionSettings" => medical_scribe_encryption_settings(),
         "LanguageCode" => list(any()),
         "MediaEncoding" => list(any()),
@@ -226,8 +226,8 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       medical_alternative() :: %{
-        "Entities" => list(medical_entity()()),
-        "Items" => list(medical_item()()),
+        "Entities" => list(medical_entity()),
+        "Items" => list(medical_item()),
         "Transcript" => String.t()
       }
 
@@ -239,7 +239,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       category_event() :: %{
-        "MatchedCategories" => list(String.t()()),
+        "MatchedCategories" => list(String.t()),
         "MatchedDetails" => map()
       }
 
@@ -262,7 +262,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       medical_scribe_configuration_event() :: %{
-        "ChannelDefinitions" => list(medical_scribe_channel_definition()()),
+        "ChannelDefinitions" => list(medical_scribe_channel_definition()),
         "EncryptionSettings" => medical_scribe_encryption_settings(),
         "PostStreamAnalyticsSettings" => medical_scribe_post_stream_analytics_settings(),
         "ResourceAccessRoleArn" => String.t(),
@@ -291,7 +291,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       transcript() :: %{
-        "Results" => list(result()())
+        "Results" => list(result())
       }
 
   """
@@ -328,7 +328,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       medical_transcript() :: %{
-        "Results" => list(medical_result()())
+        "Results" => list(medical_result())
       }
 
   """
@@ -467,12 +467,12 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       result() :: %{
-        "Alternatives" => list(alternative()()),
+        "Alternatives" => list(alternative()),
         "ChannelId" => String.t(),
         "EndTime" => float(),
         "IsPartial" => boolean(),
         "LanguageCode" => list(any()),
-        "LanguageIdentification" => list(language_with_score()()),
+        "LanguageIdentification" => list(language_with_score()),
         "ResultId" => String.t(),
         "StartTime" => float()
       }
@@ -604,7 +604,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       medical_result() :: %{
-        "Alternatives" => list(medical_alternative()()),
+        "Alternatives" => list(medical_alternative()),
         "ChannelId" => String.t(),
         "EndTime" => float(),
         "IsPartial" => boolean(),
@@ -656,7 +656,7 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       configuration_event() :: %{
-        "ChannelDefinitions" => list(channel_definition()()),
+        "ChannelDefinitions" => list(channel_definition()),
         "PostCallAnalyticsSettings" => post_call_analytics_settings()
       }
 
@@ -694,10 +694,10 @@ defmodule AWS.TranscribeStreaming do
       utterance_event() :: %{
         "BeginOffsetMillis" => float(),
         "EndOffsetMillis" => float(),
-        "Entities" => list(call_analytics_entity()()),
+        "Entities" => list(call_analytics_entity()),
         "IsPartial" => boolean(),
-        "IssuesDetected" => list(issue_detected()()),
-        "Items" => list(call_analytics_item()()),
+        "IssuesDetected" => list(issue_detected()),
+        "Items" => list(call_analytics_item()),
         "ParticipantRole" => list(any()),
         "Sentiment" => list(any()),
         "Transcript" => String.t(),
@@ -766,7 +766,7 @@ defmodule AWS.TranscribeStreaming do
         "Content" => String.t(),
         "EndAudioTime" => float(),
         "IsPartial" => boolean(),
-        "Items" => list(medical_scribe_transcript_item()()),
+        "Items" => list(medical_scribe_transcript_item()),
         "SegmentId" => String.t()
       }
 
@@ -831,8 +831,8 @@ defmodule AWS.TranscribeStreaming do
   ## Example:
 
       alternative() :: %{
-        "Entities" => list(entity()()),
-        "Items" => list(item()()),
+        "Entities" => list(entity()),
+        "Items" => list(item()),
         "Transcript" => String.t()
       }
 

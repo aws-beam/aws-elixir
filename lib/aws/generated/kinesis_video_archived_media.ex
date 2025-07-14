@@ -202,7 +202,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   ## Example:
 
       get_images_output() :: %{
-        "Images" => list(image()()),
+        "Images" => list(image()),
         "NextToken" => String.t()
       }
 
@@ -216,7 +216,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
       get_media_for_fragment_list_input() :: %{
         optional("StreamARN") => String.t(),
         optional("StreamName") => String.t(),
-        required("Fragments") => list(String.t()())
+        required("Fragments") => list(String.t())
       }
 
   """
@@ -324,7 +324,7 @@ defmodule AWS.KinesisVideoArchivedMedia do
   ## Example:
 
       list_fragments_output() :: %{
-        "Fragments" => list(fragment()()),
+        "Fragments" => list(fragment()),
         "NextToken" => String.t()
       }
 

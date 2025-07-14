@@ -32,7 +32,7 @@ defmodule AWS.SecurityIR do
       get_membership_response() :: %{
         "accountId" => String.t(),
         "customerType" => list(any()),
-        "incidentResponseTeam" => list(incident_responder()()),
+        "incidentResponseTeam" => list(incident_responder()),
         "membershipActivationTimestamp" => [non_neg_integer()],
         "membershipArn" => String.t(),
         "membershipDeactivationTimestamp" => [non_neg_integer()],
@@ -40,7 +40,7 @@ defmodule AWS.SecurityIR do
         "membershipName" => String.t(),
         "membershipStatus" => list(any()),
         "numberOfAccountsCovered" => [float()],
-        "optInFeatures" => list(opt_in_feature()()),
+        "optInFeatures" => list(opt_in_feature()),
         "region" => list(any())
       }
 
@@ -153,17 +153,17 @@ defmodule AWS.SecurityIR do
 
       create_case_request() :: %{
         optional("clientToken") => [String.t()],
-        optional("impactedAwsRegions") => list(impacted_aws_region()()),
-        optional("impactedServices") => list(String.t()()),
+        optional("impactedAwsRegions") => list(impacted_aws_region()),
+        optional("impactedServices") => list(String.t()),
         optional("tags") => map(),
-        optional("threatActorIpAddresses") => list(threat_actor_ip()()),
+        optional("threatActorIpAddresses") => list(threat_actor_ip()),
         required("description") => String.t(),
         required("engagementType") => list(any()),
-        required("impactedAccounts") => list(String.t()()),
+        required("impactedAccounts") => list(String.t()),
         required("reportedIncidentStartDate") => [non_neg_integer()],
         required("resolverType") => list(any()),
         required("title") => String.t(),
-        required("watchers") => list(watcher()())
+        required("watchers") => list(watcher())
       }
 
   """
@@ -198,7 +198,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       batch_get_member_account_details_request() :: %{
-        required("accountIds") => list(String.t()())
+        required("accountIds") => list(String.t())
       }
 
   """
@@ -236,23 +236,23 @@ defmodule AWS.SecurityIR do
       get_case_response() :: %{
         "actualIncidentStartDate" => [non_neg_integer()],
         "caseArn" => String.t(),
-        "caseAttachments" => list(case_attachment_attributes()()),
+        "caseAttachments" => list(case_attachment_attributes()),
         "caseStatus" => list(any()),
         "closedDate" => [non_neg_integer()],
         "closureCode" => list(any()),
         "createdDate" => [non_neg_integer()],
         "description" => String.t(),
         "engagementType" => list(any()),
-        "impactedAccounts" => list(String.t()()),
-        "impactedAwsRegions" => list(impacted_aws_region()()),
-        "impactedServices" => list(String.t()()),
+        "impactedAccounts" => list(String.t()),
+        "impactedAwsRegions" => list(impacted_aws_region()),
+        "impactedServices" => list(String.t()),
         "lastUpdatedDate" => [non_neg_integer()],
         "pendingAction" => list(any()),
         "reportedIncidentStartDate" => [non_neg_integer()],
         "resolverType" => list(any()),
-        "threatActorIpAddresses" => list(threat_actor_ip()()),
+        "threatActorIpAddresses" => list(threat_actor_ip()),
         "title" => String.t(),
-        "watchers" => list(watcher()())
+        "watchers" => list(watcher())
       }
 
   """
@@ -274,7 +274,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       list_cases_response() :: %{
-        "items" => list(list_cases_item()()),
+        "items" => list(list_cases_item()),
         "nextToken" => [String.t()],
         "total" => [float()]
       }
@@ -467,7 +467,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       list_case_edits_response() :: %{
-        "items" => list(case_edit_item()()),
+        "items" => list(case_edit_item()),
         "nextToken" => [String.t()],
         "total" => [integer()]
       }
@@ -529,9 +529,9 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       update_membership_request() :: %{
-        optional("incidentResponseTeam") => list(incident_responder()()),
+        optional("incidentResponseTeam") => list(incident_responder()),
         optional("membershipName") => String.t(),
-        optional("optInFeatures") => list(opt_in_feature()())
+        optional("optInFeatures") => list(opt_in_feature())
       }
 
   """
@@ -557,18 +557,18 @@ defmodule AWS.SecurityIR do
         optional("actualIncidentStartDate") => [non_neg_integer()],
         optional("description") => String.t(),
         optional("engagementType") => list(any()),
-        optional("impactedAccountsToAdd") => list(String.t()()),
-        optional("impactedAccountsToDelete") => list(String.t()()),
-        optional("impactedAwsRegionsToAdd") => list(impacted_aws_region()()),
-        optional("impactedAwsRegionsToDelete") => list(impacted_aws_region()()),
-        optional("impactedServicesToAdd") => list(String.t()()),
-        optional("impactedServicesToDelete") => list(String.t()()),
+        optional("impactedAccountsToAdd") => list(String.t()),
+        optional("impactedAccountsToDelete") => list(String.t()),
+        optional("impactedAwsRegionsToAdd") => list(impacted_aws_region()),
+        optional("impactedAwsRegionsToDelete") => list(impacted_aws_region()),
+        optional("impactedServicesToAdd") => list(String.t()),
+        optional("impactedServicesToDelete") => list(String.t()),
         optional("reportedIncidentStartDate") => [non_neg_integer()],
-        optional("threatActorIpAddressesToAdd") => list(threat_actor_ip()()),
-        optional("threatActorIpAddressesToDelete") => list(threat_actor_ip()()),
+        optional("threatActorIpAddressesToAdd") => list(threat_actor_ip()),
+        optional("threatActorIpAddressesToDelete") => list(threat_actor_ip()),
         optional("title") => String.t(),
-        optional("watchersToAdd") => list(watcher()()),
-        optional("watchersToDelete") => list(watcher()())
+        optional("watchersToAdd") => list(watcher()),
+        optional("watchersToDelete") => list(watcher())
       }
 
   """
@@ -602,7 +602,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -627,7 +627,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       list_memberships_response() :: %{
-        "items" => list(list_membership_item()()),
+        "items" => list(list_membership_item()),
         "nextToken" => [String.t()]
       }
 
@@ -650,7 +650,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -695,8 +695,8 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       batch_get_member_account_details_response() :: %{
-        "errors" => list(get_membership_account_detail_error()()),
-        "items" => list(get_membership_account_detail_item()())
+        "errors" => list(get_membership_account_detail_error()),
+        "items" => list(get_membership_account_detail_item())
       }
 
   """
@@ -758,9 +758,9 @@ defmodule AWS.SecurityIR do
 
       create_membership_request() :: %{
         optional("clientToken") => [String.t()],
-        optional("optInFeatures") => list(opt_in_feature()()),
+        optional("optInFeatures") => list(opt_in_feature()),
         optional("tags") => map(),
-        required("incidentResponseTeam") => list(incident_responder()()),
+        required("incidentResponseTeam") => list(incident_responder()),
         required("membershipName") => String.t()
       }
 
@@ -790,7 +790,7 @@ defmodule AWS.SecurityIR do
   ## Example:
 
       list_comments_response() :: %{
-        "items" => list(list_comments_item()()),
+        "items" => list(list_comments_item()),
         "nextToken" => [String.t()],
         "total" => [integer()]
       }

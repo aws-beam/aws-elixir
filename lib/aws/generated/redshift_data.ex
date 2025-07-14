@@ -50,7 +50,7 @@ defmodule AWS.RedshiftData do
         "ClusterIdentifier" => String.t(),
         "CreatedAt" => [non_neg_integer()],
         "Database" => String.t(),
-        "DbGroups" => list(String.t()()),
+        "DbGroups" => list(String.t()),
         "DbUser" => String.t(),
         "Id" => String.t(),
         "SecretArn" => String.t(),
@@ -69,9 +69,9 @@ defmodule AWS.RedshiftData do
         "CreatedAt" => [non_neg_integer()],
         "Id" => String.t(),
         "IsBatchStatement" => [boolean()],
-        "QueryParameters" => list(sql_parameter()()),
+        "QueryParameters" => list(sql_parameter()),
         "QueryString" => String.t(),
-        "QueryStrings" => list(String.t()()),
+        "QueryStrings" => list(String.t()),
         "ResultFormat" => String.t(),
         "SecretArn" => String.t(),
         "SessionId" => String.t(),
@@ -137,7 +137,7 @@ defmodule AWS.RedshiftData do
         "ClusterIdentifier" => String.t(),
         "CreatedAt" => [non_neg_integer()],
         "Database" => String.t(),
-        "DbGroups" => list(String.t()()),
+        "DbGroups" => list(String.t()),
         "DbUser" => String.t(),
         "Id" => String.t(),
         "SecretArn" => String.t(),
@@ -153,7 +153,7 @@ defmodule AWS.RedshiftData do
   ## Example:
       
       describe_table_response() :: %{
-        "ColumnList" => list(column_metadata()()),
+        "ColumnList" => list(column_metadata()),
         "NextToken" => String.t(),
         "TableName" => String.t()
       }
@@ -181,7 +181,7 @@ defmodule AWS.RedshiftData do
         optional("ClusterIdentifier") => String.t(),
         optional("Database") => String.t(),
         optional("DbUser") => String.t(),
-        optional("Parameters") => list(sql_parameter()()),
+        optional("Parameters") => list(sql_parameter()),
         optional("ResultFormat") => String.t(),
         optional("SecretArn") => String.t(),
         optional("SessionId") => String.t(),
@@ -230,7 +230,7 @@ defmodule AWS.RedshiftData do
         optional("StatementName") => String.t(),
         optional("WithEvent") => [boolean()],
         optional("WorkgroupName") => String.t(),
-        required("Sqls") => list(String.t()())
+        required("Sqls") => list(String.t())
       }
       
   """
@@ -274,7 +274,7 @@ defmodule AWS.RedshiftData do
       
       list_statements_response() :: %{
         "NextToken" => String.t(),
-        "Statements" => list(statement_data()())
+        "Statements" => list(statement_data())
       }
       
   """
@@ -315,7 +315,7 @@ defmodule AWS.RedshiftData do
       
       list_tables_response() :: %{
         "NextToken" => String.t(),
-        "Tables" => list(table_member()())
+        "Tables" => list(table_member())
       }
       
   """
@@ -326,9 +326,9 @@ defmodule AWS.RedshiftData do
   ## Example:
       
       get_statement_result_response() :: %{
-        "ColumnMetadata" => list(column_metadata()()),
+        "ColumnMetadata" => list(column_metadata()),
         "NextToken" => String.t(),
-        "Records" => list(list(list()())()),
+        "Records" => list(list(list())()),
         "TotalNumRows" => float()
       }
       
@@ -478,7 +478,7 @@ defmodule AWS.RedshiftData do
         "Error" => String.t(),
         "HasResultSet" => [boolean()],
         "Id" => String.t(),
-        "QueryParameters" => list(sql_parameter()()),
+        "QueryParameters" => list(sql_parameter()),
         "QueryString" => String.t(),
         "RedshiftPid" => float(),
         "RedshiftQueryId" => float(),
@@ -488,7 +488,7 @@ defmodule AWS.RedshiftData do
         "SecretArn" => String.t(),
         "SessionId" => String.t(),
         "Status" => String.t(),
-        "SubStatements" => list(sub_statement_data()()),
+        "SubStatements" => list(sub_statement_data()),
         "UpdatedAt" => [non_neg_integer()],
         "WorkgroupName" => String.t()
       }
@@ -502,7 +502,7 @@ defmodule AWS.RedshiftData do
       
       list_schemas_response() :: %{
         "NextToken" => String.t(),
-        "Schemas" => list(String.t()())
+        "Schemas" => list(String.t())
       }
       
   """
@@ -513,7 +513,7 @@ defmodule AWS.RedshiftData do
   ## Example:
       
       list_databases_response() :: %{
-        "Databases" => list(String.t()()),
+        "Databases" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -536,9 +536,9 @@ defmodule AWS.RedshiftData do
   ## Example:
       
       get_statement_result_v2_response() :: %{
-        "ColumnMetadata" => list(column_metadata()()),
+        "ColumnMetadata" => list(column_metadata()),
         "NextToken" => String.t(),
-        "Records" => list(list()()),
+        "Records" => list(list()),
         "ResultFormat" => String.t(),
         "TotalNumRows" => float()
       }
@@ -694,7 +694,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
@@ -715,7 +716,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -740,7 +742,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, describe_statement_errors()}
   def describe_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStatement", input, options)
   end
@@ -803,7 +806,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -866,7 +870,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
@@ -890,7 +895,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, get_statement_result_errors()}
   def get_statement_result(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatementResult", input, options)
   end
@@ -913,7 +919,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, get_statement_result_v2_errors()}
   def get_statement_result_v2(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStatementResultV2", input, options)
   end
@@ -974,7 +981,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatabases", input, options)
   end
@@ -1035,7 +1043,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -1067,7 +1076,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -1130,7 +1140,8 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end

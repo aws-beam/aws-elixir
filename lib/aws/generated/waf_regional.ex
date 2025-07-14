@@ -87,7 +87,7 @@ defmodule AWS.WAFRegional do
       xss_match_set() :: %{
         "Name" => String.t(),
         "XssMatchSetId" => String.t(),
-        "XssMatchTuples" => list(xss_match_tuple()())
+        "XssMatchTuples" => list(xss_match_tuple())
       }
       
   """
@@ -98,7 +98,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       create_rule_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ChangeToken") => String.t(),
         required("MetricName") => String.t(),
         required("Name") => String.t()
@@ -148,7 +148,7 @@ defmodule AWS.WAFRegional do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -172,7 +172,7 @@ defmodule AWS.WAFRegional do
       sql_injection_match_set() :: %{
         "Name" => String.t(),
         "SqlInjectionMatchSetId" => String.t(),
-        "SqlInjectionMatchTuples" => list(sql_injection_match_tuple()())
+        "SqlInjectionMatchTuples" => list(sql_injection_match_tuple())
       }
       
   """
@@ -183,7 +183,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       rate_based_rule() :: %{
-        "MatchPredicates" => list(predicate()()),
+        "MatchPredicates" => list(predicate()),
         "MetricName" => String.t(),
         "Name" => String.t(),
         "RateKey" => list(any()),
@@ -213,7 +213,7 @@ defmodule AWS.WAFRegional do
       update_size_constraint_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("SizeConstraintSetId") => String.t(),
-        required("Updates") => list(size_constraint_set_update()())
+        required("Updates") => list(size_constraint_set_update())
       }
       
   """
@@ -294,7 +294,7 @@ defmodule AWS.WAFRegional do
       
       list_rule_groups_response() :: %{
         "NextMarker" => String.t(),
-        "RuleGroups" => list(rule_group_summary()())
+        "RuleGroups" => list(rule_group_summary())
       }
       
   """
@@ -340,7 +340,7 @@ defmodule AWS.WAFRegional do
       
       list_regex_match_sets_response() :: %{
         "NextMarker" => String.t(),
-        "RegexMatchSets" => list(regex_match_set_summary()())
+        "RegexMatchSets" => list(regex_match_set_summary())
       }
       
   """
@@ -430,7 +430,7 @@ defmodule AWS.WAFRegional do
       
       list_xss_match_sets_response() :: %{
         "NextMarker" => String.t(),
-        "XssMatchSets" => list(xss_match_set_summary()())
+        "XssMatchSets" => list(xss_match_set_summary())
       }
       
   """
@@ -523,7 +523,7 @@ defmodule AWS.WAFRegional do
       update_byte_match_set_request() :: %{
         required("ByteMatchSetId") => String.t(),
         required("ChangeToken") => String.t(),
-        required("Updates") => list(byte_match_set_update()())
+        required("Updates") => list(byte_match_set_update())
       }
       
   """
@@ -598,7 +598,7 @@ defmodule AWS.WAFRegional do
       update_rule_request() :: %{
         required("ChangeToken") => String.t(),
         required("RuleId") => String.t(),
-        required("Updates") => list(rule_update()())
+        required("Updates") => list(rule_update())
       }
       
   """
@@ -722,7 +722,7 @@ defmodule AWS.WAFRegional do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -734,7 +734,7 @@ defmodule AWS.WAFRegional do
       
       tag_info_for_resource() :: %{
         "ResourceARN" => String.t(),
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -746,7 +746,7 @@ defmodule AWS.WAFRegional do
       
       activated_rule() :: %{
         "Action" => waf_action(),
-        "ExcludedRules" => list(excluded_rule()()),
+        "ExcludedRules" => list(excluded_rule()),
         "OverrideAction" => waf_override_action(),
         "Priority" => integer(),
         "RuleId" => String.t(),
@@ -786,7 +786,7 @@ defmodule AWS.WAFRegional do
       update_ip_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("IPSetId") => String.t(),
-        required("Updates") => list(ip_set_update()())
+        required("Updates") => list(ip_set_update())
       }
       
   """
@@ -843,8 +843,8 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       logging_configuration() :: %{
-        "LogDestinationConfigs" => list(String.t()()),
-        "RedactedFields" => list(field_to_match()()),
+        "LogDestinationConfigs" => list(String.t()),
+        "RedactedFields" => list(field_to_match()),
         "ResourceArn" => String.t()
       }
       
@@ -882,7 +882,7 @@ defmodule AWS.WAFRegional do
       
       list_sql_injection_match_sets_response() :: %{
         "NextMarker" => String.t(),
-        "SqlInjectionMatchSets" => list(sql_injection_match_set_summary()())
+        "SqlInjectionMatchSets" => list(sql_injection_match_set_summary())
       }
       
   """
@@ -905,7 +905,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       create_rule_group_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ChangeToken") => String.t(),
         required("MetricName") => String.t(),
         required("Name") => String.t()
@@ -1002,7 +1002,7 @@ defmodule AWS.WAFRegional do
         "DefaultAction" => waf_action(),
         "MetricName" => String.t(),
         "Name" => String.t(),
-        "Rules" => list(activated_rule()()),
+        "Rules" => list(activated_rule()),
         "WebACLArn" => String.t(),
         "WebACLId" => String.t()
       }
@@ -1028,7 +1028,7 @@ defmodule AWS.WAFRegional do
       regex_match_set() :: %{
         "Name" => String.t(),
         "RegexMatchSetId" => String.t(),
-        "RegexMatchTuples" => list(regex_match_tuple()())
+        "RegexMatchTuples" => list(regex_match_tuple())
       }
       
   """
@@ -1039,7 +1039,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_activated_rules_in_rule_group_response() :: %{
-        "ActivatedRules" => list(activated_rule()()),
+        "ActivatedRules" => list(activated_rule()),
         "NextMarker" => String.t()
       }
       
@@ -1143,7 +1143,7 @@ defmodule AWS.WAFRegional do
       update_regex_pattern_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("RegexPatternSetId") => String.t(),
-        required("Updates") => list(regex_pattern_set_update()())
+        required("Updates") => list(regex_pattern_set_update())
       }
       
   """
@@ -1177,7 +1177,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_ip_sets_response() :: %{
-        "IPSets" => list(ip_set_summary()()),
+        "IPSets" => list(ip_set_summary()),
         "NextMarker" => String.t()
       }
       
@@ -1238,7 +1238,7 @@ defmodule AWS.WAFRegional do
       update_sql_injection_match_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("SqlInjectionMatchSetId") => String.t(),
-        required("Updates") => list(sql_injection_match_set_update()())
+        required("Updates") => list(sql_injection_match_set_update())
       }
       
   """
@@ -1261,7 +1261,7 @@ defmodule AWS.WAFRegional do
       
       update_xss_match_set_request() :: %{
         required("ChangeToken") => String.t(),
-        required("Updates") => list(xss_match_set_update()()),
+        required("Updates") => list(xss_match_set_update()),
         required("XssMatchSetId") => String.t()
       }
       
@@ -1299,7 +1299,7 @@ defmodule AWS.WAFRegional do
         required("ChangeToken") => String.t(),
         required("RateLimit") => float(),
         required("RuleId") => String.t(),
-        required("Updates") => list(rule_update()())
+        required("Updates") => list(rule_update())
       }
       
   """
@@ -1346,7 +1346,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       ip_set() :: %{
-        "IPSetDescriptors" => list(ip_set_descriptor()()),
+        "IPSetDescriptors" => list(ip_set_descriptor()),
         "IPSetId" => String.t(),
         "Name" => String.t()
       }
@@ -1453,7 +1453,7 @@ defmodule AWS.WAFRegional do
       
       update_web_acl_request() :: %{
         optional("DefaultAction") => waf_action(),
-        optional("Updates") => list(web_acl_update()()),
+        optional("Updates") => list(web_acl_update()),
         required("ChangeToken") => String.t(),
         required("WebACLId") => String.t()
       }
@@ -1489,7 +1489,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       get_rate_based_rule_managed_keys_response() :: %{
-        "ManagedKeys" => list(String.t()()),
+        "ManagedKeys" => list(String.t()),
         "NextMarker" => String.t()
       }
       
@@ -1630,7 +1630,7 @@ defmodule AWS.WAFRegional do
       
       list_subscribed_rule_groups_response() :: %{
         "NextMarker" => String.t(),
-        "RuleGroups" => list(subscribed_rule_group_summary()())
+        "RuleGroups" => list(subscribed_rule_group_summary())
       }
       
   """
@@ -1643,7 +1643,7 @@ defmodule AWS.WAFRegional do
       rule() :: %{
         "MetricName" => String.t(),
         "Name" => String.t(),
-        "Predicates" => list(predicate()()),
+        "Predicates" => list(predicate()),
         "RuleId" => String.t()
       }
       
@@ -1668,7 +1668,7 @@ defmodule AWS.WAFRegional do
       size_constraint_set() :: %{
         "Name" => String.t(),
         "SizeConstraintSetId" => String.t(),
-        "SizeConstraints" => list(size_constraint()())
+        "SizeConstraints" => list(size_constraint())
       }
       
   """
@@ -1842,7 +1842,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_byte_match_sets_response() :: %{
-        "ByteMatchSets" => list(byte_match_set_summary()()),
+        "ByteMatchSets" => list(byte_match_set_summary()),
         "NextMarker" => String.t()
       }
       
@@ -1854,7 +1854,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_logging_configurations_response() :: %{
-        "LoggingConfigurations" => list(logging_configuration()()),
+        "LoggingConfigurations" => list(logging_configuration()),
         "NextMarker" => String.t()
       }
       
@@ -1900,7 +1900,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_geo_match_sets_response() :: %{
-        "GeoMatchSets" => list(geo_match_set_summary()()),
+        "GeoMatchSets" => list(geo_match_set_summary()),
         "NextMarker" => String.t()
       }
       
@@ -1934,7 +1934,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       create_web_acl_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ChangeToken") => String.t(),
         required("DefaultAction") => waf_action(),
         required("MetricName") => String.t(),
@@ -1975,7 +1975,7 @@ defmodule AWS.WAFRegional do
       update_rule_group_request() :: %{
         required("ChangeToken") => String.t(),
         required("RuleGroupId") => String.t(),
-        required("Updates") => list(rule_group_update()())
+        required("Updates") => list(rule_group_update())
       }
       
   """
@@ -1987,7 +1987,7 @@ defmodule AWS.WAFRegional do
       
       list_rules_response() :: %{
         "NextMarker" => String.t(),
-        "Rules" => list(rule_summary()())
+        "Rules" => list(rule_summary())
       }
       
   """
@@ -2023,7 +2023,7 @@ defmodule AWS.WAFRegional do
         "ClientIP" => String.t(),
         "Country" => String.t(),
         "HTTPVersion" => String.t(),
-        "Headers" => list(h_t_t_p_header()()),
+        "Headers" => list(h_t_t_p_header()),
         "Method" => String.t(),
         "URI" => String.t()
       }
@@ -2047,7 +2047,7 @@ defmodule AWS.WAFRegional do
       regex_pattern_set() :: %{
         "Name" => String.t(),
         "RegexPatternSetId" => String.t(),
-        "RegexPatternStrings" => list(String.t()())
+        "RegexPatternStrings" => list(String.t())
       }
       
   """
@@ -2081,7 +2081,7 @@ defmodule AWS.WAFRegional do
       
       list_rate_based_rules_response() :: %{
         "NextMarker" => String.t(),
-        "Rules" => list(rule_summary()())
+        "Rules" => list(rule_summary())
       }
       
   """
@@ -2188,7 +2188,7 @@ defmodule AWS.WAFRegional do
       update_regex_match_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("RegexMatchSetId") => String.t(),
-        required("Updates") => list(regex_match_set_update()())
+        required("Updates") => list(regex_match_set_update())
       }
       
   """
@@ -2247,7 +2247,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       list_resources_for_web_acl_response() :: %{
-        "ResourceArns" => list(String.t()())
+        "ResourceArns" => list(String.t())
       }
       
   """
@@ -2346,7 +2346,7 @@ defmodule AWS.WAFRegional do
       update_geo_match_set_request() :: %{
         required("ChangeToken") => String.t(),
         required("GeoMatchSetId") => String.t(),
-        required("Updates") => list(geo_match_set_update()())
+        required("Updates") => list(geo_match_set_update())
       }
       
   """
@@ -2381,7 +2381,7 @@ defmodule AWS.WAFRegional do
       
       list_size_constraint_sets_response() :: %{
         "NextMarker" => String.t(),
-        "SizeConstraintSets" => list(size_constraint_set_summary()())
+        "SizeConstraintSets" => list(size_constraint_set_summary())
       }
       
   """
@@ -2392,7 +2392,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       geo_match_set() :: %{
-        "GeoMatchConstraints" => list(geo_match_constraint()()),
+        "GeoMatchConstraints" => list(geo_match_constraint()),
         "GeoMatchSetId" => String.t(),
         "Name" => String.t()
       }
@@ -2428,7 +2428,7 @@ defmodule AWS.WAFRegional do
       
       get_sampled_requests_response() :: %{
         "PopulationSize" => float(),
-        "SampledRequests" => list(sampled_h_t_t_p_request()()),
+        "SampledRequests" => list(sampled_h_t_t_p_request()),
         "TimeWindow" => time_window()
       }
       
@@ -2441,7 +2441,7 @@ defmodule AWS.WAFRegional do
       
       list_regex_pattern_sets_response() :: %{
         "NextMarker" => String.t(),
-        "RegexPatternSets" => list(regex_pattern_set_summary()())
+        "RegexPatternSets" => list(regex_pattern_set_summary())
       }
       
   """
@@ -2502,7 +2502,7 @@ defmodule AWS.WAFRegional do
       
       list_web_acls_response() :: %{
         "NextMarker" => String.t(),
-        "WebACLs" => list(web_acl_summary()())
+        "WebACLs" => list(web_acl_summary())
       }
       
   """
@@ -2743,7 +2743,7 @@ defmodule AWS.WAFRegional do
   ## Example:
       
       create_rate_based_rule_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ChangeToken") => String.t(),
         required("MetricName") => String.t(),
         required("Name") => String.t(),
@@ -2772,7 +2772,7 @@ defmodule AWS.WAFRegional do
       
       byte_match_set() :: %{
         "ByteMatchSetId" => String.t(),
-        "ByteMatchTuples" => list(byte_match_tuple()()),
+        "ByteMatchTuples" => list(byte_match_tuple()),
         "Name" => String.t()
       }
       
@@ -3413,7 +3413,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, associate_web_acl_errors()}
   def associate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateWebACL", input, options)
   end
@@ -3472,7 +3473,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_byte_match_set_errors()}
   def create_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateByteMatchSet", input, options)
   end
@@ -3527,7 +3529,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_geo_match_set_errors()}
   def create_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGeoMatchSet", input, options)
   end
@@ -3585,7 +3588,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIPSet", input, options)
   end
@@ -3697,7 +3701,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_rate_based_rule_errors()}
   def create_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRateBasedRule", input, options)
   end
@@ -3756,7 +3761,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_regex_match_set_errors()}
   def create_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexMatchSet", input, options)
   end
@@ -3807,7 +3813,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexPatternSet", input, options)
   end
@@ -3884,7 +3891,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3928,7 +3936,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3986,7 +3995,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_size_constraint_set_errors()}
   def create_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSizeConstraintSet", input, options)
   end
@@ -4040,7 +4050,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_sql_injection_match_set_errors()}
   def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSqlInjectionMatchSet", input, options)
   end
@@ -4110,7 +4121,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACL", input, options)
   end
@@ -4138,7 +4150,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_web_acl_migration_stack_errors()}
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACLMigrationStack", input, options)
   end
@@ -4192,7 +4205,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, create_xss_match_set_errors()}
   def create_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateXssMatchSet", input, options)
   end
@@ -4237,7 +4251,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_byte_match_set_errors()}
   def delete_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteByteMatchSet", input, options)
   end
@@ -4282,7 +4297,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_geo_match_set_errors()}
   def delete_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGeoMatchSet", input, options)
   end
@@ -4327,7 +4343,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIPSet", input, options)
   end
@@ -4355,7 +4372,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoggingConfiguration", input, options)
   end
@@ -4384,7 +4402,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePermissionPolicy", input, options)
   end
@@ -4430,7 +4449,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_rate_based_rule_errors()}
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRateBasedRule", input, options)
   end
@@ -4475,7 +4495,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_regex_match_set_errors()}
   def delete_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexMatchSet", input, options)
   end
@@ -4504,7 +4525,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexPatternSet", input, options)
   end
@@ -4549,7 +4571,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -4594,7 +4617,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4640,7 +4664,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_size_constraint_set_errors()}
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSizeConstraintSet", input, options)
   end
@@ -4689,7 +4714,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_sql_injection_match_set_errors()}
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSqlInjectionMatchSet", input, options)
   end
@@ -4731,7 +4757,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebACL", input, options)
   end
@@ -4776,7 +4803,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, delete_xss_match_set_errors()}
   def delete_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteXssMatchSet", input, options)
   end
@@ -4804,7 +4832,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, disassociate_web_acl_errors()}
   def disassociate_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateWebACL", input, options)
   end
@@ -4831,7 +4860,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_byte_match_set_errors()}
   def get_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetByteMatchSet", input, options)
   end
@@ -4874,7 +4904,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_change_token_errors()}
   def get_change_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetChangeToken", input, options)
   end
@@ -4918,7 +4949,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_change_token_status_errors()}
   def get_change_token_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetChangeTokenStatus", input, options)
   end
@@ -4945,7 +4977,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_geo_match_set_errors()}
   def get_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGeoMatchSet", input, options)
   end
@@ -4972,7 +5005,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIPSet", input, options)
   end
@@ -4999,7 +5033,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoggingConfiguration", input, options)
   end
@@ -5026,7 +5061,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPermissionPolicy", input, options)
   end
@@ -5055,7 +5091,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_rate_based_rule_errors()}
   def get_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedRule", input, options)
   end
@@ -5090,7 +5127,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_rate_based_rule_managed_keys_errors()}
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedRuleManagedKeys", input, options)
   end
@@ -5117,7 +5155,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_regex_match_set_errors()}
   def get_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexMatchSet", input, options)
   end
@@ -5144,7 +5183,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexPatternSet", input, options)
   end
@@ -5172,7 +5212,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRule", input, options)
   end
@@ -5202,7 +5243,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRuleGroup", input, options)
   end
@@ -5240,7 +5282,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
   end
@@ -5267,7 +5310,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_size_constraint_set_errors()}
   def get_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSizeConstraintSet", input, options)
   end
@@ -5295,7 +5339,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_sql_injection_match_set_errors()}
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSqlInjectionMatchSet", input, options)
   end
@@ -5322,7 +5367,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACL", input, options)
   end
@@ -5350,7 +5396,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_web_acl_for_resource_errors()}
   def get_web_acl_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACLForResource", input, options)
   end
@@ -5377,7 +5424,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, get_xss_match_set_errors()}
   def get_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetXssMatchSet", input, options)
   end
@@ -5408,7 +5456,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_activated_rules_in_rule_group_errors()}
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActivatedRulesInRuleGroup", input, options)
   end
@@ -5435,7 +5484,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_byte_match_sets_errors()}
   def list_byte_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListByteMatchSets", input, options)
   end
@@ -5462,7 +5512,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_geo_match_sets_errors()}
   def list_geo_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGeoMatchSets", input, options)
   end
@@ -5489,7 +5540,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIPSets", input, options)
   end
@@ -5516,7 +5568,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLoggingConfigurations", input, options)
   end
@@ -5543,7 +5596,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_rate_based_rules_errors()}
   def list_rate_based_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRateBasedRules", input, options)
   end
@@ -5570,7 +5624,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_regex_match_sets_errors()}
   def list_regex_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexMatchSets", input, options)
   end
@@ -5597,7 +5652,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexPatternSets", input, options)
   end
@@ -5624,7 +5680,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_resources_for_web_acl_errors()}
   def list_resources_for_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourcesForWebACL", input, options)
   end
@@ -5651,7 +5708,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -5678,7 +5736,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRules", input, options)
   end
@@ -5705,7 +5764,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_size_constraint_sets_errors()}
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSizeConstraintSets", input, options)
   end
@@ -5732,7 +5792,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_sql_injection_match_sets_errors()}
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSqlInjectionMatchSets", input, options)
   end
@@ -5759,7 +5820,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_subscribed_rule_groups_errors()}
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscribedRuleGroups", input, options)
   end
@@ -5794,7 +5856,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5821,7 +5884,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebACLs", input, options)
   end
@@ -5848,7 +5912,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, list_xss_match_sets_errors()}
   def list_xss_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListXssMatchSets", input, options)
   end
@@ -5899,7 +5964,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLoggingConfiguration", input, options)
   end
@@ -5961,7 +6027,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPermissionPolicy", input, options)
   end
@@ -5997,7 +6064,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -6022,7 +6090,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -6097,7 +6166,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_byte_match_set_errors()}
   def update_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateByteMatchSet", input, options)
   end
@@ -6161,7 +6231,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_geo_match_set_errors()}
   def update_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGeoMatchSet", input, options)
   end
@@ -6257,7 +6328,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIPSet", input, options)
   end
@@ -6331,7 +6403,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_rate_based_rule_errors()}
   def update_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRateBasedRule", input, options)
   end
@@ -6402,7 +6475,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_regex_match_set_errors()}
   def update_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexMatchSet", input, options)
   end
@@ -6471,7 +6545,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexPatternSet", input, options)
   end
@@ -6544,7 +6619,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRule", input, options)
   end
@@ -6599,7 +6675,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -6682,7 +6759,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_size_constraint_set_errors()}
   def update_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSizeConstraintSet", input, options)
   end
@@ -6758,7 +6836,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_sql_injection_match_set_errors()}
   def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSqlInjectionMatchSet", input, options)
   end
@@ -6865,7 +6944,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebACL", input, options)
   end
@@ -6941,7 +7021,8 @@ defmodule AWS.WAFRegional do
           | {:error, term()}
           | {:error, update_xss_match_set_errors()}
   def update_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateXssMatchSet", input, options)
   end

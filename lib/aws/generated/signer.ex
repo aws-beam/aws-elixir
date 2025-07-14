@@ -199,7 +199,7 @@ defmodule AWS.Signer do
   ## Example:
 
       list_signing_jobs_response() :: %{
-        "jobs" => list(signing_job()()),
+        "jobs" => list(signing_job()),
         "nextToken" => String.t()
       }
 
@@ -238,7 +238,7 @@ defmodule AWS.Signer do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -399,7 +399,7 @@ defmodule AWS.Signer do
   ## Example:
 
       get_revocation_status_response() :: %{
-        "revokedEntities" => list(String.t()())
+        "revokedEntities" => list(String.t())
       }
 
   """
@@ -462,7 +462,7 @@ defmodule AWS.Signer do
   ## Example:
 
       get_revocation_status_request() :: %{
-        required("certificateHashes") => list(String.t()()),
+        required("certificateHashes") => list(String.t()),
         required("jobArn") => String.t(),
         required("platformId") => String.t(),
         required("profileVersionArn") => String.t(),
@@ -478,7 +478,7 @@ defmodule AWS.Signer do
 
       list_profile_permissions_response() :: %{
         "nextToken" => String.t(),
-        "permissions" => list(permission()()),
+        "permissions" => list(permission()),
         "policySizeBytes" => integer(),
         "revisionId" => String.t()
       }
@@ -784,7 +784,7 @@ defmodule AWS.Signer do
 
       list_signing_profiles_response() :: %{
         "nextToken" => String.t(),
-        "profiles" => list(signing_profile()())
+        "profiles" => list(signing_profile())
       }
 
   """
@@ -848,7 +848,7 @@ defmodule AWS.Signer do
 
       list_signing_platforms_response() :: %{
         "nextToken" => String.t(),
-        "platforms" => list(signing_platform()())
+        "platforms" => list(signing_platform())
       }
 
   """

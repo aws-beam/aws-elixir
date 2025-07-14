@@ -72,8 +72,8 @@ defmodule AWS.IoTFleetWise do
         "attributes" => map(),
         "decoderManifestArn" => String.t(),
         "modelManifestArn" => String.t(),
-        "stateTemplates" => list(state_template_association()()),
-        "tags" => list(tag()()),
+        "stateTemplates" => list(state_template_association()),
+        "tags" => list(tag()),
         "vehicleName" => String.t()
       }
       
@@ -191,7 +191,7 @@ defmodule AWS.IoTFleetWise do
       
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -225,9 +225,9 @@ defmodule AWS.IoTFleetWise do
       create_decoder_manifest_request() :: %{
         optional("defaultForUnmappedSignals") => list(any()),
         optional("description") => String.t(),
-        optional("networkInterfaces") => list(network_interface()()),
-        optional("signalDecoders") => list(signal_decoder()()),
-        optional("tags") => list(tag()()),
+        optional("networkInterfaces") => list(network_interface()),
+        optional("signalDecoders") => list(signal_decoder()),
+        optional("tags") => list(tag()),
         required("modelManifestArn") => String.t()
       }
       
@@ -286,8 +286,8 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_vehicles_request() :: %{
-        optional("attributeNames") => list(String.t()()),
-        optional("attributeValues") => list(String.t()()),
+        optional("attributeNames") => list(String.t()),
+        optional("attributeValues") => list(String.t()),
         optional("listResponseScope") => list(any()),
         optional("maxResults") => integer(),
         optional("modelManifestArn") => String.t(),
@@ -348,7 +348,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_fleets_for_vehicle_response() :: %{
-        optional("fleets") => list(String.t()()),
+        optional("fleets") => list(String.t()),
         optional("nextToken") => String.t()
       }
       
@@ -456,7 +456,7 @@ defmodule AWS.IoTFleetWise do
       
       create_fleet_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("signalCatalogArn") => String.t()
       }
       
@@ -468,7 +468,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       batch_update_vehicle_request() :: %{
-        required("vehicles") => list(update_vehicle_request_item()())
+        required("vehicles") => list(update_vehicle_request_item())
       }
       
   """
@@ -488,7 +488,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       import_decoder_manifest_request() :: %{
-        required("networkFileDefinitions") => list(list()())
+        required("networkFileDefinitions") => list(list())
       }
       
   """
@@ -654,7 +654,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_campaigns_response() :: %{
-        optional("campaignSummaries") => list(campaign_summary()()),
+        optional("campaignSummaries") => list(campaign_summary()),
         optional("nextToken") => String.t()
       }
       
@@ -689,7 +689,7 @@ defmodule AWS.IoTFleetWise do
       
       import_signal_catalog_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         optional("vss") => list()
       }
       
@@ -701,7 +701,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_fleets_response() :: %{
-        optional("fleetSummaries") => list(fleet_summary()()),
+        optional("fleetSummaries") => list(fleet_summary()),
         optional("nextToken") => String.t()
       }
       
@@ -713,7 +713,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       batch_create_vehicle_request() :: %{
-        required("vehicles") => list(create_vehicle_request_item()())
+        required("vehicles") => list(create_vehicle_request_item())
       }
       
   """
@@ -725,7 +725,7 @@ defmodule AWS.IoTFleetWise do
       
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -773,7 +773,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       signal_fetch_information() :: %{
-        "actions" => list(String.t()()),
+        "actions" => list(String.t()),
         "conditionLanguageVersion" => integer(),
         "fullyQualifiedName" => String.t(),
         "signalFetchConfig" => list()
@@ -835,7 +835,7 @@ defmodule AWS.IoTFleetWise do
       
       list_signal_catalog_nodes_response() :: %{
         optional("nextToken") => String.t(),
-        optional("nodes") => list(list()())
+        optional("nodes") => list(list())
       }
       
   """
@@ -935,12 +935,12 @@ defmodule AWS.IoTFleetWise do
       update_decoder_manifest_request() :: %{
         optional("defaultForUnmappedSignals") => list(any()),
         optional("description") => String.t(),
-        optional("networkInterfacesToAdd") => list(network_interface()()),
-        optional("networkInterfacesToRemove") => list(String.t()()),
-        optional("networkInterfacesToUpdate") => list(network_interface()()),
-        optional("signalDecodersToAdd") => list(signal_decoder()()),
-        optional("signalDecodersToRemove") => list(String.t()()),
-        optional("signalDecodersToUpdate") => list(signal_decoder()()),
+        optional("networkInterfacesToAdd") => list(network_interface()),
+        optional("networkInterfacesToRemove") => list(String.t()),
+        optional("networkInterfacesToUpdate") => list(network_interface()),
+        optional("signalDecodersToAdd") => list(signal_decoder()),
+        optional("signalDecodersToRemove") => list(String.t()),
+        optional("signalDecodersToUpdate") => list(signal_decoder()),
         optional("status") => list(any())
       }
       
@@ -1112,7 +1112,7 @@ defmodule AWS.IoTFleetWise do
       
       list_decoder_manifest_signals_response() :: %{
         optional("nextToken") => String.t(),
-        optional("signalDecoders") => list(signal_decoder()())
+        optional("signalDecoders") => list(signal_decoder())
       }
       
   """
@@ -1124,7 +1124,7 @@ defmodule AWS.IoTFleetWise do
       
       list_signal_catalogs_response() :: %{
         optional("nextToken") => String.t(),
-        optional("summaries") => list(signal_catalog_summary()())
+        optional("summaries") => list(signal_catalog_summary())
       }
       
   """
@@ -1135,8 +1135,8 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       batch_update_vehicle_response() :: %{
-        optional("errors") => list(update_vehicle_error()()),
-        optional("vehicles") => list(update_vehicle_response_item()())
+        optional("errors") => list(update_vehicle_error()),
+        optional("vehicles") => list(update_vehicle_response_item())
       }
       
   """
@@ -1147,7 +1147,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       actuator() :: %{
-        "allowedValues" => list(String.t()()),
+        "allowedValues" => list(String.t()),
         "assignedValue" => String.t(),
         "comment" => String.t(),
         "dataType" => list(any()),
@@ -1190,7 +1190,7 @@ defmodule AWS.IoTFleetWise do
       
       list_vehicles_in_fleet_response() :: %{
         optional("nextToken") => String.t(),
-        optional("vehicles") => list(String.t()())
+        optional("vehicles") => list(String.t())
       }
       
   """
@@ -1235,7 +1235,7 @@ defmodule AWS.IoTFleetWise do
       
       list_state_templates_response() :: %{
         "nextToken" => String.t(),
-        "summaries" => list(state_template_summary()())
+        "summaries" => list(state_template_summary())
       }
       
   """
@@ -1267,7 +1267,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -1332,14 +1332,14 @@ defmodule AWS.IoTFleetWise do
       get_state_template_response() :: %{
         "arn" => String.t(),
         "creationTime" => non_neg_integer(),
-        "dataExtraDimensions" => list(String.t()()),
+        "dataExtraDimensions" => list(String.t()),
         "description" => String.t(),
         "id" => String.t(),
         "lastModificationTime" => non_neg_integer(),
-        "metadataExtraDimensions" => list(String.t()()),
+        "metadataExtraDimensions" => list(String.t()),
         "name" => String.t(),
         "signalCatalogArn" => String.t(),
-        "stateTemplateProperties" => list(String.t()())
+        "stateTemplateProperties" => list(String.t())
       }
       
   """
@@ -1354,9 +1354,9 @@ defmodule AWS.IoTFleetWise do
         "attributes" => map(),
         "decoderManifestArn" => String.t(),
         "modelManifestArn" => String.t(),
-        "stateTemplatesToAdd" => list(state_template_association()()),
-        "stateTemplatesToRemove" => list(String.t()()),
-        "stateTemplatesToUpdate" => list(state_template_association()()),
+        "stateTemplatesToAdd" => list(state_template_association()),
+        "stateTemplatesToRemove" => list(String.t()),
+        "stateTemplatesToUpdate" => list(state_template_association()),
         "vehicleName" => String.t()
       }
       
@@ -1369,8 +1369,8 @@ defmodule AWS.IoTFleetWise do
       
       create_model_manifest_request() :: %{
         optional("description") => String.t(),
-        optional("tags") => list(tag()()),
-        required("nodes") => list(String.t()()),
+        optional("tags") => list(tag()),
+        required("nodes") => list(String.t()),
         required("signalCatalogArn") => String.t()
       }
       
@@ -1489,7 +1489,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       invalid_node_exception() :: %{
-        "invalidNodes" => list(list()()),
+        "invalidNodes" => list(list()),
         "message" => String.t(),
         "reason" => String.t()
       }
@@ -1527,11 +1527,11 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       update_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t()()),
+        optional("dataExtraDimensions") => list(String.t()),
         optional("description") => String.t(),
-        optional("metadataExtraDimensions") => list(String.t()()),
-        optional("stateTemplatePropertiesToAdd") => list(String.t()()),
-        optional("stateTemplatePropertiesToRemove") => list(String.t()())
+        optional("metadataExtraDimensions") => list(String.t()),
+        optional("stateTemplatePropertiesToAdd") => list(String.t()),
+        optional("stateTemplatePropertiesToRemove") => list(String.t())
       }
       
   """
@@ -1555,8 +1555,8 @@ defmodule AWS.IoTFleetWise do
       
       create_signal_catalog_request() :: %{
         optional("description") => String.t(),
-        optional("nodes") => list(list()()),
-        optional("tags") => list(tag()())
+        optional("nodes") => list(list()),
+        optional("tags") => list(tag())
       }
       
   """
@@ -1567,7 +1567,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       can_dbc_definition() :: %{
-        "canDbcFiles" => list(binary()()),
+        "canDbcFiles" => list(binary()),
         "networkInterface" => String.t(),
         "signalsMap" => map()
       }
@@ -1627,19 +1627,19 @@ defmodule AWS.IoTFleetWise do
       
       create_campaign_request() :: %{
         optional("compression") => list(any()),
-        optional("dataDestinationConfigs") => list(list()()),
-        optional("dataExtraDimensions") => list(String.t()()),
-        optional("dataPartitions") => list(data_partition()()),
+        optional("dataDestinationConfigs") => list(list()),
+        optional("dataExtraDimensions") => list(String.t()),
+        optional("dataPartitions") => list(data_partition()),
         optional("description") => String.t(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
         optional("postTriggerCollectionDuration") => float(),
         optional("priority") => integer(),
-        optional("signalsToCollect") => list(signal_information()()),
-        optional("signalsToFetch") => list(signal_fetch_information()()),
+        optional("signalsToCollect") => list(signal_information()),
+        optional("signalsToFetch") => list(signal_fetch_information()),
         optional("spoolingMode") => list(any()),
         optional("startTime") => non_neg_integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("collectionScheme") => list(),
         required("signalCatalogArn") => String.t(),
         required("targetArn") => String.t()
@@ -1664,7 +1664,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       get_vehicle_status_response() :: %{
-        optional("campaigns") => list(vehicle_status()()),
+        optional("campaigns") => list(vehicle_status()),
         optional("nextToken") => String.t()
       }
       
@@ -1779,7 +1779,7 @@ defmodule AWS.IoTFleetWise do
       
       list_model_manifests_response() :: %{
         optional("nextToken") => String.t(),
-        optional("summaries") => list(model_manifest_summary()())
+        optional("summaries") => list(model_manifest_summary())
       }
       
   """
@@ -1813,7 +1813,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -1861,7 +1861,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       invalid_signals_exception() :: %{
-        "invalidSignals" => list(invalid_signal()()),
+        "invalidSignals" => list(invalid_signal()),
         "message" => String.t()
       }
       
@@ -1891,9 +1891,9 @@ defmodule AWS.IoTFleetWise do
         optional("collectionScheme") => list(),
         optional("compression") => list(any()),
         optional("creationTime") => non_neg_integer(),
-        optional("dataDestinationConfigs") => list(list()()),
-        optional("dataExtraDimensions") => list(String.t()()),
-        optional("dataPartitions") => list(data_partition()()),
+        optional("dataDestinationConfigs") => list(list()),
+        optional("dataExtraDimensions") => list(String.t()),
+        optional("dataPartitions") => list(data_partition()),
         optional("description") => String.t(),
         optional("diagnosticsMode") => list(any()),
         optional("expiryTime") => non_neg_integer(),
@@ -1902,8 +1902,8 @@ defmodule AWS.IoTFleetWise do
         optional("postTriggerCollectionDuration") => float(),
         optional("priority") => integer(),
         optional("signalCatalogArn") => String.t(),
-        optional("signalsToCollect") => list(signal_information()()),
-        optional("signalsToFetch") => list(signal_fetch_information()()),
+        optional("signalsToCollect") => list(signal_information()),
+        optional("signalsToFetch") => list(signal_fetch_information()),
         optional("spoolingMode") => list(any()),
         optional("startTime") => non_neg_integer(),
         optional("status") => list(any()),
@@ -1918,7 +1918,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       sensor() :: %{
-        "allowedValues" => list(String.t()()),
+        "allowedValues" => list(String.t()),
         "comment" => String.t(),
         "dataType" => list(any()),
         "deprecationMessage" => String.t(),
@@ -1954,9 +1954,9 @@ defmodule AWS.IoTFleetWise do
         optional("attributes") => map(),
         optional("decoderManifestArn") => String.t(),
         optional("modelManifestArn") => String.t(),
-        optional("stateTemplatesToAdd") => list(state_template_association()()),
-        optional("stateTemplatesToRemove") => list(String.t()()),
-        optional("stateTemplatesToUpdate") => list(state_template_association()())
+        optional("stateTemplatesToAdd") => list(state_template_association()),
+        optional("stateTemplatesToRemove") => list(String.t()),
+        optional("stateTemplatesToUpdate") => list(state_template_association())
       }
       
   """
@@ -1967,7 +1967,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       attribute() :: %{
-        "allowedValues" => list(String.t()()),
+        "allowedValues" => list(String.t()),
         "assignedValue" => String.t(),
         "comment" => String.t(),
         "dataType" => list(any()),
@@ -1989,7 +1989,7 @@ defmodule AWS.IoTFleetWise do
       
       list_decoder_manifests_response() :: %{
         optional("nextToken") => String.t(),
-        optional("summaries") => list(decoder_manifest_summary()())
+        optional("summaries") => list(decoder_manifest_summary())
       }
       
   """
@@ -2040,9 +2040,9 @@ defmodule AWS.IoTFleetWise do
       
       update_signal_catalog_request() :: %{
         optional("description") => String.t(),
-        optional("nodesToAdd") => list(list()()),
-        optional("nodesToRemove") => list(String.t()()),
-        optional("nodesToUpdate") => list(list()())
+        optional("nodesToAdd") => list(list()),
+        optional("nodesToRemove") => list(String.t()),
+        optional("nodesToUpdate") => list(list())
       }
       
   """
@@ -2100,7 +2100,7 @@ defmodule AWS.IoTFleetWise do
       
       list_vehicles_response() :: %{
         optional("nextToken") => String.t(),
-        optional("vehicleSummaries") => list(vehicle_summary()())
+        optional("vehicleSummaries") => list(vehicle_summary())
       }
       
   """
@@ -2124,7 +2124,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       update_campaign_request() :: %{
-        optional("dataExtraDimensions") => list(String.t()()),
+        optional("dataExtraDimensions") => list(String.t()),
         optional("description") => String.t(),
         required("action") => list(any())
       }
@@ -2137,8 +2137,8 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       batch_create_vehicle_response() :: %{
-        optional("errors") => list(create_vehicle_error()()),
-        optional("vehicles") => list(create_vehicle_response_item()())
+        optional("errors") => list(create_vehicle_error()),
+        optional("vehicles") => list(create_vehicle_response_item())
       }
       
   """
@@ -2190,7 +2190,7 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       list_decoder_manifest_network_interfaces_response() :: %{
-        optional("networkInterfaces") => list(network_interface()()),
+        optional("networkInterfaces") => list(network_interface()),
         optional("nextToken") => String.t()
       }
       
@@ -2312,7 +2312,7 @@ defmodule AWS.IoTFleetWise do
       
       list_model_manifest_nodes_response() :: %{
         optional("nextToken") => String.t(),
-        optional("nodes") => list(list()())
+        optional("nodes") => list(list())
       }
       
   """
@@ -2325,8 +2325,8 @@ defmodule AWS.IoTFleetWise do
       create_vehicle_request() :: %{
         optional("associationBehavior") => list(any()),
         optional("attributes") => map(),
-        optional("stateTemplates") => list(state_template_association()()),
-        optional("tags") => list(tag()()),
+        optional("stateTemplates") => list(state_template_association()),
+        optional("tags") => list(tag()),
         required("decoderManifestArn") => String.t(),
         required("modelManifestArn") => String.t()
       }
@@ -2384,7 +2384,7 @@ defmodule AWS.IoTFleetWise do
         optional("decoderManifestArn") => String.t(),
         optional("lastModificationTime") => non_neg_integer(),
         optional("modelManifestArn") => String.t(),
-        optional("stateTemplates") => list(state_template_association()()),
+        optional("stateTemplates") => list(state_template_association()),
         optional("vehicleName") => String.t()
       }
       
@@ -2426,8 +2426,8 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       decoder_manifest_validation_exception() :: %{
-        "invalidNetworkInterfaces" => list(invalid_network_interface()()),
-        "invalidSignals" => list(invalid_signal_decoder()()),
+        "invalidNetworkInterfaces" => list(invalid_network_interface()),
+        "invalidSignals" => list(invalid_signal_decoder()),
         "message" => String.t()
       }
       
@@ -2439,12 +2439,12 @@ defmodule AWS.IoTFleetWise do
   ## Example:
       
       create_state_template_request() :: %{
-        optional("dataExtraDimensions") => list(String.t()()),
+        optional("dataExtraDimensions") => list(String.t()),
         optional("description") => String.t(),
-        optional("metadataExtraDimensions") => list(String.t()()),
-        optional("tags") => list(tag()()),
+        optional("metadataExtraDimensions") => list(String.t()),
+        optional("tags") => list(tag()),
         required("signalCatalogArn") => String.t(),
-        required("stateTemplateProperties") => list(String.t()())
+        required("stateTemplateProperties") => list(String.t())
       }
       
   """
@@ -2456,8 +2456,8 @@ defmodule AWS.IoTFleetWise do
       
       update_model_manifest_request() :: %{
         optional("description") => String.t(),
-        optional("nodesToAdd") => list(String.t()()),
-        optional("nodesToRemove") => list(String.t()()),
+        optional("nodesToAdd") => list(String.t()),
+        optional("nodesToRemove") => list(String.t()),
         optional("status") => list(any())
       }
       
@@ -2902,7 +2902,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, associate_vehicle_fleet_errors()}
   def associate_vehicle_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateVehicleFleet", input, options)
   end
@@ -2924,7 +2925,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, batch_create_vehicle_errors()}
   def batch_create_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateVehicle", input, options)
   end
@@ -2946,7 +2948,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, batch_update_vehicle_errors()}
   def batch_update_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateVehicle", input, options)
   end
@@ -2975,7 +2978,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCampaign", input, options)
   end
@@ -3004,7 +3008,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_decoder_manifest_errors()}
   def create_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDecoderManifest", input, options)
   end
@@ -3026,7 +3031,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3044,7 +3050,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_model_manifest_errors()}
   def create_model_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateModelManifest", input, options)
   end
@@ -3060,7 +3067,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_signal_catalog_errors()}
   def create_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSignalCatalog", input, options)
   end
@@ -3082,7 +3090,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_state_template_errors()}
   def create_state_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStateTemplate", input, options)
   end
@@ -3109,7 +3118,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_vehicle_errors()}
   def create_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVehicle", input, options)
   end
@@ -3126,7 +3136,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCampaign", input, options)
   end
@@ -3143,7 +3154,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_decoder_manifest_errors()}
   def delete_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDecoderManifest", input, options)
   end
@@ -3161,7 +3173,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3175,7 +3188,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_model_manifest_errors()}
   def delete_model_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteModelManifest", input, options)
   end
@@ -3189,7 +3203,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_signal_catalog_errors()}
   def delete_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSignalCatalog", input, options)
   end
@@ -3203,7 +3218,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_state_template_errors()}
   def delete_state_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStateTemplate", input, options)
   end
@@ -3217,7 +3233,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_vehicle_errors()}
   def delete_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVehicle", input, options)
   end
@@ -3234,7 +3251,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, disassociate_vehicle_fleet_errors()}
   def disassociate_vehicle_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateVehicleFleet", input, options)
   end
@@ -3252,7 +3270,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_campaign_errors()}
   def get_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCampaign", input, options)
   end
@@ -3266,7 +3285,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_decoder_manifest_errors()}
   def get_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDecoderManifest", input, options)
   end
@@ -3281,7 +3301,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_encryption_configuration_errors()}
   def get_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEncryptionConfiguration", input, options)
   end
@@ -3295,7 +3316,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_fleet_errors()}
   def get_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFleet", input, options)
   end
@@ -3309,7 +3331,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_logging_options_errors()}
   def get_logging_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoggingOptions", input, options)
   end
@@ -3323,7 +3346,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_model_manifest_errors()}
   def get_model_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetModelManifest", input, options)
   end
@@ -3346,7 +3370,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_register_account_status_errors()}
   def get_register_account_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegisterAccountStatus", input, options)
   end
@@ -3360,7 +3385,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_signal_catalog_errors()}
   def get_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSignalCatalog", input, options)
   end
@@ -3378,7 +3404,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_state_template_errors()}
   def get_state_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetStateTemplate", input, options)
   end
@@ -3392,7 +3419,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_vehicle_errors()}
   def get_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVehicle", input, options)
   end
@@ -3408,7 +3436,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_vehicle_status_errors()}
   def get_vehicle_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVehicleStatus", input, options)
   end
@@ -3426,7 +3455,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, import_decoder_manifest_errors()}
   def import_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportDecoderManifest", input, options)
   end
@@ -3442,7 +3472,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, import_signal_catalog_errors()}
   def import_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportSignalCatalog", input, options)
   end
@@ -3459,7 +3490,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCampaigns", input, options)
   end
@@ -3480,7 +3512,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifest_network_interfaces_errors()}
   def list_decoder_manifest_network_interfaces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDecoderManifestNetworkInterfaces", input, options)
   end
@@ -3497,7 +3530,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifest_signals_errors()}
   def list_decoder_manifest_signals(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDecoderManifestSignals", input, options)
   end
@@ -3514,7 +3548,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifests_errors()}
   def list_decoder_manifests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDecoderManifests", input, options)
   end
@@ -3531,7 +3566,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -3548,7 +3584,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_fleets_for_vehicle_errors()}
   def list_fleets_for_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleetsForVehicle", input, options)
   end
@@ -3565,7 +3602,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_model_manifest_nodes_errors()}
   def list_model_manifest_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelManifestNodes", input, options)
   end
@@ -3582,7 +3620,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_model_manifests_errors()}
   def list_model_manifests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListModelManifests", input, options)
   end
@@ -3599,7 +3638,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_signal_catalog_nodes_errors()}
   def list_signal_catalog_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSignalCatalogNodes", input, options)
   end
@@ -3619,7 +3659,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_signal_catalogs_errors()}
   def list_signal_catalogs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSignalCatalogs", input, options)
   end
@@ -3637,7 +3678,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_state_templates_errors()}
   def list_state_templates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStateTemplates", input, options)
   end
@@ -3651,7 +3693,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3668,7 +3711,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_vehicles_errors()}
   def list_vehicles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVehicles", input, options)
   end
@@ -3685,7 +3729,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_vehicles_in_fleet_errors()}
   def list_vehicles_in_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVehiclesInFleet", input, options)
   end
@@ -3705,7 +3750,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, put_encryption_configuration_errors()}
   def put_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutEncryptionConfiguration", input, options)
   end
@@ -3719,7 +3765,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, put_logging_options_errors()}
   def put_logging_options(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLoggingOptions", input, options)
   end
@@ -3771,7 +3818,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, register_account_errors()}
   def register_account(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterAccount", input, options)
   end
@@ -3788,7 +3836,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3802,7 +3851,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3816,7 +3866,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCampaign", input, options)
   end
@@ -3833,7 +3884,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_decoder_manifest_errors()}
   def update_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDecoderManifest", input, options)
   end
@@ -3847,7 +3899,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3864,7 +3917,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_model_manifest_errors()}
   def update_model_manifest(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateModelManifest", input, options)
   end
@@ -3878,7 +3932,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_signal_catalog_errors()}
   def update_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSignalCatalog", input, options)
   end
@@ -3896,7 +3951,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_state_template_errors()}
   def update_state_template(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStateTemplate", input, options)
   end
@@ -3914,7 +3970,8 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_vehicle_errors()}
   def update_vehicle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateVehicle", input, options)
   end

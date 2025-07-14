@@ -49,7 +49,7 @@ defmodule AWS.AutoScalingPlans do
       
       application_source() :: %{
         "CloudFormationStackARN" => String.t(),
-        "TagFilters" => list(tag_filter()())
+        "TagFilters" => list(tag_filter())
       }
       
   """
@@ -72,7 +72,7 @@ defmodule AWS.AutoScalingPlans do
       
       create_scaling_plan_request() :: %{
         required("ApplicationSource") => application_source(),
-        required("ScalingInstructions") => list(scaling_instruction()()),
+        required("ScalingInstructions") => list(scaling_instruction()),
         required("ScalingPlanName") => String.t()
       }
       
@@ -95,7 +95,7 @@ defmodule AWS.AutoScalingPlans do
   ## Example:
       
       customized_load_metric_specification() :: %{
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
         "Statistic" => list(any()),
@@ -110,7 +110,7 @@ defmodule AWS.AutoScalingPlans do
   ## Example:
       
       customized_scaling_metric_specification() :: %{
-        "Dimensions" => list(metric_dimension()()),
+        "Dimensions" => list(metric_dimension()),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
         "Statistic" => list(any()),
@@ -173,7 +173,7 @@ defmodule AWS.AutoScalingPlans do
       
       describe_scaling_plan_resources_response() :: %{
         "NextToken" => String.t(),
-        "ScalingPlanResources" => list(scaling_plan_resource()())
+        "ScalingPlanResources" => list(scaling_plan_resource())
       }
       
   """
@@ -184,10 +184,10 @@ defmodule AWS.AutoScalingPlans do
   ## Example:
       
       describe_scaling_plans_request() :: %{
-        optional("ApplicationSources") => list(application_source()()),
+        optional("ApplicationSources") => list(application_source()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ScalingPlanNames") => list(String.t()()),
+        optional("ScalingPlanNames") => list(String.t()),
         optional("ScalingPlanVersion") => float()
       }
       
@@ -200,7 +200,7 @@ defmodule AWS.AutoScalingPlans do
       
       describe_scaling_plans_response() :: %{
         "NextToken" => String.t(),
-        "ScalingPlans" => list(scaling_plan()())
+        "ScalingPlans" => list(scaling_plan())
       }
       
   """
@@ -229,7 +229,7 @@ defmodule AWS.AutoScalingPlans do
   ## Example:
       
       get_scaling_plan_resource_forecast_data_response() :: %{
-        "Datapoints" => list(datapoint()())
+        "Datapoints" => list(datapoint())
       }
       
   """
@@ -333,7 +333,7 @@ defmodule AWS.AutoScalingPlans do
         "ScalingPolicyUpdateBehavior" => list(any()),
         "ScheduledActionBufferTime" => integer(),
         "ServiceNamespace" => list(any()),
-        "TargetTrackingConfigurations" => list(target_tracking_configuration()())
+        "TargetTrackingConfigurations" => list(target_tracking_configuration())
       }
       
   """
@@ -346,7 +346,7 @@ defmodule AWS.AutoScalingPlans do
       scaling_plan() :: %{
         "ApplicationSource" => application_source(),
         "CreationTime" => non_neg_integer(),
-        "ScalingInstructions" => list(scaling_instruction()()),
+        "ScalingInstructions" => list(scaling_instruction()),
         "ScalingPlanName" => String.t(),
         "ScalingPlanVersion" => float(),
         "StatusCode" => list(any()),
@@ -366,7 +366,7 @@ defmodule AWS.AutoScalingPlans do
         "ScalableDimension" => list(any()),
         "ScalingPlanName" => String.t(),
         "ScalingPlanVersion" => float(),
-        "ScalingPolicies" => list(scaling_policy()()),
+        "ScalingPolicies" => list(scaling_policy()),
         "ScalingStatusCode" => list(any()),
         "ScalingStatusMessage" => String.t(),
         "ServiceNamespace" => list(any())
@@ -394,7 +394,7 @@ defmodule AWS.AutoScalingPlans do
       
       tag_filter() :: %{
         "Key" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -423,7 +423,7 @@ defmodule AWS.AutoScalingPlans do
       
       update_scaling_plan_request() :: %{
         optional("ApplicationSource") => application_source(),
-        optional("ScalingInstructions") => list(scaling_instruction()()),
+        optional("ScalingInstructions") => list(scaling_instruction()),
         required("ScalingPlanName") => String.t(),
         required("ScalingPlanVersion") => float()
       }
@@ -509,7 +509,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, create_scaling_plan_errors()}
   def create_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScalingPlan", input, options)
   end
@@ -530,7 +531,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, delete_scaling_plan_errors()}
   def delete_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScalingPlan", input, options)
   end
@@ -544,7 +546,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, describe_scaling_plan_resources_errors()}
   def describe_scaling_plan_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingPlanResources", input, options)
   end
@@ -558,7 +561,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, describe_scaling_plans_errors()}
   def describe_scaling_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingPlans", input, options)
   end
@@ -581,7 +585,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, get_scaling_plan_resource_forecast_data_errors()}
   def get_scaling_plan_resource_forecast_data(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetScalingPlanResourceForecastData", input, options)
   end
@@ -599,7 +604,8 @@ defmodule AWS.AutoScalingPlans do
           | {:error, term()}
           | {:error, update_scaling_plan_errors()}
   def update_scaling_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScalingPlan", input, options)
   end

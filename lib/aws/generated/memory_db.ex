@@ -21,8 +21,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       batch_update_cluster_response() :: %{
-        "ProcessedClusters" => list(cluster()()),
-        "UnprocessedClusters" => list(unprocessed_cluster()())
+        "ProcessedClusters" => list(cluster()),
+        "UnprocessedClusters" => list(unprocessed_cluster())
       }
       
   """
@@ -33,8 +33,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       update_acl_request() :: %{
-        optional("UserNamesToAdd") => list(String.t()()),
-        optional("UserNamesToRemove") => list(String.t()()),
+        optional("UserNamesToAdd") => list(String.t()),
+        optional("UserNamesToRemove") => list(String.t()),
         required("ACLName") => String.t()
       }
       
@@ -113,7 +113,7 @@ defmodule AWS.MemoryDB do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -163,7 +163,7 @@ defmodule AWS.MemoryDB do
       
       create_parameter_group_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Family") => String.t(),
         required("ParameterGroupName") => String.t()
       }
@@ -199,7 +199,7 @@ defmodule AWS.MemoryDB do
       
       describe_parameter_groups_response() :: %{
         "NextToken" => String.t(),
-        "ParameterGroups" => list(parameter_group()())
+        "ParameterGroups" => list(parameter_group())
       }
       
   """
@@ -222,7 +222,7 @@ defmodule AWS.MemoryDB do
       
       describe_service_updates_response() :: %{
         "NextToken" => String.t(),
-        "ServiceUpdates" => list(service_update()())
+        "ServiceUpdates" => list(service_update())
       }
       
   """
@@ -250,7 +250,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       untag_resource_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -319,7 +319,7 @@ defmodule AWS.MemoryDB do
       
       create_snapshot_request() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClusterName") => String.t(),
         required("SnapshotName") => String.t()
       }
@@ -333,7 +333,7 @@ defmodule AWS.MemoryDB do
       
       describe_users_response() :: %{
         "NextToken" => String.t(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
       
   """
@@ -359,7 +359,7 @@ defmodule AWS.MemoryDB do
         "FixedPrice" => float(),
         "NodeType" => String.t(),
         "OfferingType" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservedNodesOfferingId" => String.t()
       }
       
@@ -395,7 +395,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_multi_region_clusters_response() :: %{
-        "MultiRegionClusters" => list(multi_region_cluster()()),
+        "MultiRegionClusters" => list(multi_region_cluster()),
         "NextToken" => String.t()
       }
       
@@ -420,7 +420,7 @@ defmodule AWS.MemoryDB do
       
       describe_snapshots_response() :: %{
         "NextToken" => String.t(),
-        "Snapshots" => list(snapshot()())
+        "Snapshots" => list(snapshot())
       }
       
   """
@@ -444,7 +444,7 @@ defmodule AWS.MemoryDB do
       
       reset_parameter_group_request() :: %{
         optional("AllParameters") => boolean(),
-        optional("ParameterNames") => list(String.t()()),
+        optional("ParameterNames") => list(String.t()),
         required("ParameterGroupName") => String.t()
       }
       
@@ -575,8 +575,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       list_allowed_node_type_updates_response() :: %{
-        "ScaleDownNodeTypes" => list(String.t()()),
-        "ScaleUpNodeTypes" => list(String.t()())
+        "ScaleDownNodeTypes" => list(String.t()),
+        "ScaleUpNodeTypes" => list(String.t())
       }
       
   """
@@ -587,7 +587,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       list_tags_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -598,7 +598,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_users_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("UserName") => String.t()
@@ -624,7 +624,7 @@ defmodule AWS.MemoryDB do
       
       describe_parameters_response() :: %{
         "NextToken" => String.t(),
-        "Parameters" => list(parameter()())
+        "Parameters" => list(parameter())
       }
       
   """
@@ -668,8 +668,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       create_acl_request() :: %{
-        optional("Tags") => list(tag()()),
-        optional("UserNames") => list(String.t()()),
+        optional("Tags") => list(tag()),
+        optional("UserNames") => list(String.t()),
         required("ACLName") => String.t()
       }
       
@@ -682,12 +682,12 @@ defmodule AWS.MemoryDB do
       
       acl() :: %{
         "ARN" => String.t(),
-        "Clusters" => list(String.t()()),
+        "Clusters" => list(String.t()),
         "MinimumEngineVersion" => String.t(),
         "Name" => String.t(),
         "PendingChanges" => acl_pending_changes(),
         "Status" => String.t(),
-        "UserNames" => list(String.t()())
+        "UserNames" => list(String.t())
       }
       
   """
@@ -725,7 +725,7 @@ defmodule AWS.MemoryDB do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -794,7 +794,7 @@ defmodule AWS.MemoryDB do
         optional("NodeType") => String.t(),
         optional("ParameterGroupName") => String.t(),
         optional("ReplicaConfiguration") => replica_configuration_request(),
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("ShardConfiguration") => shard_configuration_request(),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),
@@ -833,7 +833,7 @@ defmodule AWS.MemoryDB do
         "NumShards" => integer(),
         "ParameterGroupName" => String.t(),
         "Port" => integer(),
-        "Shards" => list(shard_detail()()),
+        "Shards" => list(shard_detail()),
         "SnapshotRetentionLimit" => integer(),
         "SnapshotWindow" => String.t(),
         "SubnetGroupName" => String.t(),
@@ -882,8 +882,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       list_allowed_multi_region_cluster_updates_response() :: %{
-        "ScaleDownNodeTypes" => list(String.t()()),
-        "ScaleUpNodeTypes" => list(String.t()())
+        "ScaleDownNodeTypes" => list(String.t()),
+        "ScaleUpNodeTypes" => list(String.t())
       }
       
   """
@@ -919,7 +919,7 @@ defmodule AWS.MemoryDB do
         "ARN" => String.t(),
         "Description" => String.t(),
         "Name" => String.t(),
-        "Subnets" => list(subnet()()),
+        "Subnets" => list(subnet()),
         "SupportedNetworkTypes" => list(list(any())()),
         "VpcId" => String.t()
       }
@@ -957,15 +957,15 @@ defmodule AWS.MemoryDB do
         optional("NumShards") => integer(),
         optional("ParameterGroupName") => String.t(),
         optional("Port") => integer(),
-        optional("SecurityGroupIds") => list(String.t()()),
-        optional("SnapshotArns") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
+        optional("SnapshotArns") => list(String.t()),
         optional("SnapshotName") => String.t(),
         optional("SnapshotRetentionLimit") => integer(),
         optional("SnapshotWindow") => String.t(),
         optional("SnsTopicArn") => String.t(),
         optional("SubnetGroupName") => String.t(),
         optional("TLSEnabled") => boolean(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ACLName") => String.t(),
         required("ClusterName") => String.t(),
         required("NodeType") => String.t()
@@ -1037,8 +1037,8 @@ defmodule AWS.MemoryDB do
         "ParameterGroupName" => String.t(),
         "ParameterGroupStatus" => String.t(),
         "PendingUpdates" => cluster_pending_updates(),
-        "SecurityGroups" => list(security_group_membership()()),
-        "Shards" => list(shard()()),
+        "SecurityGroups" => list(security_group_membership()),
+        "Shards" => list(shard()),
         "SnapshotRetentionLimit" => integer(),
         "SnapshotWindow" => String.t(),
         "SnsTopicArn" => String.t(),
@@ -1155,7 +1155,7 @@ defmodule AWS.MemoryDB do
         optional("MultiRegionParameterGroupName") => String.t(),
         optional("NumShards") => integer(),
         optional("TLSEnabled") => boolean(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("MultiRegionClusterNameSuffix") => String.t(),
         required("NodeType") => String.t()
       }
@@ -1169,7 +1169,7 @@ defmodule AWS.MemoryDB do
       
       describe_subnet_groups_response() :: %{
         "NextToken" => String.t(),
-        "SubnetGroups" => list(subnet_group()())
+        "SubnetGroups" => list(subnet_group())
       }
       
   """
@@ -1219,7 +1219,7 @@ defmodule AWS.MemoryDB do
       
       update_subnet_group_request() :: %{
         optional("Description") => String.t(),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         required("SubnetGroupName") => String.t()
       }
       
@@ -1260,7 +1260,7 @@ defmodule AWS.MemoryDB do
         "NodeCount" => integer(),
         "NodeType" => String.t(),
         "OfferingType" => String.t(),
-        "RecurringCharges" => list(recurring_charge()()),
+        "RecurringCharges" => list(recurring_charge()),
         "ReservationId" => String.t(),
         "ReservedNodesOfferingId" => String.t(),
         "StartTime" => non_neg_integer(),
@@ -1276,9 +1276,9 @@ defmodule AWS.MemoryDB do
       
       create_subnet_group_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("SubnetGroupName") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
       
   """
@@ -1300,8 +1300,8 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       acl_pending_changes() :: %{
-        "UserNamesToAdd" => list(String.t()()),
-        "UserNamesToRemove" => list(String.t()())
+        "UserNamesToAdd" => list(String.t()),
+        "UserNamesToRemove" => list(String.t())
       }
       
   """
@@ -1324,7 +1324,7 @@ defmodule AWS.MemoryDB do
       
       batch_update_cluster_request() :: %{
         optional("ServiceUpdate") => service_update_request(),
-        required("ClusterNames") => list(String.t()())
+        required("ClusterNames") => list(String.t())
       }
       
   """
@@ -1380,7 +1380,7 @@ defmodule AWS.MemoryDB do
       
       filter() :: %{
         "Name" => String.t(),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
       
   """
@@ -1404,7 +1404,7 @@ defmodule AWS.MemoryDB do
       purchase_reserved_nodes_offering_request() :: %{
         optional("NodeCount") => integer(),
         optional("ReservationId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ReservedNodesOfferingId") => String.t()
       }
       
@@ -1494,7 +1494,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_acls_response() :: %{
-        "ACLs" => list(acl()()),
+        "ACLs" => list(acl()),
         "NextToken" => String.t()
       }
       
@@ -1529,7 +1529,7 @@ defmodule AWS.MemoryDB do
       
       shard() :: %{
         "Name" => String.t(),
-        "Nodes" => list(memorydb_node()()),
+        "Nodes" => list(node()),
         "NumberOfNodes" => integer(),
         "Slots" => String.t(),
         "Status" => String.t()
@@ -1686,7 +1686,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       tag_resource_response() :: %{
-        "TagList" => list(tag()())
+        "TagList" => list(tag())
       }
       
   """
@@ -1720,7 +1720,7 @@ defmodule AWS.MemoryDB do
       
       describe_reserved_nodes_response() :: %{
         "NextToken" => String.t(),
-        "ReservedNodes" => list(reserved_node()())
+        "ReservedNodes" => list(reserved_node())
       }
       
   """
@@ -1759,7 +1759,7 @@ defmodule AWS.MemoryDB do
       
       copy_snapshot_request() :: %{
         optional("KmsKeyId") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TargetBucket") => String.t(),
         required("SourceSnapshotName") => String.t(),
         required("TargetSnapshotName") => String.t()
@@ -1773,7 +1773,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_clusters_response() :: %{
-        "Clusters" => list(cluster()()),
+        "Clusters" => list(cluster()),
         "NextToken" => String.t()
       }
       
@@ -1787,7 +1787,7 @@ defmodule AWS.MemoryDB do
       cluster_pending_updates() :: %{
         "ACLs" => acls_update_status(),
         "Resharding" => resharding_status(),
-        "ServiceUpdates" => list(pending_modified_service_update()())
+        "ServiceUpdates" => list(pending_modified_service_update())
       }
       
   """
@@ -1844,7 +1844,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       user() :: %{
-        "ACLNames" => list(String.t()()),
+        "ACLNames" => list(String.t()),
         "ARN" => String.t(),
         "AccessString" => String.t(),
         "Authentication" => authentication(),
@@ -1881,7 +1881,7 @@ defmodule AWS.MemoryDB do
       
       multi_region_cluster() :: %{
         "ARN" => String.t(),
-        "Clusters" => list(regional_cluster()()),
+        "Clusters" => list(regional_cluster()),
         "Description" => String.t(),
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
@@ -1961,7 +1961,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       authentication_mode() :: %{
-        "Passwords" => list(String.t()()),
+        "Passwords" => list(String.t()),
         "Type" => list(any())
       }
       
@@ -1974,7 +1974,7 @@ defmodule AWS.MemoryDB do
       
       describe_reserved_nodes_offerings_response() :: %{
         "NextToken" => String.t(),
-        "ReservedNodesOfferings" => list(reserved_nodes_offering()())
+        "ReservedNodesOfferings" => list(reserved_nodes_offering())
       }
       
   """
@@ -1997,7 +1997,7 @@ defmodule AWS.MemoryDB do
       
       update_parameter_group_request() :: %{
         required("ParameterGroupName") => String.t(),
-        required("ParameterNameValues") => list(parameter_name_value()())
+        required("ParameterNameValues") => list(parameter_name_value())
       }
       
   """
@@ -2100,7 +2100,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_service_updates_request() :: %{
-        optional("ClusterNames") => list(String.t()()),
+        optional("ClusterNames") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ServiceUpdateName") => String.t(),
@@ -2115,7 +2115,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_engine_versions_response() :: %{
-        "EngineVersions" => list(engine_version_info()()),
+        "EngineVersions" => list(engine_version_info()),
         "NextToken" => String.t()
       }
       
@@ -2230,7 +2230,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       describe_events_response() :: %{
-        "Events" => list(event()()),
+        "Events" => list(event()),
         "NextToken" => String.t()
       }
       
@@ -2287,7 +2287,7 @@ defmodule AWS.MemoryDB do
   ## Example:
       
       create_user_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AccessString") => String.t(),
         required("AuthenticationMode") => authentication_mode(),
         required("UserName") => String.t()
@@ -2671,7 +2671,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, batch_update_cluster_errors()}
   def batch_update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchUpdateCluster", input, options)
   end
@@ -2685,7 +2686,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -2701,7 +2703,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_acl_errors()}
   def create_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateACL", input, options)
   end
@@ -2717,7 +2720,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -2731,7 +2735,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_multi_region_cluster_errors()}
   def create_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMultiRegionCluster", input, options)
   end
@@ -2749,7 +2754,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_parameter_group_errors()}
   def create_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateParameterGroup", input, options)
   end
@@ -2763,7 +2769,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -2786,7 +2793,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_subnet_group_errors()}
   def create_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSubnetGroup", input, options)
   end
@@ -2802,7 +2810,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -2819,7 +2828,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_acl_errors()}
   def delete_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteACL", input, options)
   end
@@ -2839,7 +2849,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -2853,7 +2864,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_multi_region_cluster_errors()}
   def delete_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMultiRegionCluster", input, options)
   end
@@ -2870,7 +2882,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_parameter_group_errors()}
   def delete_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteParameterGroup", input, options)
   end
@@ -2887,7 +2900,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -2904,7 +2918,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_subnet_group_errors()}
   def delete_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSubnetGroup", input, options)
   end
@@ -2920,7 +2935,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -2934,7 +2950,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_acls_errors()}
   def describe_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeACLs", input, options)
   end
@@ -2949,7 +2966,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -2963,7 +2981,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_engine_versions_errors()}
   def describe_engine_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEngineVersions", input, options)
   end
@@ -2983,7 +3002,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -2997,7 +3017,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_multi_region_clusters_errors()}
   def describe_multi_region_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMultiRegionClusters", input, options)
   end
@@ -3014,7 +3035,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameter_groups_errors()}
   def describe_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameterGroups", input, options)
   end
@@ -3028,7 +3050,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_parameters_errors()}
   def describe_parameters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeParameters", input, options)
   end
@@ -3043,7 +3066,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_errors()}
   def describe_reserved_nodes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodes", input, options)
   end
@@ -3061,7 +3085,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_reserved_nodes_offerings_errors()}
   def describe_reserved_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReservedNodesOfferings", input, options)
   end
@@ -3075,7 +3100,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -3093,7 +3119,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -3110,7 +3137,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_subnet_groups_errors()}
   def describe_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSubnetGroups", input, options)
   end
@@ -3124,7 +3152,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -3145,7 +3174,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, failover_shard_errors()}
   def failover_shard(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "FailoverShard", input, options)
   end
@@ -3163,7 +3193,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_multi_region_cluster_updates_errors()}
   def list_allowed_multi_region_cluster_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedMultiRegionClusterUpdates", input, options)
   end
@@ -3181,7 +3212,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_allowed_node_type_updates_errors()}
   def list_allowed_node_type_updates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeUpdates", input, options)
   end
@@ -3204,7 +3236,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -3224,7 +3257,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, purchase_reserved_nodes_offering_errors()}
   def purchase_reserved_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PurchaseReservedNodesOffering", input, options)
   end
@@ -3243,7 +3277,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, reset_parameter_group_errors()}
   def reset_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResetParameterGroup", input, options)
   end
@@ -3275,7 +3310,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3307,7 +3343,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3321,7 +3358,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_acl_errors()}
   def update_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateACL", input, options)
   end
@@ -3338,7 +3376,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -3352,7 +3391,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_multi_region_cluster_errors()}
   def update_multi_region_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMultiRegionCluster", input, options)
   end
@@ -3369,7 +3409,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_parameter_group_errors()}
   def update_parameter_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateParameterGroup", input, options)
   end
@@ -3385,7 +3426,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_subnet_group_errors()}
   def update_subnet_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetGroup", input, options)
   end
@@ -3399,7 +3441,8 @@ defmodule AWS.MemoryDB do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

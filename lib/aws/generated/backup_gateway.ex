@@ -75,7 +75,7 @@ defmodule AWS.BackupGateway do
       put_hypervisor_property_mappings_input() :: %{
         required("HypervisorArn") => String.t(),
         required("IamRoleArn") => String.t(),
-        required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping()())
+        required("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
       }
       
   """
@@ -108,7 +108,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       get_bandwidth_rate_limit_schedule_output() :: %{
-        optional("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()()),
+        optional("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
         optional("GatewayArn") => String.t()
       }
       
@@ -120,7 +120,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       put_bandwidth_rate_limit_schedule_input() :: %{
-        required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()()),
+        required("BandwidthRateLimitIntervals") => list(bandwidth_rate_limit_interval()),
         required("GatewayArn") => String.t()
       }
       
@@ -209,7 +209,7 @@ defmodule AWS.BackupGateway do
       get_hypervisor_property_mappings_output() :: %{
         optional("HypervisorArn") => String.t(),
         optional("IamRoleArn") => String.t(),
-        optional("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping()())
+        optional("VmwareToAwsTagMappings") => list(vmware_to_aws_tag_mapping())
       }
       
   """
@@ -233,7 +233,7 @@ defmodule AWS.BackupGateway do
       
       list_tags_for_resource_output() :: %{
         optional("ResourceArn") => String.t(),
-        optional("Tags") => list(tag()())
+        optional("Tags") => list(tag())
       }
       
   """
@@ -267,7 +267,7 @@ defmodule AWS.BackupGateway do
       
       list_virtual_machines_output() :: %{
         optional("NextToken") => String.t(),
-        optional("VirtualMachines") => list(virtual_machine()())
+        optional("VirtualMachines") => list(virtual_machine())
       }
       
   """
@@ -401,7 +401,7 @@ defmodule AWS.BackupGateway do
       
       bandwidth_rate_limit_interval() :: %{
         "AverageUploadRateLimitInBitsPerSec" => float(),
-        "DaysOfWeek" => list(integer()()),
+        "DaysOfWeek" => list(integer()),
         "EndHourOfDay" => integer(),
         "EndMinuteOfHour" => integer(),
         "StartHourOfDay" => integer(),
@@ -416,7 +416,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       list_gateways_output() :: %{
-        optional("Gateways") => list(gateway()()),
+        optional("Gateways") => list(gateway()),
         optional("NextToken") => String.t()
       }
       
@@ -485,7 +485,7 @@ defmodule AWS.BackupGateway do
       
       tag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -520,7 +520,7 @@ defmodule AWS.BackupGateway do
       import_hypervisor_configuration_input() :: %{
         optional("KmsKeyArn") => String.t(),
         optional("Password") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("Username") => String.t(),
         required("Host") => String.t(),
         required("Name") => String.t()
@@ -610,7 +610,7 @@ defmodule AWS.BackupGateway do
         "Name" => String.t(),
         "Path" => String.t(),
         "ResourceArn" => String.t(),
-        "VmwareTags" => list(vmware_tag()())
+        "VmwareTags" => list(vmware_tag())
       }
       
   """
@@ -646,7 +646,7 @@ defmodule AWS.BackupGateway do
       
       untag_resource_input() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -670,7 +670,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       list_hypervisors_output() :: %{
-        optional("Hypervisors") => list(hypervisor()()),
+        optional("Hypervisors") => list(hypervisor()),
         optional("NextToken") => String.t()
       }
       
@@ -739,7 +739,7 @@ defmodule AWS.BackupGateway do
   ## Example:
       
       create_gateway_input() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ActivationKey") => String.t(),
         required("GatewayDisplayName") => String.t(),
         required("GatewayType") => String.t()
@@ -931,7 +931,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, associate_gateway_to_server_errors()}
   def associate_gateway_to_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateGatewayToServer", input, options)
   end
@@ -947,7 +948,8 @@ defmodule AWS.BackupGateway do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGateway", input, options)
   end
@@ -961,7 +963,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGateway", input, options)
   end
@@ -975,7 +978,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, delete_hypervisor_errors()}
   def delete_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHypervisor", input, options)
   end
@@ -992,7 +996,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, disassociate_gateway_from_server_errors()}
   def disassociate_gateway_from_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateGatewayFromServer", input, options)
   end
@@ -1014,7 +1019,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, get_bandwidth_rate_limit_schedule_errors()}
   def get_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBandwidthRateLimitSchedule", input, options)
   end
@@ -1029,7 +1035,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, get_gateway_errors()}
   def get_gateway(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGateway", input, options)
   end
@@ -1048,7 +1055,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, get_hypervisor_errors()}
   def get_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHypervisor", input, options)
   end
@@ -1066,7 +1074,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, get_hypervisor_property_mappings_errors()}
   def get_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetHypervisorPropertyMappings", input, options)
   end
@@ -1081,7 +1090,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, get_virtual_machine_errors()}
   def get_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetVirtualMachine", input, options)
   end
@@ -1095,7 +1105,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, import_hypervisor_configuration_errors()}
   def import_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ImportHypervisorConfiguration", input, options)
   end
@@ -1111,7 +1122,8 @@ defmodule AWS.BackupGateway do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_gateways(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGateways", input, options)
   end
@@ -1124,7 +1136,8 @@ defmodule AWS.BackupGateway do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_hypervisors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListHypervisors", input, options)
   end
@@ -1139,7 +1152,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1152,7 +1166,8 @@ defmodule AWS.BackupGateway do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_virtual_machines(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVirtualMachines", input, options)
   end
@@ -1174,7 +1189,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, put_bandwidth_rate_limit_schedule_errors()}
   def put_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutBandwidthRateLimitSchedule", input, options)
   end
@@ -1192,7 +1208,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, put_hypervisor_property_mappings_errors()}
   def put_hypervisor_property_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutHypervisorPropertyMappings", input, options)
   end
@@ -1206,7 +1223,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, put_maintenance_start_time_errors()}
   def put_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMaintenanceStartTime", input, options)
   end
@@ -1225,7 +1243,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, start_virtual_machines_metadata_sync_errors()}
   def start_virtual_machines_metadata_sync(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartVirtualMachinesMetadataSync", input, options)
   end
@@ -1239,7 +1258,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1255,7 +1275,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, test_hypervisor_configuration_errors()}
   def test_hypervisor_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TestHypervisorConfiguration", input, options)
   end
@@ -1269,7 +1290,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1286,7 +1308,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
@@ -1306,7 +1329,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
@@ -1325,7 +1349,8 @@ defmodule AWS.BackupGateway do
           | {:error, term()}
           | {:error, update_hypervisor_errors()}
   def update_hypervisor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateHypervisor", input, options)
   end

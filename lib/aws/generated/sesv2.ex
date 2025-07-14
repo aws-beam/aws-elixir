@@ -79,7 +79,7 @@ defmodule AWS.SESv2 do
         "IdentityType" => list(any()),
         "MailFromAttributes" => mail_from_attributes(),
         "Policies" => map(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerificationInfo" => verification_info(),
         "VerificationStatus" => list(any()),
         "VerifiedForSendingStatus" => boolean()
@@ -201,7 +201,7 @@ defmodule AWS.SESv2 do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -286,8 +286,8 @@ defmodule AWS.SESv2 do
         "CreatedTimestamp" => non_neg_integer(),
         "Description" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Tags" => list(tag()()),
-        "Topics" => list(topic()())
+        "Tags" => list(tag()),
+        "Topics" => list(topic())
       }
 
   """
@@ -321,7 +321,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_email_identities_response() :: %{
-        "EmailIdentities" => list(identity_info()()),
+        "EmailIdentities" => list(identity_info()),
         "NextToken" => String.t()
       }
 
@@ -486,7 +486,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_deliverability_test_reports_response() :: %{
-        "DeliverabilityTestReports" => list(deliverability_test_report()()),
+        "DeliverabilityTestReports" => list(deliverability_test_report()),
         "NextToken" => String.t()
       }
 
@@ -671,7 +671,7 @@ defmodule AWS.SESv2 do
         "SigningAttributesOrigin" => list(any()),
         "SigningEnabled" => boolean(),
         "Status" => list(any()),
-        "Tokens" => list(String.t()())
+        "Tokens" => list(String.t())
       }
 
   """
@@ -751,7 +751,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_deliverability_dashboard_option_request() :: %{
-        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()()),
+        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()),
         required("DashboardEnabled") => boolean()
       }
 
@@ -780,7 +780,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       put_account_details_request() :: %{
-        optional("AdditionalContactEmailAddresses") => list(String.t()()),
+        optional("AdditionalContactEmailAddresses") => list(String.t()),
         optional("ContactLanguage") => list(any()),
         optional("ProductionAccessEnabled") => boolean(),
         optional("UseCaseDescription") => String.t(),
@@ -796,7 +796,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       send_bulk_email_response() :: %{
-        "BulkEmailEntryResults" => list(bulk_email_entry_result()())
+        "BulkEmailEntryResults" => list(bulk_email_entry_result())
       }
 
   """
@@ -850,9 +850,9 @@ defmodule AWS.SESv2 do
 
       get_deliverability_dashboard_options_response() :: %{
         "AccountStatus" => list(any()),
-        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()),
         "DashboardEnabled" => boolean(),
-        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()),
         "SubscriptionExpiryDate" => non_neg_integer()
       }
 
@@ -882,7 +882,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_multi_region_endpoints_response() :: %{
-        "MultiRegionEndpoints" => list(multi_region_endpoint()()),
+        "MultiRegionEndpoints" => list(multi_region_endpoint()),
         "NextToken" => String.t()
       }
 
@@ -980,7 +980,7 @@ defmodule AWS.SESv2 do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -1032,7 +1032,7 @@ defmodule AWS.SESv2 do
 
       list_suppressed_destinations_response() :: %{
         "NextToken" => String.t(),
-        "SuppressedDestinationSummaries" => list(suppressed_destination_summary()())
+        "SuppressedDestinationSummaries" => list(suppressed_destination_summary())
       }
 
   """
@@ -1043,7 +1043,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_domain_deliverability_campaigns_response() :: %{
-        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()()),
+        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()),
         "NextToken" => String.t()
       }
 
@@ -1119,7 +1119,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       cloud_watch_destination() :: %{
-        "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
       }
 
   """
@@ -1165,7 +1165,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       overall_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "DomainIspPlacements" => list(domain_isp_placement()),
         "ReadRatePercent" => float(),
         "VolumeStatistics" => volume_statistics()
       }
@@ -1247,7 +1247,7 @@ defmodule AWS.SESv2 do
 
       email_insights() :: %{
         "Destination" => String.t(),
-        "Events" => list(insights_event()()),
+        "Events" => list(insights_event()),
         "Isp" => String.t()
       }
 
@@ -1259,7 +1259,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_blacklist_reports_request() :: %{
-        required("BlacklistItemNames") => list(String.t()())
+        required("BlacklistItemNames") => list(String.t())
       }
 
   """
@@ -1279,12 +1279,12 @@ defmodule AWS.SESv2 do
   ## Example:
 
       message_insights_filters() :: %{
-        "Destination" => list(String.t()()),
-        "FromEmailAddress" => list(String.t()()),
-        "Isp" => list(String.t()()),
+        "Destination" => list(String.t()),
+        "FromEmailAddress" => list(String.t()),
+        "Isp" => list(String.t()),
         "LastDeliveryEvent" => list(list(any())()),
         "LastEngagementEvent" => list(list(any())()),
-        "Subject" => list(String.t()())
+        "Subject" => list(String.t())
       }
 
   """
@@ -1374,7 +1374,7 @@ defmodule AWS.SESv2 do
       create_email_identity_request() :: %{
         optional("ConfigurationSetName") => String.t(),
         optional("DkimSigningAttributes") => dkim_signing_attributes(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EmailIdentity") => String.t()
       }
 
@@ -1387,7 +1387,7 @@ defmodule AWS.SESv2 do
 
       inbox_placement_tracking_option() :: %{
         "Global" => boolean(),
-        "TrackedIsps" => list(String.t()())
+        "TrackedIsps" => list(String.t())
       }
 
   """
@@ -1628,7 +1628,7 @@ defmodule AWS.SESv2 do
         "EndpointId" => String.t(),
         "EndpointName" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Regions" => list(String.t()()),
+        "Regions" => list(String.t()),
         "Status" => list(any())
       }
 
@@ -1678,7 +1678,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       details() :: %{
-        "RoutesDetails" => list(route_details()())
+        "RoutesDetails" => list(route_details())
       }
 
   """
@@ -1752,7 +1752,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       account_details() :: %{
-        "AdditionalContactEmailAddresses" => list(String.t()()),
+        "AdditionalContactEmailAddresses" => list(String.t()),
         "ContactLanguage" => list(any()),
         "MailType" => list(any()),
         "ReviewDetails" => review_details(),
@@ -1805,7 +1805,7 @@ defmodule AWS.SESv2 do
         "EndpointId" => String.t(),
         "EndpointName" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "Routes" => list(route()()),
+        "Routes" => list(route()),
         "Status" => list(any())
       }
 
@@ -1848,7 +1848,7 @@ defmodule AWS.SESv2 do
       metrics_data_source() :: %{
         "Dimensions" => map(),
         "EndDate" => non_neg_integer(),
-        "Metrics" => list(export_metric()()),
+        "Metrics" => list(export_metric()),
         "Namespace" => list(any()),
         "StartDate" => non_neg_integer()
       }
@@ -1889,7 +1889,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       batch_get_metric_data_request() :: %{
-        required("Queries") => list(batch_get_metric_data_query()())
+        required("Queries") => list(batch_get_metric_data_query())
       }
 
   """
@@ -1900,7 +1900,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1911,7 +1911,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t()()),
+        "ConfigurationSets" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1950,7 +1950,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_configuration_set_event_destinations_response() :: %{
-        "EventDestinations" => list(event_destination()())
+        "EventDestinations" => list(event_destination())
       }
 
   """
@@ -2043,9 +2043,9 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_message_insights_response() :: %{
-        "EmailTags" => list(message_tag()()),
+        "EmailTags" => list(message_tag()),
         "FromEmailAddress" => String.t(),
-        "Insights" => list(email_insights()()),
+        "Insights" => list(email_insights()),
         "MessageId" => String.t(),
         "Subject" => String.t()
       }
@@ -2058,7 +2058,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_custom_verification_email_templates_response() :: %{
-        "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()()),
+        "CustomVerificationEmailTemplates" => list(custom_verification_email_template_metadata()),
         "NextToken" => String.t()
       }
 
@@ -2122,8 +2122,8 @@ defmodule AWS.SESv2 do
 
       create_contact_list_request() :: %{
         optional("Description") => String.t(),
-        optional("Tags") => list(tag()()),
-        optional("Topics") => list(topic()()),
+        optional("Tags") => list(tag()),
+        optional("Topics") => list(topic()),
         required("ContactListName") => String.t()
       }
 
@@ -2135,7 +2135,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       create_multi_region_endpoint_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Details") => details(),
         required("EndpointName") => String.t()
       }
@@ -2150,8 +2150,8 @@ defmodule AWS.SESv2 do
       contact() :: %{
         "EmailAddress" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "TopicDefaultPreferences" => list(topic_preference()()),
-        "TopicPreferences" => list(topic_preference()()),
+        "TopicDefaultPreferences" => list(topic_preference()),
+        "TopicPreferences" => list(topic_preference()),
         "UnsubscribeAll" => boolean()
       }
 
@@ -2215,14 +2215,14 @@ defmodule AWS.SESv2 do
 
       send_bulk_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("DefaultEmailTags") => list(message_tag()()),
+        optional("DefaultEmailTags") => list(message_tag()),
         optional("EndpointId") => String.t(),
         optional("FeedbackForwardingEmailAddress") => String.t(),
         optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
         optional("FromEmailAddress") => String.t(),
         optional("FromEmailAddressIdentityArn") => String.t(),
-        optional("ReplyToAddresses") => list(String.t()()),
-        required("BulkEmailEntries") => list(bulk_email_entry()()),
+        optional("ReplyToAddresses") => list(String.t()),
+        required("BulkEmailEntries") => list(bulk_email_entry()),
         required("DefaultContent") => bulk_email_content()
       }
 
@@ -2295,7 +2295,7 @@ defmodule AWS.SESv2 do
 
       create_dedicated_ip_pool_request() :: %{
         optional("ScalingMode") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("PoolName") => String.t()
       }
 
@@ -2354,7 +2354,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_import_jobs_response() :: %{
-        "ImportJobs" => list(import_job_summary()()),
+        "ImportJobs" => list(import_job_summary()),
         "NextToken" => String.t()
       }
 
@@ -2366,8 +2366,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       batch_get_metric_data_response() :: %{
-        "Errors" => list(metric_data_error()()),
-        "Results" => list(metric_data_result()())
+        "Errors" => list(metric_data_error()),
+        "Results" => list(metric_data_result())
       }
 
   """
@@ -2534,7 +2534,7 @@ defmodule AWS.SESv2 do
 
       create_deliverability_test_report_request() :: %{
         optional("ReportName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Content") => email_content(),
         required("FromEmailAddress") => String.t()
       }
@@ -2559,7 +2559,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_contacts_response() :: %{
-        "Contacts" => list(contact()()),
+        "Contacts" => list(contact()),
         "NextToken" => String.t()
       }
 
@@ -2602,7 +2602,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       daily_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "DomainIspPlacements" => list(domain_isp_placement()),
         "StartDate" => non_neg_integer(),
         "VolumeStatistics" => volume_statistics()
       }
@@ -2684,7 +2684,7 @@ defmodule AWS.SESv2 do
 
       list_email_templates_response() :: %{
         "NextToken" => String.t(),
-        "TemplatesMetadata" => list(email_template_metadata()())
+        "TemplatesMetadata" => list(email_template_metadata())
       }
 
   """
@@ -2707,7 +2707,7 @@ defmodule AWS.SESv2 do
 
       update_contact_request() :: %{
         optional("AttributesData") => String.t(),
-        optional("TopicPreferences") => list(topic_preference()()),
+        optional("TopicPreferences") => list(topic_preference()),
         optional("UnsubscribeAll") => boolean()
       }
 
@@ -2720,7 +2720,7 @@ defmodule AWS.SESv2 do
 
       put_email_identity_dkim_signing_attributes_response() :: %{
         "DkimStatus" => list(any()),
-        "DkimTokens" => list(String.t()())
+        "DkimTokens" => list(String.t())
       }
 
   """
@@ -2751,9 +2751,9 @@ defmodule AWS.SESv2 do
   ## Example:
 
       destination() :: %{
-        "BccAddresses" => list(String.t()()),
-        "CcAddresses" => list(String.t()()),
-        "ToAddresses" => list(String.t()())
+        "BccAddresses" => list(String.t()),
+        "CcAddresses" => list(String.t()),
+        "ToAddresses" => list(String.t())
       }
 
   """
@@ -2794,7 +2794,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_domain_statistics_report_response() :: %{
-        "DailyVolumes" => list(daily_volume()()),
+        "DailyVolumes" => list(daily_volume()),
         "OverallVolume" => overall_volume()
       }
 
@@ -2836,7 +2836,7 @@ defmodule AWS.SESv2 do
 
       create_contact_request() :: %{
         optional("AttributesData") => String.t(),
-        optional("TopicPreferences") => list(topic_preference()()),
+        optional("TopicPreferences") => list(topic_preference()),
         optional("UnsubscribeAll") => boolean(),
         required("EmailAddress") => String.t()
       }
@@ -2872,7 +2872,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_dedicated_ip_pools_response() :: %{
-        "DedicatedIpPools" => list(String.t()()),
+        "DedicatedIpPools" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -3085,7 +3085,7 @@ defmodule AWS.SESv2 do
         "ReputationOptions" => reputation_options(),
         "SendingOptions" => sending_options(),
         "SuppressionOptions" => suppression_options(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrackingOptions" => tracking_options(),
         "VdmOptions" => vdm_options()
       }
@@ -3119,8 +3119,8 @@ defmodule AWS.SESv2 do
   ## Example:
 
       template() :: %{
-        "Attachments" => list(attachment()()),
-        "Headers" => list(message_header()()),
+        "Attachments" => list(attachment()),
+        "Headers" => list(message_header()),
         "TemplateArn" => String.t(),
         "TemplateContent" => email_template_content(),
         "TemplateData" => String.t(),
@@ -3137,14 +3137,14 @@ defmodule AWS.SESv2 do
       send_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
         optional("Destination") => destination(),
-        optional("EmailTags") => list(message_tag()()),
+        optional("EmailTags") => list(message_tag()),
         optional("EndpointId") => String.t(),
         optional("FeedbackForwardingEmailAddress") => String.t(),
         optional("FeedbackForwardingEmailAddressIdentityArn") => String.t(),
         optional("FromEmailAddress") => String.t(),
         optional("FromEmailAddressIdentityArn") => String.t(),
         optional("ListManagementOptions") => list_management_options(),
-        optional("ReplyToAddresses") => list(String.t()()),
+        optional("ReplyToAddresses") => list(String.t()),
         required("Content") => email_content()
       }
 
@@ -3195,7 +3195,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_export_jobs_response() :: %{
-        "ExportJobs" => list(export_job_summary()()),
+        "ExportJobs" => list(export_job_summary()),
         "NextToken" => String.t()
       }
 
@@ -3244,7 +3244,7 @@ defmodule AWS.SESv2 do
       domain_deliverability_campaign() :: %{
         "CampaignId" => String.t(),
         "DeleteRate" => float(),
-        "Esps" => list(String.t()()),
+        "Esps" => list(String.t()),
         "FirstSeenDateTime" => non_neg_integer(),
         "FromAddress" => String.t(),
         "ImageUrl" => String.t(),
@@ -3253,7 +3253,7 @@ defmodule AWS.SESv2 do
         "ProjectedVolume" => float(),
         "ReadDeleteRate" => float(),
         "ReadRate" => float(),
-        "SendingIps" => list(String.t()()),
+        "SendingIps" => list(String.t()),
         "SpamCount" => float(),
         "Subject" => String.t()
       }
@@ -3278,7 +3278,7 @@ defmodule AWS.SESv2 do
 
       list_recommendations_response() :: %{
         "NextToken" => String.t(),
-        "Recommendations" => list(recommendation()())
+        "Recommendations" => list(recommendation())
       }
 
   """
@@ -3335,8 +3335,8 @@ defmodule AWS.SESv2 do
         "CreatedTimestamp" => non_neg_integer(),
         "EmailAddress" => String.t(),
         "LastUpdatedTimestamp" => non_neg_integer(),
-        "TopicDefaultPreferences" => list(topic_preference()()),
-        "TopicPreferences" => list(topic_preference()()),
+        "TopicDefaultPreferences" => list(topic_preference()),
+        "TopicPreferences" => list(topic_preference()),
         "UnsubscribeAll" => boolean()
       }
 
@@ -3384,8 +3384,8 @@ defmodule AWS.SESv2 do
 
       bulk_email_entry() :: %{
         optional("ReplacementEmailContent") => replacement_email_content(),
-        optional("ReplacementHeaders") => list(message_header()()),
-        optional("ReplacementTags") => list(message_tag()()),
+        optional("ReplacementHeaders") => list(message_header()),
+        optional("ReplacementTags") => list(message_tag()),
         required("Destination") => destination()
       }
 
@@ -3402,7 +3402,7 @@ defmodule AWS.SESv2 do
         optional("ReputationOptions") => reputation_options(),
         optional("SendingOptions") => sending_options(),
         optional("SuppressionOptions") => suppression_options(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrackingOptions") => tracking_options(),
         optional("VdmOptions") => vdm_options(),
         required("ConfigurationSetName") => String.t()
@@ -3472,7 +3472,7 @@ defmodule AWS.SESv2 do
 
       update_contact_list_request() :: %{
         optional("Description") => String.t(),
-        optional("Topics") => list(topic()())
+        optional("Topics") => list(topic())
       }
 
   """
@@ -3484,8 +3484,8 @@ defmodule AWS.SESv2 do
 
       metric_data_result() :: %{
         "Id" => String.t(),
-        "Timestamps" => list(non_neg_integer()()),
-        "Values" => list(float()())
+        "Timestamps" => list(non_neg_integer()),
+        "Values" => list(float())
       }
 
   """
@@ -3533,10 +3533,10 @@ defmodule AWS.SESv2 do
 
       get_deliverability_test_report_response() :: %{
         "DeliverabilityTestReport" => deliverability_test_report(),
-        "IspPlacements" => list(isp_placement()()),
+        "IspPlacements" => list(isp_placement()),
         "Message" => String.t(),
         "OverallPlacement" => placement_statistics(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -3596,7 +3596,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       get_dedicated_ips_response() :: %{
-        "DedicatedIps" => list(dedicated_ip()()),
+        "DedicatedIps" => list(dedicated_ip()),
         "NextToken" => String.t()
       }
 
@@ -3608,7 +3608,7 @@ defmodule AWS.SESv2 do
   ## Example:
 
       list_contact_lists_response() :: %{
-        "ContactLists" => list(contact_list()()),
+        "ContactLists" => list(contact_list()),
         "NextToken" => String.t()
       }
 
@@ -3620,9 +3620,9 @@ defmodule AWS.SESv2 do
   ## Example:
 
       message() :: %{
-        "Attachments" => list(attachment()()),
+        "Attachments" => list(attachment()),
         "Body" => body(),
-        "Headers" => list(message_header()()),
+        "Headers" => list(message_header()),
         "Subject" => content()
       }
 

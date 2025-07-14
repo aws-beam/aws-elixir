@@ -176,7 +176,7 @@ defmodule AWS.PinpointSMSVoice do
   ## Example:
 
       get_configuration_set_event_destinations_response() :: %{
-        "EventDestinations" => list(event_destination()())
+        "EventDestinations" => list(event_destination())
       }
 
   """
@@ -233,7 +233,7 @@ defmodule AWS.PinpointSMSVoice do
   ## Example:
 
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t()()),
+        "ConfigurationSets" => list(String.t()),
         "NextToken" => String.t()
       }
 

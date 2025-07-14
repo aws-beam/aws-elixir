@@ -219,7 +219,7 @@ defmodule AWS.SupportApp do
 
       list_slack_channel_configurations_result() :: %{
         optional("nextToken") => String.t(),
-        required("slackChannelConfigurations") => list(slack_channel_configuration()())
+        required("slackChannelConfigurations") => list(slack_channel_configuration())
       }
 
   """
@@ -242,7 +242,7 @@ defmodule AWS.SupportApp do
 
       list_slack_workspace_configurations_result() :: %{
         optional("nextToken") => String.t(),
-        optional("slackWorkspaceConfigurations") => list(slack_workspace_configuration()())
+        optional("slackWorkspaceConfigurations") => list(slack_workspace_configuration())
       }
 
   """

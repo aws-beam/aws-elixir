@@ -57,9 +57,9 @@ defmodule AWS.CognitoSync do
         "DatasetExists" => boolean(),
         "DatasetSyncCount" => float(),
         "LastModifiedBy" => String.t(),
-        "MergedDatasetNames" => list(String.t()()),
+        "MergedDatasetNames" => list(String.t()),
         "NextToken" => String.t(),
-        "Records" => list(record()()),
+        "Records" => list(record()),
         "SyncSessionToken" => String.t()
       }
 
@@ -108,7 +108,7 @@ defmodule AWS.CognitoSync do
 
       list_identity_pool_usage_response() :: %{
         "Count" => integer(),
-        "IdentityPoolUsages" => list(identity_pool_usage()()),
+        "IdentityPoolUsages" => list(identity_pool_usage()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
@@ -130,7 +130,7 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       push_sync() :: %{
-        "ApplicationArns" => list(String.t()()),
+        "ApplicationArns" => list(String.t()),
         "RoleArn" => String.t()
       }
 
@@ -203,7 +203,7 @@ defmodule AWS.CognitoSync do
       update_records_request() :: %{
         optional("ClientContext") => String.t(),
         optional("DeviceId") => String.t(),
-        optional("RecordPatches") => list(record_patch()()),
+        optional("RecordPatches") => list(record_patch()),
         required("SyncSessionToken") => String.t()
       }
 
@@ -469,7 +469,7 @@ defmodule AWS.CognitoSync do
   ## Example:
 
       update_records_response() :: %{
-        "Records" => list(record()())
+        "Records" => list(record())
       }
 
   """
@@ -560,7 +560,7 @@ defmodule AWS.CognitoSync do
 
       list_datasets_response() :: %{
         "Count" => integer(),
-        "Datasets" => list(dataset()()),
+        "Datasets" => list(dataset()),
         "NextToken" => String.t()
       }
 

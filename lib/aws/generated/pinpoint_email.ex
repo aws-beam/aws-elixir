@@ -88,7 +88,7 @@ defmodule AWS.PinpointEmail do
         "FeedbackForwardingStatus" => boolean(),
         "IdentityType" => list(any()),
         "MailFromAttributes" => mail_from_attributes(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "VerifiedForSendingStatus" => boolean()
       }
 
@@ -131,7 +131,7 @@ defmodule AWS.PinpointEmail do
 
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -191,7 +191,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_email_identities_response() :: %{
-        "EmailIdentities" => list(identity_info()()),
+        "EmailIdentities" => list(identity_info()),
         "NextToken" => String.t()
       }
 
@@ -253,7 +253,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_deliverability_test_reports_response() :: %{
-        "DeliverabilityTestReports" => list(deliverability_test_report()()),
+        "DeliverabilityTestReports" => list(deliverability_test_report()),
         "NextToken" => String.t()
       }
 
@@ -312,7 +312,7 @@ defmodule AWS.PinpointEmail do
       dkim_attributes() :: %{
         "SigningEnabled" => boolean(),
         "Status" => list(any()),
-        "Tokens" => list(String.t()())
+        "Tokens" => list(String.t())
       }
 
   """
@@ -347,7 +347,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       put_deliverability_dashboard_option_request() :: %{
-        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()()),
+        optional("SubscribedDomains") => list(domain_deliverability_tracking_option()),
         required("DashboardEnabled") => boolean()
       }
 
@@ -393,9 +393,9 @@ defmodule AWS.PinpointEmail do
 
       get_deliverability_dashboard_options_response() :: %{
         "AccountStatus" => list(any()),
-        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "ActiveSubscribedDomains" => list(domain_deliverability_tracking_option()),
         "DashboardEnabled" => boolean(),
-        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()()),
+        "PendingExpirationSubscribedDomains" => list(domain_deliverability_tracking_option()),
         "SubscriptionExpiryDate" => non_neg_integer()
       }
 
@@ -448,7 +448,7 @@ defmodule AWS.PinpointEmail do
 
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -498,7 +498,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_domain_deliverability_campaigns_response() :: %{
-        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()()),
+        "DomainDeliverabilityCampaigns" => list(domain_deliverability_campaign()),
         "NextToken" => String.t()
       }
 
@@ -539,7 +539,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       cloud_watch_destination() :: %{
-        "DimensionConfigurations" => list(cloud_watch_dimension_configuration()())
+        "DimensionConfigurations" => list(cloud_watch_dimension_configuration())
       }
 
   """
@@ -574,7 +574,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       overall_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "DomainIspPlacements" => list(domain_isp_placement()),
         "ReadRatePercent" => float(),
         "VolumeStatistics" => volume_statistics()
       }
@@ -616,7 +616,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       get_blacklist_reports_request() :: %{
-        required("BlacklistItemNames") => list(String.t()())
+        required("BlacklistItemNames") => list(String.t())
       }
 
   """
@@ -670,7 +670,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       create_email_identity_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("EmailIdentity") => String.t()
       }
 
@@ -683,7 +683,7 @@ defmodule AWS.PinpointEmail do
 
       inbox_placement_tracking_option() :: %{
         "Global" => boolean(),
-        "TrackedIsps" => list(String.t()())
+        "TrackedIsps" => list(String.t())
       }
 
   """
@@ -840,7 +840,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -851,7 +851,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_configuration_sets_response() :: %{
-        "ConfigurationSets" => list(String.t()()),
+        "ConfigurationSets" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -875,7 +875,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       get_configuration_set_event_destinations_response() :: %{
-        "EventDestinations" => list(event_destination()())
+        "EventDestinations" => list(event_destination())
       }
 
   """
@@ -984,7 +984,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       create_dedicated_ip_pool_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("PoolName") => String.t()
       }
 
@@ -1059,7 +1059,7 @@ defmodule AWS.PinpointEmail do
 
       create_deliverability_test_report_request() :: %{
         optional("ReportName") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Content") => email_content(),
         required("FromEmailAddress") => String.t()
       }
@@ -1072,7 +1072,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       daily_volume() :: %{
-        "DomainIspPlacements" => list(domain_isp_placement()()),
+        "DomainIspPlacements" => list(domain_isp_placement()),
         "StartDate" => non_neg_integer(),
         "VolumeStatistics" => volume_statistics()
       }
@@ -1138,9 +1138,9 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       destination() :: %{
-        "BccAddresses" => list(String.t()()),
-        "CcAddresses" => list(String.t()()),
-        "ToAddresses" => list(String.t()())
+        "BccAddresses" => list(String.t()),
+        "CcAddresses" => list(String.t()),
+        "ToAddresses" => list(String.t())
       }
 
   """
@@ -1172,7 +1172,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       get_domain_statistics_report_response() :: %{
-        "DailyVolumes" => list(daily_volume()()),
+        "DailyVolumes" => list(daily_volume()),
         "OverallVolume" => overall_volume()
       }
 
@@ -1204,7 +1204,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       list_dedicated_ip_pools_response() :: %{
-        "DedicatedIpPools" => list(String.t()()),
+        "DedicatedIpPools" => list(String.t()),
         "NextToken" => String.t()
       }
 
@@ -1329,7 +1329,7 @@ defmodule AWS.PinpointEmail do
         "DeliveryOptions" => delivery_options(),
         "ReputationOptions" => reputation_options(),
         "SendingOptions" => sending_options(),
-        "Tags" => list(tag()()),
+        "Tags" => list(tag()),
         "TrackingOptions" => tracking_options()
       }
 
@@ -1354,10 +1354,10 @@ defmodule AWS.PinpointEmail do
 
       send_email_request() :: %{
         optional("ConfigurationSetName") => String.t(),
-        optional("EmailTags") => list(message_tag()()),
+        optional("EmailTags") => list(message_tag()),
         optional("FeedbackForwardingEmailAddress") => String.t(),
         optional("FromEmailAddress") => String.t(),
-        optional("ReplyToAddresses") => list(String.t()()),
+        optional("ReplyToAddresses") => list(String.t()),
         required("Content") => email_content(),
         required("Destination") => destination()
       }
@@ -1392,7 +1392,7 @@ defmodule AWS.PinpointEmail do
       domain_deliverability_campaign() :: %{
         "CampaignId" => String.t(),
         "DeleteRate" => float(),
-        "Esps" => list(String.t()()),
+        "Esps" => list(String.t()),
         "FirstSeenDateTime" => non_neg_integer(),
         "FromAddress" => String.t(),
         "ImageUrl" => String.t(),
@@ -1401,7 +1401,7 @@ defmodule AWS.PinpointEmail do
         "ProjectedVolume" => float(),
         "ReadDeleteRate" => float(),
         "ReadRate" => float(),
-        "SendingIps" => list(String.t()()),
+        "SendingIps" => list(String.t()),
         "SpamCount" => float(),
         "Subject" => String.t()
       }
@@ -1458,7 +1458,7 @@ defmodule AWS.PinpointEmail do
         optional("DeliveryOptions") => delivery_options(),
         optional("ReputationOptions") => reputation_options(),
         optional("SendingOptions") => sending_options(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TrackingOptions") => tracking_options(),
         required("ConfigurationSetName") => String.t()
       }
@@ -1519,10 +1519,10 @@ defmodule AWS.PinpointEmail do
 
       get_deliverability_test_report_response() :: %{
         "DeliverabilityTestReport" => deliverability_test_report(),
-        "IspPlacements" => list(isp_placement()()),
+        "IspPlacements" => list(isp_placement()),
         "Message" => String.t(),
         "OverallPlacement" => placement_statistics(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1542,7 +1542,7 @@ defmodule AWS.PinpointEmail do
   ## Example:
 
       get_dedicated_ips_response() :: %{
-        "DedicatedIps" => list(dedicated_ip()()),
+        "DedicatedIps" => list(dedicated_ip()),
         "NextToken" => String.t()
       }
 

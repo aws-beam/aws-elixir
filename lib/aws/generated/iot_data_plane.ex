@@ -146,7 +146,7 @@ defmodule AWS.IoTDataPlane do
 
       list_named_shadows_for_thing_response() :: %{
         "nextToken" => String.t(),
-        "results" => list(String.t()()),
+        "results" => list(String.t()),
         "timestamp" => float()
       }
 
@@ -171,7 +171,7 @@ defmodule AWS.IoTDataPlane do
 
       list_retained_messages_response() :: %{
         "nextToken" => String.t(),
-        "retainedTopics" => list(retained_message_summary()())
+        "retainedTopics" => list(retained_message_summary())
       }
 
   """

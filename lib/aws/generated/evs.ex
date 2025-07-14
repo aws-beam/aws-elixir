@@ -45,7 +45,7 @@ defmodule AWS.Evs do
   ## Example:
       
       list_environment_hosts_response() :: %{
-        "environmentHosts" => list(host()()),
+        "environmentHosts" => list(host()),
         "nextToken" => String.t()
       }
       
@@ -210,7 +210,7 @@ defmodule AWS.Evs do
       
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -221,7 +221,7 @@ defmodule AWS.Evs do
   ## Example:
       
       service_access_security_groups() :: %{
-        "securityGroups" => list(String.t()())
+        "securityGroups" => list(String.t())
       }
       
   """
@@ -232,7 +232,7 @@ defmodule AWS.Evs do
   ## Example:
       
       connectivity_info() :: %{
-        "privateRouteServerPeerings" => list(String.t()())
+        "privateRouteServerPeerings" => list(String.t())
       }
       
   """
@@ -256,17 +256,17 @@ defmodule AWS.Evs do
   ## Example:
       
       environment() :: %{
-        "checks" => list(check()()),
+        "checks" => list(check()),
         "connectivityInfo" => connectivity_info(),
         "createdAt" => [non_neg_integer()],
-        "credentials" => list(secret()()),
+        "credentials" => list(secret()),
         "environmentArn" => String.t(),
         "environmentId" => String.t(),
         "environmentName" => String.t(),
         "environmentState" => list(any()),
         "environmentStatus" => list(any()),
         "kmsKeyId" => [String.t()],
-        "licenseInfo" => list(license_info()()),
+        "licenseInfo" => list(license_info()),
         "modifiedAt" => [non_neg_integer()],
         "serviceAccessSecurityGroups" => service_access_security_groups(),
         "serviceAccessSubnetId" => String.t(),
@@ -308,7 +308,7 @@ defmodule AWS.Evs do
   ## Example:
       
       list_environment_vlans_response() :: %{
-        "environmentVlans" => list(vlan()()),
+        "environmentVlans" => list(vlan()),
         "nextToken" => String.t()
       }
       
@@ -385,7 +385,7 @@ defmodule AWS.Evs do
         "ipAddress" => String.t(),
         "keyName" => String.t(),
         "modifiedAt" => [non_neg_integer()],
-        "networkInterfaces" => list(network_interface()()),
+        "networkInterfaces" => list(network_interface()),
         "placementGroupId" => String.t(),
         "stateDetails" => String.t()
       }
@@ -453,7 +453,7 @@ defmodule AWS.Evs do
   ## Example:
       
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -489,7 +489,7 @@ defmodule AWS.Evs do
   ## Example:
       
       list_environments_response() :: %{
-        "environmentSummaries" => list(environment_summary()()),
+        "environmentSummaries" => list(environment_summary()),
         "nextToken" => String.t()
       }
       
@@ -507,9 +507,9 @@ defmodule AWS.Evs do
         optional("serviceAccessSecurityGroups") => service_access_security_groups(),
         optional("tags") => map(),
         required("connectivityInfo") => connectivity_info(),
-        required("hosts") => list(host_info_for_create()()),
+        required("hosts") => list(host_info_for_create()),
         required("initialVlans") => initial_vlans(),
-        required("licenseInfo") => list(license_info()()),
+        required("licenseInfo") => list(license_info()),
         required("serviceAccessSubnetId") => String.t(),
         required("siteId") => [String.t()],
         required("termsAccepted") => [boolean()],
@@ -638,7 +638,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -671,7 +672,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, create_environment_host_errors()}
   def create_environment_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentHost", input, options)
   end
@@ -692,7 +694,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -710,7 +713,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, delete_environment_host_errors()}
   def delete_environment_host(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentHost", input, options)
   end
@@ -724,7 +728,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
   end
@@ -738,7 +743,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environment_hosts_errors()}
   def list_environment_hosts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentHosts", input, options)
   end
@@ -752,7 +758,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environment_vlans_errors()}
   def list_environment_vlans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironmentVlans", input, options)
   end
@@ -767,7 +774,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -781,7 +789,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -803,7 +812,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -817,7 +827,8 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

@@ -94,7 +94,7 @@ defmodule AWS.CostOptimizationHub do
       
       resource_cost_calculation() :: %{
         "pricing" => resource_pricing(),
-        "usages" => list(usage()())
+        "usages" => list(usage())
       }
       
   """
@@ -171,7 +171,7 @@ defmodule AWS.CostOptimizationHub do
       
       list_enrollment_statuses_response() :: %{
         "includeMemberAccounts" => [boolean()],
-        "items" => list(account_enrollment_status()()),
+        "items" => list(account_enrollment_status()),
         "nextToken" => [String.t()]
       }
       
@@ -462,7 +462,7 @@ defmodule AWS.CostOptimizationHub do
         "currencyCode" => [String.t()],
         "estimatedTotalDedupedSavings" => [float()],
         "groupBy" => [String.t()],
-        "items" => list(recommendation_summary()()),
+        "items" => list(recommendation_summary()),
         "metrics" => summary_metrics_result(),
         "nextToken" => [String.t()]
       }
@@ -569,7 +569,7 @@ defmodule AWS.CostOptimizationHub do
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
         "source" => list(any()),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -747,7 +747,7 @@ defmodule AWS.CostOptimizationHub do
   ## Example:
       
       filter() :: %{
-        "accountIds" => list(String.t()()),
+        "accountIds" => list(String.t()),
         "actionTypes" => list(list(any())()),
         "implementationEfforts" => list(list(any())()),
         "recommendationIds" => list([String.t()]()),
@@ -757,7 +757,7 @@ defmodule AWS.CostOptimizationHub do
         "resourceTypes" => list(list(any())()),
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -782,7 +782,7 @@ defmodule AWS.CostOptimizationHub do
       ec2_auto_scaling_group_configuration() :: %{
         "allocationStrategy" => list(any()),
         "instance" => instance_configuration(),
-        "mixedInstances" => list(mixed_instance_configuration()()),
+        "mixedInstances" => list(mixed_instance_configuration()),
         "type" => list(any())
       }
       
@@ -911,7 +911,7 @@ defmodule AWS.CostOptimizationHub do
   ## Example:
       
       validation_exception() :: %{
-        "fields" => list(validation_exception_detail()()),
+        "fields" => list(validation_exception_detail()),
         "message" => [String.t()],
         "reason" => list(any())
       }
@@ -1013,7 +1013,7 @@ defmodule AWS.CostOptimizationHub do
   ## Example:
       
       list_recommendations_response() :: %{
-        "items" => list(recommendation()()),
+        "items" => list(recommendation()),
         "nextToken" => [String.t()]
       }
       
@@ -1047,7 +1047,7 @@ defmodule AWS.CostOptimizationHub do
         "restartNeeded" => [boolean()],
         "rollbackPossible" => [boolean()],
         "source" => list(any()),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -1179,7 +1179,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_preferences_errors()}
   def get_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPreferences", input, options)
   end
@@ -1198,7 +1199,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, get_recommendation_errors()}
   def get_recommendation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRecommendation", input, options)
   end
@@ -1215,7 +1217,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_enrollment_statuses_errors()}
   def list_enrollment_statuses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEnrollmentStatuses", input, options)
   end
@@ -1234,7 +1237,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendation_summaries_errors()}
   def list_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendationSummaries", input, options)
   end
@@ -1248,7 +1252,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, list_recommendations_errors()}
   def list_recommendations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRecommendations", input, options)
   end
@@ -1271,7 +1276,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end
@@ -1289,7 +1295,8 @@ defmodule AWS.CostOptimizationHub do
           | {:error, term()}
           | {:error, update_preferences_errors()}
   def update_preferences(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePreferences", input, options)
   end

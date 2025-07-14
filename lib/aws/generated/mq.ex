@@ -20,7 +20,7 @@ defmodule AWS.Mq do
 
       user_pending_changes() :: %{
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "PendingChange" => list(any())
       }
 
@@ -57,7 +57,7 @@ defmodule AWS.Mq do
   ## Example:
 
       describe_broker_response() :: %{
-        "PendingSecurityGroups" => list(String.t()()),
+        "PendingSecurityGroups" => list(String.t()),
         "Tags" => map(),
         "AuthenticationStrategy" => list(any()),
         "BrokerName" => String.t(),
@@ -68,20 +68,20 @@ defmodule AWS.Mq do
         "BrokerArn" => String.t(),
         "EngineType" => list(any()),
         "Created" => non_neg_integer(),
-        "ActionsRequired" => list(action_required()()),
+        "ActionsRequired" => list(action_required()),
         "AutoMinorVersionUpgrade" => boolean(),
         "PendingHostInstanceType" => String.t(),
         "DataReplicationMode" => list(any()),
         "EncryptionOptions" => encryption_options(),
         "MaintenanceWindowStartTime" => weekly_start_time(),
         "HostInstanceType" => String.t(),
-        "Users" => list(user_summary()()),
+        "Users" => list(user_summary()),
         "DeploymentMode" => list(any()),
         "PendingEngineVersion" => String.t(),
         "BrokerId" => String.t(),
-        "BrokerInstances" => list(broker_instance()()),
+        "BrokerInstances" => list(broker_instance()),
         "PendingAuthenticationStrategy" => list(any()),
-        "SubnetIds" => list(String.t()()),
+        "SubnetIds" => list(String.t()),
         "StorageType" => list(any()),
         "PendingDataReplicationMetadata" => data_replication_metadata_output(),
         "BrokerState" => list(any()),
@@ -89,7 +89,7 @@ defmodule AWS.Mq do
         "EngineVersion" => String.t(),
         "PendingDataReplicationMode" => list(any()),
         "DataReplicationMetadata" => data_replication_metadata_output(),
-        "SecurityGroups" => list(String.t()())
+        "SecurityGroups" => list(String.t())
       }
 
   """
@@ -111,7 +111,7 @@ defmodule AWS.Mq do
   ## Example:
 
       delete_tags_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -156,16 +156,16 @@ defmodule AWS.Mq do
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
-        optional("SecurityGroups") => list(String.t()()),
+        optional("SecurityGroups") => list(String.t()),
         optional("StorageType") => list(any()),
-        optional("SubnetIds") => list(String.t()()),
+        optional("SubnetIds") => list(String.t()),
         optional("Tags") => map(),
         required("BrokerName") => String.t(),
         required("DeploymentMode") => list(any()),
         required("EngineType") => list(any()),
         required("HostInstanceType") => String.t(),
         required("PubliclyAccessible") => boolean(),
-        required("Users") => list(user()())
+        required("Users") => list(user())
       }
 
   """
@@ -188,7 +188,7 @@ defmodule AWS.Mq do
   ## Example:
 
       describe_broker_engine_types_response() :: %{
-        "BrokerEngineTypes" => list(broker_engine_type()()),
+        "BrokerEngineTypes" => list(broker_engine_type()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
@@ -245,7 +245,7 @@ defmodule AWS.Mq do
   ## Example:
 
       list_configurations_response() :: %{
-        "Configurations" => list(configuration()()),
+        "Configurations" => list(configuration()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
@@ -391,7 +391,7 @@ defmodule AWS.Mq do
   ## Example:
 
       list_brokers_response() :: %{
-        "BrokerSummaries" => list(broker_summary()()),
+        "BrokerSummaries" => list(broker_summary()),
         "NextToken" => String.t()
       }
 
@@ -469,7 +469,7 @@ defmodule AWS.Mq do
         "BrokerId" => String.t(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
-        "Users" => list(user_summary()())
+        "Users" => list(user_summary())
       }
 
   """
@@ -528,7 +528,7 @@ defmodule AWS.Mq do
         "ConfigurationId" => String.t(),
         "MaxResults" => integer(),
         "NextToken" => String.t(),
-        "Revisions" => list(configuration_revision()())
+        "Revisions" => list(configuration_revision())
       }
 
   """
@@ -564,7 +564,7 @@ defmodule AWS.Mq do
   ## Example:
 
       ldap_server_metadata_input() :: %{
-        "Hosts" => list(String.t()()),
+        "Hosts" => list(String.t()),
         "RoleBase" => String.t(),
         "RoleName" => String.t(),
         "RoleSearchMatching" => String.t(),
@@ -623,7 +623,7 @@ defmodule AWS.Mq do
         "Id" => String.t(),
         "LatestRevision" => configuration_revision(),
         "Name" => String.t(),
-        "Warnings" => list(sanitization_warning()())
+        "Warnings" => list(sanitization_warning())
       }
 
   """
@@ -635,7 +635,7 @@ defmodule AWS.Mq do
 
       broker_engine_type() :: %{
         "EngineType" => list(any()),
-        "EngineVersions" => list(engine_version()())
+        "EngineVersions" => list(engine_version())
       }
 
   """
@@ -662,7 +662,7 @@ defmodule AWS.Mq do
       describe_user_response() :: %{
         "BrokerId" => String.t(),
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "Pending" => user_pending_changes(),
         "ReplicationUser" => boolean(),
         "Username" => String.t()
@@ -676,7 +676,7 @@ defmodule AWS.Mq do
   ## Example:
 
       ldap_server_metadata_output() :: %{
-        "Hosts" => list(String.t()()),
+        "Hosts" => list(String.t()),
         "RoleBase" => String.t(),
         "RoleName" => String.t(),
         "RoleSearchMatching" => String.t(),
@@ -697,7 +697,7 @@ defmodule AWS.Mq do
 
       broker_instance() :: %{
         "ConsoleURL" => String.t(),
-        "Endpoints" => list(String.t()()),
+        "Endpoints" => list(String.t()),
         "IpAddress" => String.t()
       }
 
@@ -752,7 +752,7 @@ defmodule AWS.Mq do
 
       update_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
-        optional("Groups") => list(String.t()()),
+        optional("Groups") => list(String.t()),
         optional("Password") => String.t(),
         optional("ReplicationUser") => boolean()
       }
@@ -778,7 +778,7 @@ defmodule AWS.Mq do
 
       user() :: %{
         "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t()()),
+        "Groups" => list(String.t()),
         "Password" => String.t(),
         "ReplicationUser" => boolean(),
         "Username" => String.t()
@@ -828,12 +828,12 @@ defmodule AWS.Mq do
   ## Example:
 
       broker_instance_option() :: %{
-        "AvailabilityZones" => list(availability_zone()()),
+        "AvailabilityZones" => list(availability_zone()),
         "EngineType" => list(any()),
         "HostInstanceType" => String.t(),
         "StorageType" => list(any()),
         "SupportedDeploymentModes" => list(list(any())()),
-        "SupportedEngineVersions" => list(String.t()())
+        "SupportedEngineVersions" => list(String.t())
       }
 
   """
@@ -890,7 +890,7 @@ defmodule AWS.Mq do
         "MaintenanceWindowStartTime" => weekly_start_time(),
         "PendingDataReplicationMetadata" => data_replication_metadata_output(),
         "PendingDataReplicationMode" => list(any()),
-        "SecurityGroups" => list(String.t()())
+        "SecurityGroups" => list(String.t())
       }
 
   """
@@ -914,7 +914,7 @@ defmodule AWS.Mq do
 
       configurations() :: %{
         "Current" => configuration_id(),
-        "History" => list(configuration_id()()),
+        "History" => list(configuration_id()),
         "Pending" => configuration_id()
       }
 
@@ -948,7 +948,7 @@ defmodule AWS.Mq do
   ## Example:
 
       describe_broker_instance_options_response() :: %{
-        "BrokerInstanceOptions" => list(broker_instance_option()()),
+        "BrokerInstanceOptions" => list(broker_instance_option()),
         "MaxResults" => integer(),
         "NextToken" => String.t()
       }
@@ -970,7 +970,7 @@ defmodule AWS.Mq do
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
-        optional("SecurityGroups") => list(String.t()())
+        optional("SecurityGroups") => list(String.t())
       }
 
   """
@@ -1027,7 +1027,7 @@ defmodule AWS.Mq do
 
       create_user_request() :: %{
         optional("ConsoleAccess") => boolean(),
-        optional("Groups") => list(String.t()()),
+        optional("Groups") => list(String.t()),
         optional("ReplicationUser") => boolean(),
         required("Password") => String.t()
       }

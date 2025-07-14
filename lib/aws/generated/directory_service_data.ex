@@ -88,7 +88,7 @@ defmodule AWS.DirectoryServiceData do
 
       list_groups_result() :: %{
         "DirectoryId" => String.t(),
-        "Groups" => list(group_summary()()),
+        "Groups" => list(group_summary()),
         "NextToken" => String.t(),
         "Realm" => String.t()
       }
@@ -119,7 +119,7 @@ defmodule AWS.DirectoryServiceData do
         "DirectoryId" => String.t(),
         "NextToken" => String.t(),
         "Realm" => String.t(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
 
   """
@@ -251,7 +251,7 @@ defmodule AWS.DirectoryServiceData do
 
       search_groups_result() :: %{
         "DirectoryId" => String.t(),
-        "Groups" => list(group()()),
+        "Groups" => list(group()),
         "NextToken" => String.t(),
         "Realm" => String.t()
       }
@@ -277,7 +277,7 @@ defmodule AWS.DirectoryServiceData do
         optional("NextToken") => String.t(),
         optional("Realm") => String.t(),
         required("DirectoryId") => String.t(),
-        required("SearchAttributes") => list(String.t()()),
+        required("SearchAttributes") => list(String.t()),
         required("SearchString") => String.t()
       }
 
@@ -306,7 +306,7 @@ defmodule AWS.DirectoryServiceData do
       list_group_members_result() :: %{
         "DirectoryId" => String.t(),
         "MemberRealm" => String.t(),
-        "Members" => list(member()()),
+        "Members" => list(member()),
         "NextToken" => String.t(),
         "Realm" => String.t()
       }
@@ -323,7 +323,7 @@ defmodule AWS.DirectoryServiceData do
         optional("NextToken") => String.t(),
         optional("Realm") => String.t(),
         required("DirectoryId") => String.t(),
-        required("SearchAttributes") => list(String.t()()),
+        required("SearchAttributes") => list(String.t()),
         required("SearchString") => String.t()
       }
 
@@ -354,7 +354,7 @@ defmodule AWS.DirectoryServiceData do
         "DirectoryId" => String.t(),
         "NextToken" => String.t(),
         "Realm" => String.t(),
-        "Users" => list(user_summary()())
+        "Users" => list(user_summary())
       }
 
   """
@@ -401,7 +401,7 @@ defmodule AWS.DirectoryServiceData do
   ## Example:
 
       describe_user_request() :: %{
-        optional("OtherAttributes") => list(String.t()()),
+        optional("OtherAttributes") => list(String.t()),
         optional("Realm") => String.t(),
         required("DirectoryId") => String.t(),
         required("SAMAccountName") => String.t()
@@ -546,7 +546,7 @@ defmodule AWS.DirectoryServiceData do
   ## Example:
 
       describe_group_request() :: %{
-        optional("OtherAttributes") => list(String.t()()),
+        optional("OtherAttributes") => list(String.t()),
         optional("Realm") => String.t(),
         required("DirectoryId") => String.t(),
         required("SAMAccountName") => String.t()
@@ -626,7 +626,7 @@ defmodule AWS.DirectoryServiceData do
 
       list_groups_for_member_result() :: %{
         "DirectoryId" => String.t(),
-        "Groups" => list(group_summary()()),
+        "Groups" => list(group_summary()),
         "MemberRealm" => String.t(),
         "NextToken" => String.t(),
         "Realm" => String.t()

@@ -52,7 +52,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_project_profiles_output() :: %{
-        "items" => list(project_profile_summary()()),
+        "items" => list(project_profile_summary()),
         "nextToken" => String.t()
       }
 
@@ -64,7 +64,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       metadata_form_enforcement_detail() :: %{
-        "requiredMetadataForms" => list(metadata_form_reference()())
+        "requiredMetadataForms" => list(metadata_form_reference())
       }
 
   """
@@ -121,8 +121,8 @@ defmodule AWS.DataZone do
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
         optional("externalIdentifier") => String.t(),
-        optional("formsInput") => list(form_input()()),
-        optional("glossaryTerms") => list(String.t()()),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t()),
         optional("predictionConfiguration") => prediction_configuration(),
         optional("typeRevision") => String.t(),
         required("name") => String.t(),
@@ -138,7 +138,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_user_profiles_output() :: %{
-        "items" => list(user_profile_summary()()),
+        "items" => list(user_profile_summary()),
         "nextToken" => String.t()
       }
 
@@ -158,7 +158,7 @@ defmodule AWS.DataZone do
         "externalIdentifier" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "identifier" => String.t(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
@@ -200,8 +200,8 @@ defmodule AWS.DataZone do
         "dataProductId" => String.t(),
         "dataProductRevision" => String.t(),
         "forms" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()()),
-        "items" => list(listing_summary()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "items" => list(listing_summary()),
         "owningProjectId" => String.t()
       }
 
@@ -238,7 +238,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       listing_summary_item() :: %{
-        "glossaryTerms" => list(detailed_glossary_term()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
         "listingId" => String.t(),
         "listingRevision" => String.t()
       }
@@ -320,7 +320,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_environment_blueprint_configurations_output() :: %{
-        "items" => list(environment_blueprint_configuration_item()()),
+        "items" => list(environment_blueprint_configuration_item()),
         "nextToken" => String.t()
       }
 
@@ -332,7 +332,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_data_source_runs_output() :: %{
-        "items" => list(data_source_run_summary()()),
+        "items" => list(data_source_run_summary()),
         "nextToken" => String.t()
       }
 
@@ -347,7 +347,7 @@ defmodule AWS.DataZone do
         "dataAccessRole" => [String.t()],
         "redshiftCredentialConfiguration" => redshift_credential_configuration(),
         "redshiftStorage" => list(),
-        "relationalFilterConfigurations" => list(relational_filter_configuration()())
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
@@ -358,7 +358,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_asset_filters_output() :: %{
-        "items" => list(asset_filter_summary()()),
+        "items" => list(asset_filter_summary()),
         "nextToken" => String.t()
       }
 
@@ -455,7 +455,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_project_memberships_output() :: %{
-        "members" => list(project_member()()),
+        "members" => list(project_member()),
         "nextToken" => String.t()
       }
 
@@ -471,7 +471,7 @@ defmodule AWS.DataZone do
         optional("awsAccountRegion") => String.t(),
         optional("description") => [String.t()],
         optional("name") => String.t(),
-        optional("userParameters") => list(environment_parameter()())
+        optional("userParameters") => list(environment_parameter())
       }
 
   """
@@ -491,8 +491,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()()),
-        "authorizedPrincipals" => list(String.t()()),
+        "applicableAssetTypes" => list(String.t()),
+        "authorizedPrincipals" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -502,7 +502,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "subscriptionTargetConfig" => list(subscription_target_form()()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t()],
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
@@ -550,7 +550,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_job_runs_output() :: %{
-        "items" => list(job_run_summary()()),
+        "items" => list(job_run_summary()),
         "nextToken" => String.t()
       }
 
@@ -580,7 +580,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_policy_grants_output() :: %{
-        "grantList" => list(policy_grant_member()()),
+        "grantList" => list(policy_grant_member()),
         "nextToken" => String.t()
       }
 
@@ -694,8 +694,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_configuration_parameters_details() :: %{
-        "parameterOverrides" => list(environment_configuration_parameter()()),
-        "resolvedParameters" => list(environment_configuration_parameter()()),
+        "parameterOverrides" => list(environment_configuration_parameter()),
+        "resolvedParameters" => list(environment_configuration_parameter()),
         "ssmPath" => String.t()
       }
 
@@ -723,7 +723,7 @@ defmodule AWS.DataZone do
         "deploymentType" => list(any()),
         "failureReason" => environment_error(),
         "isDeploymentComplete" => [boolean()],
-        "messages" => list(String.t()())
+        "messages" => list(String.t())
       }
 
   """
@@ -741,21 +741,21 @@ defmodule AWS.DataZone do
         "deploymentProperties" => deployment_properties(),
         "description" => String.t(),
         "domainId" => String.t(),
-        "environmentActions" => list(configurable_environment_action()()),
+        "environmentActions" => list(configurable_environment_action()),
         "environmentBlueprintId" => String.t(),
         "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastDeployment" => deployment(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "provisionedResources" => list(resource()()),
+        "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -769,10 +769,10 @@ defmodule AWS.DataZone do
         optional("description") => String.t(),
         optional("domainUnitId") => String.t(),
         optional("environmentDeploymentDetails") => environment_deployment_details(),
-        optional("glossaryTerms") => list(String.t()()),
+        optional("glossaryTerms") => list(String.t()),
         optional("name") => String.t(),
         optional("projectProfileVersion") => [String.t()],
-        optional("userParameters") => list(environment_configuration_user_parameter()())
+        optional("userParameters") => list(environment_configuration_user_parameter())
       }
 
   """
@@ -820,7 +820,7 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
-        "failureReasons" => list(project_deletion_error()()),
+        "failureReasons" => list(project_deletion_error()),
         "id" => String.t(),
         "name" => String.t(),
         "projectStatus" => list(any()),
@@ -932,7 +932,7 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
-        "environmentConfigurations" => list(environment_configuration()()),
+        "environmentConfigurations" => list(environment_configuration()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
@@ -980,8 +980,8 @@ defmodule AWS.DataZone do
         optional("environmentAccountRegion") => [String.t()],
         optional("environmentBlueprintIdentifier") => [String.t()],
         optional("environmentConfigurationId") => [String.t()],
-        optional("glossaryTerms") => list(String.t()()),
-        optional("userParameters") => list(environment_parameter()()),
+        optional("glossaryTerms") => list(String.t()),
+        optional("userParameters") => list(environment_parameter()),
         required("environmentProfileIdentifier") => String.t(),
         required("name") => [String.t()],
         required("projectIdentifier") => String.t()
@@ -1018,7 +1018,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -1029,8 +1029,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       term_relations() :: %{
-        "classifies" => list(String.t()()),
-        "isA" => list(String.t()())
+        "classifies" => list(String.t()),
+        "isA" => list(String.t())
       }
 
   """
@@ -1066,7 +1066,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_time_series_data_points_output() :: %{
-        "items" => list(time_series_data_point_summary_form_output()()),
+        "items" => list(time_series_data_point_summary_form_output()),
         "nextToken" => String.t()
       }
 
@@ -1080,9 +1080,9 @@ defmodule AWS.DataZone do
       create_data_product_input() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("formsInput") => list(form_input()()),
-        optional("glossaryTerms") => list(String.t()()),
-        optional("items") => list(data_product_item()()),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t()),
+        optional("items") => list(data_product_item()),
         required("name") => String.t(),
         required("owningProjectIdentifier") => String.t()
       }
@@ -1141,8 +1141,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()()),
-        "authorizedPrincipals" => list(String.t()()),
+        "applicableAssetTypes" => list(String.t()),
+        "authorizedPrincipals" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -1152,7 +1152,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "subscriptionTargetConfig" => list(subscription_target_form()()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t()],
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
@@ -1188,10 +1188,10 @@ defmodule AWS.DataZone do
 
       create_subscription_request_input() :: %{
         optional("clientToken") => [String.t()],
-        optional("metadataForms") => list(form_input()()),
+        optional("metadataForms") => list(form_input()),
         required("requestReason") => String.t(),
-        required("subscribedListings") => list(subscribed_listing_input()()),
-        required("subscribedPrincipals") => list(list()())
+        required("subscribedListings") => list(subscribed_listing_input()),
+        required("subscribedPrincipals") => list(list())
       }
 
   """
@@ -1219,10 +1219,10 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "items" => list(data_product_item()()),
+        "items" => list(data_product_item()),
         "name" => String.t(),
         "owningProjectId" => String.t(),
         "revision" => String.t(),
@@ -1237,7 +1237,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_data_source_input() :: %{
-        optional("assetFormsInput") => list(form_input()()),
+        optional("assetFormsInput") => list(form_input()),
         optional("clientToken") => [String.t()],
         optional("configuration") => list(),
         optional("connectionIdentifier") => [String.t()],
@@ -1280,7 +1280,7 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
-        "environmentConfigurations" => list(environment_configuration()()),
+        "environmentConfigurations" => list(environment_configuration()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
@@ -1376,7 +1376,7 @@ defmodule AWS.DataZone do
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owningProjectIdentifier") => String.t(),
-        optional("searchIn") => list(search_in_item()()),
+        optional("searchIn") => list(search_in_item()),
         optional("searchText") => String.t(),
         optional("sort") => search_sort(),
         required("searchScope") => list(any())
@@ -1410,15 +1410,15 @@ defmodule AWS.DataZone do
         "externalIdentifier" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
         "predictionConfiguration" => prediction_configuration(),
-        "readOnlyFormsOutput" => list(form_output()()),
+        "readOnlyFormsOutput" => list(form_output()),
         "revision" => String.t(),
         "typeIdentifier" => String.t(),
         "typeRevision" => String.t()
@@ -1432,7 +1432,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_subscription_grants_output() :: %{
-        "items" => list(subscription_grant_summary()()),
+        "items" => list(subscription_grant_summary()),
         "nextToken" => String.t()
       }
 
@@ -1446,7 +1446,7 @@ defmodule AWS.DataZone do
       environment_configuration_user_parameter() :: %{
         "environmentConfigurationName" => String.t(),
         "environmentId" => String.t(),
-        "environmentParameters" => list(environment_parameter()())
+        "environmentParameters" => list(environment_parameter())
       }
 
   """
@@ -1537,7 +1537,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_connections_output() :: %{
-        "items" => list(connection_summary()()),
+        "items" => list(connection_summary()),
         "nextToken" => String.t()
       }
 
@@ -1575,10 +1575,10 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "items" => list(data_product_item()()),
+        "items" => list(data_product_item()),
         "name" => String.t(),
         "owningProjectId" => String.t(),
         "revision" => String.t(),
@@ -1659,8 +1659,8 @@ defmodule AWS.DataZone do
       create_asset_revision_input() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("formsInput") => list(form_input()()),
-        optional("glossaryTerms") => list(String.t()()),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t()),
         optional("predictionConfiguration") => prediction_configuration(),
         optional("typeRevision") => String.t(),
         required("name") => String.t()
@@ -1713,7 +1713,7 @@ defmodule AWS.DataZone do
         "lastUpdatedAt" => non_neg_integer(),
         "lastUpdatedBy" => String.t(),
         "name" => String.t(),
-        "owners" => list(list()()),
+        "owners" => list(list()),
         "parentDomainUnitId" => String.t()
       }
 
@@ -1736,7 +1736,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       redshift_self_grant_status_output() :: %{
-        "selfGrantStatusDetails" => list(self_grant_status_detail()())
+        "selfGrantStatusDetails" => list(self_grant_status_detail())
       }
 
   """
@@ -1753,14 +1753,14 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
-        "failureReasons" => list(project_deletion_error()()),
-        "glossaryTerms" => list(String.t()()),
+        "failureReasons" => list(project_deletion_error()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
         "projectProfileId" => String.t(),
         "projectStatus" => list(any()),
-        "userParameters" => list(environment_configuration_user_parameter()())
+        "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
@@ -1780,8 +1780,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscription_target_summary() :: %{
-        "applicableAssetTypes" => list(String.t()()),
-        "authorizedPrincipals" => list(String.t()()),
+        "applicableAssetTypes" => list(String.t()),
+        "authorizedPrincipals" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -1791,7 +1791,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "subscriptionTargetConfig" => list(subscription_target_form()()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t()],
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
@@ -1835,7 +1835,7 @@ defmodule AWS.DataZone do
         optional("filters") => list(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("searchIn") => list(search_in_item()()),
+        optional("searchIn") => list(search_in_item()),
         optional("searchText") => String.t(),
         optional("sort") => search_sort(),
         required("managed") => [boolean()],
@@ -1856,7 +1856,7 @@ defmodule AWS.DataZone do
         "domainUnitId" => String.t(),
         "environmentId" => String.t(),
         "name" => String.t(),
-        "physicalEndpoints" => list(physical_endpoint()()),
+        "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t(),
         "props" => list(),
         "type" => list(any())
@@ -1951,7 +1951,7 @@ defmodule AWS.DataZone do
 
       post_time_series_data_points_input() :: %{
         optional("clientToken") => String.t(),
-        required("forms") => list(time_series_data_point_form_input()())
+        required("forms") => list(time_series_data_point_form_input())
       }
 
   """
@@ -1992,7 +1992,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscription_grant_summary() :: %{
-        "assets" => list(subscribed_asset()()),
+        "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -2026,7 +2026,7 @@ defmodule AWS.DataZone do
       update_project_profile_input() :: %{
         optional("description") => String.t(),
         optional("domainUnitIdentifier") => String.t(),
-        optional("environmentConfigurations") => list(environment_configuration()()),
+        optional("environmentConfigurations") => list(environment_configuration()),
         optional("name") => String.t(),
         optional("status") => list(any())
       }
@@ -2039,7 +2039,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()()),
+        "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
         "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -2074,9 +2074,9 @@ defmodule AWS.DataZone do
       create_data_product_revision_input() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("formsInput") => list(form_input()()),
-        optional("glossaryTerms") => list(String.t()()),
-        optional("items") => list(data_product_item()()),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t()),
+        optional("items") => list(data_product_item()),
         required("name") => String.t()
       }
 
@@ -2228,7 +2228,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_environment_actions_output() :: %{
-        "items" => list(environment_action_summary()()),
+        "items" => list(environment_action_summary()),
         "nextToken" => String.t()
       }
 
@@ -2254,9 +2254,9 @@ defmodule AWS.DataZone do
   ## Example:
 
       asset_item_additional_attributes() :: %{
-        "formsOutput" => list(form_output()()),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
-        "readOnlyFormsOutput" => list(form_output()())
+        "formsOutput" => list(form_output()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "readOnlyFormsOutput" => list(form_output())
       }
 
   """
@@ -2281,11 +2281,11 @@ defmodule AWS.DataZone do
       environment_blueprint_configuration_item() :: %{
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t(),
-        "enabledRegions" => list(String.t()()),
+        "enabledRegions" => list(String.t()),
         "environmentBlueprintId" => String.t(),
         "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
-        "provisioningConfigurations" => list(list()()),
+        "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -2312,7 +2312,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -2422,7 +2422,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_data_source_run_activities_output() :: %{
-        "items" => list(data_source_run_activity()()),
+        "items" => list(data_source_run_activity()),
         "nextToken" => String.t()
       }
 
@@ -2442,7 +2442,7 @@ defmodule AWS.DataZone do
         "lastUpdatedAt" => non_neg_integer(),
         "lastUpdatedBy" => String.t(),
         "name" => String.t(),
-        "owners" => list(list()()),
+        "owners" => list(list()),
         "parentDomainUnitId" => String.t()
       }
 
@@ -2770,11 +2770,11 @@ defmodule AWS.DataZone do
       put_environment_blueprint_configuration_output() :: %{
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t(),
-        "enabledRegions" => list(String.t()()),
+        "enabledRegions" => list(String.t()),
         "environmentBlueprintId" => String.t(),
         "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
-        "provisioningConfigurations" => list(list()()),
+        "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -2788,7 +2788,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_subscription_grant_input() :: %{
-        optional("assetTargetNames") => list(asset_target_name_map()()),
+        optional("assetTargetNames") => list(asset_target_name_map()),
         optional("clientToken") => [String.t()],
         optional("subscriptionTargetIdentifier") => String.t(),
         required("environmentIdentifier") => String.t(),
@@ -2806,7 +2806,7 @@ defmodule AWS.DataZone do
         optional("awsAccountId") => String.t(),
         optional("awsAccountRegion") => String.t(),
         optional("description") => String.t(),
-        optional("userParameters") => list(environment_parameter()()),
+        optional("userParameters") => list(environment_parameter()),
         required("environmentBlueprintIdentifier") => String.t(),
         required("name") => String.t(),
         required("projectIdentifier") => String.t()
@@ -2827,21 +2827,21 @@ defmodule AWS.DataZone do
         "deploymentProperties" => deployment_properties(),
         "description" => String.t(),
         "domainId" => String.t(),
-        "environmentActions" => list(configurable_environment_action()()),
+        "environmentActions" => list(configurable_environment_action()),
         "environmentBlueprintId" => String.t(),
         "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastDeployment" => deployment(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "provisionedResources" => list(resource()()),
+        "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -2876,7 +2876,7 @@ defmodule AWS.DataZone do
 
       reject_predictions_input() :: %{
         optional("clientToken") => String.t(),
-        optional("rejectChoices") => list(reject_choice()()),
+        optional("rejectChoices") => list(reject_choice()),
         optional("rejectRule") => reject_rule(),
         optional("revision") => String.t()
       }
@@ -2904,7 +2904,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_output() :: %{
-        "items" => list(list()()),
+        "items" => list(list()),
         "nextToken" => String.t(),
         "totalMatchCount" => [integer()]
       }
@@ -3047,11 +3047,11 @@ defmodule AWS.DataZone do
       create_subscription_target_input() :: %{
         optional("clientToken") => [String.t()],
         optional("provider") => [String.t()],
-        required("applicableAssetTypes") => list(String.t()()),
-        required("authorizedPrincipals") => list(String.t()()),
+        required("applicableAssetTypes") => list(String.t()),
+        required("authorizedPrincipals") => list(String.t()),
         required("manageAccessRole") => String.t(),
         required("name") => String.t(),
-        required("subscriptionTargetConfig") => list(subscription_target_form()()),
+        required("subscriptionTargetConfig") => list(subscription_target_form()),
         required("type") => [String.t()]
       }
 
@@ -3063,7 +3063,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_data_source_input() :: %{
-        optional("assetFormsInput") => list(form_input()()),
+        optional("assetFormsInput") => list(form_input()),
         optional("configuration") => list(),
         optional("description") => String.t(),
         optional("enableSetting") => list(any()),
@@ -3113,8 +3113,8 @@ defmodule AWS.DataZone do
         "assetType" => String.t(),
         "createdAt" => non_neg_integer(),
         "forms" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()()),
-        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
         "owningProjectId" => String.t()
       }
 
@@ -3201,7 +3201,7 @@ defmodule AWS.DataZone do
 
       projects_for_rule() :: %{
         "selectionMode" => list(any()),
-        "specificProjects" => list(String.t()())
+        "specificProjects" => list(String.t())
       }
 
   """
@@ -3314,7 +3314,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_domains_output() :: %{
-        "items" => list(domain_summary()()),
+        "items" => list(domain_summary()),
         "nextToken" => String.t()
       }
 
@@ -3333,21 +3333,21 @@ defmodule AWS.DataZone do
         "deploymentProperties" => deployment_properties(),
         "description" => String.t(),
         "domainId" => String.t(),
-        "environmentActions" => list(configurable_environment_action()()),
+        "environmentActions" => list(configurable_environment_action()),
         "environmentBlueprintId" => String.t(),
         "environmentConfigurationId" => String.t(),
         "environmentProfileId" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastDeployment" => deployment(),
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "provisionedResources" => list(resource()()),
+        "provisionedResources" => list(resource()),
         "provisioningProperties" => list(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -3370,7 +3370,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()()),
+        "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
         "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -3436,11 +3436,11 @@ defmodule AWS.DataZone do
   ## Example:
 
       subscribed_product_listing() :: %{
-        "assetListings" => list(asset_in_data_product_listing_item()()),
+        "assetListings" => list(asset_in_data_product_listing_item()),
         "description" => [String.t()],
         "entityId" => String.t(),
         "entityRevision" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
         "name" => [String.t()]
       }
 
@@ -3477,7 +3477,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       delete_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()()),
+        "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
         "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -3528,7 +3528,7 @@ defmodule AWS.DataZone do
         "environmentId" => String.t(),
         "environmentUserRole" => [String.t()],
         "name" => String.t(),
-        "physicalEndpoints" => list(physical_endpoint()()),
+        "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t(),
         "props" => list(),
         "type" => list(any())
@@ -3563,7 +3563,7 @@ defmodule AWS.DataZone do
 
       asset_listing_item_additional_attributes() :: %{
         "forms" => String.t(),
-        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()())
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output())
       }
 
   """
@@ -3606,7 +3606,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_lineage_events_output() :: %{
-        "items" => list(lineage_event_summary()()),
+        "items" => list(lineage_event_summary()),
         "nextToken" => String.t()
       }
 
@@ -3629,7 +3629,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_projects_output() :: %{
-        "items" => list(project_summary()()),
+        "items" => list(project_summary()),
         "nextToken" => String.t()
       }
 
@@ -3714,12 +3714,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataForms" => list(form_output()()),
+        "metadataForms" => list(form_output()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -3757,7 +3757,7 @@ defmodule AWS.DataZone do
 
       configurable_environment_action() :: %{
         "auth" => list(any()),
-        "parameters" => list(configurable_action_parameter()()),
+        "parameters" => list(configurable_action_parameter()),
         "type" => [String.t()]
       }
 
@@ -3794,7 +3794,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_listings_output() :: %{
-        "items" => list(list()()),
+        "items" => list(list()),
         "nextToken" => String.t(),
         "totalMatchCount" => [integer()]
       }
@@ -3887,7 +3887,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_environments_output() :: %{
-        "items" => list(environment_summary()()),
+        "items" => list(environment_summary()),
         "nextToken" => String.t()
       }
 
@@ -3925,7 +3925,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_subscription_grant_status_output() :: %{
-        "assets" => list(subscribed_asset()()),
+        "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -3948,9 +3948,9 @@ defmodule AWS.DataZone do
       update_environment_input() :: %{
         optional("blueprintVersion") => [String.t()],
         optional("description") => [String.t()],
-        optional("glossaryTerms") => list(String.t()()),
+        optional("glossaryTerms") => list(String.t()),
         optional("name") => [String.t()],
-        optional("userParameters") => list(environment_parameter()())
+        optional("userParameters") => list(environment_parameter())
       }
 
   """
@@ -4117,7 +4117,7 @@ defmodule AWS.DataZone do
         "autoImportDataQualityResult" => [boolean()],
         "catalogName" => [String.t()],
         "dataAccessRole" => [String.t()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration()())
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
@@ -4139,7 +4139,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_data_product_revisions_output() :: %{
-        "items" => list(data_product_revision()()),
+        "items" => list(data_product_revision()),
         "nextToken" => String.t()
       }
 
@@ -4235,7 +4235,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()()),
+        "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -4309,7 +4309,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
-        "imports" => list(import()()),
+        "imports" => list(import()),
         "model" => list(),
         "name" => String.t(),
         "originDomainId" => String.t(),
@@ -4350,7 +4350,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -4407,10 +4407,10 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "items" => list(data_product_item()()),
+        "items" => list(data_product_item()),
         "name" => String.t(),
         "owningProjectId" => String.t(),
         "revision" => String.t(),
@@ -4436,7 +4436,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -4451,7 +4451,7 @@ defmodule AWS.DataZone do
         optional("filters") => list(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
-        optional("searchIn") => list(search_in_item()()),
+        optional("searchIn") => list(search_in_item()),
         optional("searchText") => [String.t()],
         optional("sort") => search_sort()
       }
@@ -4621,8 +4621,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t()()),
-        "authorizedPrincipals" => list(String.t()()),
+        "applicableAssetTypes" => list(String.t()),
+        "authorizedPrincipals" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -4632,7 +4632,7 @@ defmodule AWS.DataZone do
         "name" => String.t(),
         "projectId" => String.t(),
         "provider" => [String.t()],
-        "subscriptionTargetConfig" => list(subscription_target_form()()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
         "type" => [String.t()],
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
@@ -4653,15 +4653,15 @@ defmodule AWS.DataZone do
         "externalIdentifier" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
         "predictionConfiguration" => prediction_configuration(),
-        "readOnlyFormsOutput" => list(form_output()()),
+        "readOnlyFormsOutput" => list(form_output()),
         "revision" => String.t(),
         "typeIdentifier" => String.t(),
         "typeRevision" => String.t()
@@ -4722,14 +4722,14 @@ defmodule AWS.DataZone do
   ## Example:
 
       create_domain_unit_output() :: %{
-        "ancestorDomainUnitIds" => list(String.t()()),
+        "ancestorDomainUnitIds" => list(String.t()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "owners" => list(list()()),
+        "owners" => list(list()),
         "parentDomainUnitId" => String.t()
       }
 
@@ -4747,7 +4747,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "name" => String.t(),
         "owningProjectId" => String.t()
@@ -4806,7 +4806,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()()),
+        "assetFormsOutput" => list(form_output()),
         "configuration" => list(),
         "connectionId" => [String.t()],
         "createdAt" => non_neg_integer(),
@@ -4841,9 +4841,9 @@ defmodule AWS.DataZone do
       create_project_input() :: %{
         optional("description") => String.t(),
         optional("domainUnitId") => String.t(),
-        optional("glossaryTerms") => list(String.t()()),
+        optional("glossaryTerms") => list(String.t()),
         optional("projectProfileId") => String.t(),
-        optional("userParameters") => list(environment_configuration_user_parameter()()),
+        optional("userParameters") => list(environment_configuration_user_parameter()),
         required("name") => String.t()
       }
 
@@ -4856,12 +4856,12 @@ defmodule AWS.DataZone do
 
       list_rules_input() :: %{
         optional("action") => list(any()),
-        optional("assetTypes") => list(String.t()()),
+        optional("assetTypes") => list(String.t()),
         optional("dataProduct") => [boolean()],
         optional("includeCascaded") => [boolean()],
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t(),
-        optional("projectIds") => list(String.t()()),
+        optional("projectIds") => list(String.t()),
         optional("ruleType") => list(any())
       }
 
@@ -4885,13 +4885,13 @@ defmodule AWS.DataZone do
         "createdAt" => [non_neg_integer()],
         "deploymentProperties" => deployment_properties(),
         "description" => String.t(),
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "name" => String.t(),
         "provider" => [String.t()],
         "provisioningProperties" => list(),
         "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter()())
+        "userParameters" => list(custom_parameter())
       }
 
   """
@@ -4917,7 +4917,7 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => String.t(),
         "domainId" => String.t(),
-        "imports" => list(import()()),
+        "imports" => list(import()),
         "model" => list(),
         "name" => String.t(),
         "originDomainId" => String.t(),
@@ -5045,11 +5045,11 @@ defmodule AWS.DataZone do
       get_environment_blueprint_configuration_output() :: %{
         "createdAt" => [non_neg_integer()],
         "domainId" => String.t(),
-        "enabledRegions" => list(String.t()()),
+        "enabledRegions" => list(String.t()),
         "environmentBlueprintId" => String.t(),
         "environmentRolePermissionBoundary" => String.t(),
         "manageAccessRoleArn" => String.t(),
-        "provisioningConfigurations" => list(list()()),
+        "provisioningConfigurations" => list(list()),
         "provisioningRoleArn" => String.t(),
         "regionalParameters" => map(),
         "updatedAt" => [non_neg_integer()]
@@ -5086,7 +5086,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       listing_summary() :: %{
-        "glossaryTerms" => list(detailed_glossary_term()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
         "listingId" => String.t(),
         "listingRevision" => String.t()
       }
@@ -5170,7 +5170,7 @@ defmodule AWS.DataZone do
 
       accepted_asset_scope() :: %{
         "assetId" => String.t(),
-        "filterIds" => list(String.t()())
+        "filterIds" => list(String.t())
       }
 
   """
@@ -5237,7 +5237,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_subscription_targets_output() :: %{
-        "items" => list(subscription_target_summary()()),
+        "items" => list(subscription_target_summary()),
         "nextToken" => String.t()
       }
 
@@ -5261,7 +5261,7 @@ defmodule AWS.DataZone do
         "availabilityZone" => [String.t()],
         "securityGroupIdList" => list([String.t()]()),
         "subnetId" => String.t(),
-        "subnetIdList" => list(String.t()())
+        "subnetIdList" => list(String.t())
       }
 
   """
@@ -5322,7 +5322,7 @@ defmodule AWS.DataZone do
         "entityId" => String.t(),
         "entityRevision" => String.t(),
         "entityType" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
         "listingCreatedBy" => String.t(),
         "listingId" => String.t(),
         "listingRevision" => String.t(),
@@ -5371,7 +5371,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_environment_blueprints_output() :: %{
-        "items" => list(environment_blueprint_summary()()),
+        "items" => list(environment_blueprint_summary()),
         "nextToken" => String.t()
       }
 
@@ -5432,7 +5432,7 @@ defmodule AWS.DataZone do
 
       list_notifications_output() :: %{
         "nextToken" => String.t(),
-        "notifications" => list(notification_output()())
+        "notifications" => list(notification_output())
       }
 
   """
@@ -5470,14 +5470,14 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
-        "failureReasons" => list(project_deletion_error()()),
-        "glossaryTerms" => list(String.t()()),
+        "failureReasons" => list(project_deletion_error()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
         "projectProfileId" => String.t(),
         "projectStatus" => list(any()),
-        "userParameters" => list(environment_configuration_user_parameter()())
+        "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
@@ -5488,7 +5488,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_product_item() :: %{
-        "glossaryTerms" => list(String.t()()),
+        "glossaryTerms" => list(String.t()),
         "identifier" => String.t(),
         "itemType" => list(any()),
         "revision" => String.t()
@@ -5548,7 +5548,7 @@ defmodule AWS.DataZone do
 
       list_lineage_node_history_output() :: %{
         "nextToken" => String.t(),
-        "nodes" => list(lineage_node_summary()())
+        "nodes" => list(lineage_node_summary())
       }
 
   """
@@ -5686,7 +5686,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       accept_predictions_input() :: %{
-        optional("acceptChoices") => list(accept_choice()()),
+        optional("acceptChoices") => list(accept_choice()),
         optional("acceptRule") => accept_rule(),
         optional("clientToken") => String.t(),
         optional("revision") => String.t()
@@ -5701,7 +5701,7 @@ defmodule AWS.DataZone do
 
       list_entity_owners_output() :: %{
         "nextToken" => String.t(),
-        "owners" => list(list()())
+        "owners" => list(list())
       }
 
   """
@@ -5754,12 +5754,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataFormsSummary" => list(metadata_form_summary()()),
+        "metadataFormsSummary" => list(metadata_form_summary()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -5790,7 +5790,7 @@ defmodule AWS.DataZone do
         "entityRevision" => String.t(),
         "entityType" => String.t(),
         "forms" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()())
+        "glossaryTerms" => list(detailed_glossary_term())
       }
 
   """
@@ -5806,7 +5806,7 @@ defmodule AWS.DataZone do
         "domainUnitId" => String.t(),
         "environmentId" => String.t(),
         "name" => String.t(),
-        "physicalEndpoints" => list(physical_endpoint()()),
+        "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t(),
         "props" => list(),
         "type" => list(any())
@@ -5887,7 +5887,7 @@ defmodule AWS.DataZone do
 
       relational_filter_configuration() :: %{
         "databaseName" => [String.t()],
-        "filterExpressions" => list(filter_expression()()),
+        "filterExpressions" => list(filter_expression()),
         "schemaName" => [String.t()]
       }
 
@@ -5937,12 +5937,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataForms" => list(form_output()()),
+        "metadataForms" => list(form_output()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -5961,12 +5961,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataForms" => list(form_output()()),
+        "metadataForms" => list(form_output()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -5979,7 +5979,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_rules_output() :: %{
-        "items" => list(rule_summary()()),
+        "items" => list(rule_summary()),
         "nextToken" => String.t()
       }
 
@@ -6029,7 +6029,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_domain_units_for_parent_output() :: %{
-        "items" => list(domain_unit_summary()()),
+        "items" => list(domain_unit_summary()),
         "nextToken" => String.t()
       }
 
@@ -6120,14 +6120,14 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
         "environmentDeploymentDetails" => environment_deployment_details(),
-        "failureReasons" => list(project_deletion_error()()),
-        "glossaryTerms" => list(String.t()()),
+        "failureReasons" => list(project_deletion_error()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
         "projectProfileId" => String.t(),
         "projectStatus" => list(any()),
-        "userParameters" => list(environment_configuration_user_parameter()())
+        "userParameters" => list(environment_configuration_user_parameter())
       }
 
   """
@@ -6206,7 +6206,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_environment_profiles_output() :: %{
-        "items" => list(environment_profile_summary()()),
+        "items" => list(environment_profile_summary()),
         "nextToken" => String.t()
       }
 
@@ -6302,9 +6302,9 @@ defmodule AWS.DataZone do
 
       open_lineage_run_event_summary() :: %{
         "eventType" => list(any()),
-        "inputs" => list(name_identifier()()),
+        "inputs" => list(name_identifier()),
         "job" => name_identifier(),
-        "outputs" => list(name_identifier()()),
+        "outputs" => list(name_identifier()),
         "runId" => [String.t()]
       }
 
@@ -6355,7 +6355,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_metadata_generation_runs_output() :: %{
-        "items" => list(metadata_generation_run_item()()),
+        "items" => list(metadata_generation_run_item()),
         "nextToken" => String.t()
       }
 
@@ -6452,7 +6452,7 @@ defmodule AWS.DataZone do
       create_project_profile_input() :: %{
         optional("description") => String.t(),
         optional("domainUnitIdentifier") => String.t(),
-        optional("environmentConfigurations") => list(environment_configuration()()),
+        optional("environmentConfigurations") => list(environment_configuration()),
         optional("status") => list(any()),
         required("name") => String.t()
       }
@@ -6517,7 +6517,7 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "entityId" => String.t(),
         "entityType" => list(any()),
-        "forms" => list(time_series_data_point_form_output()())
+        "forms" => list(time_series_data_point_form_output())
       }
 
   """
@@ -6528,7 +6528,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       get_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()()),
+        "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -6582,7 +6582,7 @@ defmodule AWS.DataZone do
         "catalogName" => [String.t()],
         "dataAccessRole" => [String.t()],
         "region" => [String.t()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration()())
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
@@ -6755,7 +6755,7 @@ defmodule AWS.DataZone do
       asset_scope() :: %{
         "assetId" => String.t(),
         "errorMessage" => [String.t()],
-        "filterIds" => list(String.t()()),
+        "filterIds" => list(String.t()),
         "status" => [String.t()]
       }
 
@@ -6786,7 +6786,7 @@ defmodule AWS.DataZone do
 
       asset_types_for_rule() :: %{
         "selectionMode" => list(any()),
-        "specificAssetTypes" => list(String.t()())
+        "specificAssetTypes" => list(String.t())
       }
 
   """
@@ -6797,7 +6797,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_asset_revisions_output() :: %{
-        "items" => list(asset_revision()()),
+        "items" => list(asset_revision()),
         "nextToken" => String.t()
       }
 
@@ -6975,9 +6975,9 @@ defmodule AWS.DataZone do
         "createdBy" => String.t(),
         "description" => [String.t()],
         "domainId" => String.t(),
-        "downstreamNodes" => list(lineage_node_reference()()),
+        "downstreamNodes" => list(lineage_node_reference()),
         "eventTimestamp" => [non_neg_integer()],
-        "formsOutput" => list(form_output()()),
+        "formsOutput" => list(form_output()),
         "id" => String.t(),
         "name" => [String.t()],
         "sourceIdentifier" => [String.t()],
@@ -6985,7 +6985,7 @@ defmodule AWS.DataZone do
         "typeRevision" => String.t(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t(),
-        "upstreamNodes" => list(lineage_node_reference()())
+        "upstreamNodes" => list(lineage_node_reference())
       }
 
   """
@@ -7024,7 +7024,7 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "domainId" => String.t(),
         "domainUnitId" => String.t(),
-        "environmentConfigurations" => list(environment_configuration()()),
+        "environmentConfigurations" => list(environment_configuration()),
         "id" => String.t(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t(),
@@ -7045,12 +7045,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataForms" => list(form_output()()),
+        "metadataForms" => list(form_output()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -7130,7 +7130,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       glue_self_grant_status_output() :: %{
-        "selfGrantStatusDetails" => list(self_grant_status_detail()())
+        "selfGrantStatusDetails" => list(self_grant_status_detail())
       }
 
   """
@@ -7162,7 +7162,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_data_sources_output() :: %{
-        "items" => list(data_source_summary()()),
+        "items" => list(data_source_summary()),
         "nextToken" => String.t()
       }
 
@@ -7196,14 +7196,14 @@ defmodule AWS.DataZone do
         "externalIdentifier" => String.t(),
         "firstRevisionCreatedAt" => non_neg_integer(),
         "firstRevisionCreatedBy" => String.t(),
-        "formsOutput" => list(form_output()()),
-        "glossaryTerms" => list(String.t()()),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t()),
         "id" => String.t(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
         "name" => String.t(),
         "owningProjectId" => String.t(),
-        "readOnlyFormsOutput" => list(form_output()()),
+        "readOnlyFormsOutput" => list(form_output()),
         "revision" => String.t(),
         "typeIdentifier" => String.t(),
         "typeRevision" => String.t()
@@ -7241,7 +7241,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_types_output() :: %{
-        "items" => list(list()()),
+        "items" => list(list()),
         "nextToken" => String.t(),
         "totalMatchCount" => [integer()]
       }
@@ -7327,12 +7327,12 @@ defmodule AWS.DataZone do
         "domainId" => String.t(),
         "existingSubscriptionId" => String.t(),
         "id" => String.t(),
-        "metadataForms" => list(form_output()()),
+        "metadataForms" => list(form_output()),
         "requestReason" => String.t(),
         "reviewerId" => [String.t()],
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()()),
-        "subscribedPrincipals" => list(list()()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t()
       }
@@ -7356,7 +7356,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       accept_subscription_request_input() :: %{
-        optional("assetScopes") => list(accepted_asset_scope()()),
+        optional("assetScopes") => list(accepted_asset_scope()),
         optional("decisionComment") => String.t()
       }
 
@@ -7377,7 +7377,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_subscription_requests_output() :: %{
-        "items" => list(subscription_request_summary()()),
+        "items" => list(subscription_request_summary()),
         "nextToken" => String.t()
       }
 
@@ -7467,7 +7467,7 @@ defmodule AWS.DataZone do
         "domainUnitId" => String.t(),
         "environmentId" => String.t(),
         "name" => String.t(),
-        "physicalEndpoints" => list(physical_endpoint()()),
+        "physicalEndpoints" => list(physical_endpoint()),
         "projectId" => String.t(),
         "props" => list(),
         "type" => list(any())
@@ -7481,7 +7481,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_group_profiles_output() :: %{
-        "items" => list(group_profile_summary()()),
+        "items" => list(group_profile_summary()),
         "nextToken" => String.t()
       }
 
@@ -7493,7 +7493,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       list_subscriptions_output() :: %{
-        "items" => list(subscription_summary()()),
+        "items" => list(subscription_summary()),
         "nextToken" => String.t()
       }
 
@@ -7505,12 +7505,12 @@ defmodule AWS.DataZone do
   ## Example:
 
       update_subscription_target_input() :: %{
-        optional("applicableAssetTypes") => list(String.t()()),
-        optional("authorizedPrincipals") => list(String.t()()),
+        optional("applicableAssetTypes") => list(String.t()),
+        optional("authorizedPrincipals") => list(String.t()),
         optional("manageAccessRole") => String.t(),
         optional("name") => String.t(),
         optional("provider") => [String.t()],
-        optional("subscriptionTargetConfig") => list(subscription_target_form()())
+        optional("subscriptionTargetConfig") => list(subscription_target_form())
       }
 
   """
@@ -7549,7 +7549,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       delete_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()()),
+        "assets" => list(subscribed_asset()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -7570,7 +7570,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       lake_formation_configuration() :: %{
-        "locationRegistrationExcludeS3Locations" => list(String.t()()),
+        "locationRegistrationExcludeS3Locations" => list(String.t()),
         "locationRegistrationRole" => String.t()
       }
 
@@ -7677,7 +7677,7 @@ defmodule AWS.DataZone do
         "redshiftCredentialConfiguration" => redshift_credential_configuration(),
         "redshiftStorage" => list(),
         "region" => [String.t()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration()())
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
@@ -7690,10 +7690,10 @@ defmodule AWS.DataZone do
       put_environment_blueprint_configuration_input() :: %{
         optional("environmentRolePermissionBoundary") => String.t(),
         optional("manageAccessRoleArn") => String.t(),
-        optional("provisioningConfigurations") => list(list()()),
+        optional("provisioningConfigurations") => list(list()),
         optional("provisioningRoleArn") => String.t(),
         optional("regionalParameters") => map(),
-        required("enabledRegions") => list(String.t()())
+        required("enabledRegions") => list(String.t())
       }
 
   """
@@ -7709,8 +7709,8 @@ defmodule AWS.DataZone do
         "description" => String.t(),
         "entityId" => String.t(),
         "entityRevision" => String.t(),
-        "glossaryTerms" => list(detailed_glossary_term()()),
-        "items" => list(listing_summary_item()()),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "items" => list(listing_summary_item()),
         "listingCreatedBy" => String.t(),
         "listingId" => String.t(),
         "listingRevision" => String.t(),

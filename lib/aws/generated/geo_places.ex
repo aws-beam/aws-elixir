@@ -37,19 +37,19 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       reverse_geocode_result_item() :: %{
-        "AccessPoints" => list(access_point()()),
+        "AccessPoints" => list(access_point()),
         "Address" => address(),
         "AddressNumberCorrected" => boolean(),
-        "Categories" => list(category()()),
+        "Categories" => list(category()),
         "Distance" => float(),
-        "FoodTypes" => list(food_type()()),
-        "Intersections" => list(intersection()()),
+        "FoodTypes" => list(food_type()),
+        "Intersections" => list(intersection()),
         "MapView" => list([float()]()),
         "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
-        "PostalCodeDetails" => list(postal_code_details()()),
+        "PostalCodeDetails" => list(postal_code_details()),
         "TimeZone" => time_zone(),
         "Title" => String.t()
       }
@@ -62,19 +62,19 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       geocode_parsed_query_address_components() :: %{
-        "AddressNumber" => list(parsed_query_component()()),
-        "Block" => list(parsed_query_component()()),
-        "Building" => list(parsed_query_component()()),
-        "Country" => list(parsed_query_component()()),
-        "District" => list(parsed_query_component()()),
-        "Locality" => list(parsed_query_component()()),
-        "PostalCode" => list(parsed_query_component()()),
-        "Region" => list(parsed_query_component()()),
-        "SecondaryAddressComponents" => list(parsed_query_secondary_address_component()()),
-        "Street" => list(parsed_query_component()()),
-        "SubBlock" => list(parsed_query_component()()),
-        "SubDistrict" => list(parsed_query_component()()),
-        "SubRegion" => list(parsed_query_component()())
+        "AddressNumber" => list(parsed_query_component()),
+        "Block" => list(parsed_query_component()),
+        "Building" => list(parsed_query_component()),
+        "Country" => list(parsed_query_component()),
+        "District" => list(parsed_query_component()),
+        "Locality" => list(parsed_query_component()),
+        "PostalCode" => list(parsed_query_component()),
+        "Region" => list(parsed_query_component()),
+        "SecondaryAddressComponents" => list(parsed_query_secondary_address_component()),
+        "Street" => list(parsed_query_component()),
+        "SubBlock" => list(parsed_query_component()),
+        "SubDistrict" => list(parsed_query_component()),
+        "SubRegion" => list(parsed_query_component())
       }
 
   """
@@ -98,7 +98,7 @@ defmodule AWS.GeoPlaces do
 
       phoneme_details() :: %{
         "Address" => address_component_phonemes(),
-        "Title" => list(phoneme_transcription()())
+        "Title" => list(phoneme_transcription())
       }
 
   """
@@ -110,7 +110,7 @@ defmodule AWS.GeoPlaces do
 
       autocomplete_response() :: %{
         "PricingBucket" => [String.t()],
-        "ResultItems" => list(autocomplete_result_item()())
+        "ResultItems" => list(autocomplete_result_item())
       }
 
   """
@@ -121,7 +121,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       reverse_geocode_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("Filter") => reverse_geocode_filter(),
         optional("IntendedUse") => String.t(),
         optional("Key") => String.t(),
@@ -140,17 +140,17 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       search_text_result_item() :: %{
-        "AccessPoints" => list(access_point()()),
-        "AccessRestrictions" => list(access_restriction()()),
+        "AccessPoints" => list(access_point()),
+        "AccessRestrictions" => list(access_restriction()),
         "Address" => address(),
         "AddressNumberCorrected" => boolean(),
-        "BusinessChains" => list(business_chain()()),
-        "Categories" => list(category()()),
+        "BusinessChains" => list(business_chain()),
+        "Categories" => list(category()),
         "Contacts" => contacts(),
         "Distance" => float(),
-        "FoodTypes" => list(food_type()()),
+        "FoodTypes" => list(food_type()),
         "MapView" => list([float()]()),
-        "OpeningHours" => list(opening_hours()()),
+        "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
         "PlaceId" => String.t(),
         "PlaceType" => String.t(),
@@ -168,8 +168,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       country_highlights() :: %{
-        "Code" => list(highlight()()),
-        "Name" => list(highlight()())
+        "Code" => list(highlight()),
+        "Name" => list(highlight())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       suggest_address_highlights() :: %{
-        "Label" => list(highlight()())
+        "Label" => list(highlight())
       }
 
   """
@@ -205,8 +205,8 @@ defmodule AWS.GeoPlaces do
 
       suggest_response() :: %{
         "PricingBucket" => [String.t()],
-        "QueryRefinements" => list(query_refinement()()),
-        "ResultItems" => list(suggest_result_item()())
+        "QueryRefinements" => list(query_refinement()),
+        "ResultItems" => list(suggest_result_item())
       }
 
   """
@@ -218,13 +218,13 @@ defmodule AWS.GeoPlaces do
 
       search_nearby_filter() :: %{
         "BoundingBox" => list([float()]()),
-        "ExcludeBusinessChains" => list(String.t()()),
-        "ExcludeCategories" => list(String.t()()),
-        "ExcludeFoodTypes" => list(String.t()()),
-        "IncludeBusinessChains" => list(String.t()()),
-        "IncludeCategories" => list(String.t()()),
-        "IncludeCountries" => list(String.t()()),
-        "IncludeFoodTypes" => list(String.t()())
+        "ExcludeBusinessChains" => list(String.t()),
+        "ExcludeCategories" => list(String.t()),
+        "ExcludeFoodTypes" => list(String.t()),
+        "IncludeBusinessChains" => list(String.t()),
+        "IncludeCategories" => list(String.t()),
+        "IncludeCountries" => list(String.t()),
+        "IncludeFoodTypes" => list(String.t())
       }
 
   """
@@ -247,19 +247,19 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       autocomplete_address_highlights() :: %{
-        "AddressNumber" => list(highlight()()),
-        "Block" => list(highlight()()),
-        "Building" => list(highlight()()),
+        "AddressNumber" => list(highlight()),
+        "Block" => list(highlight()),
+        "Building" => list(highlight()),
         "Country" => country_highlights(),
-        "District" => list(highlight()()),
-        "Intersection" => list(list(highlight()())()),
-        "Label" => list(highlight()()),
-        "Locality" => list(highlight()()),
-        "PostalCode" => list(highlight()()),
+        "District" => list(highlight()),
+        "Intersection" => list(list(highlight())()),
+        "Label" => list(highlight()),
+        "Locality" => list(highlight()),
+        "PostalCode" => list(highlight()),
         "Region" => region_highlights(),
-        "Street" => list(highlight()()),
-        "SubBlock" => list(highlight()()),
-        "SubDistrict" => list(highlight()()),
+        "Street" => list(highlight()),
+        "SubBlock" => list(highlight()),
+        "SubDistrict" => list(highlight()),
         "SubRegion" => sub_region_highlights()
       }
 
@@ -284,7 +284,7 @@ defmodule AWS.GeoPlaces do
       search_text_response() :: %{
         "NextToken" => String.t(),
         "PricingBucket" => [String.t()],
-        "ResultItems" => list(search_text_result_item()())
+        "ResultItems" => list(search_text_result_item())
       }
 
   """
@@ -295,13 +295,13 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       suggest_place_result() :: %{
-        "AccessPoints" => list(access_point()()),
-        "AccessRestrictions" => list(access_restriction()()),
+        "AccessPoints" => list(access_point()),
+        "AccessRestrictions" => list(access_restriction()),
         "Address" => address(),
-        "BusinessChains" => list(business_chain()()),
-        "Categories" => list(category()()),
+        "BusinessChains" => list(business_chain()),
+        "Categories" => list(category()),
         "Distance" => float(),
-        "FoodTypes" => list(food_type()()),
+        "FoodTypes" => list(food_type()),
         "MapView" => list([float()]()),
         "Phonemes" => phoneme_details(),
         "PlaceId" => String.t(),
@@ -369,8 +369,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       geocode_filter() :: %{
-        "IncludeCountries" => list(String.t()()),
-        "IncludePlaceTypes" => list(String.t()())
+        "IncludeCountries" => list(String.t()),
+        "IncludePlaceTypes" => list(String.t())
       }
 
   """
@@ -382,7 +382,7 @@ defmodule AWS.GeoPlaces do
 
       autocomplete_highlights() :: %{
         "Address" => autocomplete_address_highlights(),
-        "Title" => list(highlight()())
+        "Title" => list(highlight())
       }
 
   """
@@ -411,8 +411,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       region_highlights() :: %{
-        "Code" => list(highlight()()),
-        "Name" => list(highlight()())
+        "Code" => list(highlight()),
+        "Name" => list(highlight())
       }
 
   """
@@ -435,7 +435,7 @@ defmodule AWS.GeoPlaces do
 
       reverse_geocode_response() :: %{
         "PricingBucket" => [String.t()],
-        "ResultItems" => list(reverse_geocode_result_item()())
+        "ResultItems" => list(reverse_geocode_result_item())
       }
 
   """
@@ -447,7 +447,7 @@ defmodule AWS.GeoPlaces do
 
       geocode_parsed_query() :: %{
         "Address" => geocode_parsed_query_address_components(),
-        "Title" => list(parsed_query_component()())
+        "Title" => list(parsed_query_component())
       }
 
   """
@@ -488,7 +488,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       suggest_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => suggest_filter(),
         optional("IntendedUse") => String.t(),
@@ -520,7 +520,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       search_text_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => search_text_filter(),
         optional("IntendedUse") => String.t(),
@@ -541,7 +541,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       access_restriction() :: %{
-        "Categories" => list(category()()),
+        "Categories" => list(category()),
         "Restricted" => boolean()
       }
 
@@ -555,7 +555,7 @@ defmodule AWS.GeoPlaces do
       search_text_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t()())
+        "IncludeCountries" => list(String.t())
       }
 
   """
@@ -620,7 +620,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       get_place_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("IntendedUse") => String.t(),
         optional("Key") => String.t(),
         optional("Language") => String.t(),
@@ -678,7 +678,7 @@ defmodule AWS.GeoPlaces do
 
       suggest_highlights() :: %{
         "Address" => suggest_address_highlights(),
-        "Title" => list(highlight()())
+        "Title" => list(highlight())
       }
 
   """
@@ -689,7 +689,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       autocomplete_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => autocomplete_filter(),
         optional("IntendedUse") => String.t(),
@@ -743,7 +743,7 @@ defmodule AWS.GeoPlaces do
 
       geocode_response() :: %{
         "PricingBucket" => [String.t()],
-        "ResultItems" => list(geocode_result_item()())
+        "ResultItems" => list(geocode_result_item())
       }
 
   """
@@ -765,7 +765,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       intersection() :: %{
-        "AccessPoints" => list(access_point()()),
+        "AccessPoints" => list(access_point()),
         "Address" => address(),
         "Distance" => float(),
         "MapView" => list([float()]()),
@@ -783,17 +783,17 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       search_nearby_result_item() :: %{
-        "AccessPoints" => list(access_point()()),
-        "AccessRestrictions" => list(access_restriction()()),
+        "AccessPoints" => list(access_point()),
+        "AccessRestrictions" => list(access_restriction()),
         "Address" => address(),
         "AddressNumberCorrected" => boolean(),
-        "BusinessChains" => list(business_chain()()),
-        "Categories" => list(category()()),
+        "BusinessChains" => list(business_chain()),
+        "Categories" => list(category()),
         "Contacts" => contacts(),
         "Distance" => float(),
-        "FoodTypes" => list(food_type()()),
+        "FoodTypes" => list(food_type()),
         "MapView" => list([float()]()),
-        "OpeningHours" => list(opening_hours()()),
+        "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
         "PlaceId" => String.t(),
         "PlaceType" => String.t(),
@@ -811,7 +811,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()()),
+        "FieldList" => list(validation_exception_field()),
         "Message" => [String.t()],
         "Reason" => String.t()
       }
@@ -835,25 +835,25 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       get_place_response() :: %{
-        "AccessPoints" => list(access_point()()),
-        "AccessRestrictions" => list(access_restriction()()),
+        "AccessPoints" => list(access_point()),
+        "AccessRestrictions" => list(access_restriction()),
         "Address" => address(),
         "AddressNumberCorrected" => boolean(),
-        "BusinessChains" => list(business_chain()()),
-        "Categories" => list(category()()),
+        "BusinessChains" => list(business_chain()),
+        "Categories" => list(category()),
         "Contacts" => contacts(),
-        "FoodTypes" => list(food_type()()),
+        "FoodTypes" => list(food_type()),
         "MainAddress" => related_place(),
         "MapView" => list([float()]()),
-        "OpeningHours" => list(opening_hours()()),
+        "OpeningHours" => list(opening_hours()),
         "Phonemes" => phoneme_details(),
         "PlaceId" => String.t(),
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
-        "PostalCodeDetails" => list(postal_code_details()()),
+        "PostalCodeDetails" => list(postal_code_details()),
         "PricingBucket" => [String.t()],
-        "SecondaryAddresses" => list(related_place()()),
+        "SecondaryAddresses" => list(related_place()),
         "TimeZone" => time_zone(),
         "Title" => String.t()
       }
@@ -877,7 +877,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       related_place() :: %{
-        "AccessPoints" => list(access_point()()),
+        "AccessPoints" => list(access_point()),
         "Address" => address(),
         "PlaceId" => String.t(),
         "PlaceType" => String.t(),
@@ -893,15 +893,15 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       address_component_phonemes() :: %{
-        "Block" => list(phoneme_transcription()()),
-        "Country" => list(phoneme_transcription()()),
-        "District" => list(phoneme_transcription()()),
-        "Locality" => list(phoneme_transcription()()),
-        "Region" => list(phoneme_transcription()()),
-        "Street" => list(phoneme_transcription()()),
-        "SubBlock" => list(phoneme_transcription()()),
-        "SubDistrict" => list(phoneme_transcription()()),
-        "SubRegion" => list(phoneme_transcription()())
+        "Block" => list(phoneme_transcription()),
+        "Country" => list(phoneme_transcription()),
+        "District" => list(phoneme_transcription()),
+        "Locality" => list(phoneme_transcription()),
+        "Region" => list(phoneme_transcription()),
+        "Street" => list(phoneme_transcription()),
+        "SubBlock" => list(phoneme_transcription()),
+        "SubDistrict" => list(phoneme_transcription()),
+        "SubRegion" => list(phoneme_transcription())
       }
 
   """
@@ -917,11 +917,11 @@ defmodule AWS.GeoPlaces do
         "Building" => float(),
         "Country" => float(),
         "District" => float(),
-        "Intersection" => list(float()()),
+        "Intersection" => list(float()),
         "Locality" => float(),
         "PostalCode" => float(),
         "Region" => float(),
-        "SecondaryAddressComponents" => list(secondary_address_component_match_score()()),
+        "SecondaryAddressComponents" => list(secondary_address_component_match_score()),
         "SubBlock" => float(),
         "SubDistrict" => float(),
         "SubRegion" => float()
@@ -949,7 +949,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       contact_details() :: %{
-        "Categories" => list(category()()),
+        "Categories" => list(category()),
         "Label" => String.t(),
         "Value" => String.t()
       }
@@ -995,7 +995,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       geocode_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("BiasPosition") => list([float()]()),
         optional("Filter") => geocode_filter(),
         optional("IntendedUse") => String.t(),
@@ -1015,13 +1015,13 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       geocode_result_item() :: %{
-        "AccessPoints" => list(access_point()()),
+        "AccessPoints" => list(access_point()),
         "Address" => address(),
         "AddressNumberCorrected" => boolean(),
-        "Categories" => list(category()()),
+        "Categories" => list(category()),
         "Distance" => float(),
-        "FoodTypes" => list(food_type()()),
-        "Intersections" => list(intersection()()),
+        "FoodTypes" => list(food_type()),
+        "Intersections" => list(intersection()),
         "MainAddress" => related_place(),
         "MapView" => list([float()]()),
         "MatchScores" => match_score_details(),
@@ -1030,8 +1030,8 @@ defmodule AWS.GeoPlaces do
         "PlaceType" => String.t(),
         "PoliticalView" => String.t(),
         "Position" => list([float()]()),
-        "PostalCodeDetails" => list(postal_code_details()()),
-        "SecondaryAddresses" => list(related_place()()),
+        "PostalCodeDetails" => list(postal_code_details()),
+        "SecondaryAddresses" => list(related_place()),
         "TimeZone" => time_zone(),
         "Title" => String.t()
       }
@@ -1044,7 +1044,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       reverse_geocode_filter() :: %{
-        "IncludePlaceTypes" => list(String.t()())
+        "IncludePlaceTypes" => list(String.t())
       }
 
   """
@@ -1070,7 +1070,7 @@ defmodule AWS.GeoPlaces do
       search_nearby_response() :: %{
         "NextToken" => String.t(),
         "PricingBucket" => [String.t()],
-        "ResultItems" => list(search_nearby_result_item()())
+        "ResultItems" => list(search_nearby_result_item())
       }
 
   """
@@ -1083,8 +1083,8 @@ defmodule AWS.GeoPlaces do
       autocomplete_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t()()),
-        "IncludePlaceTypes" => list(String.t()())
+        "IncludeCountries" => list(String.t()),
+        "IncludePlaceTypes" => list(String.t())
       }
 
   """
@@ -1100,14 +1100,14 @@ defmodule AWS.GeoPlaces do
         "Building" => String.t(),
         "Country" => country(),
         "District" => String.t(),
-        "Intersection" => list(String.t()()),
+        "Intersection" => list(String.t()),
         "Label" => String.t(),
         "Locality" => String.t(),
         "PostalCode" => String.t(),
         "Region" => region(),
-        "SecondaryAddressComponents" => list(secondary_address_component()()),
+        "SecondaryAddressComponents" => list(secondary_address_component()),
         "Street" => String.t(),
-        "StreetComponents" => list(street_components()()),
+        "StreetComponents" => list(street_components()),
         "SubBlock" => String.t(),
         "SubDistrict" => String.t(),
         "SubRegion" => sub_region()
@@ -1121,9 +1121,9 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       opening_hours() :: %{
-        "Categories" => list(category()()),
-        "Components" => list(opening_hours_components()()),
-        "Display" => list(String.t()()),
+        "Categories" => list(category()),
+        "Components" => list(opening_hours_components()),
+        "Display" => list(String.t()),
         "OpenNow" => boolean()
       }
 
@@ -1135,10 +1135,10 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       contacts() :: %{
-        "Emails" => list(contact_details()()),
-        "Faxes" => list(contact_details()()),
-        "Phones" => list(contact_details()()),
-        "Websites" => list(contact_details()())
+        "Emails" => list(contact_details()),
+        "Faxes" => list(contact_details()),
+        "Phones" => list(contact_details()),
+        "Websites" => list(contact_details())
       }
 
   """
@@ -1163,7 +1163,7 @@ defmodule AWS.GeoPlaces do
       suggest_filter() :: %{
         "BoundingBox" => list([float()]()),
         "Circle" => filter_circle(),
-        "IncludeCountries" => list(String.t()())
+        "IncludeCountries" => list(String.t())
       }
 
   """
@@ -1174,7 +1174,7 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       search_nearby_request() :: %{
-        optional("AdditionalFeatures") => list(String.t()()),
+        optional("AdditionalFeatures") => list(String.t()),
         optional("Filter") => search_nearby_filter(),
         optional("IntendedUse") => String.t(),
         optional("Key") => String.t(),
@@ -1194,8 +1194,8 @@ defmodule AWS.GeoPlaces do
   ## Example:
 
       sub_region_highlights() :: %{
-        "Code" => list(highlight()()),
-        "Name" => list(highlight()())
+        "Code" => list(highlight()),
+        "Name" => list(highlight())
       }
 
   """

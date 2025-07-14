@@ -115,7 +115,7 @@ defmodule AWS.Route53 do
       delegation_set() :: %{
         "CallerReference" => String.t(),
         "Id" => String.t(),
-        "NameServers" => list(String.t()())
+        "NameServers" => list(String.t())
       }
 
   """
@@ -211,7 +211,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_hosted_zones_by_vpc_response() :: %{
-        "HostedZoneSummaries" => list(hosted_zone_summary()()),
+        "HostedZoneSummaries" => list(hosted_zone_summary()),
         "MaxItems" => [integer()],
         "NextToken" => String.t()
       }
@@ -269,7 +269,7 @@ defmodule AWS.Route53 do
 
       cloud_watch_alarm_configuration() :: %{
         "ComparisonOperator" => list(any()),
-        "Dimensions" => list(dimension()()),
+        "Dimensions" => list(dimension()),
         "EvaluationPeriods" => integer(),
         "MetricName" => String.t(),
         "Namespace" => String.t(),
@@ -333,7 +333,7 @@ defmodule AWS.Route53 do
 
       invalid_change_batch() :: %{
         "message" => String.t(),
-        "messages" => list(String.t()())
+        "messages" => list(String.t())
       }
 
   """
@@ -414,7 +414,7 @@ defmodule AWS.Route53 do
         "MaxItems" => [integer()],
         "TrafficPolicyInstanceNameMarker" => String.t(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
-        "TrafficPolicyInstances" => list(traffic_policy_instance()())
+        "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
@@ -507,7 +507,7 @@ defmodule AWS.Route53 do
         "MultiValueAnswer" => boolean(),
         "Name" => String.t(),
         "Region" => list(any()),
-        "ResourceRecords" => list(resource_record()()),
+        "ResourceRecords" => list(resource_record()),
         "SetIdentifier" => String.t(),
         "TTL" => float(),
         "TrafficPolicyInstanceId" => String.t(),
@@ -678,7 +678,7 @@ defmodule AWS.Route53 do
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
         "TrafficPolicyIdMarker" => String.t(),
-        "TrafficPolicySummaries" => list(traffic_policy_summary()())
+        "TrafficPolicySummaries" => list(traffic_policy_summary())
       }
 
   """
@@ -689,7 +689,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_reusable_delegation_sets_response() :: %{
-        "DelegationSets" => list(delegation_set()()),
+        "DelegationSets" => list(delegation_set()),
         "IsTruncated" => boolean(),
         "Marker" => String.t(),
         "MaxItems" => [integer()],
@@ -787,7 +787,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       change_batch() :: %{
-        "Changes" => list(change()()),
+        "Changes" => list(change()),
         "Comment" => String.t()
       }
 
@@ -883,8 +883,8 @@ defmodule AWS.Route53 do
   ## Example:
 
       change_tags_for_resource_request() :: %{
-        optional("AddTags") => list(tag()()),
-        optional("RemoveTagKeys") => list(String.t()())
+        optional("AddTags") => list(tag()),
+        optional("RemoveTagKeys") => list(String.t())
       }
 
   """
@@ -907,7 +907,7 @@ defmodule AWS.Route53 do
 
       list_query_logging_configs_response() :: %{
         "NextToken" => String.t(),
-        "QueryLoggingConfigs" => list(query_logging_config()())
+        "QueryLoggingConfigs" => list(query_logging_config())
       }
 
   """
@@ -996,7 +996,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_tags_for_resources_response() :: %{
-        "ResourceTagSets" => list(resource_tag_set()())
+        "ResourceTagSets" => list(resource_tag_set())
       }
 
   """
@@ -1016,7 +1016,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_geo_locations_response() :: %{
-        "GeoLocationDetailsList" => list(geo_location_details()()),
+        "GeoLocationDetailsList" => list(geo_location_details()),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
         "NextContinentCode" => String.t(),
@@ -1111,7 +1111,7 @@ defmodule AWS.Route53 do
 
       cidr_collection_change() :: %{
         "Action" => list(any()),
-        "CidrList" => list(String.t()()),
+        "CidrList" => list(String.t()),
         "LocationName" => String.t()
       }
 
@@ -1123,7 +1123,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       get_health_check_last_failure_reason_response() :: %{
-        "HealthCheckObservations" => list(health_check_observation()())
+        "HealthCheckObservations" => list(health_check_observation())
       }
 
   """
@@ -1134,7 +1134,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       get_checker_ip_ranges_response() :: %{
-        "CheckerIpRanges" => list(String.t()())
+        "CheckerIpRanges" => list(String.t())
       }
 
   """
@@ -1150,7 +1150,7 @@ defmodule AWS.Route53 do
         "MaxItems" => [integer()],
         "TrafficPolicyInstanceNameMarker" => String.t(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
-        "TrafficPolicyInstances" => list(traffic_policy_instance()())
+        "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
@@ -1269,7 +1269,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_cidr_blocks_response() :: %{
-        "CidrBlocks" => list(cidr_block_summary()()),
+        "CidrBlocks" => list(cidr_block_summary()),
         "NextToken" => String.t()
       }
 
@@ -1370,7 +1370,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_cidr_collections_response() :: %{
-        "CidrCollections" => list(collection_summary()()),
+        "CidrCollections" => list(collection_summary()),
         "NextToken" => String.t()
       }
 
@@ -1391,7 +1391,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_health_checks_response() :: %{
-        "HealthChecks" => list(health_check()()),
+        "HealthChecks" => list(health_check()),
         "IsTruncated" => boolean(),
         "Marker" => String.t(),
         "MaxItems" => [integer()],
@@ -1420,7 +1420,7 @@ defmodule AWS.Route53 do
       get_hosted_zone_response() :: %{
         "DelegationSet" => delegation_set(),
         "HostedZone" => hosted_zone(),
-        "VPCs" => list(vpc()())
+        "VPCs" => list(vpc())
       }
 
   """
@@ -1534,7 +1534,7 @@ defmodule AWS.Route53 do
       resource_tag_set() :: %{
         "ResourceId" => String.t(),
         "ResourceType" => list(any()),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -1683,7 +1683,7 @@ defmodule AWS.Route53 do
       list_hosted_zones_by_name_response() :: %{
         "DNSName" => String.t(),
         "HostedZoneId" => String.t(),
-        "HostedZones" => list(hosted_zone()()),
+        "HostedZones" => list(hosted_zone()),
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
         "NextDNSName" => String.t(),
@@ -1714,7 +1714,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_hosted_zones_response() :: %{
-        "HostedZones" => list(hosted_zone()()),
+        "HostedZones" => list(hosted_zone()),
         "IsTruncated" => boolean(),
         "Marker" => String.t(),
         "MaxItems" => [integer()],
@@ -1882,7 +1882,7 @@ defmodule AWS.Route53 do
 
       update_health_check_request() :: %{
         optional("AlarmIdentifier") => alarm_identifier(),
-        optional("ChildHealthChecks") => list(String.t()()),
+        optional("ChildHealthChecks") => list(String.t()),
         optional("Disabled") => boolean(),
         optional("EnableSNI") => boolean(),
         optional("FailureThreshold") => integer(),
@@ -2002,7 +2002,7 @@ defmodule AWS.Route53 do
       list_vpc_association_authorizations_response() :: %{
         "HostedZoneId" => String.t(),
         "NextToken" => String.t(),
-        "VPCs" => list(vpc()())
+        "VPCs" => list(vpc())
       }
 
   """
@@ -2035,7 +2035,7 @@ defmodule AWS.Route53 do
         "MaxItems" => [integer()],
         "TrafficPolicyInstanceNameMarker" => String.t(),
         "TrafficPolicyInstanceTypeMarker" => list(any()),
-        "TrafficPolicyInstances" => list(traffic_policy_instance()())
+        "TrafficPolicyInstances" => list(traffic_policy_instance())
       }
 
   """
@@ -2159,7 +2159,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       get_dns_sec_response() :: %{
-        "KeySigningKeys" => list(key_signing_key()()),
+        "KeySigningKeys" => list(key_signing_key()),
         "Status" => dns_sec_status()
       }
 
@@ -2199,7 +2199,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_tags_for_resources_request() :: %{
-        required("ResourceIds") => list(String.t()())
+        required("ResourceIds") => list(String.t())
       }
 
   """
@@ -2210,7 +2210,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       list_cidr_locations_response() :: %{
-        "CidrLocations" => list(location_summary()()),
+        "CidrLocations" => list(location_summary()),
         "NextToken" => String.t()
       }
 
@@ -2316,7 +2316,7 @@ defmodule AWS.Route53 do
 
       health_check_config() :: %{
         "AlarmIdentifier" => alarm_identifier(),
-        "ChildHealthChecks" => list(String.t()()),
+        "ChildHealthChecks" => list(String.t()),
         "Disabled" => boolean(),
         "EnableSNI" => boolean(),
         "FailureThreshold" => integer(),
@@ -2410,7 +2410,7 @@ defmodule AWS.Route53 do
       list_traffic_policy_versions_response() :: %{
         "IsTruncated" => boolean(),
         "MaxItems" => [integer()],
-        "TrafficPolicies" => list(traffic_policy()()),
+        "TrafficPolicies" => list(traffic_policy()),
         "TrafficPolicyVersionMarker" => String.t()
       }
 
@@ -2766,7 +2766,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       get_health_check_status_response() :: %{
-        "HealthCheckObservations" => list(health_check_observation()())
+        "HealthCheckObservations" => list(health_check_observation())
       }
 
   """
@@ -2782,7 +2782,7 @@ defmodule AWS.Route53 do
         "NextRecordIdentifier" => String.t(),
         "NextRecordName" => String.t(),
         "NextRecordType" => list(any()),
-        "ResourceRecordSets" => list(resource_record_set()())
+        "ResourceRecordSets" => list(resource_record_set())
       }
 
   """
@@ -2920,7 +2920,7 @@ defmodule AWS.Route53 do
       test_dns_answer_response() :: %{
         "Nameserver" => String.t(),
         "Protocol" => String.t(),
-        "RecordData" => list(String.t()()),
+        "RecordData" => list(String.t()),
         "RecordName" => String.t(),
         "RecordType" => list(any()),
         "ResponseCode" => String.t()
@@ -2990,7 +2990,7 @@ defmodule AWS.Route53 do
 
       change_cidr_collection_request() :: %{
         optional("CollectionVersion") => float(),
-        required("Changes") => list(cidr_collection_change()())
+        required("Changes") => list(cidr_collection_change())
       }
 
   """

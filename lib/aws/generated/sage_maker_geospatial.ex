@@ -26,7 +26,7 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       zonal_statistics_config_input() :: %{
-        "Statistics" => list(String.t()()),
+        "Statistics" => list(String.t()),
         "TargetBands" => list([String.t()]()),
         "ZoneS3Path" => String.t(),
         "ZoneS3PathKmsKeyId" => String.t()
@@ -88,7 +88,7 @@ defmodule AWS.SageMakerGeospatial do
         "JobConfig" => list(),
         "KmsKeyId" => String.t(),
         "Name" => [String.t()],
-        "OutputBands" => list(output_band()()),
+        "OutputBands" => list(output_band()),
         "Status" => String.t(),
         "Tags" => map()
       }
@@ -149,7 +149,7 @@ defmodule AWS.SageMakerGeospatial do
 
       property_filters() :: %{
         "LogicalOperator" => String.t(),
-        "Properties" => list(property_filter()())
+        "Properties" => list(property_filter())
       }
 
   """
@@ -172,7 +172,7 @@ defmodule AWS.SageMakerGeospatial do
 
       list_raster_data_collections_output() :: %{
         optional("NextToken") => String.t(),
-        required("RasterDataCollectionSummaries") => list(raster_data_collection_metadata()())
+        required("RasterDataCollectionSummaries") => list(raster_data_collection_metadata())
       }
 
   """
@@ -205,7 +205,7 @@ defmodule AWS.SageMakerGeospatial do
 
       list_earth_observation_job_output() :: %{
         optional("NextToken") => String.t(),
-        required("EarthObservationJobSummaries") => list(list_earth_observation_job_output_config()())
+        required("EarthObservationJobSummaries") => list(list_earth_observation_job_output_config())
       }
 
   """
@@ -355,7 +355,7 @@ defmodule AWS.SageMakerGeospatial do
   ## Example:
 
       custom_indices_input() :: %{
-        "Operations" => list(operation()())
+        "Operations" => list(operation())
       }
 
   """
@@ -439,7 +439,7 @@ defmodule AWS.SageMakerGeospatial do
 
       list_vector_enrichment_job_output() :: %{
         optional("NextToken") => String.t(),
-        required("VectorEnrichmentJobSummaries") => list(list_vector_enrichment_job_output_config()())
+        required("VectorEnrichmentJobSummaries") => list(list_vector_enrichment_job_output_config())
       }
 
   """
@@ -487,7 +487,7 @@ defmodule AWS.SageMakerGeospatial do
 
       temporal_statistics_config_input() :: %{
         "GroupBy" => String.t(),
-        "Statistics" => list(String.t()()),
+        "Statistics" => list(String.t()),
         "TargetBands" => list([String.t()]())
       }
 
@@ -940,7 +940,7 @@ defmodule AWS.SageMakerGeospatial do
         "Description" => [String.t()],
         "DescriptionPageUrl" => [String.t()],
         "Name" => [String.t()],
-        "SupportedFilters" => list(filter()()),
+        "SupportedFilters" => list(filter()),
         "Tags" => map(),
         "Type" => String.t()
       }
@@ -1001,7 +1001,7 @@ defmodule AWS.SageMakerGeospatial do
 
       search_raster_data_collection_output() :: %{
         "ApproximateResultCount" => [integer()],
-        "Items" => list(item_source()()),
+        "Items" => list(item_source()),
         "NextToken" => String.t()
       }
 
@@ -1068,7 +1068,7 @@ defmodule AWS.SageMakerGeospatial do
         required("DescriptionPageUrl") => [String.t()],
         required("ImageSourceBands") => list([String.t()]()),
         required("Name") => [String.t()],
-        required("SupportedFilters") => list(filter()()),
+        required("SupportedFilters") => list(filter()),
         required("Type") => String.t()
       }
 

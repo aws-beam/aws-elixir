@@ -22,7 +22,7 @@ defmodule AWS.Imagebuilder do
         "message" => String.t(),
         "nextToken" => String.t(),
         "requestId" => String.t(),
-        "workflowExecutions" => list(workflow_execution_metadata()())
+        "workflowExecutions" => list(workflow_execution_metadata())
       }
 
   """
@@ -45,7 +45,7 @@ defmodule AWS.Imagebuilder do
 
       list_workflow_build_versions_response() :: %{
         "nextToken" => String.t(),
-        "workflowSummaryList" => list(workflow_summary()())
+        "workflowSummaryList" => list(workflow_summary())
       }
 
   """
@@ -56,7 +56,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_distribution_configurations_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -117,7 +117,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_pipeline_images_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imagePipelineArn") => String.t()
@@ -184,7 +184,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       component_parameter_detail() :: %{
-        "defaultValue" => list(String.t()()),
+        "defaultValue" => list(String.t()),
         "description" => String.t(),
         "name" => String.t(),
         "type" => String.t()
@@ -227,7 +227,7 @@ defmodule AWS.Imagebuilder do
         "message" => String.t(),
         "nextToken" => String.t(),
         "requestId" => String.t(),
-        "steps" => list(workflow_step_metadata()()),
+        "steps" => list(workflow_step_metadata()),
         "workflowBuildVersionArn" => String.t(),
         "workflowExecutionId" => String.t()
       }
@@ -253,7 +253,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       container() :: %{
-        "imageUris" => list(String.t()()),
+        "imageUris" => list(String.t()),
         "region" => String.t()
       }
 
@@ -283,7 +283,7 @@ defmodule AWS.Imagebuilder do
         "dateUpdated" => String.t(),
         "description" => String.t(),
         "instanceProfileName" => String.t(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "name" => String.t(),
         "placement" => placement(),
         "resourceTags" => map(),
@@ -298,7 +298,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_recipes_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
@@ -329,7 +329,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_pipelines_response() :: %{
-        "imagePipelineList" => list(image_pipeline()()),
+        "imagePipelineList" => list(image_pipeline()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -368,7 +368,7 @@ defmodule AWS.Imagebuilder do
 
       list_waiting_workflow_steps_response() :: %{
         "nextToken" => String.t(),
-        "steps" => list(workflow_step_execution()())
+        "steps" => list(workflow_step_execution())
       }
 
   """
@@ -384,7 +384,7 @@ defmodule AWS.Imagebuilder do
         required("clientToken") => String.t(),
         required("executionRole") => String.t(),
         required("lifecyclePolicyArn") => String.t(),
-        required("policyDetails") => list(lifecycle_policy_detail()()),
+        required("policyDetails") => list(lifecycle_policy_detail()),
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
@@ -495,7 +495,7 @@ defmodule AWS.Imagebuilder do
         "lifecycleExecutionId" => String.t(),
         "lifecycleExecutionState" => lifecycle_execution_state(),
         "nextToken" => String.t(),
-        "resources" => list(lifecycle_execution_resource()())
+        "resources" => list(lifecycle_execution_resource())
       }
 
   """
@@ -548,7 +548,7 @@ defmodule AWS.Imagebuilder do
         "schedule" => schedule(),
         "status" => list(any()),
         "tags" => map(),
-        "workflows" => list(workflow_configuration()())
+        "workflows" => list(workflow_configuration())
       }
 
   """
@@ -570,7 +570,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       workflow_parameter_detail() :: %{
-        "defaultValue" => list(String.t()()),
+        "defaultValue" => list(String.t()),
         "description" => String.t(),
         "name" => String.t(),
         "type" => String.t()
@@ -724,7 +724,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_lifecycle_policies_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -764,12 +764,12 @@ defmodule AWS.Imagebuilder do
       create_infrastructure_configuration_request() :: %{
         optional("description") => String.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t()()),
+        optional("instanceTypes") => list(String.t()),
         optional("keyPair") => String.t(),
         optional("logging") => logging(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("snsTopicArn") => String.t(),
         optional("subnetId") => String.t(),
         optional("tags") => map(),
@@ -813,7 +813,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       ecr_configuration() :: %{
-        "containerTags" => list(String.t()()),
+        "containerTags" => list(String.t()),
         "repositoryName" => String.t()
       }
 
@@ -849,7 +849,7 @@ defmodule AWS.Imagebuilder do
 
       image_scan_findings_filter() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -861,12 +861,12 @@ defmodule AWS.Imagebuilder do
 
       create_image_recipe_request() :: %{
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
-        optional("blockDeviceMappings") => list(instance_block_device_mapping()()),
+        optional("blockDeviceMappings") => list(instance_block_device_mapping()),
         optional("description") => String.t(),
         optional("tags") => map(),
         optional("workingDirectory") => String.t(),
         required("clientToken") => String.t(),
-        required("components") => list(component_configuration()()),
+        required("components") => list(component_configuration()),
         required("name") => String.t(),
         required("parentImage") => String.t(),
         required("semanticVersion") => String.t()
@@ -891,7 +891,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_container_recipes_response() :: %{
-        "containerRecipeSummaryList" => list(container_recipe_summary()()),
+        "containerRecipeSummaryList" => list(container_recipe_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -928,7 +928,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -995,7 +995,7 @@ defmodule AWS.Imagebuilder do
         "platform" => list(any()),
         "publisher" => String.t(),
         "state" => component_state(),
-        "supportedOsVersions" => list(String.t()()),
+        "supportedOsVersions" => list(String.t()),
         "tags" => map(),
         "type" => list(any()),
         "version" => String.t()
@@ -1024,7 +1024,7 @@ defmodule AWS.Imagebuilder do
         optional("description") => String.t(),
         optional("tags") => map(),
         required("clientToken") => String.t(),
-        required("distributions") => list(distribution()()),
+        required("distributions") => list(distribution()),
         required("name") => String.t()
       }
 
@@ -1198,7 +1198,7 @@ defmodule AWS.Imagebuilder do
 
       workflow_parameter() :: %{
         "name" => String.t(),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
 
   """
@@ -1237,7 +1237,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_distribution_configurations_response() :: %{
-        "distributionConfigurationSummaryList" => list(distribution_configuration_summary()()),
+        "distributionConfigurationSummaryList" => list(distribution_configuration_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -1300,10 +1300,10 @@ defmodule AWS.Imagebuilder do
         "accountId" => String.t(),
         "action" => lifecycle_execution_resource_action(),
         "endTime" => non_neg_integer(),
-        "imageUris" => list(String.t()()),
+        "imageUris" => list(String.t()),
         "region" => String.t(),
         "resourceId" => String.t(),
-        "snapshots" => list(lifecycle_execution_snapshot_resource()()),
+        "snapshots" => list(lifecycle_execution_snapshot_resource()),
         "startTime" => non_neg_integer(),
         "state" => lifecycle_execution_resource_state()
       }
@@ -1424,12 +1424,12 @@ defmodule AWS.Imagebuilder do
       update_infrastructure_configuration_request() :: %{
         optional("description") => String.t(),
         optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t()()),
+        optional("instanceTypes") => list(String.t()),
         optional("keyPair") => String.t(),
         optional("logging") => logging(),
         optional("placement") => placement(),
         optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t()()),
+        optional("securityGroupIds") => list(String.t()),
         optional("snsTopicArn") => String.t(),
         optional("subnetId") => String.t(),
         optional("terminateInstanceOnFailure") => boolean(),
@@ -1447,7 +1447,7 @@ defmodule AWS.Imagebuilder do
 
       list_components_request() :: %{
         optional("byName") => boolean(),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
@@ -1516,7 +1516,7 @@ defmodule AWS.Imagebuilder do
         optional("tags") => map(),
         optional("workingDirectory") => String.t(),
         required("clientToken") => String.t(),
-        required("components") => list(component_configuration()()),
+        required("components") => list(component_configuration()),
         required("containerType") => list(any()),
         required("name") => String.t(),
         required("parentImage") => String.t(),
@@ -1575,7 +1575,7 @@ defmodule AWS.Imagebuilder do
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTestsConfiguration") => image_tests_configuration(),
         optional("tags") => map(),
-        optional("workflows") => list(workflow_configuration()()),
+        optional("workflows") => list(workflow_configuration()),
         required("clientToken") => String.t(),
         required("infrastructureConfigurationArn") => String.t()
       }
@@ -1611,7 +1611,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_lifecycle_policies_response() :: %{
-        "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()()),
+        "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()),
         "nextToken" => String.t()
       }
 
@@ -1624,7 +1624,7 @@ defmodule AWS.Imagebuilder do
 
       list_images_request() :: %{
         optional("byName") => boolean(),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("includeDeprecated") => boolean(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1649,12 +1649,12 @@ defmodule AWS.Imagebuilder do
         "name" => String.t(),
         "obfuscate" => boolean(),
         "owner" => String.t(),
-        "parameters" => list(component_parameter_detail()()),
+        "parameters" => list(component_parameter_detail()),
         "platform" => list(any()),
-        "productCodes" => list(product_code_list_item()()),
+        "productCodes" => list(product_code_list_item()),
         "publisher" => String.t(),
         "state" => component_state(),
-        "supportedOsVersions" => list(String.t()()),
+        "supportedOsVersions" => list(String.t()),
         "tags" => map(),
         "type" => list(any()),
         "version" => String.t()
@@ -1741,7 +1741,7 @@ defmodule AWS.Imagebuilder do
 
       list_workflows_request() :: %{
         optional("byName") => boolean(),
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
@@ -1770,7 +1770,7 @@ defmodule AWS.Imagebuilder do
         "dateCreated" => String.t(),
         "dateUpdated" => String.t(),
         "description" => String.t(),
-        "distributions" => list(distribution()()),
+        "distributions" => list(distribution()),
         "name" => String.t(),
         "tags" => map(),
         "timeoutMinutes" => integer()
@@ -1817,7 +1817,7 @@ defmodule AWS.Imagebuilder do
         "kmsKeyId" => String.t(),
         "name" => String.t(),
         "owner" => String.t(),
-        "parameters" => list(workflow_parameter_detail()()),
+        "parameters" => list(workflow_parameter_detail()),
         "state" => workflow_state(),
         "tags" => map(),
         "type" => list(any()),
@@ -1832,7 +1832,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       cvss_score_details() :: %{
-        "adjustments" => list(cvss_score_adjustment()()),
+        "adjustments" => list(cvss_score_adjustment()),
         "cvssSource" => String.t(),
         "score" => float(),
         "scoreSource" => String.t(),
@@ -1848,7 +1848,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_pipelines_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1863,12 +1863,12 @@ defmodule AWS.Imagebuilder do
       distribution() :: %{
         "amiDistributionConfiguration" => ami_distribution_configuration(),
         "containerDistributionConfiguration" => container_distribution_configuration(),
-        "fastLaunchConfigurations" => list(fast_launch_configuration()()),
-        "launchTemplateConfigurations" => list(launch_template_configuration()()),
-        "licenseConfigurationArns" => list(String.t()()),
+        "fastLaunchConfigurations" => list(fast_launch_configuration()),
+        "launchTemplateConfigurations" => list(launch_template_configuration()),
+        "licenseConfigurationArns" => list(String.t()),
         "region" => String.t(),
         "s3ExportConfiguration" => s3_export_configuration(),
-        "ssmParameterConfigurations" => list(ssm_parameter_configuration()())
+        "ssmParameterConfigurations" => list(ssm_parameter_configuration())
       }
 
   """
@@ -1879,7 +1879,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_scan_findings_response() :: %{
-        "findings" => list(image_scan_finding()()),
+        "findings" => list(image_scan_finding()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -1942,7 +1942,7 @@ defmodule AWS.Imagebuilder do
         optional("data") => String.t(),
         optional("description") => String.t(),
         optional("kmsKeyId") => String.t(),
-        optional("supportedOsVersions") => list(String.t()()),
+        optional("supportedOsVersions") => list(String.t()),
         optional("tags") => map(),
         optional("uri") => String.t(),
         required("clientToken") => String.t(),
@@ -1982,7 +1982,7 @@ defmodule AWS.Imagebuilder do
         optional("description") => String.t(),
         required("clientToken") => String.t(),
         required("distributionConfigurationArn") => String.t(),
-        required("distributions") => list(distribution()())
+        required("distributions") => list(distribution())
       }
 
   """
@@ -2039,7 +2039,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_infrastructure_configurations_response() :: %{
-        "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()()),
+        "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -2111,9 +2111,9 @@ defmodule AWS.Imagebuilder do
         "name" => String.t(),
         "owner" => String.t(),
         "platform" => list(any()),
-        "productCodes" => list(product_code_list_item()()),
+        "productCodes" => list(product_code_list_item()),
         "status" => list(any()),
-        "supportedOsVersions" => list(String.t()()),
+        "supportedOsVersions" => list(String.t()),
         "type" => list(any()),
         "version" => String.t()
       }
@@ -2185,7 +2185,7 @@ defmodule AWS.Imagebuilder do
         optional("schedule") => schedule(),
         optional("status") => list(any()),
         optional("tags") => map(),
-        optional("workflows") => list(workflow_configuration()()),
+        optional("workflows") => list(workflow_configuration()),
         required("clientToken") => String.t(),
         required("infrastructureConfigurationArn") => String.t(),
         required("name") => String.t()
@@ -2214,7 +2214,7 @@ defmodule AWS.Imagebuilder do
 
       filter() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -2264,7 +2264,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_images_response() :: %{
-        "imageVersionList" => list(image_version()()),
+        "imageVersionList" => list(image_version()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -2277,7 +2277,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_lifecycle_executions_response() :: %{
-        "lifecycleExecutions" => list(lifecycle_execution()()),
+        "lifecycleExecutions" => list(lifecycle_execution()),
         "nextToken" => String.t()
       }
 
@@ -2289,7 +2289,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_component_build_versions_response() :: %{
-        "componentSummaryList" => list(component_summary()()),
+        "componentSummaryList" => list(component_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -2302,7 +2302,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_packages_response() :: %{
-        "imagePackageList" => list(image_package()()),
+        "imagePackageList" => list(image_package()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -2347,7 +2347,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_container_recipes_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("owner") => list(any())
@@ -2361,7 +2361,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_build_versions_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("imageVersionArn") => String.t()
@@ -2434,8 +2434,8 @@ defmodule AWS.Imagebuilder do
       image_recipe() :: %{
         "additionalInstanceConfiguration" => additional_instance_configuration(),
         "arn" => String.t(),
-        "blockDeviceMappings" => list(instance_block_device_mapping()()),
-        "components" => list(component_configuration()()),
+        "blockDeviceMappings" => list(instance_block_device_mapping()),
+        "components" => list(component_configuration()),
         "dateCreated" => String.t(),
         "description" => String.t(),
         "name" => String.t(),
@@ -2474,7 +2474,7 @@ defmodule AWS.Imagebuilder do
         "description" => String.t(),
         "executionRole" => String.t(),
         "name" => String.t(),
-        "policyDetails" => list(lifecycle_policy_detail()()),
+        "policyDetails" => list(lifecycle_policy_detail()),
         "resourceSelection" => lifecycle_policy_resource_selection(),
         "resourceType" => list(any()),
         "status" => list(any()),
@@ -2538,7 +2538,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_scan_findings_request() :: %{
-        optional("filters") => list(image_scan_findings_filter()()),
+        optional("filters") => list(image_scan_findings_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -2551,7 +2551,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       lifecycle_policy_resource_selection() :: %{
-        "recipes" => list(lifecycle_policy_resource_selection_recipe()()),
+        "recipes" => list(lifecycle_policy_resource_selection_recipe()),
         "tagMap" => map()
       }
 
@@ -2647,8 +2647,8 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       output_resources() :: %{
-        "amis" => list(ami()()),
-        "containers" => list(container()())
+        "amis" => list(ami()),
+        "containers" => list(container())
       }
 
   """
@@ -2697,7 +2697,7 @@ defmodule AWS.Imagebuilder do
         "tags" => map(),
         "type" => list(any()),
         "version" => String.t(),
-        "workflows" => list(workflow_configuration()())
+        "workflows" => list(workflow_configuration())
       }
 
   """
@@ -2767,16 +2767,16 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       package_vulnerability_details() :: %{
-        "cvss" => list(cvss_score()()),
-        "referenceUrls" => list(String.t()()),
-        "relatedVulnerabilities" => list(String.t()()),
+        "cvss" => list(cvss_score()),
+        "referenceUrls" => list(String.t()),
+        "relatedVulnerabilities" => list(String.t()),
         "source" => String.t(),
         "sourceUrl" => String.t(),
         "vendorCreatedAt" => non_neg_integer(),
         "vendorSeverity" => String.t(),
         "vendorUpdatedAt" => non_neg_integer(),
         "vulnerabilityId" => String.t(),
-        "vulnerablePackages" => list(vulnerable_package()())
+        "vulnerablePackages" => list(vulnerable_package())
       }
 
   """
@@ -2903,7 +2903,7 @@ defmodule AWS.Imagebuilder do
         "aggregationType" => String.t(),
         "nextToken" => String.t(),
         "requestId" => String.t(),
-        "responses" => list(image_scan_finding_aggregation()())
+        "responses" => list(image_scan_finding_aggregation())
       }
 
   """
@@ -2960,7 +2960,7 @@ defmodule AWS.Imagebuilder do
         "kmsKeyId" => String.t(),
         "launchPermission" => launch_permission_configuration(),
         "name" => String.t(),
-        "targetAccountIds" => list(String.t()())
+        "targetAccountIds" => list(String.t())
       }
 
   """
@@ -2972,7 +2972,7 @@ defmodule AWS.Imagebuilder do
 
       component_configuration() :: %{
         "componentArn" => String.t(),
-        "parameters" => list(component_parameter()())
+        "parameters" => list(component_parameter())
       }
 
   """
@@ -2983,7 +2983,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       instance_configuration() :: %{
-        "blockDeviceMappings" => list(instance_block_device_mapping()()),
+        "blockDeviceMappings" => list(instance_block_device_mapping()),
         "image" => String.t()
       }
 
@@ -3008,7 +3008,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       container_distribution_configuration() :: %{
-        "containerTags" => list(String.t()()),
+        "containerTags" => list(String.t()),
         "description" => String.t(),
         "targetRepository" => target_container_repository()
       }
@@ -3079,7 +3079,7 @@ defmodule AWS.Imagebuilder do
 
       container_recipe() :: %{
         "arn" => String.t(),
-        "components" => list(component_configuration()()),
+        "components" => list(component_configuration()),
         "containerType" => list(any()),
         "dateCreated" => String.t(),
         "description" => String.t(),
@@ -3111,7 +3111,7 @@ defmodule AWS.Imagebuilder do
         required("clientToken") => String.t(),
         required("executionRole") => String.t(),
         required("name") => String.t(),
-        required("policyDetails") => list(lifecycle_policy_detail()()),
+        required("policyDetails") => list(lifecycle_policy_detail()),
         required("resourceSelection") => lifecycle_policy_resource_selection(),
         required("resourceType") => list(any())
       }
@@ -3187,7 +3187,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_components_response() :: %{
-        "componentVersionList" => list(component_version()()),
+        "componentVersionList" => list(component_version()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -3233,7 +3233,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_build_versions_response() :: %{
-        "imageSummaryList" => list(image_summary()()),
+        "imageSummaryList" => list(image_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -3256,7 +3256,7 @@ defmodule AWS.Imagebuilder do
         optional("imageTestsConfiguration") => image_tests_configuration(),
         optional("schedule") => schedule(),
         optional("status") => list(any()),
-        optional("workflows") => list(workflow_configuration()()),
+        optional("workflows") => list(workflow_configuration()),
         required("clientToken") => String.t(),
         required("imagePipelineArn") => String.t(),
         required("infrastructureConfigurationArn") => String.t()
@@ -3310,7 +3310,7 @@ defmodule AWS.Imagebuilder do
       workflow_configuration() :: %{
         "onFailure" => list(any()),
         "parallelGroup" => String.t(),
-        "parameters" => list(workflow_parameter()()),
+        "parameters" => list(workflow_parameter()),
         "workflowArn" => String.t()
       }
 
@@ -3354,7 +3354,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_infrastructure_configurations_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -3404,7 +3404,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_recipes_response() :: %{
-        "imageRecipeSummaryList" => list(image_recipe_summary()()),
+        "imageRecipeSummaryList" => list(image_recipe_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }
@@ -3442,8 +3442,8 @@ defmodule AWS.Imagebuilder do
       lifecycle_policy_detail_exclusion_rules_amis() :: %{
         "isPublic" => boolean(),
         "lastLaunched" => lifecycle_policy_detail_exclusion_rules_amis_last_launched(),
-        "regions" => list(String.t()()),
-        "sharedAccounts" => list(String.t()()),
+        "regions" => list(String.t()),
+        "sharedAccounts" => list(String.t()),
         "tagMap" => map()
       }
 
@@ -3474,13 +3474,13 @@ defmodule AWS.Imagebuilder do
         "description" => String.t(),
         "instanceMetadataOptions" => instance_metadata_options(),
         "instanceProfileName" => String.t(),
-        "instanceTypes" => list(String.t()()),
+        "instanceTypes" => list(String.t()),
         "keyPair" => String.t(),
         "logging" => logging(),
         "name" => String.t(),
         "placement" => placement(),
         "resourceTags" => map(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "snsTopicArn" => String.t(),
         "subnetId" => String.t(),
         "tags" => map(),
@@ -3507,7 +3507,7 @@ defmodule AWS.Imagebuilder do
 
       list_workflows_response() :: %{
         "nextToken" => String.t(),
-        "workflowVersionList" => list(workflow_version()())
+        "workflowVersionList" => list(workflow_version())
       }
 
   """
@@ -3567,7 +3567,7 @@ defmodule AWS.Imagebuilder do
 
       component_parameter() :: %{
         "name" => String.t(),
-        "value" => list(String.t()())
+        "value" => list(String.t())
       }
 
   """
@@ -3607,7 +3607,7 @@ defmodule AWS.Imagebuilder do
         "dateUpdated" => String.t(),
         "description" => String.t(),
         "name" => String.t(),
-        "regions" => list(String.t()()),
+        "regions" => list(String.t()),
         "tags" => map()
       }
 
@@ -3619,10 +3619,10 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       launch_permission_configuration() :: %{
-        "organizationArns" => list(String.t()()),
-        "organizationalUnitArns" => list(String.t()()),
-        "userGroups" => list(String.t()()),
-        "userIds" => list(String.t()())
+        "organizationArns" => list(String.t()),
+        "organizationalUnitArns" => list(String.t()),
+        "userGroups" => list(String.t()),
+        "userIds" => list(String.t())
       }
 
   """
@@ -3644,7 +3644,7 @@ defmodule AWS.Imagebuilder do
   ## Example:
 
       list_image_pipeline_images_response() :: %{
-        "imageSummaryList" => list(image_summary()()),
+        "imageSummaryList" => list(image_summary()),
         "nextToken" => String.t(),
         "requestId" => String.t()
       }

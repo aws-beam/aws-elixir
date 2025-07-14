@@ -175,7 +175,7 @@ defmodule AWS.ApiGatewayV2 do
         "AuthorizerType" => list(any()),
         "AuthorizerUri" => String.t(),
         "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t()()),
+        "IdentitySource" => list(String.t()),
         "IdentityValidationExpression" => String.t(),
         "JwtConfiguration" => j_w_t_configuration(),
         "Name" => String.t()
@@ -196,7 +196,7 @@ defmodule AWS.ApiGatewayV2 do
         "AuthorizerType" => list(any()),
         "AuthorizerUri" => String.t(),
         "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t()()),
+        "IdentitySource" => list(String.t()),
         "IdentityValidationExpression" => String.t(),
         "JwtConfiguration" => j_w_t_configuration(),
         "Name" => String.t()
@@ -234,7 +234,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_vpc_links_response() :: %{
-        "Items" => list(vpc_link()()),
+        "Items" => list(vpc_link()),
         "NextToken" => String.t()
       }
 
@@ -399,7 +399,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_authorizers_response() :: %{
-        "Items" => list(authorizer()()),
+        "Items" => list(authorizer()),
         "NextToken" => String.t()
       }
 
@@ -436,7 +436,7 @@ defmodule AWS.ApiGatewayV2 do
 
       list_routing_rules_response() :: %{
         "NextToken" => String.t(),
-        "RoutingRules" => list(routing_rule()())
+        "RoutingRules" => list(routing_rule())
       }
 
   """
@@ -447,7 +447,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_route_responses_response() :: %{
-        "Items" => list(route_response()()),
+        "Items" => list(route_response()),
         "NextToken" => String.t()
       }
 
@@ -461,7 +461,7 @@ defmodule AWS.ApiGatewayV2 do
       mutual_tls_authentication() :: %{
         optional("TruststoreUri") => String.t(),
         optional("TruststoreVersion") => String.t(),
-        optional("TruststoreWarnings") => list(String.t()())
+        optional("TruststoreWarnings") => list(String.t())
       }
 
   """
@@ -536,14 +536,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -570,7 +570,7 @@ defmodule AWS.ApiGatewayV2 do
       update_route_result() :: %{
         "ApiGatewayManaged" => boolean(),
         "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationScopes" => list(String.t()),
         "AuthorizationType" => list(any()),
         "AuthorizerId" => String.t(),
         "ModelSelectionExpression" => String.t(),
@@ -591,8 +591,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       put_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()()),
-        "Conditions" => list(routing_rule_condition()()),
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
         "Priority" => integer(),
         "RoutingRuleArn" => String.t(),
         "RoutingRuleId" => String.t()
@@ -642,7 +642,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       create_domain_name_request() :: %{
-        optional("DomainNameConfigurations") => list(domain_name_configuration()()),
+        optional("DomainNameConfigurations") => list(domain_name_configuration()),
         optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
         optional("RoutingMode") => list(any()),
         optional("Tags") => map(),
@@ -683,8 +683,8 @@ defmodule AWS.ApiGatewayV2 do
       vpc_link() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "Tags" => map(),
         "VpcLinkId" => String.t(),
         "VpcLinkStatus" => list(any()),
@@ -728,7 +728,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -777,7 +777,7 @@ defmodule AWS.ApiGatewayV2 do
         optional("IdentityValidationExpression") => String.t(),
         optional("JwtConfiguration") => j_w_t_configuration(),
         required("AuthorizerType") => list(any()),
-        required("IdentitySource") => list(String.t()()),
+        required("IdentitySource") => list(String.t()),
         required("Name") => String.t()
       }
 
@@ -854,7 +854,7 @@ defmodule AWS.ApiGatewayV2 do
         "AuthorizerType" => list(any()),
         "AuthorizerUri" => String.t(),
         "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t()()),
+        "IdentitySource" => list(String.t()),
         "IdentityValidationExpression" => String.t(),
         "JwtConfiguration" => j_w_t_configuration(),
         "Name" => String.t()
@@ -917,8 +917,8 @@ defmodule AWS.ApiGatewayV2 do
 
       put_routing_rule_request() :: %{
         optional("DomainNameId") => String.t(),
-        required("Actions") => list(routing_rule_action()()),
-        required("Conditions") => list(routing_rule_condition()()),
+        required("Actions") => list(routing_rule_action()),
+        required("Conditions") => list(routing_rule_condition()),
         required("Priority") => integer()
       }
 
@@ -971,14 +971,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -1007,14 +1007,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -1034,7 +1034,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       j_w_t_configuration() :: %{
-        "Audience" => list(String.t()()),
+        "Audience" => list(String.t()),
         "Issuer" => String.t()
       }
 
@@ -1046,10 +1046,10 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       create_vpc_link_request() :: %{
-        optional("SecurityGroupIds") => list(String.t()()),
+        optional("SecurityGroupIds") => list(String.t()),
         optional("Tags") => map(),
         required("Name") => String.t(),
-        required("SubnetIds") => list(String.t()())
+        required("SubnetIds") => list(String.t())
       }
 
   """
@@ -1073,7 +1073,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       routing_rule_match_headers() :: %{
-        "AnyOf" => list(routing_rule_match_header_value()())
+        "AnyOf" => list(routing_rule_match_header_value())
       }
 
   """
@@ -1086,8 +1086,8 @@ defmodule AWS.ApiGatewayV2 do
       create_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "Tags" => map(),
         "VpcLinkId" => String.t(),
         "VpcLinkStatus" => list(any()),
@@ -1114,7 +1114,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_integration_responses_response() :: %{
-        "Items" => list(integration_response()()),
+        "Items" => list(integration_response()),
         "NextToken" => String.t()
       }
 
@@ -1140,7 +1140,7 @@ defmodule AWS.ApiGatewayV2 do
       route() :: %{
         "ApiGatewayManaged" => boolean(),
         "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationScopes" => list(String.t()),
         "AuthorizationType" => list(any()),
         "AuthorizerId" => String.t(),
         "ModelSelectionExpression" => String.t(),
@@ -1207,7 +1207,7 @@ defmodule AWS.ApiGatewayV2 do
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
         "DomainNameArn" => String.t(),
-        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
         "RoutingMode" => list(any()),
         "Tags" => map()
@@ -1263,7 +1263,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_routes_response() :: %{
-        "Items" => list(route()()),
+        "Items" => list(route()),
         "NextToken" => String.t()
       }
 
@@ -1379,14 +1379,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -1398,7 +1398,7 @@ defmodule AWS.ApiGatewayV2 do
 
       update_route_request() :: %{
         optional("ApiKeyRequired") => boolean(),
-        optional("AuthorizationScopes") => list(String.t()()),
+        optional("AuthorizationScopes") => list(String.t()),
         optional("AuthorizationType") => list(any()),
         optional("AuthorizerId") => String.t(),
         optional("ModelSelectionExpression") => String.t(),
@@ -1418,7 +1418,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       update_domain_name_request() :: %{
-        optional("DomainNameConfigurations") => list(domain_name_configuration()()),
+        optional("DomainNameConfigurations") => list(domain_name_configuration()),
         optional("MutualTlsAuthentication") => mutual_tls_authentication_input(),
         optional("RoutingMode") => list(any())
       }
@@ -1446,7 +1446,7 @@ defmodule AWS.ApiGatewayV2 do
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
         "DomainNameArn" => String.t(),
-        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
         "RoutingMode" => list(any()),
         "Tags" => map()
@@ -1489,7 +1489,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_domain_names_response() :: %{
-        "Items" => list(domain_name()()),
+        "Items" => list(domain_name()),
         "NextToken" => String.t()
       }
 
@@ -1618,7 +1618,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_integrations_response() :: %{
-        "Items" => list(integration()()),
+        "Items" => list(integration()),
         "NextToken" => String.t()
       }
 
@@ -1642,7 +1642,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_models_response() :: %{
-        "Items" => list(model()()),
+        "Items" => list(model()),
         "NextToken" => String.t()
       }
 
@@ -1656,7 +1656,7 @@ defmodule AWS.ApiGatewayV2 do
       get_route_result() :: %{
         "ApiGatewayManaged" => boolean(),
         "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationScopes" => list(String.t()),
         "AuthorizationType" => list(any()),
         "AuthorizerId" => String.t(),
         "ModelSelectionExpression" => String.t(),
@@ -1686,7 +1686,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_stages_response() :: %{
-        "Items" => list(stage()()),
+        "Items" => list(stage()),
         "NextToken" => String.t()
       }
 
@@ -1712,7 +1712,7 @@ defmodule AWS.ApiGatewayV2 do
       create_route_result() :: %{
         "ApiGatewayManaged" => boolean(),
         "ApiKeyRequired" => boolean(),
-        "AuthorizationScopes" => list(String.t()()),
+        "AuthorizationScopes" => list(String.t()),
         "AuthorizationType" => list(any()),
         "AuthorizerId" => String.t(),
         "ModelSelectionExpression" => String.t(),
@@ -1767,8 +1767,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       create_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()()),
-        "Conditions" => list(routing_rule_condition()()),
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
         "Priority" => integer(),
         "RoutingRuleArn" => String.t(),
         "RoutingRuleId" => String.t()
@@ -1905,7 +1905,7 @@ defmodule AWS.ApiGatewayV2 do
         "AuthorizerType" => list(any()),
         "AuthorizerUri" => String.t(),
         "EnableSimpleResponses" => boolean(),
-        "IdentitySource" => list(String.t()()),
+        "IdentitySource" => list(String.t()),
         "IdentityValidationExpression" => String.t(),
         "JwtConfiguration" => j_w_t_configuration(),
         "Name" => String.t()
@@ -1945,8 +1945,8 @@ defmodule AWS.ApiGatewayV2 do
       get_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "Tags" => map(),
         "VpcLinkId" => String.t(),
         "VpcLinkStatus" => list(any()),
@@ -1963,10 +1963,10 @@ defmodule AWS.ApiGatewayV2 do
 
       cors() :: %{
         "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t()()),
-        "AllowMethods" => list(String.t()()),
-        "AllowOrigins" => list(String.t()()),
-        "ExposeHeaders" => list(String.t()()),
+        "AllowHeaders" => list(String.t()),
+        "AllowMethods" => list(String.t()),
+        "AllowOrigins" => list(String.t()),
+        "ExposeHeaders" => list(String.t()),
         "MaxAge" => integer()
       }
 
@@ -1987,14 +1987,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -2085,8 +2085,8 @@ defmodule AWS.ApiGatewayV2 do
       update_vpc_link_response() :: %{
         "CreatedDate" => non_neg_integer(),
         "Name" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "Tags" => map(),
         "VpcLinkId" => String.t(),
         "VpcLinkStatus" => list(any()),
@@ -2105,7 +2105,7 @@ defmodule AWS.ApiGatewayV2 do
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
         "DomainNameArn" => String.t(),
-        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
         "RoutingMode" => list(any()),
         "Tags" => map()
@@ -2139,7 +2139,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_deployments_response() :: %{
-        "Items" => list(deployment()()),
+        "Items" => list(deployment()),
         "NextToken" => String.t()
       }
 
@@ -2160,14 +2160,14 @@ defmodule AWS.ApiGatewayV2 do
         "Description" => String.t(),
         "DisableExecuteApiEndpoint" => boolean(),
         "DisableSchemaValidation" => boolean(),
-        "ImportInfo" => list(String.t()()),
+        "ImportInfo" => list(String.t()),
         "IpAddressType" => list(any()),
         "Name" => String.t(),
         "ProtocolType" => list(any()),
         "RouteSelectionExpression" => String.t(),
         "Tags" => map(),
         "Version" => String.t(),
-        "Warnings" => list(String.t()())
+        "Warnings" => list(String.t())
       }
 
   """
@@ -2187,7 +2187,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_api_mappings_response() :: %{
-        "Items" => list(api_mapping()()),
+        "Items" => list(api_mapping()),
         "NextToken" => String.t()
       }
 
@@ -2200,7 +2200,7 @@ defmodule AWS.ApiGatewayV2 do
 
       create_route_request() :: %{
         optional("ApiKeyRequired") => boolean(),
-        optional("AuthorizationScopes") => list(String.t()()),
+        optional("AuthorizationScopes") => list(String.t()),
         optional("AuthorizationType") => list(any()),
         optional("AuthorizerId") => String.t(),
         optional("ModelSelectionExpression") => String.t(),
@@ -2233,8 +2233,8 @@ defmodule AWS.ApiGatewayV2 do
 
       create_routing_rule_request() :: %{
         optional("DomainNameId") => String.t(),
-        required("Actions") => list(routing_rule_action()()),
-        required("Conditions") => list(routing_rule_condition()()),
+        required("Actions") => list(routing_rule_action()),
+        required("Conditions") => list(routing_rule_condition()),
         required("Priority") => integer()
       }
 
@@ -2246,7 +2246,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_apis_response() :: %{
-        "Items" => list(api()()),
+        "Items" => list(api()),
         "NextToken" => String.t()
       }
 
@@ -2302,8 +2302,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       routing_rule() :: %{
-        "Actions" => list(routing_rule_action()()),
-        "Conditions" => list(routing_rule_condition()()),
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
         "Priority" => integer(),
         "RoutingRuleArn" => String.t(),
         "RoutingRuleId" => String.t()
@@ -2317,8 +2317,8 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       get_routing_rule_response() :: %{
-        "Actions" => list(routing_rule_action()()),
-        "Conditions" => list(routing_rule_condition()()),
+        "Actions" => list(routing_rule_action()),
+        "Conditions" => list(routing_rule_condition()),
         "Priority" => integer(),
         "RoutingRuleArn" => String.t(),
         "RoutingRuleId" => String.t()
@@ -2383,7 +2383,7 @@ defmodule AWS.ApiGatewayV2 do
         "ApiMappingSelectionExpression" => String.t(),
         "DomainName" => String.t(),
         "DomainNameArn" => String.t(),
-        "DomainNameConfigurations" => list(domain_name_configuration()()),
+        "DomainNameConfigurations" => list(domain_name_configuration()),
         "MutualTlsAuthentication" => mutual_tls_authentication(),
         "RoutingMode" => list(any()),
         "Tags" => map()
@@ -2442,7 +2442,7 @@ defmodule AWS.ApiGatewayV2 do
         optional("AuthorizerType") => list(any()),
         optional("AuthorizerUri") => String.t(),
         optional("EnableSimpleResponses") => boolean(),
-        optional("IdentitySource") => list(String.t()()),
+        optional("IdentitySource") => list(String.t()),
         optional("IdentityValidationExpression") => String.t(),
         optional("JwtConfiguration") => j_w_t_configuration(),
         optional("Name") => String.t()
@@ -2465,7 +2465,7 @@ defmodule AWS.ApiGatewayV2 do
   ## Example:
 
       routing_rule_match_base_paths() :: %{
-        "AnyOf" => list(String.t()())
+        "AnyOf" => list(String.t())
       }
 
   """

@@ -76,7 +76,7 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       list_resource_telemetry_for_organization_input() :: %{
-        optional("AccountIdentifiers") => list(String.t()()),
+        optional("AccountIdentifiers") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("ResourceIdentifierPrefix") => String.t(),
@@ -94,7 +94,7 @@ defmodule AWS.ObservabilityAdmin do
 
       list_resource_telemetry_for_organization_output() :: %{
         "NextToken" => String.t(),
-        "TelemetryConfigurations" => list(telemetry_configuration()())
+        "TelemetryConfigurations" => list(telemetry_configuration())
       }
 
   """
@@ -122,7 +122,7 @@ defmodule AWS.ObservabilityAdmin do
 
       list_resource_telemetry_output() :: %{
         "NextToken" => String.t(),
-        "TelemetryConfigurations" => list(telemetry_configuration()())
+        "TelemetryConfigurations" => list(telemetry_configuration())
       }
 
   """

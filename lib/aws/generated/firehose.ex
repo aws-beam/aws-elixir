@@ -22,7 +22,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       http_endpoint_request_configuration() :: %{
-        "CommonAttributes" => list(http_endpoint_common_attribute()()),
+        "CommonAttributes" => list(http_endpoint_common_attribute()),
         "ContentEncoding" => list(any())
       }
       
@@ -135,7 +135,7 @@ defmodule AWS.Firehose do
         "Port" => integer(),
         "SSLMode" => list(any()),
         "SnapshotWatermarkTable" => String.t(),
-        "SurrogateKeys" => list(String.t()()),
+        "SurrogateKeys" => list(String.t()),
         "Tables" => database_table_list(),
         "Type" => list(any())
       }
@@ -149,8 +149,8 @@ defmodule AWS.Firehose do
       
       vpc_configuration() :: %{
         "RoleARN" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
       
   """
@@ -249,7 +249,7 @@ defmodule AWS.Firehose do
       
       list_tags_for_delivery_stream_output() :: %{
         "HasMoreTags" => boolean(),
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -293,7 +293,7 @@ defmodule AWS.Firehose do
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
         "RoleARN" => String.t(),
@@ -377,7 +377,7 @@ defmodule AWS.Firehose do
         optional("S3DestinationConfiguration") => s3_destination_configuration(),
         optional("SnowflakeDestinationConfiguration") => snowflake_destination_configuration(),
         optional("SplunkDestinationConfiguration") => splunk_destination_configuration(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("DeliveryStreamName") => String.t()
       }
       
@@ -390,8 +390,8 @@ defmodule AWS.Firehose do
       
       vpc_configuration_description() :: %{
         "RoleARN" => String.t(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
       
@@ -451,7 +451,7 @@ defmodule AWS.Firehose do
       
       put_record_batch_input() :: %{
         required("DeliveryStreamName") => String.t(),
-        required("Records") => list(record()())
+        required("Records") => list(record())
       }
       
   """
@@ -477,7 +477,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       processor() :: %{
-        "Parameters" => list(processor_parameter()()),
+        "Parameters" => list(processor_parameter()),
         "Type" => list(any())
       }
       
@@ -515,7 +515,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       list_delivery_streams_output() :: %{
-        "DeliveryStreamNames" => list(String.t()()),
+        "DeliveryStreamNames" => list(String.t()),
         "HasMoreDeliveryStreams" => boolean()
       }
       
@@ -714,8 +714,8 @@ defmodule AWS.Firehose do
   ## Example:
       
       database_column_list() :: %{
-        "Exclude" => list(String.t()()),
-        "Include" => list(String.t()())
+        "Exclude" => list(String.t()),
+        "Include" => list(String.t())
       }
       
   """
@@ -755,7 +755,7 @@ defmodule AWS.Firehose do
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
         "RoleARN" => String.t(),
@@ -799,7 +799,7 @@ defmodule AWS.Firehose do
         "DestinationTableName" => String.t(),
         "PartitionSpec" => partition_spec(),
         "S3ErrorOutputPrefix" => String.t(),
-        "UniqueKeys" => list(String.t()())
+        "UniqueKeys" => list(String.t())
       }
       
   """
@@ -989,7 +989,7 @@ defmodule AWS.Firehose do
       
       tag_delivery_stream_input() :: %{
         required("DeliveryStreamName") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -1014,7 +1014,7 @@ defmodule AWS.Firehose do
       
       processing_configuration() :: %{
         "Enabled" => boolean(),
-        "Processors" => list(processor()())
+        "Processors" => list(processor())
       }
       
   """
@@ -1079,7 +1079,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       hive_json_ser_de() :: %{
-        "TimestampFormats" => list(String.t()())
+        "TimestampFormats" => list(String.t())
       }
       
   """
@@ -1092,7 +1092,7 @@ defmodule AWS.Firehose do
       put_record_batch_output() :: %{
         "Encrypted" => boolean(),
         "FailedPutCount" => integer(),
-        "RequestResponses" => list(put_record_batch_response_entry()())
+        "RequestResponses" => list(put_record_batch_response_entry())
       }
       
   """
@@ -1123,9 +1123,9 @@ defmodule AWS.Firehose do
         "Endpoint" => String.t(),
         "Port" => integer(),
         "SSLMode" => list(any()),
-        "SnapshotInfo" => list(database_snapshot_info()()),
+        "SnapshotInfo" => list(database_snapshot_info()),
         "SnapshotWatermarkTable" => String.t(),
-        "SurrogateKeys" => list(String.t()()),
+        "SurrogateKeys" => list(String.t()),
         "Tables" => database_table_list(),
         "Type" => list(any())
       }
@@ -1216,7 +1216,7 @@ defmodule AWS.Firehose do
   ## Example:
       
       partition_spec() :: %{
-        "Identity" => list(partition_field()())
+        "Identity" => list(partition_field())
       }
       
   """
@@ -1316,7 +1316,7 @@ defmodule AWS.Firehose do
         "BufferingHints" => buffering_hints(),
         "CatalogConfiguration" => catalog_configuration(),
         "CloudWatchLoggingOptions" => cloud_watch_logging_options(),
-        "DestinationTableConfigurationList" => list(destination_table_configuration()()),
+        "DestinationTableConfigurationList" => list(destination_table_configuration()),
         "ProcessingConfiguration" => processing_configuration(),
         "RetryOptions" => retry_options(),
         "RoleARN" => String.t(),
@@ -1340,7 +1340,7 @@ defmodule AWS.Firehose do
         "DeliveryStreamName" => String.t(),
         "DeliveryStreamStatus" => list(any()),
         "DeliveryStreamType" => list(any()),
-        "Destinations" => list(destination_description()()),
+        "Destinations" => list(destination_description()),
         "FailureDescription" => failure_description(),
         "HasMoreDestinations" => boolean(),
         "LastUpdateTimestamp" => non_neg_integer(),
@@ -1448,7 +1448,7 @@ defmodule AWS.Firehose do
       
       orc_ser_de() :: %{
         "BlockSizeBytes" => integer(),
-        "BloomFilterColumns" => list(String.t()()),
+        "BloomFilterColumns" => list(String.t()),
         "BloomFilterFalsePositiveProbability" => float(),
         "Compression" => list(any()),
         "DictionaryKeyThreshold" => float(),
@@ -1681,8 +1681,8 @@ defmodule AWS.Firehose do
   ## Example:
       
       database_list() :: %{
-        "Exclude" => list(String.t()()),
-        "Include" => list(String.t()())
+        "Exclude" => list(String.t()),
+        "Include" => list(String.t())
       }
       
   """
@@ -1694,7 +1694,7 @@ defmodule AWS.Firehose do
       
       untag_delivery_stream_input() :: %{
         required("DeliveryStreamName") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1845,8 +1845,8 @@ defmodule AWS.Firehose do
   ## Example:
       
       database_table_list() :: %{
-        "Exclude" => list(String.t()()),
-        "Include" => list(String.t()())
+        "Exclude" => list(String.t()),
+        "Include" => list(String.t())
       }
       
   """
@@ -2179,7 +2179,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, create_delivery_stream_errors()}
   def create_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDeliveryStream", input, options)
   end
@@ -2216,7 +2217,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, delete_delivery_stream_errors()}
   def delete_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryStream", input, options)
   end
@@ -2241,7 +2243,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, describe_delivery_stream_errors()}
   def describe_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryStream", input, options)
   end
@@ -2264,7 +2267,8 @@ defmodule AWS.Firehose do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_delivery_streams(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDeliveryStreams", input, options)
   end
@@ -2281,7 +2285,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, list_tags_for_delivery_stream_errors()}
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForDeliveryStream", input, options)
   end
@@ -2364,7 +2369,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecord", input, options)
   end
@@ -2472,7 +2478,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_batch_errors()}
   def put_record_batch(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutRecordBatch", input, options)
   end
@@ -2540,7 +2547,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, start_delivery_stream_encryption_errors()}
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartDeliveryStreamEncryption", input, options)
   end
@@ -2580,7 +2588,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, stop_delivery_stream_encryption_errors()}
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopDeliveryStreamEncryption", input, options)
   end
@@ -2611,7 +2620,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, tag_delivery_stream_errors()}
   def tag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagDeliveryStream", input, options)
   end
@@ -2632,7 +2642,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, untag_delivery_stream_errors()}
   def untag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagDeliveryStream", input, options)
   end
@@ -2687,7 +2698,8 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDestination", input, options)
   end

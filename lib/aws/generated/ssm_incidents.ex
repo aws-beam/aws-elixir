@@ -31,7 +31,7 @@ defmodule AWS.SSMIncidents do
 
       get_resource_policies_output() :: %{
         optional("nextToken") => String.t(),
-        required("resourcePolicies") => list(resource_policy()())
+        required("resourcePolicies") => list(resource_policy())
       }
 
   """
@@ -52,7 +52,7 @@ defmodule AWS.SSMIncidents do
 
       list_timeline_events_output() :: %{
         optional("nextToken") => String.t(),
-        required("eventSummaries") => list(event_summary()())
+        required("eventSummaries") => list(event_summary())
       }
 
   """
@@ -168,7 +168,7 @@ defmodule AWS.SSMIncidents do
       start_incident_input() :: %{
         optional("clientToken") => String.t(),
         optional("impact") => integer(),
-        optional("relatedItems") => list(related_item()()),
+        optional("relatedItems") => list(related_item()),
         optional("title") => String.t(),
         optional("triggerDetails") => trigger_details(),
         required("responsePlanArn") => String.t()
@@ -206,8 +206,8 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       batch_get_incident_findings_output() :: %{
-        "errors" => list(batch_get_incident_findings_error()()),
-        "findings" => list(finding()())
+        "errors" => list(batch_get_incident_findings_error()),
+        "findings" => list(finding())
       }
 
   """
@@ -300,7 +300,7 @@ defmodule AWS.SSMIncidents do
       timeline_event() :: %{
         "eventData" => String.t(),
         "eventId" => String.t(),
-        "eventReferences" => list(list()()),
+        "eventReferences" => list(list()),
         "eventTime" => [non_neg_integer()],
         "eventType" => String.t(),
         "eventUpdatedTime" => [non_neg_integer()],
@@ -360,7 +360,7 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -372,7 +372,7 @@ defmodule AWS.SSMIncidents do
 
       update_replication_set_input() :: %{
         optional("clientToken") => String.t(),
-        required("actions") => list(list()()),
+        required("actions") => list(list()),
         required("arn") => String.t()
       }
 
@@ -384,7 +384,7 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       batch_get_incident_findings_input() :: %{
-        required("findingIds") => list(String.t()()),
+        required("findingIds") => list(String.t()),
         required("incidentRecordArn") => String.t()
       }
 
@@ -411,7 +411,7 @@ defmodule AWS.SSMIncidents do
 
       list_incident_records_output() :: %{
         optional("nextToken") => String.t(),
-        required("incidentRecordSummaries") => list(incident_record_summary()())
+        required("incidentRecordSummaries") => list(incident_record_summary())
       }
 
   """
@@ -431,18 +431,18 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       update_response_plan_input() :: %{
-        optional("actions") => list(list()()),
+        optional("actions") => list(list()),
         optional("chatChannel") => list(),
         optional("clientToken") => String.t(),
         optional("displayName") => String.t(),
-        optional("engagements") => list(String.t()()),
+        optional("engagements") => list(String.t()),
         optional("incidentTemplateDedupeString") => String.t(),
         optional("incidentTemplateImpact") => integer(),
-        optional("incidentTemplateNotificationTargets") => list(list()()),
+        optional("incidentTemplateNotificationTargets") => list(list()),
         optional("incidentTemplateSummary") => String.t(),
         optional("incidentTemplateTags") => map(),
         optional("incidentTemplateTitle") => String.t(),
-        optional("integrations") => list(list()()),
+        optional("integrations") => list(list()),
         required("arn") => String.t()
       }
 
@@ -548,7 +548,7 @@ defmodule AWS.SSMIncidents do
 
       list_replication_sets_output() :: %{
         optional("nextToken") => String.t(),
-        required("replicationSetArns") => list(String.t()())
+        required("replicationSetArns") => list(String.t())
       }
 
   """
@@ -574,7 +574,7 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       list_incident_findings_output() :: %{
-        "findings" => list(finding_summary()()),
+        "findings" => list(finding_summary()),
         "nextToken" => String.t()
       }
 
@@ -609,7 +609,7 @@ defmodule AWS.SSMIncidents do
         optional("chatChannel") => list(),
         optional("clientToken") => String.t(),
         optional("impact") => integer(),
-        optional("notificationTargets") => list(list()()),
+        optional("notificationTargets") => list(list()),
         optional("status") => String.t(),
         optional("summary") => String.t(),
         optional("title") => String.t(),
@@ -726,7 +726,7 @@ defmodule AWS.SSMIncidents do
 
       event_summary() :: %{
         "eventId" => String.t(),
-        "eventReferences" => list(list()()),
+        "eventReferences" => list(list()),
         "eventTime" => [non_neg_integer()],
         "eventType" => String.t(),
         "eventUpdatedTime" => [non_neg_integer()],
@@ -785,11 +785,11 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       get_response_plan_output() :: %{
-        optional("actions") => list(list()()),
+        optional("actions") => list(list()),
         optional("chatChannel") => list(),
         optional("displayName") => String.t(),
-        optional("engagements") => list(String.t()()),
-        optional("integrations") => list(list()()),
+        optional("engagements") => list(String.t()),
+        optional("integrations") => list(list()),
         required("arn") => String.t(),
         required("incidentTemplate") => incident_template(),
         required("name") => String.t()
@@ -803,7 +803,7 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       list_timeline_events_input() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => String.t(),
@@ -967,7 +967,7 @@ defmodule AWS.SSMIncidents do
         "dedupeString" => String.t(),
         "impact" => integer(),
         "incidentTags" => map(),
-        "notificationTargets" => list(list()()),
+        "notificationTargets" => list(list()),
         "summary" => String.t(),
         "title" => String.t()
       }
@@ -980,7 +980,7 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       list_incident_records_input() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
       }
@@ -1028,7 +1028,7 @@ defmodule AWS.SSMIncidents do
 
       list_response_plans_output() :: %{
         optional("nextToken") => String.t(),
-        required("responsePlanSummaries") => list(response_plan_summary()())
+        required("responsePlanSummaries") => list(response_plan_summary())
       }
 
   """
@@ -1052,7 +1052,7 @@ defmodule AWS.SSMIncidents do
       update_timeline_event_input() :: %{
         optional("clientToken") => String.t(),
         optional("eventData") => String.t(),
-        optional("eventReferences") => list(list()()),
+        optional("eventReferences") => list(list()),
         optional("eventTime") => [non_neg_integer()],
         optional("eventType") => String.t(),
         required("eventId") => String.t(),
@@ -1079,7 +1079,7 @@ defmodule AWS.SSMIncidents do
 
       list_related_items_output() :: %{
         optional("nextToken") => String.t(),
-        required("relatedItems") => list(related_item()())
+        required("relatedItems") => list(related_item())
       }
 
   """
@@ -1100,7 +1100,7 @@ defmodule AWS.SSMIncidents do
 
       create_timeline_event_input() :: %{
         optional("clientToken") => String.t(),
-        optional("eventReferences") => list(list()()),
+        optional("eventReferences") => list(list()),
         required("eventData") => String.t(),
         required("eventTime") => [non_neg_integer()],
         required("eventType") => String.t(),
@@ -1137,12 +1137,12 @@ defmodule AWS.SSMIncidents do
   ## Example:
 
       create_response_plan_input() :: %{
-        optional("actions") => list(list()()),
+        optional("actions") => list(list()),
         optional("chatChannel") => list(),
         optional("clientToken") => String.t(),
         optional("displayName") => String.t(),
-        optional("engagements") => list(String.t()()),
-        optional("integrations") => list(list()()),
+        optional("engagements") => list(String.t()),
+        optional("integrations") => list(list()),
         optional("tags") => map(),
         required("incidentTemplate") => incident_template(),
         required("name") => String.t()
@@ -1190,7 +1190,7 @@ defmodule AWS.SSMIncidents do
 
       incident_record() :: %{
         "arn" => String.t(),
-        "automationExecutions" => list(list()()),
+        "automationExecutions" => list(list()),
         "chatChannel" => list(),
         "creationTime" => [non_neg_integer()],
         "dedupeString" => String.t(),
@@ -1198,7 +1198,7 @@ defmodule AWS.SSMIncidents do
         "incidentRecordSource" => incident_record_source(),
         "lastModifiedBy" => String.t(),
         "lastModifiedTime" => [non_neg_integer()],
-        "notificationTargets" => list(list()()),
+        "notificationTargets" => list(list()),
         "resolvedTime" => [non_neg_integer()],
         "status" => String.t(),
         "summary" => String.t(),

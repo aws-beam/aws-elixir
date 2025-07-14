@@ -157,7 +157,7 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_locales_response() :: %{
         "botId" => String.t(),
-        "botLocaleSummaries" => list(bot_locale_summary()()),
+        "botLocaleSummaries" => list(bot_locale_summary()),
         "botVersion" => String.t(),
         "nextToken" => String.t()
       }
@@ -218,7 +218,7 @@ defmodule AWS.LexModelsV2 do
         "parentSlotTypeSignature" => String.t(),
         "slotTypeId" => String.t(),
         "slotTypeName" => String.t(),
-        "slotTypeValues" => list(slot_type_value()()),
+        "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
@@ -275,7 +275,7 @@ defmodule AWS.LexModelsV2 do
       intent_level_slot_resolution_test_result_item() :: %{
         "intentName" => String.t(),
         "multiTurnConversation" => boolean(),
-        "slotResolutionResults" => list(slot_resolution_test_result_item()())
+        "slotResolutionResults" => list(slot_resolution_test_result_item())
       }
 
   """
@@ -298,10 +298,10 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       analytics_utterance_result() :: %{
-        "attributeResults" => list(analytics_utterance_attribute_result()()),
-        "binKeys" => list(analytics_bin_key()()),
-        "groupByKeys" => list(analytics_utterance_group_by_key()()),
-        "metricsResults" => list(analytics_utterance_metric_result()())
+        "attributeResults" => list(analytics_utterance_attribute_result()),
+        "binKeys" => list(analytics_bin_key()),
+        "groupByKeys" => list(analytics_utterance_group_by_key()),
+        "metricsResults" => list(analytics_utterance_metric_result())
       }
 
   """
@@ -346,7 +346,7 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_version_replicas_response() :: %{
         "botId" => String.t(),
-        "botVersionReplicaSummaries" => list(bot_version_replica_summary()()),
+        "botVersionReplicaSummaries" => list(bot_version_replica_summary()),
         "nextToken" => String.t(),
         "replicaRegion" => String.t(),
         "sourceRegion" => String.t()
@@ -362,8 +362,8 @@ defmodule AWS.LexModelsV2 do
       conversation_level_test_result_item() :: %{
         "conversationId" => String.t(),
         "endToEndResult" => list(any()),
-        "intentClassificationResults" => list(conversation_level_intent_classification_result_item()()),
-        "slotResolutionResults" => list(conversation_level_slot_resolution_result_item()()),
+        "intentClassificationResults" => list(conversation_level_intent_classification_result_item()),
+        "slotResolutionResults" => list(conversation_level_slot_resolution_result_item()),
         "speechTranscriptionResult" => list(any())
       }
 
@@ -461,16 +461,16 @@ defmodule AWS.LexModelsV2 do
         optional("dialogCodeHook") => dialog_code_hook_settings(),
         optional("fulfillmentCodeHook") => fulfillment_code_hook_settings(),
         optional("initialResponseSetting") => initial_response_setting(),
-        optional("inputContexts") => list(input_context()()),
+        optional("inputContexts") => list(input_context()),
         optional("intentClosingSetting") => intent_closing_setting(),
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
         optional("kendraConfiguration") => kendra_configuration(),
-        optional("outputContexts") => list(output_context()()),
+        optional("outputContexts") => list(output_context()),
         optional("parentIntentSignature") => String.t(),
         optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
-        optional("sampleUtterances") => list(sample_utterance()()),
-        optional("slotPriorities") => list(slot_priority()()),
+        optional("sampleUtterances") => list(sample_utterance()),
+        optional("slotPriorities") => list(slot_priority()),
         required("intentName") => String.t()
       }
 
@@ -555,7 +555,7 @@ defmodule AWS.LexModelsV2 do
       fulfillment_update_response_specification() :: %{
         "allowInterrupt" => boolean(),
         "frequencyInSeconds" => integer(),
-        "messageGroups" => list(message_group()())
+        "messageGroups" => list(message_group())
       }
 
   """
@@ -611,7 +611,7 @@ defmodule AWS.LexModelsV2 do
 
       describe_bot_version_response() :: %{
         "botId" => String.t(),
-        "botMembers" => list(bot_member()()),
+        "botMembers" => list(bot_member()),
         "botName" => String.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
@@ -619,9 +619,9 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "dataPrivacy" => data_privacy(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "idleSessionTTLInSeconds" => integer(),
-        "parentBotNetworks" => list(parent_bot_network()()),
+        "parentBotNetworks" => list(parent_bot_network()),
         "roleArn" => String.t()
       }
 
@@ -656,7 +656,7 @@ defmodule AWS.LexModelsV2 do
       describe_test_execution_response() :: %{
         "apiMode" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "target" => test_execution_target(),
         "testExecutionId" => String.t(),
@@ -676,7 +676,7 @@ defmodule AWS.LexModelsV2 do
       list_intents_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "intentSummaries" => list(intent_summary()()),
+        "intentSummaries" => list(intent_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -691,7 +691,7 @@ defmodule AWS.LexModelsV2 do
       analytics_utterance_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -749,13 +749,13 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_intent_stage_metrics_request() :: %{
-        optional("binBy") => list(analytics_bin_by_specification()()),
-        optional("filters") => list(analytics_intent_stage_filter()()),
-        optional("groupBy") => list(analytics_intent_stage_group_by_specification()()),
+        optional("binBy") => list(analytics_bin_by_specification()),
+        optional("filters") => list(analytics_intent_stage_filter()),
+        optional("groupBy") => list(analytics_intent_stage_group_by_specification()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("endDateTime") => non_neg_integer(),
-        required("metrics") => list(analytics_intent_stage_metric()()),
+        required("metrics") => list(analytics_intent_stage_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
@@ -768,7 +768,7 @@ defmodule AWS.LexModelsV2 do
 
       message_group() :: %{
         "message" => message(),
-        "variations" => list(message()())
+        "variations" => list(message())
       }
 
   """
@@ -782,7 +782,7 @@ defmodule AWS.LexModelsV2 do
         "botId" => String.t(),
         "botReplicaStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "replicaRegion" => String.t(),
         "sourceRegion" => String.t()
       }
@@ -800,7 +800,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "localeId" => String.t(),
         "nextToken" => String.t(),
-        "summaryList" => list(recommended_intent_summary()())
+        "summaryList" => list(recommended_intent_summary())
       }
 
   """
@@ -896,7 +896,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "intentId" => String.t(),
         "localeId" => String.t(),
-        "sampleUtterances" => list(sample_utterance()())
+        "sampleUtterances" => list(sample_utterance())
       }
 
   """
@@ -920,7 +920,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       path_format() :: %{
-        "objectPrefixes" => list(String.t()())
+        "objectPrefixes" => list(String.t())
       }
 
   """
@@ -974,7 +974,7 @@ defmodule AWS.LexModelsV2 do
         "domainEndpoint" => String.t(),
         "exactResponse" => boolean(),
         "exactResponseFields" => exact_response_fields(),
-        "includeFields" => list(String.t()()),
+        "includeFields" => list(String.t()),
         "indexName" => String.t()
       }
 
@@ -1184,7 +1184,7 @@ defmodule AWS.LexModelsV2 do
       analytics_path_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1195,8 +1195,8 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       test_set_discrepancy_errors() :: %{
-        "intentDiscrepancies" => list(test_set_intent_discrepancy_item()()),
-        "slotDiscrepancies" => list(test_set_slot_discrepancy_item()())
+        "intentDiscrepancies" => list(test_set_intent_discrepancy_item()),
+        "slotDiscrepancies" => list(test_set_slot_discrepancy_item())
       }
 
   """
@@ -1221,7 +1221,7 @@ defmodule AWS.LexModelsV2 do
       export_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1243,7 +1243,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       overall_test_results() :: %{
-        "items" => list(overall_test_result_item()())
+        "items" => list(overall_test_result_item())
       }
 
   """
@@ -1408,7 +1408,7 @@ defmodule AWS.LexModelsV2 do
       prompt_specification() :: %{
         "allowInterrupt" => boolean(),
         "maxRetries" => integer(),
-        "messageGroups" => list(message_group()()),
+        "messageGroups" => list(message_group()),
         "messageSelectionStrategy" => list(any()),
         "promptAttemptsSpecification" => map()
       }
@@ -1421,7 +1421,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       batch_create_custom_vocabulary_item_request() :: %{
-        required("customVocabularyItemList") => list(new_custom_vocabulary_item()())
+        required("customVocabularyItemList") => list(new_custom_vocabulary_item())
       }
 
   """
@@ -1446,7 +1446,7 @@ defmodule AWS.LexModelsV2 do
       fulfillment_start_response_specification() :: %{
         "allowInterrupt" => boolean(),
         "delayInSeconds" => integer(),
-        "messageGroups" => list(message_group()())
+        "messageGroups" => list(message_group())
       }
 
   """
@@ -1492,7 +1492,7 @@ defmodule AWS.LexModelsV2 do
       list_aggregated_utterances_request() :: %{
         optional("botAliasId") => String.t(),
         optional("botVersion") => String.t(),
-        optional("filters") => list(aggregated_utterances_filter()()),
+        optional("filters") => list(aggregated_utterances_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => aggregated_utterances_sort_by(),
@@ -1509,7 +1509,7 @@ defmodule AWS.LexModelsV2 do
 
       associated_transcript_filter() :: %{
         "name" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1540,7 +1540,7 @@ defmodule AWS.LexModelsV2 do
         optional("maxResults") => integer(),
         optional("nextIndex") => integer(),
         optional("searchOrder") => list(any()),
-        required("filters") => list(associated_transcript_filter()())
+        required("filters") => list(associated_transcript_filter())
       }
 
   """
@@ -1573,11 +1573,11 @@ defmodule AWS.LexModelsV2 do
 
       intent_summary() :: %{
         "description" => String.t(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "intentId" => String.t(),
         "intentName" => String.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t()
       }
 
@@ -1613,7 +1613,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_intents_request() :: %{
-        optional("filters") => list(intent_filter()()),
+        optional("filters") => list(intent_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => intent_sort_by()
@@ -1640,7 +1640,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1755,7 +1755,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       image_response_card() :: %{
-        "buttons" => list(button()()),
+        "buttons" => list(button()),
         "imageUrl" => String.t(),
         "subtitle" => String.t(),
         "title" => String.t()
@@ -1783,7 +1783,7 @@ defmodule AWS.LexModelsV2 do
       list_exports_request() :: %{
         optional("botId") => String.t(),
         optional("botVersion") => String.t(),
-        optional("filters") => list(export_filter()()),
+        optional("filters") => list(export_filter()),
         optional("localeId") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -1799,7 +1799,7 @@ defmodule AWS.LexModelsV2 do
 
       list_test_set_records_response() :: %{
         "nextToken" => String.t(),
-        "testSetRecords" => list(test_set_turn_record()())
+        "testSetRecords" => list(test_set_turn_record())
       }
 
   """
@@ -1823,7 +1823,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_intent_paths_request() :: %{
-        optional("filters") => list(analytics_path_filter()()),
+        optional("filters") => list(analytics_path_filter()),
         required("endDateTime") => non_neg_integer(),
         required("intentPath") => String.t(),
         required("startDateTime") => non_neg_integer()
@@ -1863,7 +1863,7 @@ defmodule AWS.LexModelsV2 do
       list_intent_metrics_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "results" => list(analytics_intent_result()())
+        "results" => list(analytics_intent_result())
       }
 
   """
@@ -1888,7 +1888,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       batch_update_custom_vocabulary_item_request() :: %{
-        required("customVocabularyItemList") => list(custom_vocabulary_item()())
+        required("customVocabularyItemList") => list(custom_vocabulary_item())
       }
 
   """
@@ -1901,7 +1901,7 @@ defmodule AWS.LexModelsV2 do
       describe_test_set_generation_response() :: %{
         "creationDateTime" => non_neg_integer(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "generationDataSource" => test_set_generation_data_source(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "roleArn" => String.t(),
@@ -1964,7 +1964,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       search_associated_transcripts_response() :: %{
-        "associatedTranscripts" => list(associated_transcript()()),
+        "associatedTranscripts" => list(associated_transcript()),
         "botId" => String.t(),
         "botRecommendationId" => String.t(),
         "botVersion" => String.t(),
@@ -1984,7 +1984,7 @@ defmodule AWS.LexModelsV2 do
         "botId" => String.t(),
         "botVersion" => String.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "generatedBotLocaleUrl" => String.t(),
         "generationId" => String.t(),
         "generationInputPrompt" => String.t(),
@@ -2072,7 +2072,7 @@ defmodule AWS.LexModelsV2 do
       list_imports_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "importSummaries" => list(import_summary()()),
+        "importSummaries" => list(import_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -2114,7 +2114,7 @@ defmodule AWS.LexModelsV2 do
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
         "intentId" => String.t(),
@@ -2122,12 +2122,12 @@ defmodule AWS.LexModelsV2 do
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "localeId" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
-        "sampleUtterances" => list(sample_utterance()()),
-        "slotPriorities" => list(slot_priority()())
+        "sampleUtterances" => list(sample_utterance()),
+        "slotPriorities" => list(slot_priority())
       }
 
   """
@@ -2164,7 +2164,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "localeId" => String.t(),
         "nextToken" => String.t(),
-        "slotTypeSummaries" => list(slot_type_summary()())
+        "slotTypeSummaries" => list(slot_type_summary())
       }
 
   """
@@ -2213,7 +2213,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       intent_level_slot_resolution_test_results() :: %{
-        "items" => list(intent_level_slot_resolution_test_result_item()())
+        "items" => list(intent_level_slot_resolution_test_result_item())
       }
 
   """
@@ -2359,7 +2359,7 @@ defmodule AWS.LexModelsV2 do
       list_session_analytics_data_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "sessions" => list(session_specification()())
+        "sessions" => list(session_specification())
       }
 
   """
@@ -2411,7 +2411,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_bots_request() :: %{
-        optional("filters") => list(bot_filter()()),
+        optional("filters") => list(bot_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => bot_sort_by()
@@ -2498,7 +2498,7 @@ defmodule AWS.LexModelsV2 do
         "intentId" => String.t(),
         "localeId" => String.t(),
         "nextToken" => String.t(),
-        "slotSummaries" => list(slot_summary()())
+        "slotSummaries" => list(slot_summary())
       }
 
   """
@@ -2509,7 +2509,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_intent_paths_response() :: %{
-        "nodeSummaries" => list(analytics_intent_node_summary()())
+        "nodeSummaries" => list(analytics_intent_node_summary())
       }
 
   """
@@ -2583,13 +2583,13 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_intent_metrics_request() :: %{
-        optional("binBy") => list(analytics_bin_by_specification()()),
-        optional("filters") => list(analytics_intent_filter()()),
-        optional("groupBy") => list(analytics_intent_group_by_specification()()),
+        optional("binBy") => list(analytics_bin_by_specification()),
+        optional("filters") => list(analytics_intent_filter()),
+        optional("groupBy") => list(analytics_intent_group_by_specification()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("endDateTime") => non_neg_integer(),
-        required("metrics") => list(analytics_intent_metric()()),
+        required("metrics") => list(analytics_intent_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
@@ -2639,7 +2639,7 @@ defmodule AWS.LexModelsV2 do
 
       describe_bot_response() :: %{
         "botId" => String.t(),
-        "botMembers" => list(bot_member()()),
+        "botMembers" => list(bot_member()),
         "botName" => String.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
@@ -2647,7 +2647,7 @@ defmodule AWS.LexModelsV2 do
         "dataPrivacy" => data_privacy(),
         "description" => String.t(),
         "errorLogSettings" => error_log_settings(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "idleSessionTTLInSeconds" => integer(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "roleArn" => String.t()
@@ -2663,7 +2663,7 @@ defmodule AWS.LexModelsV2 do
       analytics_intent_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -2718,7 +2718,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       utterance_level_test_results() :: %{
-        "items" => list(utterance_level_test_result_item()())
+        "items" => list(utterance_level_test_result_item())
       }
 
   """
@@ -2736,7 +2736,7 @@ defmodule AWS.LexModelsV2 do
         "conversationEndState" => list(any()),
         "conversationEndTime" => non_neg_integer(),
         "conversationStartTime" => non_neg_integer(),
-        "invokedIntentSamples" => list(invoked_intent_sample()()),
+        "invokedIntentSamples" => list(invoked_intent_sample()),
         "localeId" => String.t(),
         "mode" => list(any()),
         "numberOfTurns" => float(),
@@ -2783,7 +2783,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "creationDateTime" => non_neg_integer(),
         "encryptionSetting" => encryption_setting(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "localeId" => String.t(),
         "transcriptSourceSetting" => transcript_source_setting()
@@ -2869,9 +2869,9 @@ defmodule AWS.LexModelsV2 do
       create_resource_policy_statement_request() :: %{
         optional("condition") => map(),
         optional("expectedRevisionId") => String.t(),
-        required("action") => list(String.t()()),
+        required("action") => list(String.t()),
         required("effect") => list(any()),
-        required("principal") => list(principal()()),
+        required("principal") => list(principal()),
         required("statementId") => String.t()
       }
 
@@ -2883,7 +2883,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       input_session_state_specification() :: %{
-        "activeContexts" => list(active_context()()),
+        "activeContexts" => list(active_context()),
         "runtimeHints" => runtime_hints(),
         "sessionAttributes" => map()
       }
@@ -2900,15 +2900,15 @@ defmodule AWS.LexModelsV2 do
         optional("dialogCodeHook") => dialog_code_hook_settings(),
         optional("fulfillmentCodeHook") => fulfillment_code_hook_settings(),
         optional("initialResponseSetting") => initial_response_setting(),
-        optional("inputContexts") => list(input_context()()),
+        optional("inputContexts") => list(input_context()),
         optional("intentClosingSetting") => intent_closing_setting(),
         optional("intentConfirmationSetting") => intent_confirmation_setting(),
         optional("kendraConfiguration") => kendra_configuration(),
-        optional("outputContexts") => list(output_context()()),
+        optional("outputContexts") => list(output_context()),
         optional("parentIntentSignature") => String.t(),
         optional("qInConnectIntentConfiguration") => q_in_connect_intent_configuration(),
         optional("qnAIntentConfiguration") => qn_a_intent_configuration(),
-        optional("sampleUtterances") => list(sample_utterance()()),
+        optional("sampleUtterances") => list(sample_utterance()),
         required("intentName") => String.t()
       }
 
@@ -2921,7 +2921,7 @@ defmodule AWS.LexModelsV2 do
 
       response_specification() :: %{
         "allowInterrupt" => boolean(),
-        "messageGroups" => list(message_group()())
+        "messageGroups" => list(message_group())
       }
 
   """
@@ -2949,7 +2949,7 @@ defmodule AWS.LexModelsV2 do
 
       describe_import_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "importId" => String.t(),
         "importStatus" => list(any()),
         "importedResourceId" => String.t(),
@@ -2985,7 +2985,7 @@ defmodule AWS.LexModelsV2 do
       bot_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3021,7 +3021,7 @@ defmodule AWS.LexModelsV2 do
       bot_replica_summary() :: %{
         "botReplicaStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "replicaRegion" => String.t()
       }
 
@@ -3046,7 +3046,7 @@ defmodule AWS.LexModelsV2 do
 
       slot_type_value() :: %{
         "sampleValue" => sample_value(),
-        "synonyms" => list(sample_value()())
+        "synonyms" => list(sample_value())
       }
 
   """
@@ -3057,7 +3057,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       conversation_level_test_results() :: %{
-        "items" => list(conversation_level_test_result_item()())
+        "items" => list(conversation_level_test_result_item())
       }
 
   """
@@ -3096,7 +3096,7 @@ defmodule AWS.LexModelsV2 do
       slot_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3131,7 +3131,7 @@ defmodule AWS.LexModelsV2 do
       list_intent_stage_metrics_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "results" => list(analytics_intent_stage_result()())
+        "results" => list(analytics_intent_stage_result())
       }
 
   """
@@ -3156,7 +3156,7 @@ defmodule AWS.LexModelsV2 do
       slot_value_override() :: %{
         "shape" => list(any()),
         "value" => slot_value(),
-        "values" => list(slot_value_override()())
+        "values" => list(slot_value_override())
       }
 
   """
@@ -3169,7 +3169,7 @@ defmodule AWS.LexModelsV2 do
       analytics_intent_stage_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3180,13 +3180,13 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_session_metrics_request() :: %{
-        optional("binBy") => list(analytics_bin_by_specification()()),
-        optional("filters") => list(analytics_session_filter()()),
-        optional("groupBy") => list(analytics_session_group_by_specification()()),
+        optional("binBy") => list(analytics_bin_by_specification()),
+        optional("filters") => list(analytics_session_filter()),
+        optional("groupBy") => list(analytics_session_group_by_specification()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("endDateTime") => non_neg_integer(),
-        required("metrics") => list(analytics_session_metric()()),
+        required("metrics") => list(analytics_session_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
@@ -3249,7 +3249,7 @@ defmodule AWS.LexModelsV2 do
       sub_slot_value_elicitation_setting() :: %{
         "defaultValueSpecification" => slot_default_value_specification(),
         "promptSpecification" => prompt_specification(),
-        "sampleUtterances" => list(sample_utterance()()),
+        "sampleUtterances" => list(sample_utterance()),
         "waitAndContinueSpecification" => wait_and_continue_specification()
       }
 
@@ -3261,9 +3261,9 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       analytics_session_result() :: %{
-        "binKeys" => list(analytics_bin_key()()),
-        "groupByKeys" => list(analytics_session_group_by_key()()),
-        "metricsResults" => list(analytics_session_metric_result()())
+        "binKeys" => list(analytics_bin_key()),
+        "groupByKeys" => list(analytics_session_group_by_key()),
+        "metricsResults" => list(analytics_session_metric_result())
       }
 
   """
@@ -3287,9 +3287,9 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       analytics_intent_result() :: %{
-        "binKeys" => list(analytics_bin_key()()),
-        "groupByKeys" => list(analytics_intent_group_by_key()()),
-        "metricsResults" => list(analytics_intent_metric_result()())
+        "binKeys" => list(analytics_bin_key()),
+        "groupByKeys" => list(analytics_intent_group_by_key()),
+        "metricsResults" => list(analytics_intent_metric_result())
       }
 
   """
@@ -3325,7 +3325,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       slot_default_value_specification() :: %{
-        "defaultValueList" => list(slot_default_value()())
+        "defaultValueList" => list(slot_default_value())
       }
 
   """
@@ -3452,7 +3452,7 @@ defmodule AWS.LexModelsV2 do
       intent_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3547,7 +3547,7 @@ defmodule AWS.LexModelsV2 do
         "parentSlotTypeSignature" => String.t(),
         "slotTypeId" => String.t(),
         "slotTypeName" => String.t(),
-        "slotTypeValues" => list(slot_type_value()()),
+        "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
@@ -3583,7 +3583,7 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "botVersionReplicationStatus" => list(any()),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()())
+        "failureReasons" => list(String.t())
       }
 
   """
@@ -3642,7 +3642,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_slots_request() :: %{
-        optional("filters") => list(slot_filter()()),
+        optional("filters") => list(slot_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => slot_sort_by()
@@ -3656,7 +3656,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_built_in_slot_types_response() :: %{
-        "builtInSlotTypeSummaries" => list(built_in_slot_type_summary()()),
+        "builtInSlotTypeSummaries" => list(built_in_slot_type_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -3693,7 +3693,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_bot_aliases_response() :: %{
-        "botAliasSummaries" => list(bot_alias_summary()()),
+        "botAliasSummaries" => list(bot_alias_summary()),
         "botId" => String.t(),
         "nextToken" => String.t()
       }
@@ -3718,7 +3718,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_aggregated_utterances_response() :: %{
-        "aggregatedUtterancesSummaries" => list(aggregated_utterances_summary()()),
+        "aggregatedUtterancesSummaries" => list(aggregated_utterances_summary()),
         "aggregationDuration" => utterance_aggregation_duration(),
         "aggregationLastRefreshedDateTime" => non_neg_integer(),
         "aggregationWindowEndTime" => non_neg_integer(),
@@ -3742,7 +3742,7 @@ defmodule AWS.LexModelsV2 do
         optional("description") => String.t(),
         optional("externalSourceSetting") => external_source_setting(),
         optional("parentSlotTypeSignature") => String.t(),
-        optional("slotTypeValues") => list(slot_type_value()()),
+        optional("slotTypeValues") => list(slot_type_value()),
         optional("valueSelectionSetting") => slot_value_selection_setting(),
         required("slotTypeName") => String.t()
       }
@@ -3887,7 +3887,7 @@ defmodule AWS.LexModelsV2 do
       slot_value_elicitation_setting() :: %{
         "defaultValueSpecification" => slot_default_value_specification(),
         "promptSpecification" => prompt_specification(),
-        "sampleUtterances" => list(sample_utterance()()),
+        "sampleUtterances" => list(sample_utterance()),
         "slotCaptureSetting" => slot_capture_setting(),
         "slotConstraint" => list(any()),
         "slotResolutionSetting" => slot_resolution_setting(),
@@ -3951,7 +3951,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_bot_alias_replicas_response() :: %{
-        "botAliasReplicaSummaries" => list(bot_alias_replica_summary()()),
+        "botAliasReplicaSummaries" => list(bot_alias_replica_summary()),
         "botId" => String.t(),
         "nextToken" => String.t(),
         "replicaRegion" => String.t(),
@@ -3997,7 +3997,7 @@ defmodule AWS.LexModelsV2 do
       analytics_session_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -4020,7 +4020,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       batch_delete_custom_vocabulary_item_request() :: %{
-        required("customVocabularyItemList") => list(custom_vocabulary_entry_id()())
+        required("customVocabularyItemList") => list(custom_vocabulary_entry_id())
       }
 
   """
@@ -4069,7 +4069,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       intent_classification_test_results() :: %{
-        "items" => list(intent_classification_test_result_item()())
+        "items" => list(intent_classification_test_result_item())
       }
 
   """
@@ -4119,7 +4119,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_bots_response() :: %{
-        "botSummaries" => list(bot_summary()()),
+        "botSummaries" => list(bot_summary()),
         "nextToken" => String.t()
       }
 
@@ -4132,7 +4132,7 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_versions_response() :: %{
         "botId" => String.t(),
-        "botVersionSummaries" => list(bot_version_summary()()),
+        "botVersionSummaries" => list(bot_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -4144,7 +4144,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       composite_slot_type_setting() :: %{
-        "subSlots" => list(sub_slot_type_composition()())
+        "subSlots" => list(sub_slot_type_composition())
       }
 
   """
@@ -4248,7 +4248,7 @@ defmodule AWS.LexModelsV2 do
         "parentSlotTypeSignature" => String.t(),
         "slotTypeId" => String.t(),
         "slotTypeName" => String.t(),
-        "slotTypeValues" => list(slot_type_value()()),
+        "slotTypeValues" => list(slot_type_value()),
         "valueSelectionSetting" => slot_value_selection_setting()
       }
 
@@ -4260,7 +4260,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_bot_locales_request() :: %{
-        optional("filters") => list(bot_locale_filter()()),
+        optional("filters") => list(bot_locale_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => bot_locale_sort_by()
@@ -4276,7 +4276,7 @@ defmodule AWS.LexModelsV2 do
       slot_type_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -4317,7 +4317,7 @@ defmodule AWS.LexModelsV2 do
         optional("description") => String.t(),
         optional("externalSourceSetting") => external_source_setting(),
         optional("parentSlotTypeSignature") => String.t(),
-        optional("slotTypeValues") => list(slot_type_value()()),
+        optional("slotTypeValues") => list(slot_type_value()),
         optional("valueSelectionSetting") => slot_value_selection_setting(),
         required("slotTypeName") => String.t()
       }
@@ -4350,8 +4350,8 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       conversation_log_settings() :: %{
-        "audioLogSettings" => list(audio_log_setting()()),
-        "textLogSettings" => list(text_log_setting()())
+        "audioLogSettings" => list(audio_log_setting()),
+        "textLogSettings" => list(text_log_setting())
       }
 
   """
@@ -4385,9 +4385,9 @@ defmodule AWS.LexModelsV2 do
       batch_update_custom_vocabulary_item_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "errors" => list(failed_custom_vocabulary_item()()),
+        "errors" => list(failed_custom_vocabulary_item()),
         "localeId" => String.t(),
-        "resources" => list(custom_vocabulary_item()())
+        "resources" => list(custom_vocabulary_item())
       }
 
   """
@@ -4411,7 +4411,7 @@ defmodule AWS.LexModelsV2 do
 
       describe_test_set_discrepancy_report_response() :: %{
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "lastUpdatedDataTime" => non_neg_integer(),
         "target" => test_set_discrepancy_report_resource_target(),
         "testSetDiscrepancyRawOutputUrl" => String.t(),
@@ -4431,9 +4431,9 @@ defmodule AWS.LexModelsV2 do
       batch_create_custom_vocabulary_item_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "errors" => list(failed_custom_vocabulary_item()()),
+        "errors" => list(failed_custom_vocabulary_item()),
         "localeId" => String.t(),
-        "resources" => list(custom_vocabulary_item()())
+        "resources" => list(custom_vocabulary_item())
       }
 
   """
@@ -4484,7 +4484,7 @@ defmodule AWS.LexModelsV2 do
       import_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -4590,9 +4590,9 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       analytics_intent_stage_result() :: %{
-        "binKeys" => list(analytics_bin_key()()),
-        "groupByKeys" => list(analytics_intent_stage_group_by_key()()),
-        "metricsResults" => list(analytics_intent_stage_metric_result()())
+        "binKeys" => list(analytics_bin_key()),
+        "groupByKeys" => list(analytics_intent_stage_group_by_key()),
+        "metricsResults" => list(analytics_intent_stage_metric_result())
       }
 
   """
@@ -4631,7 +4631,7 @@ defmodule AWS.LexModelsV2 do
       list_utterance_analytics_data_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "utterances" => list(utterance_specification()())
+        "utterances" => list(utterance_specification())
       }
 
   """
@@ -4689,7 +4689,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       update_bot_request() :: %{
-        optional("botMembers") => list(bot_member()()),
+        optional("botMembers") => list(bot_member()),
         optional("botType") => list(any()),
         optional("description") => String.t(),
         optional("errorLogSettings") => error_log_settings(),
@@ -4728,7 +4728,7 @@ defmodule AWS.LexModelsV2 do
 
       conditional_specification() :: %{
         "active" => boolean(),
-        "conditionalBranches" => list(conditional_branch()()),
+        "conditionalBranches" => list(conditional_branch()),
         "defaultBranch" => default_conditional_branch()
       }
 
@@ -4753,7 +4753,7 @@ defmodule AWS.LexModelsV2 do
       list_bot_resource_generations_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "generationSummaries" => list(generation_summary()()),
+        "generationSummaries" => list(generation_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -4809,7 +4809,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       describe_bot_alias_response() :: %{
-        "botAliasHistoryEvents" => list(bot_alias_history_event()()),
+        "botAliasHistoryEvents" => list(bot_alias_history_event()),
         "botAliasId" => String.t(),
         "botAliasLocaleSettings" => map(),
         "botAliasName" => String.t(),
@@ -4820,7 +4820,7 @@ defmodule AWS.LexModelsV2 do
         "creationDateTime" => non_neg_integer(),
         "description" => String.t(),
         "lastUpdatedDateTime" => non_neg_integer(),
-        "parentBotNetworks" => list(parent_bot_network()()),
+        "parentBotNetworks" => list(parent_bot_network()),
         "sentimentAnalysisSettings" => sentiment_analysis_settings()
       }
 
@@ -4834,9 +4834,9 @@ defmodule AWS.LexModelsV2 do
       batch_delete_custom_vocabulary_item_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "errors" => list(failed_custom_vocabulary_item()()),
+        "errors" => list(failed_custom_vocabulary_item()),
         "localeId" => String.t(),
-        "resources" => list(custom_vocabulary_item()())
+        "resources" => list(custom_vocabulary_item())
       }
 
   """
@@ -4859,7 +4859,7 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_replicas_response() :: %{
         "botId" => String.t(),
-        "botReplicaSummaries" => list(bot_replica_summary()()),
+        "botReplicaSummaries" => list(bot_replica_summary()),
         "sourceRegion" => String.t()
       }
 
@@ -4903,7 +4903,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_built_in_intents_response() :: %{
-        "builtInIntentSummaries" => list(built_in_intent_summary()()),
+        "builtInIntentSummaries" => list(built_in_intent_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -4929,12 +4929,12 @@ defmodule AWS.LexModelsV2 do
 
       describe_bot_locale_response() :: %{
         "botId" => String.t(),
-        "botLocaleHistoryEvents" => list(bot_locale_history_event()()),
+        "botLocaleHistoryEvents" => list(bot_locale_history_event()),
         "botLocaleStatus" => list(any()),
         "botVersion" => String.t(),
         "creationDateTime" => non_neg_integer(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "generativeAISettings" => generative_a_i_settings(),
         "intentsCount" => integer(),
         "lastBuildSubmittedDateTime" => non_neg_integer(),
@@ -4942,7 +4942,7 @@ defmodule AWS.LexModelsV2 do
         "localeId" => String.t(),
         "localeName" => String.t(),
         "nluIntentConfidenceThreshold" => float(),
-        "recommendedActions" => list(String.t()()),
+        "recommendedActions" => list(String.t()),
         "slotTypesCount" => integer(),
         "voiceSettings" => voice_settings()
       }
@@ -4969,7 +4969,7 @@ defmodule AWS.LexModelsV2 do
       aggregated_utterances_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -4987,18 +4987,18 @@ defmodule AWS.LexModelsV2 do
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
         "intentId" => String.t(),
         "intentName" => String.t(),
         "kendraConfiguration" => kendra_configuration(),
         "localeId" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
-        "sampleUtterances" => list(sample_utterance()())
+        "sampleUtterances" => list(sample_utterance())
       }
 
   """
@@ -5058,7 +5058,7 @@ defmodule AWS.LexModelsV2 do
 
       list_test_executions_response() :: %{
         "nextToken" => String.t(),
-        "testExecutions" => list(test_execution_summary()())
+        "testExecutions" => list(test_execution_summary())
       }
 
   """
@@ -5069,7 +5069,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       create_bot_request() :: %{
-        optional("botMembers") => list(bot_member()()),
+        optional("botMembers") => list(bot_member()),
         optional("botTags") => map(),
         optional("botType") => list(any()),
         optional("description") => String.t(),
@@ -5091,7 +5091,7 @@ defmodule AWS.LexModelsV2 do
       list_imports_request() :: %{
         optional("botId") => String.t(),
         optional("botVersion") => String.t(),
-        optional("filters") => list(import_filter()()),
+        optional("filters") => list(import_filter()),
         optional("localeId") => String.t(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -5151,7 +5151,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_utterance_analytics_data_request() :: %{
-        optional("filters") => list(analytics_utterance_filter()()),
+        optional("filters") => list(analytics_utterance_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => utterance_data_sort_by(),
@@ -5226,7 +5226,7 @@ defmodule AWS.LexModelsV2 do
         "audioVoiceDurationMillis" => float(),
         "botAliasId" => String.t(),
         "botResponseAudioVoiceId" => String.t(),
-        "botResponses" => list(utterance_bot_response()()),
+        "botResponses" => list(utterance_bot_response()),
         "botVersion" => String.t(),
         "channel" => String.t(),
         "conversationEndTime" => non_neg_integer(),
@@ -5289,7 +5289,7 @@ defmodule AWS.LexModelsV2 do
 
       create_bot_response() :: %{
         "botId" => String.t(),
-        "botMembers" => list(bot_member()()),
+        "botMembers" => list(bot_member()),
         "botName" => String.t(),
         "botStatus" => list(any()),
         "botTags" => map(),
@@ -5335,7 +5335,7 @@ defmodule AWS.LexModelsV2 do
       bot_locale_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -5346,7 +5346,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       runtime_hint_details() :: %{
-        "runtimeHintValues" => list(runtime_hint_value()()),
+        "runtimeHintValues" => list(runtime_hint_value()),
         "subSlotHints" => map()
       }
 
@@ -5506,7 +5506,7 @@ defmodule AWS.LexModelsV2 do
 
       list_bot_recommendations_response() :: %{
         "botId" => String.t(),
-        "botRecommendationSummaries" => list(bot_recommendation_summary()()),
+        "botRecommendationSummaries" => list(bot_recommendation_summary()),
         "botVersion" => String.t(),
         "localeId" => String.t(),
         "nextToken" => String.t()
@@ -5535,7 +5535,7 @@ defmodule AWS.LexModelsV2 do
 
       list_test_sets_response() :: %{
         "nextToken" => String.t(),
-        "testSets" => list(test_set_summary()())
+        "testSets" => list(test_set_summary())
       }
 
   """
@@ -5560,7 +5560,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       user_turn_output_specification() :: %{
-        "activeContexts" => list(active_context()()),
+        "activeContexts" => list(active_context()),
         "intent" => user_turn_intent_output(),
         "transcript" => String.t()
       }
@@ -5602,7 +5602,7 @@ defmodule AWS.LexModelsV2 do
       user_turn_slot_output() :: %{
         "subSlots" => map(),
         "value" => String.t(),
-        "values" => list(user_turn_slot_output()())
+        "values" => list(user_turn_slot_output())
       }
 
   """
@@ -5734,7 +5734,7 @@ defmodule AWS.LexModelsV2 do
       list_utterance_metrics_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "results" => list(analytics_utterance_result()())
+        "results" => list(analytics_utterance_result())
       }
 
   """
@@ -5779,13 +5779,13 @@ defmodule AWS.LexModelsV2 do
         "botVersion" => String.t(),
         "creationDateTime" => non_neg_integer(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "generativeAISettings" => generative_a_i_settings(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "localeId" => String.t(),
         "localeName" => String.t(),
         "nluIntentConfidenceThreshold" => float(),
-        "recommendedActions" => list(String.t()()),
+        "recommendedActions" => list(String.t()),
         "voiceSettings" => voice_settings()
       }
 
@@ -5797,14 +5797,14 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_utterance_metrics_request() :: %{
-        optional("attributes") => list(analytics_utterance_attribute()()),
-        optional("binBy") => list(analytics_bin_by_specification()()),
-        optional("filters") => list(analytics_utterance_filter()()),
-        optional("groupBy") => list(analytics_utterance_group_by_specification()()),
+        optional("attributes") => list(analytics_utterance_attribute()),
+        optional("binBy") => list(analytics_bin_by_specification()),
+        optional("filters") => list(analytics_utterance_filter()),
+        optional("groupBy") => list(analytics_utterance_group_by_specification()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         required("endDateTime") => non_neg_integer(),
-        required("metrics") => list(analytics_utterance_metric()()),
+        required("metrics") => list(analytics_utterance_metric()),
         required("startDateTime") => non_neg_integer()
       }
 
@@ -5854,7 +5854,7 @@ defmodule AWS.LexModelsV2 do
       list_session_metrics_response() :: %{
         "botId" => String.t(),
         "nextToken" => String.t(),
-        "results" => list(analytics_session_result()())
+        "results" => list(analytics_session_result())
       }
 
   """
@@ -5867,7 +5867,7 @@ defmodule AWS.LexModelsV2 do
       still_waiting_response_specification() :: %{
         "allowInterrupt" => boolean(),
         "frequencyInSeconds" => integer(),
-        "messageGroups" => list(message_group()()),
+        "messageGroups" => list(message_group()),
         "timeoutInSeconds" => integer()
       }
 
@@ -5894,7 +5894,7 @@ defmodule AWS.LexModelsV2 do
         "botAliasReplicationStatus" => list(any()),
         "botVersion" => String.t(),
         "creationDateTime" => non_neg_integer(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "lastUpdatedDateTime" => non_neg_integer()
       }
 
@@ -5906,7 +5906,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_slot_types_request() :: %{
-        optional("filters") => list(slot_type_filter()()),
+        optional("filters") => list(slot_type_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => slot_type_sort_by()
@@ -5935,7 +5935,7 @@ defmodule AWS.LexModelsV2 do
 
       update_bot_response() :: %{
         "botId" => String.t(),
-        "botMembers" => list(bot_member()()),
+        "botMembers" => list(bot_member()),
         "botName" => String.t(),
         "botStatus" => list(any()),
         "botType" => list(any()),
@@ -5969,7 +5969,7 @@ defmodule AWS.LexModelsV2 do
         "downloadUrl" => String.t(),
         "exportId" => String.t(),
         "exportStatus" => list(any()),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "fileFormat" => list(any()),
         "lastUpdatedDateTime" => non_neg_integer(),
         "resourceSpecification" => export_resource_specification()
@@ -6009,7 +6009,7 @@ defmodule AWS.LexModelsV2 do
   ## Example:
 
       list_session_analytics_data_request() :: %{
-        optional("filters") => list(analytics_session_filter()()),
+        optional("filters") => list(analytics_session_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => session_data_sort_by(),
@@ -6083,7 +6083,7 @@ defmodule AWS.LexModelsV2 do
         "dialogCodeHook" => dialog_code_hook_settings(),
         "fulfillmentCodeHook" => fulfillment_code_hook_settings(),
         "initialResponseSetting" => initial_response_setting(),
-        "inputContexts" => list(input_context()()),
+        "inputContexts" => list(input_context()),
         "intentClosingSetting" => intent_closing_setting(),
         "intentConfirmationSetting" => intent_confirmation_setting(),
         "intentId" => String.t(),
@@ -6091,12 +6091,12 @@ defmodule AWS.LexModelsV2 do
         "kendraConfiguration" => kendra_configuration(),
         "lastUpdatedDateTime" => non_neg_integer(),
         "localeId" => String.t(),
-        "outputContexts" => list(output_context()()),
+        "outputContexts" => list(output_context()),
         "parentIntentSignature" => String.t(),
         "qInConnectIntentConfiguration" => q_in_connect_intent_configuration(),
         "qnAIntentConfiguration" => qn_a_intent_configuration(),
-        "sampleUtterances" => list(sample_utterance()()),
-        "slotPriorities" => list(slot_priority()())
+        "sampleUtterances" => list(sample_utterance()),
+        "slotPriorities" => list(slot_priority())
       }
 
   """
@@ -6190,7 +6190,7 @@ defmodule AWS.LexModelsV2 do
       list_exports_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "exportSummaries" => list(export_summary()()),
+        "exportSummaries" => list(export_summary()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }
@@ -6217,7 +6217,7 @@ defmodule AWS.LexModelsV2 do
       list_custom_vocabulary_items_response() :: %{
         "botId" => String.t(),
         "botVersion" => String.t(),
-        "customVocabularyItems" => list(custom_vocabulary_item()()),
+        "customVocabularyItems" => list(custom_vocabulary_item()),
         "localeId" => String.t(),
         "nextToken" => String.t()
       }

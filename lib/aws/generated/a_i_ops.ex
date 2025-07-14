@@ -46,11 +46,11 @@ defmodule AWS.AIOps do
 
       create_investigation_group_input() :: %{
         optional("chatbotNotificationChannel") => map(),
-        optional("crossAccountConfigurations") => list(cross_account_configuration()()),
+        optional("crossAccountConfigurations") => list(cross_account_configuration()),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("isCloudTrailEventHistoryEnabled") => [boolean()],
         optional("retentionInDays") => float(),
-        optional("tagKeyBoundaries") => list(String.t()()),
+        optional("tagKeyBoundaries") => list(String.t()),
         optional("tags") => map(),
         required("name") => String.t(),
         required("roleArn") => String.t()
@@ -170,7 +170,7 @@ defmodule AWS.AIOps do
         "chatbotNotificationChannel" => map(),
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t(),
-        "crossAccountConfigurations" => list(cross_account_configuration()()),
+        "crossAccountConfigurations" => list(cross_account_configuration()),
         "encryptionConfiguration" => encryption_configuration(),
         "isCloudTrailEventHistoryEnabled" => [boolean()],
         "lastModifiedAt" => [non_neg_integer()],
@@ -178,7 +178,7 @@ defmodule AWS.AIOps do
         "name" => String.t(),
         "retentionInDays" => float(),
         "roleArn" => String.t(),
-        "tagKeyBoundaries" => list(String.t()())
+        "tagKeyBoundaries" => list(String.t())
       }
 
   """
@@ -224,7 +224,7 @@ defmodule AWS.AIOps do
   ## Example:
 
       list_investigation_groups_output() :: %{
-        "investigationGroups" => list(list_investigation_groups_model()()),
+        "investigationGroups" => list(list_investigation_groups_model()),
         "nextToken" => String.t()
       }
 
@@ -335,7 +335,7 @@ defmodule AWS.AIOps do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -365,11 +365,11 @@ defmodule AWS.AIOps do
 
       update_investigation_group_request() :: %{
         optional("chatbotNotificationChannel") => map(),
-        optional("crossAccountConfigurations") => list(cross_account_configuration()()),
+        optional("crossAccountConfigurations") => list(cross_account_configuration()),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("isCloudTrailEventHistoryEnabled") => [boolean()],
         optional("roleArn") => String.t(),
-        optional("tagKeyBoundaries") => list(String.t()())
+        optional("tagKeyBoundaries") => list(String.t())
       }
 
   """

@@ -77,7 +77,7 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       list_connectors_response() :: %{
-        "Connectors" => list(connector_summary()()),
+        "Connectors" => list(connector_summary()),
         "NextToken" => String.t()
       }
 
@@ -147,7 +147,7 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v3(),
         "PrivateKeyFlags" => private_key_flags_v3(),
         "SubjectNameFlags" => subject_name_flags_v3(),
-        "SupersededTemplates" => list(String.t()())
+        "SupersededTemplates" => list(String.t())
       }
 
   """
@@ -362,7 +362,7 @@ defmodule AWS.PcaConnectorAd do
 
       list_service_principal_names_response() :: %{
         "NextToken" => String.t(),
-        "ServicePrincipalNames" => list(service_principal_name_summary()())
+        "ServicePrincipalNames" => list(service_principal_name_summary())
       }
 
   """
@@ -510,7 +510,7 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v4(),
         "PrivateKeyFlags" => private_key_flags_v4(),
         "SubjectNameFlags" => subject_name_flags_v4(),
-        "SupersededTemplates" => list(String.t()())
+        "SupersededTemplates" => list(String.t())
       }
 
   """
@@ -653,7 +653,7 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       list_directory_registrations_response() :: %{
-        "DirectoryRegistrations" => list(directory_registration_summary()()),
+        "DirectoryRegistrations" => list(directory_registration_summary()),
         "NextToken" => String.t()
       }
 
@@ -819,7 +819,7 @@ defmodule AWS.PcaConnectorAd do
 
       application_policies() :: %{
         "Critical" => [boolean()],
-        "Policies" => list(list()())
+        "Policies" => list(list())
       }
 
   """
@@ -846,7 +846,7 @@ defmodule AWS.PcaConnectorAd do
 
       list_templates_response() :: %{
         "NextToken" => String.t(),
-        "Templates" => list(template_summary()())
+        "Templates" => list(template_summary())
       }
 
   """
@@ -906,7 +906,7 @@ defmodule AWS.PcaConnectorAd do
   ## Example:
 
       list_template_group_access_control_entries_response() :: %{
-        "AccessControlEntries" => list(access_control_entry_summary()()),
+        "AccessControlEntries" => list(access_control_entry_summary()),
         "NextToken" => String.t()
       }
 
@@ -985,7 +985,7 @@ defmodule AWS.PcaConnectorAd do
         "PrivateKeyAttributes" => private_key_attributes_v2(),
         "PrivateKeyFlags" => private_key_flags_v2(),
         "SubjectNameFlags" => subject_name_flags_v2(),
-        "SupersededTemplates" => list(String.t()())
+        "SupersededTemplates" => list(String.t())
       }
 
   """
@@ -1085,7 +1085,7 @@ defmodule AWS.PcaConnectorAd do
 
       vpc_information() :: %{
         "IpAddressType" => list(any()),
-        "SecurityGroupIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t())
       }
 
   """

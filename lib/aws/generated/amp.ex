@@ -36,7 +36,7 @@ defmodule AWS.Amp do
 
       query_logging_configuration_metadata() :: %{
         "createdAt" => [non_neg_integer()],
-        "destinations" => list(logging_destination()()),
+        "destinations" => list(logging_destination()),
         "modifiedAt" => [non_neg_integer()],
         "status" => query_logging_configuration_status(),
         "workspace" => String.t()
@@ -74,7 +74,7 @@ defmodule AWS.Amp do
 
       update_workspace_configuration_request() :: %{
         optional("clientToken") => String.t(),
-        optional("limitsPerLabelSet") => list(limits_per_label_set()()),
+        optional("limitsPerLabelSet") => list(limits_per_label_set()),
         optional("retentionPeriodInDays") => [integer()]
       }
 
@@ -113,7 +113,7 @@ defmodule AWS.Amp do
 
       list_rule_groups_namespaces_response() :: %{
         "nextToken" => String.t(),
-        "ruleGroupsNamespaces" => list(rule_groups_namespace_summary()())
+        "ruleGroupsNamespaces" => list(rule_groups_namespace_summary())
       }
 
   """
@@ -344,7 +344,7 @@ defmodule AWS.Amp do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -437,7 +437,7 @@ defmodule AWS.Amp do
   ## Example:
 
       workspace_configuration_description() :: %{
-        "limitsPerLabelSet" => list(limits_per_label_set()()),
+        "limitsPerLabelSet" => list(limits_per_label_set()),
         "retentionPeriodInDays" => [integer()],
         "status" => workspace_configuration_status()
       }
@@ -600,8 +600,8 @@ defmodule AWS.Amp do
 
       eks_configuration() :: %{
         "clusterArn" => String.t(),
-        "securityGroupIds" => list(String.t()()),
-        "subnetIds" => list(String.t()())
+        "securityGroupIds" => list(String.t()),
+        "subnetIds" => list(String.t())
       }
 
   """
@@ -645,7 +645,7 @@ defmodule AWS.Amp do
 
       update_query_logging_configuration_request() :: %{
         optional("clientToken") => String.t(),
-        required("destinations") => list(logging_destination()())
+        required("destinations") => list(logging_destination())
       }
 
   """
@@ -755,7 +755,7 @@ defmodule AWS.Amp do
 
       list_workspaces_response() :: %{
         "nextToken" => String.t(),
-        "workspaces" => list(workspace_summary()())
+        "workspaces" => list(workspace_summary())
       }
 
   """
@@ -903,7 +903,7 @@ defmodule AWS.Amp do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -1066,7 +1066,7 @@ defmodule AWS.Amp do
 
       create_query_logging_configuration_request() :: %{
         optional("clientToken") => String.t(),
-        required("destinations") => list(logging_destination()())
+        required("destinations") => list(logging_destination())
       }
 
   """
@@ -1078,7 +1078,7 @@ defmodule AWS.Amp do
 
       list_scrapers_response() :: %{
         "nextToken" => String.t(),
-        "scrapers" => list(scraper_summary()())
+        "scrapers" => list(scraper_summary())
       }
 
   """

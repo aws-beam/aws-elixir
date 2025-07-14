@@ -68,7 +68,7 @@ defmodule AWS.PartnerCentralSelling do
       
       tag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
       
   """
@@ -96,7 +96,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_members_response() :: %{
-        "EngagementMemberList" => list(engagement_member()()),
+        "EngagementMemberList" => list(engagement_member()),
         "NextToken" => [String.t()]
       }
       
@@ -122,7 +122,7 @@ defmodule AWS.PartnerCentralSelling do
       life_cycle() :: %{
         "ClosedLostReason" => list(any()),
         "NextSteps" => String.t(),
-        "NextStepsHistory" => list(next_steps_history()()),
+        "NextStepsHistory" => list(next_steps_history()),
         "ReviewComments" => [String.t()],
         "ReviewStatus" => list(any()),
         "ReviewStatusReason" => [String.t()],
@@ -222,7 +222,7 @@ defmodule AWS.PartnerCentralSelling do
       
       project_summary() :: %{
         "DeliveryModels" => list(list(any())()),
-        "ExpectedCustomerSpend" => list(expected_customer_spend()())
+        "ExpectedCustomerSpend" => list(expected_customer_spend())
       }
       
   """
@@ -269,7 +269,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_by_accepting_invitation_tasks_response() :: %{
         "NextToken" => [String.t()],
-        "TaskSummaries" => list(list_engagement_by_accepting_invitation_task_summary()())
+        "TaskSummaries" => list(list_engagement_by_accepting_invitation_task_summary())
       }
       
   """
@@ -280,8 +280,8 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       aws_opportunity_related_entities() :: %{
-        "AwsProducts" => list(String.t()()),
-        "Solutions" => list(String.t()())
+        "AwsProducts" => list(String.t()),
+        "Solutions" => list(String.t())
       }
       
   """
@@ -324,7 +324,7 @@ defmodule AWS.PartnerCentralSelling do
         "InvolvementType" => list(any()),
         "InvolvementTypeChangeReason" => list(any()),
         "LifeCycle" => aws_opportunity_life_cycle(),
-        "OpportunityTeam" => list(aws_team_member()()),
+        "OpportunityTeam" => list(aws_team_member()),
         "Origin" => list(any()),
         "Project" => aws_opportunity_project(),
         "RelatedEntityIds" => aws_opportunity_related_entities(),
@@ -374,7 +374,7 @@ defmodule AWS.PartnerCentralSelling do
         "LifeCycle" => life_cycle(),
         "Marketing" => marketing(),
         "NationalSecurity" => list(any()),
-        "OpportunityTeam" => list(contact()()),
+        "OpportunityTeam" => list(contact()),
         "OpportunityType" => list(any()),
         "PartnerOpportunityIdentifier" => [String.t()],
         "PrimaryNeedsFromAws" => list(list(any())()),
@@ -405,7 +405,7 @@ defmodule AWS.PartnerCentralSelling do
       project_view() :: %{
         "CustomerUseCase" => [String.t()],
         "DeliveryModels" => list(list(any())()),
-        "ExpectedCustomerSpend" => list(expected_customer_spend()()),
+        "ExpectedCustomerSpend" => list(expected_customer_spend()),
         "OtherSolutionDescription" => String.t(),
         "SalesActivities" => list(list(any())())
       }
@@ -449,7 +449,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_resource_snapshots_response() :: %{
         "NextToken" => [String.t()],
-        "ResourceSnapshotSummaries" => list(resource_snapshot_summary()())
+        "ResourceSnapshotSummaries" => list(resource_snapshot_summary())
       }
       
   """
@@ -485,7 +485,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_solutions_request() :: %{
         optional("Category") => list([String.t()]()),
-        optional("Identifier") => list(String.t()()),
+        optional("Identifier") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         optional("Sort") => solution_sort(),
@@ -501,12 +501,12 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_from_opportunity_tasks_request() :: %{
-        optional("EngagementIdentifier") => list(String.t()()),
+        optional("EngagementIdentifier") => list(String.t()),
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
-        optional("OpportunityIdentifier") => list(String.t()()),
+        optional("OpportunityIdentifier") => list(String.t()),
         optional("Sort") => list_tasks_sort_base(),
-        optional("TaskIdentifier") => list(String.t()()),
+        optional("TaskIdentifier") => list(String.t()),
         optional("TaskStatus") => list(list(any())()),
         required("Catalog") => String.t()
       }
@@ -519,7 +519,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       aws_opportunity_project() :: %{
-        "ExpectedCustomerSpend" => list(expected_customer_spend()())
+        "ExpectedCustomerSpend" => list(expected_customer_spend())
       }
       
   """
@@ -553,7 +553,7 @@ defmodule AWS.PartnerCentralSelling do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -602,12 +602,12 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_by_accepting_invitation_tasks_request() :: %{
-        optional("EngagementInvitationIdentifier") => list(String.t()()),
+        optional("EngagementInvitationIdentifier") => list(String.t()),
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
-        optional("OpportunityIdentifier") => list(String.t()()),
+        optional("OpportunityIdentifier") => list(String.t()),
         optional("Sort") => list_tasks_sort_base(),
-        optional("TaskIdentifier") => list(String.t()()),
+        optional("TaskIdentifier") => list(String.t()),
         optional("TaskStatus") => list(list(any())()),
         required("Catalog") => String.t()
       }
@@ -632,7 +632,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagements_response() :: %{
-        "EngagementSummaryList" => list(engagement_summary()()),
+        "EngagementSummaryList" => list(engagement_summary()),
         "NextToken" => [String.t()]
       }
       
@@ -658,9 +658,9 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       related_entity_identifiers() :: %{
-        "AwsMarketplaceOffers" => list(String.t()()),
-        "AwsProducts" => list(String.t()()),
-        "Solutions" => list(String.t()())
+        "AwsMarketplaceOffers" => list(String.t()),
+        "AwsProducts" => list(String.t()),
+        "Solutions" => list(String.t())
       }
       
   """
@@ -672,7 +672,7 @@ defmodule AWS.PartnerCentralSelling do
       
       customer() :: %{
         "Account" => account(),
-        "Contacts" => list(contact()())
+        "Contacts" => list(contact())
       }
       
   """
@@ -697,7 +697,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_invitations_response() :: %{
-        "EngagementInvitationSummaries" => list(engagement_invitation_summary()()),
+        "EngagementInvitationSummaries" => list(engagement_invitation_summary()),
         "NextToken" => [String.t()]
       }
       
@@ -793,7 +793,7 @@ defmodule AWS.PartnerCentralSelling do
         "CustomerBusinessProblem" => String.t(),
         "CustomerUseCase" => [String.t()],
         "DeliveryModels" => list(list(any())()),
-        "ExpectedCustomerSpend" => list(expected_customer_spend()()),
+        "ExpectedCustomerSpend" => list(expected_customer_spend()),
         "OtherCompetitorNames" => [String.t()],
         "OtherSolutionDescription" => String.t(),
         "RelatedOpportunityIdentifier" => String.t(),
@@ -839,7 +839,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       create_engagement_request() :: %{
-        optional("Contexts") => list(engagement_context_details()()),
+        optional("Contexts") => list(engagement_context_details()),
         required("Catalog") => String.t(),
         required("ClientToken") => [String.t()],
         required("Description") => String.t(),
@@ -855,7 +855,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_opportunities_request() :: %{
         optional("CustomerCompanyName") => list([String.t()]()),
-        optional("Identifier") => list(String.t()()),
+        optional("Identifier") => list(String.t()),
         optional("LastModifiedDate") => last_modified_date(),
         optional("LifeCycleReviewStatus") => list(list(any())()),
         optional("LifeCycleStage") => list(list(any())()),
@@ -960,7 +960,7 @@ defmodule AWS.PartnerCentralSelling do
         "Customer" => engagement_customer(),
         "Project" => project_details(),
         "ReceiverResponsibilities" => list(list(any())()),
-        "SenderContacts" => list(sender_contact()())
+        "SenderContacts" => list(sender_contact())
       }
       
   """
@@ -1029,7 +1029,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
       
   """
@@ -1040,11 +1040,11 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_invitations_request() :: %{
-        optional("EngagementIdentifier") => list(String.t()()),
+        optional("EngagementIdentifier") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         optional("PayloadType") => list(list(any())()),
-        optional("SenderAwsAccountId") => list(String.t()()),
+        optional("SenderAwsAccountId") => list(String.t()),
         optional("Sort") => opportunity_engagement_invitation_sort(),
         optional("Status") => list(list(any())()),
         required("Catalog") => String.t(),
@@ -1114,7 +1114,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_solutions_response() :: %{
         "NextToken" => [String.t()],
-        "SolutionSummaries" => list(solution_base()())
+        "SolutionSummaries" => list(solution_base())
       }
       
   """
@@ -1137,7 +1137,7 @@ defmodule AWS.PartnerCentralSelling do
       
       project_details() :: %{
         "BusinessProblem" => String.t(),
-        "ExpectedCustomerSpend" => list(expected_customer_spend()()),
+        "ExpectedCustomerSpend" => list(expected_customer_spend()),
         "TargetCompletionDate" => String.t(),
         "Title" => [String.t()]
       }
@@ -1154,7 +1154,7 @@ defmodule AWS.PartnerCentralSelling do
         optional("LifeCycle") => life_cycle(),
         optional("Marketing") => marketing(),
         optional("NationalSecurity") => list(any()),
-        optional("OpportunityTeam") => list(contact()()),
+        optional("OpportunityTeam") => list(contact()),
         optional("OpportunityType") => list(any()),
         optional("Origin") => list(any()),
         optional("PartnerOpportunityIdentifier") => [String.t()],
@@ -1235,7 +1235,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_opportunities_response() :: %{
         "NextToken" => [String.t()],
-        "OpportunitySummaries" => list(opportunity_summary()())
+        "OpportunitySummaries" => list(opportunity_summary())
       }
       
   """
@@ -1293,7 +1293,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_resource_snapshot_jobs_response() :: %{
         "NextToken" => [String.t()],
-        "ResourceSnapshotJobSummaries" => list(resource_snapshot_job_summary()())
+        "ResourceSnapshotJobSummaries" => list(resource_snapshot_job_summary())
       }
       
   """
@@ -1343,7 +1343,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagement_resource_associations_response() :: %{
-        "EngagementResourceAssociationSummaries" => list(engagement_resource_association_summary()()),
+        "EngagementResourceAssociationSummaries" => list(engagement_resource_association_summary()),
         "NextToken" => [String.t()]
       }
       
@@ -1355,7 +1355,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       start_engagement_from_opportunity_task_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AwsSubmission") => aws_submission(),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
@@ -1420,7 +1420,7 @@ defmodule AWS.PartnerCentralSelling do
       aws_opportunity_life_cycle() :: %{
         "ClosedLostReason" => list(any()),
         "NextSteps" => String.t(),
-        "NextStepsHistory" => list(profile_next_steps_history()()),
+        "NextStepsHistory" => list(profile_next_steps_history()),
         "Stage" => list(any()),
         "TargetCloseDate" => String.t()
       }
@@ -1491,7 +1491,7 @@ defmodule AWS.PartnerCentralSelling do
       
       list_engagement_from_opportunity_tasks_response() :: %{
         "NextToken" => [String.t()],
-        "TaskSummaries" => list(list_engagement_from_opportunity_task_summary()())
+        "TaskSummaries" => list(list_engagement_from_opportunity_task_summary())
       }
       
   """
@@ -1518,7 +1518,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       validation_exception() :: %{
-        "ErrorList" => list(validation_exception_error()()),
+        "ErrorList" => list(validation_exception_error()),
         "Message" => [String.t()],
         "Reason" => list(any())
       }
@@ -1597,7 +1597,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       create_resource_snapshot_job_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
         required("EngagementIdentifier") => String.t(),
@@ -1626,7 +1626,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       aws_opportunity_customer() :: %{
-        "Contacts" => list(contact()())
+        "Contacts" => list(contact())
       }
       
   """
@@ -1778,7 +1778,7 @@ defmodule AWS.PartnerCentralSelling do
         "EngagementDescription" => String.t(),
         "EngagementId" => String.t(),
         "EngagementTitle" => String.t(),
-        "ExistingMembers" => list(engagement_member_summary()()),
+        "ExistingMembers" => list(engagement_member_summary()),
         "ExpirationDate" => non_neg_integer(),
         "Id" => String.t(),
         "InvitationDate" => non_neg_integer(),
@@ -1802,7 +1802,7 @@ defmodule AWS.PartnerCentralSelling do
       opportunity_summary_view() :: %{
         "Customer" => customer(),
         "Lifecycle" => life_cycle_for_view(),
-        "OpportunityTeam" => list(contact()()),
+        "OpportunityTeam" => list(contact()),
         "OpportunityType" => list(any()),
         "PrimaryNeedsFromAws" => list(list(any())()),
         "Project" => project_view(),
@@ -1817,9 +1817,9 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_engagements_request() :: %{
-        optional("CreatedBy") => list(String.t()()),
-        optional("EngagementIdentifier") => list(String.t()()),
-        optional("ExcludeCreatedBy") => list(String.t()()),
+        optional("CreatedBy") => list(String.t()),
+        optional("EngagementIdentifier") => list(String.t()),
+        optional("ExcludeCreatedBy") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         optional("Sort") => engagement_sort(),
@@ -1835,7 +1835,7 @@ defmodule AWS.PartnerCentralSelling do
       
       get_engagement_response() :: %{
         "Arn" => String.t(),
-        "Contexts" => list(engagement_context_details()()),
+        "Contexts" => list(engagement_context_details()),
         "CreatedAt" => non_neg_integer(),
         "CreatedBy" => String.t(),
         "Description" => String.t(),
@@ -1918,7 +1918,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       start_engagement_by_accepting_invitation_task_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("Catalog") => String.t(),
         required("ClientToken") => String.t(),
         required("Identifier") => String.t()
@@ -2221,7 +2221,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, accept_engagement_invitation_errors()}
   def accept_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptEngagementInvitation", input, options)
   end
@@ -2245,7 +2246,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, assign_opportunity_errors()}
   def assign_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssignOpportunity", input, options)
   end
@@ -2293,7 +2295,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, associate_opportunity_errors()}
   def associate_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateOpportunity", input, options)
   end
@@ -2312,7 +2315,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_engagement_errors()}
   def create_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEngagement", input, options)
   end
@@ -2327,7 +2331,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_engagement_invitation_errors()}
   def create_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEngagementInvitation", input, options)
   end
@@ -2362,7 +2367,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_opportunity_errors()}
   def create_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateOpportunity", input, options)
   end
@@ -2380,7 +2386,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_resource_snapshot_errors()}
   def create_resource_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceSnapshot", input, options)
   end
@@ -2399,7 +2406,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, create_resource_snapshot_job_errors()}
   def create_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceSnapshotJob", input, options)
   end
@@ -2415,7 +2423,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, delete_resource_snapshot_job_errors()}
   def delete_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceSnapshotJob", input, options)
   end
@@ -2441,7 +2450,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, disassociate_opportunity_errors()}
   def disassociate_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateOpportunity", input, options)
   end
@@ -2460,7 +2470,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_aws_opportunity_summary_errors()}
   def get_aws_opportunity_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAwsOpportunitySummary", input, options)
   end
@@ -2475,7 +2486,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_engagement_errors()}
   def get_engagement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEngagement", input, options)
   end
@@ -2493,7 +2505,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_engagement_invitation_errors()}
   def get_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetEngagementInvitation", input, options)
   end
@@ -2510,7 +2523,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_opportunity_errors()}
   def get_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpportunity", input, options)
   end
@@ -2524,7 +2538,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_resource_snapshot_errors()}
   def get_resource_snapshot(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceSnapshot", input, options)
   end
@@ -2538,7 +2553,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_resource_snapshot_job_errors()}
   def get_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourceSnapshotJob", input, options)
   end
@@ -2553,7 +2569,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, get_selling_system_settings_errors()}
   def get_selling_system_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSellingSystemSettings", input, options)
   end
@@ -2573,7 +2590,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_by_accepting_invitation_tasks_errors()}
   def list_engagement_by_accepting_invitation_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagementByAcceptingInvitationTasks", input, options)
   end
@@ -2592,7 +2610,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_from_opportunity_tasks_errors()}
   def list_engagement_from_opportunity_tasks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagementFromOpportunityTasks", input, options)
   end
@@ -2609,7 +2628,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_invitations_errors()}
   def list_engagement_invitations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagementInvitations", input, options)
   end
@@ -2628,7 +2648,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_members_errors()}
   def list_engagement_members(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagementMembers", input, options)
   end
@@ -2647,7 +2668,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagement_resource_associations_errors()}
   def list_engagement_resource_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagementResourceAssociations", input, options)
   end
@@ -2665,7 +2687,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_engagements_errors()}
   def list_engagements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEngagements", input, options)
   end
@@ -2700,7 +2723,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_opportunities_errors()}
   def list_opportunities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListOpportunities", input, options)
   end
@@ -2718,7 +2742,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_resource_snapshot_jobs_errors()}
   def list_resource_snapshot_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSnapshotJobs", input, options)
   end
@@ -2746,7 +2771,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_resource_snapshots_errors()}
   def list_resource_snapshots(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceSnapshots", input, options)
   end
@@ -2764,7 +2790,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_solutions_errors()}
   def list_solutions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSolutions", input, options)
   end
@@ -2778,7 +2805,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2793,7 +2821,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, put_selling_system_settings_errors()}
   def put_selling_system_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutSellingSystemSettings", input, options)
   end
@@ -2810,7 +2839,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, reject_engagement_invitation_errors()}
   def reject_engagement_invitation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectEngagementInvitation", input, options)
   end
@@ -2834,7 +2864,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_engagement_by_accepting_invitation_task_errors()}
   def start_engagement_by_accepting_invitation_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEngagementByAcceptingInvitationTask", input, options)
   end
@@ -2857,7 +2888,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_engagement_from_opportunity_task_errors()}
   def start_engagement_from_opportunity_task(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartEngagementFromOpportunityTask", input, options)
   end
@@ -2871,7 +2903,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, start_resource_snapshot_job_errors()}
   def start_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartResourceSnapshotJob", input, options)
   end
@@ -2887,7 +2920,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, stop_resource_snapshot_job_errors()}
   def stop_resource_snapshot_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopResourceSnapshotJob", input, options)
   end
@@ -2906,7 +2940,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, submit_opportunity_errors()}
   def submit_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SubmitOpportunity", input, options)
   end
@@ -2920,7 +2955,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2934,7 +2970,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2957,7 +2994,8 @@ defmodule AWS.PartnerCentralSelling do
           | {:error, term()}
           | {:error, update_opportunity_errors()}
   def update_opportunity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateOpportunity", input, options)
   end

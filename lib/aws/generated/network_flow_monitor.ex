@@ -105,12 +105,12 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_monitor_output() :: %{
         "createdAt" => non_neg_integer(),
-        "localResources" => list(monitor_local_resource()()),
+        "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
         "monitorArn" => String.t(),
         "monitorName" => String.t(),
         "monitorStatus" => list(any()),
-        "remoteResources" => list(monitor_remote_resource()()),
+        "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
@@ -122,7 +122,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       list_monitors_output() :: %{
-        "monitors" => list(monitor_summary()()),
+        "monitors" => list(monitor_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -201,7 +201,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       get_query_results_workload_insights_top_contributors_data_output() :: %{
-        "datapoints" => list(workload_insights_top_contributors_data_point()()),
+        "datapoints" => list(workload_insights_top_contributors_data_point()),
         "nextToken" => [String.t()],
         "unit" => list(any())
       }
@@ -349,8 +349,8 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       update_scope_input() :: %{
-        optional("resourcesToAdd") => list(target_resource()()),
-        optional("resourcesToDelete") => list(target_resource()())
+        optional("resourcesToAdd") => list(target_resource()),
+        optional("resourcesToDelete") => list(target_resource())
       }
 
   """
@@ -494,7 +494,7 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_workload_insights_top_contributors_output() :: %{
         "nextToken" => [String.t()],
-        "topContributors" => list(workload_insights_top_contributors_row()())
+        "topContributors" => list(workload_insights_top_contributors_row())
       }
 
   """
@@ -516,7 +516,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -528,7 +528,7 @@ defmodule AWS.NetworkFlowMonitor do
 
       get_query_results_monitor_top_contributors_output() :: %{
         "nextToken" => [String.t()],
-        "topContributors" => list(monitor_top_contributors_row()()),
+        "topContributors" => list(monitor_top_contributors_row()),
         "unit" => list(any())
       }
 
@@ -541,10 +541,10 @@ defmodule AWS.NetworkFlowMonitor do
 
       update_monitor_input() :: %{
         optional("clientToken") => String.t(),
-        optional("localResourcesToAdd") => list(monitor_local_resource()()),
-        optional("localResourcesToRemove") => list(monitor_local_resource()()),
-        optional("remoteResourcesToAdd") => list(monitor_remote_resource()()),
-        optional("remoteResourcesToRemove") => list(monitor_remote_resource()())
+        optional("localResourcesToAdd") => list(monitor_local_resource()),
+        optional("localResourcesToRemove") => list(monitor_local_resource()),
+        optional("remoteResourcesToAdd") => list(monitor_remote_resource()),
+        optional("remoteResourcesToRemove") => list(monitor_remote_resource())
       }
 
   """
@@ -572,7 +572,7 @@ defmodule AWS.NetworkFlowMonitor do
       create_scope_input() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
-        required("targets") => list(target_resource()())
+        required("targets") => list(target_resource())
       }
 
   """
@@ -587,7 +587,7 @@ defmodule AWS.NetworkFlowMonitor do
         "scopeId" => String.t(),
         "status" => list(any()),
         "tags" => map(),
-        "targets" => list(target_resource()())
+        "targets" => list(target_resource())
       }
 
   """
@@ -701,12 +701,12 @@ defmodule AWS.NetworkFlowMonitor do
 
       create_monitor_output() :: %{
         "createdAt" => non_neg_integer(),
-        "localResources" => list(monitor_local_resource()()),
+        "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
         "monitorArn" => String.t(),
         "monitorName" => String.t(),
         "monitorStatus" => list(any()),
-        "remoteResources" => list(monitor_remote_resource()()),
+        "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
@@ -740,7 +740,7 @@ defmodule AWS.NetworkFlowMonitor do
 
       list_scopes_output() :: %{
         "nextToken" => [String.t()],
-        "scopes" => list(scope_summary()())
+        "scopes" => list(scope_summary())
       }
 
   """
@@ -783,7 +783,7 @@ defmodule AWS.NetworkFlowMonitor do
         "remoteVpcId" => String.t(),
         "snatIp" => [String.t()],
         "targetPort" => [integer()],
-        "traversedConstructs" => list(traversed_component()()),
+        "traversedConstructs" => list(traversed_component()),
         "value" => [float()]
       }
 
@@ -831,12 +831,12 @@ defmodule AWS.NetworkFlowMonitor do
 
       update_monitor_output() :: %{
         "createdAt" => non_neg_integer(),
-        "localResources" => list(monitor_local_resource()()),
+        "localResources" => list(monitor_local_resource()),
         "modifiedAt" => non_neg_integer(),
         "monitorArn" => String.t(),
         "monitorName" => String.t(),
         "monitorStatus" => list(any()),
-        "remoteResources" => list(monitor_remote_resource()()),
+        "remoteResources" => list(monitor_remote_resource()),
         "tags" => map()
       }
 
@@ -849,9 +849,9 @@ defmodule AWS.NetworkFlowMonitor do
 
       create_monitor_input() :: %{
         optional("clientToken") => String.t(),
-        optional("remoteResources") => list(monitor_remote_resource()()),
+        optional("remoteResources") => list(monitor_remote_resource()),
         optional("tags") => map(),
-        required("localResources") => list(monitor_local_resource()()),
+        required("localResources") => list(monitor_local_resource()),
         required("monitorName") => String.t(),
         required("scopeArn") => String.t()
       }

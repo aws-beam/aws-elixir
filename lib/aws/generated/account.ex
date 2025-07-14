@@ -265,7 +265,7 @@ defmodule AWS.Account do
         optional("AccountId") => String.t(),
         optional("MaxResults") => [integer()],
         optional("NextToken") => [String.t()],
-        optional("RegionOptStatusContains") => list(String.t()())
+        optional("RegionOptStatusContains") => list(String.t())
       }
 
   """
@@ -277,7 +277,7 @@ defmodule AWS.Account do
 
       list_regions_response() :: %{
         "NextToken" => [String.t()],
-        "Regions" => list(region()())
+        "Regions" => list(region())
       }
 
   """
@@ -387,7 +387,7 @@ defmodule AWS.Account do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => String.t()
       }

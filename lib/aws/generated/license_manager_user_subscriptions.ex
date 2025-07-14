@@ -31,7 +31,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_license_server_endpoints_response() :: %{
-        "LicenseServerEndpoints" => list(license_server_endpoint()()),
+        "LicenseServerEndpoints" => list(license_server_endpoint()),
         "NextToken" => [String.t()]
       }
 
@@ -69,7 +69,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_identity_providers_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()]
       }
@@ -94,7 +94,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_product_subscriptions_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         optional("Product") => [String.t()],
@@ -162,8 +162,8 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       update_settings() :: %{
-        "AddSubnets" => list(String.t()()),
-        "RemoveSubnets" => list(String.t()()),
+        "AddSubnets" => list(String.t()),
+        "RemoveSubnets" => list(String.t()),
         "SecurityGroupId" => String.t()
       }
 
@@ -187,7 +187,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       active_directory_settings() :: %{
         "DomainCredentialsProvider" => list(),
-        "DomainIpv4List" => list(String.t()()),
+        "DomainIpv4List" => list(String.t()),
         "DomainName" => [String.t()],
         "DomainNetworkSettings" => domain_network_settings()
       }
@@ -224,7 +224,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_user_associations_response() :: %{
-        "InstanceUserSummaries" => list(instance_user_summary()()),
+        "InstanceUserSummaries" => list(instance_user_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -292,7 +292,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       settings() :: %{
         "SecurityGroupId" => String.t(),
-        "Subnets" => list(String.t()())
+        "Subnets" => list(String.t())
       }
 
   """
@@ -393,7 +393,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       domain_network_settings() :: %{
-        "Subnets" => list(String.t()())
+        "Subnets" => list(String.t())
       }
 
   """
@@ -404,7 +404,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_instances_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()]
       }
@@ -431,7 +431,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
 
       list_product_subscriptions_response() :: %{
         "NextToken" => [String.t()],
-        "ProductUserSummaries" => list(product_user_summary()())
+        "ProductUserSummaries" => list(product_user_summary())
       }
 
   """
@@ -442,7 +442,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_instances_response() :: %{
-        "InstanceSummaries" => list(instance_summary()()),
+        "InstanceSummaries" => list(instance_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -476,7 +476,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_license_server_endpoints_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()]
       }
@@ -544,7 +544,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
         "LicenseServerEndpointArn" => String.t(),
         "LicenseServerEndpointId" => String.t(),
         "LicenseServerEndpointProvisioningStatus" => String.t(),
-        "LicenseServers" => list(license_server()()),
+        "LicenseServers" => list(license_server()),
         "ServerEndpoint" => server_endpoint(),
         "ServerType" => String.t(),
         "StatusMessage" => [String.t()]
@@ -587,7 +587,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_identity_providers_response() :: %{
-        "IdentityProviderSummaries" => list(identity_provider_summary()()),
+        "IdentityProviderSummaries" => list(identity_provider_summary()),
         "NextToken" => [String.t()]
       }
 
@@ -691,7 +691,7 @@ defmodule AWS.LicenseManagerUserSubscriptions do
   ## Example:
 
       list_user_associations_request() :: %{
-        optional("Filters") => list(filter()()),
+        optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => [String.t()],
         required("IdentityProvider") => list(),

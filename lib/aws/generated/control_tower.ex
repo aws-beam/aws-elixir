@@ -242,7 +242,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_enabled_controls_output() :: %{
-        "enabledControls" => list(enabled_control_summary()()),
+        "enabledControls" => list(enabled_control_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -315,7 +315,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enabled_control_filter() :: %{
-        "controlIdentifiers" => list(String.t()()),
+        "controlIdentifiers" => list(String.t()),
         "driftStatuses" => list(list(any())()),
         "statuses" => list(list(any())())
       }
@@ -352,7 +352,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enable_control_input() :: %{
-        optional("parameters") => list(enabled_control_parameter()()),
+        optional("parameters") => list(enabled_control_parameter()),
         optional("tags") => map(),
         required("controlIdentifier") => String.t(),
         required("targetIdentifier") => String.t()
@@ -425,7 +425,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_control_operations_output() :: %{
-        "controlOperations" => list(control_operation_summary()()),
+        "controlOperations" => list(control_operation_summary()),
         "nextToken" => String.t()
       }
 
@@ -499,7 +499,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_baselines_output() :: %{
-        "baselines" => list(baseline_summary()()),
+        "baselines" => list(baseline_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -511,7 +511,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_enabled_baselines_output() :: %{
-        "enabledBaselines" => list(enabled_baseline_summary()()),
+        "enabledBaselines" => list(enabled_baseline_summary()),
         "nextToken" => String.t()
       }
 
@@ -669,7 +669,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_landing_zones_output() :: %{
-        "landingZones" => list(landing_zone_summary()()),
+        "landingZones" => list(landing_zone_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -876,11 +876,11 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enabled_baseline_filter() :: %{
-        "baselineIdentifiers" => list(String.t()()),
+        "baselineIdentifiers" => list(String.t()),
         "inheritanceDriftStatuses" => list(list(any())()),
-        "parentIdentifiers" => list(String.t()()),
+        "parentIdentifiers" => list(String.t()),
         "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t()())
+        "targetIdentifiers" => list(String.t())
       }
 
   """
@@ -891,7 +891,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -902,7 +902,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enable_baseline_input() :: %{
-        optional("parameters") => list(enabled_baseline_parameter()()),
+        optional("parameters") => list(enabled_baseline_parameter()),
         optional("tags") => map(),
         required("baselineIdentifier") => String.t(),
         required("baselineVersion") => String.t(),
@@ -1003,7 +1003,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       update_enabled_baseline_input() :: %{
-        optional("parameters") => list(enabled_baseline_parameter()()),
+        optional("parameters") => list(enabled_baseline_parameter()),
         required("baselineVersion") => String.t(),
         required("enabledBaselineIdentifier") => String.t()
       }
@@ -1016,11 +1016,11 @@ defmodule AWS.ControlTower do
   ## Example:
 
       control_operation_filter() :: %{
-        "controlIdentifiers" => list(String.t()()),
+        "controlIdentifiers" => list(String.t()),
         "controlOperationTypes" => list(list(any())()),
-        "enabledControlIdentifiers" => list(String.t()()),
+        "enabledControlIdentifiers" => list(String.t()),
         "statuses" => list(list(any())()),
-        "targetIdentifiers" => list(String.t()())
+        "targetIdentifiers" => list(String.t())
       }
 
   """
@@ -1046,7 +1046,7 @@ defmodule AWS.ControlTower do
         "baselineIdentifier" => [String.t()],
         "baselineVersion" => [String.t()],
         "driftStatusSummary" => enabled_baseline_drift_status_summary(),
-        "parameters" => list(enabled_baseline_parameter_summary()()),
+        "parameters" => list(enabled_baseline_parameter_summary()),
         "parentIdentifier" => String.t(),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => [String.t()]
@@ -1072,7 +1072,7 @@ defmodule AWS.ControlTower do
 
       update_enabled_control_input() :: %{
         required("enabledControlIdentifier") => String.t(),
-        required("parameters") => list(enabled_control_parameter()())
+        required("parameters") => list(enabled_control_parameter())
       }
 
   """
@@ -1110,10 +1110,10 @@ defmodule AWS.ControlTower do
         "arn" => String.t(),
         "controlIdentifier" => String.t(),
         "driftStatusSummary" => drift_status_summary(),
-        "parameters" => list(enabled_control_parameter_summary()()),
+        "parameters" => list(enabled_control_parameter_summary()),
         "statusSummary" => enablement_status_summary(),
         "targetIdentifier" => String.t(),
-        "targetRegions" => list(region()())
+        "targetRegions" => list(region())
       }
 
   """
@@ -1193,7 +1193,7 @@ defmodule AWS.ControlTower do
   ## Example:
 
       list_landing_zone_operations_output() :: %{
-        "landingZoneOperations" => list(landing_zone_operation_summary()()),
+        "landingZoneOperations" => list(landing_zone_operation_summary()),
         "nextToken" => [String.t()]
       }
 

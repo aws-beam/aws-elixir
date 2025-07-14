@@ -103,7 +103,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_functions_by_code_signing_config_response() :: %{
-        "FunctionArns" => list(String.t()()),
+        "FunctionArns" => list(String.t()),
         "NextMarker" => String.t()
       }
 
@@ -142,7 +142,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_aliases_response() :: %{
-        "Aliases" => list(alias_configuration()()),
+        "Aliases" => list(alias_configuration()),
         "NextMarker" => String.t()
       }
 
@@ -237,7 +237,7 @@ defmodule AWS.Lambda do
         optional("ProvisionedPollerConfig") => provisioned_poller_config(),
         optional("ScalingConfig") => scaling_config(),
         optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
-        optional("SourceAccessConfigurations") => list(source_access_configuration()()),
+        optional("SourceAccessConfigurations") => list(source_access_configuration()),
         optional("TumblingWindowInSeconds") => integer()
       }
 
@@ -366,7 +366,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_functions_response() :: %{
-        "Functions" => list(function_configuration()()),
+        "Functions" => list(function_configuration()),
         "NextMarker" => String.t()
       }
 
@@ -402,7 +402,7 @@ defmodule AWS.Lambda do
 
       list_provisioned_concurrency_configs_response() :: %{
         "NextMarker" => String.t(),
-        "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item()())
+        "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item())
       }
 
   """
@@ -413,7 +413,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_code_signing_configs_response() :: %{
-        "CodeSigningConfigs" => list(code_signing_config()()),
+        "CodeSigningConfigs" => list(code_signing_config()),
         "NextMarker" => String.t()
       }
 
@@ -451,7 +451,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       filter_criteria() :: %{
-        "Filters" => list(filter()())
+        "Filters" => list(filter())
       }
 
   """
@@ -602,7 +602,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_layers_response() :: %{
-        "Layers" => list(layers_list_item()()),
+        "Layers" => list(layers_list_item()),
         "NextMarker" => String.t()
       }
 
@@ -798,7 +798,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -818,8 +818,8 @@ defmodule AWS.Lambda do
   ## Example:
 
       image_config() :: %{
-        "Command" => list(String.t()()),
-        "EntryPoint" => list(String.t()()),
+        "Command" => list(String.t()),
+        "EntryPoint" => list(String.t()),
         "WorkingDirectory" => String.t()
       }
 
@@ -949,7 +949,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_function_event_invoke_configs_response() :: %{
-        "FunctionEventInvokeConfigs" => list(function_event_invoke_config()()),
+        "FunctionEventInvokeConfigs" => list(function_event_invoke_config()),
         "NextMarker" => String.t()
       }
 
@@ -1034,7 +1034,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_event_source_mappings_response() :: %{
-        "EventSourceMappings" => list(event_source_mapping_configuration()()),
+        "EventSourceMappings" => list(event_source_mapping_configuration()),
         "NextMarker" => String.t()
       }
 
@@ -1303,16 +1303,16 @@ defmodule AWS.Lambda do
         "MetricsConfig" => event_source_mapping_metrics_config(),
         "ParallelizationFactor" => integer(),
         "ProvisionedPollerConfig" => provisioned_poller_config(),
-        "Queues" => list(String.t()()),
+        "Queues" => list(String.t()),
         "ScalingConfig" => scaling_config(),
         "SelfManagedEventSource" => self_managed_event_source(),
         "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
-        "SourceAccessConfigurations" => list(source_access_configuration()()),
+        "SourceAccessConfigurations" => list(source_access_configuration()),
         "StartingPosition" => list(any()),
         "StartingPositionTimestamp" => non_neg_integer(),
         "State" => String.t(),
         "StateTransitionReason" => String.t(),
-        "Topics" => list(String.t()()),
+        "Topics" => list(String.t()),
         "TumblingWindowInSeconds" => integer(),
         "UUID" => String.t()
       }
@@ -1353,15 +1353,15 @@ defmodule AWS.Lambda do
         optional("MetricsConfig") => event_source_mapping_metrics_config(),
         optional("ParallelizationFactor") => integer(),
         optional("ProvisionedPollerConfig") => provisioned_poller_config(),
-        optional("Queues") => list(String.t()()),
+        optional("Queues") => list(String.t()),
         optional("ScalingConfig") => scaling_config(),
         optional("SelfManagedEventSource") => self_managed_event_source(),
         optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
-        optional("SourceAccessConfigurations") => list(source_access_configuration()()),
+        optional("SourceAccessConfigurations") => list(source_access_configuration()),
         optional("StartingPosition") => list(any()),
         optional("StartingPositionTimestamp") => non_neg_integer(),
         optional("Tags") => map(),
-        optional("Topics") => list(String.t()()),
+        optional("Topics") => list(String.t()),
         optional("TumblingWindowInSeconds") => integer(),
         required("FunctionName") => String.t()
       }
@@ -1419,8 +1419,8 @@ defmodule AWS.Lambda do
 
       vpc_config() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()())
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t())
       }
 
   """
@@ -1621,7 +1621,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_layer_versions_response() :: %{
-        "LayerVersions" => list(layer_versions_list_item()()),
+        "LayerVersions" => list(layer_versions_list_item()),
         "NextMarker" => String.t()
       }
 
@@ -2050,9 +2050,9 @@ defmodule AWS.Lambda do
         "StateReasonCode" => list(any()),
         "DeadLetterConfig" => dead_letter_config(),
         "EphemeralStorage" => ephemeral_storage(),
-        "Layers" => list(layer()()),
+        "Layers" => list(layer()),
         "CodeSha256" => String.t(),
-        "FileSystemConfigs" => list(file_system_config()()),
+        "FileSystemConfigs" => list(file_system_config()),
         "LastUpdateStatusReason" => String.t(),
         "LastUpdateStatusReasonCode" => list(any()),
         "SnapStart" => snap_start_response(),
@@ -2176,10 +2176,10 @@ defmodule AWS.Lambda do
 
       cors() :: %{
         "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t()()),
-        "AllowMethods" => list(String.t()()),
-        "AllowOrigins" => list(String.t()()),
-        "ExposeHeaders" => list(String.t()()),
+        "AllowHeaders" => list(String.t()),
+        "AllowMethods" => list(String.t()),
+        "AllowOrigins" => list(String.t()),
+        "ExposeHeaders" => list(String.t()),
         "MaxAge" => integer()
       }
 
@@ -2234,11 +2234,11 @@ defmodule AWS.Lambda do
         optional("Description") => String.t(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
-        optional("FileSystemConfigs") => list(file_system_config()()),
+        optional("FileSystemConfigs") => list(file_system_config()),
         optional("Handler") => String.t(),
         optional("ImageConfig") => image_config(),
         optional("KMSKeyArn") => String.t(),
-        optional("Layers") => list(String.t()()),
+        optional("Layers") => list(String.t()),
         optional("LoggingConfig") => logging_config(),
         optional("MemorySize") => integer(),
         optional("RevisionId") => String.t(),
@@ -2258,10 +2258,10 @@ defmodule AWS.Lambda do
   ## Example:
 
       kafka_schema_registry_config() :: %{
-        "AccessConfigs" => list(kafka_schema_registry_access_config()()),
+        "AccessConfigs" => list(kafka_schema_registry_access_config()),
         "EventRecordFormat" => list(any()),
         "SchemaRegistryURI" => String.t(),
-        "SchemaValidationConfigs" => list(kafka_schema_validation_config()())
+        "SchemaValidationConfigs" => list(kafka_schema_validation_config())
       }
 
   """
@@ -2296,7 +2296,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       list_function_url_configs_response() :: %{
-        "FunctionUrlConfigs" => list(function_url_config()()),
+        "FunctionUrlConfigs" => list(function_url_config()),
         "NextMarker" => String.t()
       }
 
@@ -2308,7 +2308,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       allowed_publishers() :: %{
-        "SigningProfileVersionArns" => list(String.t()())
+        "SigningProfileVersionArns" => list(String.t())
       }
 
   """
@@ -2320,7 +2320,7 @@ defmodule AWS.Lambda do
 
       list_versions_by_function_response() :: %{
         "NextMarker" => String.t(),
-        "Versions" => list(function_configuration()())
+        "Versions" => list(function_configuration())
       }
 
   """
@@ -2332,8 +2332,8 @@ defmodule AWS.Lambda do
 
       vpc_config_response() :: %{
         "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t()()),
-        "SubnetIds" => list(String.t()()),
+        "SecurityGroupIds" => list(String.t()),
+        "SubnetIds" => list(String.t()),
         "VpcId" => String.t()
       }
 
@@ -2392,11 +2392,11 @@ defmodule AWS.Lambda do
         optional("Description") => String.t(),
         optional("Environment") => environment(),
         optional("EphemeralStorage") => ephemeral_storage(),
-        optional("FileSystemConfigs") => list(file_system_config()()),
+        optional("FileSystemConfigs") => list(file_system_config()),
         optional("Handler") => String.t(),
         optional("ImageConfig") => image_config(),
         optional("KMSKeyArn") => String.t(),
-        optional("Layers") => list(String.t()()),
+        optional("Layers") => list(String.t()),
         optional("LoggingConfig") => logging_config(),
         optional("MemorySize") => integer(),
         optional("PackageType") => list(any()),

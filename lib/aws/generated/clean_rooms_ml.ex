@@ -57,7 +57,7 @@ defmodule AWS.CleanRoomsML do
         "configuredModelAlgorithmAssociationArn" => String.t(),
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "membershipIdentifier" => String.t(),
         "name" => String.t(),
         "status" => list(any()),
@@ -85,7 +85,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_configured_model_algorithm_associations_response() :: %{
-        "configuredModelAlgorithmAssociations" => list(configured_model_algorithm_association_summary()()),
+        "configuredModelAlgorithmAssociations" => list(configured_model_algorithm_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -120,7 +120,7 @@ defmodule AWS.CleanRoomsML do
 
       audience_quality_metrics() :: %{
         "recallMetric" => [float()],
-        "relevanceMetrics" => list(relevance_metric()())
+        "relevanceMetrics" => list(relevance_metric())
       }
 
   """
@@ -199,7 +199,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_configured_model_algorithms_response() :: %{
-        "configuredModelAlgorithms" => list(configured_model_algorithm_summary()()),
+        "configuredModelAlgorithms" => list(configured_model_algorithm_summary()),
         "nextToken" => String.t()
       }
 
@@ -214,7 +214,7 @@ defmodule AWS.CleanRoomsML do
         optional("description") => String.t(),
         optional("kmsKeyArn") => String.t(),
         optional("tags") => map(),
-        required("configuredModelAlgorithmAssociations") => list(String.t()()),
+        required("configuredModelAlgorithmAssociations") => list(String.t()),
         required("inputChannel") => input_channel(),
         required("name") => String.t(),
         required("retentionInDays") => [integer()]
@@ -245,7 +245,7 @@ defmodule AWS.CleanRoomsML do
         "roleArn" => String.t(),
         "status" => list(any()),
         "tags" => map(),
-        "trainingData" => list(dataset()()),
+        "trainingData" => list(dataset()),
         "trainingDatasetArn" => String.t(),
         "updateTime" => [non_neg_integer()]
       }
@@ -258,7 +258,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       trained_models_configuration_policy() :: %{
-        "containerLogs" => list(logs_configuration_policy()()),
+        "containerLogs" => list(logs_configuration_policy()),
         "containerMetrics" => metrics_configuration_policy(),
         "maxArtifactSize" => trained_model_artifact_max_size()
       }
@@ -329,7 +329,7 @@ defmodule AWS.CleanRoomsML do
 
       inference_output_configuration() :: %{
         "accept" => [String.t()],
-        "members" => list(inference_receiver_member()())
+        "members" => list(inference_receiver_member())
       }
 
   """
@@ -421,7 +421,7 @@ defmodule AWS.CleanRoomsML do
 
       get_ml_input_channel_response() :: %{
         "collaborationIdentifier" => String.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t()()),
+        "configuredModelAlgorithmAssociations" => list(String.t()),
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
         "inputChannel" => input_channel(),
@@ -457,7 +457,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_ml_input_channels_response() :: %{
-        "mlInputChannelsList" => list(ml_input_channel_summary()()),
+        "mlInputChannelsList" => list(ml_input_channel_summary()),
         "nextToken" => String.t()
       }
 
@@ -486,7 +486,7 @@ defmodule AWS.CleanRoomsML do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "logsStatus" => list(any()),
         "logsStatusDetails" => [String.t()],
         "membershipIdentifier" => String.t(),
@@ -532,7 +532,7 @@ defmodule AWS.CleanRoomsML do
 
       collaboration_ml_input_channel_summary() :: %{
         "collaborationIdentifier" => String.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t()()),
+        "configuredModelAlgorithmAssociations" => list(String.t()),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
@@ -552,7 +552,7 @@ defmodule AWS.CleanRoomsML do
 
       ml_input_channel_summary() :: %{
         "collaborationIdentifier" => String.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t()()),
+        "configuredModelAlgorithmAssociations" => list(String.t()),
         "createTime" => [non_neg_integer()],
         "description" => String.t(),
         "membershipIdentifier" => String.t(),
@@ -653,11 +653,11 @@ defmodule AWS.CleanRoomsML do
         "collaborationIdentifier" => String.t(),
         "configuredModelAlgorithmAssociationArn" => String.t(),
         "createTime" => [non_neg_integer()],
-        "dataChannels" => list(model_training_data_channel()()),
+        "dataChannels" => list(model_training_data_channel()),
         "description" => String.t(),
         "environment" => map(),
         "hyperparameters" => map(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "kmsKeyArn" => String.t(),
         "logsStatus" => list(any()),
         "logsStatusDetails" => [String.t()],
@@ -685,7 +685,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -719,7 +719,7 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_model_versions_response() :: %{
         "nextToken" => String.t(),
-        "trainedModels" => list(trained_model_summary()())
+        "trainedModels" => list(trained_model_summary())
       }
 
   """
@@ -902,7 +902,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       trained_model_inference_jobs_configuration_policy() :: %{
-        "containerLogs" => list(logs_configuration_policy()()),
+        "containerLogs" => list(logs_configuration_policy()),
         "maxOutputSize" => trained_model_inference_max_output_size()
       }
 
@@ -936,10 +936,10 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       container_config() :: %{
-        "arguments" => list(String.t()()),
-        "entrypoint" => list(String.t()()),
+        "arguments" => list(String.t()),
+        "entrypoint" => list(String.t()),
         "imageUri" => String.t(),
-        "metricDefinitions" => list(metric_definition()())
+        "metricDefinitions" => list(metric_definition())
       }
 
   """
@@ -960,7 +960,7 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_model_inference_jobs_response() :: %{
         "nextToken" => String.t(),
-        "trainedModelInferenceJobs" => list(trained_model_inference_job_summary()())
+        "trainedModelInferenceJobs" => list(trained_model_inference_job_summary())
       }
 
   """
@@ -1154,7 +1154,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_collaboration_trained_model_export_jobs_response() :: %{
-        "collaborationTrainedModelExportJobs" => list(collaboration_trained_model_export_job_summary()()),
+        "collaborationTrainedModelExportJobs" => list(collaboration_trained_model_export_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1169,13 +1169,13 @@ defmodule AWS.CleanRoomsML do
         optional("description") => String.t(),
         optional("environment") => map(),
         optional("hyperparameters") => map(),
-        optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()()),
+        optional("incrementalTrainingDataChannels") => list(incremental_training_data_channel()),
         optional("kmsKeyArn") => String.t(),
         optional("stoppingCondition") => stopping_condition(),
         optional("tags") => map(),
         optional("trainingInputMode") => list(any()),
         required("configuredModelAlgorithmAssociationArn") => String.t(),
-        required("dataChannels") => list(model_training_data_channel()()),
+        required("dataChannels") => list(model_training_data_channel()),
         required("name") => String.t(),
         required("resourceConfig") => resource_config()
       }
@@ -1189,7 +1189,7 @@ defmodule AWS.CleanRoomsML do
 
       list_training_datasets_response() :: %{
         "nextToken" => String.t(),
-        "trainingDatasets" => list(training_dataset_summary()())
+        "trainingDatasets" => list(training_dataset_summary())
       }
 
   """
@@ -1205,7 +1205,7 @@ defmodule AWS.CleanRoomsML do
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
-        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()()),
+        "incrementalTrainingDataChannels" => list(incremental_training_data_channel_output()),
         "membershipIdentifier" => String.t(),
         "name" => String.t(),
         "status" => list(any()),
@@ -1449,7 +1449,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_configured_audience_models_response() :: %{
-        "configuredAudienceModels" => list(configured_audience_model_summary()()),
+        "configuredAudienceModels" => list(configured_audience_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -1518,7 +1518,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_audience_export_jobs_response() :: %{
-        "audienceExportJobs" => list(audience_export_job_summary()()),
+        "audienceExportJobs" => list(audience_export_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1553,7 +1553,7 @@ defmodule AWS.CleanRoomsML do
 
       list_trained_models_response() :: %{
         "nextToken" => String.t(),
-        "trainedModels" => list(trained_model_summary()())
+        "trainedModels" => list(trained_model_summary())
       }
 
   """
@@ -1677,7 +1677,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_collaboration_trained_models_response() :: %{
-        "collaborationTrainedModels" => list(collaboration_trained_model_summary()()),
+        "collaborationTrainedModels" => list(collaboration_trained_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -1763,7 +1763,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_collaboration_ml_input_channels_response() :: %{
-        "collaborationMLInputChannelsList" => list(collaboration_ml_input_channel_summary()()),
+        "collaborationMLInputChannelsList" => list(collaboration_ml_input_channel_summary()),
         "nextToken" => String.t()
       }
 
@@ -1874,7 +1874,7 @@ defmodule AWS.CleanRoomsML do
 
       get_collaboration_ml_input_channel_response() :: %{
         "collaborationIdentifier" => String.t(),
-        "configuredModelAlgorithmAssociations" => list(String.t()()),
+        "configuredModelAlgorithmAssociations" => list(String.t()),
         "createTime" => [non_neg_integer()],
         "creatorAccountId" => String.t(),
         "description" => String.t(),
@@ -1920,7 +1920,7 @@ defmodule AWS.CleanRoomsML do
         optional("tags") => map(),
         required("name") => String.t(),
         required("roleArn") => String.t(),
-        required("trainingData") => list(dataset()())
+        required("trainingData") => list(dataset())
       }
 
   """
@@ -1968,7 +1968,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_collaboration_trained_model_inference_jobs_response() :: %{
-        "collaborationTrainedModelInferenceJobs" => list(collaboration_trained_model_inference_job_summary()()),
+        "collaborationTrainedModelInferenceJobs" => list(collaboration_trained_model_inference_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2012,7 +2012,7 @@ defmodule AWS.CleanRoomsML do
 
       dataset_input_config() :: %{
         "dataSource" => data_source(),
-        "schema" => list(column_schema()())
+        "schema" => list(column_schema())
       }
 
   """
@@ -2058,7 +2058,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       audience_size_config() :: %{
-        "audienceSizeBins" => list(integer()()),
+        "audienceSizeBins" => list(integer()),
         "audienceSizeType" => list(any())
       }
 
@@ -2153,7 +2153,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_collaboration_configured_model_algorithm_associations_response() :: %{
-        "collaborationConfiguredModelAlgorithmAssociations" => list(collaboration_configured_model_algorithm_association_summary()()),
+        "collaborationConfiguredModelAlgorithmAssociations" => list(collaboration_configured_model_algorithm_association_summary()),
         "nextToken" => String.t()
       }
 
@@ -2187,7 +2187,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       trained_model_export_output_configuration() :: %{
-        "members" => list(trained_model_export_receiver_member()())
+        "members" => list(trained_model_export_receiver_member())
       }
 
   """
@@ -2198,7 +2198,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_audience_generation_jobs_response() :: %{
-        "audienceGenerationJobs" => list(audience_generation_job_summary()()),
+        "audienceGenerationJobs" => list(audience_generation_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2210,7 +2210,7 @@ defmodule AWS.CleanRoomsML do
   ## Example:
 
       list_audience_models_response() :: %{
-        "audienceModels" => list(audience_model_summary()()),
+        "audienceModels" => list(audience_model_summary()),
         "nextToken" => String.t()
       }
 

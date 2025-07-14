@@ -309,7 +309,7 @@ defmodule AWS.CloudFront do
 
       realtime_log_configs() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(realtime_log_config()()),
+        "Items" => list(realtime_log_config()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t()
@@ -399,7 +399,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       status_codes() :: %{
-        "Items" => list(integer()()),
+        "Items" => list(integer()),
         "Quantity" => integer()
       }
 
@@ -436,7 +436,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       lambda_function_associations() :: %{
-        "Items" => list(lambda_function_association()()),
+        "Items" => list(lambda_function_association()),
         "Quantity" => integer()
       }
 
@@ -608,10 +608,10 @@ defmodule AWS.CloudFront do
         optional("Customizations") => customizations(),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         optional("Tags") => tags(),
         required("DistributionId") => String.t(),
-        required("Domains") => list(domain_item()()),
+        required("Domains") => list(domain_item()),
         required("Name") => String.t()
       }
 
@@ -700,7 +700,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       continuous_deployment_policy_list() :: %{
-        "Items" => list(continuous_deployment_policy_summary()()),
+        "Items" => list(continuous_deployment_policy_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -725,7 +725,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       anycast_ip_list() :: %{
-        "AnycastIps" => list(String.t()()),
+        "AnycastIps" => list(String.t()),
         "Arn" => String.t(),
         "Id" => String.t(),
         "IpCount" => integer(),
@@ -742,7 +742,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       encryption_entities() :: %{
-        "Items" => list(encryption_entity()()),
+        "Items" => list(encryption_entity()),
         "Quantity" => integer()
       }
 
@@ -952,7 +952,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       field_level_encryption_list() :: %{
-        "Items" => list(field_level_encryption_summary()()),
+        "Items" => list(field_level_encryption_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -1116,10 +1116,10 @@ defmodule AWS.CloudFront do
         optional("ConnectionGroupId") => String.t(),
         optional("Customizations") => customizations(),
         optional("DistributionId") => String.t(),
-        optional("Domains") => list(domain_item()()),
+        optional("Domains") => list(domain_item()),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
-        optional("Parameters") => list(parameter()()),
+        optional("Parameters") => list(parameter()),
         required("IfMatch") => String.t()
       }
 
@@ -1206,7 +1206,7 @@ defmodule AWS.CloudFront do
 
       trusted_key_groups() :: %{
         "Enabled" => boolean(),
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -1255,7 +1255,7 @@ defmodule AWS.CloudFront do
 
       origin_access_control_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(origin_access_control_summary()()),
+        "Items" => list(origin_access_control_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -1270,7 +1270,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       geo_restriction() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer(),
         "RestrictionType" => list(any())
       }
@@ -1339,7 +1339,7 @@ defmodule AWS.CloudFront do
       test_result() :: %{
         "ComputeUtilization" => String.t(),
         "FunctionErrorMessage" => String.t(),
-        "FunctionExecutionLogs" => list(String.t()()),
+        "FunctionExecutionLogs" => list(String.t()),
         "FunctionOutput" => String.t(),
         "FunctionSummary" => function_summary()
       }
@@ -1376,7 +1376,7 @@ defmodule AWS.CloudFront do
 
       distribution_summary() :: %{
         "ARN" => String.t(),
-        "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
+        "AliasICPRecordals" => list(alias_i_c_p_recordal()),
         "Aliases" => aliases(),
         "AnycastIpListId" => String.t(),
         "CacheBehaviors" => cache_behaviors(),
@@ -1637,7 +1637,7 @@ defmodule AWS.CloudFront do
 
       key_group_config() :: %{
         "Comment" => String.t(),
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Name" => String.t()
       }
 
@@ -1797,7 +1797,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       query_string_cache_keys() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -2074,7 +2074,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       geo_restriction_customization() :: %{
-        "Locations" => list(String.t()()),
+        "Locations" => list(String.t()),
         "RestrictionType" => list(any())
       }
 
@@ -2132,7 +2132,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       query_arg_profiles() :: %{
-        "Items" => list(query_arg_profile()()),
+        "Items" => list(query_arg_profile()),
         "Quantity" => integer()
       }
 
@@ -2172,7 +2172,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_access_control_allow_origins() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -2219,7 +2219,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       key_group_list() :: %{
-        "Items" => list(key_group_summary()()),
+        "Items" => list(key_group_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -2281,7 +2281,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       content_type_profiles() :: %{
-        "Items" => list(content_type_profile()()),
+        "Items" => list(content_type_profile()),
         "Quantity" => integer()
       }
 
@@ -2349,7 +2349,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       cache_policy_list() :: %{
-        "Items" => list(cache_policy_summary()()),
+        "Items" => list(cache_policy_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -2417,7 +2417,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       origins() :: %{
-        "Items" => list(origin()()),
+        "Items" => list(origin()),
         "Quantity" => integer()
       }
 
@@ -2485,7 +2485,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       list_connection_groups_result() :: %{
-        "ConnectionGroups" => list(connection_group_summary()()),
+        "ConnectionGroups" => list(connection_group_summary()),
         "NextMarker" => String.t()
       }
 
@@ -2534,7 +2534,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       cache_behaviors() :: %{
-        "Items" => list(cache_behavior()()),
+        "Items" => list(cache_behavior()),
         "Quantity" => integer()
       }
 
@@ -2546,7 +2546,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       custom_headers() :: %{
-        "Items" => list(origin_custom_header()()),
+        "Items" => list(origin_custom_header()),
         "Quantity" => integer()
       }
 
@@ -2569,8 +2569,8 @@ defmodule AWS.CloudFront do
   ## Example:
 
       create_realtime_log_config_request() :: %{
-        required("EndPoints") => list(end_point()()),
-        required("Fields") => list(String.t()()),
+        required("EndPoints") => list(end_point()),
+        required("Fields") => list(String.t()),
         required("Name") => String.t(),
         required("SamplingRate") => float()
       }
@@ -2605,7 +2605,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       function_associations() :: %{
-        "Items" => list(function_association()()),
+        "Items" => list(function_association()),
         "Quantity" => integer()
       }
 
@@ -2923,7 +2923,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       public_key_list() :: %{
-        "Items" => list(public_key_summary()()),
+        "Items" => list(public_key_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -2949,7 +2949,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_custom_headers_config() :: %{
-        "Items" => list(response_headers_policy_custom_header()()),
+        "Items" => list(response_headers_policy_custom_header()),
         "Quantity" => integer()
       }
 
@@ -3084,7 +3084,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_access_control_expose_headers() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -3174,7 +3174,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       tenant_config() :: %{
-        "ParameterDefinitions" => list(parameter_definition()())
+        "ParameterDefinitions" => list(parameter_definition())
       }
 
   """
@@ -3185,7 +3185,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       list_domain_conflicts_result() :: %{
-        "DomainConflicts" => list(domain_conflict()()),
+        "DomainConflicts" => list(domain_conflict()),
         "NextMarker" => String.t()
       }
 
@@ -3223,7 +3223,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_remove_headers_config() :: %{
-        "Items" => list(response_headers_policy_remove_header()()),
+        "Items" => list(response_headers_policy_remove_header()),
         "Quantity" => integer()
       }
 
@@ -3294,7 +3294,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       key_value_store_associations() :: %{
-        "Items" => list(key_value_store_association()()),
+        "Items" => list(key_value_store_association()),
         "Quantity" => integer()
       }
 
@@ -3377,7 +3377,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_list() :: %{
-        "Items" => list(response_headers_policy_summary()()),
+        "Items" => list(response_headers_policy_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -3460,7 +3460,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       cookie_names() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -3528,7 +3528,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       field_patterns() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -3576,7 +3576,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       tags() :: %{
-        "Items" => list(tag()())
+        "Items" => list(tag())
       }
 
   """
@@ -3588,7 +3588,7 @@ defmodule AWS.CloudFront do
 
       anycast_ip_list_collection() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(anycast_ip_list_summary()()),
+        "Items" => list(anycast_ip_list_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -3606,7 +3606,7 @@ defmodule AWS.CloudFront do
         "ARN" => String.t(),
         "ActiveTrustedKeyGroups" => active_trusted_key_groups(),
         "ActiveTrustedSigners" => active_trusted_signers(),
-        "AliasICPRecordals" => list(alias_i_c_p_recordal()()),
+        "AliasICPRecordals" => list(alias_i_c_p_recordal()),
         "DistributionConfig" => distribution_config(),
         "DomainName" => String.t(),
         "Id" => String.t(),
@@ -3646,7 +3646,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       list_distribution_tenants_result() :: %{
-        "DistributionTenantList" => list(distribution_tenant_summary()()),
+        "DistributionTenantList" => list(distribution_tenant_summary()),
         "NextMarker" => String.t()
       }
 
@@ -3774,7 +3774,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       aliases() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -3786,7 +3786,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       list_distribution_tenants_by_customization_result() :: %{
-        "DistributionTenantList" => list(distribution_tenant_summary()()),
+        "DistributionTenantList" => list(distribution_tenant_summary()),
         "NextMarker" => String.t()
       }
 
@@ -3809,7 +3809,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       origin_groups() :: %{
-        "Items" => list(origin_group()()),
+        "Items" => list(origin_group()),
         "Quantity" => integer()
       }
 
@@ -4023,7 +4023,7 @@ defmodule AWS.CloudFront do
       managed_certificate_details() :: %{
         "CertificateArn" => String.t(),
         "CertificateStatus" => list(any()),
-        "ValidationTokenDetails" => list(validation_token_detail()()),
+        "ValidationTokenDetails" => list(validation_token_detail()),
         "ValidationTokenHost" => list(any())
       }
 
@@ -4228,7 +4228,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       key_value_store_list() :: %{
-        "Items" => list(key_value_store()()),
+        "Items" => list(key_value_store()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -4254,7 +4254,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       query_string_names() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -4323,7 +4323,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       conflicting_aliases_list() :: %{
-        "Items" => list(conflicting_alias()()),
+        "Items" => list(conflicting_alias()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -4488,7 +4488,7 @@ defmodule AWS.CloudFront do
 
       active_trusted_signers() :: %{
         "Enabled" => boolean(),
-        "Items" => list(signer()()),
+        "Items" => list(signer()),
         "Quantity" => integer()
       }
 
@@ -4604,7 +4604,7 @@ defmodule AWS.CloudFront do
 
       distribution_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(distribution_summary()()),
+        "Items" => list(distribution_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -4762,12 +4762,12 @@ defmodule AWS.CloudFront do
         "CreatedTime" => non_neg_integer(),
         "Customizations" => customizations(),
         "DistributionId" => String.t(),
-        "Domains" => list(domain_result()()),
+        "Domains" => list(domain_result()),
         "Enabled" => boolean(),
         "Id" => String.t(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
-        "Parameters" => list(parameter()()),
+        "Parameters" => list(parameter()),
         "Status" => String.t(),
         "Tags" => tags()
       }
@@ -4816,7 +4816,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       tag_keys() :: %{
-        "Items" => list(String.t()())
+        "Items" => list(String.t())
       }
 
   """
@@ -4838,7 +4838,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       verify_dns_configuration_result() :: %{
-        "DnsConfigurationList" => list(dns_configuration()())
+        "DnsConfigurationList" => list(dns_configuration())
       }
 
   """
@@ -5234,8 +5234,8 @@ defmodule AWS.CloudFront do
 
       update_realtime_log_config_request() :: %{
         optional("ARN") => String.t(),
-        optional("EndPoints") => list(end_point()()),
-        optional("Fields") => list(String.t()()),
+        optional("EndPoints") => list(end_point()),
+        optional("Fields") => list(String.t()),
         optional("Name") => String.t(),
         optional("SamplingRate") => float()
       }
@@ -5291,7 +5291,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       function_list() :: %{
-        "Items" => list(function_summary()()),
+        "Items" => list(function_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -5339,7 +5339,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       headers() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -5517,7 +5517,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       origin_group_members() :: %{
-        "Items" => list(origin_group_member()()),
+        "Items" => list(origin_group_member()),
         "Quantity" => integer()
       }
 
@@ -5677,7 +5677,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       origin_request_policy_list() :: %{
-        "Items" => list(origin_request_policy_summary()()),
+        "Items" => list(origin_request_policy_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -5916,7 +5916,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       paths() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -6038,7 +6038,7 @@ defmodule AWS.CloudFront do
 
       invalidation_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(invalidation_summary()()),
+        "Items" => list(invalidation_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -6143,7 +6143,7 @@ defmodule AWS.CloudFront do
 
       vpc_origin_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(vpc_origin_summary()()),
+        "Items" => list(vpc_origin_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -6261,7 +6261,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       field_level_encryption_profile_list() :: %{
-        "Items" => list(field_level_encryption_profile_summary()()),
+        "Items" => list(field_level_encryption_profile_summary()),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
         "Quantity" => integer()
@@ -6419,7 +6419,7 @@ defmodule AWS.CloudFront do
 
       cloud_front_origin_access_identity_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(cloud_front_origin_access_identity_summary()()),
+        "Items" => list(cloud_front_origin_access_identity_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -6577,7 +6577,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       custom_error_responses() :: %{
-        "Items" => list(custom_error_response()()),
+        "Items" => list(custom_error_response()),
         "Quantity" => integer()
       }
 
@@ -6916,7 +6916,7 @@ defmodule AWS.CloudFront do
 
       trusted_signers() :: %{
         "Enabled" => boolean(),
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -6929,7 +6929,7 @@ defmodule AWS.CloudFront do
 
       streaming_distribution_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(streaming_distribution_summary()()),
+        "Items" => list(streaming_distribution_summary()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -6955,7 +6955,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       staging_distribution_dns_names() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -7083,7 +7083,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       key_pair_ids() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 
@@ -7170,7 +7170,7 @@ defmodule AWS.CloudFront do
         "CreatedTime" => non_neg_integer(),
         "Customizations" => customizations(),
         "DistributionId" => String.t(),
-        "Domains" => list(domain_result()()),
+        "Domains" => list(domain_result()),
         "ETag" => String.t(),
         "Enabled" => boolean(),
         "Id" => String.t(),
@@ -7217,7 +7217,7 @@ defmodule AWS.CloudFront do
 
       active_trusted_key_groups() :: %{
         "Enabled" => boolean(),
-        "Items" => list(k_g_key_pair_ids()()),
+        "Items" => list(k_g_key_pair_ids()),
         "Quantity" => integer()
       }
 
@@ -7230,8 +7230,8 @@ defmodule AWS.CloudFront do
 
       realtime_log_config() :: %{
         "ARN" => String.t(),
-        "EndPoints" => list(end_point()()),
-        "Fields" => list(String.t()()),
+        "EndPoints" => list(end_point()),
+        "Fields" => list(String.t()),
         "Name" => String.t(),
         "SamplingRate" => float()
       }
@@ -7263,7 +7263,7 @@ defmodule AWS.CloudFront do
 
       distribution_id_list() :: %{
         "IsTruncated" => boolean(),
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Marker" => String.t(),
         "MaxItems" => integer(),
         "NextMarker" => String.t(),
@@ -7380,7 +7380,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       response_headers_policy_access_control_allow_headers() :: %{
-        "Items" => list(String.t()()),
+        "Items" => list(String.t()),
         "Quantity" => integer()
       }
 

@@ -19,7 +19,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       get_detector_model_analysis_results_response() :: %{
-        "analysisResults" => list(analysis_result()()),
+        "analysisResults" => list(analysis_result()),
         "nextToken" => String.t()
       }
 
@@ -46,7 +46,7 @@ defmodule AWS.IoTEvents do
 
       analysis_result() :: %{
         "level" => list(any()),
-        "locations" => list(analysis_result_location()()),
+        "locations" => list(analysis_result_location()),
         "message" => String.t(),
         "type" => String.t()
       }
@@ -60,7 +60,7 @@ defmodule AWS.IoTEvents do
 
       tag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -196,7 +196,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       alarm_event_actions() :: %{
-        "alarmActions" => list(alarm_action()())
+        "alarmActions" => list(alarm_action())
       }
 
   """
@@ -286,7 +286,7 @@ defmodule AWS.IoTEvents do
 
       detector_model_definition() :: %{
         "initialStateName" => String.t(),
-        "states" => list(state()())
+        "states" => list(state())
       }
 
   """
@@ -386,7 +386,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_alarm_models_response() :: %{
-        "alarmModelSummaries" => list(alarm_model_summary()()),
+        "alarmModelSummaries" => list(alarm_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -410,7 +410,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       on_exit_lifecycle() :: %{
-        "events" => list(event()())
+        "events" => list(event())
       }
 
   """
@@ -474,7 +474,7 @@ defmodule AWS.IoTEvents do
 
       untag_resource_request() :: %{
         required("resourceArn") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -564,7 +564,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_detector_models_response() :: %{
-        "detectorModelSummaries" => list(detector_model_summary()()),
+        "detectorModelSummaries" => list(detector_model_summary()),
         "nextToken" => String.t()
       }
 
@@ -611,7 +611,7 @@ defmodule AWS.IoTEvents do
 
       sms_configuration() :: %{
         "additionalMessage" => String.t(),
-        "recipients" => list(recipient_detail()()),
+        "recipients" => list(recipient_detail()),
         "senderId" => String.t()
       }
 
@@ -635,7 +635,7 @@ defmodule AWS.IoTEvents do
 
       create_input_request() :: %{
         optional("inputDescription") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("inputDefinition") => input_definition(),
         required("inputName") => String.t()
       }
@@ -661,7 +661,7 @@ defmodule AWS.IoTEvents do
 
       list_input_routings_response() :: %{
         "nextToken" => String.t(),
-        "routedResources" => list(routed_resource()())
+        "routedResources" => list(routed_resource())
       }
 
   """
@@ -812,8 +812,8 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       on_input_lifecycle() :: %{
-        "events" => list(event()()),
-        "transitionEvents" => list(transition_event()())
+        "events" => list(event()),
+        "transitionEvents" => list(transition_event())
       }
 
   """
@@ -833,7 +833,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_alarm_model_versions_response() :: %{
-        "alarmModelVersionSummaries" => list(alarm_model_version_summary()()),
+        "alarmModelVersionSummaries" => list(alarm_model_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -867,7 +867,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_detector_model_versions_response() :: %{
-        "detectorModelVersionSummaries" => list(detector_model_version_summary()()),
+        "detectorModelVersionSummaries" => list(detector_model_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -885,7 +885,7 @@ defmodule AWS.IoTEvents do
         optional("alarmNotification") => alarm_notification(),
         optional("key") => String.t(),
         optional("severity") => integer(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("alarmModelName") => String.t(),
         required("alarmRule") => alarm_rule(),
         required("roleArn") => String.t()
@@ -899,7 +899,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -933,7 +933,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       input_definition() :: %{
-        "attributes" => list(attribute()())
+        "attributes" => list(attribute())
       }
 
   """
@@ -960,7 +960,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       list_inputs_response() :: %{
-        "inputSummaries" => list(input_summary()()),
+        "inputSummaries" => list(input_summary()),
         "nextToken" => String.t()
       }
 
@@ -984,7 +984,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       on_enter_lifecycle() :: %{
-        "events" => list(event()())
+        "events" => list(event())
       }
 
   """
@@ -1060,7 +1060,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       event() :: %{
-        "actions" => list(action()()),
+        "actions" => list(action()),
         "condition" => String.t(),
         "eventName" => String.t()
       }
@@ -1166,7 +1166,7 @@ defmodule AWS.IoTEvents do
         optional("detectorModelDescription") => String.t(),
         optional("evaluationMethod") => list(any()),
         optional("key") => String.t(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("detectorModelDefinition") => detector_model_definition(),
         required("detectorModelName") => String.t(),
         required("roleArn") => String.t()
@@ -1212,7 +1212,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       transition_event() :: %{
-        "actions" => list(action()()),
+        "actions" => list(action()),
         "condition" => String.t(),
         "eventName" => String.t(),
         "nextState" => String.t()
@@ -1249,7 +1249,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       email_recipients() :: %{
-        "to" => list(recipient_detail()())
+        "to" => list(recipient_detail())
       }
 
   """
@@ -1271,7 +1271,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       alarm_notification() :: %{
-        "notificationActions" => list(notification_action()())
+        "notificationActions" => list(notification_action())
       }
 
   """
@@ -1366,7 +1366,7 @@ defmodule AWS.IoTEvents do
   ## Example:
 
       logging_options() :: %{
-        "detectorDebugOptions" => list(detector_debug_option()()),
+        "detectorDebugOptions" => list(detector_debug_option()),
         "enabled" => boolean(),
         "level" => list(any()),
         "roleArn" => String.t()
@@ -1381,8 +1381,8 @@ defmodule AWS.IoTEvents do
 
       notification_action() :: %{
         "action" => notification_target_actions(),
-        "emailConfigurations" => list(email_configuration()()),
-        "smsConfigurations" => list(sms_configuration()())
+        "emailConfigurations" => list(email_configuration()),
+        "smsConfigurations" => list(sms_configuration())
       }
 
   """

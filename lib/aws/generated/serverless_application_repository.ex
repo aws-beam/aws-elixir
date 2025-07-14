@@ -55,7 +55,7 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       list_application_dependencies_response() :: %{
-        "Dependencies" => list(application_dependency_summary()()),
+        "Dependencies" => list(application_dependency_summary()),
         "NextToken" => String.t()
       }
 
@@ -118,7 +118,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
       parameter_definition() :: %{
         "AllowedPattern" => String.t(),
-        "AllowedValues" => list(String.t()()),
+        "AllowedValues" => list(String.t()),
         "ConstraintDescription" => String.t(),
         "DefaultValue" => String.t(),
         "Description" => String.t(),
@@ -128,7 +128,7 @@ defmodule AWS.ServerlessApplicationRepository do
         "MinValue" => integer(),
         "Name" => String.t(),
         "NoEcho" => boolean(),
-        "ReferencedByResources" => list(String.t()()),
+        "ReferencedByResources" => list(String.t()),
         "Type" => String.t()
       }
 
@@ -156,7 +156,7 @@ defmodule AWS.ServerlessApplicationRepository do
       create_application_version_response() :: %{
         "ApplicationId" => String.t(),
         "CreationTime" => String.t(),
-        "ParameterDefinitions" => list(parameter_definition()()),
+        "ParameterDefinitions" => list(parameter_definition()),
         "RequiredCapabilities" => list(list(any())()),
         "ResourcesSupported" => boolean(),
         "SemanticVersion" => String.t(),
@@ -173,7 +173,7 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       get_application_policy_response() :: %{
-        "Statements" => list(application_policy_statement()())
+        "Statements" => list(application_policy_statement())
       }
 
   """
@@ -246,7 +246,7 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       put_application_policy_request() :: %{
-        required("Statements") => list(application_policy_statement()())
+        required("Statements") => list(application_policy_statement())
       }
 
   """
@@ -270,7 +270,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
       create_application_request() :: %{
         optional("HomePageUrl") => String.t(),
-        optional("Labels") => list(String.t()()),
+        optional("Labels") => list(String.t()),
         optional("LicenseBody") => String.t(),
         optional("LicenseUrl") => String.t(),
         optional("ReadmeBody") => String.t(),
@@ -317,7 +317,7 @@ defmodule AWS.ServerlessApplicationRepository do
         "Description" => String.t(),
         "HomePageUrl" => String.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LicenseUrl" => String.t(),
         "Name" => String.t(),
         "ReadmeUrl" => String.t(),
@@ -349,7 +349,7 @@ defmodule AWS.ServerlessApplicationRepository do
       version() :: %{
         "ApplicationId" => String.t(),
         "CreationTime" => String.t(),
-        "ParameterDefinitions" => list(parameter_definition()()),
+        "ParameterDefinitions" => list(parameter_definition()),
         "RequiredCapabilities" => list(list(any())()),
         "ResourcesSupported" => boolean(),
         "SemanticVersion" => String.t(),
@@ -369,7 +369,7 @@ defmodule AWS.ServerlessApplicationRepository do
         optional("Author") => String.t(),
         optional("Description") => String.t(),
         optional("HomePageUrl") => String.t(),
-        optional("Labels") => list(String.t()()),
+        optional("Labels") => list(String.t()),
         optional("ReadmeBody") => String.t(),
         optional("ReadmeUrl") => String.t()
       }
@@ -388,7 +388,7 @@ defmodule AWS.ServerlessApplicationRepository do
         "Description" => String.t(),
         "HomePageUrl" => String.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LicenseUrl" => String.t(),
         "Name" => String.t(),
         "ReadmeUrl" => String.t(),
@@ -411,7 +411,7 @@ defmodule AWS.ServerlessApplicationRepository do
         "Description" => String.t(),
         "HomePageUrl" => String.t(),
         "IsVerifiedAuthor" => boolean(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "LicenseUrl" => String.t(),
         "Name" => String.t(),
         "ReadmeUrl" => String.t(),
@@ -449,16 +449,16 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       create_cloud_formation_change_set_request() :: %{
-        optional("Capabilities") => list(String.t()()),
+        optional("Capabilities") => list(String.t()),
         optional("ChangeSetName") => String.t(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
-        optional("NotificationArns") => list(String.t()()),
-        optional("ParameterOverrides") => list(parameter_value()()),
-        optional("ResourceTypes") => list(String.t()()),
+        optional("NotificationArns") => list(String.t()),
+        optional("ParameterOverrides") => list(parameter_value()),
+        optional("ResourceTypes") => list(String.t()),
         optional("RollbackConfiguration") => rollback_configuration(),
         optional("SemanticVersion") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         optional("TemplateId") => String.t(),
         required("StackName") => String.t()
       }
@@ -483,9 +483,9 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       application_policy_statement() :: %{
-        "Actions" => list(String.t()()),
-        "PrincipalOrgIDs" => list(String.t()()),
-        "Principals" => list(String.t()()),
+        "Actions" => list(String.t()),
+        "PrincipalOrgIDs" => list(String.t()),
+        "Principals" => list(String.t()),
         "StatementId" => String.t()
       }
 
@@ -514,7 +514,7 @@ defmodule AWS.ServerlessApplicationRepository do
         "CreationTime" => String.t(),
         "Description" => String.t(),
         "HomePageUrl" => String.t(),
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "Name" => String.t(),
         "SpdxLicenseId" => String.t()
       }
@@ -538,7 +538,7 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       list_applications_response() :: %{
-        "Applications" => list(application_summary()()),
+        "Applications" => list(application_summary()),
         "NextToken" => String.t()
       }
 
@@ -551,7 +551,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
       list_application_versions_response() :: %{
         "NextToken" => String.t(),
-        "Versions" => list(version_summary()())
+        "Versions" => list(version_summary())
       }
 
   """
@@ -575,7 +575,7 @@ defmodule AWS.ServerlessApplicationRepository do
 
       rollback_configuration() :: %{
         "MonitoringTimeInMinutes" => integer(),
-        "RollbackTriggers" => list(rollback_trigger()())
+        "RollbackTriggers" => list(rollback_trigger())
       }
 
   """
@@ -598,7 +598,7 @@ defmodule AWS.ServerlessApplicationRepository do
   ## Example:
 
       put_application_policy_response() :: %{
-        "Statements" => list(application_policy_statement()())
+        "Statements" => list(application_policy_statement())
       }
 
   """

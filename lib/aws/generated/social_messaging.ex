@@ -167,7 +167,7 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       put_whats_app_business_account_event_destinations_input() :: %{
-        required("eventDestinations") => list(whats_app_business_account_event_destination()()),
+        required("eventDestinations") => list(whats_app_business_account_event_destination()),
         required("id") => String.t()
       }
 
@@ -180,7 +180,7 @@ defmodule AWS.SocialMessaging do
 
       linked_whats_app_business_account_summary() :: %{
         "arn" => String.t(),
-        "eventDestinations" => list(whats_app_business_account_event_destination()()),
+        "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t(),
         "linkDate" => non_neg_integer(),
         "registrationStatus" => list(any()),
@@ -220,7 +220,7 @@ defmodule AWS.SocialMessaging do
 
       list_tags_for_resource_output() :: %{
         "statusCode" => [integer()],
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """
@@ -289,10 +289,10 @@ defmodule AWS.SocialMessaging do
 
       linked_whats_app_business_account() :: %{
         "arn" => String.t(),
-        "eventDestinations" => list(whats_app_business_account_event_destination()()),
+        "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t(),
         "linkDate" => non_neg_integer(),
-        "phoneNumbers" => list(whats_app_phone_number_summary()()),
+        "phoneNumbers" => list(whats_app_phone_number_summary()),
         "registrationStatus" => list(any()),
         "wabaId" => String.t(),
         "wabaName" => String.t()
@@ -320,7 +320,7 @@ defmodule AWS.SocialMessaging do
       waba_phone_number_setup_finalization() :: %{
         "dataLocalizationRegion" => String.t(),
         "id" => String.t(),
-        "tags" => list(tag()()),
+        "tags" => list(tag()),
         "twoFactorPin" => String.t()
       }
 
@@ -369,7 +369,7 @@ defmodule AWS.SocialMessaging do
       whats_app_setup_finalization() :: %{
         "associateInProgressToken" => String.t(),
         "phoneNumberParent" => String.t(),
-        "phoneNumbers" => list(waba_phone_number_setup_finalization()()),
+        "phoneNumbers" => list(waba_phone_number_setup_finalization()),
         "waba" => waba_setup_finalization()
       }
 
@@ -382,7 +382,7 @@ defmodule AWS.SocialMessaging do
 
       tag_resource_input() :: %{
         required("resourceArn") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
 
   """
@@ -517,7 +517,7 @@ defmodule AWS.SocialMessaging do
       linked_whats_app_business_account_id_meta_data() :: %{
         "accountName" => String.t(),
         "registrationStatus" => list(any()),
-        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()()),
+        "unregisteredWhatsAppPhoneNumbers" => list(whats_app_phone_number_detail()),
         "wabaId" => String.t()
       }
 
@@ -599,7 +599,7 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       list_linked_whats_app_business_accounts_output() :: %{
-        "linkedAccounts" => list(linked_whats_app_business_account_summary()()),
+        "linkedAccounts" => list(linked_whats_app_business_account_summary()),
         "nextToken" => String.t()
       }
 
@@ -634,9 +634,9 @@ defmodule AWS.SocialMessaging do
   ## Example:
 
       waba_setup_finalization() :: %{
-        "eventDestinations" => list(whats_app_business_account_event_destination()()),
+        "eventDestinations" => list(whats_app_business_account_event_destination()),
         "id" => String.t(),
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
 
   """

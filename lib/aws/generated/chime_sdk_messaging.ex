@@ -21,7 +21,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       get_messaging_streaming_configurations_response() :: %{
-        "StreamingConfigurations" => list(streaming_configuration()())
+        "StreamingConfigurations" => list(streaming_configuration())
       }
 
   """
@@ -131,7 +131,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -201,7 +201,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_channel_flows_response() :: %{
-        "ChannelFlows" => list(channel_flow_summary()()),
+        "ChannelFlows" => list(channel_flow_summary()),
         "NextToken" => String.t()
       }
 
@@ -225,7 +225,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_messages_response() :: %{
         "ChannelArn" => String.t(),
-        "ChannelMessages" => list(channel_message_summary()()),
+        "ChannelMessages" => list(channel_message_summary()),
         "NextToken" => String.t(),
         "SubChannelId" => String.t()
       }
@@ -239,7 +239,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       batch_create_channel_membership_response() :: %{
         "BatchChannelMemberships" => batch_channel_memberships(),
-        "Errors" => list(batch_create_channel_membership_error()())
+        "Errors" => list(batch_create_channel_membership_error())
       }
 
   """
@@ -337,7 +337,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       message_attribute_value() :: %{
-        "StringValues" => list(String.t()())
+        "StringValues" => list(String.t())
       }
 
   """
@@ -375,7 +375,7 @@ defmodule AWS.ChimeSDKMessaging do
         optional("ChimeBearer") => String.t(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        required("Fields") => list(search_field()())
+        required("Fields") => list(search_field())
       }
 
   """
@@ -425,7 +425,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_channels_associated_with_channel_flow_response() :: %{
-        "Channels" => list(channel_associated_with_flow_summary()()),
+        "Channels" => list(channel_associated_with_flow_summary()),
         "NextToken" => String.t()
       }
 
@@ -523,7 +523,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -553,7 +553,7 @@ defmodule AWS.ChimeSDKMessaging do
       list_sub_channels_response() :: %{
         "ChannelArn" => String.t(),
         "NextToken" => String.t(),
-        "SubChannels" => list(sub_channel_summary()())
+        "SubChannels" => list(sub_channel_summary())
       }
 
   """
@@ -575,7 +575,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_channels_moderated_by_app_instance_user_response() :: %{
-        "Channels" => list(channel_moderated_by_app_instance_user_summary()()),
+        "Channels" => list(channel_moderated_by_app_instance_user_summary()),
         "NextToken" => String.t()
       }
 
@@ -639,7 +639,7 @@ defmodule AWS.ChimeSDKMessaging do
         "CreatedTimestamp" => non_neg_integer(),
         "LastUpdatedTimestamp" => non_neg_integer(),
         "Name" => String.t(),
-        "Processors" => list(processor()())
+        "Processors" => list(processor())
       }
 
   """
@@ -714,7 +714,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       put_messaging_streaming_configurations_response() :: %{
-        "StreamingConfigurations" => list(streaming_configuration()())
+        "StreamingConfigurations" => list(streaming_configuration())
       }
 
   """
@@ -726,7 +726,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       update_channel_flow_request() :: %{
         required("Name") => String.t(),
-        required("Processors") => list(processor()())
+        required("Processors") => list(processor())
       }
 
   """
@@ -817,7 +817,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_bans_response() :: %{
         "ChannelArn" => String.t(),
-        "ChannelBans" => list(channel_ban_summary()()),
+        "ChannelBans" => list(channel_ban_summary()),
         "NextToken" => String.t()
       }
 
@@ -881,12 +881,12 @@ defmodule AWS.ChimeSDKMessaging do
         optional("ChannelId") => String.t(),
         optional("ElasticChannelConfiguration") => elastic_channel_configuration(),
         optional("ExpirationSettings") => expiration_settings(),
-        optional("MemberArns") => list(String.t()()),
+        optional("MemberArns") => list(String.t()),
         optional("Metadata") => String.t(),
         optional("Mode") => list(any()),
-        optional("ModeratorArns") => list(String.t()()),
+        optional("ModeratorArns") => list(String.t()),
         optional("Privacy") => list(any()),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppInstanceArn") => String.t(),
         required("ChimeBearer") => String.t(),
         required("ClientRequestToken") => String.t(),
@@ -910,7 +910,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -921,7 +921,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       put_messaging_streaming_configurations_request() :: %{
-        required("StreamingConfigurations") => list(streaming_configuration()())
+        required("StreamingConfigurations") => list(streaming_configuration())
       }
 
   """
@@ -944,7 +944,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_channel_memberships_for_app_instance_user_response() :: %{
-        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()()),
+        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()),
         "NextToken" => String.t()
       }
 
@@ -956,7 +956,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       list_channels_response() :: %{
-        "Channels" => list(channel_summary()()),
+        "Channels" => list(channel_summary()),
         "NextToken" => String.t()
       }
 
@@ -1032,11 +1032,11 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       create_channel_flow_request() :: %{
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppInstanceArn") => String.t(),
         required("ClientRequestToken") => String.t(),
         required("Name") => String.t(),
-        required("Processors") => list(processor()())
+        required("Processors") => list(processor())
       }
 
   """
@@ -1083,7 +1083,7 @@ defmodule AWS.ChimeSDKMessaging do
         "Sender" => identity(),
         "Status" => channel_message_status_structure(),
         "SubChannelId" => String.t(),
-        "Target" => list(target()()),
+        "Target" => list(target()),
         "Type" => list(any())
       }
 
@@ -1149,7 +1149,7 @@ defmodule AWS.ChimeSDKMessaging do
       search_field() :: %{
         "Key" => list(any()),
         "Operator" => list(any()),
-        "Values" => list(String.t()())
+        "Values" => list(String.t())
       }
 
   """
@@ -1210,7 +1210,7 @@ defmodule AWS.ChimeSDKMessaging do
         optional("SubChannelId") => String.t(),
         optional("Type") => list(any()),
         required("ChimeBearer") => String.t(),
-        required("MemberArns") => list(String.t()())
+        required("MemberArns") => list(String.t())
       }
 
   """
@@ -1267,7 +1267,7 @@ defmodule AWS.ChimeSDKMessaging do
         optional("Metadata") => String.t(),
         optional("PushNotification") => push_notification_configuration(),
         optional("SubChannelId") => String.t(),
-        optional("Target") => list(target()()),
+        optional("Target") => list(target()),
         required("ChimeBearer") => String.t(),
         required("ClientRequestToken") => String.t(),
         required("Content") => String.t(),
@@ -1326,7 +1326,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_moderators_response() :: %{
         "ChannelArn" => String.t(),
-        "ChannelModerators" => list(channel_moderator_summary()()),
+        "ChannelModerators" => list(channel_moderator_summary()),
         "NextToken" => String.t()
       }
 
@@ -1447,7 +1447,7 @@ defmodule AWS.ChimeSDKMessaging do
 
       list_channel_memberships_response() :: %{
         "ChannelArn" => String.t(),
-        "ChannelMemberships" => list(channel_membership_summary()()),
+        "ChannelMemberships" => list(channel_membership_summary()),
         "NextToken" => String.t()
       }
 
@@ -1524,7 +1524,7 @@ defmodule AWS.ChimeSDKMessaging do
       channel_flow_summary() :: %{
         "ChannelFlowArn" => String.t(),
         "Name" => String.t(),
-        "Processors" => list(processor()())
+        "Processors" => list(processor())
       }
 
   """
@@ -1584,7 +1584,7 @@ defmodule AWS.ChimeSDKMessaging do
       batch_channel_memberships() :: %{
         "ChannelArn" => String.t(),
         "InvitedBy" => identity(),
-        "Members" => list(identity()()),
+        "Members" => list(identity()),
         "SubChannelId" => String.t(),
         "Type" => list(any())
       }
@@ -1681,7 +1681,7 @@ defmodule AWS.ChimeSDKMessaging do
         "Redacted" => boolean(),
         "Sender" => identity(),
         "Status" => channel_message_status_structure(),
-        "Target" => list(target()()),
+        "Target" => list(target()),
         "Type" => list(any())
       }
 
@@ -1714,7 +1714,7 @@ defmodule AWS.ChimeSDKMessaging do
   ## Example:
 
       search_channels_response() :: %{
-        "Channels" => list(channel_summary()()),
+        "Channels" => list(channel_summary()),
         "NextToken" => String.t()
       }
 

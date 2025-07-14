@@ -49,7 +49,7 @@ defmodule AWS.MigrationHubStrategy do
 
       start_import_file_task_request() :: %{
         optional("dataSourceType") => String.t(),
-        optional("groupId") => list(group()()),
+        optional("groupId") => list(group()),
         optional("s3bucketForReportData") => String.t(),
         required("S3Bucket") => String.t(),
         required("name") => String.t(),
@@ -75,7 +75,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       no_database_migration_preference() :: %{
-        "targetDatabaseEngine" => list(String.t()())
+        "targetDatabaseEngine" => list(String.t())
       }
 
   """
@@ -86,7 +86,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       heterogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t()())
+        "targetDatabaseEngine" => list(String.t())
       }
 
   """
@@ -132,8 +132,8 @@ defmodule AWS.MigrationHubStrategy do
 
       get_application_component_details_response() :: %{
         optional("applicationComponentDetail") => application_component_detail(),
-        optional("associatedApplications") => list(associated_application()()),
-        optional("associatedServerIds") => list(String.t()()),
+        optional("associatedApplications") => list(associated_application()),
+        optional("associatedServerIds") => list(String.t()),
         optional("moreApplicationResource") => boolean()
       }
 
@@ -210,7 +210,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_collectors_response() :: %{
-        optional("Collectors") => list(collector()()),
+        optional("Collectors") => list(collector()),
         optional("nextToken") => String.t()
       }
 
@@ -224,7 +224,7 @@ defmodule AWS.MigrationHubStrategy do
       system_info() :: %{
         "cpuArchitecture" => String.t(),
         "fileSystemType" => String.t(),
-        "networkInfoList" => list(network_info()()),
+        "networkInfoList" => list(network_info()),
         "osInfo" => o_s_info()
       }
 
@@ -236,7 +236,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       homogeneous() :: %{
-        "targetDatabaseEngine" => list(String.t()())
+        "targetDatabaseEngine" => list(String.t())
       }
 
   """
@@ -247,7 +247,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       get_server_details_response() :: %{
-        optional("associatedApplications") => list(associated_application()()),
+        optional("associatedApplications") => list(associated_application()),
         optional("nextToken") => String.t(),
         optional("serverDetail") => server_detail()
       }
@@ -284,7 +284,7 @@ defmodule AWS.MigrationHubStrategy do
 
       list_servers_request() :: %{
         optional("filterValue") => String.t(),
-        optional("groupIdFilter") => list(group()()),
+        optional("groupIdFilter") => list(group()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("serverCriteria") => String.t(),
@@ -378,7 +378,7 @@ defmodule AWS.MigrationHubStrategy do
       list_application_components_request() :: %{
         optional("applicationComponentCriteria") => String.t(),
         optional("filterValue") => String.t(),
-        optional("groupIdFilter") => list(group()()),
+        optional("groupIdFilter") => list(group()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sort") => String.t()
@@ -401,7 +401,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       no_management_preference() :: %{
-        "targetDestination" => list(String.t()())
+        "targetDestination" => list(String.t())
       }
 
   """
@@ -412,11 +412,11 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       configuration_summary() :: %{
-        "ipAddressBasedRemoteInfoList" => list(ip_address_based_remote_info()()),
-        "pipelineInfoList" => list(pipeline_info()()),
+        "ipAddressBasedRemoteInfoList" => list(ip_address_based_remote_info()),
+        "pipelineInfoList" => list(pipeline_info()),
         "remoteSourceCodeAnalysisServerInfo" => remote_source_code_analysis_server_info(),
-        "vcenterBasedRemoteInfoList" => list(vcenter_based_remote_info()()),
-        "versionControlInfoList" => list(version_control_info()())
+        "vcenterBasedRemoteInfoList" => list(vcenter_based_remote_info()),
+        "versionControlInfoList" => list(version_control_info())
       }
 
   """
@@ -460,7 +460,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_analyzable_servers_response() :: %{
-        "analyzableServers" => list(analyzable_server_summary()()),
+        "analyzableServers" => list(analyzable_server_summary()),
         "nextToken" => String.t()
       }
 
@@ -568,7 +568,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       aws_managed_resources() :: %{
-        "targetDestination" => list(String.t()())
+        "targetDestination" => list(String.t())
       }
 
   """
@@ -603,17 +603,17 @@ defmodule AWS.MigrationHubStrategy do
         "id" => String.t(),
         "inclusionStatus" => String.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
-        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()()),
+        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
         "moreServerAssociationExists" => boolean(),
         "name" => String.t(),
         "osDriver" => String.t(),
         "osVersion" => String.t(),
         "recommendationSet" => recommendation_set(),
         "resourceSubType" => String.t(),
-        "resultList" => list(result()()),
+        "resultList" => list(result()),
         "runtimeStatus" => String.t(),
         "runtimeStatusMessage" => String.t(),
-        "sourceCodeRepositories" => list(source_code_repository()()),
+        "sourceCodeRepositories" => list(source_code_repository()),
         "statusMessage" => String.t()
       }
 
@@ -628,11 +628,11 @@ defmodule AWS.MigrationHubStrategy do
         "antipatternReportS3Object" => s3_object(),
         "antipatternReportStatus" => String.t(),
         "antipatternReportStatusMessage" => String.t(),
-        "applicationComponentStrategySummary" => list(strategy_summary()()),
+        "applicationComponentStrategySummary" => list(strategy_summary()),
         "dataCollectionStatus" => String.t(),
         "id" => String.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
-        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()()),
+        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
         "name" => String.t(),
         "recommendationSet" => recommendation_set(),
         "serverError" => server_error(),
@@ -660,7 +660,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       get_server_strategies_response() :: %{
-        optional("serverStrategies") => list(server_strategy()())
+        optional("serverStrategies") => list(server_strategy())
       }
 
   """
@@ -673,7 +673,7 @@ defmodule AWS.MigrationHubStrategy do
       recommendation_report_details() :: %{
         "completionTime" => non_neg_integer(),
         "s3Bucket" => String.t(),
-        "s3Keys" => list(String.t()()),
+        "s3Keys" => list(String.t()),
         "startTime" => non_neg_integer(),
         "status" => String.t(),
         "statusMessage" => String.t()
@@ -698,7 +698,7 @@ defmodule AWS.MigrationHubStrategy do
       result() :: %{
         "analysisStatus" => list(),
         "analysisType" => String.t(),
-        "antipatternReportResultList" => list(antipattern_report_result()()),
+        "antipatternReportResultList" => list(antipattern_report_result()),
         "statusMessage" => String.t()
       }
 
@@ -739,7 +739,7 @@ defmodule AWS.MigrationHubStrategy do
 
       start_assessment_request() :: %{
         optional("assessmentDataSourceType") => String.t(),
-        optional("assessmentTargets") => list(assessment_target()()),
+        optional("assessmentTargets") => list(assessment_target()),
         optional("s3bucketForAnalysisData") => String.t(),
         optional("s3bucketForReportData") => String.t()
       }
@@ -752,7 +752,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       get_application_component_strategies_response() :: %{
-        optional("applicationComponentStrategies") => list(application_component_strategy()())
+        optional("applicationComponentStrategies") => list(application_component_strategy())
       }
 
   """
@@ -773,7 +773,7 @@ defmodule AWS.MigrationHubStrategy do
 
       list_import_file_task_response() :: %{
         optional("nextToken") => String.t(),
-        optional("taskInfos") => list(import_file_task_information()())
+        optional("taskInfos") => list(import_file_task_information())
       }
 
   """
@@ -784,7 +784,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       start_recommendation_report_generation_request() :: %{
-        optional("groupIdFilter") => list(group()()),
+        optional("groupIdFilter") => list(group()),
         optional("outputFormat") => String.t()
       }
 
@@ -906,7 +906,7 @@ defmodule AWS.MigrationHubStrategy do
         optional("configureOnly") => boolean(),
         optional("inclusionStatus") => String.t(),
         optional("secretsManagerKey") => String.t(),
-        optional("sourceCodeList") => list(source_code()()),
+        optional("sourceCodeList") => list(source_code()),
         optional("strategyOption") => strategy_option(),
         required("applicationComponentId") => String.t()
       }
@@ -941,7 +941,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       get_assessment_response() :: %{
-        optional("assessmentTargets") => list(assessment_target()()),
+        optional("assessmentTargets") => list(assessment_target()),
         optional("dataCollectionDetails") => data_collection_details(),
         optional("id") => String.t()
       }
@@ -1004,7 +1004,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       list_application_components_response() :: %{
-        optional("applicationComponentInfos") => list(application_component_detail()()),
+        optional("applicationComponentInfos") => list(application_component_detail()),
         optional("nextToken") => String.t()
       }
 
@@ -1131,7 +1131,7 @@ defmodule AWS.MigrationHubStrategy do
 
       list_servers_response() :: %{
         optional("nextToken") => String.t(),
-        optional("serverInfos") => list(server_detail()())
+        optional("serverInfos") => list(server_detail())
       }
 
   """
@@ -1223,7 +1223,7 @@ defmodule AWS.MigrationHubStrategy do
   ## Example:
 
       self_manage_resources() :: %{
-        "targetDestination" => list(String.t()())
+        "targetDestination" => list(String.t())
       }
 
   """
@@ -1236,7 +1236,7 @@ defmodule AWS.MigrationHubStrategy do
       assessment_target() :: %{
         "condition" => String.t(),
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1251,13 +1251,13 @@ defmodule AWS.MigrationHubStrategy do
         "antipatternReportStatus" => String.t(),
         "antipatternReportStatusMessage" => String.t(),
         "lastAnalyzedTimestamp" => non_neg_integer(),
-        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()()),
-        "listApplicationComponentStatusSummary" => list(application_component_status_summary()()),
-        "listApplicationComponentStrategySummary" => list(strategy_summary()()),
-        "listApplicationComponentSummary" => list(application_component_summary()()),
-        "listServerStatusSummary" => list(server_status_summary()()),
-        "listServerStrategySummary" => list(strategy_summary()()),
-        "listServerSummary" => list(server_summary()())
+        "listAntipatternSeveritySummary" => list(antipattern_severity_summary()),
+        "listApplicationComponentStatusSummary" => list(application_component_status_summary()),
+        "listApplicationComponentStrategySummary" => list(strategy_summary()),
+        "listApplicationComponentSummary" => list(application_component_summary()),
+        "listServerStatusSummary" => list(server_status_summary()),
+        "listServerStrategySummary" => list(strategy_summary()),
+        "listServerSummary" => list(server_summary())
       }
 
   """

@@ -87,7 +87,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_assessments_response() :: %{
-        "assessmentMetadata" => list(assessment_metadata_item()()),
+        "assessmentMetadata" => list(assessment_metadata_item()),
         "nextToken" => String.t()
       }
 
@@ -192,7 +192,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_delete_delegation_by_assessment_response() :: %{
-        "errors" => list(batch_delete_delegation_by_assessment_error()())
+        "errors" => list(batch_delete_delegation_by_assessment_error())
       }
 
   """
@@ -252,7 +252,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_assessment_reports_response() :: %{
-        "assessmentReports" => list(assessment_report_metadata()()),
+        "assessmentReports" => list(assessment_report_metadata()),
         "nextToken" => String.t()
       }
 
@@ -277,7 +277,7 @@ defmodule AWS.AuditManager do
 
       list_notifications_response() :: %{
         "nextToken" => String.t(),
-        "notifications" => list(notification()())
+        "notifications" => list(notification())
       }
 
   """
@@ -382,7 +382,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       control_set() :: %{
-        "controls" => list(control()()),
+        "controls" => list(control()),
         "id" => String.t(),
         "name" => String.t()
       }
@@ -445,11 +445,11 @@ defmodule AWS.AuditManager do
       assessment_metadata_item() :: %{
         "complianceType" => String.t(),
         "creationTime" => non_neg_integer(),
-        "delegations" => list(delegation()()),
+        "delegations" => list(delegation()),
         "id" => String.t(),
         "lastUpdated" => non_neg_integer(),
         "name" => String.t(),
-        "roles" => list(role()()),
+        "roles" => list(role()),
         "status" => list(any())
       }
 
@@ -525,7 +525,7 @@ defmodule AWS.AuditManager do
         "actionPlanInstructions" => String.t(),
         "actionPlanTitle" => String.t(),
         "arn" => String.t(),
-        "controlMappingSources" => list(control_mapping_source()()),
+        "controlMappingSources" => list(control_mapping_source()),
         "controlSources" => String.t(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -557,7 +557,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_control_insights_by_control_domain_response() :: %{
-        "controlInsightsMetadata" => list(control_insights_metadata_item()()),
+        "controlInsightsMetadata" => list(control_insights_metadata_item()),
         "nextToken" => String.t()
       }
 
@@ -569,7 +569,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -605,12 +605,12 @@ defmodule AWS.AuditManager do
         "assessmentReportsDestination" => assessment_reports_destination(),
         "complianceType" => String.t(),
         "creationTime" => non_neg_integer(),
-        "delegations" => list(delegation()()),
+        "delegations" => list(delegation()),
         "description" => String.t(),
         "id" => String.t(),
         "lastUpdated" => non_neg_integer(),
         "name" => String.t(),
-        "roles" => list(role()()),
+        "roles" => list(role()),
         "scope" => scope(),
         "status" => list(any())
       }
@@ -624,7 +624,7 @@ defmodule AWS.AuditManager do
 
       batch_disassociate_assessment_report_evidence_request() :: %{
         required("evidenceFolderId") => String.t(),
-        required("evidenceIds") => list(String.t()())
+        required("evidenceIds") => list(String.t())
       }
 
   """
@@ -636,10 +636,10 @@ defmodule AWS.AuditManager do
 
       assessment_control() :: %{
         "assessmentReportEvidenceCount" => integer(),
-        "comments" => list(control_comment()()),
+        "comments" => list(control_comment()),
         "description" => String.t(),
         "evidenceCount" => integer(),
-        "evidenceSources" => list(String.t()()),
+        "evidenceSources" => list(String.t()),
         "id" => String.t(),
         "name" => String.t(),
         "response" => list(any()),
@@ -687,7 +687,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_controls_response() :: %{
-        "controlMetadataList" => list(control_metadata()()),
+        "controlMetadataList" => list(control_metadata()),
         "nextToken" => String.t()
       }
 
@@ -724,7 +724,7 @@ defmodule AWS.AuditManager do
 
       batch_associate_assessment_report_evidence_request() :: %{
         required("evidenceFolderId") => String.t(),
-        required("evidenceIds") => list(String.t()())
+        required("evidenceIds") => list(String.t())
       }
 
   """
@@ -767,7 +767,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_control_domain_insights_by_assessment_response() :: %{
-        "controlDomainInsights" => list(control_domain_insights()()),
+        "controlDomainInsights" => list(control_domain_insights()),
         "nextToken" => String.t()
       }
 
@@ -779,7 +779,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       create_assessment_framework_control_set() :: %{
-        "controls" => list(create_assessment_framework_control()()),
+        "controls" => list(create_assessment_framework_control()),
         "name" => String.t()
       }
 
@@ -802,7 +802,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_change_logs_response() :: %{
-        "changeLogs" => list(change_log()()),
+        "changeLogs" => list(change_log()),
         "nextToken" => String.t()
       }
 
@@ -848,7 +848,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_create_delegation_by_assessment_request() :: %{
-        required("createDelegationRequests") => list(create_delegation_request()())
+        required("createDelegationRequests") => list(create_delegation_request())
       }
 
   """
@@ -886,7 +886,7 @@ defmodule AWS.AuditManager do
         optional("complianceType") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
-        required("controlSets") => list(create_assessment_framework_control_set()()),
+        required("controlSets") => list(create_assessment_framework_control_set()),
         required("name") => String.t()
       }
 
@@ -898,7 +898,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_assessment_frameworks_response() :: %{
-        "frameworkMetadataList" => list(assessment_framework_metadata()()),
+        "frameworkMetadataList" => list(assessment_framework_metadata()),
         "nextToken" => String.t()
       }
 
@@ -926,7 +926,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_assessment_framework_share_requests_response() :: %{
-        "assessmentFrameworkShareRequests" => list(assessment_framework_share_request()()),
+        "assessmentFrameworkShareRequests" => list(assessment_framework_share_request()),
         "nextToken" => String.t()
       }
 
@@ -949,7 +949,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_assessment_control_insights_by_control_domain_response() :: %{
-        "controlInsightsByAssessment" => list(control_insights_metadata_by_assessment_item()()),
+        "controlInsightsByAssessment" => list(control_insights_metadata_by_assessment_item()),
         "nextToken" => String.t()
       }
 
@@ -997,7 +997,7 @@ defmodule AWS.AuditManager do
       update_assessment_framework_request() :: %{
         optional("complianceType") => String.t(),
         optional("description") => String.t(),
-        required("controlSets") => list(update_assessment_framework_control_set()()),
+        required("controlSets") => list(update_assessment_framework_control_set()),
         required("name") => String.t()
       }
 
@@ -1077,12 +1077,12 @@ defmodule AWS.AuditManager do
   ## Example:
 
       assessment_control_set() :: %{
-        "controls" => list(assessment_control()()),
-        "delegations" => list(delegation()()),
+        "controls" => list(assessment_control()),
+        "delegations" => list(delegation()),
         "description" => String.t(),
         "id" => String.t(),
         "manualEvidenceCount" => integer(),
-        "roles" => list(role()()),
+        "roles" => list(role()),
         "status" => list(any()),
         "systemEvidenceCount" => integer()
       }
@@ -1110,7 +1110,7 @@ defmodule AWS.AuditManager do
       settings() :: %{
         "defaultAssessmentReportsDestination" => assessment_reports_destination(),
         "defaultExportDestination" => default_export_destination(),
-        "defaultProcessOwners" => list(role()()),
+        "defaultProcessOwners" => list(role()),
         "deregistrationPolicy" => deregistration_policy(),
         "evidenceFinderEnablement" => evidence_finder_enablement(),
         "isAwsOrgEnabled" => boolean(),
@@ -1126,7 +1126,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_services_in_scope_response() :: %{
-        "serviceMetadata" => list(service_metadata()())
+        "serviceMetadata" => list(service_metadata())
       }
 
   """
@@ -1172,8 +1172,8 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_associate_assessment_report_evidence_response() :: %{
-        "errors" => list(assessment_report_evidence_error()()),
-        "evidenceIds" => list(String.t()())
+        "errors" => list(assessment_report_evidence_error()),
+        "evidenceIds" => list(String.t())
       }
 
   """
@@ -1197,7 +1197,7 @@ defmodule AWS.AuditManager do
       update_settings_request() :: %{
         optional("defaultAssessmentReportsDestination") => assessment_reports_destination(),
         optional("defaultExportDestination") => default_export_destination(),
-        optional("defaultProcessOwners") => list(role()()),
+        optional("defaultProcessOwners") => list(role()),
         optional("deregistrationPolicy") => deregistration_policy(),
         optional("evidenceFinderEnabled") => boolean(),
         optional("kmsKey") => String.t(),
@@ -1212,7 +1212,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_evidence_folders_by_assessment_control_response() :: %{
-        "evidenceFolders" => list(assessment_evidence_folder()()),
+        "evidenceFolders" => list(assessment_evidence_folder()),
         "nextToken" => String.t()
       }
 
@@ -1295,7 +1295,7 @@ defmodule AWS.AuditManager do
         optional("assessmentDescription") => String.t(),
         optional("assessmentName") => String.t(),
         optional("assessmentReportsDestination") => assessment_reports_destination(),
-        optional("roles") => list(role()()),
+        optional("roles") => list(role()),
         required("scope") => scope()
       }
 
@@ -1322,7 +1322,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_import_evidence_to_assessment_control_request() :: %{
-        required("manualEvidence") => list(manual_evidence()())
+        required("manualEvidence") => list(manual_evidence())
       }
 
   """
@@ -1355,7 +1355,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_evidence_folders_by_assessment_response() :: %{
-        "evidenceFolders" => list(assessment_evidence_folder()()),
+        "evidenceFolders" => list(assessment_evidence_folder()),
         "nextToken" => String.t()
       }
 
@@ -1419,8 +1419,8 @@ defmodule AWS.AuditManager do
   ## Example:
 
       scope() :: %{
-        "awsAccounts" => list(aws_account()()),
-        "awsServices" => list(aws_service()())
+        "awsAccounts" => list(aws_account()),
+        "awsServices" => list(aws_service())
       }
 
   """
@@ -1431,7 +1431,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_delete_delegation_by_assessment_request() :: %{
-        required("delegationIds") => list(String.t()())
+        required("delegationIds") => list(String.t())
       }
 
   """
@@ -1444,7 +1444,7 @@ defmodule AWS.AuditManager do
       framework() :: %{
         "arn" => String.t(),
         "complianceType" => String.t(),
-        "controlSets" => list(control_set()()),
+        "controlSets" => list(control_set()),
         "controlSources" => String.t(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -1477,7 +1477,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_delegations_response() :: %{
-        "delegations" => list(delegation_metadata()()),
+        "delegations" => list(delegation_metadata()),
         "nextToken" => String.t()
       }
 
@@ -1520,7 +1520,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       update_assessment_framework_control_set() :: %{
-        "controls" => list(create_assessment_framework_control()()),
+        "controls" => list(create_assessment_framework_control()),
         "id" => String.t(),
         "name" => String.t()
       }
@@ -1545,7 +1545,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_control_domain_insights_response() :: %{
-        "controlDomainInsights" => list(control_domain_insights()()),
+        "controlDomainInsights" => list(control_domain_insights()),
         "nextToken" => String.t()
       }
 
@@ -1590,7 +1590,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_import_evidence_to_assessment_control_response() :: %{
-        "errors" => list(batch_import_evidence_to_assessment_control_error()())
+        "errors" => list(batch_import_evidence_to_assessment_control_error())
       }
 
   """
@@ -1629,7 +1629,7 @@ defmodule AWS.AuditManager do
         "signatureDateTime" => String.t(),
         "signatureKeyId" => String.t(),
         "signatureValid" => boolean(),
-        "validationErrors" => list(String.t()())
+        "validationErrors" => list(String.t())
       }
 
   """
@@ -1665,7 +1665,7 @@ defmodule AWS.AuditManager do
         optional("actionPlanTitle") => String.t(),
         optional("description") => String.t(),
         optional("testingInformation") => String.t(),
-        required("controlMappingSources") => list(control_mapping_source()()),
+        required("controlMappingSources") => list(control_mapping_source()),
         required("name") => String.t()
       }
 
@@ -1710,7 +1710,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -1732,8 +1732,8 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_create_delegation_by_assessment_response() :: %{
-        "delegations" => list(delegation()()),
-        "errors" => list(batch_create_delegation_by_assessment_error()())
+        "delegations" => list(delegation()),
+        "errors" => list(batch_create_delegation_by_assessment_error())
       }
 
   """
@@ -1792,7 +1792,7 @@ defmodule AWS.AuditManager do
         "evidenceFolderId" => String.t(),
         "iamId" => String.t(),
         "id" => String.t(),
-        "resourcesIncluded" => list(resource()()),
+        "resourcesIncluded" => list(resource()),
         "time" => non_neg_integer()
       }
 
@@ -1840,7 +1840,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       get_evidence_by_evidence_folder_response() :: %{
-        "evidence" => list(evidence()()),
+        "evidence" => list(evidence()),
         "nextToken" => String.t()
       }
 
@@ -1893,7 +1893,7 @@ defmodule AWS.AuditManager do
   ## Example:
 
       list_keywords_for_data_source_response() :: %{
-        "keywords" => list(String.t()()),
+        "keywords" => list(String.t()),
         "nextToken" => String.t()
       }
 
@@ -2061,7 +2061,7 @@ defmodule AWS.AuditManager do
         required("assessmentReportsDestination") => assessment_reports_destination(),
         required("frameworkId") => String.t(),
         required("name") => String.t(),
-        required("roles") => list(role()()),
+        required("roles") => list(role()),
         required("scope") => scope()
       }
 
@@ -2073,8 +2073,8 @@ defmodule AWS.AuditManager do
   ## Example:
 
       batch_disassociate_assessment_report_evidence_response() :: %{
-        "errors" => list(assessment_report_evidence_error()()),
-        "evidenceIds" => list(String.t()())
+        "errors" => list(assessment_report_evidence_error()),
+        "evidenceIds" => list(String.t())
       }
 
   """
@@ -2090,7 +2090,7 @@ defmodule AWS.AuditManager do
         optional("description") => String.t(),
         optional("tags") => map(),
         optional("testingInformation") => String.t(),
-        required("controlMappingSources") => list(create_control_mapping_source()()),
+        required("controlMappingSources") => list(create_control_mapping_source()),
         required("name") => String.t()
       }
 
@@ -2286,7 +2286,7 @@ defmodule AWS.AuditManager do
 
       assessment_framework() :: %{
         "arn" => String.t(),
-        "controlSets" => list(assessment_control_set()()),
+        "controlSets" => list(assessment_control_set()),
         "id" => String.t(),
         "metadata" => framework_metadata()
       }

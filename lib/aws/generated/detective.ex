@@ -142,8 +142,8 @@ defmodule AWS.Detective do
   ## Example:
 
       get_members_response() :: %{
-        "MemberDetails" => list(member_detail()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "MemberDetails" => list(member_detail()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -252,7 +252,7 @@ defmodule AWS.Detective do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -297,8 +297,8 @@ defmodule AWS.Detective do
   ## Example:
 
       delete_members_response() :: %{
-        "AccountIds" => list(String.t()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "AccountIds" => list(String.t()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -309,7 +309,7 @@ defmodule AWS.Detective do
   ## Example:
 
       list_investigations_response() :: %{
-        "InvestigationDetails" => list(investigation_detail()()),
+        "InvestigationDetails" => list(investigation_detail()),
         "NextToken" => String.t()
       }
 
@@ -380,7 +380,7 @@ defmodule AWS.Detective do
   ## Example:
 
       get_members_request() :: %{
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("GraphArn") => String.t()
       }
 
@@ -394,7 +394,7 @@ defmodule AWS.Detective do
       create_members_request() :: %{
         optional("DisableEmailNotification") => boolean(),
         optional("Message") => String.t(),
-        required("Accounts") => list(account()()),
+        required("Accounts") => list(account()),
         required("GraphArn") => String.t()
       }
 
@@ -418,8 +418,8 @@ defmodule AWS.Detective do
   ## Example:
 
       batch_get_graph_member_datasources_response() :: %{
-        "MemberDatasources" => list(membership_datasources()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "MemberDatasources" => list(membership_datasources()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -431,7 +431,7 @@ defmodule AWS.Detective do
 
       service_quota_exceeded_exception() :: %{
         "Message" => String.t(),
-        "Resources" => list(String.t()())
+        "Resources" => list(String.t())
       }
 
   """
@@ -442,7 +442,7 @@ defmodule AWS.Detective do
   ## Example:
 
       delete_members_request() :: %{
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("GraphArn") => String.t()
       }
 
@@ -489,8 +489,8 @@ defmodule AWS.Detective do
   ## Example:
 
       batch_get_membership_datasources_response() :: %{
-        "MembershipDatasources" => list(membership_datasources()()),
-        "UnprocessedGraphs" => list(unprocessed_graph()())
+        "MembershipDatasources" => list(membership_datasources()),
+        "UnprocessedGraphs" => list(unprocessed_graph())
       }
 
   """
@@ -501,7 +501,7 @@ defmodule AWS.Detective do
   ## Example:
 
       batch_get_graph_member_datasources_request() :: %{
-        required("AccountIds") => list(String.t()()),
+        required("AccountIds") => list(String.t()),
         required("GraphArn") => String.t()
       }
 
@@ -614,7 +614,7 @@ defmodule AWS.Detective do
   ## Example:
 
       batch_get_membership_datasources_request() :: %{
-        required("GraphArns") => list(String.t()())
+        required("GraphArns") => list(String.t())
       }
 
   """
@@ -648,7 +648,7 @@ defmodule AWS.Detective do
   ## Example:
 
       list_graphs_response() :: %{
-        "GraphList" => list(graph()()),
+        "GraphList" => list(graph()),
         "NextToken" => String.t()
       }
 
@@ -793,7 +793,7 @@ defmodule AWS.Detective do
   ## Example:
 
       list_members_response() :: %{
-        "MemberDetails" => list(member_detail()()),
+        "MemberDetails" => list(member_detail()),
         "NextToken" => String.t()
       }
 
@@ -950,7 +950,7 @@ defmodule AWS.Detective do
 
       list_indicators_response() :: %{
         "GraphArn" => String.t(),
-        "Indicators" => list(indicator()()),
+        "Indicators" => list(indicator()),
         "InvestigationId" => String.t(),
         "NextToken" => String.t()
       }
@@ -975,7 +975,7 @@ defmodule AWS.Detective do
   ## Example:
 
       list_organization_admin_accounts_response() :: %{
-        "Administrators" => list(administrator()()),
+        "Administrators" => list(administrator()),
         "NextToken" => String.t()
       }
 
@@ -1030,8 +1030,8 @@ defmodule AWS.Detective do
   ## Example:
 
       create_members_response() :: %{
-        "Members" => list(member_detail()()),
-        "UnprocessedAccounts" => list(unprocessed_account()())
+        "Members" => list(member_detail()),
+        "UnprocessedAccounts" => list(unprocessed_account())
       }
 
   """
@@ -1068,7 +1068,7 @@ defmodule AWS.Detective do
   ## Example:
 
       list_invitations_response() :: %{
-        "Invitations" => list(member_detail()()),
+        "Invitations" => list(member_detail()),
         "NextToken" => String.t()
       }
 

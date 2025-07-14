@@ -82,7 +82,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_data_lake_namespaces_response() :: %{
-        "namespaces" => list(data_lake_namespace()()),
+        "namespaces" => list(data_lake_namespace()),
         "nextToken" => String.t()
       }
 
@@ -288,7 +288,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -300,7 +300,7 @@ defmodule AWS.SupplyChain do
 
       create_data_integration_flow_request() :: %{
         optional("tags") => map(),
-        required("sources") => list(data_integration_flow_source()()),
+        required("sources") => list(data_integration_flow_source()),
         required("target") => data_integration_flow_target(),
         required("transformation") => data_integration_flow_transformation()
       }
@@ -341,7 +341,7 @@ defmodule AWS.SupplyChain do
         "instanceId" => String.t(),
         "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t(),
-        "sources" => list(data_integration_flow_source()()),
+        "sources" => list(data_integration_flow_source()),
         "target" => data_integration_flow_target(),
         "transformation" => data_integration_flow_transformation()
       }
@@ -443,7 +443,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_data_lake_datasets_response() :: %{
-        "datasets" => list(data_lake_dataset()()),
+        "datasets" => list(data_lake_dataset()),
         "nextToken" => String.t()
       }
 
@@ -554,7 +554,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_data_integration_flow_executions_response() :: %{
-        "flowExecutions" => list(data_integration_flow_execution()()),
+        "flowExecutions" => list(data_integration_flow_execution()),
         "nextToken" => String.t()
       }
 
@@ -590,9 +590,9 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_lake_dataset_schema() :: %{
-        "fields" => list(data_lake_dataset_schema_field()()),
+        "fields" => list(data_lake_dataset_schema_field()),
         "name" => String.t(),
-        "primaryKeys" => list(data_lake_dataset_primary_key_field()())
+        "primaryKeys" => list(data_lake_dataset_primary_key_field())
       }
 
   """
@@ -662,7 +662,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_instances_request() :: %{
-        optional("instanceNameFilter") => list(String.t()()),
+        optional("instanceNameFilter") => list(String.t()),
         optional("instanceStateFilter") => list(list(any())()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -687,7 +687,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_instances_response() :: %{
-        "instances" => list(instance()()),
+        "instances" => list(instance()),
         "nextToken" => String.t()
       }
 
@@ -843,7 +843,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_data_integration_events_response() :: %{
-        "events" => list(data_integration_event()()),
+        "events" => list(data_integration_event()),
         "nextToken" => String.t()
       }
 
@@ -937,7 +937,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       list_data_integration_flows_response() :: %{
-        "flows" => list(data_integration_flow()()),
+        "flows" => list(data_integration_flow()),
         "nextToken" => String.t()
       }
 
@@ -961,7 +961,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_integration_flow_field_priority_dedupe_strategy_configuration() :: %{
-        "fields" => list(data_integration_flow_field_priority_dedupe_field()())
+        "fields" => list(data_integration_flow_field_priority_dedupe_field())
       }
 
   """
@@ -1056,7 +1056,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       data_lake_dataset_partition_spec() :: %{
-        "fields" => list(data_lake_dataset_partition_field()())
+        "fields" => list(data_lake_dataset_partition_field())
       }
 
   """
@@ -1122,7 +1122,7 @@ defmodule AWS.SupplyChain do
   ## Example:
 
       update_data_integration_flow_request() :: %{
-        optional("sources") => list(data_integration_flow_source()()),
+        optional("sources") => list(data_integration_flow_source()),
         optional("target") => data_integration_flow_target(),
         optional("transformation") => data_integration_flow_transformation()
       }

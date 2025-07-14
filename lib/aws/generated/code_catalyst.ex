@@ -355,13 +355,13 @@ defmodule AWS.CodeCatalyst do
         "alias" => [String.t()],
         "creatorId" => [String.t()],
         "id" => String.t(),
-        "ides" => list(ide()()),
+        "ides" => list(ide()),
         "inactivityTimeoutMinutes" => integer(),
         "instanceType" => String.t(),
         "lastUpdatedTime" => non_neg_integer(),
         "persistentStorage" => persistent_storage(),
         "projectName" => String.t(),
-        "repositories" => list(dev_environment_repository_summary()()),
+        "repositories" => list(dev_environment_repository_summary()),
         "spaceName" => String.t(),
         "status" => String.t(),
         "statusReason" => String.t(),
@@ -559,7 +559,7 @@ defmodule AWS.CodeCatalyst do
         "alias" => [String.t()],
         "clientToken" => String.t(),
         "id" => String.t(),
-        "ides" => list(ide_configuration()()),
+        "ides" => list(ide_configuration()),
         "inactivityTimeoutMinutes" => integer(),
         "instanceType" => String.t(),
         "projectName" => String.t(),
@@ -574,7 +574,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_dev_environment_sessions_response() :: %{
-        "items" => list(dev_environment_session_summary()()),
+        "items" => list(dev_environment_session_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -707,13 +707,13 @@ defmodule AWS.CodeCatalyst do
         "alias" => [String.t()],
         "creatorId" => [String.t()],
         "id" => String.t(),
-        "ides" => list(ide()()),
+        "ides" => list(ide()),
         "inactivityTimeoutMinutes" => integer(),
         "instanceType" => String.t(),
         "lastUpdatedTime" => non_neg_integer(),
         "persistentStorage" => persistent_storage(),
         "projectName" => String.t(),
-        "repositories" => list(dev_environment_repository_summary()()),
+        "repositories" => list(dev_environment_repository_summary()),
         "spaceName" => String.t(),
         "status" => String.t(),
         "statusReason" => String.t(),
@@ -730,7 +730,7 @@ defmodule AWS.CodeCatalyst do
       list_workflows_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
-        optional("sortBy") => list(workflow_sort_criteria()())
+        optional("sortBy") => list(workflow_sort_criteria())
       }
 
   """
@@ -741,7 +741,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_projects_response() :: %{
-        "items" => list(project_summary()()),
+        "items" => list(project_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -783,7 +783,7 @@ defmodule AWS.CodeCatalyst do
       update_dev_environment_request() :: %{
         optional("alias") => [String.t()],
         optional("clientToken") => String.t(),
-        optional("ides") => list(ide_configuration()()),
+        optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
         optional("instanceType") => String.t()
       }
@@ -813,9 +813,9 @@ defmodule AWS.CodeCatalyst do
       create_dev_environment_request() :: %{
         optional("alias") => [String.t()],
         optional("clientToken") => String.t(),
-        optional("ides") => list(ide_configuration()()),
+        optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
-        optional("repositories") => list(repository_input()()),
+        optional("repositories") => list(repository_input()),
         optional("vpcConnectionName") => String.t(),
         required("instanceType") => String.t(),
         required("persistentStorage") => persistent_storage_configuration()
@@ -886,7 +886,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_source_repository_branches_response() :: %{
-        "items" => list(list_source_repository_branches_item()()),
+        "items" => list(list_source_repository_branches_item()),
         "nextToken" => [String.t()]
       }
 
@@ -913,7 +913,7 @@ defmodule AWS.CodeCatalyst do
       list_workflow_runs_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
-        optional("sortBy") => list(workflow_run_sort_criteria()()),
+        optional("sortBy") => list(workflow_run_sort_criteria()),
         optional("workflowId") => String.t()
       }
 
@@ -953,7 +953,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       start_dev_environment_request() :: %{
-        optional("ides") => list(ide_configuration()()),
+        optional("ides") => list(ide_configuration()),
         optional("inactivityTimeoutMinutes") => integer(),
         optional("instanceType") => String.t()
       }
@@ -1076,7 +1076,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_dev_environments_request() :: %{
-        optional("filters") => list(filter()()),
+        optional("filters") => list(filter()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()],
         optional("projectName") => String.t()
@@ -1139,7 +1139,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_workflow_runs_response() :: %{
-        "items" => list(workflow_run_summary()()),
+        "items" => list(workflow_run_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -1174,7 +1174,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_event_logs_response() :: %{
-        "items" => list(event_log_entry()()),
+        "items" => list(event_log_entry()),
         "nextToken" => [String.t()]
       }
 
@@ -1220,7 +1220,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_spaces_response() :: %{
-        "items" => list(space_summary()()),
+        "items" => list(space_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -1278,7 +1278,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_dev_environments_response() :: %{
-        "items" => list(dev_environment_summary()()),
+        "items" => list(dev_environment_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -1304,7 +1304,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_projects_request() :: %{
-        optional("filters") => list(project_list_filter()()),
+        optional("filters") => list(project_list_filter()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t()]
       }
@@ -1429,7 +1429,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_workflows_response() :: %{
-        "items" => list(workflow_summary()()),
+        "items" => list(workflow_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -1448,7 +1448,7 @@ defmodule AWS.CodeCatalyst do
         "spaceName" => String.t(),
         "startTime" => non_neg_integer(),
         "status" => String.t(),
-        "statusReasons" => list(workflow_run_status_reason()()),
+        "statusReasons" => list(workflow_run_status_reason()),
         "workflowId" => String.t()
       }
 
@@ -1469,7 +1469,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_source_repositories_response() :: %{
-        "items" => list(list_source_repositories_item()()),
+        "items" => list(list_source_repositories_item()),
         "nextToken" => [String.t()]
       }
 
@@ -1486,7 +1486,7 @@ defmodule AWS.CodeCatalyst do
         "lastUpdatedTime" => non_neg_integer(),
         "startTime" => non_neg_integer(),
         "status" => String.t(),
-        "statusReasons" => list(workflow_run_status_reason()()),
+        "statusReasons" => list(workflow_run_status_reason()),
         "workflowId" => String.t(),
         "workflowName" => [String.t()]
       }
@@ -1511,7 +1511,7 @@ defmodule AWS.CodeCatalyst do
   ## Example:
 
       list_access_tokens_response() :: %{
-        "items" => list(access_token_summary()()),
+        "items" => list(access_token_summary()),
         "nextToken" => [String.t()]
       }
 

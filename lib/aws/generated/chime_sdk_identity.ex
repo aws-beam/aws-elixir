@@ -21,7 +21,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       list_app_instances_response() :: %{
-        "AppInstances" => list(app_instance_summary()()),
+        "AppInstances" => list(app_instance_summary()),
         "NextToken" => String.t()
       }
 
@@ -76,7 +76,7 @@ defmodule AWS.ChimeSDKIdentity do
 
       tag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("Tags") => list(tag()())
+        required("Tags") => list(tag())
       }
 
   """
@@ -161,7 +161,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       list_app_instance_admins_response() :: %{
-        "AppInstanceAdmins" => list(app_instance_admin_summary()()),
+        "AppInstanceAdmins" => list(app_instance_admin_summary()),
         "AppInstanceArn" => String.t(),
         "NextToken" => String.t()
       }
@@ -316,7 +316,7 @@ defmodule AWS.ChimeSDKIdentity do
 
       untag_resource_request() :: %{
         required("ResourceARN") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -465,7 +465,7 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_users_response() :: %{
         "AppInstanceArn" => String.t(),
-        "AppInstanceUsers" => list(app_instance_user_summary()()),
+        "AppInstanceUsers" => list(app_instance_user_summary()),
         "NextToken" => String.t()
       }
 
@@ -530,7 +530,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       list_app_instance_user_endpoints_response() :: %{
-        "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()()),
+        "AppInstanceUserEndpoints" => list(app_instance_user_endpoint_summary()),
         "NextToken" => String.t()
       }
 
@@ -553,7 +553,7 @@ defmodule AWS.ChimeSDKIdentity do
   ## Example:
 
       list_tags_for_resource_response() :: %{
-        "Tags" => list(tag()())
+        "Tags" => list(tag())
       }
 
   """
@@ -649,7 +649,7 @@ defmodule AWS.ChimeSDKIdentity do
 
       list_app_instance_bots_response() :: %{
         "AppInstanceArn" => String.t(),
-        "AppInstanceBots" => list(app_instance_bot_summary()()),
+        "AppInstanceBots" => list(app_instance_bot_summary()),
         "NextToken" => String.t()
       }
 
@@ -685,7 +685,7 @@ defmodule AWS.ChimeSDKIdentity do
 
       create_app_instance_request() :: %{
         optional("Metadata") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("ClientRequestToken") => String.t(),
         required("Name") => String.t()
       }
@@ -745,7 +745,7 @@ defmodule AWS.ChimeSDKIdentity do
       create_app_instance_bot_request() :: %{
         optional("Metadata") => String.t(),
         optional("Name") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppInstanceArn") => String.t(),
         required("ClientRequestToken") => String.t(),
         required("Configuration") => configuration()
@@ -946,7 +946,7 @@ defmodule AWS.ChimeSDKIdentity do
       create_app_instance_user_request() :: %{
         optional("ExpirationSettings") => expiration_settings(),
         optional("Metadata") => String.t(),
-        optional("Tags") => list(tag()()),
+        optional("Tags") => list(tag()),
         required("AppInstanceArn") => String.t(),
         required("AppInstanceUserId") => String.t(),
         required("ClientRequestToken") => String.t(),

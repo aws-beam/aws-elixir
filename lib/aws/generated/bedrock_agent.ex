@@ -14,7 +14,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       validate_flow_definition_response() :: %{
-        "validations" => list(flow_validation()())
+        "validations" => list(flow_validation())
       }
 
   """
@@ -37,7 +37,7 @@ defmodule AWS.BedrockAgent do
 
       delete_knowledge_base_documents_request() :: %{
         optional("clientToken") => String.t(),
-        required("documentIdentifiers") => list(document_identifier()())
+        required("documentIdentifiers") => list(document_identifier())
       }
 
   """
@@ -149,7 +149,7 @@ defmodule AWS.BedrockAgent do
         optional("concurrencyConfiguration") => flow_alias_concurrency_configuration(),
         optional("description") => String.t(),
         required("name") => String.t(),
-        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()())
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
       }
 
   """
@@ -226,7 +226,7 @@ defmodule AWS.BedrockAgent do
 
       text_prompt_template_configuration() :: %{
         "cachePoint" => cache_point_block(),
-        "inputVariables" => list(prompt_input_variable()()),
+        "inputVariables" => list(prompt_input_variable()),
         "text" => String.t()
       }
 
@@ -267,7 +267,7 @@ defmodule AWS.BedrockAgent do
         "flowId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -292,8 +292,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       query_generation_context() :: %{
-        "curatedQueries" => list(curated_query()()),
-        "tables" => list(query_generation_table()())
+        "curatedQueries" => list(curated_query()),
+        "tables" => list(query_generation_table())
       }
 
   """
@@ -357,7 +357,7 @@ defmodule AWS.BedrockAgent do
         "id" => String.t(),
         "name" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()()),
+        "variants" => list(prompt_variant()),
         "version" => String.t()
       }
 
@@ -569,7 +569,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       pattern_object_filter_configuration() :: %{
-        "filters" => list(pattern_object_filter()())
+        "filters" => list(pattern_object_filter())
       }
 
   """
@@ -581,7 +581,7 @@ defmodule AWS.BedrockAgent do
 
       ingest_knowledge_base_documents_request() :: %{
         optional("clientToken") => String.t(),
-        required("documents") => list(knowledge_base_document()())
+        required("documents") => list(knowledge_base_document())
       }
 
   """
@@ -651,7 +651,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agents_response() :: %{
-        "agentSummaries" => list(agent_summary()()),
+        "agentSummaries" => list(agent_summary()),
         "nextToken" => String.t()
       }
 
@@ -698,7 +698,7 @@ defmodule AWS.BedrockAgent do
 
       custom_transformation_configuration() :: %{
         "intermediateStorage" => intermediate_storage(),
-        "transformations" => list(transformation()())
+        "transformations" => list(transformation())
       }
 
   """
@@ -766,7 +766,7 @@ defmodule AWS.BedrockAgent do
         "name" => String.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
-        "validations" => list(flow_validation()()),
+        "validations" => list(flow_validation()),
         "version" => String.t()
       }
 
@@ -803,7 +803,7 @@ defmodule AWS.BedrockAgent do
 
       list_prompts_response() :: %{
         "nextToken" => String.t(),
-        "promptSummaries" => list(prompt_summary()())
+        "promptSummaries" => list(prompt_summary())
       }
 
   """
@@ -829,7 +829,7 @@ defmodule AWS.BedrockAgent do
       update_agent_alias_request() :: %{
         optional("aliasInvocationState") => list(any()),
         optional("description") => String.t(),
-        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()()),
+        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
         required("agentAliasName") => String.t()
       }
 
@@ -842,7 +842,7 @@ defmodule AWS.BedrockAgent do
 
       prompt_override_configuration() :: %{
         "overrideLambda" => String.t(),
-        "promptConfigurations" => list(prompt_configuration()())
+        "promptConfigurations" => list(prompt_configuration())
       }
 
   """
@@ -877,7 +877,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       get_knowledge_base_documents_request() :: %{
-        required("documentIdentifiers") => list(document_identifier()())
+        required("documentIdentifiers") => list(document_identifier())
       }
 
   """
@@ -889,9 +889,9 @@ defmodule AWS.BedrockAgent do
 
       flow_node() :: %{
         "configuration" => list(),
-        "inputs" => list(flow_node_input()()),
+        "inputs" => list(flow_node_input()),
         "name" => String.t(),
-        "outputs" => list(flow_node_output()()),
+        "outputs" => list(flow_node_output()),
         "type" => list(any())
       }
 
@@ -1044,8 +1044,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       flow_definition() :: %{
-        "connections" => list(flow_connection()()),
-        "nodes" => list(flow_node()())
+        "connections" => list(flow_connection()),
+        "nodes" => list(flow_node())
       }
 
   """
@@ -1132,7 +1132,7 @@ defmodule AWS.BedrockAgent do
         "id" => String.t(),
         "name" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()()),
+        "variants" => list(prompt_variant()),
         "version" => String.t()
       }
 
@@ -1285,7 +1285,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1384,7 +1384,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       ingest_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail()())
+        "documentDetails" => list(knowledge_base_document_detail())
       }
 
   """
@@ -1460,7 +1460,7 @@ defmodule AWS.BedrockAgent do
         "flowId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -1549,7 +1549,7 @@ defmodule AWS.BedrockAgent do
       ingestion_job() :: %{
         "dataSourceId" => String.t(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "ingestionJobId" => String.t(),
         "knowledgeBaseId" => String.t(),
         "startedAt" => non_neg_integer(),
@@ -1602,7 +1602,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       hierarchical_chunking_configuration() :: %{
-        "levelConfigurations" => list(hierarchical_chunking_level_configuration()()),
+        "levelConfigurations" => list(hierarchical_chunking_level_configuration()),
         "overlapTokens" => [integer()]
       }
 
@@ -1637,7 +1637,7 @@ defmodule AWS.BedrockAgent do
         "id" => String.t(),
         "name" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()()),
+        "variants" => list(prompt_variant()),
         "version" => String.t()
       }
 
@@ -1729,7 +1729,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_flows_response() :: %{
-        "flowSummaries" => list(flow_summary()()),
+        "flowSummaries" => list(flow_summary()),
         "nextToken" => String.t()
       }
 
@@ -1809,7 +1809,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agent_aliases_response() :: %{
-        "agentAliasSummaries" => list(agent_alias_summary()()),
+        "agentAliasSummaries" => list(agent_alias_summary()),
         "nextToken" => String.t()
       }
 
@@ -1840,7 +1840,7 @@ defmodule AWS.BedrockAgent do
       knowledge_base() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "knowledgeBaseArn" => String.t(),
         "knowledgeBaseConfiguration" => knowledge_base_configuration(),
         "knowledgeBaseId" => String.t(),
@@ -1859,7 +1859,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_flow_versions_response() :: %{
-        "flowVersionSummaries" => list(flow_version_summary()()),
+        "flowVersionSummaries" => list(flow_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -1890,7 +1890,7 @@ defmodule AWS.BedrockAgent do
         optional("description") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item()())
+        required("routingConfiguration") => list(flow_alias_routing_configuration_list_item())
       }
 
   """
@@ -1965,7 +1965,7 @@ defmodule AWS.BedrockAgent do
         optional("defaultVariant") => String.t(),
         optional("description") => String.t(),
         optional("tags") => map(),
-        optional("variants") => list(prompt_variant()()),
+        optional("variants") => list(prompt_variant()),
         required("name") => String.t()
       }
 
@@ -2031,8 +2031,8 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       pattern_object_filter() :: %{
-        "exclusionFilters" => list(String.t()()),
-        "inclusionFilters" => list(String.t()()),
+        "exclusionFilters" => list(String.t()),
+        "inclusionFilters" => list(String.t()),
         "objectType" => String.t()
       }
 
@@ -2107,7 +2107,7 @@ defmodule AWS.BedrockAgent do
         "id" => String.t(),
         "name" => String.t(),
         "updatedAt" => non_neg_integer(),
-        "variants" => list(prompt_variant()()),
+        "variants" => list(prompt_variant()),
         "version" => String.t()
       }
 
@@ -2176,7 +2176,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       url_configuration() :: %{
-        "seedUrls" => list(seed_url()())
+        "seedUrls" => list(seed_url())
       }
 
   """
@@ -2274,7 +2274,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail()()),
+        "documentDetails" => list(knowledge_base_document_detail()),
         "nextToken" => [String.t()]
       }
 
@@ -2379,7 +2379,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agent_knowledge_bases_response() :: %{
-        "agentKnowledgeBaseSummaries" => list(agent_knowledge_base_summary()()),
+        "agentKnowledgeBaseSummaries" => list(agent_knowledge_base_summary()),
         "nextToken" => String.t()
       }
 
@@ -2391,7 +2391,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_data_sources_response() :: %{
-        "dataSourceSummaries" => list(data_source_summary()()),
+        "dataSourceSummaries" => list(data_source_summary()),
         "nextToken" => String.t()
       }
 
@@ -2466,7 +2466,7 @@ defmodule AWS.BedrockAgent do
         "customOrchestration" => custom_orchestration(),
         "customerEncryptionKeyArn" => String.t(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "foundationModel" => String.t(),
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
@@ -2475,7 +2475,7 @@ defmodule AWS.BedrockAgent do
         "orchestrationType" => list(any()),
         "preparedAt" => non_neg_integer(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
-        "recommendedActions" => list(String.t()()),
+        "recommendedActions" => list(String.t()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2505,7 +2505,7 @@ defmodule AWS.BedrockAgent do
         "flowId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2517,7 +2517,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_ingestion_jobs_response() :: %{
-        "ingestionJobSummaries" => list(ingestion_job_summary()()),
+        "ingestionJobSummaries" => list(ingestion_job_summary()),
         "nextToken" => String.t()
       }
 
@@ -2540,7 +2540,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_ingestion_jobs_request() :: %{
-        optional("filters") => list(ingestion_job_filter()()),
+        optional("filters") => list(ingestion_job_filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
         optional("sortBy") => ingestion_job_sort_by()
@@ -2560,7 +2560,7 @@ defmodule AWS.BedrockAgent do
         "aliasInvocationState" => list(any()),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2737,7 +2737,7 @@ defmodule AWS.BedrockAgent do
         "flowId" => String.t(),
         "id" => String.t(),
         "name" => String.t(),
-        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(flow_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -2892,14 +2892,14 @@ defmodule AWS.BedrockAgent do
         "createdAt" => non_neg_integer(),
         "customerEncryptionKeyArn" => String.t(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "foundationModel" => String.t(),
         "guardrailConfiguration" => guardrail_configuration(),
         "idleSessionTTLInSeconds" => integer(),
         "instruction" => String.t(),
         "memoryConfiguration" => memory_configuration(),
         "promptOverrideConfiguration" => prompt_override_configuration(),
-        "recommendedActions" => list(String.t()()),
+        "recommendedActions" => list(String.t()),
         "updatedAt" => non_neg_integer(),
         "version" => String.t()
       }
@@ -2992,7 +2992,7 @@ defmodule AWS.BedrockAgent do
 
       agent_alias() :: %{
         "agentAliasArn" => String.t(),
-        "agentAliasHistoryEvents" => list(agent_alias_history_event()()),
+        "agentAliasHistoryEvents" => list(agent_alias_history_event()),
         "agentAliasId" => String.t(),
         "agentAliasName" => String.t(),
         "agentAliasStatus" => list(any()),
@@ -3001,8 +3001,8 @@ defmodule AWS.BedrockAgent do
         "clientToken" => String.t(),
         "createdAt" => non_neg_integer(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()()),
+        "failureReasons" => list(String.t()),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -3077,7 +3077,7 @@ defmodule AWS.BedrockAgent do
         "credentialsSecretArn" => String.t(),
         "domain" => String.t(),
         "hostType" => list(any()),
-        "siteUrls" => list(String.t()()),
+        "siteUrls" => list(String.t()),
         "tenantId" => String.t()
       }
 
@@ -3090,8 +3090,8 @@ defmodule AWS.BedrockAgent do
 
       web_crawler_configuration() :: %{
         "crawlerLimits" => web_crawler_limits(),
-        "exclusionFilters" => list(String.t()()),
-        "inclusionFilters" => list(String.t()()),
+        "exclusionFilters" => list(String.t()),
+        "inclusionFilters" => list(String.t()),
         "scope" => list(any()),
         "userAgent" => String.t(),
         "userAgentHeader" => String.t()
@@ -3144,7 +3144,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agent_action_groups_response() :: %{
-        "actionGroupSummaries" => list(action_group_summary()()),
+        "actionGroupSummaries" => list(action_group_summary()),
         "nextToken" => String.t()
       }
 
@@ -3193,7 +3193,7 @@ defmodule AWS.BedrockAgent do
       ingestion_job_filter() :: %{
         "attribute" => list(any()),
         "operator" => list(any()),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -3324,7 +3324,7 @@ defmodule AWS.BedrockAgent do
         optional("customerEncryptionKeyArn") => String.t(),
         optional("defaultVariant") => String.t(),
         optional("description") => String.t(),
-        optional("variants") => list(prompt_variant()()),
+        optional("variants") => list(prompt_variant()),
         required("name") => String.t()
       }
 
@@ -3396,7 +3396,7 @@ defmodule AWS.BedrockAgent do
 
       tool_configuration() :: %{
         "toolChoice" => list(),
-        "tools" => list(list()())
+        "tools" => list(list())
       }
 
   """
@@ -3458,7 +3458,7 @@ defmodule AWS.BedrockAgent do
       create_agent_alias_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()()),
+        optional("routingConfiguration") => list(agent_alias_routing_configuration_list_item()),
         optional("tags") => map(),
         required("agentAliasName") => String.t()
       }
@@ -3473,7 +3473,7 @@ defmodule AWS.BedrockAgent do
       metadata_attribute_value() :: %{
         "booleanValue" => [boolean()],
         "numberValue" => float(),
-        "stringListValue" => list(String.t()()),
+        "stringListValue" => list(String.t()),
         "stringValue" => String.t(),
         "type" => list(any())
       }
@@ -3561,7 +3561,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       condition_flow_node_configuration() :: %{
-        "conditions" => list(flow_condition()())
+        "conditions" => list(flow_condition())
       }
 
   """
@@ -3572,9 +3572,9 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       chat_prompt_template_configuration() :: %{
-        "inputVariables" => list(prompt_input_variable()()),
-        "messages" => list(message()()),
-        "system" => list(list()()),
+        "inputVariables" => list(prompt_input_variable()),
+        "messages" => list(message()),
+        "system" => list(list()),
         "toolConfiguration" => tool_configuration()
       }
 
@@ -3586,7 +3586,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agent_collaborators_response() :: %{
-        "agentCollaboratorSummaries" => list(agent_collaborator_summary()()),
+        "agentCollaboratorSummaries" => list(agent_collaborator_summary()),
         "nextToken" => String.t()
       }
 
@@ -3652,7 +3652,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t()
       }
 
@@ -3685,7 +3685,7 @@ defmodule AWS.BedrockAgent do
 
       agent_alias_history_event() :: %{
         "endDate" => non_neg_integer(),
-        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()()),
+        "routingConfiguration" => list(agent_alias_routing_configuration_list_item()),
         "startDate" => non_neg_integer()
       }
 
@@ -3751,7 +3751,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       document_metadata() :: %{
-        "inlineAttributes" => list(metadata_attribute()()),
+        "inlineAttributes" => list(metadata_attribute()),
         "s3Location" => custom_s3_location(),
         "type" => list(any())
       }
@@ -3796,7 +3796,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_flow_aliases_response() :: %{
-        "flowAliasSummaries" => list(flow_alias_summary()()),
+        "flowAliasSummaries" => list(flow_alias_summary()),
         "nextToken" => String.t()
       }
 
@@ -3964,7 +3964,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_knowledge_bases_response() :: %{
-        "knowledgeBaseSummaries" => list(knowledge_base_summary()()),
+        "knowledgeBaseSummaries" => list(knowledge_base_summary()),
         "nextToken" => String.t()
       }
 
@@ -4007,7 +4007,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       get_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail()())
+        "documentDetails" => list(knowledge_base_document_detail())
       }
 
   """
@@ -4038,7 +4038,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       list_agent_versions_response() :: %{
-        "agentVersionSummaries" => list(agent_version_summary()()),
+        "agentVersionSummaries" => list(agent_version_summary()),
         "nextToken" => String.t()
       }
 
@@ -4265,7 +4265,7 @@ defmodule AWS.BedrockAgent do
         "dataSourceConfiguration" => data_source_configuration(),
         "dataSourceId" => String.t(),
         "description" => String.t(),
-        "failureReasons" => list(String.t()()),
+        "failureReasons" => list(String.t()),
         "knowledgeBaseId" => String.t(),
         "name" => String.t(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -4329,7 +4329,7 @@ defmodule AWS.BedrockAgent do
       redshift_configuration() :: %{
         "queryEngineConfiguration" => redshift_query_engine_configuration(),
         "queryGenerationConfiguration" => query_generation_configuration(),
-        "storageConfigurations" => list(redshift_query_engine_storage_configuration()())
+        "storageConfigurations" => list(redshift_query_engine_storage_configuration())
       }
 
   """
@@ -4412,7 +4412,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       redshift_query_engine_aws_data_catalog_storage_configuration() :: %{
-        "tableNames" => list(String.t()())
+        "tableNames" => list(String.t())
       }
 
   """
@@ -4447,7 +4447,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       query_generation_table() :: %{
-        "columns" => list(query_generation_column()()),
+        "columns" => list(query_generation_column()),
         "description" => String.t(),
         "inclusion" => list(any()),
         "name" => String.t()
@@ -4502,7 +4502,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       delete_knowledge_base_documents_response() :: %{
-        "documentDetails" => list(knowledge_base_document_detail()())
+        "documentDetails" => list(knowledge_base_document_detail())
       }
 
   """
@@ -4561,7 +4561,7 @@ defmodule AWS.BedrockAgent do
       s3_data_source_configuration() :: %{
         "bucketArn" => String.t(),
         "bucketOwnerAccountId" => String.t(),
-        "inclusionPrefixes" => list(String.t()())
+        "inclusionPrefixes" => list(String.t())
       }
 
   """
@@ -4636,7 +4636,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       supplemental_data_storage_configuration() :: %{
-        "storageLocations" => list(supplemental_data_storage_location()())
+        "storageLocations" => list(supplemental_data_storage_location())
       }
 
   """
@@ -4647,7 +4647,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       message() :: %{
-        "content" => list(list()()),
+        "content" => list(list()),
         "role" => list(any())
       }
 
@@ -4662,7 +4662,7 @@ defmodule AWS.BedrockAgent do
         "additionalModelRequestFields" => [any()],
         "genAiResource" => list(),
         "inferenceConfiguration" => list(),
-        "metadata" => list(prompt_metadata_entry()()),
+        "metadata" => list(prompt_metadata_entry()),
         "modelId" => String.t(),
         "name" => String.t(),
         "templateConfiguration" => list(),

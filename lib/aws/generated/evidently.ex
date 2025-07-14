@@ -45,7 +45,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       list_experiments_response() :: %{
-        optional("experiments") => list(experiment()()),
+        optional("experiments") => list(experiment()),
         optional("nextToken") => String.t()
       }
 
@@ -104,7 +104,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       list_launches_response() :: %{
-        optional("launches") => list(launch()()),
+        optional("launches") => list(launch()),
         optional("nextToken") => String.t()
       }
 
@@ -122,7 +122,7 @@ defmodule AWS.Evidently do
         optional("evaluationStrategy") => String.t(),
         optional("tags") => map(),
         required("name") => String.t(),
-        required("variations") => list(variation_config()())
+        required("variations") => list(variation_config())
       }
 
   """
@@ -183,7 +183,7 @@ defmodule AWS.Evidently do
         "defaultVariation" => String.t(),
         "description" => String.t(),
         "entityOverrides" => map(),
-        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationRules" => list(evaluation_rule()),
         "evaluationStrategy" => String.t(),
         "lastUpdatedTime" => [non_neg_integer()],
         "name" => String.t(),
@@ -191,7 +191,7 @@ defmodule AWS.Evidently do
         "status" => String.t(),
         "tags" => map(),
         "valueType" => String.t(),
-        "variations" => list(variation()())
+        "variations" => list(variation())
       }
 
   """
@@ -214,7 +214,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       scheduled_splits_launch_definition() :: %{
-        "steps" => list(scheduled_split()())
+        "steps" => list(scheduled_split())
       }
 
   """
@@ -276,7 +276,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       put_project_events_response() :: %{
-        optional("eventResults") => list(put_project_events_result_entry()()),
+        optional("eventResults") => list(put_project_events_result_entry()),
         optional("failedEventCount") => [integer()]
       }
 
@@ -321,7 +321,7 @@ defmodule AWS.Evidently do
 
       list_segment_references_response() :: %{
         optional("nextToken") => String.t(),
-        optional("referencedBy") => list(ref_resource()())
+        optional("referencedBy") => list(ref_resource())
       }
 
   """
@@ -356,7 +356,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       list_features_response() :: %{
-        optional("features") => list(feature_summary()()),
+        optional("features") => list(feature_summary()),
         optional("nextToken") => String.t()
       }
 
@@ -457,11 +457,11 @@ defmodule AWS.Evidently do
 
       create_launch_request() :: %{
         optional("description") => String.t(),
-        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("metricMonitors") => list(metric_monitor_config()),
         optional("randomizationSalt") => String.t(),
         optional("scheduledSplitsConfig") => scheduled_splits_launch_config(),
         optional("tags") => map(),
-        required("groups") => list(launch_group_config()()),
+        required("groups") => list(launch_group_config()),
         required("name") => String.t()
       }
 
@@ -497,7 +497,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -533,12 +533,12 @@ defmodule AWS.Evidently do
   ## Example:
 
       update_feature_request() :: %{
-        optional("addOrUpdateVariations") => list(variation_config()()),
+        optional("addOrUpdateVariations") => list(variation_config()),
         optional("defaultVariation") => String.t(),
         optional("description") => String.t(),
         optional("entityOverrides") => map(),
         optional("evaluationStrategy") => String.t(),
-        optional("removeVariations") => list(String.t()())
+        optional("removeVariations") => list(String.t())
       }
 
   """
@@ -568,7 +568,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       put_project_events_request() :: %{
-        required("events") => list(event()())
+        required("events") => list(event())
       }
 
   """
@@ -616,7 +616,7 @@ defmodule AWS.Evidently do
 
       list_segments_response() :: %{
         optional("nextToken") => String.t(),
-        optional("segments") => list(segment()())
+        optional("segments") => list(segment())
       }
 
   """
@@ -640,7 +640,7 @@ defmodule AWS.Evidently do
 
       scheduled_split_config() :: %{
         "groupWeights" => map(),
-        "segmentOverrides" => list(segment_override()()),
+        "segmentOverrides" => list(segment_override()),
         "startTime" => [non_neg_integer()]
       }
 
@@ -795,7 +795,7 @@ defmodule AWS.Evidently do
 
       list_projects_response() :: %{
         optional("nextToken") => String.t(),
-        optional("projects") => list(project_summary()())
+        optional("projects") => list(project_summary())
       }
 
   """
@@ -831,7 +831,7 @@ defmodule AWS.Evidently do
         "arn" => String.t(),
         "createdTime" => [non_neg_integer()],
         "defaultVariation" => String.t(),
-        "evaluationRules" => list(evaluation_rule()()),
+        "evaluationRules" => list(evaluation_rule()),
         "evaluationStrategy" => String.t(),
         "lastUpdatedTime" => [non_neg_integer()],
         "name" => String.t(),
@@ -885,7 +885,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       batch_evaluate_feature_response() :: %{
-        optional("results") => list(evaluation_result()())
+        optional("results") => list(evaluation_result())
       }
 
   """
@@ -924,7 +924,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       scheduled_splits_launch_config() :: %{
-        "steps" => list(scheduled_split_config()())
+        "steps" => list(scheduled_split_config())
       }
 
   """
@@ -973,13 +973,13 @@ defmodule AWS.Evidently do
 
       update_experiment_request() :: %{
         optional("description") => String.t(),
-        optional("metricGoals") => list(metric_goal_config()()),
+        optional("metricGoals") => list(metric_goal_config()),
         optional("onlineAbConfig") => online_ab_config(),
         optional("randomizationSalt") => String.t(),
         optional("removeSegment") => [boolean()],
         optional("samplingRate") => float(),
         optional("segment") => String.t(),
-        optional("treatments") => list(treatment_config()())
+        optional("treatments") => list(treatment_config())
       }
 
   """
@@ -996,9 +996,9 @@ defmodule AWS.Evidently do
         optional("samplingRate") => float(),
         optional("segment") => String.t(),
         optional("tags") => map(),
-        required("metricGoals") => list(metric_goal_config()()),
+        required("metricGoals") => list(metric_goal_config()),
         required("name") => String.t(),
-        required("treatments") => list(treatment_config()())
+        required("treatments") => list(treatment_config())
       }
 
   """
@@ -1203,7 +1203,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => [String.t()],
         "reason" => String.t()
       }
@@ -1225,7 +1225,7 @@ defmodule AWS.Evidently do
   ## Example:
 
       batch_evaluate_feature_request() :: %{
-        required("requests") => list(evaluation_request()())
+        required("requests") => list(evaluation_request())
       }
 
   """
@@ -1465,9 +1465,9 @@ defmodule AWS.Evidently do
         "createdTime" => [non_neg_integer()],
         "description" => String.t(),
         "execution" => launch_execution(),
-        "groups" => list(launch_group()()),
+        "groups" => list(launch_group()),
         "lastUpdatedTime" => [non_neg_integer()],
-        "metricMonitors" => list(metric_monitor()()),
+        "metricMonitors" => list(metric_monitor()),
         "name" => String.t(),
         "project" => String.t(),
         "randomizationSalt" => String.t(),
@@ -1487,8 +1487,8 @@ defmodule AWS.Evidently do
 
       get_experiment_results_response() :: %{
         optional("details") => [String.t()],
-        optional("reports") => list(experiment_report()()),
-        optional("resultsData") => list(experiment_results_data()()),
+        optional("reports") => list(experiment_report()),
+        optional("resultsData") => list(experiment_results_data()),
         optional("timestamps") => list([non_neg_integer()]())
       }
 
@@ -1501,7 +1501,7 @@ defmodule AWS.Evidently do
 
       scheduled_split() :: %{
         "groupWeights" => map(),
-        "segmentOverrides" => list(segment_override()()),
+        "segmentOverrides" => list(segment_override()),
         "startTime" => [non_neg_integer()]
       }
 
@@ -1518,7 +1518,7 @@ defmodule AWS.Evidently do
         "description" => String.t(),
         "execution" => experiment_execution(),
         "lastUpdatedTime" => [non_neg_integer()],
-        "metricGoals" => list(metric_goal()()),
+        "metricGoals" => list(metric_goal()),
         "name" => String.t(),
         "onlineAbDefinition" => online_ab_definition(),
         "project" => String.t(),
@@ -1529,7 +1529,7 @@ defmodule AWS.Evidently do
         "status" => String.t(),
         "statusReason" => String.t(),
         "tags" => map(),
-        "treatments" => list(treatment()()),
+        "treatments" => list(treatment()),
         "type" => String.t()
       }
 
@@ -1596,11 +1596,11 @@ defmodule AWS.Evidently do
         optional("baseStat") => String.t(),
         optional("endTime") => [non_neg_integer()],
         optional("period") => float(),
-        optional("reportNames") => list(String.t()()),
-        optional("resultStats") => list(String.t()()),
+        optional("reportNames") => list(String.t()),
+        optional("resultStats") => list(String.t()),
         optional("startTime") => [non_neg_integer()],
-        required("metricNames") => list(String.t()()),
-        required("treatmentNames") => list(String.t()())
+        required("metricNames") => list(String.t()),
+        required("treatmentNames") => list(String.t())
       }
 
   """
@@ -1650,8 +1650,8 @@ defmodule AWS.Evidently do
 
       update_launch_request() :: %{
         optional("description") => String.t(),
-        optional("groups") => list(launch_group_config()()),
-        optional("metricMonitors") => list(metric_monitor_config()()),
+        optional("groups") => list(launch_group_config()),
+        optional("metricMonitors") => list(metric_monitor_config()),
         optional("randomizationSalt") => String.t(),
         optional("scheduledSplitsConfig") => scheduled_splits_launch_config()
       }

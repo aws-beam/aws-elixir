@@ -309,7 +309,7 @@ defmodule AWS.Rekognition do
       
       create_face_liveness_session_request_settings() :: %{
         "AuditImagesLimit" => integer(),
-        "ChallengePreferences" => list(challenge_preference()()),
+        "ChallengePreferences" => list(challenge_preference()),
         "OutputConfig" => liveness_output_config()
       }
       
@@ -437,7 +437,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_text_response() :: %{
-        "TextDetections" => list(text_detection()()),
+        "TextDetections" => list(text_detection()),
         "TextModelVersion" => String.t()
       }
       
@@ -449,7 +449,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_protective_equipment_response() :: %{
-        "Persons" => list(protective_equipment_person()()),
+        "Persons" => list(protective_equipment_person()),
         "ProtectiveEquipmentModelVersion" => String.t(),
         "Summary" => protective_equipment_summary()
       }
@@ -476,7 +476,7 @@ defmodule AWS.Rekognition do
       project_description() :: %{
         "AutoUpdate" => list(any()),
         "CreationTimestamp" => non_neg_integer(),
-        "Datasets" => list(dataset_metadata()()),
+        "Datasets" => list(dataset_metadata()),
         "Feature" => list(any()),
         "ProjectArn" => String.t(),
         "Status" => list(any())
@@ -511,7 +511,7 @@ defmodule AWS.Rekognition do
       
       delete_faces_request() :: %{
         required("CollectionId") => String.t(),
-        required("FaceIds") => list(String.t()())
+        required("FaceIds") => list(String.t())
       }
       
   """
@@ -569,7 +569,7 @@ defmodule AWS.Rekognition do
         "FaceModelVersion" => String.t(),
         "SearchedFace" => searched_face(),
         "SearchedUser" => searched_user(),
-        "UserMatches" => list(user_match()())
+        "UserMatches" => list(user_match())
       }
       
   """
@@ -592,7 +592,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       search_faces_response() :: %{
-        "FaceMatches" => list(face_match()()),
+        "FaceMatches" => list(face_match()),
         "FaceModelVersion" => String.t(),
         "SearchedFaceId" => String.t()
       }
@@ -631,7 +631,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_dataset_labels_response() :: %{
-        "DatasetLabelDescriptions" => list(dataset_label_description()()),
+        "DatasetLabelDescriptions" => list(dataset_label_description()),
         "NextToken" => String.t()
       }
       
@@ -681,7 +681,7 @@ defmodule AWS.Rekognition do
       
       geometry() :: %{
         "BoundingBox" => bounding_box(),
-        "Polygon" => list(point()())
+        "Polygon" => list(point())
       }
       
   """
@@ -797,7 +797,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       person_match() :: %{
-        "FaceMatches" => list(face_match()()),
+        "FaceMatches" => list(face_match()),
         "Person" => person_detail(),
         "Timestamp" => float()
       }
@@ -811,7 +811,7 @@ defmodule AWS.Rekognition do
       
       describe_projects_response() :: %{
         "NextToken" => String.t(),
-        "ProjectDescriptions" => list(project_description()())
+        "ProjectDescriptions" => list(project_description())
       }
       
   """
@@ -822,8 +822,8 @@ defmodule AWS.Rekognition do
   ## Example:
       
       delete_faces_response() :: %{
-        "DeletedFaces" => list(String.t()()),
-        "UnsuccessfulFaceDeletions" => list(unsuccessful_face_deletion()())
+        "DeletedFaces" => list(String.t()),
+        "UnsuccessfulFaceDeletions" => list(unsuccessful_face_deletion())
       }
       
   """
@@ -834,7 +834,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_faces_response() :: %{
-        "FaceDetails" => list(face_detail()()),
+        "FaceDetails" => list(face_detail()),
         "OrientationCorrection" => list(any())
       }
       
@@ -854,7 +854,7 @@ defmodule AWS.Rekognition do
         "Name" => String.t(),
         "NotificationChannel" => stream_processor_notification_channel(),
         "Output" => stream_processor_output(),
-        "RegionsOfInterest" => list(region_of_interest()()),
+        "RegionsOfInterest" => list(region_of_interest()),
         "RoleArn" => String.t(),
         "Settings" => stream_processor_settings(),
         "Status" => list(any()),
@@ -905,7 +905,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       connected_home_settings() :: %{
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "MinConfidence" => float()
       }
       
@@ -919,7 +919,7 @@ defmodule AWS.Rekognition do
       get_celebrity_info_response() :: %{
         "KnownGender" => known_gender(),
         "Name" => String.t(),
-        "Urls" => list(String.t()())
+        "Urls" => list(String.t())
       }
       
   """
@@ -1003,8 +1003,8 @@ defmodule AWS.Rekognition do
   ## Example:
       
       associate_faces_response() :: %{
-        "AssociatedFaces" => list(associated_face()()),
-        "UnsuccessfulFaceAssociations" => list(unsuccessful_face_association()()),
+        "AssociatedFaces" => list(associated_face()),
+        "UnsuccessfulFaceAssociations" => list(unsuccessful_face_association()),
         "UserStatus" => list(any())
       }
       
@@ -1040,7 +1040,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       protective_equipment_person() :: %{
-        "BodyParts" => list(protective_equipment_body_part()()),
+        "BodyParts" => list(protective_equipment_body_part()),
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
         "Id" => integer()
@@ -1110,7 +1110,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       connected_home_settings_for_update() :: %{
-        "Labels" => list(String.t()()),
+        "Labels" => list(String.t()),
         "MinConfidence" => float()
       }
       
@@ -1133,9 +1133,9 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_moderation_labels_response() :: %{
-        "ContentTypes" => list(content_type()()),
+        "ContentTypes" => list(content_type()),
         "HumanLoopActivationOutput" => human_loop_activation_output(),
-        "ModerationLabels" => list(moderation_label()()),
+        "ModerationLabels" => list(moderation_label()),
         "ModerationModelVersion" => String.t(),
         "ProjectVersion" => String.t()
       }
@@ -1186,8 +1186,8 @@ defmodule AWS.Rekognition do
   ## Example:
       
       disassociate_faces_response() :: %{
-        "DisassociatedFaces" => list(disassociated_face()()),
-        "UnsuccessfulFaceDisassociations" => list(unsuccessful_face_disassociation()()),
+        "DisassociatedFaces" => list(disassociated_face()),
+        "UnsuccessfulFaceDisassociations" => list(unsuccessful_face_disassociation()),
         "UserStatus" => list(any())
       }
       
@@ -1211,7 +1211,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       training_data() :: %{
-        "Assets" => list(asset()())
+        "Assets" => list(asset())
       }
       
   """
@@ -1247,7 +1247,7 @@ defmodule AWS.Rekognition do
       
       untag_resource_request() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -1314,7 +1314,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_faces_request() :: %{
-        optional("FaceIds") => list(String.t()()),
+        optional("FaceIds") => list(String.t()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
         optional("UserId") => String.t(),
@@ -1346,7 +1346,7 @@ defmodule AWS.Rekognition do
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
         "LabelModelVersion" => String.t(),
-        "Labels" => list(label_detection()()),
+        "Labels" => list(label_detection()),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
         "Video" => video(),
@@ -1375,8 +1375,8 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_collections_response() :: %{
-        "CollectionIds" => list(String.t()()),
-        "FaceModelVersions" => list(String.t()()),
+        "CollectionIds" => list(String.t()),
+        "FaceModelVersions" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -1425,7 +1425,7 @@ defmodule AWS.Rekognition do
       
       region_of_interest() :: %{
         "BoundingBox" => bounding_box(),
-        "Polygon" => list(point()())
+        "Polygon" => list(point())
       }
       
   """
@@ -1436,7 +1436,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       distribute_dataset_entries_request() :: %{
-        required("Datasets") => list(distribute_dataset()())
+        required("Datasets") => list(distribute_dataset())
       }
       
   """
@@ -1450,7 +1450,7 @@ defmodule AWS.Rekognition do
         optional("Features") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("ProjectNames") => list(String.t()())
+        optional("ProjectNames") => list(String.t())
       }
       
   """
@@ -1485,7 +1485,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       testing_data() :: %{
-        "Assets" => list(asset()()),
+        "Assets" => list(asset()),
         "AutoCreate" => boolean()
       }
       
@@ -1520,7 +1520,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       get_celebrity_recognition_response() :: %{
-        "Celebrities" => list(celebrity_recognition()()),
+        "Celebrities" => list(celebrity_recognition()),
         "JobId" => String.t(),
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
@@ -1571,7 +1571,7 @@ defmodule AWS.Rekognition do
       
       human_loop_activation_output() :: %{
         "HumanLoopActivationConditionsEvaluationResults" => String.t(),
-        "HumanLoopActivationReasons" => list(String.t()()),
+        "HumanLoopActivationReasons" => list(String.t()),
         "HumanLoopArn" => String.t()
       }
       
@@ -1737,7 +1737,7 @@ defmodule AWS.Rekognition do
         optional("ClientRequestToken") => String.t(),
         optional("UserMatchThreshold") => float(),
         required("CollectionId") => String.t(),
-        required("FaceIds") => list(String.t()()),
+        required("FaceIds") => list(String.t()),
         required("UserId") => String.t()
       }
       
@@ -1772,7 +1772,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_media_analysis_jobs_response() :: %{
-        "MediaAnalysisJobs" => list(media_analysis_job_description()()),
+        "MediaAnalysisJobs" => list(media_analysis_job_description()),
         "NextToken" => String.t()
       }
       
@@ -1808,7 +1808,7 @@ defmodule AWS.Rekognition do
       
       detect_labels_image_properties() :: %{
         "Background" => detect_labels_image_background(),
-        "DominantColors" => list(dominant_color()()),
+        "DominantColors" => list(dominant_color()),
         "Foreground" => detect_labels_image_foreground(),
         "Quality" => detect_labels_image_quality()
       }
@@ -1896,7 +1896,7 @@ defmodule AWS.Rekognition do
       
       list_stream_processors_response() :: %{
         "NextToken" => String.t(),
-        "StreamProcessors" => list(stream_processor()())
+        "StreamProcessors" => list(stream_processor())
       }
       
   """
@@ -2005,7 +2005,7 @@ defmodule AWS.Rekognition do
       
       list_users_response() :: %{
         "NextToken" => String.t(),
-        "Users" => list(user()())
+        "Users" => list(user())
       }
       
   """
@@ -2027,7 +2027,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       get_face_detection_response() :: %{
-        "Faces" => list(face_detection()()),
+        "Faces" => list(face_detection()),
         "JobId" => String.t(),
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
@@ -2074,7 +2074,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_text_filters() :: %{
-        "RegionsOfInterest" => list(region_of_interest()()),
+        "RegionsOfInterest" => list(region_of_interest()),
         "WordFilter" => detection_filter()
       }
       
@@ -2086,7 +2086,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_dataset_entries_request() :: %{
-        optional("ContainsLabels") => list(String.t()()),
+        optional("ContainsLabels") => list(String.t()),
         optional("HasErrors") => boolean(),
         optional("Labeled") => boolean(),
         optional("MaxResults") => integer(),
@@ -2103,7 +2103,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_custom_labels_response() :: %{
-        "CustomLabels" => list(custom_label()())
+        "CustomLabels" => list(custom_label())
       }
       
   """
@@ -2257,7 +2257,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       content_moderation_detection() :: %{
-        "ContentTypes" => list(content_type()()),
+        "ContentTypes" => list(content_type()),
         "DurationMillis" => float(),
         "EndTimestampMillis" => float(),
         "ModerationLabel" => moderation_label(),
@@ -2329,8 +2329,8 @@ defmodule AWS.Rekognition do
       search_users_by_image_response() :: %{
         "FaceModelVersion" => String.t(),
         "SearchedFace" => searched_face_details(),
-        "UnsearchedFaces" => list(unsearched_face()()),
-        "UserMatches" => list(user_match()())
+        "UnsearchedFaces" => list(unsearched_face()),
+        "UserMatches" => list(user_match())
       }
       
   """
@@ -2345,13 +2345,13 @@ defmodule AWS.Rekognition do
         "Beard" => beard(),
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
-        "Emotions" => list(emotion()()),
+        "Emotions" => list(emotion()),
         "EyeDirection" => eye_direction(),
         "Eyeglasses" => eyeglasses(),
         "EyesOpen" => eye_open(),
         "FaceOccluded" => face_occluded(),
         "Gender" => gender(),
-        "Landmarks" => list(landmark()()),
+        "Landmarks" => list(landmark()),
         "MouthOpen" => mouth_open(),
         "Mustache" => mustache(),
         "Pose" => pose(),
@@ -2382,7 +2382,7 @@ defmodule AWS.Rekognition do
       detect_labels_response() :: %{
         "ImageProperties" => detect_labels_image_properties(),
         "LabelModelVersion" => String.t(),
-        "Labels" => list(label()()),
+        "Labels" => list(label()),
         "OrientationCorrection" => list(any())
       }
       
@@ -2437,7 +2437,7 @@ defmodule AWS.Rekognition do
       
       list_project_policies_response() :: %{
         "NextToken" => String.t(),
-        "ProjectPolicies" => list(project_policy()())
+        "ProjectPolicies" => list(project_policy())
       }
       
   """
@@ -2525,16 +2525,16 @@ defmodule AWS.Rekognition do
   ## Example:
       
       get_segment_detection_response() :: %{
-        "AudioMetadata" => list(audio_metadata()()),
+        "AudioMetadata" => list(audio_metadata()),
         "JobId" => String.t(),
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
         "NextToken" => String.t(),
-        "Segments" => list(segment_detection()()),
-        "SelectedSegmentTypes" => list(segment_type_info()()),
+        "Segments" => list(segment_detection()),
+        "SelectedSegmentTypes" => list(segment_type_info()),
         "StatusMessage" => String.t(),
         "Video" => video(),
-        "VideoMetadata" => list(video_metadata()())
+        "VideoMetadata" => list(video_metadata())
       }
       
   """
@@ -2563,7 +2563,7 @@ defmodule AWS.Rekognition do
         "KnownGender" => known_gender(),
         "MatchConfidence" => float(),
         "Name" => String.t(),
-        "Urls" => list(String.t()())
+        "Urls" => list(String.t())
       }
       
   """
@@ -2621,9 +2621,9 @@ defmodule AWS.Rekognition do
   ## Example:
       
       recognize_celebrities_response() :: %{
-        "CelebrityFaces" => list(celebrity()()),
+        "CelebrityFaces" => list(celebrity()),
         "OrientationCorrection" => list(any()),
-        "UnrecognizedFaces" => list(compared_face()())
+        "UnrecognizedFaces" => list(compared_face())
       }
       
   """
@@ -2744,7 +2744,7 @@ defmodule AWS.Rekognition do
       
       protective_equipment_body_part() :: %{
         "Confidence" => float(),
-        "EquipmentDetections" => list(equipment_detection()()),
+        "EquipmentDetections" => list(equipment_detection()),
         "Name" => list(any())
       }
       
@@ -2901,7 +2901,7 @@ defmodule AWS.Rekognition do
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
         "NextToken" => String.t(),
-        "Persons" => list(person_detection()()),
+        "Persons" => list(person_detection()),
         "StatusMessage" => String.t(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
@@ -2992,7 +2992,7 @@ defmodule AWS.Rekognition do
       instance() :: %{
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
-        "DominantColors" => list(dominant_color()())
+        "DominantColors" => list(dominant_color())
       }
       
   """
@@ -3016,7 +3016,7 @@ defmodule AWS.Rekognition do
       
       list_faces_response() :: %{
         "FaceModelVersion" => String.t(),
-        "Faces" => list(face()()),
+        "Faces" => list(face()),
         "NextToken" => String.t()
       }
       
@@ -3070,7 +3070,7 @@ defmodule AWS.Rekognition do
         optional("DataSharingPreference") => stream_processor_data_sharing_preference(),
         optional("KmsKeyId") => String.t(),
         optional("NotificationChannel") => stream_processor_notification_channel(),
-        optional("RegionsOfInterest") => list(region_of_interest()()),
+        optional("RegionsOfInterest") => list(region_of_interest()),
         optional("Tags") => map(),
         required("Input") => stream_processor_input(),
         required("Name") => String.t(),
@@ -3088,9 +3088,9 @@ defmodule AWS.Rekognition do
       
       index_faces_response() :: %{
         "FaceModelVersion" => String.t(),
-        "FaceRecords" => list(face_record()()),
+        "FaceRecords" => list(face_record()),
         "OrientationCorrection" => list(any()),
-        "UnindexedFaces" => list(unindexed_face()())
+        "UnindexedFaces" => list(unindexed_face())
       }
       
   """
@@ -3383,7 +3383,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       get_face_liveness_session_results_response() :: %{
-        "AuditImages" => list(audit_image()()),
+        "AuditImages" => list(audit_image()),
         "Challenge" => challenge(),
         "Confidence" => float(),
         "ReferenceImage" => audit_image(),
@@ -3549,7 +3549,7 @@ defmodule AWS.Rekognition do
       update_stream_processor_request() :: %{
         optional("DataSharingPreferenceForUpdate") => stream_processor_data_sharing_preference(),
         optional("ParametersToDelete") => list(list(any())()),
-        optional("RegionsOfInterestForUpdate") => list(region_of_interest()()),
+        optional("RegionsOfInterestForUpdate") => list(region_of_interest()),
         optional("SettingsForUpdate") => stream_processor_settings_for_update(),
         required("Name") => String.t()
       }
@@ -3619,10 +3619,10 @@ defmodule AWS.Rekognition do
   ## Example:
       
       general_labels_settings() :: %{
-        "LabelCategoryExclusionFilters" => list(String.t()()),
-        "LabelCategoryInclusionFilters" => list(String.t()()),
-        "LabelExclusionFilters" => list(String.t()()),
-        "LabelInclusionFilters" => list(String.t()())
+        "LabelCategoryExclusionFilters" => list(String.t()),
+        "LabelCategoryInclusionFilters" => list(String.t()),
+        "LabelExclusionFilters" => list(String.t()),
+        "LabelInclusionFilters" => list(String.t())
       }
       
   """
@@ -3735,7 +3735,7 @@ defmodule AWS.Rekognition do
       disassociate_faces_request() :: %{
         optional("ClientRequestToken") => String.t(),
         required("CollectionId") => String.t(),
-        required("FaceIds") => list(String.t()()),
+        required("FaceIds") => list(String.t()),
         required("UserId") => String.t()
       }
       
@@ -3752,7 +3752,7 @@ defmodule AWS.Rekognition do
         "JobTag" => String.t(),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
-        "TextDetections" => list(text_detection_result()()),
+        "TextDetections" => list(text_detection_result()),
         "TextModelVersion" => String.t(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
@@ -3777,9 +3777,9 @@ defmodule AWS.Rekognition do
   ## Example:
       
       protective_equipment_summary() :: %{
-        "PersonsIndeterminate" => list(integer()()),
-        "PersonsWithRequiredEquipment" => list(integer()()),
-        "PersonsWithoutRequiredEquipment" => list(integer()())
+        "PersonsIndeterminate" => list(integer()),
+        "PersonsWithRequiredEquipment" => list(integer()),
+        "PersonsWithoutRequiredEquipment" => list(integer())
       }
       
   """
@@ -3790,7 +3790,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       start_text_detection_filters() :: %{
-        "RegionsOfInterest" => list(region_of_interest()()),
+        "RegionsOfInterest" => list(region_of_interest()),
         "WordFilter" => detection_filter()
       }
       
@@ -3878,7 +3878,7 @@ defmodule AWS.Rekognition do
       
       describe_project_versions_response() :: %{
         "NextToken" => String.t(),
-        "ProjectVersionDescriptions" => list(project_version_description()())
+        "ProjectVersionDescriptions" => list(project_version_description())
       }
       
   """
@@ -3960,7 +3960,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       validation_data() :: %{
-        "Assets" => list(asset()())
+        "Assets" => list(asset())
       }
       
   """
@@ -3973,7 +3973,7 @@ defmodule AWS.Rekognition do
       describe_project_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t(),
-        optional("VersionNames") => list(String.t()()),
+        optional("VersionNames") => list(String.t()),
         required("ProjectArn") => String.t()
       }
       
@@ -3985,7 +3985,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_labels_image_foreground() :: %{
-        "DominantColors" => list(dominant_color()()),
+        "DominantColors" => list(dominant_color()),
         "Quality" => detect_labels_image_quality()
       }
       
@@ -4135,7 +4135,7 @@ defmodule AWS.Rekognition do
         "JobId" => String.t(),
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
-        "ModerationLabels" => list(content_moderation_detection()()),
+        "ModerationLabels" => list(content_moderation_detection()),
         "ModerationModelVersion" => String.t(),
         "NextToken" => String.t(),
         "StatusMessage" => String.t(),
@@ -4160,11 +4160,11 @@ defmodule AWS.Rekognition do
   ## Example:
       
       compare_faces_response() :: %{
-        "FaceMatches" => list(compare_faces_match()()),
+        "FaceMatches" => list(compare_faces_match()),
         "SourceImageFace" => compared_source_image_face(),
         "SourceImageOrientationCorrection" => list(any()),
         "TargetImageOrientationCorrection" => list(any()),
-        "UnmatchedFaces" => list(compared_face()())
+        "UnmatchedFaces" => list(compared_face())
       }
       
   """
@@ -4191,7 +4191,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       search_faces_by_image_response() :: %{
-        "FaceMatches" => list(face_match()()),
+        "FaceMatches" => list(face_match()),
         "FaceModelVersion" => String.t(),
         "SearchedFaceBoundingBox" => bounding_box(),
         "SearchedFaceConfidence" => float()
@@ -4205,7 +4205,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       list_dataset_entries_response() :: %{
-        "DatasetEntries" => list(String.t()()),
+        "DatasetEntries" => list(String.t()),
         "NextToken" => String.t()
       }
       
@@ -4255,7 +4255,7 @@ defmodule AWS.Rekognition do
   ## Example:
       
       detect_labels_image_background() :: %{
-        "DominantColors" => list(dominant_color()()),
+        "DominantColors" => list(dominant_color()),
         "Quality" => detect_labels_image_quality()
       }
       
@@ -4273,7 +4273,7 @@ defmodule AWS.Rekognition do
         "Id" => String.t(),
         "KnownGender" => known_gender(),
         "Name" => String.t(),
-        "Urls" => list(String.t()())
+        "Urls" => list(String.t())
       }
       
   """
@@ -4321,12 +4321,12 @@ defmodule AWS.Rekognition do
   ## Example:
       
       label() :: %{
-        "Aliases" => list(label_alias()()),
-        "Categories" => list(label_category()()),
+        "Aliases" => list(label_alias()),
+        "Categories" => list(label_category()),
         "Confidence" => float(),
-        "Instances" => list(instance()()),
+        "Instances" => list(instance()),
         "Name" => String.t(),
-        "Parents" => list(parent()())
+        "Parents" => list(parent())
       }
       
   """
@@ -4341,7 +4341,7 @@ defmodule AWS.Rekognition do
         "JobStatus" => list(any()),
         "JobTag" => String.t(),
         "NextToken" => String.t(),
-        "Persons" => list(person_match()()),
+        "Persons" => list(person_match()),
         "StatusMessage" => String.t(),
         "Video" => video(),
         "VideoMetadata" => video_metadata()
@@ -4370,8 +4370,8 @@ defmodule AWS.Rekognition do
       compared_face() :: %{
         "BoundingBox" => bounding_box(),
         "Confidence" => float(),
-        "Emotions" => list(emotion()()),
-        "Landmarks" => list(landmark()()),
+        "Emotions" => list(emotion()),
+        "Landmarks" => list(landmark()),
         "Pose" => pose(),
         "Quality" => image_quality(),
         "Smile" => smile()
@@ -5271,7 +5271,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, associate_faces_errors()}
   def associate_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFaces", input, options)
   end
@@ -5358,7 +5359,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, compare_faces_errors()}
   def compare_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompareFaces", input, options)
   end
@@ -5407,7 +5409,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, copy_project_version_errors()}
   def copy_project_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyProjectVersion", input, options)
   end
@@ -5443,7 +5446,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_collection_errors()}
   def create_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCollection", input, options)
   end
@@ -5487,7 +5491,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -5518,7 +5523,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_face_liveness_session_errors()}
   def create_face_liveness_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFaceLivenessSession", input, options)
   end
@@ -5543,7 +5549,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -5595,7 +5602,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_project_version_errors()}
   def create_project_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProjectVersion", input, options)
   end
@@ -5648,7 +5656,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_stream_processor_errors()}
   def create_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateStreamProcessor", input, options)
   end
@@ -5674,7 +5683,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -5694,7 +5704,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_collection_errors()}
   def delete_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCollection", input, options)
   end
@@ -5723,7 +5734,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -5743,7 +5755,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_faces_errors()}
   def delete_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFaces", input, options)
   end
@@ -5770,7 +5783,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -5794,7 +5808,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_project_policy_errors()}
   def delete_project_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProjectPolicy", input, options)
   end
@@ -5820,7 +5835,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_project_version_errors()}
   def delete_project_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProjectVersion", input, options)
   end
@@ -5838,7 +5854,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_stream_processor_errors()}
   def delete_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteStreamProcessor", input, options)
   end
@@ -5859,7 +5876,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -5881,7 +5899,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, describe_collection_errors()}
   def describe_collection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCollection", input, options)
   end
@@ -5903,7 +5922,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -5925,7 +5945,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, describe_project_versions_errors()}
   def describe_project_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProjectVersions", input, options)
   end
@@ -5942,7 +5963,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, describe_projects_errors()}
   def describe_projects(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProjects", input, options)
   end
@@ -5961,7 +5983,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, describe_stream_processor_errors()}
   def describe_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeStreamProcessor", input, options)
   end
@@ -6026,7 +6049,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_custom_labels_errors()}
   def detect_custom_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectCustomLabels", input, options)
   end
@@ -6068,7 +6092,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_faces_errors()}
   def detect_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectFaces", input, options)
   end
@@ -6221,7 +6246,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_labels_errors()}
   def detect_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectLabels", input, options)
   end
@@ -6258,7 +6284,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_moderation_labels_errors()}
   def detect_moderation_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectModerationLabels", input, options)
   end
@@ -6319,7 +6346,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_protective_equipment_errors()}
   def detect_protective_equipment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectProtectiveEquipment", input, options)
   end
@@ -6370,7 +6398,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, detect_text_errors()}
   def detect_text(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetectText", input, options)
   end
@@ -6398,7 +6427,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, disassociate_faces_errors()}
   def disassociate_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateFaces", input, options)
   end
@@ -6435,7 +6465,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, distribute_dataset_entries_errors()}
   def distribute_dataset_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DistributeDatasetEntries", input, options)
   end
@@ -6460,7 +6491,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_celebrity_info_errors()}
   def get_celebrity_info(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCelebrityInfo", input, options)
   end
@@ -6531,7 +6563,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_celebrity_recognition_errors()}
   def get_celebrity_recognition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCelebrityRecognition", input, options)
   end
@@ -6590,7 +6623,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_content_moderation_errors()}
   def get_content_moderation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContentModeration", input, options)
   end
@@ -6630,7 +6664,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_face_detection_errors()}
   def get_face_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFaceDetection", input, options)
   end
@@ -6660,7 +6695,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_face_liveness_session_results_errors()}
   def get_face_liveness_session_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFaceLivenessSessionResults", input, options)
   end
@@ -6712,7 +6748,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_face_search_errors()}
   def get_face_search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetFaceSearch", input, options)
   end
@@ -6820,7 +6857,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_label_detection_errors()}
   def get_label_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLabelDetection", input, options)
   end
@@ -6836,7 +6874,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_media_analysis_job_errors()}
   def get_media_analysis_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMediaAnalysisJob", input, options)
   end
@@ -6896,7 +6935,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_person_tracking_errors()}
   def get_person_tracking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPersonTracking", input, options)
   end
@@ -6949,7 +6989,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_segment_detection_errors()}
   def get_segment_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSegmentDetection", input, options)
   end
@@ -6996,7 +7037,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, get_text_detection_errors()}
   def get_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTextDetection", input, options)
   end
@@ -7133,7 +7175,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, index_faces_errors()}
   def index_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IndexFaces", input, options)
   end
@@ -7158,7 +7201,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_collections_errors()}
   def list_collections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCollections", input, options)
   end
@@ -7191,7 +7235,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_dataset_entries_errors()}
   def list_dataset_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetEntries", input, options)
   end
@@ -7214,7 +7259,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_dataset_labels_errors()}
   def list_dataset_labels(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetLabels", input, options)
   end
@@ -7238,7 +7284,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_faces_errors()}
   def list_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFaces", input, options)
   end
@@ -7254,7 +7301,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_media_analysis_jobs_errors()}
   def list_media_analysis_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMediaAnalysisJobs", input, options)
   end
@@ -7277,7 +7325,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_project_policies_errors()}
   def list_project_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProjectPolicies", input, options)
   end
@@ -7292,7 +7341,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_stream_processors_errors()}
   def list_stream_processors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListStreamProcessors", input, options)
   end
@@ -7311,7 +7361,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -7332,7 +7383,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -7374,7 +7426,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, put_project_policy_errors()}
   def put_project_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutProjectPolicy", input, options)
   end
@@ -7428,7 +7481,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, recognize_celebrities_errors()}
   def recognize_celebrities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RecognizeCelebrities", input, options)
   end
@@ -7467,7 +7521,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, search_faces_errors()}
   def search_faces(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchFaces", input, options)
   end
@@ -7534,7 +7589,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, search_faces_by_image_errors()}
   def search_faces_by_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchFacesByImage", input, options)
   end
@@ -7556,7 +7612,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, search_users_errors()}
   def search_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchUsers", input, options)
   end
@@ -7586,7 +7643,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, search_users_by_image_errors()}
   def search_users_by_image(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchUsersByImage", input, options)
   end
@@ -7619,7 +7677,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_celebrity_recognition_errors()}
   def start_celebrity_recognition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartCelebrityRecognition", input, options)
   end
@@ -7656,7 +7715,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_content_moderation_errors()}
   def start_content_moderation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartContentModeration", input, options)
   end
@@ -7687,7 +7747,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_face_detection_errors()}
   def start_face_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFaceDetection", input, options)
   end
@@ -7717,7 +7778,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_face_search_errors()}
   def start_face_search(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFaceSearch", input, options)
   end
@@ -7767,7 +7829,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_label_detection_errors()}
   def start_label_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartLabelDetection", input, options)
   end
@@ -7785,7 +7848,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_media_analysis_job_errors()}
   def start_media_analysis_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMediaAnalysisJob", input, options)
   end
@@ -7825,7 +7889,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_person_tracking_errors()}
   def start_person_tracking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPersonTracking", input, options)
   end
@@ -7854,7 +7919,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_project_version_errors()}
   def start_project_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartProjectVersion", input, options)
   end
@@ -7894,7 +7960,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_segment_detection_errors()}
   def start_segment_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartSegmentDetection", input, options)
   end
@@ -7917,7 +7984,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_stream_processor_errors()}
   def start_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartStreamProcessor", input, options)
   end
@@ -7946,7 +8014,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, start_text_detection_errors()}
   def start_text_detection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartTextDetection", input, options)
   end
@@ -7969,7 +8038,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, stop_project_version_errors()}
   def stop_project_version(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopProjectVersion", input, options)
   end
@@ -7983,7 +8053,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, stop_stream_processor_errors()}
   def stop_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopStreamProcessor", input, options)
   end
@@ -8004,7 +8075,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -8023,7 +8095,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -8073,7 +8146,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, update_dataset_entries_errors()}
   def update_dataset_entries(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatasetEntries", input, options)
   end
@@ -8091,7 +8165,8 @@ defmodule AWS.Rekognition do
           | {:error, term()}
           | {:error, update_stream_processor_errors()}
   def update_stream_processor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateStreamProcessor", input, options)
   end

@@ -130,12 +130,12 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       invoke_data_automation_async_request() :: %{
-        optional("blueprints") => list(blueprint()()),
+        optional("blueprints") => list(blueprint()),
         optional("clientToken") => String.t(),
         optional("dataAutomationConfiguration") => data_automation_configuration(),
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("notificationConfiguration") => notification_configuration(),
-        optional("tags") => list(tag()()),
+        optional("tags") => list(tag()),
         required("dataAutomationProfileArn") => String.t(),
         required("inputConfiguration") => input_configuration(),
         required("outputConfiguration") => output_configuration()
@@ -171,7 +171,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
   ## Example:
       
       list_tags_for_resource_response() :: %{
-        "tags" => list(tag()())
+        "tags" => list(tag())
       }
       
   """
@@ -239,7 +239,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
       tag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tags") => list(tag()())
+        required("tags") => list(tag())
       }
       
   """
@@ -283,7 +283,7 @@ defmodule AWS.BedrockDataAutomationRuntime do
       
       untag_resource_request() :: %{
         required("resourceARN") => String.t(),
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
       
   """
@@ -381,7 +381,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, get_data_automation_status_errors()}
   def get_data_automation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDataAutomationStatus", input, options)
   end
@@ -395,7 +396,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, invoke_data_automation_async_errors()}
   def invoke_data_automation_async(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InvokeDataAutomationAsync", input, options)
   end
@@ -409,7 +411,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -423,7 +426,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -437,7 +441,8 @@ defmodule AWS.BedrockDataAutomationRuntime do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

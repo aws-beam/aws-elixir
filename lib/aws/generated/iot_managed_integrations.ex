@@ -46,7 +46,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_destinations_response() :: %{
-        "DestinationList" => list(destination_summary()()),
+        "DestinationList" => list(destination_summary()),
         "NextToken" => String.t()
       }
 
@@ -97,7 +97,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_device_discoveries_response() :: %{
-        "Items" => list(device_discovery_summary()()),
+        "Items" => list(device_discovery_summary()),
         "NextToken" => String.t()
       }
 
@@ -139,7 +139,7 @@ defmodule AWS.IoTManagedIntegrations do
       send_managed_thing_command_request() :: %{
         optional("AccountAssociationId") => String.t(),
         optional("ConnectorAssociationId") => String.t(),
-        required("Endpoints") => list(command_endpoint()())
+        required("Endpoints") => list(command_endpoint())
       }
 
   """
@@ -366,12 +366,12 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       matter_capability_report_cluster() :: %{
-        "attributes" => list(matter_capability_report_attribute()()),
-        "commands" => list(String.t()()),
-        "events" => list(String.t()()),
+        "attributes" => list(matter_capability_report_attribute()),
+        "commands" => list(String.t()),
+        "events" => list(String.t()),
         "fabricIndex" => integer(),
         "featureMap" => float(),
-        "generatedCommands" => list(String.t()()),
+        "generatedCommands" => list(String.t()),
         "id" => String.t(),
         "name" => String.t(),
         "publicId" => String.t(),
@@ -435,7 +435,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       ota_task_execution_retry_config() :: %{
-        "RetryConfigCriteria" => list(retry_config_criteria()())
+        "RetryConfigCriteria" => list(retry_config_criteria())
       }
 
   """
@@ -503,7 +503,7 @@ defmodule AWS.IoTManagedIntegrations do
         "Brand" => String.t(),
         "ConnectorDeviceId" => String.t(),
         "ConnectorDeviceName" => String.t(),
-        "DeviceTypes" => list(String.t()()),
+        "DeviceTypes" => list(String.t()),
         "DiscoveredAt" => non_neg_integer(),
         "ManagedThingId" => String.t(),
         "Model" => String.t(),
@@ -536,7 +536,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_schema_versions_response() :: %{
-        "Items" => list(schema_version_list_item()()),
+        "Items" => list(schema_version_list_item()),
         "NextToken" => String.t()
       }
 
@@ -618,7 +618,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_cloud_connectors_response() :: %{
-        "Items" => list(connector_item()()),
+        "Items" => list(connector_item()),
         "NextToken" => String.t()
       }
 
@@ -659,7 +659,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       state_endpoint() :: %{
-        "capabilities" => list(state_capability()()),
+        "capabilities" => list(state_capability()),
         "endpointId" => String.t()
       }
 
@@ -709,7 +709,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_credential_lockers_response() :: %{
-        "Items" => list(credential_locker_summary()()),
+        "Items" => list(credential_locker_summary()),
         "NextToken" => String.t()
       }
 
@@ -739,7 +739,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       untag_resource_request() :: %{
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
 
   """
@@ -910,8 +910,8 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       capability_report_endpoint() :: %{
-        "capabilities" => list(capability_report_capability()()),
-        "deviceTypes" => list(String.t()()),
+        "capabilities" => list(capability_report_capability()),
+        "deviceTypes" => list(String.t()),
         "id" => String.t()
       }
 
@@ -923,7 +923,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_managed_thing_account_associations_response() :: %{
-        "Items" => list(managed_thing_association()()),
+        "Items" => list(managed_thing_association()),
         "NextToken" => [String.t()]
       }
 
@@ -935,7 +935,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       matter_endpoint() :: %{
-        "clusters" => list(matter_cluster()()),
+        "clusters" => list(matter_cluster()),
         "id" => String.t()
       }
 
@@ -959,7 +959,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       command_capability() :: %{
-        "actions" => list(capability_action()()),
+        "actions" => list(capability_action()),
         "id" => String.t(),
         "name" => String.t(),
         "version" => String.t()
@@ -999,7 +999,7 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_ota_tasks_response() :: %{
         "NextToken" => String.t(),
-        "Tasks" => list(ota_task_summary()())
+        "Tasks" => list(ota_task_summary())
       }
 
   """
@@ -1025,7 +1025,7 @@ defmodule AWS.IoTManagedIntegrations do
       ota_task_scheduling_config() :: %{
         "EndBehavior" => list(any()),
         "EndTime" => String.t(),
-        "MaintenanceWindows" => list(schedule_maintenance_window()()),
+        "MaintenanceWindows" => list(schedule_maintenance_window()),
         "StartTime" => String.t()
       }
 
@@ -1105,7 +1105,7 @@ defmodule AWS.IoTManagedIntegrations do
 
       list_notification_configurations_response() :: %{
         "NextToken" => String.t(),
-        "NotificationConfigurationList" => list(notification_configuration_summary()())
+        "NotificationConfigurationList" => list(notification_configuration_summary())
       }
 
   """
@@ -1116,7 +1116,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_event_log_configurations_response() :: %{
-        "EventLogConfigurationList" => list(event_log_configuration_summary()()),
+        "EventLogConfigurationList" => list(event_log_configuration_summary()),
         "NextToken" => String.t()
       }
 
@@ -1130,7 +1130,7 @@ defmodule AWS.IoTManagedIntegrations do
       send_connector_event_request() :: %{
         optional("ConnectorDeviceId") => String.t(),
         optional("DeviceDiscoveryId") => String.t(),
-        optional("Devices") => list(device()()),
+        optional("Devices") => list(device()),
         optional("MatterEndpoint") => matter_endpoint(),
         optional("Message") => String.t(),
         optional("OperationVersion") => String.t(),
@@ -1247,7 +1247,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       ota_task_abort_config() :: %{
-        "AbortConfigCriteriaList" => list(abort_config_criteria()())
+        "AbortConfigCriteriaList" => list(abort_config_criteria())
       }
 
   """
@@ -1431,7 +1431,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       get_managed_thing_state_response() :: %{
-        "Endpoints" => list(state_endpoint()())
+        "Endpoints" => list(state_endpoint())
       }
 
   """
@@ -1490,7 +1490,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Brand") => String.t(),
         optional("Capabilities") => String.t(),
         optional("CapabilityReport") => capability_report(),
-        optional("CapabilitySchemas") => list(capability_schema_item()()),
+        optional("CapabilitySchemas") => list(capability_schema_item()),
         optional("Classification") => String.t(),
         optional("CredentialLockerId") => String.t(),
         optional("HubNetworkMode") => list(any()),
@@ -1550,7 +1550,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_account_associations_response() :: %{
-        "Items" => list(account_association_item()()),
+        "Items" => list(account_association_item()),
         "NextToken" => String.t()
       }
 
@@ -1586,7 +1586,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_connector_destinations_response() :: %{
-        "ConnectorDestinationList" => list(connector_destination_summary()()),
+        "ConnectorDestinationList" => list(connector_destination_summary()),
         "NextToken" => String.t()
       }
 
@@ -1787,7 +1787,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_managed_thing_schemas_response() :: %{
-        "Items" => list(managed_thing_schema_list_item()()),
+        "Items" => list(managed_thing_schema_list_item()),
         "NextToken" => String.t()
       }
 
@@ -1862,7 +1862,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_provisioning_profiles_response() :: %{
-        "Items" => list(provisioning_profile_summary()()),
+        "Items" => list(provisioning_profile_summary()),
         "NextToken" => String.t()
       }
 
@@ -1896,7 +1896,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_ota_task_executions_response() :: %{
-        "ExecutionSummaries" => list(ota_task_execution_summaries()()),
+        "ExecutionSummaries" => list(ota_task_execution_summaries()),
         "NextToken" => String.t()
       }
 
@@ -2042,7 +2042,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       matter_capability_report() :: %{
-        "endpoints" => list(matter_capability_report_endpoint()()),
+        "endpoints" => list(matter_capability_report_endpoint()),
         "nodeId" => String.t(),
         "version" => String.t()
       }
@@ -2101,7 +2101,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       command_endpoint() :: %{
-        "capabilities" => list(command_capability()()),
+        "capabilities" => list(command_capability()),
         "endpointId" => String.t()
       }
 
@@ -2147,11 +2147,11 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       capability_report_capability() :: %{
-        "actions" => list(String.t()()),
-        "events" => list(String.t()()),
+        "actions" => list(String.t()),
+        "events" => list(String.t()),
         "id" => String.t(),
         "name" => String.t(),
-        "properties" => list(String.t()()),
+        "properties" => list(String.t()),
         "version" => String.t()
       }
 
@@ -2214,7 +2214,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_managed_things_response() :: %{
-        "Items" => list(managed_thing_summary()()),
+        "Items" => list(managed_thing_summary()),
         "NextToken" => String.t()
       }
 
@@ -2330,7 +2330,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_discovered_devices_response() :: %{
-        "Items" => list(discovered_device_summary()()),
+        "Items" => list(discovered_device_summary()),
         "NextToken" => String.t()
       }
 
@@ -2378,7 +2378,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       capability_report() :: %{
-        "endpoints" => list(capability_report_endpoint()()),
+        "endpoints" => list(capability_report_endpoint()),
         "nodeId" => String.t(),
         "version" => String.t()
       }
@@ -2392,7 +2392,7 @@ defmodule AWS.IoTManagedIntegrations do
 
       device() :: %{
         "CapabilityReport" => matter_capability_report(),
-        "CapabilitySchemas" => list(capability_schema_item()()),
+        "CapabilitySchemas" => list(capability_schema_item()),
         "ConnectorDeviceId" => String.t(),
         "ConnectorDeviceName" => String.t(),
         "DeviceMetadata" => any()
@@ -2453,7 +2453,7 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       list_ota_task_configurations_response() :: %{
-        "Items" => list(ota_task_configuration_summary()()),
+        "Items" => list(ota_task_configuration_summary()),
         "NextToken" => String.t()
       }
 
@@ -2594,7 +2594,7 @@ defmodule AWS.IoTManagedIntegrations do
         optional("Brand") => String.t(),
         optional("Capabilities") => String.t(),
         optional("CapabilityReport") => capability_report(),
-        optional("CapabilitySchemas") => list(capability_schema_item()()),
+        optional("CapabilitySchemas") => list(capability_schema_item()),
         optional("Classification") => String.t(),
         optional("ClientToken") => String.t(),
         optional("CredentialLockerId") => String.t(),
@@ -2617,12 +2617,12 @@ defmodule AWS.IoTManagedIntegrations do
   ## Example:
 
       matter_capability_report_endpoint() :: %{
-        "clientClusters" => list(String.t()()),
-        "clusters" => list(matter_capability_report_cluster()()),
-        "deviceTypes" => list(String.t()()),
+        "clientClusters" => list(String.t()),
+        "clusters" => list(matter_capability_report_cluster()),
+        "deviceTypes" => list(String.t()),
         "id" => String.t(),
-        "parts" => list(String.t()()),
-        "semanticTags" => list(String.t()())
+        "parts" => list(String.t()),
+        "semanticTags" => list(String.t())
       }
 
   """

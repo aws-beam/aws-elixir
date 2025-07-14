@@ -38,7 +38,7 @@ defmodule AWS.GreengrassV2 do
         "componentDependencies" => map(),
         "componentLambdaParameters" => lambda_execution_parameters(),
         "componentName" => String.t(),
-        "componentPlatforms" => list(component_platform()()),
+        "componentPlatforms" => list(component_platform()),
         "componentVersion" => String.t(),
         "lambdaArn" => String.t()
       }
@@ -127,7 +127,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_component_versions_response() :: %{
-        "componentVersions" => list(component_version_list_item()()),
+        "componentVersions" => list(component_version_list_item()),
         "nextToken" => String.t()
       }
 
@@ -202,8 +202,8 @@ defmodule AWS.GreengrassV2 do
 
       lambda_execution_parameters() :: %{
         "environmentVariables" => map(),
-        "eventSources" => list(lambda_event_source()()),
-        "execArgs" => list(String.t()()),
+        "eventSources" => list(lambda_event_source()),
+        "execArgs" => list(String.t()),
         "inputPayloadEncodingType" => list(any()),
         "linuxProcessParams" => lambda_linux_process_params(),
         "maxIdleTimeInSeconds" => integer(),
@@ -222,7 +222,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_deployments_response() :: %{
-        "deployments" => list(deployment()()),
+        "deployments" => list(deployment()),
         "nextToken" => String.t()
       }
 
@@ -299,7 +299,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_core_devices_response() :: %{
-        "coreDevices" => list(core_device()()),
+        "coreDevices" => list(core_device()),
         "nextToken" => String.t()
       }
 
@@ -366,7 +366,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_installed_components_response() :: %{
-        "installedComponents" => list(installed_component()()),
+        "installedComponents" => list(installed_component()),
         "nextToken" => String.t()
       }
 
@@ -419,7 +419,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -465,7 +465,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       update_connectivity_info_request() :: %{
-        required("connectivityInfo") => list(connectivity_info()())
+        required("connectivityInfo") => list(connectivity_info())
       }
 
   """
@@ -563,7 +563,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       get_connectivity_info_response() :: %{
-        "connectivityInfo" => list(connectivity_info()()),
+        "connectivityInfo" => list(connectivity_info()),
         "message" => String.t()
       }
 
@@ -583,7 +583,7 @@ defmodule AWS.GreengrassV2 do
         "lastStatusChangeTimestamp" => non_neg_integer(),
         "lifecycleState" => list(any()),
         "lifecycleStateDetails" => String.t(),
-        "lifecycleStatusCodes" => list(String.t()())
+        "lifecycleStatusCodes" => list(String.t())
       }
 
   """
@@ -647,7 +647,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       batch_disassociate_client_device_from_core_device_response() :: %{
-        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry()())
+        "errorEntries" => list(disassociate_client_device_from_core_device_error_entry())
       }
 
   """
@@ -677,7 +677,7 @@ defmodule AWS.GreengrassV2 do
         "componentVersion" => String.t(),
         "creationTimestamp" => non_neg_integer(),
         "description" => String.t(),
-        "platforms" => list(component_platform()()),
+        "platforms" => list(component_platform()),
         "publisher" => String.t()
       }
 
@@ -803,8 +803,8 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       effective_deployment_status_details() :: %{
-        "errorStack" => list(String.t()()),
-        "errorTypes" => list(String.t()())
+        "errorStack" => list(String.t()),
+        "errorTypes" => list(String.t())
       }
 
   """
@@ -840,7 +840,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_client_devices_associated_with_core_device_response() :: %{
-        "associatedClientDevices" => list(associated_client_device()()),
+        "associatedClientDevices" => list(associated_client_device()),
         "nextToken" => String.t()
       }
 
@@ -907,7 +907,7 @@ defmodule AWS.GreengrassV2 do
 
       component_configuration_update() :: %{
         "merge" => String.t(),
-        "reset" => list(String.t()())
+        "reset" => list(String.t())
       }
 
   """
@@ -940,7 +940,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       resolve_component_candidates_response() :: %{
-        "resolvedComponentVersions" => list(resolved_component_version()())
+        "resolvedComponentVersions" => list(resolved_component_version())
       }
 
   """
@@ -964,7 +964,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       batch_disassociate_client_device_from_core_device_request() :: %{
-        optional("entries") => list(disassociate_client_device_from_core_device_entry()())
+        optional("entries") => list(disassociate_client_device_from_core_device_entry())
       }
 
   """
@@ -995,7 +995,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       io_t_job_abort_config() :: %{
-        "criteriaList" => list(io_t_job_abort_criteria()())
+        "criteriaList" => list(io_t_job_abort_criteria())
       }
 
   """
@@ -1019,10 +1019,10 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       lambda_container_params() :: %{
-        "devices" => list(lambda_device_mount()()),
+        "devices" => list(lambda_device_mount()),
         "memorySizeInKB" => integer(),
         "mountROSysfs" => boolean(),
-        "volumes" => list(lambda_volume_mount()())
+        "volumes" => list(lambda_volume_mount())
       }
 
   """
@@ -1033,7 +1033,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       validation_exception() :: %{
-        "fields" => list(validation_exception_field()()),
+        "fields" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -1109,7 +1109,7 @@ defmodule AWS.GreengrassV2 do
         "componentVersion" => String.t(),
         "creationTimestamp" => non_neg_integer(),
         "description" => String.t(),
-        "platforms" => list(component_platform()()),
+        "platforms" => list(component_platform()),
         "publisher" => String.t(),
         "status" => cloud_component_status(),
         "tags" => map()
@@ -1135,7 +1135,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_components_response() :: %{
-        "components" => list(component()()),
+        "components" => list(component()),
         "nextToken" => String.t()
       }
 
@@ -1171,7 +1171,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       batch_associate_client_device_with_core_device_response() :: %{
-        "errorEntries" => list(associate_client_device_with_core_device_error_entry()())
+        "errorEntries" => list(associate_client_device_with_core_device_error_entry())
       }
 
   """
@@ -1228,7 +1228,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       list_effective_deployments_response() :: %{
-        "effectiveDeployments" => list(effective_deployment()()),
+        "effectiveDeployments" => list(effective_deployment()),
         "nextToken" => String.t()
       }
 
@@ -1264,7 +1264,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       batch_associate_client_device_with_core_device_request() :: %{
-        optional("entries") => list(associate_client_device_with_core_device_entry()())
+        optional("entries") => list(associate_client_device_with_core_device_entry())
       }
 
   """
@@ -1320,7 +1320,7 @@ defmodule AWS.GreengrassV2 do
   ## Example:
 
       resolve_component_candidates_request() :: %{
-        optional("componentCandidates") => list(component_candidate()()),
+        optional("componentCandidates") => list(component_candidate()),
         optional("platform") => component_platform()
       }
 

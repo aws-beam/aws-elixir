@@ -102,7 +102,7 @@ defmodule AWS.Deadline do
 
       fleet_attribute_capability() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -137,7 +137,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_queue_environments_response() :: %{
-        "environments" => list(queue_environment_summary()()),
+        "environments" => list(queue_environment_summary()),
         "nextToken" => String.t()
       }
 
@@ -172,7 +172,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_queue_response() :: %{
-        "allowedStorageProfileIds" => list(String.t()()),
+        "allowedStorageProfileIds" => list(String.t()),
         "blockedReason" => list(any()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -183,7 +183,7 @@ defmodule AWS.Deadline do
         "jobAttachmentSettings" => job_attachment_settings(),
         "jobRunAsUser" => job_run_as_user(),
         "queueId" => String.t(),
-        "requiredFileSystemLocationNames" => list(String.t()()),
+        "requiredFileSystemLocationNames" => list(String.t()),
         "roleArn" => String.t(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
@@ -341,9 +341,9 @@ defmodule AWS.Deadline do
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("jobId") => String.t(),
         optional("pageSize") => integer(),
-        optional("sortExpressions") => list(list()()),
+        optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t()())
+        required("queueIds") => list(String.t())
       }
 
   """
@@ -385,7 +385,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_monitors_response() :: %{
-        "monitors" => list(monitor_summary()()),
+        "monitors" => list(monitor_summary()),
         "nextToken" => String.t()
       }
 
@@ -419,7 +419,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       batch_get_job_entity_request() :: %{
-        required("identifiers") => list(list()())
+        required("identifiers") => list(list())
       }
 
   """
@@ -465,8 +465,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       batch_get_job_entity_response() :: %{
-        "entities" => list(list()()),
-        "errors" => list(list()())
+        "entities" => list(list()),
+        "errors" => list(list())
       }
 
   """
@@ -490,7 +490,7 @@ defmodule AWS.Deadline do
       updated_session_action_info() :: %{
         "completedStatus" => list(any()),
         "endedAt" => non_neg_integer(),
-        "manifests" => list(task_run_manifest_properties_request()()),
+        "manifests" => list(task_run_manifest_properties_request()),
         "processExitCode" => integer(),
         "progressMessage" => String.t(),
         "progressPercent" => float(),
@@ -525,7 +525,7 @@ defmodule AWS.Deadline do
 
       list_queue_fleet_associations_response() :: %{
         "nextToken" => String.t(),
-        "queueFleetAssociations" => list(queue_fleet_association_summary()())
+        "queueFleetAssociations" => list(queue_fleet_association_summary())
       }
 
   """
@@ -566,7 +566,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_available_metered_products_response() :: %{
-        "meteredProducts" => list(metered_product_summary()()),
+        "meteredProducts" => list(metered_product_summary()),
         "nextToken" => String.t()
       }
 
@@ -608,8 +608,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       fleet_capabilities() :: %{
-        "amounts" => list(fleet_amount_capability()()),
-        "attributes" => list(fleet_attribute_capability()())
+        "amounts" => list(fleet_amount_capability()),
+        "attributes" => list(fleet_attribute_capability())
       }
 
   """
@@ -620,8 +620,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       step_required_capabilities() :: %{
-        "amounts" => list(step_amount_capability()()),
-        "attributes" => list(step_attribute_capability()())
+        "amounts" => list(step_amount_capability()),
+        "attributes" => list(step_attribute_capability())
       }
 
   """
@@ -664,8 +664,8 @@ defmodule AWS.Deadline do
       update_storage_profile_request() :: %{
         optional("clientToken") => String.t(),
         optional("displayName") => String.t(),
-        optional("fileSystemLocationsToAdd") => list(file_system_location()()),
-        optional("fileSystemLocationsToRemove") => list(file_system_location()()),
+        optional("fileSystemLocationsToAdd") => list(file_system_location()),
+        optional("fileSystemLocationsToRemove") => list(file_system_location()),
         optional("osFamily") => list(any())
       }
 
@@ -782,8 +782,8 @@ defmodule AWS.Deadline do
       search_workers_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
-        optional("sortExpressions") => list(list()()),
-        required("fleetIds") => list(String.t()()),
+        optional("sortExpressions") => list(list()),
+        required("fleetIds") => list(String.t()),
         required("itemOffset") => integer()
       }
 
@@ -821,7 +821,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_license_endpoints_response() :: %{
-        "licenseEndpoints" => list(license_endpoint_summary()()),
+        "licenseEndpoints" => list(license_endpoint_summary()),
         "nextToken" => String.t()
       }
 
@@ -906,7 +906,7 @@ defmodule AWS.Deadline do
         "fileSystemLocationName" => String.t(),
         "inputManifestHash" => String.t(),
         "inputManifestPath" => String.t(),
-        "outputRelativeDirectories" => list(String.t()()),
+        "outputRelativeDirectories" => list(String.t()),
         "rootPath" => String.t(),
         "rootPathFormat" => list(any())
       }
@@ -920,7 +920,7 @@ defmodule AWS.Deadline do
 
       list_sessions_for_worker_response() :: %{
         "nextToken" => String.t(),
-        "sessions" => list(worker_session_summary()())
+        "sessions" => list(worker_session_summary())
       }
 
   """
@@ -960,7 +960,7 @@ defmodule AWS.Deadline do
 
       worker_attribute_capability() :: %{
         "name" => String.t(),
-        "values" => list(String.t()())
+        "values" => list(String.t())
       }
 
   """
@@ -1043,7 +1043,7 @@ defmodule AWS.Deadline do
 
       search_steps_response() :: %{
         "nextItemOffset" => integer(),
-        "steps" => list(step_search_summary()()),
+        "steps" => list(step_search_summary()),
         "totalResults" => integer()
       }
 
@@ -1132,7 +1132,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_jobs_response() :: %{
-        "jobs" => list(job_summary()()),
+        "jobs" => list(job_summary()),
         "nextToken" => String.t()
       }
 
@@ -1166,7 +1166,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_limits_response() :: %{
-        "limits" => list(limit_summary()()),
+        "limits" => list(limit_summary()),
         "nextToken" => String.t()
       }
 
@@ -1211,7 +1211,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_fleets_response() :: %{
-        "fleets" => list(fleet_summary()()),
+        "fleets" => list(fleet_summary()),
         "nextToken" => String.t()
       }
 
@@ -1237,7 +1237,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       untag_resource_request() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -1261,16 +1261,16 @@ defmodule AWS.Deadline do
   ## Example:
 
       update_queue_request() :: %{
-        optional("allowedStorageProfileIdsToAdd") => list(String.t()()),
-        optional("allowedStorageProfileIdsToRemove") => list(String.t()()),
+        optional("allowedStorageProfileIdsToAdd") => list(String.t()),
+        optional("allowedStorageProfileIdsToRemove") => list(String.t()),
         optional("clientToken") => String.t(),
         optional("defaultBudgetAction") => list(any()),
         optional("description") => String.t(),
         optional("displayName") => String.t(),
         optional("jobAttachmentSettings") => job_attachment_settings(),
         optional("jobRunAsUser") => job_run_as_user(),
-        optional("requiredFileSystemLocationNamesToAdd") => list(String.t()()),
-        optional("requiredFileSystemLocationNamesToRemove") => list(String.t()()),
+        optional("requiredFileSystemLocationNamesToAdd") => list(String.t()),
+        optional("requiredFileSystemLocationNamesToRemove") => list(String.t()),
         optional("roleArn") => String.t()
       }
 
@@ -1293,7 +1293,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_job_members_response() :: %{
-        "members" => list(job_member()()),
+        "members" => list(job_member()),
         "nextToken" => String.t()
       }
 
@@ -1381,7 +1381,7 @@ defmodule AWS.Deadline do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "displayName" => String.t(),
-        "fileSystemLocations" => list(file_system_location()()),
+        "fileSystemLocations" => list(file_system_location()),
         "osFamily" => list(any()),
         "storageProfileId" => String.t(),
         "updatedAt" => non_neg_integer(),
@@ -1397,11 +1397,11 @@ defmodule AWS.Deadline do
 
       service_managed_ec2_instance_capabilities() :: %{
         "acceleratorCapabilities" => accelerator_capabilities(),
-        "allowedInstanceTypes" => list(String.t()()),
+        "allowedInstanceTypes" => list(String.t()),
         "cpuArchitectureType" => list(any()),
-        "customAmounts" => list(fleet_amount_capability()()),
-        "customAttributes" => list(fleet_attribute_capability()()),
-        "excludedInstanceTypes" => list(String.t()()),
+        "customAmounts" => list(fleet_amount_capability()),
+        "customAttributes" => list(fleet_attribute_capability()),
+        "excludedInstanceTypes" => list(String.t()),
         "memoryMiB" => memory_mi_b_range(),
         "osFamily" => list(any()),
         "rootEbsVolume" => ec2_ebs_volume(),
@@ -1437,7 +1437,7 @@ defmodule AWS.Deadline do
 
       list_session_actions_response() :: %{
         "nextToken" => String.t(),
-        "sessionActions" => list(session_action_summary()())
+        "sessionActions" => list(session_action_summary())
       }
 
   """
@@ -1461,8 +1461,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       update_budget_request() :: %{
-        optional("actionsToAdd") => list(budget_action_to_add()()),
-        optional("actionsToRemove") => list(budget_action_to_remove()()),
+        optional("actionsToAdd") => list(budget_action_to_add()),
+        optional("actionsToRemove") => list(budget_action_to_remove()),
         optional("approximateDollarLimit") => float(),
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
@@ -1479,8 +1479,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       step_attribute_capability() :: %{
-        "allOf" => list(String.t()()),
-        "anyOf" => list(String.t()()),
+        "allOf" => list(String.t()),
+        "anyOf" => list(String.t()),
         "name" => String.t()
       }
 
@@ -1509,7 +1509,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       step_details_entity() :: %{
-        "dependencies" => list(String.t()()),
+        "dependencies" => list(String.t()),
         "jobId" => String.t(),
         "schemaVersion" => String.t(),
         "stepId" => String.t(),
@@ -1668,8 +1668,8 @@ defmodule AWS.Deadline do
       create_license_endpoint_request() :: %{
         optional("clientToken") => String.t(),
         optional("tags") => map(),
-        required("securityGroupIds") => list(String.t()()),
-        required("subnetIds") => list(String.t()()),
+        required("securityGroupIds") => list(String.t()),
+        required("subnetIds") => list(String.t()),
         required("vpcId") => String.t()
       }
 
@@ -1690,7 +1690,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       search_grouped_filter_expressions() :: %{
-        "filters" => list(list()()),
+        "filters" => list(list()),
         "operator" => list(any())
       }
 
@@ -1752,7 +1752,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_job_parameter_definitions_response() :: %{
-        "jobParameterDefinitions" => list(any()()),
+        "jobParameterDefinitions" => list(any()),
         "nextToken" => String.t()
       }
 
@@ -1766,9 +1766,9 @@ defmodule AWS.Deadline do
       search_jobs_request() :: %{
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("pageSize") => integer(),
-        optional("sortExpressions") => list(list()()),
+        optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t()())
+        required("queueIds") => list(String.t())
       }
 
   """
@@ -1791,7 +1791,7 @@ defmodule AWS.Deadline do
 
       list_sessions_response() :: %{
         "nextToken" => String.t(),
-        "sessions" => list(session_summary()())
+        "sessions" => list(session_summary())
       }
 
   """
@@ -1807,7 +1807,7 @@ defmodule AWS.Deadline do
         "jobRunAsUser" => job_run_as_user(),
         "logGroupName" => String.t(),
         "parameters" => map(),
-        "pathMappingRules" => list(path_mapping_rule()()),
+        "pathMappingRules" => list(path_mapping_rule()),
         "queueRoleArn" => String.t(),
         "schemaVersion" => String.t()
       }
@@ -1830,7 +1830,7 @@ defmodule AWS.Deadline do
 
       list_storage_profiles_response() :: %{
         "nextToken" => String.t(),
-        "storageProfiles" => list(storage_profile_summary()())
+        "storageProfiles" => list(storage_profile_summary())
       }
 
   """
@@ -1902,7 +1902,7 @@ defmodule AWS.Deadline do
 
       accelerator_capabilities() :: %{
         "count" => accelerator_count_range(),
-        "selections" => list(accelerator_selection()())
+        "selections" => list(accelerator_selection())
       }
 
   """
@@ -1991,7 +1991,7 @@ defmodule AWS.Deadline do
 
       list_storage_profiles_for_queue_response() :: %{
         "nextToken" => String.t(),
-        "storageProfiles" => list(storage_profile_summary()())
+        "storageProfiles" => list(storage_profile_summary())
       }
 
   """
@@ -2002,10 +2002,10 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_session_action_response() :: %{
-        "acquiredLimits" => list(acquired_limit()()),
+        "acquiredLimits" => list(acquired_limit()),
         "definition" => list(),
         "endedAt" => non_neg_integer(),
-        "manifests" => list(task_run_manifest_properties_response()()),
+        "manifests" => list(task_run_manifest_properties_response()),
         "processExitCode" => integer(),
         "progressMessage" => String.t(),
         "progressPercent" => float(),
@@ -2034,7 +2034,7 @@ defmodule AWS.Deadline do
 
       get_sessions_statistics_aggregation_response() :: %{
         "nextToken" => String.t(),
-        "statistics" => list(statistics()()),
+        "statistics" => list(statistics()),
         "status" => list(any()),
         "statusMessage" => String.t()
       }
@@ -2088,7 +2088,7 @@ defmodule AWS.Deadline do
       search_workers_response() :: %{
         "nextItemOffset" => integer(),
         "totalResults" => integer(),
-        "workers" => list(worker_search_summary()())
+        "workers" => list(worker_search_summary())
       }
 
   """
@@ -2171,7 +2171,7 @@ defmodule AWS.Deadline do
       session_action_summary() :: %{
         "definition" => list(),
         "endedAt" => non_neg_integer(),
-        "manifests" => list(task_run_manifest_properties_response()()),
+        "manifests" => list(task_run_manifest_properties_response()),
         "progressPercent" => float(),
         "sessionActionId" => String.t(),
         "startedAt" => non_neg_integer(),
@@ -2325,7 +2325,7 @@ defmodule AWS.Deadline do
 
       list_queue_limit_associations_response() :: %{
         "nextToken" => String.t(),
-        "queueLimitAssociations" => list(queue_limit_association_summary()())
+        "queueLimitAssociations" => list(queue_limit_association_summary())
       }
 
   """
@@ -2413,7 +2413,7 @@ defmodule AWS.Deadline do
 
       parameter_space() :: %{
         "combination" => String.t(),
-        "parameters" => list(step_parameter()())
+        "parameters" => list(step_parameter())
       }
 
   """
@@ -2424,7 +2424,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_metered_products_response() :: %{
-        "meteredProducts" => list(metered_product_summary()()),
+        "meteredProducts" => list(metered_product_summary()),
         "nextToken" => String.t()
       }
 
@@ -2462,7 +2462,7 @@ defmodule AWS.Deadline do
         "jobId" => String.t(),
         "logConfiguration" => log_configuration(),
         "queueId" => String.t(),
-        "sessionActions" => list(assigned_session_action()())
+        "sessionActions" => list(assigned_session_action())
       }
 
   """
@@ -2485,7 +2485,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       search_jobs_response() :: %{
-        "jobs" => list(job_search_summary()()),
+        "jobs" => list(job_search_summary()),
         "nextItemOffset" => integer(),
         "totalResults" => integer()
       }
@@ -2553,13 +2553,13 @@ defmodule AWS.Deadline do
   ## Example:
 
       create_queue_request() :: %{
-        optional("allowedStorageProfileIds") => list(String.t()()),
+        optional("allowedStorageProfileIds") => list(String.t()),
         optional("clientToken") => String.t(),
         optional("defaultBudgetAction") => list(any()),
         optional("description") => String.t(),
         optional("jobAttachmentSettings") => job_attachment_settings(),
         optional("jobRunAsUser") => job_run_as_user(),
-        optional("requiredFileSystemLocationNames") => list(String.t()()),
+        optional("requiredFileSystemLocationNames") => list(String.t()),
         optional("roleArn") => String.t(),
         optional("tags") => map(),
         required("displayName") => String.t()
@@ -2608,7 +2608,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_queue_members_response() :: %{
-        "members" => list(queue_member()()),
+        "members" => list(queue_member()),
         "nextToken" => String.t()
       }
 
@@ -2688,7 +2688,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_farm_members_response() :: %{
-        "members" => list(farm_member()()),
+        "members" => list(farm_member()),
         "nextToken" => String.t()
       }
 
@@ -2737,9 +2737,9 @@ defmodule AWS.Deadline do
         optional("filterExpressions") => search_grouped_filter_expressions(),
         optional("jobId") => String.t(),
         optional("pageSize") => integer(),
-        optional("sortExpressions") => list(list()()),
+        optional("sortExpressions") => list(list()),
         required("itemOffset") => integer(),
-        required("queueIds") => list(String.t()())
+        required("queueIds") => list(String.t())
       }
 
   """
@@ -2770,10 +2770,10 @@ defmodule AWS.Deadline do
       get_license_endpoint_response() :: %{
         "dnsName" => String.t(),
         "licenseEndpointId" => String.t(),
-        "securityGroupIds" => list(String.t()()),
+        "securityGroupIds" => list(String.t()),
         "status" => list(any()),
         "statusMessage" => String.t(),
-        "subnetIds" => list(String.t()()),
+        "subnetIds" => list(String.t()),
         "vpcId" => String.t()
       }
 
@@ -2842,7 +2842,7 @@ defmodule AWS.Deadline do
 
       attachments() :: %{
         "fileSystem" => list(any()),
-        "manifests" => list(manifest_properties()())
+        "manifests" => list(manifest_properties())
       }
 
   """
@@ -2942,7 +2942,7 @@ defmodule AWS.Deadline do
 
       list_steps_response() :: %{
         "nextToken" => String.t(),
-        "steps" => list(step_summary()())
+        "steps" => list(step_summary())
       }
 
   """
@@ -2954,7 +2954,7 @@ defmodule AWS.Deadline do
 
       list_workers_response() :: %{
         "nextToken" => String.t(),
-        "workers" => list(worker_summary()())
+        "workers" => list(worker_summary())
       }
 
   """
@@ -3008,7 +3008,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_step_consumers_response() :: %{
-        "consumers" => list(step_consumer()()),
+        "consumers" => list(step_consumer()),
         "nextToken" => String.t()
       }
 
@@ -3034,7 +3034,7 @@ defmodule AWS.Deadline do
 
       create_storage_profile_request() :: %{
         optional("clientToken") => String.t(),
-        optional("fileSystemLocations") => list(file_system_location()()),
+        optional("fileSystemLocations") => list(file_system_location()),
         required("displayName") => String.t(),
         required("osFamily") => list(any())
       }
@@ -3048,7 +3048,7 @@ defmodule AWS.Deadline do
 
       search_tasks_response() :: %{
         "nextItemOffset" => integer(),
-        "tasks" => list(task_search_summary()()),
+        "tasks" => list(task_search_summary()),
         "totalResults" => integer()
       }
 
@@ -3076,8 +3076,8 @@ defmodule AWS.Deadline do
         "acceleratorTotalMemoryMiB" => accelerator_total_memory_mi_b_range(),
         "acceleratorTypes" => list(list(any())()),
         "cpuArchitectureType" => list(any()),
-        "customAmounts" => list(fleet_amount_capability()()),
-        "customAttributes" => list(fleet_attribute_capability()()),
+        "customAmounts" => list(fleet_amount_capability()),
+        "customAttributes" => list(fleet_attribute_capability()),
         "memoryMiB" => memory_mi_b_range(),
         "osFamily" => list(any()),
         "vCpuCount" => v_cpu_count_range()
@@ -3114,8 +3114,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       ip_addresses() :: %{
-        "ipV4Addresses" => list(String.t()()),
-        "ipV6Addresses" => list(String.t()())
+        "ipV4Addresses" => list(String.t()),
+        "ipV6Addresses" => list(String.t())
       }
 
   """
@@ -3205,7 +3205,7 @@ defmodule AWS.Deadline do
       create_budget_request() :: %{
         optional("clientToken") => String.t(),
         optional("description") => String.t(),
-        required("actions") => list(budget_action_to_add()()),
+        required("actions") => list(budget_action_to_add()),
         required("approximateDollarLimit") => float(),
         required("displayName") => String.t(),
         required("schedule") => list(),
@@ -3220,7 +3220,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_budgets_response() :: %{
-        "budgets" => list(budget_summary()()),
+        "budgets" => list(budget_summary()),
         "nextToken" => String.t()
       }
 
@@ -3357,7 +3357,7 @@ defmodule AWS.Deadline do
 
       validation_exception() :: %{
         "context" => map(),
-        "fieldList" => list(validation_exception_field()()),
+        "fieldList" => list(validation_exception_field()),
         "message" => String.t(),
         "reason" => list(any())
       }
@@ -3617,7 +3617,7 @@ defmodule AWS.Deadline do
 
       list_queues_response() :: %{
         "nextToken" => String.t(),
-        "queues" => list(queue_summary()())
+        "queues" => list(queue_summary())
       }
 
   """
@@ -3938,7 +3938,7 @@ defmodule AWS.Deadline do
 
       list_tasks_response() :: %{
         "nextToken" => String.t(),
-        "tasks" => list(task_summary()())
+        "tasks" => list(task_summary())
       }
 
   """
@@ -3949,7 +3949,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       get_budget_response() :: %{
-        "actions" => list(response_budget_action()()),
+        "actions" => list(response_budget_action()),
         "approximateDollarLimit" => float(),
         "budgetId" => String.t(),
         "createdAt" => non_neg_integer(),
@@ -4061,7 +4061,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_fleet_members_response() :: %{
-        "members" => list(fleet_member()()),
+        "members" => list(fleet_member()),
         "nextToken" => String.t()
       }
 
@@ -4400,8 +4400,8 @@ defmodule AWS.Deadline do
   ## Example:
 
       worker_capabilities() :: %{
-        "amounts" => list(worker_amount_capability()()),
-        "attributes" => list(worker_attribute_capability()())
+        "amounts" => list(worker_amount_capability()),
+        "attributes" => list(worker_attribute_capability())
       }
 
   """
@@ -4430,7 +4430,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_farms_response() :: %{
-        "farms" => list(farm_summary()()),
+        "farms" => list(farm_summary()),
         "nextToken" => String.t()
       }
 
@@ -4442,7 +4442,7 @@ defmodule AWS.Deadline do
   ## Example:
 
       list_step_dependencies_response() :: %{
-        "dependencies" => list(step_dependency()()),
+        "dependencies" => list(step_dependency()),
         "nextToken" => String.t()
       }
 
@@ -4467,7 +4467,7 @@ defmodule AWS.Deadline do
 
       get_storage_profile_for_queue_response() :: %{
         "displayName" => String.t(),
-        "fileSystemLocations" => list(file_system_location()()),
+        "fileSystemLocations" => list(file_system_location()),
         "osFamily" => list(any()),
         "storageProfileId" => String.t()
       }

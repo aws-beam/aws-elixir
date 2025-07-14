@@ -53,7 +53,7 @@ defmodule AWS.CognitoIdentity do
       unlink_identity_input() :: %{
         required("IdentityId") => String.t(),
         required("Logins") => map(),
-        required("LoginsToRemove") => list(String.t()())
+        required("LoginsToRemove") => list(String.t())
       }
       
   """
@@ -111,13 +111,13 @@ defmodule AWS.CognitoIdentity do
       identity_pool() :: %{
         "AllowClassicFlow" => boolean(),
         "AllowUnauthenticatedIdentities" => boolean(),
-        "CognitoIdentityProviders" => list(cognito_identity_provider()()),
+        "CognitoIdentityProviders" => list(cognito_identity_provider()),
         "DeveloperProviderName" => String.t(),
         "IdentityPoolId" => String.t(),
         "IdentityPoolName" => String.t(),
         "IdentityPoolTags" => map(),
-        "OpenIdConnectProviderARNs" => list(String.t()()),
-        "SamlProviderARNs" => list(String.t()()),
+        "OpenIdConnectProviderARNs" => list(String.t()),
+        "SamlProviderARNs" => list(String.t()),
         "SupportedLoginProviders" => map()
       }
       
@@ -177,7 +177,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       delete_identities_response() :: %{
-        "UnprocessedIdentityIds" => list(unprocessed_identity_id()())
+        "UnprocessedIdentityIds" => list(unprocessed_identity_id())
       }
       
   """
@@ -213,7 +213,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       lookup_developer_identity_response() :: %{
-        "DeveloperUserIdentifierList" => list(String.t()()),
+        "DeveloperUserIdentifierList" => list(String.t()),
         "IdentityId" => String.t(),
         "NextToken" => String.t()
       }
@@ -265,7 +265,7 @@ defmodule AWS.CognitoIdentity do
         "CreationDate" => non_neg_integer(),
         "IdentityId" => String.t(),
         "LastModifiedDate" => non_neg_integer(),
-        "Logins" => list(String.t()())
+        "Logins" => list(String.t())
       }
       
   """
@@ -276,7 +276,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       list_identity_pools_response() :: %{
-        "IdentityPools" => list(identity_pool_short_description()()),
+        "IdentityPools" => list(identity_pool_short_description()),
         "NextToken" => String.t()
       }
       
@@ -326,7 +326,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       rules_configuration_type() :: %{
-        "Rules" => list(mapping_rule()())
+        "Rules" => list(mapping_rule())
       }
       
   """
@@ -362,7 +362,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       delete_identities_input() :: %{
-        required("IdentityIdsToDelete") => list(String.t()())
+        required("IdentityIdsToDelete") => list(String.t())
       }
       
   """
@@ -512,11 +512,11 @@ defmodule AWS.CognitoIdentity do
       
       create_identity_pool_input() :: %{
         optional("AllowClassicFlow") => boolean(),
-        optional("CognitoIdentityProviders") => list(cognito_identity_provider()()),
+        optional("CognitoIdentityProviders") => list(cognito_identity_provider()),
         optional("DeveloperProviderName") => String.t(),
         optional("IdentityPoolTags") => map(),
-        optional("OpenIdConnectProviderARNs") => list(String.t()()),
-        optional("SamlProviderARNs") => list(String.t()()),
+        optional("OpenIdConnectProviderARNs") => list(String.t()),
+        optional("SamlProviderARNs") => list(String.t()),
         optional("SupportedLoginProviders") => map(),
         required("AllowUnauthenticatedIdentities") => boolean(),
         required("IdentityPoolName") => String.t()
@@ -553,7 +553,7 @@ defmodule AWS.CognitoIdentity do
       
       untag_resource_input() :: %{
         required("ResourceArn") => String.t(),
-        required("TagKeys") => list(String.t()())
+        required("TagKeys") => list(String.t())
       }
       
   """
@@ -638,7 +638,7 @@ defmodule AWS.CognitoIdentity do
   ## Example:
       
       list_identities_response() :: %{
-        "Identities" => list(identity_description()()),
+        "Identities" => list(identity_description()),
         "IdentityPoolId" => String.t(),
         "NextToken" => String.t()
       }
@@ -972,7 +972,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, create_identity_pool_errors()}
   def create_identity_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIdentityPool", input, options)
   end
@@ -992,7 +993,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, delete_identities_errors()}
   def delete_identities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentities", input, options)
   end
@@ -1012,7 +1014,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, delete_identity_pool_errors()}
   def delete_identity_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentityPool", input, options)
   end
@@ -1030,7 +1033,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, describe_identity_errors()}
   def describe_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdentity", input, options)
   end
@@ -1048,7 +1052,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, describe_identity_pool_errors()}
   def describe_identity_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdentityPool", input, options)
   end
@@ -1069,7 +1074,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_credentials_for_identity_errors()}
   def get_credentials_for_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCredentialsForIdentity", input, options)
   end
@@ -1088,7 +1094,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_id_errors()}
   def get_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetId", input, options)
   end
@@ -1105,7 +1112,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_identity_pool_roles_errors()}
   def get_identity_pool_roles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityPoolRoles", input, options)
   end
@@ -1127,7 +1135,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_open_id_token_errors()}
   def get_open_id_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpenIdToken", input, options)
   end
@@ -1165,7 +1174,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_open_id_token_for_developer_identity_errors()}
   def get_open_id_token_for_developer_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetOpenIdTokenForDeveloperIdentity", input, options)
   end
@@ -1180,7 +1190,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, get_principal_tag_attribute_map_errors()}
   def get_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPrincipalTagAttributeMap", input, options)
   end
@@ -1197,7 +1208,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, list_identities_errors()}
   def list_identities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentities", input, options)
   end
@@ -1214,7 +1226,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, list_identity_pools_errors()}
   def list_identity_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentityPools", input, options)
   end
@@ -1234,7 +1247,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1272,7 +1286,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, lookup_developer_identity_errors()}
   def lookup_developer_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "LookupDeveloperIdentity", input, options)
   end
@@ -1306,7 +1321,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, merge_developer_identities_errors()}
   def merge_developer_identities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "MergeDeveloperIdentities", input, options)
   end
@@ -1325,7 +1341,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, set_identity_pool_roles_errors()}
   def set_identity_pool_roles(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIdentityPoolRoles", input, options)
   end
@@ -1341,7 +1358,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, set_principal_tag_attribute_map_errors()}
   def set_principal_tag_attribute_map(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetPrincipalTagAttributeMap", input, options)
   end
@@ -1380,7 +1398,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1404,7 +1423,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, unlink_developer_identity_errors()}
   def unlink_developer_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnlinkDeveloperIdentity", input, options)
   end
@@ -1425,7 +1445,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, unlink_identity_errors()}
   def unlink_identity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UnlinkIdentity", input, options)
   end
@@ -1442,7 +1463,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1462,7 +1484,8 @@ defmodule AWS.CognitoIdentity do
           | {:error, term()}
           | {:error, update_identity_pool_errors()}
   def update_identity_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIdentityPool", input, options)
   end

@@ -34,7 +34,7 @@ defmodule AWS.PersonalizeEvents do
         "actionId" => String.t(),
         "eventId" => String.t(),
         "eventType" => String.t(),
-        "impression" => list(String.t()()),
+        "impression" => list(String.t()),
         "properties" => String.t(),
         "recommendationId" => String.t(),
         "sessionId" => String.t(),
@@ -53,7 +53,7 @@ defmodule AWS.PersonalizeEvents do
         "eventId" => String.t(),
         "eventType" => String.t(),
         "eventValue" => float(),
-        "impression" => list(String.t()()),
+        "impression" => list(String.t()),
         "itemId" => String.t(),
         "metricAttribution" => metric_attribution(),
         "properties" => String.t(),
@@ -103,7 +103,7 @@ defmodule AWS.PersonalizeEvents do
   ## Example:
 
       put_action_interactions_request() :: %{
-        required("actionInteractions") => list(action_interaction()()),
+        required("actionInteractions") => list(action_interaction()),
         required("trackingId") => String.t()
       }
 
@@ -115,7 +115,7 @@ defmodule AWS.PersonalizeEvents do
   ## Example:
 
       put_actions_request() :: %{
-        required("actions") => list(action()()),
+        required("actions") => list(action()),
         required("datasetArn") => String.t()
       }
 
@@ -128,7 +128,7 @@ defmodule AWS.PersonalizeEvents do
 
       put_events_request() :: %{
         optional("userId") => String.t(),
-        required("eventList") => list(event()()),
+        required("eventList") => list(event()),
         required("sessionId") => String.t(),
         required("trackingId") => String.t()
       }
@@ -142,7 +142,7 @@ defmodule AWS.PersonalizeEvents do
 
       put_items_request() :: %{
         required("datasetArn") => String.t(),
-        required("items") => list(item()())
+        required("items") => list(item())
       }
 
   """
@@ -154,7 +154,7 @@ defmodule AWS.PersonalizeEvents do
 
       put_users_request() :: %{
         required("datasetArn") => String.t(),
-        required("users") => list(user()())
+        required("users") => list(user())
       }
 
   """

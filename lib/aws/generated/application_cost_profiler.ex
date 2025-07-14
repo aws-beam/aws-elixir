@@ -126,7 +126,7 @@ defmodule AWS.ApplicationCostProfiler do
 
       list_report_definitions_result() :: %{
         "nextToken" => String.t(),
-        "reportDefinitions" => list(report_definition()())
+        "reportDefinitions" => list(report_definition())
       }
 
   """

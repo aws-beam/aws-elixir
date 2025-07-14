@@ -110,9 +110,9 @@ defmodule AWS.Backup do
   ## Example:
 
       backup_plan_input() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanName" => String.t(),
-        "Rules" => list(backup_rule_input()())
+        "Rules" => list(backup_rule_input())
       }
 
   """
@@ -123,7 +123,7 @@ defmodule AWS.Backup do
   ## Example:
 
       backup_plans_list_member() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
         "BackupPlanName" => String.t(),
@@ -171,7 +171,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_vaults_output() :: %{
-        "BackupVaultList" => list(backup_vault_list_member()()),
+        "BackupVaultList" => list(backup_vault_list_member()),
         "NextToken" => String.t()
       }
 
@@ -261,7 +261,7 @@ defmodule AWS.Backup do
 
       list_protected_resources_by_backup_vault_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(protected_resource()())
+        "Results" => list(protected_resource())
       }
 
   """
@@ -318,7 +318,7 @@ defmodule AWS.Backup do
   ## Example:
 
       create_backup_plan_output() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
         "CreationDate" => non_neg_integer(),
@@ -349,9 +349,9 @@ defmodule AWS.Backup do
   ## Example:
 
       backup_plan() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanName" => String.t(),
-        "Rules" => list(backup_rule()())
+        "Rules" => list(backup_rule())
       }
 
   """
@@ -415,7 +415,7 @@ defmodule AWS.Backup do
 
       list_report_jobs_output() :: %{
         "NextToken" => String.t(),
-        "ReportJobs" => list(report_job()())
+        "ReportJobs" => list(report_job())
       }
 
   """
@@ -551,7 +551,7 @@ defmodule AWS.Backup do
 
       report_destination() :: %{
         "S3BucketName" => String.t(),
-        "S3Keys" => list(String.t()())
+        "S3Keys" => list(String.t())
       }
 
   """
@@ -618,7 +618,7 @@ defmodule AWS.Backup do
   ## Example:
 
       get_backup_plan_output() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlan" => backup_plan(),
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
@@ -646,7 +646,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_plans_output() :: %{
-        "BackupPlansList" => list(backup_plans_list_member()()),
+        "BackupPlansList" => list(backup_plans_list_member()),
         "NextToken" => String.t()
       }
 
@@ -777,7 +777,7 @@ defmodule AWS.Backup do
 
       list_restore_testing_plans_output() :: %{
         "NextToken" => [String.t()],
-        "RestoreTestingPlans" => list(restore_testing_plan_for_list()())
+        "RestoreTestingPlans" => list(restore_testing_plan_for_list())
       }
 
   """
@@ -917,8 +917,8 @@ defmodule AWS.Backup do
   ## Example:
 
       control_scope() :: %{
-        "ComplianceResourceIds" => list(String.t()()),
-        "ComplianceResourceTypes" => list(String.t()()),
+        "ComplianceResourceIds" => list(String.t()),
+        "ComplianceResourceTypes" => list(String.t()),
         "Tags" => map()
       }
 
@@ -961,7 +961,7 @@ defmodule AWS.Backup do
   ## Example:
 
       framework_control() :: %{
-        "ControlInputParameters" => list(control_input_parameter()()),
+        "ControlInputParameters" => list(control_input_parameter()),
         "ControlName" => String.t(),
         "ControlScope" => control_scope()
       }
@@ -974,7 +974,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_jobs_output() :: %{
-        "BackupJobs" => list(backup_job()()),
+        "BackupJobs" => list(backup_job()),
         "NextToken" => String.t()
       }
 
@@ -1030,7 +1030,7 @@ defmodule AWS.Backup do
 
       list_report_plans_output() :: %{
         "NextToken" => String.t(),
-        "ReportPlans" => list(report_plan()())
+        "ReportPlans" => list(report_plan())
       }
 
   """
@@ -1043,9 +1043,9 @@ defmodule AWS.Backup do
       backup_selection() :: %{
         "Conditions" => conditions(),
         "IamRoleArn" => String.t(),
-        "ListOfTags" => list(condition()()),
-        "NotResources" => list(String.t()()),
-        "Resources" => list(String.t()()),
+        "ListOfTags" => list(condition()),
+        "NotResources" => list(String.t()),
+        "Resources" => list(String.t()),
         "SelectionName" => String.t()
       }
 
@@ -1148,8 +1148,8 @@ defmodule AWS.Backup do
   ## Example:
 
       protected_resource_conditions() :: %{
-        "StringEquals" => list(key_value()()),
-        "StringNotEquals" => list(key_value()())
+        "StringEquals" => list(key_value()),
+        "StringNotEquals" => list(key_value())
       }
 
   """
@@ -1196,7 +1196,7 @@ defmodule AWS.Backup do
   ## Example:
 
       update_framework_input() :: %{
-        optional("FrameworkControls") => list(framework_control()()),
+        optional("FrameworkControls") => list(framework_control()),
         optional("FrameworkDescription") => String.t(),
         optional("IdempotencyToken") => String.t()
       }
@@ -1310,7 +1310,7 @@ defmodule AWS.Backup do
 
       list_restore_jobs_output() :: %{
         "NextToken" => String.t(),
-        "RestoreJobs" => list(restore_jobs_list_member()())
+        "RestoreJobs" => list(restore_jobs_list_member())
       }
 
   """
@@ -1372,7 +1372,7 @@ defmodule AWS.Backup do
 
       list_recovery_points_by_resource_output() :: %{
         "NextToken" => String.t(),
-        "RecoveryPoints" => list(recovery_point_by_resource()())
+        "RecoveryPoints" => list(recovery_point_by_resource())
       }
 
   """
@@ -1412,7 +1412,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_selections_output() :: %{
-        "BackupSelectionsList" => list(backup_selections_list_member()()),
+        "BackupSelectionsList" => list(backup_selections_list_member()),
         "NextToken" => String.t()
       }
 
@@ -1489,7 +1489,7 @@ defmodule AWS.Backup do
 
       restore_testing_selection_for_update() :: %{
         "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()()),
+        "ProtectedResourceArns" => list(String.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
         "RestoreMetadataOverrides" => map(),
         "ValidationWindowHours" => integer()
@@ -1607,7 +1607,7 @@ defmodule AWS.Backup do
 
       list_copy_job_summaries_output() :: %{
         "AggregationPeriod" => String.t(),
-        "CopyJobSummaries" => list(copy_job_summary()()),
+        "CopyJobSummaries" => list(copy_job_summary()),
         "NextToken" => String.t()
       }
 
@@ -1631,7 +1631,7 @@ defmodule AWS.Backup do
   ## Example:
 
       get_supported_resource_types_output() :: %{
-        "ResourceTypes" => list(String.t()())
+        "ResourceTypes" => list(String.t())
       }
 
   """
@@ -1657,8 +1657,8 @@ defmodule AWS.Backup do
 
       restore_testing_recovery_point_selection() :: %{
         "Algorithm" => list(any()),
-        "ExcludeVaults" => list(String.t()()),
-        "IncludeVaults" => list(String.t()()),
+        "ExcludeVaults" => list(String.t()),
+        "IncludeVaults" => list(String.t()),
         "RecoveryPointTypes" => list(list(any())()),
         "SelectionWindowDays" => integer()
       }
@@ -1748,8 +1748,8 @@ defmodule AWS.Backup do
 
       recovery_point_selection() :: %{
         "DateRange" => date_range(),
-        "ResourceIdentifiers" => list(String.t()()),
-        "VaultNames" => list(String.t()())
+        "ResourceIdentifiers" => list(String.t()),
+        "VaultNames" => list(String.t())
       }
 
   """
@@ -1760,10 +1760,10 @@ defmodule AWS.Backup do
   ## Example:
 
       conditions() :: %{
-        "StringEquals" => list(condition_parameter()()),
-        "StringLike" => list(condition_parameter()()),
-        "StringNotEquals" => list(condition_parameter()()),
-        "StringNotLike" => list(condition_parameter()())
+        "StringEquals" => list(condition_parameter()),
+        "StringLike" => list(condition_parameter()),
+        "StringNotEquals" => list(condition_parameter()),
+        "StringNotLike" => list(condition_parameter())
       }
 
   """
@@ -1818,7 +1818,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_indexed_recovery_points_output() :: %{
-        "IndexedRecoveryPoints" => list(indexed_recovery_point()()),
+        "IndexedRecoveryPoints" => list(indexed_recovery_point()),
         "NextToken" => String.t()
       }
 
@@ -1830,7 +1830,7 @@ defmodule AWS.Backup do
   ## Example:
 
       report_delivery_channel() :: %{
-        "Formats" => list(String.t()()),
+        "Formats" => list(String.t()),
         "S3BucketName" => String.t(),
         "S3KeyPrefix" => String.t()
       }
@@ -1844,7 +1844,7 @@ defmodule AWS.Backup do
 
       list_protected_resources_output() :: %{
         "NextToken" => String.t(),
-        "Results" => list(protected_resource()())
+        "Results" => list(protected_resource())
       }
 
   """
@@ -2042,11 +2042,11 @@ defmodule AWS.Backup do
   ## Example:
 
       report_setting() :: %{
-        "Accounts" => list(String.t()()),
-        "FrameworkArns" => list(String.t()()),
+        "Accounts" => list(String.t()),
+        "FrameworkArns" => list(String.t()),
         "NumberOfFrameworks" => integer(),
-        "OrganizationUnits" => list(String.t()()),
-        "Regions" => list(String.t()()),
+        "OrganizationUnits" => list(String.t()),
+        "Regions" => list(String.t()),
         "ReportTemplate" => String.t()
       }
 
@@ -2094,7 +2094,7 @@ defmodule AWS.Backup do
 
       restore_testing_selection_for_create() :: %{
         "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()()),
+        "ProtectedResourceArns" => list(String.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
         "ProtectedResourceType" => [String.t()],
         "RestoreMetadataOverrides" => map(),
@@ -2110,7 +2110,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_frameworks_output() :: %{
-        "Frameworks" => list(framework()()),
+        "Frameworks" => list(framework()),
         "NextToken" => String.t()
       }
 
@@ -2170,7 +2170,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_legal_holds_output() :: %{
-        "LegalHolds" => list(legal_hold()()),
+        "LegalHolds" => list(legal_hold()),
         "NextToken" => String.t()
       }
 
@@ -2192,9 +2192,9 @@ defmodule AWS.Backup do
 
       backup_rule() :: %{
         "CompletionWindowMinutes" => float(),
-        "CopyActions" => list(copy_action()()),
+        "CopyActions" => list(copy_action()),
         "EnableContinuousBackup" => boolean(),
-        "IndexActions" => list(index_action()()),
+        "IndexActions" => list(index_action()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
         "RuleId" => String.t(),
@@ -2238,7 +2238,7 @@ defmodule AWS.Backup do
   ## Example:
 
       untag_resource_input() :: %{
-        required("TagKeyList") => list(String.t()())
+        required("TagKeyList") => list(String.t())
       }
 
   """
@@ -2272,7 +2272,7 @@ defmodule AWS.Backup do
 
       list_recovery_points_by_legal_hold_output() :: %{
         "NextToken" => String.t(),
-        "RecoveryPoints" => list(recovery_point_member()())
+        "RecoveryPoints" => list(recovery_point_member())
       }
 
   """
@@ -2408,7 +2408,7 @@ defmodule AWS.Backup do
 
       list_restore_jobs_by_protected_resource_output() :: %{
         "NextToken" => String.t(),
-        "RestoreJobs" => list(restore_jobs_list_member()())
+        "RestoreJobs" => list(restore_jobs_list_member())
       }
 
   """
@@ -2443,7 +2443,7 @@ defmodule AWS.Backup do
         optional("FrameworkDescription") => String.t(),
         optional("FrameworkTags") => map(),
         optional("IdempotencyToken") => String.t(),
-        required("FrameworkControls") => list(framework_control()()),
+        required("FrameworkControls") => list(framework_control()),
         required("FrameworkName") => String.t()
       }
 
@@ -2491,7 +2491,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_copy_jobs_output() :: %{
-        "CopyJobs" => list(copy_job()()),
+        "CopyJobs" => list(copy_job()),
         "NextToken" => String.t()
       }
 
@@ -2607,9 +2607,9 @@ defmodule AWS.Backup do
 
       backup_rule_input() :: %{
         "CompletionWindowMinutes" => float(),
-        "CopyActions" => list(copy_action()()),
+        "CopyActions" => list(copy_action()),
         "EnableContinuousBackup" => boolean(),
-        "IndexActions" => list(index_action()()),
+        "IndexActions" => list(index_action()),
         "Lifecycle" => lifecycle(),
         "RecoveryPointTags" => map(),
         "RuleName" => String.t(),
@@ -2659,7 +2659,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_plan_versions_output() :: %{
-        "BackupPlanVersionsList" => list(backup_plans_list_member()()),
+        "BackupPlanVersionsList" => list(backup_plans_list_member()),
         "NextToken" => String.t()
       }
 
@@ -2709,7 +2709,7 @@ defmodule AWS.Backup do
 
       list_backup_job_summaries_output() :: %{
         "AggregationPeriod" => String.t(),
-        "BackupJobSummaries" => list(backup_job_summary()()),
+        "BackupJobSummaries" => list(backup_job_summary()),
         "NextToken" => String.t()
       }
 
@@ -2722,7 +2722,7 @@ defmodule AWS.Backup do
 
       list_recovery_points_by_backup_vault_output() :: %{
         "NextToken" => String.t(),
-        "RecoveryPoints" => list(recovery_point_by_backup_vault()())
+        "RecoveryPoints" => list(recovery_point_by_backup_vault())
       }
 
   """
@@ -2853,7 +2853,7 @@ defmodule AWS.Backup do
       list_restore_job_summaries_output() :: %{
         "AggregationPeriod" => String.t(),
         "NextToken" => String.t(),
-        "RestoreJobSummaries" => list(restore_job_summary()())
+        "RestoreJobSummaries" => list(restore_job_summary())
       }
 
   """
@@ -2867,7 +2867,7 @@ defmodule AWS.Backup do
         "CreationTime" => non_neg_integer(),
         "DeploymentStatus" => String.t(),
         "FrameworkArn" => String.t(),
-        "FrameworkControls" => list(framework_control()()),
+        "FrameworkControls" => list(framework_control()),
         "FrameworkDescription" => String.t(),
         "FrameworkName" => String.t(),
         "FrameworkStatus" => String.t(),
@@ -2941,7 +2941,7 @@ defmodule AWS.Backup do
 
       list_restore_testing_selections_output() :: %{
         "NextToken" => [String.t()],
-        "RestoreTestingSelections" => list(restore_testing_selection_for_list()())
+        "RestoreTestingSelections" => list(restore_testing_selection_for_list())
       }
 
   """
@@ -3079,7 +3079,7 @@ defmodule AWS.Backup do
         "CreationTime" => [non_neg_integer()],
         "CreatorRequestId" => [String.t()],
         "IamRoleArn" => [String.t()],
-        "ProtectedResourceArns" => list(String.t()()),
+        "ProtectedResourceArns" => list(String.t()),
         "ProtectedResourceConditions" => protected_resource_conditions(),
         "ProtectedResourceType" => [String.t()],
         "RestoreMetadataOverrides" => map(),
@@ -3132,7 +3132,7 @@ defmodule AWS.Backup do
   ## Example:
 
       index_action() :: %{
-        "ResourceTypes" => list(String.t()())
+        "ResourceTypes" => list(String.t())
       }
 
   """
@@ -3177,7 +3177,7 @@ defmodule AWS.Backup do
   ## Example:
 
       list_backup_plan_templates_output() :: %{
-        "BackupPlanTemplatesList" => list(backup_plan_templates_list_member()()),
+        "BackupPlanTemplatesList" => list(backup_plan_templates_list_member()),
         "NextToken" => String.t()
       }
 
@@ -3269,7 +3269,7 @@ defmodule AWS.Backup do
   ## Example:
 
       update_backup_plan_output() :: %{
-        "AdvancedBackupSettings" => list(advanced_backup_setting()()),
+        "AdvancedBackupSettings" => list(advanced_backup_setting()),
         "BackupPlanArn" => String.t(),
         "BackupPlanId" => String.t(),
         "CreationDate" => non_neg_integer(),
@@ -3285,7 +3285,7 @@ defmodule AWS.Backup do
 
       list_restore_access_backup_vaults_output() :: %{
         "NextToken" => String.t(),
-        "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member()())
+        "RestoreAccessBackupVaults" => list(restore_access_backup_vault_list_member())
       }
 
   """

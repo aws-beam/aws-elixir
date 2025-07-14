@@ -57,7 +57,7 @@ defmodule AWS.NetworkMonitor do
         "modifiedAt" => non_neg_integer(),
         "monitorArn" => String.t(),
         "monitorName" => String.t(),
-        "probes" => list(probe()()),
+        "probes" => list(probe()),
         "state" => list(any()),
         "tags" => map()
       }
@@ -70,7 +70,7 @@ defmodule AWS.NetworkMonitor do
   ## Example:
 
       list_monitors_output() :: %{
-        "monitors" => list(monitor_summary()()),
+        "monitors" => list(monitor_summary()),
         "nextToken" => [String.t()]
       }
 
@@ -312,7 +312,7 @@ defmodule AWS.NetworkMonitor do
   ## Example:
 
       untag_resource_input() :: %{
-        required("tagKeys") => list(String.t()())
+        required("tagKeys") => list(String.t())
       }
 
   """
@@ -483,7 +483,7 @@ defmodule AWS.NetworkMonitor do
       create_monitor_input() :: %{
         optional("aggregationPeriod") => float(),
         optional("clientToken") => [String.t()],
-        optional("probes") => list(create_monitor_probe_input()()),
+        optional("probes") => list(create_monitor_probe_input()),
         optional("tags") => map(),
         required("monitorName") => String.t()
       }

@@ -47,7 +47,7 @@ defmodule AWS.ConnectContactLens do
   ## Example:
 
       categories() :: %{
-        "MatchedCategories" => list(String.t()()),
+        "MatchedCategories" => list(String.t()),
         "MatchedDetails" => map()
       }
 
@@ -59,7 +59,7 @@ defmodule AWS.ConnectContactLens do
   ## Example:
 
       category_details() :: %{
-        "PointsOfInterest" => list(point_of_interest()())
+        "PointsOfInterest" => list(point_of_interest())
       }
 
   """
@@ -130,7 +130,7 @@ defmodule AWS.ConnectContactLens do
 
       list_realtime_contact_analysis_segments_response() :: %{
         "NextToken" => String.t(),
-        "Segments" => list(realtime_contact_analysis_segment()())
+        "Segments" => list(realtime_contact_analysis_segment())
       }
 
   """
@@ -205,7 +205,7 @@ defmodule AWS.ConnectContactLens do
         "Content" => String.t(),
         "EndOffsetMillis" => integer(),
         "Id" => String.t(),
-        "IssuesDetected" => list(issue_detected()()),
+        "IssuesDetected" => list(issue_detected()),
         "ParticipantId" => String.t(),
         "ParticipantRole" => String.t(),
         "Sentiment" => list(any())

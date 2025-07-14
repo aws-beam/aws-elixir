@@ -64,8 +64,8 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
       batch_get_record_identifier() :: %{
         "FeatureGroupName" => String.t(),
-        "FeatureNames" => list(String.t()()),
-        "RecordIdentifiersValueAsString" => list(String.t()())
+        "FeatureNames" => list(String.t()),
+        "RecordIdentifiersValueAsString" => list(String.t())
       }
 
   """
@@ -77,7 +77,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
       batch_get_record_request() :: %{
         optional("ExpirationTimeResponse") => list(any()),
-        required("Identifiers") => list(batch_get_record_identifier()())
+        required("Identifiers") => list(batch_get_record_identifier())
       }
 
   """
@@ -88,9 +88,9 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   ## Example:
 
       batch_get_record_response() :: %{
-        "Errors" => list(batch_get_record_error()()),
-        "Records" => list(batch_get_record_result_detail()()),
-        "UnprocessedIdentifiers" => list(batch_get_record_identifier()())
+        "Errors" => list(batch_get_record_error()),
+        "Records" => list(batch_get_record_result_detail()),
+        "UnprocessedIdentifiers" => list(batch_get_record_identifier())
       }
 
   """
@@ -103,7 +103,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       batch_get_record_result_detail() :: %{
         "ExpiresAt" => String.t(),
         "FeatureGroupName" => String.t(),
-        "Record" => list(feature_value()()),
+        "Record" => list(feature_value()),
         "RecordIdentifierValueAsString" => String.t()
       }
 
@@ -131,7 +131,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       feature_value() :: %{
         "FeatureName" => String.t(),
         "ValueAsString" => String.t(),
-        "ValueAsStringList" => list(String.t()())
+        "ValueAsStringList" => list(String.t())
       }
 
   """
@@ -143,7 +143,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
       get_record_request() :: %{
         optional("ExpirationTimeResponse") => list(any()),
-        optional("FeatureNames") => list(String.t()()),
+        optional("FeatureNames") => list(String.t()),
         required("RecordIdentifierValueAsString") => String.t()
       }
 
@@ -156,7 +156,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
       get_record_response() :: %{
         "ExpiresAt" => String.t(),
-        "Record" => list(feature_value()())
+        "Record" => list(feature_value())
       }
 
   """
@@ -180,7 +180,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
       put_record_request() :: %{
         optional("TargetStores") => list(list(any())()),
         optional("TtlDuration") => ttl_duration(),
-        required("Record") => list(feature_value()())
+        required("Record") => list(feature_value())
       }
 
   """

@@ -16,10 +16,6 @@ jobs:
       matrix:
         include:
           - pair:
-              elixir: "1.13.4"
-              otp: "25.0"
-            lint: lint
-          - pair:
               elixir: "1.16.0"
               otp: "26.0"
             lint: lint

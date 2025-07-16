@@ -4833,8 +4833,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, associate_resource_types_errors()}
   def associate_resource_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateResourceTypes", input, options)
   end
@@ -4864,8 +4863,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_aggregate_resource_config_errors()}
   def batch_get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetAggregateResourceConfig", input, options)
   end
@@ -4894,8 +4892,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, batch_get_resource_config_errors()}
   def batch_get_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetResourceConfig", input, options)
   end
@@ -4914,8 +4911,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_aggregation_authorization_errors()}
   def delete_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAggregationAuthorization", input, options)
   end
@@ -4962,8 +4958,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_config_rule_errors()}
   def delete_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConfigRule", input, options)
   end
@@ -4978,8 +4973,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_aggregator_errors()}
   def delete_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationAggregator", input, options)
   end
@@ -5001,8 +4995,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_configuration_recorder_errors()}
   def delete_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationRecorder", input, options)
   end
@@ -5022,8 +5015,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_conformance_pack_errors()}
   def delete_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConformancePack", input, options)
   end
@@ -5041,8 +5033,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_delivery_channel_errors()}
   def delete_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryChannel", input, options)
   end
@@ -5062,8 +5053,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_evaluation_results_errors()}
   def delete_evaluation_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEvaluationResults", input, options)
   end
@@ -5088,8 +5078,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_config_rule_errors()}
   def delete_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConfigRule", input, options)
   end
@@ -5119,8 +5108,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_organization_conformance_pack_errors()}
   def delete_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOrganizationConformancePack", input, options)
   end
@@ -5139,8 +5127,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_pending_aggregation_request_errors()}
   def delete_pending_aggregation_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePendingAggregationRequest", input, options)
   end
@@ -5158,8 +5145,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_configuration_errors()}
   def delete_remediation_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRemediationConfiguration", input, options)
   end
@@ -5177,8 +5163,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_remediation_exceptions_errors()}
   def delete_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRemediationExceptions", input, options)
   end
@@ -5196,8 +5181,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_resource_config_errors()}
   def delete_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourceConfig", input, options)
   end
@@ -5211,8 +5195,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_retention_configuration_errors()}
   def delete_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRetentionConfiguration", input, options)
   end
@@ -5246,8 +5229,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_service_linked_configuration_recorder_errors()}
   def delete_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceLinkedConfigurationRecorder", input, options)
   end
@@ -5262,8 +5244,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, delete_stored_query_errors()}
   def delete_stored_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStoredQuery", input, options)
   end
@@ -5293,8 +5274,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, deliver_config_snapshot_errors()}
   def deliver_config_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeliverConfigSnapshot", input, options)
   end
@@ -5319,8 +5299,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_config_rules_errors()}
   def describe_aggregate_compliance_by_config_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAggregateComplianceByConfigRules", input, options)
   end
@@ -5347,8 +5326,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregate_compliance_by_conformance_packs_errors()}
   def describe_aggregate_compliance_by_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5373,8 +5351,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_aggregation_authorizations_errors()}
   def describe_aggregation_authorizations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAggregationAuthorizations", input, options)
   end
@@ -5426,8 +5403,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_config_rule_errors()}
   def describe_compliance_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByConfigRule", input, options)
   end
@@ -5476,8 +5452,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_compliance_by_resource_errors()}
   def describe_compliance_by_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeComplianceByResource", input, options)
   end
@@ -5499,8 +5474,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rule_evaluation_status_errors()}
   def describe_config_rule_evaluation_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigRuleEvaluationStatus", input, options)
   end
@@ -5514,8 +5488,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_config_rules_errors()}
   def describe_config_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigRules", input, options)
   end
@@ -5537,8 +5510,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregator_sources_status_errors()}
   def describe_configuration_aggregator_sources_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5566,8 +5538,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_aggregators_errors()}
   def describe_configuration_aggregators(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationAggregators", input, options)
   end
@@ -5597,8 +5568,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorder_status_errors()}
   def describe_configuration_recorder_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorderStatus", input, options)
   end
@@ -5623,8 +5593,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_configuration_recorders_errors()}
   def describe_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationRecorders", input, options)
   end
@@ -5644,8 +5613,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_compliance_errors()}
   def describe_conformance_pack_compliance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackCompliance", input, options)
   end
@@ -5665,8 +5633,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_pack_status_errors()}
   def describe_conformance_pack_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConformancePackStatus", input, options)
   end
@@ -5680,8 +5647,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_conformance_packs_errors()}
   def describe_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConformancePacks", input, options)
   end
@@ -5706,8 +5672,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channel_status_errors()}
   def describe_delivery_channel_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannelStatus", input, options)
   end
@@ -5728,8 +5693,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_delivery_channels_errors()}
   def describe_delivery_channels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryChannels", input, options)
   end
@@ -5756,8 +5720,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rule_statuses_errors()}
   def describe_organization_config_rule_statuses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRuleStatuses", input, options)
   end
@@ -5800,8 +5763,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_config_rules_errors()}
   def describe_organization_config_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConfigRules", input, options)
   end
@@ -5829,8 +5791,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_pack_statuses_errors()}
   def describe_organization_conformance_pack_statuses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5879,8 +5840,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_organization_conformance_packs_errors()}
   def describe_organization_conformance_packs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrganizationConformancePacks", input, options)
   end
@@ -5898,8 +5858,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_pending_aggregation_requests_errors()}
   def describe_pending_aggregation_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePendingAggregationRequests", input, options)
   end
@@ -5916,8 +5875,7 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRemediationConfigurations", input, options)
   end
@@ -5944,8 +5902,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_exceptions_errors()}
   def describe_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExceptions", input, options)
   end
@@ -5967,8 +5924,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_remediation_execution_status_errors()}
   def describe_remediation_execution_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRemediationExecutionStatus", input, options)
   end
@@ -5994,8 +5950,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, describe_retention_configurations_errors()}
   def describe_retention_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRetentionConfigurations", input, options)
   end
@@ -6014,8 +5969,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, disassociate_resource_types_errors()}
   def disassociate_resource_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateResourceTypes", input, options)
   end
@@ -6042,8 +5996,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_compliance_details_by_config_rule_errors()}
   def get_aggregate_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6072,8 +6025,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_config_rule_compliance_summary_errors()}
   def get_aggregate_config_rule_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAggregateConfigRuleComplianceSummary", input, options)
   end
@@ -6098,8 +6050,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_conformance_pack_compliance_summary_errors()}
   def get_aggregate_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6132,8 +6083,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_discovered_resource_counts_errors()}
   def get_aggregate_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAggregateDiscoveredResourceCounts", input, options)
   end
@@ -6150,8 +6100,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_aggregate_resource_config_errors()}
   def get_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAggregateResourceConfig", input, options)
   end
@@ -6174,8 +6123,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_config_rule_errors()}
   def get_compliance_details_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByConfigRule", input, options)
   end
@@ -6197,8 +6145,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_details_by_resource_errors()}
   def get_compliance_details_by_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceDetailsByResource", input, options)
   end
@@ -6212,8 +6159,7 @@ defmodule AWS.Config do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_compliance_summary_by_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByConfigRule", input, options)
   end
@@ -6236,8 +6182,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_compliance_summary_by_resource_type_errors()}
   def get_compliance_summary_by_resource_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceSummaryByResourceType", input, options)
   end
@@ -6256,8 +6201,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_details_errors()}
   def get_conformance_pack_compliance_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceDetails", input, options)
   end
@@ -6276,8 +6220,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_conformance_pack_compliance_summary_errors()}
   def get_conformance_pack_compliance_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConformancePackComplianceSummary", input, options)
   end
@@ -6292,8 +6235,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_custom_rule_policy_errors()}
   def get_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCustomRulePolicy", input, options)
   end
@@ -6357,8 +6299,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_discovered_resource_counts_errors()}
   def get_discovered_resource_counts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDiscoveredResourceCounts", input, options)
   end
@@ -6377,8 +6318,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_config_rule_detailed_status_errors()}
   def get_organization_config_rule_detailed_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOrganizationConfigRuleDetailedStatus", input, options)
   end
@@ -6397,8 +6337,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_conformance_pack_detailed_status_errors()}
   def get_organization_conformance_pack_detailed_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -6423,8 +6362,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_organization_custom_rule_policy_errors()}
   def get_organization_custom_rule_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOrganizationCustomRulePolicy", input, options)
   end
@@ -6463,8 +6401,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_config_history_errors()}
   def get_resource_config_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceConfigHistory", input, options)
   end
@@ -6491,8 +6428,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_resource_evaluation_summary_errors()}
   def get_resource_evaluation_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceEvaluationSummary", input, options)
   end
@@ -6506,8 +6442,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, get_stored_query_errors()}
   def get_stored_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStoredQuery", input, options)
   end
@@ -6535,8 +6470,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_aggregate_discovered_resources_errors()}
   def list_aggregate_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAggregateDiscoveredResources", input, options)
   end
@@ -6550,8 +6484,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_configuration_recorders_errors()}
   def list_configuration_recorders(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConfigurationRecorders", input, options)
   end
@@ -6579,8 +6512,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_conformance_pack_compliance_scores_errors()}
   def list_conformance_pack_compliance_scores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConformancePackComplianceScores", input, options)
   end
@@ -6612,8 +6544,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -6627,8 +6558,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_resource_evaluations_errors()}
   def list_resource_evaluations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceEvaluations", input, options)
   end
@@ -6645,8 +6575,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_stored_queries_errors()}
   def list_stored_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStoredQueries", input, options)
   end
@@ -6660,8 +6589,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -6690,8 +6618,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_aggregation_authorization_errors()}
   def put_aggregation_authorization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAggregationAuthorization", input, options)
   end
@@ -6771,8 +6698,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_config_rule_errors()}
   def put_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutConfigRule", input, options)
   end
@@ -6824,8 +6750,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_aggregator_errors()}
   def put_configuration_aggregator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutConfigurationAggregator", input, options)
   end
@@ -6880,8 +6805,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_configuration_recorder_errors()}
   def put_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutConfigurationRecorder", input, options)
   end
@@ -6911,8 +6835,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_conformance_pack_errors()}
   def put_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutConformancePack", input, options)
   end
@@ -6941,8 +6864,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_delivery_channel_errors()}
   def put_delivery_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDeliveryChannel", input, options)
   end
@@ -6960,8 +6882,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_evaluations_errors()}
   def put_evaluations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutEvaluations", input, options)
   end
@@ -6978,8 +6899,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_external_evaluation_errors()}
   def put_external_evaluation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutExternalEvaluation", input, options)
   end
@@ -7057,8 +6977,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_config_rule_errors()}
   def put_organization_config_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutOrganizationConfigRule", input, options)
   end
@@ -7113,8 +7032,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_organization_conformance_pack_errors()}
   def put_organization_conformance_pack(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutOrganizationConformancePack", input, options)
   end
@@ -7171,8 +7089,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_configurations_errors()}
   def put_remediation_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRemediationConfigurations", input, options)
   end
@@ -7240,8 +7157,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_remediation_exceptions_errors()}
   def put_remediation_exceptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRemediationExceptions", input, options)
   end
@@ -7270,8 +7186,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_resource_config_errors()}
   def put_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourceConfig", input, options)
   end
@@ -7296,8 +7211,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_retention_configuration_errors()}
   def put_retention_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRetentionConfiguration", input, options)
   end
@@ -7343,8 +7257,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_service_linked_configuration_recorder_errors()}
   def put_service_linked_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutServiceLinkedConfigurationRecorder", input, options)
   end
@@ -7372,8 +7285,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, put_stored_query_errors()}
   def put_stored_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutStoredQuery", input, options)
   end
@@ -7412,8 +7324,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_aggregate_resource_config_errors()}
   def select_aggregate_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SelectAggregateResourceConfig", input, options)
   end
@@ -7435,8 +7346,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, select_resource_config_errors()}
   def select_resource_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SelectResourceConfig", input, options)
   end
@@ -7496,8 +7406,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_config_rules_evaluation_errors()}
   def start_config_rules_evaluation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartConfigRulesEvaluation", input, options)
   end
@@ -7519,8 +7428,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_configuration_recorder_errors()}
   def start_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartConfigurationRecorder", input, options)
   end
@@ -7542,8 +7450,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_remediation_execution_errors()}
   def start_remediation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRemediationExecution", input, options)
   end
@@ -7577,8 +7484,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, start_resource_evaluation_errors()}
   def start_resource_evaluation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartResourceEvaluation", input, options)
   end
@@ -7595,8 +7501,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, stop_configuration_recorder_errors()}
   def stop_configuration_recorder(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopConfigurationRecorder", input, options)
   end
@@ -7616,8 +7521,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -7631,8 +7535,7 @@ defmodule AWS.Config do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

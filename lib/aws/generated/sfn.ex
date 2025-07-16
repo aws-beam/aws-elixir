@@ -2448,8 +2448,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_activity_errors()}
   def create_activity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateActivity", input, options)
   end
@@ -2494,8 +2493,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_errors()}
   def create_state_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStateMachine", input, options)
   end
@@ -2556,8 +2554,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, create_state_machine_alias_errors()}
   def create_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStateMachineAlias", input, options)
   end
@@ -2571,8 +2568,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_activity_errors()}
   def delete_activity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteActivity", input, options)
   end
@@ -2620,8 +2616,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_errors()}
   def delete_state_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStateMachine", input, options)
   end
@@ -2660,8 +2655,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_alias_errors()}
   def delete_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineAlias", input, options)
   end
@@ -2695,8 +2689,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, delete_state_machine_version_errors()}
   def delete_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStateMachineVersion", input, options)
   end
@@ -2713,8 +2706,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_activity_errors()}
   def describe_activity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeActivity", input, options)
   end
@@ -2746,8 +2738,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExecution", input, options)
   end
@@ -2767,8 +2758,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_map_run_errors()}
   def describe_map_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMapRun", input, options)
   end
@@ -2817,8 +2807,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_errors()}
   def describe_state_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStateMachine", input, options)
   end
@@ -2851,8 +2840,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_alias_errors()}
   def describe_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineAlias", input, options)
   end
@@ -2882,8 +2870,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, describe_state_machine_for_execution_errors()}
   def describe_state_machine_for_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStateMachineForExecution", input, options)
   end
@@ -2919,8 +2906,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_activity_task_errors()}
   def get_activity_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetActivityTask", input, options)
   end
@@ -2947,8 +2933,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, get_execution_history_errors()}
   def get_execution_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetExecutionHistory", input, options)
   end
@@ -2971,8 +2956,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_activities_errors()}
   def list_activities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListActivities", input, options)
   end
@@ -3011,8 +2995,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
   end
@@ -3029,8 +3012,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_map_runs_errors()}
   def list_map_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMapRuns", input, options)
   end
@@ -3075,8 +3057,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_aliases_errors()}
   def list_state_machine_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStateMachineAliases", input, options)
   end
@@ -3110,8 +3091,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machine_versions_errors()}
   def list_state_machine_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStateMachineVersions", input, options)
   end
@@ -3134,8 +3114,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_state_machines_errors()}
   def list_state_machines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStateMachines", input, options)
   end
@@ -3152,8 +3131,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3197,8 +3175,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, publish_state_machine_version_errors()}
   def publish_state_machine_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PublishStateMachineVersion", input, options)
   end
@@ -3263,8 +3240,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, redrive_execution_errors()}
   def redrive_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RedriveExecution", input, options)
   end
@@ -3288,8 +3264,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_failure_errors()}
   def send_task_failure(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendTaskFailure", input, options)
   end
@@ -3326,8 +3301,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_heartbeat_errors()}
   def send_task_heartbeat(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendTaskHeartbeat", input, options)
   end
@@ -3345,8 +3319,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, send_task_success_errors()}
   def send_task_success(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendTaskSuccess", input, options)
   end
@@ -3407,8 +3380,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_execution_errors()}
   def start_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartExecution", input, options)
   end
@@ -3435,8 +3407,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, start_sync_execution_errors()}
   def start_sync_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "StartSyncExecution", input, options)
   end
@@ -3459,8 +3430,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, stop_execution_errors()}
   def stop_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopExecution", input, options)
   end
@@ -3482,8 +3452,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3555,8 +3524,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, test_state_errors()}
   def test_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata() |> Map.put_new(:host_prefix, "sync-")
+    meta = metadata() |> Map.put_new(:host_prefix, "sync-")
 
     Request.request_post(client, meta, "TestState", input, options)
   end
@@ -3570,8 +3538,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3586,8 +3553,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_map_run_errors()}
   def update_map_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMapRun", input, options)
   end
@@ -3655,8 +3621,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_errors()}
   def update_state_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStateMachine", input, options)
   end
@@ -3704,8 +3669,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, update_state_machine_alias_errors()}
   def update_state_machine_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStateMachineAlias", input, options)
   end
@@ -3763,8 +3727,7 @@ defmodule AWS.SFN do
           | {:error, term()}
           | {:error, validate_state_machine_definition_errors()}
   def validate_state_machine_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidateStateMachineDefinition", input, options)
   end

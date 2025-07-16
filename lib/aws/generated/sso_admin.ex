@@ -2916,8 +2916,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -2954,8 +2953,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, attach_managed_policy_to_permission_set_errors()}
   def attach_managed_policy_to_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachManagedPolicyToPermissionSet", input, options)
   end
@@ -2997,8 +2995,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_account_assignment_errors()}
   def create_account_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccountAssignment", input, options)
   end
@@ -3025,8 +3022,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3040,8 +3036,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_application_assignment_errors()}
   def create_application_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplicationAssignment", input, options)
   end
@@ -3069,8 +3064,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_instance_errors()}
   def create_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstance", input, options)
   end
@@ -3102,8 +3096,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3133,8 +3126,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_permission_set_errors()}
   def create_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePermissionSet", input, options)
   end
@@ -3159,8 +3151,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, create_trusted_token_issuer_errors()}
   def create_trusted_token_issuer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrustedTokenIssuer", input, options)
   end
@@ -3180,8 +3171,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_account_assignment_errors()}
   def delete_account_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccountAssignment", input, options)
   end
@@ -3198,8 +3188,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3213,8 +3202,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_application_access_scope_errors()}
   def delete_application_access_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationAccessScope", input, options)
   end
@@ -3230,8 +3218,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_application_assignment_errors()}
   def delete_application_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationAssignment", input, options)
   end
@@ -3249,8 +3236,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_application_authentication_method_errors()}
   def delete_application_authentication_method(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationAuthenticationMethod", input, options)
   end
@@ -3264,8 +3250,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_application_grant_errors()}
   def delete_application_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationGrant", input, options)
   end
@@ -3283,8 +3268,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_inline_policy_from_permission_set_errors()}
   def delete_inline_policy_from_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInlinePolicyFromPermissionSet", input, options)
   end
@@ -3303,8 +3287,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_instance_errors()}
   def delete_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstance", input, options)
   end
@@ -3334,8 +3317,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3355,8 +3337,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_permission_set_errors()}
   def delete_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePermissionSet", input, options)
   end
@@ -3374,8 +3355,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_permissions_boundary_from_permission_set_errors()}
   def delete_permissions_boundary_from_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3400,8 +3380,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, delete_trusted_token_issuer_errors()}
   def delete_trusted_token_issuer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrustedTokenIssuer", input, options)
   end
@@ -3419,8 +3398,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_account_assignment_creation_status_errors()}
   def describe_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAssignmentCreationStatus", input, options)
   end
@@ -3438,8 +3416,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_account_assignment_deletion_status_errors()}
   def describe_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAssignmentDeletionStatus", input, options)
   end
@@ -3454,8 +3431,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_application_errors()}
   def describe_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplication", input, options)
   end
@@ -3476,8 +3452,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_application_assignment_errors()}
   def describe_application_assignment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationAssignment", input, options)
   end
@@ -3493,8 +3468,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_application_provider_errors()}
   def describe_application_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationProvider", input, options)
   end
@@ -3528,8 +3502,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_instance_errors()}
   def describe_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstance", input, options)
   end
@@ -3559,8 +3532,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3580,8 +3552,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_permission_set_errors()}
   def describe_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePermissionSet", input, options)
   end
@@ -3599,8 +3570,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_permission_set_provisioning_status_errors()}
   def describe_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePermissionSetProvisioningStatus", input, options)
   end
@@ -3620,8 +3590,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, describe_trusted_token_issuer_errors()}
   def describe_trusted_token_issuer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustedTokenIssuer", input, options)
   end
@@ -3644,8 +3613,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3671,8 +3639,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, detach_managed_policy_from_permission_set_errors()}
   def detach_managed_policy_from_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachManagedPolicyFromPermissionSet", input, options)
   end
@@ -3687,8 +3654,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_application_access_scope_errors()}
   def get_application_access_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplicationAccessScope", input, options)
   end
@@ -3706,8 +3672,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_application_assignment_configuration_errors()}
   def get_application_assignment_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplicationAssignmentConfiguration", input, options)
   end
@@ -3725,8 +3690,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_application_authentication_method_errors()}
   def get_application_authentication_method(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplicationAuthenticationMethod", input, options)
   end
@@ -3740,8 +3704,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_application_grant_errors()}
   def get_application_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplicationGrant", input, options)
   end
@@ -3759,8 +3722,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_inline_policy_for_permission_set_errors()}
   def get_inline_policy_for_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInlinePolicyForPermissionSet", input, options)
   end
@@ -3778,8 +3740,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, get_permissions_boundary_for_permission_set_errors()}
   def get_permissions_boundary_for_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPermissionsBoundaryForPermissionSet", input, options)
   end
@@ -3799,8 +3760,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_account_assignment_creation_status_errors()}
   def list_account_assignment_creation_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountAssignmentCreationStatus", input, options)
   end
@@ -3820,8 +3780,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_account_assignment_deletion_status_errors()}
   def list_account_assignment_deletion_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountAssignmentDeletionStatus", input, options)
   end
@@ -3837,8 +3796,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_account_assignments_errors()}
   def list_account_assignments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountAssignments", input, options)
   end
@@ -3863,8 +3821,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_account_assignments_for_principal_errors()}
   def list_account_assignments_for_principal(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountAssignmentsForPrincipal", input, options)
   end
@@ -3883,8 +3840,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_accounts_for_provisioned_permission_set_errors()}
   def list_accounts_for_provisioned_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountsForProvisionedPermissionSet", input, options)
   end
@@ -3898,8 +3854,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_access_scopes_errors()}
   def list_application_access_scopes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationAccessScopes", input, options)
   end
@@ -3913,8 +3868,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_assignments_errors()}
   def list_application_assignments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationAssignments", input, options)
   end
@@ -3941,8 +3895,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_assignments_for_principal_errors()}
   def list_application_assignments_for_principal(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationAssignmentsForPrincipal", input, options)
   end
@@ -3960,8 +3913,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_authentication_methods_errors()}
   def list_application_authentication_methods(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationAuthenticationMethods", input, options)
   end
@@ -3975,8 +3927,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_grants_errors()}
   def list_application_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationGrants", input, options)
   end
@@ -3991,8 +3942,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_application_providers_errors()}
   def list_application_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationProviders", input, options)
   end
@@ -4013,8 +3963,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -4036,8 +3985,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -4059,8 +4007,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstances", input, options)
   end
@@ -4079,8 +4026,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_managed_policies_in_permission_set_errors()}
   def list_managed_policies_in_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListManagedPoliciesInPermissionSet", input, options)
   end
@@ -4100,8 +4046,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_permission_set_provisioning_status_errors()}
   def list_permission_set_provisioning_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPermissionSetProvisioningStatus", input, options)
   end
@@ -4115,8 +4060,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_permission_sets_errors()}
   def list_permission_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPermissionSets", input, options)
   end
@@ -4136,8 +4080,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_permission_sets_provisioned_to_account_errors()}
   def list_permission_sets_provisioned_to_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPermissionSetsProvisionedToAccount", input, options)
   end
@@ -4151,8 +4094,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4167,8 +4109,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, list_trusted_token_issuers_errors()}
   def list_trusted_token_issuers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTrustedTokenIssuers", input, options)
   end
@@ -4183,8 +4124,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, provision_permission_set_errors()}
   def provision_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvisionPermissionSet", input, options)
   end
@@ -4200,8 +4140,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_application_access_scope_errors()}
   def put_application_access_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutApplicationAccessScope", input, options)
   end
@@ -4228,8 +4167,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_application_assignment_configuration_errors()}
   def put_application_assignment_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutApplicationAssignmentConfiguration", input, options)
   end
@@ -4247,8 +4185,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_application_authentication_method_errors()}
   def put_application_authentication_method(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutApplicationAuthenticationMethod", input, options)
   end
@@ -4341,8 +4278,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_application_grant_errors()}
   def put_application_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutApplicationGrant", input, options)
   end
@@ -4373,8 +4309,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_inline_policy_to_permission_set_errors()}
   def put_inline_policy_to_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInlinePolicyToPermissionSet", input, options)
   end
@@ -4393,8 +4328,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, put_permissions_boundary_to_permission_set_errors()}
   def put_permissions_boundary_to_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPermissionsBoundaryToPermissionSet", input, options)
   end
@@ -4408,8 +4342,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4423,8 +4356,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4438,8 +4370,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4454,8 +4385,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, update_instance_errors()}
   def update_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateInstance", input, options)
   end
@@ -4489,8 +4419,7 @@ defmodule AWS.SSOAdmin do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -4510,8 +4439,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, update_permission_set_errors()}
   def update_permission_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePermissionSet", input, options)
   end
@@ -4531,8 +4459,7 @@ defmodule AWS.SSOAdmin do
           | {:error, term()}
           | {:error, update_trusted_token_issuer_errors()}
   def update_trusted_token_issuer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTrustedTokenIssuer", input, options)
   end

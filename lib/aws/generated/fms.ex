@@ -2543,8 +2543,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, associate_admin_account_errors()}
   def associate_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateAdminAccount", input, options)
   end
@@ -2562,8 +2561,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, associate_third_party_firewall_errors()}
   def associate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateThirdPartyFirewall", input, options)
   end
@@ -2577,8 +2575,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, batch_associate_resource_errors()}
   def batch_associate_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchAssociateResource", input, options)
   end
@@ -2592,8 +2589,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, batch_disassociate_resource_errors()}
   def batch_disassociate_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDisassociateResource", input, options)
   end
@@ -2607,8 +2603,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_apps_list_errors()}
   def delete_apps_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAppsList", input, options)
   end
@@ -2624,8 +2619,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_notification_channel_errors()}
   def delete_notification_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNotificationChannel", input, options)
   end
@@ -2639,8 +2633,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -2654,8 +2647,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_protocols_list_errors()}
   def delete_protocols_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProtocolsList", input, options)
   end
@@ -2669,8 +2661,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, delete_resource_set_errors()}
   def delete_resource_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourceSet", input, options)
   end
@@ -2693,8 +2684,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, disassociate_admin_account_errors()}
   def disassociate_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateAdminAccount", input, options)
   end
@@ -2716,8 +2706,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, disassociate_third_party_firewall_errors()}
   def disassociate_third_party_firewall(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateThirdPartyFirewall", input, options)
   end
@@ -2732,8 +2721,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_admin_account_errors()}
   def get_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAdminAccount", input, options)
   end
@@ -2750,8 +2738,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_admin_scope_errors()}
   def get_admin_scope(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAdminScope", input, options)
   end
@@ -2765,8 +2752,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_apps_list_errors()}
   def get_apps_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAppsList", input, options)
   end
@@ -2786,8 +2772,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_compliance_detail_errors()}
   def get_compliance_detail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComplianceDetail", input, options)
   end
@@ -2803,8 +2788,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_notification_channel_errors()}
   def get_notification_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNotificationChannel", input, options)
   end
@@ -2818,8 +2802,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_policy_errors()}
   def get_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPolicy", input, options)
   end
@@ -2837,8 +2820,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_protection_status_errors()}
   def get_protection_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetProtectionStatus", input, options)
   end
@@ -2852,8 +2834,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_protocols_list_errors()}
   def get_protocols_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetProtocolsList", input, options)
   end
@@ -2867,8 +2848,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_resource_set_errors()}
   def get_resource_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceSet", input, options)
   end
@@ -2887,8 +2867,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_third_party_firewall_association_status_errors()}
   def get_third_party_firewall_association_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetThirdPartyFirewallAssociationStatus", input, options)
   end
@@ -2903,8 +2882,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, get_violation_details_errors()}
   def get_violation_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetViolationDetails", input, options)
   end
@@ -2926,8 +2904,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_admin_accounts_for_organization_errors()}
   def list_admin_accounts_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAdminAccountsForOrganization", input, options)
   end
@@ -2945,8 +2922,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_admins_managing_account_errors()}
   def list_admins_managing_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAdminsManagingAccount", input, options)
   end
@@ -2960,8 +2936,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_apps_lists_errors()}
   def list_apps_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAppsLists", input, options)
   end
@@ -2979,8 +2954,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_compliance_status_errors()}
   def list_compliance_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComplianceStatus", input, options)
   end
@@ -2995,8 +2969,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_discovered_resources_errors()}
   def list_discovered_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDiscoveredResources", input, options)
   end
@@ -3014,8 +2987,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_member_accounts_errors()}
   def list_member_accounts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMemberAccounts", input, options)
   end
@@ -3029,8 +3001,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_policies_errors()}
   def list_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPolicies", input, options)
   end
@@ -3044,8 +3015,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_protocols_lists_errors()}
   def list_protocols_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProtocolsLists", input, options)
   end
@@ -3059,8 +3029,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_resource_set_resources_errors()}
   def list_resource_set_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceSetResources", input, options)
   end
@@ -3074,8 +3043,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_resource_sets_errors()}
   def list_resource_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceSets", input, options)
   end
@@ -3089,8 +3057,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3109,8 +3076,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, list_third_party_firewall_firewall_policies_errors()}
   def list_third_party_firewall_firewall_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListThirdPartyFirewallFirewallPolicies", input, options)
   end
@@ -3134,8 +3100,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_admin_account_errors()}
   def put_admin_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAdminAccount", input, options)
   end
@@ -3149,8 +3114,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_apps_list_errors()}
   def put_apps_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAppsList", input, options)
   end
@@ -3174,8 +3138,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_notification_channel_errors()}
   def put_notification_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutNotificationChannel", input, options)
   end
@@ -3257,8 +3220,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_policy_errors()}
   def put_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPolicy", input, options)
   end
@@ -3272,8 +3234,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_protocols_list_errors()}
   def put_protocols_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutProtocolsList", input, options)
   end
@@ -3290,8 +3251,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, put_resource_set_errors()}
   def put_resource_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourceSet", input, options)
   end
@@ -3305,8 +3265,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3320,8 +3279,7 @@ defmodule AWS.FMS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

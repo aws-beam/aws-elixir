@@ -9055,8 +9055,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_cluster_errors()}
   def add_role_to_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddRoleToDBCluster", input, options)
   end
@@ -9076,8 +9075,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_role_to_db_instance_errors()}
   def add_role_to_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddRoleToDBInstance", input, options)
   end
@@ -9095,8 +9093,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_source_identifier_to_subscription_errors()}
   def add_source_identifier_to_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddSourceIdentifierToSubscription", input, options)
   end
@@ -9118,8 +9115,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -9138,8 +9134,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, apply_pending_maintenance_action_errors()}
   def apply_pending_maintenance_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ApplyPendingMaintenanceAction", input, options)
   end
@@ -9185,8 +9180,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, authorize_db_security_group_ingress_errors()}
   def authorize_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeDBSecurityGroupIngress", input, options)
   end
@@ -9209,8 +9203,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, backtrack_db_cluster_errors()}
   def backtrack_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BacktrackDBCluster", input, options)
   end
@@ -9227,8 +9220,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -9247,8 +9239,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_parameter_group_errors()}
   def copy_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyDBClusterParameterGroup", input, options)
   end
@@ -9319,8 +9310,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_cluster_snapshot_errors()}
   def copy_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyDBClusterSnapshot", input, options)
   end
@@ -9338,8 +9328,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_parameter_group_errors()}
   def copy_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyDBParameterGroup", input, options)
   end
@@ -9367,8 +9356,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_db_snapshot_errors()}
   def copy_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyDBSnapshot", input, options)
   end
@@ -9382,8 +9370,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, copy_option_group_errors()}
   def copy_option_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyOptionGroup", input, options)
   end
@@ -9423,8 +9410,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_blue_green_deployment_errors()}
   def create_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBlueGreenDeployment", input, options)
   end
@@ -9438,8 +9424,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_custom_db_engine_version_errors()}
   def create_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomDBEngineVersion", input, options)
   end
@@ -9478,8 +9463,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBCluster", input, options)
   end
@@ -9496,8 +9480,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_endpoint_errors()}
   def create_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBClusterEndpoint", input, options)
   end
@@ -9563,8 +9546,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_parameter_group_errors()}
   def create_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBClusterParameterGroup", input, options)
   end
@@ -9586,8 +9568,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_cluster_snapshot_errors()}
   def create_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBClusterSnapshot", input, options)
   end
@@ -9618,8 +9599,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBInstance", input, options)
   end
@@ -9659,8 +9639,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_instance_read_replica_errors()}
   def create_db_instance_read_replica(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBInstanceReadReplica", input, options)
   end
@@ -9685,8 +9664,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBParameterGroup", input, options)
   end
@@ -9700,8 +9678,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_errors()}
   def create_db_proxy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBProxy", input, options)
   end
@@ -9721,8 +9698,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_proxy_endpoint_errors()}
   def create_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBProxyEndpoint", input, options)
   end
@@ -9752,8 +9728,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_security_group_errors()}
   def create_db_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBSecurityGroup", input, options)
   end
@@ -9771,8 +9746,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_shard_group_errors()}
   def create_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBShardGroup", input, options)
   end
@@ -9789,8 +9763,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_snapshot_errors()}
   def create_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBSnapshot", input, options)
   end
@@ -9807,8 +9780,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_db_subnet_group_errors()}
   def create_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDBSubnetGroup", input, options)
   end
@@ -9862,8 +9834,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_event_subscription_errors()}
   def create_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEventSubscription", input, options)
   end
@@ -9891,8 +9862,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_global_cluster_errors()}
   def create_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGlobalCluster", input, options)
   end
@@ -9906,8 +9876,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_integration_errors()}
   def create_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIntegration", input, options)
   end
@@ -9925,8 +9894,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_option_group_errors()}
   def create_option_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOptionGroup", input, options)
   end
@@ -9943,8 +9911,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, create_tenant_database_errors()}
   def create_tenant_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTenantDatabase", input, options)
   end
@@ -9966,8 +9933,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_blue_green_deployment_errors()}
   def delete_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBlueGreenDeployment", input, options)
   end
@@ -10007,8 +9973,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_custom_db_engine_version_errors()}
   def delete_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomDBEngineVersion", input, options)
   end
@@ -10041,8 +10006,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBCluster", input, options)
   end
@@ -10062,8 +10026,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_automated_backup_errors()}
   def delete_db_cluster_automated_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterAutomatedBackup", input, options)
   end
@@ -10079,8 +10042,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_endpoint_errors()}
   def delete_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterEndpoint", input, options)
   end
@@ -10112,8 +10074,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_parameter_group_errors()}
   def delete_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterParameterGroup", input, options)
   end
@@ -10143,8 +10104,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_cluster_snapshot_errors()}
   def delete_db_cluster_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBClusterSnapshot", input, options)
   end
@@ -10194,8 +10154,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBInstance", input, options)
   end
@@ -10214,8 +10173,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_instance_automated_backup_errors()}
   def delete_db_instance_automated_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBInstanceAutomatedBackup", input, options)
   end
@@ -10231,8 +10189,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_parameter_group_errors()}
   def delete_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBParameterGroup", input, options)
   end
@@ -10246,8 +10203,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_errors()}
   def delete_db_proxy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBProxy", input, options)
   end
@@ -10267,8 +10223,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_proxy_endpoint_errors()}
   def delete_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBProxyEndpoint", input, options)
   end
@@ -10295,8 +10250,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_security_group_errors()}
   def delete_db_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBSecurityGroup", input, options)
   end
@@ -10310,8 +10264,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_shard_group_errors()}
   def delete_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBShardGroup", input, options)
   end
@@ -10330,8 +10283,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_snapshot_errors()}
   def delete_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBSnapshot", input, options)
   end
@@ -10348,8 +10300,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_db_subnet_group_errors()}
   def delete_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDBSubnetGroup", input, options)
   end
@@ -10363,8 +10314,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_event_subscription_errors()}
   def delete_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEventSubscription", input, options)
   end
@@ -10383,8 +10333,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_global_cluster_errors()}
   def delete_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGlobalCluster", input, options)
   end
@@ -10398,8 +10347,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -10413,8 +10361,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_option_group_errors()}
   def delete_option_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOptionGroup", input, options)
   end
@@ -10434,8 +10381,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, delete_tenant_database_errors()}
   def delete_tenant_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTenantDatabase", input, options)
   end
@@ -10450,8 +10396,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, deregister_db_proxy_targets_errors()}
   def deregister_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterDBProxyTargets", input, options)
   end
@@ -10470,8 +10415,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -10494,8 +10438,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_blue_green_deployments_errors()}
   def describe_blue_green_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBlueGreenDeployments", input, options)
   end
@@ -10518,8 +10461,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_certificates_errors()}
   def describe_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificates", input, options)
   end
@@ -10544,8 +10486,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_automated_backups_errors()}
   def describe_db_cluster_automated_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterAutomatedBackups", input, options)
   end
@@ -10567,8 +10508,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_backtracks_errors()}
   def describe_db_cluster_backtracks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterBacktracks", input, options)
   end
@@ -10584,8 +10524,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_endpoints_errors()}
   def describe_db_cluster_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterEndpoints", input, options)
   end
@@ -10619,8 +10558,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameter_groups_errors()}
   def describe_db_cluster_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameterGroups", input, options)
   end
@@ -10645,8 +10583,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_parameters_errors()}
   def describe_db_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterParameters", input, options)
   end
@@ -10680,8 +10617,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshot_attributes_errors()}
   def describe_db_cluster_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshotAttributes", input, options)
   end
@@ -10708,8 +10644,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_cluster_snapshots_errors()}
   def describe_db_cluster_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusterSnapshots", input, options)
   end
@@ -10739,8 +10674,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_clusters_errors()}
   def describe_db_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBClusters", input, options)
   end
@@ -10753,8 +10687,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_engine_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBEngineVersions", input, options)
   end
@@ -10782,8 +10715,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instance_automated_backups_errors()}
   def describe_db_instance_automated_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBInstanceAutomatedBackups", input, options)
   end
@@ -10802,8 +10734,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_instances_errors()}
   def describe_db_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBInstances", input, options)
   end
@@ -10819,8 +10750,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_log_files_errors()}
   def describe_db_log_files(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBLogFiles", input, options)
   end
@@ -10837,8 +10767,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_major_engine_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBMajorEngineVersions", input, options)
   end
@@ -10855,8 +10784,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameter_groups_errors()}
   def describe_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBParameterGroups", input, options)
   end
@@ -10870,8 +10798,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_parameters_errors()}
   def describe_db_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBParameters", input, options)
   end
@@ -10885,8 +10812,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxies_errors()}
   def describe_db_proxies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBProxies", input, options)
   end
@@ -10900,8 +10826,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_endpoints_errors()}
   def describe_db_proxy_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyEndpoints", input, options)
   end
@@ -10916,8 +10841,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_target_groups_errors()}
   def describe_db_proxy_target_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargetGroups", input, options)
   end
@@ -10933,8 +10857,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_proxy_targets_errors()}
   def describe_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBProxyTargets", input, options)
   end
@@ -10948,8 +10871,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_db_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBRecommendations", input, options)
   end
@@ -10977,8 +10899,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_security_groups_errors()}
   def describe_db_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBSecurityGroups", input, options)
   end
@@ -10992,8 +10913,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_shard_groups_errors()}
   def describe_db_shard_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBShardGroups", input, options)
   end
@@ -11022,8 +10942,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_attributes_errors()}
   def describe_db_snapshot_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotAttributes", input, options)
   end
@@ -11051,8 +10970,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshot_tenant_databases_errors()}
   def describe_db_snapshot_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshotTenantDatabases", input, options)
   end
@@ -11068,8 +10986,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_snapshots_errors()}
   def describe_db_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBSnapshots", input, options)
   end
@@ -11089,8 +11006,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_db_subnet_groups_errors()}
   def describe_db_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDBSubnetGroups", input, options)
   end
@@ -11114,8 +11030,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_cluster_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultClusterParameters", input, options)
   end
@@ -11133,8 +11048,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -11157,8 +11071,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_event_categories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventCategories", input, options)
   end
@@ -11179,8 +11092,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_event_subscriptions_errors()}
   def describe_event_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventSubscriptions", input, options)
   end
@@ -11205,8 +11117,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -11223,8 +11134,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -11246,8 +11156,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_global_clusters_errors()}
   def describe_global_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGlobalClusters", input, options)
   end
@@ -11261,8 +11170,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_integrations_errors()}
   def describe_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
   end
@@ -11275,8 +11183,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_option_group_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroupOptions", input, options)
   end
@@ -11290,8 +11197,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_option_groups_errors()}
   def describe_option_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOptionGroups", input, options)
   end
@@ -11308,8 +11214,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_orderable_db_instance_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeOrderableDBInstanceOptions", input, options)
   end
@@ -11335,8 +11240,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_pending_maintenance_actions_errors()}
   def describe_pending_maintenance_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
   end
@@ -11351,8 +11255,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_errors()}
   def describe_reserved_db_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstances", input, options)
   end
@@ -11370,8 +11273,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_reserved_db_instances_offerings_errors()}
   def describe_reserved_db_instances_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedDBInstancesOfferings", input, options)
   end
@@ -11397,8 +11299,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_source_regions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSourceRegions", input, options)
   end
@@ -11415,8 +11316,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_tenant_databases_errors()}
   def describe_tenant_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTenantDatabases", input, options)
   end
@@ -11440,8 +11340,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, describe_valid_db_instance_modifications_errors()}
   def describe_valid_db_instance_modifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeValidDBInstanceModifications", input, options)
   end
@@ -11465,8 +11364,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, disable_http_endpoint_errors()}
   def disable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableHttpEndpoint", input, options)
   end
@@ -11489,8 +11387,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, download_db_log_file_portion_errors()}
   def download_db_log_file_portion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DownloadDBLogFilePortion", input, options)
   end
@@ -11521,8 +11418,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, enable_http_endpoint_errors()}
   def enable_http_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableHttpEndpoint", input, options)
   end
@@ -11569,8 +11465,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_db_cluster_errors()}
   def failover_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "FailoverDBCluster", input, options)
   end
@@ -11633,8 +11528,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, failover_global_cluster_errors()}
   def failover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "FailoverGlobalCluster", input, options)
   end
@@ -11654,8 +11548,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -11680,8 +11573,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_activity_stream_errors()}
   def modify_activity_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyActivityStream", input, options)
   end
@@ -11733,8 +11625,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_certificates_errors()}
   def modify_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCertificates", input, options)
   end
@@ -11780,8 +11671,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_current_db_cluster_capacity_errors()}
   def modify_current_db_cluster_capacity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCurrentDBClusterCapacity", input, options)
   end
@@ -11811,8 +11701,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_custom_db_engine_version_errors()}
   def modify_custom_db_engine_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCustomDBEngineVersion", input, options)
   end
@@ -11841,8 +11730,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_errors()}
   def modify_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBCluster", input, options)
   end
@@ -11858,8 +11746,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_endpoint_errors()}
   def modify_db_cluster_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterEndpoint", input, options)
   end
@@ -11917,8 +11804,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_parameter_group_errors()}
   def modify_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterParameterGroup", input, options)
   end
@@ -11963,8 +11849,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_cluster_snapshot_attribute_errors()}
   def modify_db_cluster_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBClusterSnapshotAttribute", input, options)
   end
@@ -11984,8 +11869,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_instance_errors()}
   def modify_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBInstance", input, options)
   end
@@ -12018,8 +11902,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_parameter_group_errors()}
   def modify_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBParameterGroup", input, options)
   end
@@ -12033,8 +11916,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_errors()}
   def modify_db_proxy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBProxy", input, options)
   end
@@ -12048,8 +11930,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_endpoint_errors()}
   def modify_db_proxy_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyEndpoint", input, options)
   end
@@ -12063,8 +11944,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_proxy_target_group_errors()}
   def modify_db_proxy_target_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBProxyTargetGroup", input, options)
   end
@@ -12078,8 +11958,7 @@ defmodule AWS.RDS do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def modify_db_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBRecommendation", input, options)
   end
@@ -12096,8 +11975,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_shard_group_errors()}
   def modify_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBShardGroup", input, options)
   end
@@ -12118,8 +11996,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_errors()}
   def modify_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshot", input, options)
   end
@@ -12159,8 +12036,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_snapshot_attribute_errors()}
   def modify_db_snapshot_attribute(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBSnapshotAttribute", input, options)
   end
@@ -12177,8 +12053,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_db_subnet_group_errors()}
   def modify_db_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyDBSubnetGroup", input, options)
   end
@@ -12204,8 +12079,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_event_subscription_errors()}
   def modify_event_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyEventSubscription", input, options)
   end
@@ -12228,8 +12102,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_global_cluster_errors()}
   def modify_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyGlobalCluster", input, options)
   end
@@ -12243,8 +12116,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_integration_errors()}
   def modify_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyIntegration", input, options)
   end
@@ -12258,8 +12130,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_option_group_errors()}
   def modify_option_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyOptionGroup", input, options)
   end
@@ -12278,8 +12149,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, modify_tenant_database_errors()}
   def modify_tenant_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyTenantDatabase", input, options)
   end
@@ -12307,8 +12177,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_errors()}
   def promote_read_replica(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PromoteReadReplica", input, options)
   end
@@ -12322,8 +12191,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, promote_read_replica_db_cluster_errors()}
   def promote_read_replica_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PromoteReadReplicaDBCluster", input, options)
   end
@@ -12341,8 +12209,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, purchase_reserved_db_instances_offering_errors()}
   def purchase_reserved_db_instances_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseReservedDBInstancesOffering", input, options)
   end
@@ -12371,8 +12238,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_cluster_errors()}
   def reboot_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootDBCluster", input, options)
   end
@@ -12402,8 +12268,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_instance_errors()}
   def reboot_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootDBInstance", input, options)
   end
@@ -12422,8 +12287,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reboot_db_shard_group_errors()}
   def reboot_db_shard_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootDBShardGroup", input, options)
   end
@@ -12438,8 +12302,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, register_db_proxy_targets_errors()}
   def register_db_proxy_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterDBProxyTargets", input, options)
   end
@@ -12460,8 +12323,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_from_global_cluster_errors()}
   def remove_from_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveFromGlobalCluster", input, options)
   end
@@ -12488,8 +12350,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_cluster_errors()}
   def remove_role_from_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBCluster", input, options)
   end
@@ -12504,8 +12365,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_role_from_db_instance_errors()}
   def remove_role_from_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveRoleFromDBInstance", input, options)
   end
@@ -12524,8 +12384,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_source_identifier_from_subscription_errors()}
   def remove_source_identifier_from_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveSourceIdentifierFromSubscription", input, options)
   end
@@ -12545,8 +12404,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -12588,8 +12446,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_cluster_parameter_group_errors()}
   def reset_db_cluster_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetDBClusterParameterGroup", input, options)
   end
@@ -12612,8 +12469,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, reset_db_parameter_group_errors()}
   def reset_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetDBParameterGroup", input, options)
   end
@@ -12652,8 +12508,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_s3_errors()}
   def restore_db_cluster_from_s3(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromS3", input, options)
   end
@@ -12694,8 +12549,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_from_snapshot_errors()}
   def restore_db_cluster_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterFromSnapshot", input, options)
   end
@@ -12744,8 +12598,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_cluster_to_point_in_time_errors()}
   def restore_db_cluster_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBClusterToPointInTime", input, options)
   end
@@ -12795,8 +12648,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_db_snapshot_errors()}
   def restore_db_instance_from_db_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromDBSnapshot", input, options)
   end
@@ -12820,8 +12672,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_from_s3_errors()}
   def restore_db_instance_from_s3(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceFromS3", input, options)
   end
@@ -12857,8 +12708,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, restore_db_instance_to_point_in_time_errors()}
   def restore_db_instance_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreDBInstanceToPointInTime", input, options)
   end
@@ -12893,8 +12743,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, revoke_db_security_group_ingress_errors()}
   def revoke_db_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeDBSecurityGroupIngress", input, options)
   end
@@ -12918,8 +12767,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_activity_stream_errors()}
   def start_activity_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartActivityStream", input, options)
   end
@@ -12943,8 +12791,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_cluster_errors()}
   def start_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDBCluster", input, options)
   end
@@ -12969,8 +12816,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_errors()}
   def start_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDBInstance", input, options)
   end
@@ -12996,8 +12842,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_db_instance_automated_backups_replication_errors()}
   def start_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -13038,8 +12883,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, start_export_task_errors()}
   def start_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartExportTask", input, options)
   end
@@ -13065,8 +12909,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_activity_stream_errors()}
   def stop_activity_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopActivityStream", input, options)
   end
@@ -13092,8 +12935,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_cluster_errors()}
   def stop_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDBCluster", input, options)
   end
@@ -13124,8 +12966,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_errors()}
   def stop_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDBInstance", input, options)
   end
@@ -13150,8 +12991,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, stop_db_instance_automated_backups_replication_errors()}
   def stop_db_instance_automated_backups_replication(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -13188,8 +13028,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_blue_green_deployment_errors()}
   def switchover_blue_green_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SwitchoverBlueGreenDeployment", input, options)
   end
@@ -13222,8 +13061,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_global_cluster_errors()}
   def switchover_global_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SwitchoverGlobalCluster", input, options)
   end
@@ -13241,8 +13079,7 @@ defmodule AWS.RDS do
           | {:error, term()}
           | {:error, switchover_read_replica_errors()}
   def switchover_read_replica(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SwitchoverReadReplica", input, options)
   end

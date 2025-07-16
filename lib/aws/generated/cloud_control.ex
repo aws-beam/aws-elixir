@@ -646,8 +646,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, cancel_resource_request_errors()}
   def cancel_resource_request(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelResourceRequest", input, options)
   end
@@ -671,8 +670,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, create_resource_errors()}
   def create_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResource", input, options)
   end
@@ -696,8 +694,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, delete_resource_errors()}
   def delete_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResource", input, options)
   end
@@ -719,8 +716,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, get_resource_errors()}
   def get_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResource", input, options)
   end
@@ -739,8 +735,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, get_resource_request_status_errors()}
   def get_resource_request_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceRequestStatus", input, options)
   end
@@ -760,8 +755,7 @@ defmodule AWS.CloudControl do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_resource_requests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceRequests", input, options)
   end
@@ -783,8 +777,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, list_resources_errors()}
   def list_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResources", input, options)
   end
@@ -821,8 +814,7 @@ defmodule AWS.CloudControl do
           | {:error, term()}
           | {:error, update_resource_errors()}
   def update_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResource", input, options)
   end

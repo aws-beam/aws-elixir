@@ -3810,6 +3810,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       create_topic_request() :: %{
+        optional("CustomInstructions") => custom_instructions(),
         optional("FolderArns") => list(String.t()),
         optional("Tags") => list(tag()),
         required("Topic") => topic_details(),
@@ -3979,6 +3980,7 @@ defmodule AWS.QuickSight do
   ## Example:
 
       update_topic_request() :: %{
+        optional("CustomInstructions") => custom_instructions(),
         required("Topic") => topic_details()
       }
 
@@ -6458,6 +6460,7 @@ defmodule AWS.QuickSight do
 
       describe_topic_response() :: %{
         "Arn" => String.t(),
+        "CustomInstructions" => custom_instructions(),
         "RequestId" => String.t(),
         "Status" => integer(),
         "Topic" => topic_details(),
@@ -13574,6 +13577,17 @@ defmodule AWS.QuickSight do
 
   """
   @type update_data_source_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_instructions() :: %{
+        "CustomInstructionsString" => String.t()
+      }
+
+  """
+  @type custom_instructions() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -24793,6 +24807,8 @@ defmodule AWS.QuickSight do
 
   @doc """
   Lists the history of SPICE ingestions for a dataset.
+
+  Limited to 5 TPS per user and 25 TPS per account.
   """
   @spec list_ingestions(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_ingestions_response(), any()}

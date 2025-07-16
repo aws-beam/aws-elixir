@@ -1088,8 +1088,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -1114,8 +1113,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_compute_node_group_errors()}
   def create_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateComputeNodeGroup", input, options)
   end
@@ -1132,8 +1130,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, create_queue_errors()}
   def create_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateQueue", input, options)
   end
@@ -1150,8 +1147,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -1167,8 +1163,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_compute_node_group_errors()}
   def delete_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteComputeNodeGroup", input, options)
   end
@@ -1186,8 +1181,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, delete_queue_errors()}
   def delete_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteQueue", input, options)
   end
@@ -1204,8 +1198,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_cluster_errors()}
   def get_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCluster", input, options)
   end
@@ -1222,8 +1215,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_compute_node_group_errors()}
   def get_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComputeNodeGroup", input, options)
   end
@@ -1240,8 +1232,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, get_queue_errors()}
   def get_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueue", input, options)
   end
@@ -1255,8 +1246,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -1270,8 +1260,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_compute_node_groups_errors()}
   def list_compute_node_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComputeNodeGroups", input, options)
   end
@@ -1285,8 +1274,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_queues_errors()}
   def list_queues(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQueues", input, options)
   end
@@ -1300,8 +1288,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1322,8 +1309,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, register_compute_node_group_instance_errors()}
   def register_compute_node_group_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterComputeNodeGroupInstance", input, options)
   end
@@ -1342,8 +1328,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1360,8 +1345,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1379,8 +1363,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_compute_node_group_errors()}
   def update_compute_node_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateComputeNodeGroup", input, options)
   end
@@ -1396,8 +1379,7 @@ defmodule AWS.PCS do
           | {:error, term()}
           | {:error, update_queue_errors()}
   def update_queue(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateQueue", input, options)
   end

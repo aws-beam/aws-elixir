@@ -2902,8 +2902,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, associate_vehicle_fleet_errors()}
   def associate_vehicle_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateVehicleFleet", input, options)
   end
@@ -2925,8 +2924,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, batch_create_vehicle_errors()}
   def batch_create_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchCreateVehicle", input, options)
   end
@@ -2948,8 +2946,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, batch_update_vehicle_errors()}
   def batch_update_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchUpdateVehicle", input, options)
   end
@@ -2978,8 +2975,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_campaign_errors()}
   def create_campaign(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCampaign", input, options)
   end
@@ -3008,8 +3004,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_decoder_manifest_errors()}
   def create_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDecoderManifest", input, options)
   end
@@ -3031,8 +3026,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3050,8 +3044,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_model_manifest_errors()}
   def create_model_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateModelManifest", input, options)
   end
@@ -3067,8 +3060,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_signal_catalog_errors()}
   def create_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSignalCatalog", input, options)
   end
@@ -3090,8 +3082,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_state_template_errors()}
   def create_state_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStateTemplate", input, options)
   end
@@ -3118,8 +3109,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, create_vehicle_errors()}
   def create_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVehicle", input, options)
   end
@@ -3136,8 +3126,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_campaign_errors()}
   def delete_campaign(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCampaign", input, options)
   end
@@ -3154,8 +3143,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_decoder_manifest_errors()}
   def delete_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDecoderManifest", input, options)
   end
@@ -3173,8 +3161,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3188,8 +3175,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_model_manifest_errors()}
   def delete_model_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteModelManifest", input, options)
   end
@@ -3203,8 +3189,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_signal_catalog_errors()}
   def delete_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSignalCatalog", input, options)
   end
@@ -3218,8 +3203,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_state_template_errors()}
   def delete_state_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStateTemplate", input, options)
   end
@@ -3233,8 +3217,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, delete_vehicle_errors()}
   def delete_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVehicle", input, options)
   end
@@ -3251,8 +3234,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, disassociate_vehicle_fleet_errors()}
   def disassociate_vehicle_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateVehicleFleet", input, options)
   end
@@ -3270,8 +3252,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_campaign_errors()}
   def get_campaign(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCampaign", input, options)
   end
@@ -3285,8 +3266,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_decoder_manifest_errors()}
   def get_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDecoderManifest", input, options)
   end
@@ -3301,8 +3281,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_encryption_configuration_errors()}
   def get_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEncryptionConfiguration", input, options)
   end
@@ -3316,8 +3295,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_fleet_errors()}
   def get_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFleet", input, options)
   end
@@ -3331,8 +3309,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_logging_options_errors()}
   def get_logging_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLoggingOptions", input, options)
   end
@@ -3346,8 +3323,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_model_manifest_errors()}
   def get_model_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetModelManifest", input, options)
   end
@@ -3370,8 +3346,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_register_account_status_errors()}
   def get_register_account_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegisterAccountStatus", input, options)
   end
@@ -3385,8 +3360,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_signal_catalog_errors()}
   def get_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSignalCatalog", input, options)
   end
@@ -3404,8 +3378,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_state_template_errors()}
   def get_state_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStateTemplate", input, options)
   end
@@ -3419,8 +3392,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_vehicle_errors()}
   def get_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVehicle", input, options)
   end
@@ -3436,8 +3408,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, get_vehicle_status_errors()}
   def get_vehicle_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVehicleStatus", input, options)
   end
@@ -3455,8 +3426,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, import_decoder_manifest_errors()}
   def import_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportDecoderManifest", input, options)
   end
@@ -3472,8 +3442,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, import_signal_catalog_errors()}
   def import_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportSignalCatalog", input, options)
   end
@@ -3490,8 +3459,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_campaigns_errors()}
   def list_campaigns(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCampaigns", input, options)
   end
@@ -3512,8 +3480,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifest_network_interfaces_errors()}
   def list_decoder_manifest_network_interfaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDecoderManifestNetworkInterfaces", input, options)
   end
@@ -3530,8 +3497,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifest_signals_errors()}
   def list_decoder_manifest_signals(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDecoderManifestSignals", input, options)
   end
@@ -3548,8 +3514,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_decoder_manifests_errors()}
   def list_decoder_manifests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDecoderManifests", input, options)
   end
@@ -3566,8 +3531,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -3584,8 +3548,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_fleets_for_vehicle_errors()}
   def list_fleets_for_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFleetsForVehicle", input, options)
   end
@@ -3602,8 +3565,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_model_manifest_nodes_errors()}
   def list_model_manifest_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListModelManifestNodes", input, options)
   end
@@ -3620,8 +3582,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_model_manifests_errors()}
   def list_model_manifests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListModelManifests", input, options)
   end
@@ -3638,8 +3599,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_signal_catalog_nodes_errors()}
   def list_signal_catalog_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSignalCatalogNodes", input, options)
   end
@@ -3659,8 +3619,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_signal_catalogs_errors()}
   def list_signal_catalogs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSignalCatalogs", input, options)
   end
@@ -3678,8 +3637,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_state_templates_errors()}
   def list_state_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStateTemplates", input, options)
   end
@@ -3693,8 +3651,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3711,8 +3668,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_vehicles_errors()}
   def list_vehicles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVehicles", input, options)
   end
@@ -3729,8 +3685,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, list_vehicles_in_fleet_errors()}
   def list_vehicles_in_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVehiclesInFleet", input, options)
   end
@@ -3750,8 +3705,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, put_encryption_configuration_errors()}
   def put_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutEncryptionConfiguration", input, options)
   end
@@ -3765,8 +3719,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, put_logging_options_errors()}
   def put_logging_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLoggingOptions", input, options)
   end
@@ -3818,8 +3771,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, register_account_errors()}
   def register_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterAccount", input, options)
   end
@@ -3836,8 +3788,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3851,8 +3802,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3866,8 +3816,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_campaign_errors()}
   def update_campaign(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCampaign", input, options)
   end
@@ -3884,8 +3833,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_decoder_manifest_errors()}
   def update_decoder_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDecoderManifest", input, options)
   end
@@ -3899,8 +3847,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3917,8 +3864,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_model_manifest_errors()}
   def update_model_manifest(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateModelManifest", input, options)
   end
@@ -3932,8 +3878,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_signal_catalog_errors()}
   def update_signal_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSignalCatalog", input, options)
   end
@@ -3951,8 +3896,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_state_template_errors()}
   def update_state_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStateTemplate", input, options)
   end
@@ -3970,8 +3914,7 @@ defmodule AWS.IoTFleetWise do
           | {:error, term()}
           | {:error, update_vehicle_errors()}
   def update_vehicle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVehicle", input, options)
   end

@@ -25,6 +25,7 @@ defmodule AWS.DynamoDBStreams do
       describe_stream_input() :: %{
         optional("ExclusiveStartShardId") => String.t(),
         optional("Limit") => integer(),
+        optional("ShardFilter") => shard_filter(),
         required("StreamArn") => String.t()
       }
       
@@ -230,6 +231,18 @@ defmodule AWS.DynamoDBStreams do
 
   ## Example:
       
+      shard_filter() :: %{
+        "ShardId" => String.t(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type shard_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stream() :: %{
         "StreamArn" => String.t(),
         "StreamLabel" => String.t(),
@@ -338,8 +351,7 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, describe_stream_errors()}
   def describe_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStream", input, options)
   end
@@ -364,8 +376,7 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_records_errors()}
   def get_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRecords", input, options)
   end
@@ -387,8 +398,7 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, get_shard_iterator_errors()}
   def get_shard_iterator(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetShardIterator", input, options)
   end
@@ -409,8 +419,7 @@ defmodule AWS.DynamoDBStreams do
           | {:error, term()}
           | {:error, list_streams_errors()}
   def list_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStreams", input, options)
   end

@@ -3260,8 +3260,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_device_pool_errors()}
   def create_device_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDevicePool", input, options)
   end
@@ -3276,8 +3275,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_instance_profile_errors()}
   def create_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInstanceProfile", input, options)
   end
@@ -3291,8 +3289,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_network_profile_errors()}
   def create_network_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNetworkProfile", input, options)
   end
@@ -3306,8 +3303,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -3321,8 +3317,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_remote_access_session_errors()}
   def create_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRemoteAccessSession", input, options)
   end
@@ -3339,8 +3334,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_test_grid_project_errors()}
   def create_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTestGridProject", input, options)
   end
@@ -3356,8 +3350,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_test_grid_url_errors()}
   def create_test_grid_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTestGridUrl", input, options)
   end
@@ -3371,8 +3364,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_upload_errors()}
   def create_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUpload", input, options)
   end
@@ -3388,8 +3380,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, create_vpce_configuration_errors()}
   def create_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVPCEConfiguration", input, options)
   end
@@ -3406,8 +3397,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_device_pool_errors()}
   def delete_device_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDevicePool", input, options)
   end
@@ -3421,8 +3411,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_instance_profile_errors()}
   def delete_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInstanceProfile", input, options)
   end
@@ -3436,8 +3425,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_network_profile_errors()}
   def delete_network_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNetworkProfile", input, options)
   end
@@ -3453,8 +3441,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -3468,8 +3455,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_remote_access_session_errors()}
   def delete_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRemoteAccessSession", input, options)
   end
@@ -3485,8 +3471,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_run_errors()}
   def delete_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRun", input, options)
   end
@@ -3504,8 +3489,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_test_grid_project_errors()}
   def delete_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTestGridProject", input, options)
   end
@@ -3519,8 +3503,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_upload_errors()}
   def delete_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUpload", input, options)
   end
@@ -3534,8 +3517,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, delete_vpce_configuration_errors()}
   def delete_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVPCEConfiguration", input, options)
   end
@@ -3551,8 +3533,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -3566,8 +3547,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDevice", input, options)
   end
@@ -3582,8 +3562,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_device_instance_errors()}
   def get_device_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeviceInstance", input, options)
   end
@@ -3597,8 +3576,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_device_pool_errors()}
   def get_device_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDevicePool", input, options)
   end
@@ -3612,8 +3590,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_device_pool_compatibility_errors()}
   def get_device_pool_compatibility(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDevicePoolCompatibility", input, options)
   end
@@ -3627,8 +3604,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_instance_profile_errors()}
   def get_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInstanceProfile", input, options)
   end
@@ -3642,8 +3618,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_job_errors()}
   def get_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetJob", input, options)
   end
@@ -3657,8 +3632,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_network_profile_errors()}
   def get_network_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNetworkProfile", input, options)
   end
@@ -3681,8 +3655,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_offering_status_errors()}
   def get_offering_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOfferingStatus", input, options)
   end
@@ -3696,8 +3669,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_project_errors()}
   def get_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetProject", input, options)
   end
@@ -3711,8 +3683,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_remote_access_session_errors()}
   def get_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRemoteAccessSession", input, options)
   end
@@ -3726,8 +3697,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_run_errors()}
   def get_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRun", input, options)
   end
@@ -3741,8 +3711,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_suite_errors()}
   def get_suite(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSuite", input, options)
   end
@@ -3756,8 +3725,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_test_errors()}
   def get_test(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTest", input, options)
   end
@@ -3771,8 +3739,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_test_grid_project_errors()}
   def get_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTestGridProject", input, options)
   end
@@ -3796,8 +3763,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_test_grid_session_errors()}
   def get_test_grid_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTestGridSession", input, options)
   end
@@ -3811,8 +3777,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_upload_errors()}
   def get_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUpload", input, options)
   end
@@ -3828,8 +3793,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, get_vpce_configuration_errors()}
   def get_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVPCEConfiguration", input, options)
   end
@@ -3852,8 +3816,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, install_to_remote_access_session_errors()}
   def install_to_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InstallToRemoteAccessSession", input, options)
   end
@@ -3867,8 +3830,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_artifacts_errors()}
   def list_artifacts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListArtifacts", input, options)
   end
@@ -3884,8 +3846,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_device_instances_errors()}
   def list_device_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeviceInstances", input, options)
   end
@@ -3899,8 +3860,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_device_pools_errors()}
   def list_device_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDevicePools", input, options)
   end
@@ -3914,8 +3874,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -3929,8 +3888,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_instance_profiles_errors()}
   def list_instance_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceProfiles", input, options)
   end
@@ -3944,8 +3902,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_jobs_errors()}
   def list_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListJobs", input, options)
   end
@@ -3959,8 +3916,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_network_profiles_errors()}
   def list_network_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNetworkProfiles", input, options)
   end
@@ -3981,8 +3937,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_offering_promotions_errors()}
   def list_offering_promotions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOfferingPromotions", input, options)
   end
@@ -4005,8 +3960,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_offering_transactions_errors()}
   def list_offering_transactions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOfferingTransactions", input, options)
   end
@@ -4029,8 +3983,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_offerings_errors()}
   def list_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOfferings", input, options)
   end
@@ -4044,8 +3997,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -4059,8 +4011,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_remote_access_sessions_errors()}
   def list_remote_access_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRemoteAccessSessions", input, options)
   end
@@ -4074,8 +4025,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_runs_errors()}
   def list_runs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRuns", input, options)
   end
@@ -4089,8 +4039,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_samples_errors()}
   def list_samples(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSamples", input, options)
   end
@@ -4104,8 +4053,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_suites_errors()}
   def list_suites(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSuites", input, options)
   end
@@ -4119,8 +4067,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4134,8 +4081,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_test_grid_projects_errors()}
   def list_test_grid_projects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTestGridProjects", input, options)
   end
@@ -4149,8 +4095,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_test_grid_session_actions_errors()}
   def list_test_grid_session_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTestGridSessionActions", input, options)
   end
@@ -4168,8 +4113,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_test_grid_session_artifacts_errors()}
   def list_test_grid_session_artifacts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTestGridSessionArtifacts", input, options)
   end
@@ -4183,8 +4127,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_test_grid_sessions_errors()}
   def list_test_grid_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTestGridSessions", input, options)
   end
@@ -4198,8 +4141,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_tests_errors()}
   def list_tests(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTests", input, options)
   end
@@ -4225,8 +4167,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_unique_problems_errors()}
   def list_unique_problems(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUniqueProblems", input, options)
   end
@@ -4240,8 +4181,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_uploads_errors()}
   def list_uploads(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUploads", input, options)
   end
@@ -4256,8 +4196,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, list_vpce_configurations_errors()}
   def list_vpce_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVPCEConfigurations", input, options)
   end
@@ -4279,8 +4218,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseOffering", input, options)
   end
@@ -4301,8 +4239,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, renew_offering_errors()}
   def renew_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RenewOffering", input, options)
   end
@@ -4316,8 +4253,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, schedule_run_errors()}
   def schedule_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ScheduleRun", input, options)
   end
@@ -4338,8 +4274,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, stop_job_errors()}
   def stop_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopJob", input, options)
   end
@@ -4353,8 +4288,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, stop_remote_access_session_errors()}
   def stop_remote_access_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopRemoteAccessSession", input, options)
   end
@@ -4375,8 +4309,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, stop_run_errors()}
   def stop_run(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopRun", input, options)
   end
@@ -4395,8 +4328,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4410,8 +4342,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4425,8 +4356,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_device_instance_errors()}
   def update_device_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDeviceInstance", input, options)
   end
@@ -4445,8 +4375,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_device_pool_errors()}
   def update_device_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDevicePool", input, options)
   end
@@ -4460,8 +4389,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_instance_profile_errors()}
   def update_instance_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateInstanceProfile", input, options)
   end
@@ -4475,8 +4403,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_network_profile_errors()}
   def update_network_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNetworkProfile", input, options)
   end
@@ -4491,8 +4418,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -4506,8 +4432,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_test_grid_project_errors()}
   def update_test_grid_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTestGridProject", input, options)
   end
@@ -4521,8 +4446,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_upload_errors()}
   def update_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUpload", input, options)
   end
@@ -4537,8 +4461,7 @@ defmodule AWS.DeviceFarm do
           | {:error, term()}
           | {:error, update_vpce_configuration_errors()}
   def update_vpce_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVPCEConfiguration", input, options)
   end

@@ -703,8 +703,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -732,8 +731,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_hapg_errors()}
   def create_hapg(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHapg", input, options)
   end
@@ -770,8 +768,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHsm", input, options)
   end
@@ -797,8 +794,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, create_luna_client_errors()}
   def create_luna_client(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLunaClient", input, options)
   end
@@ -824,8 +820,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_hapg_errors()}
   def delete_hapg(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHapg", input, options)
   end
@@ -853,8 +848,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHsm", input, options)
   end
@@ -880,8 +874,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, delete_luna_client_errors()}
   def delete_luna_client(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLunaClient", input, options)
   end
@@ -907,8 +900,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_hapg_errors()}
   def describe_hapg(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHapg", input, options)
   end
@@ -936,8 +928,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_hsm_errors()}
   def describe_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHsm", input, options)
   end
@@ -963,8 +954,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, describe_luna_client_errors()}
   def describe_luna_client(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLunaClient", input, options)
   end
@@ -992,8 +982,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, get_config_errors()}
   def get_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetConfig", input, options)
   end
@@ -1019,8 +1008,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_available_zones_errors()}
   def list_available_zones(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableZones", input, options)
   end
@@ -1051,8 +1039,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_hapgs_errors()}
   def list_hapgs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHapgs", input, options)
   end
@@ -1084,8 +1071,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_hsms_errors()}
   def list_hsms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHsms", input, options)
   end
@@ -1117,8 +1103,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_luna_clients_errors()}
   def list_luna_clients(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLunaClients", input, options)
   end
@@ -1144,8 +1129,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1171,8 +1155,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_hapg_errors()}
   def modify_hapg(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyHapg", input, options)
   end
@@ -1206,8 +1189,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_hsm_errors()}
   def modify_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyHsm", input, options)
   end
@@ -1237,8 +1219,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, modify_luna_client_errors()}
   def modify_luna_client(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyLunaClient", input, options)
   end
@@ -1268,8 +1249,7 @@ defmodule AWS.CloudHSM do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end

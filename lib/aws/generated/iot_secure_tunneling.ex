@@ -351,8 +351,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, close_tunnel_errors()}
   def close_tunnel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CloseTunnel", input, options)
   end
@@ -370,8 +369,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, describe_tunnel_errors()}
   def describe_tunnel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTunnel", input, options)
   end
@@ -385,8 +383,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -406,8 +403,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_tunnels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTunnels", input, options)
   end
@@ -426,8 +422,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, open_tunnel_errors()}
   def open_tunnel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "OpenTunnel", input, options)
   end
@@ -452,8 +447,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, rotate_tunnel_access_token_errors()}
   def rotate_tunnel_access_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RotateTunnelAccessToken", input, options)
   end
@@ -467,8 +461,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -482,8 +475,7 @@ defmodule AWS.IoTSecureTunneling do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

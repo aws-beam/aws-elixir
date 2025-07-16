@@ -3428,8 +3428,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, activate_gateway_errors()}
   def activate_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ActivateGateway", input, options)
   end
@@ -3451,8 +3450,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_cache_errors()}
   def add_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddCache", input, options)
   end
@@ -3492,8 +3490,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -3517,8 +3514,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_upload_buffer_errors()}
   def add_upload_buffer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddUploadBuffer", input, options)
   end
@@ -3548,8 +3544,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, add_working_storage_errors()}
   def add_working_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddWorkingStorage", input, options)
   end
@@ -3570,8 +3565,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, assign_tape_pool_errors()}
   def assign_tape_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssignTapePool", input, options)
   end
@@ -3592,8 +3586,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, associate_file_system_errors()}
   def associate_file_system(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateFileSystem", input, options)
   end
@@ -3616,8 +3609,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, attach_volume_errors()}
   def attach_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachVolume", input, options)
   end
@@ -3635,8 +3627,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_archival_errors()}
   def cancel_archival(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelArchival", input, options)
   end
@@ -3659,8 +3650,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_cache_report_errors()}
   def cancel_cache_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCacheReport", input, options)
   end
@@ -3679,8 +3669,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, cancel_retrieval_errors()}
   def cancel_retrieval(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelRetrieval", input, options)
   end
@@ -3716,8 +3705,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_cached_iscsi_volume_errors()}
   def create_cached_iscsi_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCachediSCSIVolume", input, options)
   end
@@ -3753,8 +3741,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_nfs_file_share_errors()}
   def create_nfs_file_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNFSFileShare", input, options)
   end
@@ -3790,8 +3777,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_smb_file_share_errors()}
   def create_smb_file_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSMBFileShare", input, options)
   end
@@ -3840,8 +3826,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -3887,8 +3872,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_snapshot_from_volume_recovery_point_errors()}
   def create_snapshot_from_volume_recovery_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshotFromVolumeRecoveryPoint", input, options)
   end
@@ -3921,8 +3905,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_stored_iscsi_volume_errors()}
   def create_stored_iscsi_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStorediSCSIVolume", input, options)
   end
@@ -3939,8 +3922,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tape_pool_errors()}
   def create_tape_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTapePool", input, options)
   end
@@ -3965,8 +3947,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tape_with_barcode_errors()}
   def create_tape_with_barcode(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTapeWithBarcode", input, options)
   end
@@ -3987,8 +3968,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, create_tapes_errors()}
   def create_tapes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTapes", input, options)
   end
@@ -4011,8 +3991,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_automatic_tape_creation_policy_errors()}
   def delete_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAutomaticTapeCreationPolicy", input, options)
   end
@@ -4035,8 +4014,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_bandwidth_rate_limit_errors()}
   def delete_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBandwidthRateLimit", input, options)
   end
@@ -4059,8 +4037,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_cache_report_errors()}
   def delete_cache_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCacheReport", input, options)
   end
@@ -4079,8 +4056,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_chap_credentials_errors()}
   def delete_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteChapCredentials", input, options)
   end
@@ -4097,8 +4073,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_file_share_errors()}
   def delete_file_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFileShare", input, options)
   end
@@ -4135,8 +4110,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_gateway_errors()}
   def delete_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGateway", input, options)
   end
@@ -4166,8 +4140,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_snapshot_schedule_errors()}
   def delete_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshotSchedule", input, options)
   end
@@ -4184,8 +4157,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_errors()}
   def delete_tape(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTape", input, options)
   end
@@ -4202,8 +4174,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_archive_errors()}
   def delete_tape_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTapeArchive", input, options)
   end
@@ -4222,8 +4193,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_tape_pool_errors()}
   def delete_tape_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTapePool", input, options)
   end
@@ -4259,8 +4229,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -4283,8 +4252,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_availability_monitor_test_errors()}
   def describe_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAvailabilityMonitorTest", input, options)
   end
@@ -4313,8 +4281,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_errors()}
   def describe_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBandwidthRateLimit", input, options)
   end
@@ -4360,8 +4327,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_bandwidth_rate_limit_schedule_errors()}
   def describe_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBandwidthRateLimitSchedule", input, options)
   end
@@ -4382,8 +4348,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cache_errors()}
   def describe_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCache", input, options)
   end
@@ -4399,8 +4364,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cache_report_errors()}
   def describe_cache_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheReport", input, options)
   end
@@ -4422,8 +4386,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_cached_iscsi_volumes_errors()}
   def describe_cached_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCachediSCSIVolumes", input, options)
   end
@@ -4442,8 +4405,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_chap_credentials_errors()}
   def describe_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeChapCredentials", input, options)
   end
@@ -4464,8 +4426,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_file_system_associations_errors()}
   def describe_file_system_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFileSystemAssociations", input, options)
   end
@@ -4484,8 +4445,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_gateway_information_errors()}
   def describe_gateway_information(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGatewayInformation", input, options)
   end
@@ -4504,8 +4464,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_maintenance_start_time_errors()}
   def describe_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMaintenanceStartTime", input, options)
   end
@@ -4523,8 +4482,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_nfs_file_shares_errors()}
   def describe_nfs_file_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNFSFileShares", input, options)
   end
@@ -4542,8 +4500,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_smb_file_shares_errors()}
   def describe_smb_file_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSMBFileShares", input, options)
   end
@@ -4561,8 +4518,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_smb_settings_errors()}
   def describe_smb_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSMBSettings", input, options)
   end
@@ -4582,8 +4538,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_snapshot_schedule_errors()}
   def describe_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshotSchedule", input, options)
   end
@@ -4603,8 +4558,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_stored_iscsi_volumes_errors()}
   def describe_stored_iscsi_volumes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStorediSCSIVolumes", input, options)
   end
@@ -4625,8 +4579,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tape_archives_errors()}
   def describe_tape_archives(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTapeArchives", input, options)
   end
@@ -4650,8 +4603,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tape_recovery_points_errors()}
   def describe_tape_recovery_points(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTapeRecoveryPoints", input, options)
   end
@@ -4681,8 +4633,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_tapes_errors()}
   def describe_tapes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTapes", input, options)
   end
@@ -4703,8 +4654,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_upload_buffer_errors()}
   def describe_upload_buffer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUploadBuffer", input, options)
   end
@@ -4724,8 +4674,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_vtl_devices_errors()}
   def describe_vtl_devices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVTLDevices", input, options)
   end
@@ -4751,8 +4700,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, describe_working_storage_errors()}
   def describe_working_storage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWorkingStorage", input, options)
   end
@@ -4775,8 +4723,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, detach_volume_errors()}
   def detach_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachVolume", input, options)
   end
@@ -4800,8 +4747,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, disable_gateway_errors()}
   def disable_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableGateway", input, options)
   end
@@ -4819,8 +4765,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, disassociate_file_system_errors()}
   def disassociate_file_system(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateFileSystem", input, options)
   end
@@ -4852,8 +4797,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, evict_files_failing_upload_errors()}
   def evict_files_failing_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EvictFilesFailingUpload", input, options)
   end
@@ -4882,8 +4826,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, join_domain_errors()}
   def join_domain(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "JoinDomain", input, options)
   end
@@ -4906,8 +4849,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_automatic_tape_creation_policies_errors()}
   def list_automatic_tape_creation_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAutomaticTapeCreationPolicies", input, options)
   end
@@ -4927,8 +4869,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_cache_reports_errors()}
   def list_cache_reports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCacheReports", input, options)
   end
@@ -4947,8 +4888,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_file_shares_errors()}
   def list_file_shares(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFileShares", input, options)
   end
@@ -4967,8 +4907,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_file_system_associations_errors()}
   def list_file_system_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFileSystemAssociations", input, options)
   end
@@ -4999,8 +4938,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_gateways_errors()}
   def list_gateways(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGateways", input, options)
   end
@@ -5029,8 +4967,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_local_disks_errors()}
   def list_local_disks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLocalDisks", input, options)
   end
@@ -5047,8 +4984,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5074,8 +5010,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tape_pools_errors()}
   def list_tape_pools(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTapePools", input, options)
   end
@@ -5107,8 +5042,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_tapes_errors()}
   def list_tapes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTapes", input, options)
   end
@@ -5127,8 +5061,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volume_initiators_errors()}
   def list_volume_initiators(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVolumeInitiators", input, options)
   end
@@ -5153,8 +5086,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volume_recovery_points_errors()}
   def list_volume_recovery_points(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVolumeRecoveryPoints", input, options)
   end
@@ -5184,8 +5116,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, list_volumes_errors()}
   def list_volumes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVolumes", input, options)
   end
@@ -5216,8 +5147,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, notify_when_uploaded_errors()}
   def notify_when_uploaded(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "NotifyWhenUploaded", input, options)
   end
@@ -5285,8 +5215,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, refresh_cache_errors()}
   def refresh_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RefreshCache", input, options)
   end
@@ -5303,8 +5232,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -5335,8 +5263,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, reset_cache_errors()}
   def reset_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetCache", input, options)
   end
@@ -5363,8 +5290,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, retrieve_tape_archive_errors()}
   def retrieve_tape_archive(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetrieveTapeArchive", input, options)
   end
@@ -5392,8 +5318,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, retrieve_tape_recovery_point_errors()}
   def retrieve_tape_recovery_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetrieveTapeRecoveryPoint", input, options)
   end
@@ -5413,8 +5338,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, set_local_console_password_errors()}
   def set_local_console_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetLocalConsolePassword", input, options)
   end
@@ -5432,8 +5356,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, set_smb_guest_password_errors()}
   def set_smb_guest_password(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetSMBGuestPassword", input, options)
   end
@@ -5476,8 +5399,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, shutdown_gateway_errors()}
   def shutdown_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ShutdownGateway", input, options)
   end
@@ -5499,8 +5421,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_availability_monitor_test_errors()}
   def start_availability_monitor_test(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAvailabilityMonitorTest", input, options)
   end
@@ -5554,8 +5475,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_cache_report_errors()}
   def start_cache_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCacheReport", input, options)
   end
@@ -5585,8 +5505,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, start_gateway_errors()}
   def start_gateway(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartGateway", input, options)
   end
@@ -5612,8 +5531,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_automatic_tape_creation_policy_errors()}
   def update_automatic_tape_creation_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAutomaticTapeCreationPolicy", input, options)
   end
@@ -5644,8 +5562,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_bandwidth_rate_limit_errors()}
   def update_bandwidth_rate_limit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBandwidthRateLimit", input, options)
   end
@@ -5674,8 +5591,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_bandwidth_rate_limit_schedule_errors()}
   def update_bandwidth_rate_limit_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBandwidthRateLimitSchedule", input, options)
   end
@@ -5699,8 +5615,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_chap_credentials_errors()}
   def update_chap_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateChapCredentials", input, options)
   end
@@ -5717,8 +5632,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_file_system_association_errors()}
   def update_file_system_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFileSystemAssociation", input, options)
   end
@@ -5741,8 +5655,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_gateway_information_errors()}
   def update_gateway_information(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGatewayInformation", input, options)
   end
@@ -5774,8 +5687,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_gateway_software_now_errors()}
   def update_gateway_software_now(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGatewaySoftwareNow", input, options)
   end
@@ -5812,8 +5724,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_maintenance_start_time_errors()}
   def update_maintenance_start_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMaintenanceStartTime", input, options)
   end
@@ -5850,8 +5761,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_nfs_file_share_errors()}
   def update_nfs_file_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNFSFileShare", input, options)
   end
@@ -5887,8 +5797,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_file_share_errors()}
   def update_smb_file_share(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSMBFileShare", input, options)
   end
@@ -5906,8 +5815,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_file_share_visibility_errors()}
   def update_smb_file_share_visibility(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSMBFileShareVisibility", input, options)
   end
@@ -5923,8 +5831,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_local_groups_errors()}
   def update_smb_local_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSMBLocalGroups", input, options)
   end
@@ -5949,8 +5856,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_smb_security_strategy_errors()}
   def update_smb_security_strategy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSMBSecurityStrategy", input, options)
   end
@@ -5978,8 +5884,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_snapshot_schedule_errors()}
   def update_snapshot_schedule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSnapshotSchedule", input, options)
   end
@@ -6000,8 +5905,7 @@ defmodule AWS.StorageGateway do
           | {:error, term()}
           | {:error, update_vtl_device_type_errors()}
   def update_vtl_device_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVTLDeviceType", input, options)
   end

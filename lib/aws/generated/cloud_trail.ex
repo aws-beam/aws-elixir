@@ -3764,8 +3764,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -3786,8 +3785,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, cancel_query_errors()}
   def cancel_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelQuery", input, options)
   end
@@ -3805,8 +3803,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, create_channel_errors()}
   def create_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateChannel", input, options)
   end
@@ -3857,8 +3854,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, create_dashboard_errors()}
   def create_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDashboard", input, options)
   end
@@ -3872,8 +3868,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, create_event_data_store_errors()}
   def create_event_data_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEventDataStore", input, options)
   end
@@ -3888,8 +3883,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, create_trail_errors()}
   def create_trail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTrail", input, options)
   end
@@ -3903,8 +3897,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteChannel", input, options)
   end
@@ -3921,8 +3914,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, delete_dashboard_errors()}
   def delete_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDashboard", input, options)
   end
@@ -3949,8 +3941,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, delete_event_data_store_errors()}
   def delete_event_data_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEventDataStore", input, options)
   end
@@ -3966,8 +3957,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3985,8 +3975,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, delete_trail_errors()}
   def delete_trail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTrail", input, options)
   end
@@ -4005,8 +3994,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, deregister_organization_delegated_admin_errors()}
   def deregister_organization_delegated_admin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterOrganizationDelegatedAdmin", input, options)
   end
@@ -4031,8 +4019,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, describe_query_errors()}
   def describe_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeQuery", input, options)
   end
@@ -4048,8 +4035,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, describe_trails_errors()}
   def describe_trails(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrails", input, options)
   end
@@ -4072,8 +4058,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, disable_federation_errors()}
   def disable_federation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableFederation", input, options)
   end
@@ -4108,8 +4093,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, enable_federation_errors()}
   def enable_federation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableFederation", input, options)
   end
@@ -4144,8 +4128,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, generate_query_errors()}
   def generate_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateQuery", input, options)
   end
@@ -4159,8 +4142,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_channel_errors()}
   def get_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetChannel", input, options)
   end
@@ -4175,8 +4157,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_dashboard_errors()}
   def get_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDashboard", input, options)
   end
@@ -4193,8 +4174,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_event_configuration_errors()}
   def get_event_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEventConfiguration", input, options)
   end
@@ -4210,8 +4190,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_event_data_store_errors()}
   def get_event_data_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEventDataStore", input, options)
   end
@@ -4261,8 +4240,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_event_selectors_errors()}
   def get_event_selectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEventSelectors", input, options)
   end
@@ -4276,8 +4254,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_import_errors()}
   def get_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetImport", input, options)
   end
@@ -4308,8 +4285,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_insight_selectors_errors()}
   def get_insight_selectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInsightSelectors", input, options)
   end
@@ -4326,8 +4302,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueryResults", input, options)
   end
@@ -4343,8 +4318,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -4358,8 +4332,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_trail_errors()}
   def get_trail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrail", input, options)
   end
@@ -4381,8 +4354,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, get_trail_status_errors()}
   def get_trail_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTrailStatus", input, options)
   end
@@ -4396,8 +4368,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListChannels", input, options)
   end
@@ -4412,8 +4383,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_dashboards_errors()}
   def list_dashboards(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDashboards", input, options)
   end
@@ -4428,8 +4398,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_event_data_stores_errors()}
   def list_event_data_stores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEventDataStores", input, options)
   end
@@ -4443,8 +4412,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_import_failures_errors()}
   def list_import_failures(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImportFailures", input, options)
   end
@@ -4459,8 +4427,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
   end
@@ -4496,8 +4463,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_insights_metric_data_errors()}
   def list_insights_metric_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInsightsMetricData", input, options)
   end
@@ -4523,8 +4489,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_public_keys_errors()}
   def list_public_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPublicKeys", input, options)
   end
@@ -4546,8 +4511,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_queries_errors()}
   def list_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQueries", input, options)
   end
@@ -4562,8 +4526,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -4577,8 +4540,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, list_trails_errors()}
   def list_trails(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTrails", input, options)
   end
@@ -4648,8 +4610,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, lookup_events_errors()}
   def lookup_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "LookupEvents", input, options)
   end
@@ -4665,8 +4626,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, put_event_configuration_errors()}
   def put_event_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutEventConfiguration", input, options)
   end
@@ -4765,8 +4725,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, put_event_selectors_errors()}
   def put_event_selectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutEventSelectors", input, options)
   end
@@ -4813,8 +4772,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, put_insight_selectors_errors()}
   def put_insight_selectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutInsightSelectors", input, options)
   end
@@ -4834,8 +4792,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -4853,8 +4810,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, register_organization_delegated_admin_errors()}
   def register_organization_delegated_admin(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterOrganizationDelegatedAdmin", input, options)
   end
@@ -4869,8 +4825,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -4890,8 +4845,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, restore_event_data_store_errors()}
   def restore_event_data_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreEventDataStore", input, options)
   end
@@ -4910,8 +4864,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, search_sample_queries_errors()}
   def search_sample_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchSampleQueries", input, options)
   end
@@ -4934,8 +4887,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, start_dashboard_refresh_errors()}
   def start_dashboard_refresh(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDashboardRefresh", input, options)
   end
@@ -4958,8 +4910,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, start_event_data_store_ingestion_errors()}
   def start_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartEventDataStoreIngestion", input, options)
   end
@@ -4998,8 +4949,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, start_import_errors()}
   def start_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartImport", input, options)
   end
@@ -5020,8 +4970,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, start_logging_errors()}
   def start_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartLogging", input, options)
   end
@@ -5046,8 +4995,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, start_query_errors()}
   def start_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartQuery", input, options)
   end
@@ -5066,8 +5014,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, stop_event_data_store_ingestion_errors()}
   def stop_event_data_store_ingestion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopEventDataStoreIngestion", input, options)
   end
@@ -5081,8 +5028,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, stop_import_errors()}
   def stop_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopImport", input, options)
   end
@@ -5108,8 +5054,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, stop_logging_errors()}
   def stop_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopLogging", input, options)
   end
@@ -5123,8 +5068,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateChannel", input, options)
   end
@@ -5156,8 +5100,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, update_dashboard_errors()}
   def update_dashboard(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDashboard", input, options)
   end
@@ -5190,8 +5133,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, update_event_data_store_errors()}
   def update_event_data_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEventDataStore", input, options)
   end
@@ -5214,8 +5156,7 @@ defmodule AWS.CloudTrail do
           | {:error, term()}
           | {:error, update_trail_errors()}
   def update_trail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTrail", input, options)
   end

@@ -758,8 +758,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, create_performance_analysis_report_errors()}
   def create_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePerformanceAnalysisReport", input, options)
   end
@@ -777,8 +776,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, delete_performance_analysis_report_errors()}
   def delete_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePerformanceAnalysisReport", input, options)
   end
@@ -796,8 +794,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, describe_dimension_keys_errors()}
   def describe_dimension_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDimensionKeys", input, options)
   end
@@ -819,8 +816,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_dimension_key_details_errors()}
   def get_dimension_key_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDimensionKeyDetails", input, options)
   end
@@ -840,8 +836,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_performance_analysis_report_errors()}
   def get_performance_analysis_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPerformanceAnalysisReport", input, options)
   end
@@ -858,8 +853,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_resource_metadata_errors()}
   def get_resource_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceMetadata", input, options)
   end
@@ -883,8 +877,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, get_resource_metrics_errors()}
   def get_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourceMetrics", input, options)
   end
@@ -903,8 +896,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_available_resource_dimensions_errors()}
   def list_available_resource_dimensions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceDimensions", input, options)
   end
@@ -919,8 +911,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_available_resource_metrics_errors()}
   def list_available_resource_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableResourceMetrics", input, options)
   end
@@ -940,8 +931,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_performance_analysis_reports_errors()}
   def list_performance_analysis_reports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPerformanceAnalysisReports", input, options)
   end
@@ -956,8 +946,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -971,8 +960,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -986,8 +974,7 @@ defmodule AWS.PI do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

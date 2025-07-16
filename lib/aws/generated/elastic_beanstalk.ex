@@ -2111,8 +2111,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, abort_environment_update_errors()}
   def abort_environment_update(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AbortEnvironmentUpdate", input, options)
   end
@@ -2134,8 +2133,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, apply_environment_managed_action_errors()}
   def apply_environment_managed_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ApplyEnvironmentManagedAction", input, options)
   end
@@ -2160,8 +2158,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, associate_environment_operations_role_errors()}
   def associate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateEnvironmentOperationsRole", input, options)
   end
@@ -2174,8 +2171,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def check_dns_availability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CheckDNSAvailability", input, options)
   end
@@ -2199,8 +2195,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, compose_environments_errors()}
   def compose_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ComposeEnvironments", input, options)
   end
@@ -2215,8 +2210,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -2254,8 +2248,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_application_version_errors()}
   def create_application_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplicationVersion", input, options)
   end
@@ -2293,8 +2286,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_configuration_template_errors()}
   def create_configuration_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateConfigurationTemplate", input, options)
   end
@@ -2310,8 +2302,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -2325,8 +2316,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_platform_version_errors()}
   def create_platform_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePlatformVersion", input, options)
   end
@@ -2348,8 +2338,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, create_storage_location_errors()}
   def create_storage_location(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStorageLocation", input, options)
   end
@@ -2369,8 +2358,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -2387,8 +2375,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_application_version_errors()}
   def delete_application_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplicationVersion", input, options)
   end
@@ -2408,8 +2395,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_configuration_template_errors()}
   def delete_configuration_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConfigurationTemplate", input, options)
   end
@@ -2434,8 +2420,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_environment_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentConfiguration", input, options)
   end
@@ -2449,8 +2434,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, delete_platform_version_errors()}
   def delete_platform_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePlatformVersion", input, options)
   end
@@ -2468,8 +2452,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_account_attributes_errors()}
   def describe_account_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
   end
@@ -2482,8 +2465,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_application_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplicationVersions", input, options)
   end
@@ -2496,8 +2478,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeApplications", input, options)
   end
@@ -2517,8 +2498,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_options_errors()}
   def describe_configuration_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationOptions", input, options)
   end
@@ -2549,8 +2529,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_configuration_settings_errors()}
   def describe_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationSettings", input, options)
   end
@@ -2568,8 +2547,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_health_errors()}
   def describe_environment_health(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentHealth", input, options)
   end
@@ -2587,8 +2565,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_action_history_errors()}
   def describe_environment_managed_action_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActionHistory", input, options)
   end
@@ -2606,8 +2583,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_managed_actions_errors()}
   def describe_environment_managed_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentManagedActions", input, options)
   end
@@ -2621,8 +2597,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_environment_resources_errors()}
   def describe_environment_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironmentResources", input, options)
   end
@@ -2635,8 +2610,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEnvironments", input, options)
   end
@@ -2652,8 +2626,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -2670,8 +2643,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_instances_health_errors()}
   def describe_instances_health(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstancesHealth", input, options)
   end
@@ -2693,8 +2665,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, describe_platform_version_errors()}
   def describe_platform_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePlatformVersion", input, options)
   end
@@ -2719,8 +2690,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, disassociate_environment_operations_role_errors()}
   def disassociate_environment_operations_role(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateEnvironmentOperationsRole", input, options)
   end
@@ -2735,8 +2705,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_available_solution_stacks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAvailableSolutionStacks", input, options)
   end
@@ -2756,8 +2725,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_platform_branches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlatformBranches", input, options)
   end
@@ -2780,8 +2748,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_platform_versions_errors()}
   def list_platform_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPlatformVersions", input, options)
   end
@@ -2801,8 +2768,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2818,8 +2784,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, rebuild_environment_errors()}
   def rebuild_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebuildEnvironment", input, options)
   end
@@ -2850,8 +2815,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def request_environment_info(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RequestEnvironmentInfo", input, options)
   end
@@ -2866,8 +2830,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def restart_app_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestartAppServer", input, options)
   end
@@ -2887,8 +2850,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def retrieve_environment_info(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetrieveEnvironmentInfo", input, options)
   end
@@ -2901,8 +2863,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def swap_environment_cnames(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SwapEnvironmentCNAMEs", input, options)
   end
@@ -2916,8 +2877,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, terminate_environment_errors()}
   def terminate_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateEnvironment", input, options)
   end
@@ -2933,8 +2893,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -2952,8 +2911,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_application_resource_lifecycle_errors()}
   def update_application_resource_lifecycle(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplicationResourceLifecycle", input, options)
   end
@@ -2969,8 +2927,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def update_application_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplicationVersion", input, options)
   end
@@ -2994,8 +2951,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_configuration_template_errors()}
   def update_configuration_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateConfigurationTemplate", input, options)
   end
@@ -3023,8 +2979,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -3066,8 +3021,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, update_tags_for_resource_errors()}
   def update_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTagsForResource", input, options)
   end
@@ -3086,8 +3040,7 @@ defmodule AWS.ElasticBeanstalk do
           | {:error, term()}
           | {:error, validate_configuration_settings_errors()}
   def validate_configuration_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidateConfigurationSettings", input, options)
   end

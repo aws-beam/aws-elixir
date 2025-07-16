@@ -4456,8 +4456,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, add_tags_to_resource_errors()}
   def add_tags_to_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToResource", input, options)
   end
@@ -4484,8 +4483,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, authorize_cache_security_group_ingress_errors()}
   def authorize_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AuthorizeCacheSecurityGroupIngress", input, options)
   end
@@ -4502,8 +4500,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_apply_update_action_errors()}
   def batch_apply_update_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchApplyUpdateAction", input, options)
   end
@@ -4521,8 +4518,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, batch_stop_update_action_errors()}
   def batch_stop_update_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchStopUpdateAction", input, options)
   end
@@ -4536,8 +4532,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, complete_migration_errors()}
   def complete_migration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CompleteMigration", input, options)
   end
@@ -4553,8 +4548,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_serverless_cache_snapshot_errors()}
   def copy_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyServerlessCacheSnapshot", input, options)
   end
@@ -4665,8 +4659,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, copy_snapshot_errors()}
   def copy_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshot", input, options)
   end
@@ -4686,8 +4679,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_cluster_errors()}
   def create_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCacheCluster", input, options)
   end
@@ -4723,8 +4715,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_parameter_group_errors()}
   def create_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCacheParameterGroup", input, options)
   end
@@ -4748,8 +4739,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_security_group_errors()}
   def create_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCacheSecurityGroup", input, options)
   end
@@ -4767,8 +4757,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_cache_subnet_group_errors()}
   def create_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCacheSubnetGroup", input, options)
   end
@@ -4797,8 +4786,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_global_replication_group_errors()}
   def create_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGlobalReplicationGroup", input, options)
   end
@@ -4862,8 +4850,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_replication_group_errors()}
   def create_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReplicationGroup", input, options)
   end
@@ -4877,8 +4864,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_errors()}
   def create_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServerlessCache", input, options)
   end
@@ -4899,8 +4885,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_serverless_cache_snapshot_errors()}
   def create_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServerlessCacheSnapshot", input, options)
   end
@@ -4917,8 +4902,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4935,8 +4919,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -4954,8 +4937,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, create_user_group_errors()}
   def create_user_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUserGroup", input, options)
   end
@@ -4973,8 +4955,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_node_groups_in_global_replication_group_errors()}
   def decrease_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5001,8 +4982,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, decrease_replica_count_errors()}
   def decrease_replica_count(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DecreaseReplicaCount", input, options)
   end
@@ -5046,8 +5026,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_cluster_errors()}
   def delete_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCacheCluster", input, options)
   end
@@ -5065,8 +5044,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_parameter_group_errors()}
   def delete_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCacheParameterGroup", input, options)
   end
@@ -5083,8 +5061,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_security_group_errors()}
   def delete_cache_security_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCacheSecurityGroup", input, options)
   end
@@ -5102,8 +5079,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_cache_subnet_group_errors()}
   def delete_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCacheSubnetGroup", input, options)
   end
@@ -5139,8 +5115,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_global_replication_group_errors()}
   def delete_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGlobalReplicationGroup", input, options)
   end
@@ -5175,8 +5150,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_replication_group_errors()}
   def delete_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteReplicationGroup", input, options)
   end
@@ -5195,8 +5169,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_errors()}
   def delete_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCache", input, options)
   end
@@ -5216,8 +5189,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_serverless_cache_snapshot_errors()}
   def delete_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServerlessCacheSnapshot", input, options)
   end
@@ -5238,8 +5210,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -5258,8 +5229,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -5278,8 +5248,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, delete_user_group_errors()}
   def delete_user_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUserGroup", input, options)
   end
@@ -5319,8 +5288,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_clusters_errors()}
   def describe_cache_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheClusters", input, options)
   end
@@ -5333,8 +5301,7 @@ defmodule AWS.ElastiCache do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_cache_engine_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheEngineVersions", input, options)
   end
@@ -5351,8 +5318,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameter_groups_errors()}
   def describe_cache_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameterGroups", input, options)
   end
@@ -5366,8 +5332,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_parameters_errors()}
   def describe_cache_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheParameters", input, options)
   end
@@ -5386,8 +5351,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_security_groups_errors()}
   def describe_cache_security_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheSecurityGroups", input, options)
   end
@@ -5408,8 +5372,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_cache_subnet_groups_errors()}
   def describe_cache_subnet_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCacheSubnetGroups", input, options)
   end
@@ -5429,8 +5392,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_engine_default_parameters_errors()}
   def describe_engine_default_parameters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEngineDefaultParameters", input, options)
   end
@@ -5453,8 +5415,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_events_errors()}
   def describe_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEvents", input, options)
   end
@@ -5475,8 +5436,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_global_replication_groups_errors()}
   def describe_global_replication_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGlobalReplicationGroups", input, options)
   end
@@ -5496,8 +5456,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_replication_groups_errors()}
   def describe_replication_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReplicationGroups", input, options)
   end
@@ -5513,8 +5472,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_errors()}
   def describe_reserved_cache_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodes", input, options)
   end
@@ -5532,8 +5490,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_reserved_cache_nodes_offerings_errors()}
   def describe_reserved_cache_nodes_offerings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReservedCacheNodesOfferings", input, options)
   end
@@ -5557,8 +5514,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_cache_snapshots_errors()}
   def describe_serverless_cache_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCacheSnapshots", input, options)
   end
@@ -5576,8 +5532,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_serverless_caches_errors()}
   def describe_serverless_caches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServerlessCaches", input, options)
   end
@@ -5591,8 +5546,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_service_updates_errors()}
   def describe_service_updates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceUpdates", input, options)
   end
@@ -5614,8 +5568,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -5629,8 +5582,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_update_actions_errors()}
   def describe_update_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUpdateActions", input, options)
   end
@@ -5644,8 +5596,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_user_groups_errors()}
   def describe_user_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUserGroups", input, options)
   end
@@ -5659,8 +5610,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, describe_users_errors()}
   def describe_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUsers", input, options)
   end
@@ -5683,8 +5633,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, disassociate_global_replication_group_errors()}
   def disassociate_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateGlobalReplicationGroup", input, options)
   end
@@ -5705,8 +5654,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, export_serverless_cache_snapshot_errors()}
   def export_serverless_cache_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportServerlessCacheSnapshot", input, options)
   end
@@ -5727,8 +5675,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, failover_global_replication_group_errors()}
   def failover_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "FailoverGlobalReplicationGroup", input, options)
   end
@@ -5746,8 +5693,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_node_groups_in_global_replication_group_errors()}
   def increase_node_groups_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -5774,8 +5720,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, increase_replica_count_errors()}
   def increase_replica_count(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IncreaseReplicaCount", input, options)
   end
@@ -5800,8 +5745,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_allowed_node_type_modifications_errors()}
   def list_allowed_node_type_modifications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAllowedNodeTypeModifications", input, options)
   end
@@ -5828,8 +5772,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5847,8 +5790,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_cluster_errors()}
   def modify_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCacheCluster", input, options)
   end
@@ -5865,8 +5807,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_parameter_group_errors()}
   def modify_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCacheParameterGroup", input, options)
   end
@@ -5880,8 +5821,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_cache_subnet_group_errors()}
   def modify_cache_subnet_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCacheSubnetGroup", input, options)
   end
@@ -5895,8 +5835,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_global_replication_group_errors()}
   def modify_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyGlobalReplicationGroup", input, options)
   end
@@ -5926,8 +5865,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_errors()}
   def modify_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroup", input, options)
   end
@@ -5947,8 +5885,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_replication_group_shard_configuration_errors()}
   def modify_replication_group_shard_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyReplicationGroupShardConfiguration", input, options)
   end
@@ -5962,8 +5899,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_serverless_cache_errors()}
   def modify_serverless_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyServerlessCache", input, options)
   end
@@ -5977,8 +5913,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_errors()}
   def modify_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyUser", input, options)
   end
@@ -5992,8 +5927,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, modify_user_group_errors()}
   def modify_user_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyUserGroup", input, options)
   end
@@ -6015,8 +5949,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, purchase_reserved_cache_nodes_offering_errors()}
   def purchase_reserved_cache_nodes_offering(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PurchaseReservedCacheNodesOffering", input, options)
   end
@@ -6035,8 +5968,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, rebalance_slots_in_global_replication_group_errors()}
   def rebalance_slots_in_global_replication_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebalanceSlotsInGlobalReplicationGroup", input, options)
   end
@@ -6074,8 +6006,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reboot_cache_cluster_errors()}
   def reboot_cache_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootCacheCluster", input, options)
   end
@@ -6098,8 +6029,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, remove_tags_from_resource_errors()}
   def remove_tags_from_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromResource", input, options)
   end
@@ -6119,8 +6049,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, reset_cache_parameter_group_errors()}
   def reset_cache_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResetCacheParameterGroup", input, options)
   end
@@ -6141,8 +6070,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, revoke_cache_security_group_ingress_errors()}
   def revoke_cache_security_group_ingress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeCacheSecurityGroupIngress", input, options)
   end
@@ -6156,8 +6084,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, start_migration_errors()}
   def start_migration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMigration", input, options)
   end
@@ -6264,8 +6191,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_failover_errors()}
   def test_failover(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestFailover", input, options)
   end
@@ -6279,8 +6205,7 @@ defmodule AWS.ElastiCache do
           | {:error, term()}
           | {:error, test_migration_errors()}
   def test_migration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestMigration", input, options)
   end

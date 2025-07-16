@@ -915,8 +915,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_cluster_errors()}
   def create_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDbCluster", input, options)
   end
@@ -930,8 +929,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_instance_errors()}
   def create_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDbInstance", input, options)
   end
@@ -946,8 +944,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, create_db_parameter_group_errors()}
   def create_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDbParameterGroup", input, options)
   end
@@ -961,8 +958,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, delete_db_cluster_errors()}
   def delete_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDbCluster", input, options)
   end
@@ -976,8 +972,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, delete_db_instance_errors()}
   def delete_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDbInstance", input, options)
   end
@@ -991,8 +986,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_cluster_errors()}
   def get_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDbCluster", input, options)
   end
@@ -1006,8 +1000,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_instance_errors()}
   def get_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDbInstance", input, options)
   end
@@ -1021,8 +1014,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, get_db_parameter_group_errors()}
   def get_db_parameter_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDbParameterGroup", input, options)
   end
@@ -1036,8 +1028,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_clusters_errors()}
   def list_db_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbClusters", input, options)
   end
@@ -1051,8 +1042,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_instances_errors()}
   def list_db_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbInstances", input, options)
   end
@@ -1066,8 +1056,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_instances_for_cluster_errors()}
   def list_db_instances_for_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbInstancesForCluster", input, options)
   end
@@ -1081,8 +1070,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_db_parameter_groups_errors()}
   def list_db_parameter_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbParameterGroups", input, options)
   end
@@ -1096,8 +1084,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1113,8 +1100,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1128,8 +1114,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1143,8 +1128,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, update_db_cluster_errors()}
   def update_db_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDbCluster", input, options)
   end
@@ -1158,8 +1142,7 @@ defmodule AWS.TimestreamInfluxDB do
           | {:error, term()}
           | {:error, update_db_instance_errors()}
   def update_db_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDbInstance", input, options)
   end

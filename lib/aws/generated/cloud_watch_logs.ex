@@ -4004,8 +4004,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, associate_kms_key_errors()}
   def associate_kms_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateKmsKey", input, options)
   end
@@ -4021,8 +4020,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, cancel_export_task_errors()}
   def cancel_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelExportTask", input, options)
   end
@@ -4083,8 +4081,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, create_delivery_errors()}
   def create_delivery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDelivery", input, options)
   end
@@ -4135,8 +4132,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, create_export_task_errors()}
   def create_export_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExportTask", input, options)
   end
@@ -4188,8 +4184,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, create_log_anomaly_detector_errors()}
   def create_log_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLogAnomalyDetector", input, options)
   end
@@ -4241,8 +4236,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, create_log_group_errors()}
   def create_log_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLogGroup", input, options)
   end
@@ -4277,8 +4271,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, create_log_stream_errors()}
   def create_log_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLogStream", input, options)
   end
@@ -4324,8 +4317,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_account_policy_errors()}
   def delete_account_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccountPolicy", input, options)
   end
@@ -4342,8 +4334,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_data_protection_policy_errors()}
   def delete_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataProtectionPolicy", input, options)
   end
@@ -4362,8 +4353,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_delivery_errors()}
   def delete_delivery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDelivery", input, options)
   end
@@ -4386,8 +4376,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_delivery_destination_errors()}
   def delete_delivery_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryDestination", input, options)
   end
@@ -4409,8 +4398,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_delivery_destination_policy_errors()}
   def delete_delivery_destination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryDestinationPolicy", input, options)
   end
@@ -4433,8 +4421,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_delivery_source_errors()}
   def delete_delivery_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeliverySource", input, options)
   end
@@ -4452,8 +4439,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_destination_errors()}
   def delete_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDestination", input, options)
   end
@@ -4481,8 +4467,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_index_policy_errors()}
   def delete_index_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIndexPolicy", input, options)
   end
@@ -4504,8 +4489,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_integration_errors()}
   def delete_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIntegration", input, options)
   end
@@ -4519,8 +4503,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_log_anomaly_detector_errors()}
   def delete_log_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLogAnomalyDetector", input, options)
   end
@@ -4535,8 +4518,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_log_group_errors()}
   def delete_log_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLogGroup", input, options)
   end
@@ -4552,8 +4534,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_log_stream_errors()}
   def delete_log_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLogStream", input, options)
   end
@@ -4567,8 +4548,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_metric_filter_errors()}
   def delete_metric_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMetricFilter", input, options)
   end
@@ -4590,8 +4570,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_query_definition_errors()}
   def delete_query_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteQueryDefinition", input, options)
   end
@@ -4608,8 +4587,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4626,8 +4604,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_retention_policy_errors()}
   def delete_retention_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRetentionPolicy", input, options)
   end
@@ -4641,8 +4618,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_subscription_filter_errors()}
   def delete_subscription_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSubscriptionFilter", input, options)
   end
@@ -4667,8 +4643,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, delete_transformer_errors()}
   def delete_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransformer", input, options)
   end
@@ -4703,8 +4678,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_account_policies_errors()}
   def describe_account_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountPolicies", input, options)
   end
@@ -4726,8 +4700,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_configuration_templates_errors()}
   def describe_configuration_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConfigurationTemplates", input, options)
   end
@@ -4757,8 +4730,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_deliveries_errors()}
   def describe_deliveries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliveries", input, options)
   end
@@ -4773,8 +4745,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_delivery_destinations_errors()}
   def describe_delivery_destinations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryDestinations", input, options)
   end
@@ -4788,8 +4759,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_delivery_sources_errors()}
   def describe_delivery_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliverySources", input, options)
   end
@@ -4805,8 +4775,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_destinations_errors()}
   def describe_destinations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDestinations", input, options)
   end
@@ -4823,8 +4792,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_export_tasks_errors()}
   def describe_export_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExportTasks", input, options)
   end
@@ -4842,8 +4810,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_field_indexes_errors()}
   def describe_field_indexes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFieldIndexes", input, options)
   end
@@ -4871,8 +4838,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_index_policies_errors()}
   def describe_index_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIndexPolicies", input, options)
   end
@@ -4914,8 +4880,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_log_groups_errors()}
   def describe_log_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLogGroups", input, options)
   end
@@ -4944,8 +4909,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_log_streams_errors()}
   def describe_log_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLogStreams", input, options)
   end
@@ -4964,8 +4928,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_metric_filters_errors()}
   def describe_metric_filters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMetricFilters", input, options)
   end
@@ -4984,8 +4947,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_queries_errors()}
   def describe_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeQueries", input, options)
   end
@@ -5008,8 +4970,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_query_definitions_errors()}
   def describe_query_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeQueryDefinitions", input, options)
   end
@@ -5023,8 +4984,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_resource_policies_errors()}
   def describe_resource_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicies", input, options)
   end
@@ -5041,8 +5001,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, describe_subscription_filters_errors()}
   def describe_subscription_filters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSubscriptionFilters", input, options)
   end
@@ -5088,8 +5047,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, disassociate_kms_key_errors()}
   def disassociate_kms_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateKmsKey", input, options)
   end
@@ -5154,8 +5112,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, filter_log_events_errors()}
   def filter_log_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "FilterLogEvents", input, options)
   end
@@ -5169,8 +5126,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_data_protection_policy_errors()}
   def get_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataProtectionPolicy", input, options)
   end
@@ -5205,8 +5161,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_delivery_errors()}
   def get_delivery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDelivery", input, options)
   end
@@ -5220,8 +5175,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_delivery_destination_errors()}
   def get_delivery_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeliveryDestination", input, options)
   end
@@ -5239,8 +5193,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_delivery_destination_policy_errors()}
   def get_delivery_destination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeliveryDestinationPolicy", input, options)
   end
@@ -5254,8 +5207,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_delivery_source_errors()}
   def get_delivery_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeliverySource", input, options)
   end
@@ -5270,8 +5222,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_integration_errors()}
   def get_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIntegration", input, options)
   end
@@ -5287,8 +5238,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_log_anomaly_detector_errors()}
   def get_log_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLogAnomalyDetector", input, options)
   end
@@ -5342,8 +5292,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_log_events_errors()}
   def get_log_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLogEvents", input, options)
   end
@@ -5380,8 +5329,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_log_group_fields_errors()}
   def get_log_group_fields(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLogGroupFields", input, options)
   end
@@ -5401,8 +5349,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_log_record_errors()}
   def get_log_record(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLogRecord", input, options)
   end
@@ -5437,8 +5384,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueryResults", input, options)
   end
@@ -5458,8 +5404,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, get_transformer_errors()}
   def get_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransformer", input, options)
   end
@@ -5476,8 +5421,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_anomalies_errors()}
   def list_anomalies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAnomalies", input, options)
   end
@@ -5496,8 +5440,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_integrations_errors()}
   def list_integrations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListIntegrations", input, options)
   end
@@ -5511,8 +5454,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_log_anomaly_detectors_errors()}
   def list_log_anomaly_detectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLogAnomalyDetectors", input, options)
   end
@@ -5542,8 +5484,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_log_groups_errors()}
   def list_log_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLogGroups", input, options)
   end
@@ -5566,8 +5507,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_log_groups_for_query_errors()}
   def list_log_groups_for_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLogGroupsForQuery", input, options)
   end
@@ -5584,8 +5524,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5606,8 +5545,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, list_tags_log_group_errors()}
   def list_tags_log_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsLogGroup", input, options)
   end
@@ -5840,8 +5778,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_account_policy_errors()}
   def put_account_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccountPolicy", input, options)
   end
@@ -5892,8 +5829,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_data_protection_policy_errors()}
   def put_data_protection_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDataProtectionPolicy", input, options)
   end
@@ -5957,8 +5893,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_delivery_destination_errors()}
   def put_delivery_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDeliveryDestination", input, options)
   end
@@ -6013,8 +5948,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_delivery_destination_policy_errors()}
   def put_delivery_destination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDeliveryDestinationPolicy", input, options)
   end
@@ -6077,8 +6011,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_delivery_source_errors()}
   def put_delivery_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDeliverySource", input, options)
   end
@@ -6113,8 +6046,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_destination_errors()}
   def put_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDestination", input, options)
   end
@@ -6134,8 +6066,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_destination_policy_errors()}
   def put_destination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutDestinationPolicy", input, options)
   end
@@ -6201,8 +6132,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_index_policy_errors()}
   def put_index_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutIndexPolicy", input, options)
   end
@@ -6229,8 +6159,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_integration_errors()}
   def put_integration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutIntegration", input, options)
   end
@@ -6298,8 +6227,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_log_events_errors()}
   def put_log_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLogEvents", input, options)
   end
@@ -6353,8 +6281,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_metric_filter_errors()}
   def put_metric_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMetricFilter", input, options)
   end
@@ -6385,8 +6312,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_query_definition_errors()}
   def put_query_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutQueryDefinition", input, options)
   end
@@ -6405,8 +6331,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -6453,8 +6378,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_retention_policy_errors()}
   def put_retention_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRetentionPolicy", input, options)
   end
@@ -6516,8 +6440,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_subscription_filter_errors()}
   def put_subscription_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutSubscriptionFilter", input, options)
   end
@@ -6573,8 +6496,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, put_transformer_errors()}
   def put_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutTransformer", input, options)
   end
@@ -6646,8 +6568,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, start_live_tail_errors()}
   def start_live_tail(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata() |> Map.put_new(:host_prefix, "streaming-")
+    meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
 
     Request.request_post(client, meta, "StartLiveTail", input, options)
   end
@@ -6715,8 +6636,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, start_query_errors()}
   def start_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartQuery", input, options)
   end
@@ -6733,8 +6653,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, stop_query_errors()}
   def stop_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopQuery", input, options)
   end
@@ -6774,8 +6693,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, tag_log_group_errors()}
   def tag_log_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagLogGroup", input, options)
   end
@@ -6810,8 +6728,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -6829,8 +6746,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, test_metric_filter_errors()}
   def test_metric_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestMetricFilter", input, options)
   end
@@ -6849,8 +6765,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, test_transformer_errors()}
   def test_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestTransformer", input, options)
   end
@@ -6886,8 +6801,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, untag_log_group_errors()}
   def untag_log_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagLogGroup", input, options)
   end
@@ -6901,8 +6815,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -6935,8 +6848,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, update_anomaly_errors()}
   def update_anomaly(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAnomaly", input, options)
   end
@@ -6956,8 +6868,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, update_delivery_configuration_errors()}
   def update_delivery_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDeliveryConfiguration", input, options)
   end
@@ -6971,8 +6882,7 @@ defmodule AWS.CloudWatchLogs do
           | {:error, term()}
           | {:error, update_log_anomaly_detector_errors()}
   def update_log_anomaly_detector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLogAnomalyDetector", input, options)
   end

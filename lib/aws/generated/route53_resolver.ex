@@ -2844,8 +2844,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_firewall_rule_group_errors()}
   def associate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateFirewallRuleGroup", input, options)
   end
@@ -2869,8 +2868,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_endpoint_ip_address_errors()}
   def associate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateResolverEndpointIpAddress", input, options)
   end
@@ -2900,8 +2898,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_query_log_config_errors()}
   def associate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateResolverQueryLogConfig", input, options)
   end
@@ -2922,8 +2919,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, associate_resolver_rule_errors()}
   def associate_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateResolverRule", input, options)
   end
@@ -2940,8 +2936,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_domain_list_errors()}
   def create_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFirewallDomainList", input, options)
   end
@@ -2956,8 +2951,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_rule_errors()}
   def create_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFirewallRule", input, options)
   end
@@ -2975,8 +2969,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_firewall_rule_group_errors()}
   def create_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFirewallRuleGroup", input, options)
   end
@@ -2990,8 +2983,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_outpost_resolver_errors()}
   def create_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOutpostResolver", input, options)
   end
@@ -3016,8 +3008,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_endpoint_errors()}
   def create_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResolverEndpoint", input, options)
   end
@@ -3049,8 +3040,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_query_log_config_errors()}
   def create_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResolverQueryLogConfig", input, options)
   end
@@ -3067,8 +3057,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, create_resolver_rule_errors()}
   def create_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateResolverRule", input, options)
   end
@@ -3082,8 +3071,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_domain_list_errors()}
   def delete_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFirewallDomainList", input, options)
   end
@@ -3097,8 +3085,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_rule_errors()}
   def delete_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFirewallRule", input, options)
   end
@@ -3112,8 +3099,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_firewall_rule_group_errors()}
   def delete_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFirewallRuleGroup", input, options)
   end
@@ -3127,8 +3113,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_outpost_resolver_errors()}
   def delete_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOutpostResolver", input, options)
   end
@@ -3155,8 +3140,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_endpoint_errors()}
   def delete_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResolverEndpoint", input, options)
   end
@@ -3192,8 +3176,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_query_log_config_errors()}
   def delete_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResolverQueryLogConfig", input, options)
   end
@@ -3212,8 +3195,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, delete_resolver_rule_errors()}
   def delete_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResolverRule", input, options)
   end
@@ -3232,8 +3214,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_firewall_rule_group_errors()}
   def disassociate_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateFirewallRuleGroup", input, options)
   end
@@ -3257,8 +3238,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_endpoint_ip_address_errors()}
   def disassociate_resolver_endpoint_ip_address(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateResolverEndpointIpAddress", input, options)
   end
@@ -3290,8 +3270,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_query_log_config_errors()}
   def disassociate_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateResolverQueryLogConfig", input, options)
   end
@@ -3309,8 +3288,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, disassociate_resolver_rule_errors()}
   def disassociate_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateResolverRule", input, options)
   end
@@ -3326,8 +3304,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_config_errors()}
   def get_firewall_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallConfig", input, options)
   end
@@ -3341,8 +3318,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_domain_list_errors()}
   def get_firewall_domain_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallDomainList", input, options)
   end
@@ -3356,8 +3332,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_errors()}
   def get_firewall_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroup", input, options)
   end
@@ -3379,8 +3354,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_association_errors()}
   def get_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroupAssociation", input, options)
   end
@@ -3399,8 +3373,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_firewall_rule_group_policy_errors()}
   def get_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFirewallRuleGroupPolicy", input, options)
   end
@@ -3416,8 +3389,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_outpost_resolver_errors()}
   def get_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOutpostResolver", input, options)
   end
@@ -3433,8 +3405,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_config_errors()}
   def get_resolver_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverConfig", input, options)
   end
@@ -3448,8 +3419,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_dnssec_config_errors()}
   def get_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverDnssecConfig", input, options)
   end
@@ -3465,8 +3435,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_endpoint_errors()}
   def get_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverEndpoint", input, options)
   end
@@ -3482,8 +3451,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_errors()}
   def get_resolver_query_log_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfig", input, options)
   end
@@ -3506,8 +3474,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_association_errors()}
   def get_resolver_query_log_config_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfigAssociation", input, options)
   end
@@ -3529,8 +3496,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_query_log_config_policy_errors()}
   def get_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverQueryLogConfigPolicy", input, options)
   end
@@ -3546,8 +3512,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_errors()}
   def get_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverRule", input, options)
   end
@@ -3565,8 +3530,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_association_errors()}
   def get_resolver_rule_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverRuleAssociation", input, options)
   end
@@ -3584,8 +3548,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, get_resolver_rule_policy_errors()}
   def get_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResolverRulePolicy", input, options)
   end
@@ -3614,8 +3577,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, import_firewall_domains_errors()}
   def import_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportFirewallDomains", input, options)
   end
@@ -3634,8 +3596,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_configs_errors()}
   def list_firewall_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallConfigs", input, options)
   end
@@ -3655,8 +3616,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_domain_lists_errors()}
   def list_firewall_domain_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallDomainLists", input, options)
   end
@@ -3674,8 +3634,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_domains_errors()}
   def list_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallDomains", input, options)
   end
@@ -3698,8 +3657,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rule_group_associations_errors()}
   def list_firewall_rule_group_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallRuleGroupAssociations", input, options)
   end
@@ -3717,8 +3675,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rule_groups_errors()}
   def list_firewall_rule_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallRuleGroups", input, options)
   end
@@ -3739,8 +3696,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_firewall_rules_errors()}
   def list_firewall_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFirewallRules", input, options)
   end
@@ -3755,8 +3711,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_outpost_resolvers_errors()}
   def list_outpost_resolvers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOutpostResolvers", input, options)
   end
@@ -3773,8 +3728,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_configs_errors()}
   def list_resolver_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverConfigs", input, options)
   end
@@ -3789,8 +3743,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_dnssec_configs_errors()}
   def list_resolver_dnssec_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverDnssecConfigs", input, options)
   end
@@ -3808,8 +3761,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_endpoint_ip_addresses_errors()}
   def list_resolver_endpoint_ip_addresses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverEndpointIpAddresses", input, options)
   end
@@ -3824,8 +3776,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_endpoints_errors()}
   def list_resolver_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverEndpoints", input, options)
   end
@@ -3844,8 +3795,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_query_log_config_associations_errors()}
   def list_resolver_query_log_config_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverQueryLogConfigAssociations", input, options)
   end
@@ -3862,8 +3812,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_query_log_configs_errors()}
   def list_resolver_query_log_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverQueryLogConfigs", input, options)
   end
@@ -3878,8 +3827,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_rule_associations_errors()}
   def list_resolver_rule_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverRuleAssociations", input, options)
   end
@@ -3894,8 +3842,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_resolver_rules_errors()}
   def list_resolver_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResolverRules", input, options)
   end
@@ -3909,8 +3856,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3929,8 +3875,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_firewall_rule_group_policy_errors()}
   def put_firewall_rule_group_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutFirewallRuleGroupPolicy", input, options)
   end
@@ -3951,8 +3896,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_resolver_query_log_config_policy_errors()}
   def put_resolver_query_log_config_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResolverQueryLogConfigPolicy", input, options)
   end
@@ -3968,8 +3912,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, put_resolver_rule_policy_errors()}
   def put_resolver_rule_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResolverRulePolicy", input, options)
   end
@@ -3983,8 +3926,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3998,8 +3940,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4015,8 +3956,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_config_errors()}
   def update_firewall_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFirewallConfig", input, options)
   end
@@ -4030,8 +3970,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_domains_errors()}
   def update_firewall_domains(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDomains", input, options)
   end
@@ -4045,8 +3984,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_rule_errors()}
   def update_firewall_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFirewallRule", input, options)
   end
@@ -4066,8 +4004,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_firewall_rule_group_association_errors()}
   def update_firewall_rule_group_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFirewallRuleGroupAssociation", input, options)
   end
@@ -4082,8 +4019,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_outpost_resolver_errors()}
   def update_outpost_resolver(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOutpostResolver", input, options)
   end
@@ -4099,8 +4035,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_config_errors()}
   def update_resolver_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResolverConfig", input, options)
   end
@@ -4116,8 +4051,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_dnssec_config_errors()}
   def update_resolver_dnssec_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResolverDnssecConfig", input, options)
   end
@@ -4135,8 +4069,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_endpoint_errors()}
   def update_resolver_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResolverEndpoint", input, options)
   end
@@ -4153,8 +4086,7 @@ defmodule AWS.Route53Resolver do
           | {:error, term()}
           | {:error, update_resolver_rule_errors()}
   def update_resolver_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateResolverRule", input, options)
   end

@@ -3598,8 +3598,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, add_tags_to_on_premises_instances_errors()}
   def add_tags_to_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTagsToOnPremisesInstances", input, options)
   end
@@ -3616,8 +3615,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_application_revisions_errors()}
   def batch_get_application_revisions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetApplicationRevisions", input, options)
   end
@@ -3634,8 +3632,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_applications_errors()}
   def batch_get_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetApplications", input, options)
   end
@@ -3649,8 +3646,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_groups_errors()}
   def batch_get_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentGroups", input, options)
   end
@@ -3674,8 +3670,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_instances_errors()}
   def batch_get_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentInstances", input, options)
   end
@@ -3716,8 +3711,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployment_targets_errors()}
   def batch_get_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDeploymentTargets", input, options)
   end
@@ -3734,8 +3728,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_deployments_errors()}
   def batch_get_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDeployments", input, options)
   end
@@ -3752,8 +3745,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, batch_get_on_premises_instances_errors()}
   def batch_get_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetOnPremisesInstances", input, options)
   end
@@ -3776,8 +3768,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, continue_deployment_errors()}
   def continue_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ContinueDeployment", input, options)
   end
@@ -3791,8 +3782,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_application_errors()}
   def create_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateApplication", input, options)
   end
@@ -3806,8 +3796,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_errors()}
   def create_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDeployment", input, options)
   end
@@ -3821,8 +3810,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_config_errors()}
   def create_deployment_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDeploymentConfig", input, options)
   end
@@ -3836,8 +3824,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, create_deployment_group_errors()}
   def create_deployment_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDeploymentGroup", input, options)
   end
@@ -3851,8 +3838,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_application_errors()}
   def delete_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteApplication", input, options)
   end
@@ -3870,8 +3856,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_config_errors()}
   def delete_deployment_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentConfig", input, options)
   end
@@ -3885,8 +3870,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_deployment_group_errors()}
   def delete_deployment_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeploymentGroup", input, options)
   end
@@ -3900,8 +3884,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, delete_git_hub_account_token_errors()}
   def delete_git_hub_account_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGitHubAccountToken", input, options)
   end
@@ -3923,8 +3906,7 @@ defmodule AWS.CodeDeploy do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def delete_resources_by_external_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcesByExternalId", input, options)
   end
@@ -3938,8 +3920,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, deregister_on_premises_instance_errors()}
   def deregister_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterOnPremisesInstance", input, options)
   end
@@ -3953,8 +3934,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_errors()}
   def get_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplication", input, options)
   end
@@ -3968,8 +3948,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_application_revision_errors()}
   def get_application_revision(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApplicationRevision", input, options)
   end
@@ -3988,8 +3967,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -4003,8 +3981,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_config_errors()}
   def get_deployment_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeploymentConfig", input, options)
   end
@@ -4018,8 +3995,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_group_errors()}
   def get_deployment_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeploymentGroup", input, options)
   end
@@ -4033,8 +4009,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_instance_errors()}
   def get_deployment_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeploymentInstance", input, options)
   end
@@ -4048,8 +4023,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_deployment_target_errors()}
   def get_deployment_target(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeploymentTarget", input, options)
   end
@@ -4063,8 +4037,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, get_on_premises_instance_errors()}
   def get_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOnPremisesInstance", input, options)
   end
@@ -4078,8 +4051,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_application_revisions_errors()}
   def list_application_revisions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationRevisions", input, options)
   end
@@ -4093,8 +4065,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_applications_errors()}
   def list_applications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
   end
@@ -4109,8 +4080,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_configs_errors()}
   def list_deployment_configs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeploymentConfigs", input, options)
   end
@@ -4126,8 +4096,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_groups_errors()}
   def list_deployment_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeploymentGroups", input, options)
   end
@@ -4150,8 +4119,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_instances_errors()}
   def list_deployment_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeploymentInstances", input, options)
   end
@@ -4165,8 +4133,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployment_targets_errors()}
   def list_deployment_targets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeploymentTargets", input, options)
   end
@@ -4182,8 +4149,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -4197,8 +4163,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_git_hub_account_token_names_errors()}
   def list_git_hub_account_token_names(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGitHubAccountTokenNames", input, options)
   end
@@ -4218,8 +4183,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_on_premises_instances_errors()}
   def list_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOnPremisesInstances", input, options)
   end
@@ -4237,8 +4201,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4269,8 +4232,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, put_lifecycle_event_hook_execution_status_errors()}
   def put_lifecycle_event_hook_execution_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLifecycleEventHookExecutionStatus", input, options)
   end
@@ -4284,8 +4246,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_application_revision_errors()}
   def register_application_revision(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterApplicationRevision", input, options)
   end
@@ -4302,8 +4263,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, register_on_premises_instance_errors()}
   def register_on_premises_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterOnPremisesInstance", input, options)
   end
@@ -4321,8 +4281,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, remove_tags_from_on_premises_instances_errors()}
   def remove_tags_from_on_premises_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromOnPremisesInstances", input, options)
   end
@@ -4342,8 +4301,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, skip_wait_time_for_instance_termination_errors()}
   def skip_wait_time_for_instance_termination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SkipWaitTimeForInstanceTermination", input, options)
   end
@@ -4357,8 +4315,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, stop_deployment_errors()}
   def stop_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDeployment", input, options)
   end
@@ -4373,8 +4330,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4392,8 +4348,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4407,8 +4362,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_application_errors()}
   def update_application(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateApplication", input, options)
   end
@@ -4422,8 +4376,7 @@ defmodule AWS.CodeDeploy do
           | {:error, term()}
           | {:error, update_deployment_group_errors()}
   def update_deployment_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDeploymentGroup", input, options)
   end

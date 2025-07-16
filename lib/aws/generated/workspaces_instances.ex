@@ -1016,8 +1016,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, associate_volume_errors()}
   def associate_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateVolume", input, options)
   end
@@ -1031,8 +1030,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -1047,8 +1045,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, create_workspace_instance_errors()}
   def create_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkspaceInstance", input, options)
   end
@@ -1062,8 +1059,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -1077,8 +1073,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, delete_workspace_instance_errors()}
   def delete_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkspaceInstance", input, options)
   end
@@ -1092,8 +1087,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, disassociate_volume_errors()}
   def disassociate_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateVolume", input, options)
   end
@@ -1107,8 +1101,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, get_workspace_instance_errors()}
   def get_workspace_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkspaceInstance", input, options)
   end
@@ -1123,8 +1116,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_instance_types_errors()}
   def list_instance_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceTypes", input, options)
   end
@@ -1139,8 +1131,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_regions_errors()}
   def list_regions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRegions", input, options)
   end
@@ -1154,8 +1145,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1169,8 +1159,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, list_workspace_instances_errors()}
   def list_workspace_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkspaceInstances", input, options)
   end
@@ -1184,8 +1173,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1199,8 +1187,7 @@ defmodule AWS.WorkspacesInstances do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

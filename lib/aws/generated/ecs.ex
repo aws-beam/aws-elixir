@@ -65,6 +65,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_connect_test_traffic_rules() :: %{
+        "header" => service_connect_test_traffic_header_rules()
+      }
+      
+  """
+  @type service_connect_test_traffic_rules() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       container_instance_health_status() :: %{
         "details" => list(instance_health_check_result()),
         "overallStatus" => list(any())
@@ -1142,9 +1153,12 @@ defmodule AWS.ECS do
       
       deployment_configuration() :: %{
         "alarms" => deployment_alarms(),
+        "bakeTimeInMinutes" => integer(),
         "deploymentCircuitBreaker" => deployment_circuit_breaker(),
+        "lifecycleHooks" => list(deployment_lifecycle_hook()),
         "maximumPercent" => integer(),
-        "minimumHealthyPercent" => integer()
+        "minimumHealthyPercent" => integer(),
+        "strategy" => list(any())
       }
       
   """
@@ -1190,6 +1204,17 @@ defmodule AWS.ECS do
       
   """
   @type rollback() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_connect_test_traffic_header_match_rules() :: %{
+        "exact" => String.t()
+      }
+      
+  """
+  @type service_connect_test_traffic_header_match_rules() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1490,6 +1515,19 @@ defmodule AWS.ECS do
       
   """
   @type cluster() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_lifecycle_hook() :: %{
+        "hookTargetArn" => String.t(),
+        "lifecycleStages" => list(list(any())()),
+        "roleArn" => String.t()
+      }
+      
+  """
+  @type deployment_lifecycle_hook() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1844,6 +1882,7 @@ defmodule AWS.ECS do
         "deploymentCircuitBreaker" => service_deployment_circuit_breaker(),
         "deploymentConfiguration" => deployment_configuration(),
         "finishedAt" => non_neg_integer(),
+        "lifecycleStage" => list(any()),
         "rollback" => rollback(),
         "serviceArn" => String.t(),
         "serviceDeploymentArn" => String.t(),
@@ -2116,6 +2155,7 @@ defmodule AWS.ECS do
         optional("capacityProviderStrategy") => list(capacity_provider_strategy_item()),
         optional("cluster") => String.t(),
         optional("deploymentConfiguration") => deployment_configuration(),
+        optional("deploymentController") => deployment_controller(),
         optional("desiredCount") => integer(),
         optional("enableECSManagedTags") => boolean(),
         optional("enableExecuteCommand") => boolean(),
@@ -2395,6 +2435,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      service_revision_load_balancer() :: %{
+        "productionListenerRule" => String.t(),
+        "targetGroupArn" => String.t()
+      }
+      
+  """
+  @type service_revision_load_balancer() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_task_definitions_response() :: %{
         "failures" => list(failure()),
         "taskDefinitions" => list(task_definition())
@@ -2621,6 +2673,20 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      advanced_configuration() :: %{
+        "alternateTargetGroupArn" => String.t(),
+        "productionListenerRule" => String.t(),
+        "roleArn" => String.t(),
+        "testListenerRule" => String.t()
+      }
+      
+  """
+  @type advanced_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_task_response() :: %{
         "failures" => list(failure()),
         "tasks" => list(task())
@@ -2634,6 +2700,7 @@ defmodule AWS.ECS do
   ## Example:
       
       load_balancer() :: %{
+        "advancedConfiguration" => advanced_configuration(),
         "containerName" => String.t(),
         "containerPort" => integer(),
         "loadBalancerName" => String.t(),
@@ -2785,6 +2852,17 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      resolved_configuration() :: %{
+        "loadBalancers" => list(service_revision_load_balancer())
+      }
+      
+  """
+  @type resolved_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_connect_service() :: %{
         "clientAliases" => list(service_connect_client_alias()),
         "discoveryName" => String.t(),
@@ -2808,6 +2886,18 @@ defmodule AWS.ECS do
       
   """
   @type scale() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_connect_test_traffic_header_rules() :: %{
+        "name" => String.t(),
+        "value" => service_connect_test_traffic_header_match_rules()
+      }
+      
+  """
+  @type service_connect_test_traffic_header_rules() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2988,7 +3078,8 @@ defmodule AWS.ECS do
       
       service_connect_client_alias() :: %{
         "dnsName" => String.t(),
-        "port" => integer()
+        "port" => integer(),
+        "testTrafficRules" => service_connect_test_traffic_rules()
       }
       
   """
@@ -3102,6 +3193,7 @@ defmodule AWS.ECS do
         "networkConfiguration" => network_configuration(),
         "platformFamily" => String.t(),
         "platformVersion" => String.t(),
+        "resolvedConfiguration" => resolved_configuration(),
         "serviceArn" => String.t(),
         "serviceConnectConfiguration" => service_connect_configuration(),
         "serviceRegistries" => list(service_registry()),
@@ -4039,8 +4131,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_capacity_provider_errors()}
   def create_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityProvider", input, options)
   end
@@ -4072,8 +4163,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -4134,72 +4224,134 @@ defmodule AWS.ECS do
   evaluates the task placement constraints for running tasks. It also stops tasks
   that don't meet the placement constraints. When using this strategy, you don't
   need to specify a desired number of tasks, a task placement strategy, or use
-  Service Auto Scaling policies. For more information, see [Service scheduler concepts](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
+  Service Auto Scaling policies. For more information, see [Amazon ECS services](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
-  You can optionally specify a deployment configuration for your service. The
-  deployment
-  is initiated by changing properties. For example, the deployment might be
-  initiated by
-  the task definition or by your desired count of a service. You can use
-  [UpdateService](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html). The default value for a replica service for
-  `minimumHealthyPercent` is 100%. The default value for a daemon service
-  for `minimumHealthyPercent` is 0%.
+  The deployment controller is the mechanism that determines how tasks are
+  deployed for
+  your service. The valid options are:
 
-  If a service uses the `ECS` deployment controller, the minimum healthy
-  percent represents a lower limit on the number of tasks in a service that must
-  remain in
-  the `RUNNING` state during a deployment. Specifically, it represents it as a
-  percentage of your desired number of tasks (rounded up to the nearest integer).
-  This
-  happens when any of your container instances are in the `DRAINING` state if
-  the service contains tasks using the EC2 launch type. Using this
-  parameter, you can deploy without using additional cluster capacity. For
-  example, if you
-  set your service to have desired number of four tasks and a minimum healthy
-  percent of
-  50%, the scheduler might stop two existing tasks to free up cluster capacity
+    *
+  ECS
+
+  When you create a service which uses the `ECS` deployment controller, you can
+  choose between the following deployment strategies (which you can set in the
+  “`strategy`” field in “`deploymentConfiguration`”):
+  :
+
+      *
+
+  `ROLLING`: When you create a service which uses the *rolling update*
+  (`ROLLING`) deployment strategy, the Amazon ECS service scheduler replaces the
+  currently running tasks with new tasks. The number of tasks that Amazon ECS adds
+  or
+  removes from the service during a rolling update is controlled by the service
+  deployment configuration. For more information, see [Deploy Amazon ECS services by replacing
+  tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
+
+  Rolling update deployments are best suited for the following scenarios:
+
+        *
+  Gradual service updates: You need to
+  update your service incrementally without taking the entire service
+  offline at once.
+
+        *
+  Limited resource requirements: You
+  want to avoid the additional resource costs of running two complete
+  environments simultaneously (as required by blue/green
+  deployments).
+
+        *
+  Acceptable deployment time: Your
+  application can tolerate a longer deployment process, as rolling updates
+  replace tasks one by one.
+
+        *
+  No need for instant roll back: Your
+  service can tolerate a rollback process that takes minutes rather than
+  seconds.
+
+        *
+  Simple deployment process: You prefer
+  a straightforward deployment approach without the complexity of managing
+  multiple environments, target groups, and listeners.
+
+        *
+  No load balancer requirement: Your
+  service doesn't use or require a load balancer, Application Load Balancer,
+  Network Load Balancer, or Service Connect (which are required
+  for blue/green deployments).
+
+        *
+  Stateful applications: Your
+  application maintains state that makes it difficult to run two parallel
+  environments.
+
+        *
+  Cost sensitivity: You want to
+  minimize deployment costs by not running duplicate environments during
+  deployment.
+
+  Rolling updates are the default deployment strategy for services and provide a
+  balance between deployment safety and resource efficiency for many common
+  application scenarios.
+
+      *
+
+  `BLUE_GREEN`: A *blue/green* deployment strategy (`BLUE_GREEN`) is a release
+  methodology that reduces downtime and
+  risk by running two identical production environments called blue and green.
+  With Amazon ECS blue/green deployments, you can validate new service revisions
   before
-  starting two new tasks. If they're in the `RUNNING` state, tasks for services
-  that don't use a load balancer are considered healthy . If they're in the
-  `RUNNING` state and reported as healthy by the load balancer, tasks for
-  services that *do* use a load balancer are considered healthy . The
-  default value for minimum healthy percent is 100%.
+  directing production traffic to them. This approach provides a safer way to
+  deploy changes with the ability to quickly roll back if needed. For more
+  information, see [Amazon ECS blue/green deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
 
-  If a service uses the `ECS` deployment controller, the ## maximum percent
-  parameter represents an upper limit on the
-  number of tasks in a service that are allowed in the `RUNNING` or
-  `PENDING` state during a deployment. Specifically, it represents it as a
-  percentage of the desired number of tasks (rounded down to the nearest integer).
-  This
-  happens when any of your container instances are in the `DRAINING` state if
-  the service contains tasks using the EC2 launch type. Using this
-  parameter, you can define the deployment batch size. For example, if your
-  service has a
-  desired number of four tasks and a maximum percent value of 200%, the scheduler
-  may
-  start four new tasks before stopping the four older tasks (provided that the
-  cluster
-  resources required to do this are available). The default value for maximum
-  percent is
-  200%.
+  Amazon ECS blue/green deployments are best suited for the following scenarios:
 
-  If a service uses either the `CODE_DEPLOY` or `EXTERNAL`
-  deployment controller types and tasks that use the EC2 launch type, the
-  **minimum healthy percent** and **maximum percent** values are used only to
-  define the lower and upper limit
-  on the number of the tasks in the service that remain in the `RUNNING` state.
-  This is while the container instances are in the `DRAINING` state. If the
-  tasks in the service use the Fargate launch type, the minimum healthy
-  percent and maximum percent values aren't used. This is the case even if they're
-  currently visible when describing your service.
+        *
+  Service validation: When you need to
+  validate new service revisions before directing production traffic to
+  them
+
+        *
+  Zero downtime: When your service
+  requires zero-downtime deployments
+
+        *
+  Instant roll back: When you
+  need the ability to quickly roll back if issues are detected
+
+        *
+  Load balancer requirement: When your
+  service uses Application Load Balancer, Network Load Balancer, or Service
+  Connect
+
+    *
+  External
+
+  Use a third-party deployment controller.
+
+    *
+  Blue/green deployment (powered by CodeDeploy)
+
+  CodeDeploy installs an updated version of the application as a new replacement
+  task
+  set and reroutes production traffic from the original application task set to
+  the replacement task set. The original task set is terminated after a successful
+  deployment. Use this deployment controller to verify a new deployment of a
+  service
+  before sending production traffic to it.
 
   When creating a service that uses the `EXTERNAL` deployment controller, you
   can specify only parameters that aren't controlled at the task set level. The
   only
   required parameter is the service name. You control your services using the
-  [CreateTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html).
-  For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+  [CreateTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html). For more information, see [Amazon ECS deployment
+  types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
   in the *Amazon Elastic Container Service Developer Guide*.
 
   When the service scheduler launches new tasks, it determines task placement. For
@@ -4213,8 +4365,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -4242,8 +4393,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, create_task_set_errors()}
   def create_task_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTaskSet", input, options)
   end
@@ -4258,8 +4408,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_account_setting_errors()}
   def delete_account_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccountSetting", input, options)
   end
@@ -4273,8 +4422,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_attributes_errors()}
   def delete_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAttributes", input, options)
   end
@@ -4311,8 +4459,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_capacity_provider_errors()}
   def delete_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCapacityProvider", input, options)
   end
@@ -4338,8 +4485,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -4380,8 +4526,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -4425,8 +4570,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_task_definitions_errors()}
   def delete_task_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTaskDefinitions", input, options)
   end
@@ -4445,8 +4589,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, delete_task_set_errors()}
   def delete_task_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTaskSet", input, options)
   end
@@ -4480,8 +4623,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, deregister_container_instance_errors()}
   def deregister_container_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterContainerInstance", input, options)
   end
@@ -4519,8 +4661,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, deregister_task_definition_errors()}
   def deregister_task_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeregisterTaskDefinition", input, options)
   end
@@ -4534,8 +4675,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_capacity_providers_errors()}
   def describe_capacity_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCapacityProviders", input, options)
   end
@@ -4553,8 +4693,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -4571,8 +4710,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_container_instances_errors()}
   def describe_container_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainerInstances", input, options)
   end
@@ -4590,8 +4728,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_service_deployments_errors()}
   def describe_service_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceDeployments", input, options)
   end
@@ -4614,8 +4751,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_service_revisions_errors()}
   def describe_service_revisions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServiceRevisions", input, options)
   end
@@ -4629,8 +4765,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -4652,8 +4787,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_task_definition_errors()}
   def describe_task_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTaskDefinition", input, options)
   end
@@ -4672,8 +4806,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_task_sets_errors()}
   def describe_task_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTaskSets", input, options)
   end
@@ -4694,8 +4827,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, describe_tasks_errors()}
   def describe_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTasks", input, options)
   end
@@ -4713,8 +4845,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, discover_poll_endpoint_errors()}
   def discover_poll_endpoint(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DiscoverPollEndpoint", input, options)
   end
@@ -4739,8 +4870,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, execute_command_errors()}
   def execute_command(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteCommand", input, options)
   end
@@ -4754,8 +4884,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, get_task_protection_errors()}
   def get_task_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTaskProtection", input, options)
   end
@@ -4769,8 +4898,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_account_settings_errors()}
   def list_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountSettings", input, options)
   end
@@ -4795,8 +4923,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_attributes_errors()}
   def list_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAttributes", input, options)
   end
@@ -4810,8 +4937,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -4831,8 +4957,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_container_instances_errors()}
   def list_container_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContainerInstances", input, options)
   end
@@ -4856,8 +4981,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_service_deployments_errors()}
   def list_service_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceDeployments", input, options)
   end
@@ -4874,8 +4998,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -4897,8 +5020,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_services_by_namespace_errors()}
   def list_services_by_namespace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServicesByNamespace", input, options)
   end
@@ -4912,8 +5034,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4936,8 +5057,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_task_definition_families_errors()}
   def list_task_definition_families(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTaskDefinitionFamilies", input, options)
   end
@@ -4955,8 +5075,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_task_definitions_errors()}
   def list_task_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTaskDefinitions", input, options)
   end
@@ -4977,8 +5096,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, list_tasks_errors()}
   def list_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTasks", input, options)
   end
@@ -5001,8 +5119,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_account_setting_errors()}
   def put_account_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccountSetting", input, options)
   end
@@ -5020,8 +5137,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_account_setting_default_errors()}
   def put_account_setting_default(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccountSettingDefault", input, options)
   end
@@ -5043,8 +5159,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_attributes_errors()}
   def put_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAttributes", input, options)
   end
@@ -5083,8 +5198,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, put_cluster_capacity_providers_errors()}
   def put_cluster_capacity_providers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutClusterCapacityProviders", input, options)
   end
@@ -5104,8 +5218,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, register_container_instance_errors()}
   def register_container_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterContainerInstance", input, options)
   end
@@ -5144,8 +5257,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, register_task_definition_errors()}
   def register_task_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterTaskDefinition", input, options)
   end
@@ -5226,8 +5338,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, run_task_errors()}
   def run_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RunTask", input, options)
   end
@@ -5257,8 +5368,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, start_task_errors()}
   def start_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTask", input, options)
   end
@@ -5286,8 +5396,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, stop_service_deployment_errors()}
   def stop_service_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopServiceDeployment", input, options)
   end
@@ -5329,8 +5438,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, stop_task_errors()}
   def stop_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopTask", input, options)
   end
@@ -5348,8 +5456,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_attachment_state_changes_errors()}
   def submit_attachment_state_changes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubmitAttachmentStateChanges", input, options)
   end
@@ -5367,8 +5474,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_container_state_change_errors()}
   def submit_container_state_change(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubmitContainerStateChange", input, options)
   end
@@ -5386,8 +5492,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, submit_task_state_change_errors()}
   def submit_task_state_change(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubmitTaskStateChange", input, options)
   end
@@ -5407,8 +5512,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5422,8 +5526,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5437,8 +5540,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_capacity_provider_errors()}
   def update_capacity_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCapacityProvider", input, options)
   end
@@ -5452,8 +5554,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_cluster_errors()}
   def update_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
   end
@@ -5467,8 +5568,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_cluster_settings_errors()}
   def update_cluster_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateClusterSettings", input, options)
   end
@@ -5508,8 +5608,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_container_agent_errors()}
   def update_container_agent(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerAgent", input, options)
   end
@@ -5583,8 +5682,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_container_instances_state_errors()}
   def update_container_instances_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContainerInstancesState", input, options)
   end
@@ -5744,8 +5842,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -5766,8 +5863,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_service_primary_task_set_errors()}
   def update_service_primary_task_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServicePrimaryTaskSet", input, options)
   end
@@ -5813,8 +5909,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_task_protection_errors()}
   def update_task_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTaskProtection", input, options)
   end
@@ -5832,8 +5927,7 @@ defmodule AWS.ECS do
           | {:error, term()}
           | {:error, update_task_set_errors()}
   def update_task_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTaskSet", input, options)
   end

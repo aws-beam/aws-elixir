@@ -934,8 +934,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, add_attachments_to_set_errors()}
   def add_attachments_to_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddAttachmentsToSet", input, options)
   end
@@ -968,8 +967,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, add_communication_to_case_errors()}
   def add_communication_to_case(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddCommunicationToCase", input, options)
   end
@@ -1021,8 +1019,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, create_case_errors()}
   def create_case(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCase", input, options)
   end
@@ -1056,8 +1053,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_attachment_errors()}
   def describe_attachment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAttachment", input, options)
   end
@@ -1104,8 +1100,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_cases_errors()}
   def describe_cases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCases", input, options)
   end
@@ -1145,8 +1140,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_communications_errors()}
   def describe_communications(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCommunications", input, options)
   end
@@ -1177,8 +1171,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_create_case_options_errors()}
   def describe_create_case_options(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCreateCaseOptions", input, options)
   end
@@ -1218,8 +1211,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -1249,8 +1241,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_severity_levels_errors()}
   def describe_severity_levels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSeverityLevels", input, options)
   end
@@ -1280,8 +1271,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_supported_languages_errors()}
   def describe_supported_languages(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSupportedLanguages", input, options)
   end
@@ -1329,8 +1319,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_refresh_statuses_errors()}
   def describe_trusted_advisor_check_refresh_statuses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -1411,8 +1400,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_result_errors()}
   def describe_trusted_advisor_check_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckResult", input, options)
   end
@@ -1457,8 +1445,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_check_summaries_errors()}
   def describe_trusted_advisor_check_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorCheckSummaries", input, options)
   end
@@ -1503,8 +1490,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, describe_trusted_advisor_checks_errors()}
   def describe_trusted_advisor_checks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrustedAdvisorChecks", input, options)
   end
@@ -1548,8 +1534,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, refresh_trusted_advisor_check_errors()}
   def refresh_trusted_advisor_check(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RefreshTrustedAdvisorCheck", input, options)
   end
@@ -1578,8 +1563,7 @@ defmodule AWS.Support do
           | {:error, term()}
           | {:error, resolve_case_errors()}
   def resolve_case(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResolveCase", input, options)
   end

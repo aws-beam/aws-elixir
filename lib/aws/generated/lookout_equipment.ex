@@ -2299,8 +2299,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -2323,8 +2322,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_inference_scheduler_errors()}
   def create_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInferenceScheduler", input, options)
   end
@@ -2338,8 +2336,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_label_errors()}
   def create_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLabel", input, options)
   end
@@ -2353,8 +2350,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_label_group_errors()}
   def create_label_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLabelGroup", input, options)
   end
@@ -2384,8 +2380,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_model_errors()}
   def create_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateModel", input, options)
   end
@@ -2399,8 +2394,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, create_retraining_scheduler_errors()}
   def create_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRetrainingScheduler", input, options)
   end
@@ -2423,8 +2417,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -2441,8 +2434,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_inference_scheduler_errors()}
   def delete_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInferenceScheduler", input, options)
   end
@@ -2456,8 +2448,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_label_errors()}
   def delete_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLabel", input, options)
   end
@@ -2471,8 +2462,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_label_group_errors()}
   def delete_label_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLabelGroup", input, options)
   end
@@ -2490,8 +2480,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_model_errors()}
   def delete_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteModel", input, options)
   end
@@ -2505,8 +2494,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -2523,8 +2511,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, delete_retraining_scheduler_errors()}
   def delete_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRetrainingScheduler", input, options)
   end
@@ -2540,8 +2527,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_data_ingestion_job_errors()}
   def describe_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataIngestionJob", input, options)
   end
@@ -2557,8 +2543,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -2574,8 +2559,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_inference_scheduler_errors()}
   def describe_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInferenceScheduler", input, options)
   end
@@ -2589,8 +2573,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_label_errors()}
   def describe_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLabel", input, options)
   end
@@ -2604,8 +2587,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_label_group_errors()}
   def describe_label_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLabelGroup", input, options)
   end
@@ -2623,8 +2605,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_model_errors()}
   def describe_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeModel", input, options)
   end
@@ -2638,8 +2619,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_model_version_errors()}
   def describe_model_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeModelVersion", input, options)
   end
@@ -2653,8 +2633,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -2670,8 +2649,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, describe_retraining_scheduler_errors()}
   def describe_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRetrainingScheduler", input, options)
   end
@@ -2685,8 +2663,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, import_dataset_errors()}
   def import_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportDataset", input, options)
   end
@@ -2700,8 +2677,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, import_model_version_errors()}
   def import_model_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportModelVersion", input, options)
   end
@@ -2717,8 +2693,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_data_ingestion_jobs_errors()}
   def list_data_ingestion_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataIngestionJobs", input, options)
   end
@@ -2733,8 +2708,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -2749,8 +2723,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_inference_events_errors()}
   def list_inference_events(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInferenceEvents", input, options)
   end
@@ -2766,8 +2739,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_inference_executions_errors()}
   def list_inference_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInferenceExecutions", input, options)
   end
@@ -2782,8 +2754,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_inference_schedulers_errors()}
   def list_inference_schedulers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInferenceSchedulers", input, options)
   end
@@ -2797,8 +2768,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_label_groups_errors()}
   def list_label_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLabelGroups", input, options)
   end
@@ -2812,8 +2782,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_labels_errors()}
   def list_labels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLabels", input, options)
   end
@@ -2832,8 +2801,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_model_versions_errors()}
   def list_model_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListModelVersions", input, options)
   end
@@ -2849,8 +2817,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_models_errors()}
   def list_models(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListModels", input, options)
   end
@@ -2866,8 +2833,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_retraining_schedulers_errors()}
   def list_retraining_schedulers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRetrainingSchedulers", input, options)
   end
@@ -2885,8 +2851,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_sensor_statistics_errors()}
   def list_sensor_statistics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSensorStatistics", input, options)
   end
@@ -2900,8 +2865,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2915,8 +2879,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -2932,8 +2895,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, start_data_ingestion_job_errors()}
   def start_data_ingestion_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDataIngestionJob", input, options)
   end
@@ -2947,8 +2909,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, start_inference_scheduler_errors()}
   def start_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartInferenceScheduler", input, options)
   end
@@ -2962,8 +2923,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, start_retraining_scheduler_errors()}
   def start_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRetrainingScheduler", input, options)
   end
@@ -2977,8 +2937,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, stop_inference_scheduler_errors()}
   def stop_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopInferenceScheduler", input, options)
   end
@@ -2992,8 +2951,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, stop_retraining_scheduler_errors()}
   def stop_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopRetrainingScheduler", input, options)
   end
@@ -3016,8 +2974,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3033,8 +2990,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3048,8 +3004,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, update_active_model_version_errors()}
   def update_active_model_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateActiveModelVersion", input, options)
   end
@@ -3063,8 +3018,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, update_inference_scheduler_errors()}
   def update_inference_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateInferenceScheduler", input, options)
   end
@@ -3078,8 +3032,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, update_label_group_errors()}
   def update_label_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateLabelGroup", input, options)
   end
@@ -3093,8 +3046,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, update_model_errors()}
   def update_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateModel", input, options)
   end
@@ -3108,8 +3060,7 @@ defmodule AWS.LookoutEquipment do
           | {:error, term()}
           | {:error, update_retraining_scheduler_errors()}
   def update_retraining_scheduler(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRetrainingScheduler", input, options)
   end

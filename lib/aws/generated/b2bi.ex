@@ -1498,8 +1498,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_capability_errors()}
   def create_capability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapability", input, options)
   end
@@ -1517,8 +1516,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_partnership_errors()}
   def create_partnership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePartnership", input, options)
   end
@@ -1536,8 +1534,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProfile", input, options)
   end
@@ -1565,8 +1562,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_starter_mapping_template_errors()}
   def create_starter_mapping_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStarterMappingTemplate", input, options)
   end
@@ -1606,8 +1602,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, create_transformer_errors()}
   def create_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTransformer", input, options)
   end
@@ -1624,8 +1619,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_capability_errors()}
   def delete_capability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCapability", input, options)
   end
@@ -1642,8 +1636,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_partnership_errors()}
   def delete_partnership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePartnership", input, options)
   end
@@ -1659,8 +1652,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProfile", input, options)
   end
@@ -1678,8 +1670,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, delete_transformer_errors()}
   def delete_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTransformer", input, options)
   end
@@ -1711,8 +1702,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, generate_mapping_errors()}
   def generate_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateMapping", input, options)
   end
@@ -1729,8 +1719,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_capability_errors()}
   def get_capability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCapability", input, options)
   end
@@ -1748,8 +1737,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_partnership_errors()}
   def get_partnership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPartnership", input, options)
   end
@@ -1765,8 +1753,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_profile_errors()}
   def get_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetProfile", input, options)
   end
@@ -1784,8 +1771,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_transformer_errors()}
   def get_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransformer", input, options)
   end
@@ -1804,8 +1790,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, get_transformer_job_errors()}
   def get_transformer_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTransformerJob", input, options)
   end
@@ -1823,8 +1808,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_capabilities_errors()}
   def list_capabilities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCapabilities", input, options)
   end
@@ -1842,8 +1826,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_partnerships_errors()}
   def list_partnerships(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPartnerships", input, options)
   end
@@ -1860,8 +1843,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProfiles", input, options)
   end
@@ -1878,8 +1860,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1897,8 +1878,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, list_transformers_errors()}
   def list_transformers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTransformers", input, options)
   end
@@ -1924,8 +1904,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, start_transformer_job_errors()}
   def start_transformer_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTransformerJob", input, options)
   end
@@ -1944,8 +1923,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1962,8 +1940,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_conversion_errors()}
   def test_conversion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestConversion", input, options)
   end
@@ -1980,8 +1957,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_mapping_errors()}
   def test_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestMapping", input, options)
   end
@@ -1997,8 +1973,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, test_parsing_errors()}
   def test_parsing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestParsing", input, options)
   end
@@ -2015,8 +1990,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2034,8 +2008,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_capability_errors()}
   def update_capability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCapability", input, options)
   end
@@ -2053,8 +2026,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_partnership_errors()}
   def update_partnership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePartnership", input, options)
   end
@@ -2070,8 +2042,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProfile", input, options)
   end
@@ -2089,8 +2060,7 @@ defmodule AWS.B2bi do
           | {:error, term()}
           | {:error, update_transformer_errors()}
   def update_transformer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTransformer", input, options)
   end

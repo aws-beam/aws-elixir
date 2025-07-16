@@ -1152,8 +1152,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_batch_load_task_errors()}
   def create_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBatchLoadTask", input, options)
   end
@@ -1174,8 +1173,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_database_errors()}
   def create_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDatabase", input, options)
   end
@@ -1200,8 +1198,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -1231,8 +1228,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, delete_database_errors()}
   def delete_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDatabase", input, options)
   end
@@ -1257,8 +1253,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -1279,8 +1274,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_batch_load_task_errors()}
   def describe_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBatchLoadTask", input, options)
   end
@@ -1301,8 +1295,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_database_errors()}
   def describe_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDatabase", input, options)
   end
@@ -1338,8 +1331,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_endpoints_errors()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -1360,8 +1352,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -1380,8 +1371,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_batch_load_tasks_errors()}
   def list_batch_load_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBatchLoadTasks", input, options)
   end
@@ -1401,8 +1391,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatabases", input, options)
   end
@@ -1421,8 +1410,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -1436,8 +1424,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1448,8 +1435,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, resume_batch_load_task_errors()}
   def resume_batch_load_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeBatchLoadTask", input, options)
   end
@@ -1468,8 +1454,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1483,8 +1468,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1506,8 +1490,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, update_database_errors()}
   def update_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDatabase", input, options)
   end
@@ -1534,8 +1517,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -1598,8 +1580,7 @@ defmodule AWS.TimestreamWrite do
           | {:error, term()}
           | {:error, write_records_errors()}
   def write_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "WriteRecords", input, options)
   end

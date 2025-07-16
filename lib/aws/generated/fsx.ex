@@ -3764,8 +3764,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, associate_file_system_aliases_errors()}
   def associate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateFileSystemAliases", input, options)
   end
@@ -3798,8 +3797,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, cancel_data_repository_task_errors()}
   def cancel_data_repository_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelDataRepositoryTask", input, options)
   end
@@ -3849,8 +3847,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, copy_backup_errors()}
   def copy_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyBackup", input, options)
   end
@@ -3869,8 +3866,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, copy_snapshot_and_update_volume_errors()}
   def copy_snapshot_and_update_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopySnapshotAndUpdateVolume", input, options)
   end
@@ -3926,8 +3922,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_and_attach_s3_access_point_errors()}
   def create_and_attach_s3_access_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAndAttachS3AccessPoint", input, options)
   end
@@ -4004,8 +3999,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBackup", input, options)
   end
@@ -4041,8 +4035,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_data_repository_association_errors()}
   def create_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataRepositoryAssociation", input, options)
   end
@@ -4081,8 +4074,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_data_repository_task_errors()}
   def create_data_repository_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataRepositoryTask", input, options)
   end
@@ -4119,8 +4111,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_cache_errors()}
   def create_file_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFileCache", input, options)
   end
@@ -4187,8 +4178,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_system_errors()}
   def create_file_system(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFileSystem", input, options)
   end
@@ -4244,8 +4234,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_file_system_from_backup_errors()}
   def create_file_system_from_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFileSystemFromBackup", input, options)
   end
@@ -4296,8 +4285,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_snapshot_errors()}
   def create_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSnapshot", input, options)
   end
@@ -4311,8 +4299,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_storage_virtual_machine_errors()}
   def create_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStorageVirtualMachine", input, options)
   end
@@ -4326,8 +4313,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_volume_errors()}
   def create_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVolume", input, options)
   end
@@ -4342,8 +4328,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, create_volume_from_backup_errors()}
   def create_volume_from_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVolumeFromBackup", input, options)
   end
@@ -4366,8 +4351,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -4393,8 +4377,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_data_repository_association_errors()}
   def delete_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataRepositoryAssociation", input, options)
   end
@@ -4423,8 +4406,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_file_cache_errors()}
   def delete_file_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFileCache", input, options)
   end
@@ -4494,8 +4476,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_file_system_errors()}
   def delete_file_system(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFileSystem", input, options)
   end
@@ -4517,8 +4498,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_snapshot_errors()}
   def delete_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
   end
@@ -4536,8 +4516,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_storage_virtual_machine_errors()}
   def delete_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStorageVirtualMachine", input, options)
   end
@@ -4552,8 +4531,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, delete_volume_errors()}
   def delete_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVolume", input, options)
   end
@@ -4598,8 +4576,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
   end
@@ -4643,8 +4620,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_data_repository_associations_errors()}
   def describe_data_repository_associations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataRepositoryAssociations", input, options)
   end
@@ -4676,8 +4652,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_data_repository_tasks_errors()}
   def describe_data_repository_tasks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataRepositoryTasks", input, options)
   end
@@ -4722,8 +4697,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_caches_errors()}
   def describe_file_caches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFileCaches", input, options)
   end
@@ -4743,8 +4717,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_system_aliases_errors()}
   def describe_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFileSystemAliases", input, options)
   end
@@ -4790,8 +4763,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_file_systems_errors()}
   def describe_file_systems(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFileSystems", input, options)
   end
@@ -4815,8 +4787,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_s3_access_point_attachments_errors()}
   def describe_s3_access_point_attachments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeS3AccessPointAttachments", input, options)
   end
@@ -4839,8 +4810,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_shared_vpc_configuration_errors()}
   def describe_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSharedVpcConfiguration", input, options)
   end
@@ -4885,8 +4855,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_snapshots_errors()}
   def describe_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
   end
@@ -4905,8 +4874,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_storage_virtual_machines_errors()}
   def describe_storage_virtual_machines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStorageVirtualMachines", input, options)
   end
@@ -4921,8 +4889,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, describe_volumes_errors()}
   def describe_volumes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeVolumes", input, options)
   end
@@ -4951,8 +4918,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, detach_and_delete_s3_access_point_errors()}
   def detach_and_delete_s3_access_point(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachAndDeleteS3AccessPoint", input, options)
   end
@@ -4983,8 +4949,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, disassociate_file_system_aliases_errors()}
   def disassociate_file_system_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateFileSystemAliases", input, options)
   end
@@ -5023,8 +4988,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5043,8 +5007,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, release_file_system_nfs_v3_locks_errors()}
   def release_file_system_nfs_v3_locks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReleaseFileSystemNfsV3Locks", input, options)
   end
@@ -5059,8 +5022,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, restore_volume_from_snapshot_errors()}
   def restore_volume_from_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreVolumeFromSnapshot", input, options)
   end
@@ -5080,8 +5042,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, start_misconfigured_state_recovery_errors()}
   def start_misconfigured_state_recovery(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMisconfiguredStateRecovery", input, options)
   end
@@ -5095,8 +5056,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5110,8 +5070,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5134,8 +5093,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_data_repository_association_errors()}
   def update_data_repository_association(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDataRepositoryAssociation", input, options)
   end
@@ -5151,8 +5109,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_file_cache_errors()}
   def update_file_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFileCache", input, options)
   end
@@ -5357,8 +5314,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_file_system_errors()}
   def update_file_system(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFileSystem", input, options)
   end
@@ -5385,8 +5341,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_shared_vpc_configuration_errors()}
   def update_shared_vpc_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSharedVpcConfiguration", input, options)
   end
@@ -5400,8 +5355,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_snapshot_errors()}
   def update_snapshot(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
   end
@@ -5415,8 +5369,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_storage_virtual_machine_errors()}
   def update_storage_virtual_machine(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStorageVirtualMachine", input, options)
   end
@@ -5431,8 +5384,7 @@ defmodule AWS.FSx do
           | {:error, term()}
           | {:error, update_volume_errors()}
   def update_volume(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVolume", input, options)
   end

@@ -1269,8 +1269,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
@@ -1297,8 +1296,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
@@ -1325,8 +1323,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
@@ -1343,8 +1340,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -1362,8 +1358,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -1377,8 +1372,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
@@ -1392,8 +1386,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_image_tags_errors()}
   def describe_image_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageTags", input, options)
   end
@@ -1415,8 +1408,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -1430,8 +1422,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_registries_errors()}
   def describe_registries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRegistries", input, options)
   end
@@ -1445,8 +1436,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
@@ -1468,8 +1458,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
@@ -1483,8 +1472,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_registry_catalog_data_errors()}
   def get_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegistryCatalogData", input, options)
   end
@@ -1501,8 +1489,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_catalog_data_errors()}
   def get_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositoryCatalogData", input, options)
   end
@@ -1516,8 +1503,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
@@ -1541,8 +1527,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
@@ -1556,8 +1541,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1582,8 +1566,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutImage", input, options)
   end
@@ -1597,8 +1580,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_registry_catalog_data_errors()}
   def put_registry_catalog_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRegistryCatalogData", input, options)
   end
@@ -1612,8 +1594,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, put_repository_catalog_data_errors()}
   def put_repository_catalog_data(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRepositoryCatalogData", input, options)
   end
@@ -1631,8 +1612,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
@@ -1652,8 +1632,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1667,8 +1646,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1692,8 +1670,7 @@ defmodule AWS.ECRPUBLIC do
           | {:error, term()}
           | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UploadLayerPart", input, options)
   end

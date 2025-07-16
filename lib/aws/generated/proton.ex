@@ -3996,8 +3996,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, accept_environment_account_connection_errors()}
   def accept_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptEnvironmentAccountConnection", input, options)
   end
@@ -4017,8 +4016,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_component_deployment_errors()}
   def cancel_component_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelComponentDeployment", input, options)
   end
@@ -4052,8 +4050,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_environment_deployment_errors()}
   def cancel_environment_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelEnvironmentDeployment", input, options)
   end
@@ -4091,8 +4088,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_service_instance_deployment_errors()}
   def cancel_service_instance_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelServiceInstanceDeployment", input, options)
   end
@@ -4130,8 +4126,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, cancel_service_pipeline_deployment_errors()}
   def cancel_service_pipeline_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelServicePipelineDeployment", input, options)
   end
@@ -4152,8 +4147,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_component_errors()}
   def create_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateComponent", input, options)
   end
@@ -4188,8 +4182,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -4216,8 +4209,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_account_connection_errors()}
   def create_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentAccountConnection", input, options)
   end
@@ -4252,8 +4244,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_template_errors()}
   def create_environment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentTemplate", input, options)
   end
@@ -4276,8 +4267,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_environment_template_version_errors()}
   def create_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentTemplateVersion", input, options)
   end
@@ -4306,8 +4296,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -4328,8 +4317,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_errors()}
   def create_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateService", input, options)
   end
@@ -4343,8 +4331,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_instance_errors()}
   def create_service_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceInstance", input, options)
   end
@@ -4358,8 +4345,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_sync_config_errors()}
   def create_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceSyncConfig", input, options)
   end
@@ -4385,8 +4371,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_template_errors()}
   def create_service_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceTemplate", input, options)
   end
@@ -4405,8 +4390,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_service_template_version_errors()}
   def create_service_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServiceTemplateVersion", input, options)
   end
@@ -4431,8 +4415,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, create_template_sync_config_errors()}
   def create_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTemplateSyncConfig", input, options)
   end
@@ -4451,8 +4434,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_component_errors()}
   def delete_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteComponent", input, options)
   end
@@ -4466,8 +4448,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_deployment_errors()}
   def delete_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeployment", input, options)
   end
@@ -4481,8 +4462,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -4510,8 +4490,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_account_connection_errors()}
   def delete_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentAccountConnection", input, options)
   end
@@ -4526,8 +4505,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_template_errors()}
   def delete_environment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentTemplate", input, options)
   end
@@ -4558,8 +4536,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_environment_template_version_errors()}
   def delete_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentTemplateVersion", input, options)
   end
@@ -4573,8 +4550,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -4597,8 +4573,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_errors()}
   def delete_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteService", input, options)
   end
@@ -4612,8 +4587,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_sync_config_errors()}
   def delete_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceSyncConfig", input, options)
   end
@@ -4629,8 +4603,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_template_errors()}
   def delete_service_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceTemplate", input, options)
   end
@@ -4660,8 +4633,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_service_template_version_errors()}
   def delete_service_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServiceTemplateVersion", input, options)
   end
@@ -4675,8 +4647,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, delete_template_sync_config_errors()}
   def delete_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTemplateSyncConfig", input, options)
   end
@@ -4690,8 +4661,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_account_settings_errors()}
   def get_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountSettings", input, options)
   end
@@ -4710,8 +4680,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_component_errors()}
   def get_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetComponent", input, options)
   end
@@ -4725,8 +4694,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_deployment_errors()}
   def get_deployment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDeployment", input, options)
   end
@@ -4740,8 +4708,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
   end
@@ -4763,8 +4730,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_account_connection_errors()}
   def get_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironmentAccountConnection", input, options)
   end
@@ -4778,8 +4744,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_template_errors()}
   def get_environment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironmentTemplate", input, options)
   end
@@ -4793,8 +4758,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_environment_template_version_errors()}
   def get_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironmentTemplateVersion", input, options)
   end
@@ -4808,8 +4772,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_repository_errors()}
   def get_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepository", input, options)
   end
@@ -4836,8 +4799,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_repository_sync_status_errors()}
   def get_repository_sync_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositorySyncStatus", input, options)
   end
@@ -4871,8 +4833,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_resources_summary_errors()}
   def get_resources_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcesSummary", input, options)
   end
@@ -4886,8 +4847,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_errors()}
   def get_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetService", input, options)
   end
@@ -4904,8 +4864,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_instance_errors()}
   def get_service_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceInstance", input, options)
   end
@@ -4919,8 +4878,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_instance_sync_status_errors()}
   def get_service_instance_sync_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceInstanceSyncStatus", input, options)
   end
@@ -4934,8 +4892,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_sync_blocker_summary_errors()}
   def get_service_sync_blocker_summary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceSyncBlockerSummary", input, options)
   end
@@ -4949,8 +4906,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_sync_config_errors()}
   def get_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceSyncConfig", input, options)
   end
@@ -4964,8 +4920,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_template_errors()}
   def get_service_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceTemplate", input, options)
   end
@@ -4979,8 +4934,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_service_template_version_errors()}
   def get_service_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetServiceTemplateVersion", input, options)
   end
@@ -4994,8 +4948,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_template_sync_config_errors()}
   def get_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTemplateSyncConfig", input, options)
   end
@@ -5009,8 +4962,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, get_template_sync_status_errors()}
   def get_template_sync_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTemplateSyncStatus", input, options)
   end
@@ -5029,8 +4981,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_component_outputs_errors()}
   def list_component_outputs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComponentOutputs", input, options)
   end
@@ -5053,8 +5004,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_component_provisioned_resources_errors()}
   def list_component_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComponentProvisionedResources", input, options)
   end
@@ -5076,8 +5026,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_components_errors()}
   def list_components(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListComponents", input, options)
   end
@@ -5094,8 +5043,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_deployments_errors()}
   def list_deployments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeployments", input, options)
   end
@@ -5116,8 +5064,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_account_connections_errors()}
   def list_environment_account_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentAccountConnections", input, options)
   end
@@ -5131,8 +5078,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_outputs_errors()}
   def list_environment_outputs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentOutputs", input, options)
   end
@@ -5150,8 +5096,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_provisioned_resources_errors()}
   def list_environment_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentProvisionedResources", input, options)
   end
@@ -5169,8 +5114,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_template_versions_errors()}
   def list_environment_template_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentTemplateVersions", input, options)
   end
@@ -5184,8 +5128,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environment_templates_errors()}
   def list_environment_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentTemplates", input, options)
   end
@@ -5199,8 +5142,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -5214,8 +5156,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_repositories_errors()}
   def list_repositories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositories", input, options)
   end
@@ -5229,8 +5170,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_repository_sync_definitions_errors()}
   def list_repository_sync_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRepositorySyncDefinitions", input, options)
   end
@@ -5244,8 +5184,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instance_outputs_errors()}
   def list_service_instance_outputs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceInstanceOutputs", input, options)
   end
@@ -5263,8 +5202,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instance_provisioned_resources_errors()}
   def list_service_instance_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceInstanceProvisionedResources", input, options)
   end
@@ -5281,8 +5219,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_instances_errors()}
   def list_service_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceInstances", input, options)
   end
@@ -5296,8 +5233,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_pipeline_outputs_errors()}
   def list_service_pipeline_outputs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServicePipelineOutputs", input, options)
   end
@@ -5315,8 +5251,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_pipeline_provisioned_resources_errors()}
   def list_service_pipeline_provisioned_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServicePipelineProvisionedResources", input, options)
   end
@@ -5330,8 +5265,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_template_versions_errors()}
   def list_service_template_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceTemplateVersions", input, options)
   end
@@ -5345,8 +5279,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_service_templates_errors()}
   def list_service_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServiceTemplates", input, options)
   end
@@ -5360,8 +5293,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_services_errors()}
   def list_services(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServices", input, options)
   end
@@ -5379,8 +5311,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5402,8 +5333,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, notify_resource_deployment_status_change_errors()}
   def notify_resource_deployment_status_change(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "NotifyResourceDeploymentStatusChange", input, options)
   end
@@ -5432,8 +5362,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, reject_environment_account_connection_errors()}
   def reject_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RejectEnvironmentAccountConnection", input, options)
   end
@@ -5453,8 +5382,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5473,8 +5401,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5489,8 +5416,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_account_settings_errors()}
   def update_account_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccountSettings", input, options)
   end
@@ -5516,8 +5442,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_component_errors()}
   def update_component(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateComponent", input, options)
   end
@@ -5603,8 +5528,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_errors()}
   def update_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironment", input, options)
   end
@@ -5626,8 +5550,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_account_connection_errors()}
   def update_environment_account_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentAccountConnection", input, options)
   end
@@ -5641,8 +5564,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_template_errors()}
   def update_environment_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentTemplate", input, options)
   end
@@ -5660,8 +5582,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_environment_template_version_errors()}
   def update_environment_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnvironmentTemplateVersion", input, options)
   end
@@ -5691,8 +5612,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_errors()}
   def update_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateService", input, options)
   end
@@ -5718,8 +5638,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_instance_errors()}
   def update_service_instance(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceInstance", input, options)
   end
@@ -5774,8 +5693,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_pipeline_errors()}
   def update_service_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServicePipeline", input, options)
   end
@@ -5789,8 +5707,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_sync_blocker_errors()}
   def update_service_sync_blocker(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceSyncBlocker", input, options)
   end
@@ -5804,8 +5721,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_sync_config_errors()}
   def update_service_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceSyncConfig", input, options)
   end
@@ -5819,8 +5735,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_template_errors()}
   def update_service_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceTemplate", input, options)
   end
@@ -5834,8 +5749,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_service_template_version_errors()}
   def update_service_template_version(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServiceTemplateVersion", input, options)
   end
@@ -5855,8 +5769,7 @@ defmodule AWS.Proton do
           | {:error, term()}
           | {:error, update_template_sync_config_errors()}
   def update_template_sync_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTemplateSyncConfig", input, options)
   end

@@ -2871,8 +2871,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_instances_errors()}
   def attach_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachInstances", input, options)
   end
@@ -2932,8 +2931,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancer_target_groups_errors()}
   def attach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancerTargetGroups", input, options)
   end
@@ -2976,8 +2974,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_load_balancers_errors()}
   def attach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachLoadBalancers", input, options)
   end
@@ -3020,8 +3017,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, attach_traffic_sources_errors()}
   def attach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AttachTrafficSources", input, options)
   end
@@ -3035,8 +3031,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_delete_scheduled_action_errors()}
   def batch_delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteScheduledAction", input, options)
   end
@@ -3055,8 +3050,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, batch_put_scheduled_update_group_action_errors()}
   def batch_put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchPutScheduledUpdateGroupAction", input, options)
   end
@@ -3085,8 +3079,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, cancel_instance_refresh_errors()}
   def cancel_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelInstanceRefresh", input, options)
   end
@@ -3142,8 +3135,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, complete_lifecycle_action_errors()}
   def complete_lifecycle_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CompleteLifecycleAction", input, options)
   end
@@ -3183,8 +3175,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_auto_scaling_group_errors()}
   def create_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAutoScalingGroup", input, options)
   end
@@ -3219,8 +3210,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_launch_configuration_errors()}
   def create_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLaunchConfiguration", input, options)
   end
@@ -3241,8 +3231,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, create_or_update_tags_errors()}
   def create_or_update_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOrUpdateTags", input, options)
   end
@@ -3282,8 +3271,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_auto_scaling_group_errors()}
   def delete_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAutoScalingGroup", input, options)
   end
@@ -3301,8 +3289,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_launch_configuration_errors()}
   def delete_launch_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLaunchConfiguration", input, options)
   end
@@ -3320,8 +3307,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_lifecycle_hook_errors()}
   def delete_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLifecycleHook", input, options)
   end
@@ -3335,8 +3321,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_notification_configuration_errors()}
   def delete_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNotificationConfiguration", input, options)
   end
@@ -3358,8 +3343,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_policy_errors()}
   def delete_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePolicy", input, options)
   end
@@ -3373,8 +3357,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_scheduled_action_errors()}
   def delete_scheduled_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteScheduledAction", input, options)
   end
@@ -3388,8 +3371,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_tags_errors()}
   def delete_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTags", input, options)
   end
@@ -3407,8 +3389,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, delete_warm_pool_errors()}
   def delete_warm_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWarmPool", input, options)
   end
@@ -3430,8 +3411,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_account_limits_errors()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3460,8 +3440,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_adjustment_types_errors()}
   def describe_adjustment_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAdjustmentTypes", input, options)
   end
@@ -3489,8 +3468,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_groups_errors()}
   def describe_auto_scaling_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingGroups", input, options)
   end
@@ -3504,8 +3482,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_instances_errors()}
   def describe_auto_scaling_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingInstances", input, options)
   end
@@ -3519,8 +3496,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_auto_scaling_notification_types_errors()}
   def describe_auto_scaling_notification_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoScalingNotificationTypes", input, options)
   end
@@ -3553,8 +3529,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_instance_refreshes_errors()}
   def describe_instance_refreshes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeInstanceRefreshes", input, options)
   end
@@ -3568,8 +3543,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_launch_configurations_errors()}
   def describe_launch_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLaunchConfigurations", input, options)
   end
@@ -3593,8 +3567,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hook_types_errors()}
   def describe_lifecycle_hook_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHookTypes", input, options)
   end
@@ -3608,8 +3581,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_lifecycle_hooks_errors()}
   def describe_lifecycle_hooks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLifecycleHooks", input, options)
   end
@@ -3676,8 +3648,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancer_target_groups_errors()}
   def describe_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerTargetGroups", input, options)
   end
@@ -3738,8 +3709,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3753,8 +3723,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_metric_collection_types_errors()}
   def describe_metric_collection_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMetricCollectionTypes", input, options)
   end
@@ -3774,8 +3743,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_notification_configurations_errors()}
   def describe_notification_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNotificationConfigurations", input, options)
   end
@@ -3789,8 +3757,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_policies_errors()}
   def describe_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePolicies", input, options)
   end
@@ -3818,8 +3785,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_activities_errors()}
   def describe_scaling_activities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingActivities", input, options)
   end
@@ -3836,8 +3802,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scaling_process_types_errors()}
   def describe_scaling_process_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScalingProcessTypes", input, options)
   end
@@ -3859,8 +3824,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_scheduled_actions_errors()}
   def describe_scheduled_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeScheduledActions", input, options)
   end
@@ -3888,8 +3852,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3908,8 +3871,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_termination_policy_types_errors()}
   def describe_termination_policy_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTerminationPolicyTypes", input, options)
   end
@@ -3931,8 +3893,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_traffic_sources_errors()}
   def describe_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTrafficSources", input, options)
   end
@@ -3950,8 +3911,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, describe_warm_pool_errors()}
   def describe_warm_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWarmPool", input, options)
   end
@@ -3983,8 +3943,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_instances_errors()}
   def detach_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachInstances", input, options)
   end
@@ -4026,8 +3985,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancer_target_groups_errors()}
   def detach_load_balancer_target_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancerTargetGroups", input, options)
   end
@@ -4066,8 +4024,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_load_balancers_errors()}
   def detach_load_balancers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachLoadBalancers", input, options)
   end
@@ -4089,8 +4046,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, detach_traffic_sources_errors()}
   def detach_traffic_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetachTrafficSources", input, options)
   end
@@ -4104,8 +4060,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, disable_metrics_collection_errors()}
   def disable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableMetricsCollection", input, options)
   end
@@ -4128,8 +4083,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enable_metrics_collection_errors()}
   def enable_metrics_collection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableMetricsCollection", input, options)
   end
@@ -4159,8 +4113,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, enter_standby_errors()}
   def enter_standby(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnterStandby", input, options)
   end
@@ -4177,8 +4130,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, execute_policy_errors()}
   def execute_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecutePolicy", input, options)
   end
@@ -4200,8 +4152,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, exit_standby_errors()}
   def exit_standby(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExitStandby", input, options)
   end
@@ -4231,8 +4182,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, get_predictive_scaling_forecast_errors()}
   def get_predictive_scaling_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPredictiveScalingForecast", input, options)
   end
@@ -4300,8 +4250,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_lifecycle_hook_errors()}
   def put_lifecycle_hook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLifecycleHook", input, options)
   end
@@ -4331,8 +4280,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_notification_configuration_errors()}
   def put_notification_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutNotificationConfiguration", input, options)
   end
@@ -4366,8 +4314,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -4395,8 +4342,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_scheduled_update_group_action_errors()}
   def put_scheduled_update_group_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutScheduledUpdateGroupAction", input, options)
   end
@@ -4431,8 +4377,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, put_warm_pool_errors()}
   def put_warm_pool(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutWarmPool", input, options)
   end
@@ -4489,8 +4434,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, record_lifecycle_action_heartbeat_errors()}
   def record_lifecycle_action_heartbeat(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RecordLifecycleActionHeartbeat", input, options)
   end
@@ -4510,8 +4454,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, resume_processes_errors()}
   def resume_processes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeProcesses", input, options)
   end
@@ -4559,8 +4502,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, rollback_instance_refresh_errors()}
   def rollback_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RollbackInstanceRefresh", input, options)
   end
@@ -4582,8 +4524,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_desired_capacity_errors()}
   def set_desired_capacity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetDesiredCapacity", input, options)
   end
@@ -4602,8 +4543,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_health_errors()}
   def set_instance_health(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetInstanceHealth", input, options)
   end
@@ -4629,8 +4569,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, set_instance_protection_errors()}
   def set_instance_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetInstanceProtection", input, options)
   end
@@ -4686,8 +4625,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, start_instance_refresh_errors()}
   def start_instance_refresh(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartInstanceRefresh", input, options)
   end
@@ -4714,8 +4652,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, suspend_processes_errors()}
   def suspend_processes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SuspendProcesses", input, options)
   end
@@ -4754,8 +4691,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, terminate_instance_in_auto_scaling_group_errors()}
   def terminate_instance_in_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateInstanceInAutoScalingGroup", input, options)
   end
@@ -4830,8 +4766,7 @@ defmodule AWS.AutoScaling do
           | {:error, term()}
           | {:error, update_auto_scaling_group_errors()}
   def update_auto_scaling_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAutoScalingGroup", input, options)
   end

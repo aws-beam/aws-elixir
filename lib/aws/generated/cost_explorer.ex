@@ -3108,8 +3108,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_monitor_errors()}
   def create_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAnomalyMonitor", input, options)
   end
@@ -3129,8 +3128,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_anomaly_subscription_errors()}
   def create_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAnomalySubscription", input, options)
   end
@@ -3144,8 +3142,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, create_cost_category_definition_errors()}
   def create_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCostCategoryDefinition", input, options)
   end
@@ -3159,8 +3156,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_monitor_errors()}
   def delete_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAnomalyMonitor", input, options)
   end
@@ -3174,8 +3170,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_anomaly_subscription_errors()}
   def delete_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAnomalySubscription", input, options)
   end
@@ -3192,8 +3187,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, delete_cost_category_definition_errors()}
   def delete_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCostCategoryDefinition", input, options)
   end
@@ -3219,8 +3213,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, describe_cost_category_definition_errors()}
   def describe_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCostCategoryDefinition", input, options)
   end
@@ -3239,8 +3232,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomalies_errors()}
   def get_anomalies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAnomalies", input, options)
   end
@@ -3257,8 +3249,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_monitors_errors()}
   def get_anomaly_monitors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAnomalyMonitors", input, options)
   end
@@ -3275,8 +3266,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_anomaly_subscriptions_errors()}
   def get_anomaly_subscriptions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAnomalySubscriptions", input, options)
   end
@@ -3292,8 +3282,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_approximate_usage_records_errors()}
   def get_approximate_usage_records(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetApproximateUsageRecords", input, options)
   end
@@ -3312,8 +3301,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_commitment_purchase_analysis_errors()}
   def get_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCommitmentPurchaseAnalysis", input, options)
   end
@@ -3340,8 +3328,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_errors()}
   def get_cost_and_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostAndUsage", input, options)
   end
@@ -3361,8 +3348,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_comparisons_errors()}
   def get_cost_and_usage_comparisons(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageComparisons", input, options)
   end
@@ -3402,8 +3388,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_and_usage_with_resources_errors()}
   def get_cost_and_usage_with_resources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostAndUsageWithResources", input, options)
   end
@@ -3421,8 +3406,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_categories_errors()}
   def get_cost_categories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostCategories", input, options)
   end
@@ -3441,8 +3425,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_comparison_drivers_errors()}
   def get_cost_comparison_drivers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostComparisonDrivers", input, options)
   end
@@ -3458,8 +3441,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_cost_forecast_errors()}
   def get_cost_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCostForecast", input, options)
   end
@@ -3477,8 +3459,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_dimension_values_errors()}
   def get_dimension_values(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDimensionValues", input, options)
   end
@@ -3542,8 +3523,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_coverage_errors()}
   def get_reservation_coverage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservationCoverage", input, options)
   end
@@ -3592,8 +3572,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_purchase_recommendation_errors()}
   def get_reservation_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservationPurchaseRecommendation", input, options)
   end
@@ -3613,8 +3592,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_reservation_utilization_errors()}
   def get_reservation_utilization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReservationUtilization", input, options)
   end
@@ -3637,8 +3615,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_rightsizing_recommendation_errors()}
   def get_rightsizing_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRightsizingRecommendation", input, options)
   end
@@ -3659,8 +3636,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plan_purchase_recommendation_details_errors()}
   def get_savings_plan_purchase_recommendation_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3708,8 +3684,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_coverage_errors()}
   def get_savings_plans_coverage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansCoverage", input, options)
   end
@@ -3733,8 +3708,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_purchase_recommendation_errors()}
   def get_savings_plans_purchase_recommendation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansPurchaseRecommendation", input, options)
   end
@@ -3757,8 +3731,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_errors()}
   def get_savings_plans_utilization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilization", input, options)
   end
@@ -3788,8 +3761,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_savings_plans_utilization_details_errors()}
   def get_savings_plans_utilization_details(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSavingsPlansUtilizationDetails", input, options)
   end
@@ -3806,8 +3778,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_tags_errors()}
   def get_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTags", input, options)
   end
@@ -3822,8 +3793,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, get_usage_forecast_errors()}
   def get_usage_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUsageForecast", input, options)
   end
@@ -3841,8 +3811,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_commitment_purchase_analyses_errors()}
   def list_commitment_purchase_analyses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCommitmentPurchaseAnalyses", input, options)
   end
@@ -3861,8 +3830,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tag_backfill_history_errors()}
   def list_cost_allocation_tag_backfill_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTagBackfillHistory", input, options)
   end
@@ -3879,8 +3847,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_allocation_tags_errors()}
   def list_cost_allocation_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCostAllocationTags", input, options)
   end
@@ -3905,8 +3872,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_cost_category_definitions_errors()}
   def list_cost_category_definitions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCostCategoryDefinitions", input, options)
   end
@@ -3930,8 +3896,7 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3953,8 +3918,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3968,8 +3932,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, provide_anomaly_feedback_errors()}
   def provide_anomaly_feedback(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ProvideAnomalyFeedback", input, options)
   end
@@ -3992,8 +3955,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_commitment_purchase_analysis_errors()}
   def start_commitment_purchase_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCommitmentPurchaseAnalysis", input, options)
   end
@@ -4017,8 +3979,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, start_cost_allocation_tag_backfill_errors()}
   def start_cost_allocation_tag_backfill(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCostAllocationTagBackfill", input, options)
   end
@@ -4050,8 +4011,7 @@ defmodule AWS.CostExplorer do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -4083,8 +4043,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4101,8 +4060,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4119,8 +4077,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_monitor_errors()}
   def update_anomaly_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAnomalyMonitor", input, options)
   end
@@ -4141,8 +4098,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_anomaly_subscription_errors()}
   def update_anomaly_subscription(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAnomalySubscription", input, options)
   end
@@ -4167,8 +4123,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_allocation_tags_status_errors()}
   def update_cost_allocation_tags_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCostAllocationTagsStatus", input, options)
   end
@@ -4187,8 +4142,7 @@ defmodule AWS.CostExplorer do
           | {:error, term()}
           | {:error, update_cost_category_definition_errors()}
   def update_cost_category_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCostCategoryDefinition", input, options)
   end

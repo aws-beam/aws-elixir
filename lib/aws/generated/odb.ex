@@ -2238,8 +2238,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, accept_marketplace_registration_errors()}
   def accept_marketplace_registration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AcceptMarketplaceRegistration", input, options)
   end
@@ -2257,8 +2256,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, create_cloud_autonomous_vm_cluster_errors()}
   def create_cloud_autonomous_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCloudAutonomousVmCluster", input, options)
   end
@@ -2276,8 +2274,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, create_cloud_exadata_infrastructure_errors()}
   def create_cloud_exadata_infrastructure(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCloudExadataInfrastructure", input, options)
   end
@@ -2291,8 +2288,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, create_cloud_vm_cluster_errors()}
   def create_cloud_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCloudVmCluster", input, options)
   end
@@ -2306,8 +2302,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, create_odb_network_errors()}
   def create_odb_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOdbNetwork", input, options)
   end
@@ -2325,8 +2320,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, create_odb_peering_connection_errors()}
   def create_odb_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateOdbPeeringConnection", input, options)
   end
@@ -2344,8 +2338,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, delete_cloud_autonomous_vm_cluster_errors()}
   def delete_cloud_autonomous_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCloudAutonomousVmCluster", input, options)
   end
@@ -2366,8 +2359,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, delete_cloud_exadata_infrastructure_errors()}
   def delete_cloud_exadata_infrastructure(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCloudExadataInfrastructure", input, options)
   end
@@ -2381,8 +2373,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, delete_cloud_vm_cluster_errors()}
   def delete_cloud_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCloudVmCluster", input, options)
   end
@@ -2396,8 +2387,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, delete_odb_network_errors()}
   def delete_odb_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOdbNetwork", input, options)
   end
@@ -2414,8 +2404,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, delete_odb_peering_connection_errors()}
   def delete_odb_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteOdbPeeringConnection", input, options)
   end
@@ -2429,8 +2418,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_cloud_autonomous_vm_cluster_errors()}
   def get_cloud_autonomous_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCloudAutonomousVmCluster", input, options)
   end
@@ -2444,8 +2432,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_cloud_exadata_infrastructure_errors()}
   def get_cloud_exadata_infrastructure(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCloudExadataInfrastructure", input, options)
   end
@@ -2468,8 +2455,7 @@ defmodule AWS.Odb do
         input,
         options \\ []
       ) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -2489,8 +2475,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_cloud_vm_cluster_errors()}
   def get_cloud_vm_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCloudVmCluster", input, options)
   end
@@ -2504,8 +2489,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_db_node_errors()}
   def get_db_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDbNode", input, options)
   end
@@ -2519,8 +2503,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_db_server_errors()}
   def get_db_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDbServer", input, options)
   end
@@ -2535,8 +2518,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_oci_onboarding_status_errors()}
   def get_oci_onboarding_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOciOnboardingStatus", input, options)
   end
@@ -2550,8 +2532,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_odb_network_errors()}
   def get_odb_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOdbNetwork", input, options)
   end
@@ -2565,8 +2546,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, get_odb_peering_connection_errors()}
   def get_odb_peering_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOdbPeeringConnection", input, options)
   end
@@ -2580,8 +2560,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, initialize_service_errors()}
   def initialize_service(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InitializeService", input, options)
   end
@@ -2595,8 +2574,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_autonomous_virtual_machines_errors()}
   def list_autonomous_virtual_machines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAutonomousVirtualMachines", input, options)
   end
@@ -2614,8 +2592,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_cloud_autonomous_vm_clusters_errors()}
   def list_cloud_autonomous_vm_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCloudAutonomousVmClusters", input, options)
   end
@@ -2634,8 +2611,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_cloud_exadata_infrastructures_errors()}
   def list_cloud_exadata_infrastructures(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCloudExadataInfrastructures", input, options)
   end
@@ -2650,8 +2626,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_cloud_vm_clusters_errors()}
   def list_cloud_vm_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCloudVmClusters", input, options)
   end
@@ -2665,8 +2640,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_db_nodes_errors()}
   def list_db_nodes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbNodes", input, options)
   end
@@ -2681,8 +2655,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_db_servers_errors()}
   def list_db_servers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbServers", input, options)
   end
@@ -2697,8 +2670,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_db_system_shapes_errors()}
   def list_db_system_shapes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDbSystemShapes", input, options)
   end
@@ -2713,8 +2685,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_gi_versions_errors()}
   def list_gi_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGiVersions", input, options)
   end
@@ -2729,8 +2700,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_odb_networks_errors()}
   def list_odb_networks(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOdbNetworks", input, options)
   end
@@ -2745,8 +2715,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_odb_peering_connections_errors()}
   def list_odb_peering_connections(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListOdbPeeringConnections", input, options)
   end
@@ -2761,8 +2730,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_system_versions_errors()}
   def list_system_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSystemVersions", input, options)
   end
@@ -2776,8 +2744,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2791,8 +2758,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, reboot_db_node_errors()}
   def reboot_db_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RebootDbNode", input, options)
   end
@@ -2806,8 +2772,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, start_db_node_errors()}
   def start_db_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDbNode", input, options)
   end
@@ -2821,8 +2786,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, stop_db_node_errors()}
   def stop_db_node(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDbNode", input, options)
   end
@@ -2836,8 +2800,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2851,8 +2814,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2870,8 +2832,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, update_cloud_exadata_infrastructure_errors()}
   def update_cloud_exadata_infrastructure(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCloudExadataInfrastructure", input, options)
   end
@@ -2885,8 +2846,7 @@ defmodule AWS.Odb do
           | {:error, term()}
           | {:error, update_odb_network_errors()}
   def update_odb_network(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateOdbNetwork", input, options)
   end

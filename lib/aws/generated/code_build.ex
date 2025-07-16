@@ -2911,8 +2911,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_delete_builds_errors()}
   def batch_delete_builds(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteBuilds", input, options)
   end
@@ -2926,8 +2925,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_build_batches_errors()}
   def batch_get_build_batches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetBuildBatches", input, options)
   end
@@ -2941,8 +2939,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_builds_errors()}
   def batch_get_builds(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetBuilds", input, options)
   end
@@ -2956,8 +2953,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_command_executions_errors()}
   def batch_get_command_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetCommandExecutions", input, options)
   end
@@ -2971,8 +2967,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_fleets_errors()}
   def batch_get_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetFleets", input, options)
   end
@@ -2986,8 +2981,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_projects_errors()}
   def batch_get_projects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetProjects", input, options)
   end
@@ -3002,8 +2996,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_report_groups_errors()}
   def batch_get_report_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetReportGroups", input, options)
   end
@@ -3018,8 +3011,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_reports_errors()}
   def batch_get_reports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetReports", input, options)
   end
@@ -3033,8 +3025,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, batch_get_sandboxes_errors()}
   def batch_get_sandboxes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetSandboxes", input, options)
   end
@@ -3048,8 +3039,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -3063,8 +3053,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_project_errors()}
   def create_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProject", input, options)
   end
@@ -3081,8 +3070,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_report_group_errors()}
   def create_report_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateReportGroup", input, options)
   end
@@ -3112,8 +3100,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, create_webhook_errors()}
   def create_webhook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWebhook", input, options)
   end
@@ -3127,8 +3114,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_build_batch_errors()}
   def delete_build_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBuildBatch", input, options)
   end
@@ -3144,8 +3130,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -3161,8 +3146,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_project_errors()}
   def delete_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProject", input, options)
   end
@@ -3177,8 +3161,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_errors()}
   def delete_report(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteReport", input, options)
   end
@@ -3194,8 +3177,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_report_group_errors()}
   def delete_report_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteReportGroup", input, options)
   end
@@ -3209,8 +3191,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -3224,8 +3205,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_source_credentials_errors()}
   def delete_source_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSourceCredentials", input, options)
   end
@@ -3243,8 +3223,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, delete_webhook_errors()}
   def delete_webhook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWebhook", input, options)
   end
@@ -3258,8 +3237,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_code_coverages_errors()}
   def describe_code_coverages(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCodeCoverages", input, options)
   end
@@ -3274,8 +3252,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, describe_test_cases_errors()}
   def describe_test_cases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTestCases", input, options)
   end
@@ -3289,8 +3266,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_report_group_trend_errors()}
   def get_report_group_trend(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetReportGroupTrend", input, options)
   end
@@ -3304,8 +3280,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3321,8 +3296,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, import_source_credentials_errors()}
   def import_source_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportSourceCredentials", input, options)
   end
@@ -3336,8 +3310,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, invalidate_project_cache_errors()}
   def invalidate_project_cache(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InvalidateProjectCache", input, options)
   end
@@ -3351,8 +3324,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_errors()}
   def list_build_batches(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBuildBatches", input, options)
   end
@@ -3366,8 +3338,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_build_batches_for_project_errors()}
   def list_build_batches_for_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBuildBatchesForProject", input, options)
   end
@@ -3381,8 +3352,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -3398,8 +3368,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_builds_for_project_errors()}
   def list_builds_for_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBuildsForProject", input, options)
   end
@@ -3417,8 +3386,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_command_executions_for_sandbox_errors()}
   def list_command_executions_for_sandbox(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCommandExecutionsForSandbox", input, options)
   end
@@ -3431,8 +3399,7 @@ defmodule AWS.CodeBuild do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_curated_environment_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCuratedEnvironmentImages", input, options)
   end
@@ -3447,8 +3414,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -3464,8 +3430,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_projects_errors()}
   def list_projects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProjects", input, options)
   end
@@ -3481,8 +3446,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_report_groups_errors()}
   def list_report_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReportGroups", input, options)
   end
@@ -3498,8 +3462,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_errors()}
   def list_reports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReports", input, options)
   end
@@ -3514,8 +3477,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_reports_for_report_group_errors()}
   def list_reports_for_report_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReportsForReportGroup", input, options)
   end
@@ -3529,8 +3491,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_errors()}
   def list_sandboxes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSandboxes", input, options)
   end
@@ -3544,8 +3505,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_sandboxes_for_project_errors()}
   def list_sandboxes_for_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSandboxesForProject", input, options)
   end
@@ -3560,8 +3520,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_projects_errors()}
   def list_shared_projects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSharedProjects", input, options)
   end
@@ -3576,8 +3535,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_shared_report_groups_errors()}
   def list_shared_report_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSharedReportGroups", input, options)
   end
@@ -3591,8 +3549,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, list_source_credentials_errors()}
   def list_source_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSourceCredentials", input, options)
   end
@@ -3607,8 +3564,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -3622,8 +3578,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_errors()}
   def retry_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetryBuild", input, options)
   end
@@ -3639,8 +3594,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, retry_build_batch_errors()}
   def retry_build_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetryBuildBatch", input, options)
   end
@@ -3662,8 +3616,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_errors()}
   def start_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartBuild", input, options)
   end
@@ -3677,8 +3630,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_build_batch_errors()}
   def start_build_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartBuildBatch", input, options)
   end
@@ -3692,8 +3644,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_command_execution_errors()}
   def start_command_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCommandExecution", input, options)
   end
@@ -3707,8 +3658,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_errors()}
   def start_sandbox(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSandbox", input, options)
   end
@@ -3722,8 +3672,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, start_sandbox_connection_errors()}
   def start_sandbox_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSandboxConnection", input, options)
   end
@@ -3737,8 +3686,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_errors()}
   def stop_build(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopBuild", input, options)
   end
@@ -3752,8 +3700,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_build_batch_errors()}
   def stop_build_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopBuildBatch", input, options)
   end
@@ -3767,8 +3714,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, stop_sandbox_errors()}
   def stop_sandbox(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopSandbox", input, options)
   end
@@ -3782,8 +3728,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_fleet_errors()}
   def update_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
   end
@@ -3797,8 +3742,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_errors()}
   def update_project(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProject", input, options)
   end
@@ -3856,8 +3800,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_project_visibility_errors()}
   def update_project_visibility(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProjectVisibility", input, options)
   end
@@ -3872,8 +3815,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_report_group_errors()}
   def update_report_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateReportGroup", input, options)
   end
@@ -3889,8 +3831,7 @@ defmodule AWS.CodeBuild do
           | {:error, term()}
           | {:error, update_webhook_errors()}
   def update_webhook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWebhook", input, options)
   end

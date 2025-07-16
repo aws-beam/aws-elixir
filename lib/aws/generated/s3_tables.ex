@@ -45,7 +45,8 @@ defmodule AWS.S3Tables do
       list_table_buckets_request() :: %{
         optional("continuationToken") => String.t(),
         optional("maxBuckets") => integer(),
-        optional("prefix") => [String.t()]
+        optional("prefix") => [String.t()],
+        optional("type") => list(any())
       }
 
   """
@@ -730,7 +731,8 @@ defmodule AWS.S3Tables do
         "createdAt" => [non_neg_integer()],
         "name" => String.t(),
         "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t()
+        "tableBucketId" => String.t(),
+        "type" => list(any())
       }
 
   """
@@ -788,7 +790,8 @@ defmodule AWS.S3Tables do
         "createdAt" => [non_neg_integer()],
         "name" => String.t(),
         "ownerAccountId" => String.t(),
-        "tableBucketId" => String.t()
+        "tableBucketId" => String.t(),
+        "type" => list(any())
       }
 
   """
@@ -1922,7 +1925,14 @@ defmodule AWS.S3Tables do
 
   You must have the `s3tables:ListTableBuckets` permission to use this operation.
   """
-  @spec list_table_buckets(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
+  @spec list_table_buckets(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
           {:ok, list_table_buckets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -1932,11 +1942,19 @@ defmodule AWS.S3Tables do
         continuation_token \\ nil,
         max_buckets \\ nil,
         prefix \\ nil,
+        type \\ nil,
         options \\ []
       ) do
     url_path = "/buckets"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(prefix) do

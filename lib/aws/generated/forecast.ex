@@ -2735,8 +2735,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_auto_predictor_errors()}
   def create_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAutoPredictor", input, options)
   end
@@ -2802,8 +2801,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -2835,8 +2833,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
@@ -2885,8 +2882,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
@@ -3019,8 +3015,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_errors()}
   def create_explainability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExplainability", input, options)
   end
@@ -3047,8 +3042,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_export_errors()}
   def create_explainability_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExplainabilityExport", input, options)
   end
@@ -3092,8 +3086,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_errors()}
   def create_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateForecast", input, options)
   end
@@ -3130,8 +3123,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_export_job_errors()}
   def create_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateForecastExportJob", input, options)
   end
@@ -3149,8 +3141,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMonitor", input, options)
   end
@@ -3238,8 +3229,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_errors()}
   def create_predictor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePredictor", input, options)
   end
@@ -3278,8 +3268,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_backtest_export_job_errors()}
   def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePredictorBacktestExportJob", input, options)
   end
@@ -3324,8 +3313,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_analysis_errors()}
   def create_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWhatIfAnalysis", input, options)
   end
@@ -3344,8 +3332,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_errors()}
   def create_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecast", input, options)
   end
@@ -3383,8 +3370,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_export_errors()}
   def create_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecastExport", input, options)
   end
@@ -3412,8 +3398,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -3435,8 +3420,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
@@ -3456,8 +3440,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_import_job_errors()}
   def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDatasetImportJob", input, options)
   end
@@ -3474,8 +3457,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_errors()}
   def delete_explainability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteExplainability", input, options)
   end
@@ -3489,8 +3471,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_export_errors()}
   def delete_explainability_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteExplainabilityExport", input, options)
   end
@@ -3512,8 +3493,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_errors()}
   def delete_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteForecast", input, options)
   end
@@ -3532,8 +3512,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_export_job_errors()}
   def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteForecastExportJob", input, options)
   end
@@ -3550,8 +3529,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMonitor", input, options)
   end
@@ -3570,8 +3548,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_errors()}
   def delete_predictor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePredictor", input, options)
   end
@@ -3589,8 +3566,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_backtest_export_job_errors()}
   def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePredictorBacktestExportJob", input, options)
   end
@@ -3637,8 +3613,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_resource_tree_errors()}
   def delete_resource_tree(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourceTree", input, options)
   end
@@ -3659,8 +3634,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_analysis_errors()}
   def delete_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfAnalysis", input, options)
   end
@@ -3681,8 +3655,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_errors()}
   def delete_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecast", input, options)
   end
@@ -3701,8 +3674,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_export_errors()}
   def delete_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecastExport", input, options)
   end
@@ -3716,8 +3688,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_auto_predictor_errors()}
   def describe_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAutoPredictor", input, options)
   end
@@ -3748,8 +3719,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -3784,8 +3754,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
@@ -3828,8 +3797,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
@@ -3844,8 +3812,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_errors()}
   def describe_explainability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExplainability", input, options)
   end
@@ -3860,8 +3827,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_export_errors()}
   def describe_explainability_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExplainabilityExport", input, options)
   end
@@ -3899,8 +3865,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_errors()}
   def describe_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeForecast", input, options)
   end
@@ -3935,8 +3900,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_export_job_errors()}
   def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeForecastExportJob", input, options)
   end
@@ -3981,8 +3945,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_monitor_errors()}
   def describe_monitor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeMonitor", input, options)
   end
@@ -4032,8 +3995,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_errors()}
   def describe_predictor(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePredictor", input, options)
   end
@@ -4072,8 +4034,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_backtest_export_job_errors()}
   def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePredictorBacktestExportJob", input, options)
   end
@@ -4107,8 +4068,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_analysis_errors()}
   def describe_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfAnalysis", input, options)
   end
@@ -4142,8 +4102,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_errors()}
   def describe_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecast", input, options)
   end
@@ -4182,8 +4141,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_export_errors()}
   def describe_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecastExport", input, options)
   end
@@ -4220,8 +4178,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, get_accuracy_metrics_errors()}
   def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccuracyMetrics", input, options)
   end
@@ -4244,8 +4201,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
@@ -4270,8 +4226,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
@@ -4293,8 +4248,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -4317,8 +4271,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainabilities_errors()}
   def list_explainabilities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExplainabilities", input, options)
   end
@@ -4341,8 +4294,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainability_exports_errors()}
   def list_explainability_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExplainabilityExports", input, options)
   end
@@ -4363,8 +4315,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecast_export_jobs_errors()}
   def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListForecastExportJobs", input, options)
   end
@@ -4385,8 +4336,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecasts_errors()}
   def list_forecasts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListForecasts", input, options)
   end
@@ -4405,8 +4355,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitor_evaluations_errors()}
   def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMonitorEvaluations", input, options)
   end
@@ -4426,8 +4375,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMonitors", input, options)
   end
@@ -4454,8 +4402,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictor_backtest_export_jobs_errors()}
   def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPredictorBacktestExportJobs", input, options)
   end
@@ -4477,8 +4424,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictors_errors()}
   def list_predictors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPredictors", input, options)
   end
@@ -4492,8 +4438,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4513,8 +4458,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_analyses_errors()}
   def list_what_if_analyses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWhatIfAnalyses", input, options)
   end
@@ -4534,8 +4478,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecast_exports_errors()}
   def list_what_if_forecast_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecastExports", input, options)
   end
@@ -4555,8 +4498,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecasts_errors()}
   def list_what_if_forecasts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecasts", input, options)
   end
@@ -4570,8 +4512,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, resume_resource_errors()}
   def resume_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResumeResource", input, options)
   end
@@ -4614,8 +4555,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, stop_resource_errors()}
   def stop_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopResource", input, options)
   end
@@ -4635,8 +4575,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4650,8 +4589,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4670,8 +4608,7 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, update_dataset_group_errors()}
   def update_dataset_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDatasetGroup", input, options)
   end

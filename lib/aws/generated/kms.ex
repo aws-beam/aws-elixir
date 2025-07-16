@@ -2645,8 +2645,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, cancel_key_deletion_errors()}
   def cancel_key_deletion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelKeyDeletion", input, options)
   end
@@ -2787,8 +2786,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, connect_custom_key_store_errors()}
   def connect_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ConnectCustomKeyStore", input, options)
   end
@@ -2870,8 +2868,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -2995,8 +2992,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_custom_key_store_errors()}
   def create_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCustomKeyStore", input, options)
   end
@@ -3085,8 +3081,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_grant_errors()}
   def create_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGrant", input, options)
   end
@@ -3331,8 +3326,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, create_key_errors()}
   def create_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateKey", input, options)
   end
@@ -3461,8 +3455,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, decrypt_errors()}
   def decrypt(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Decrypt", input, options)
   end
@@ -3529,8 +3522,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -3619,8 +3611,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_custom_key_store_errors()}
   def delete_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCustomKeyStore", input, options)
   end
@@ -3675,8 +3666,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, delete_imported_key_material_errors()}
   def delete_imported_key_material(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteImportedKeyMaterial", input, options)
   end
@@ -3800,8 +3790,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, derive_shared_secret_errors()}
   def derive_shared_secret(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeriveSharedSecret", input, options)
   end
@@ -3888,8 +3877,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, describe_custom_key_stores_errors()}
   def describe_custom_key_stores(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCustomKeyStores", input, options)
   end
@@ -3992,8 +3980,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, describe_key_errors()}
   def describe_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeKey", input, options)
   end
@@ -4030,8 +4017,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disable_key_errors()}
   def disable_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableKey", input, options)
   end
@@ -4100,8 +4086,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disable_key_rotation_errors()}
   def disable_key_rotation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableKeyRotation", input, options)
   end
@@ -4177,8 +4162,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, disconnect_custom_key_store_errors()}
   def disconnect_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisconnectCustomKeyStore", input, options)
   end
@@ -4212,8 +4196,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, enable_key_errors()}
   def enable_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableKey", input, options)
   end
@@ -4313,8 +4296,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, enable_key_rotation_errors()}
   def enable_key_rotation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableKeyRotation", input, options)
   end
@@ -4446,8 +4428,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, encrypt_errors()}
   def encrypt(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Encrypt", input, options)
   end
@@ -4592,8 +4573,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_errors()}
   def generate_data_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateDataKey", input, options)
   end
@@ -4725,8 +4705,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_pair_errors()}
   def generate_data_key_pair(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyPair", input, options)
   end
@@ -4829,8 +4808,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_pair_without_plaintext_errors()}
   def generate_data_key_pair_without_plaintext(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyPairWithoutPlaintext", input, options)
   end
@@ -4949,8 +4927,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_data_key_without_plaintext_errors()}
   def generate_data_key_without_plaintext(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateDataKeyWithoutPlaintext", input, options)
   end
@@ -5009,8 +4986,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_mac_errors()}
   def generate_mac(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateMac", input, options)
   end
@@ -5062,8 +5038,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, generate_random_errors()}
   def generate_random(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GenerateRandom", input, options)
   end
@@ -5089,8 +5064,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_key_policy_errors()}
   def get_key_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKeyPolicy", input, options)
   end
@@ -5190,8 +5164,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_key_rotation_status_errors()}
   def get_key_rotation_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKeyRotationStatus", input, options)
   end
@@ -5295,8 +5268,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_parameters_for_import_errors()}
   def get_parameters_for_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetParametersForImport", input, options)
   end
@@ -5386,8 +5358,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, get_public_key_errors()}
   def get_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPublicKey", input, options)
   end
@@ -5549,8 +5520,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, import_key_material_errors()}
   def import_key_material(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportKeyMaterial", input, options)
   end
@@ -5613,8 +5583,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -5676,8 +5645,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_grants_errors()}
   def list_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGrants", input, options)
   end
@@ -5714,8 +5682,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_key_policies_errors()}
   def list_key_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListKeyPolicies", input, options)
   end
@@ -5780,8 +5747,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_key_rotations_errors()}
   def list_key_rotations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListKeyRotations", input, options)
   end
@@ -5824,8 +5790,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_keys_errors()}
   def list_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListKeys", input, options)
   end
@@ -5872,8 +5837,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_resource_tags_errors()}
   def list_resource_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListResourceTags", input, options)
   end
@@ -5946,8 +5910,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, list_retirable_grants_errors()}
   def list_retirable_grants(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRetirableGrants", input, options)
   end
@@ -5983,8 +5946,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, put_key_policy_errors()}
   def put_key_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutKeyPolicy", input, options)
   end
@@ -6115,8 +6077,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, re_encrypt_errors()}
   def re_encrypt(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReEncrypt", input, options)
   end
@@ -6235,8 +6196,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, replicate_key_errors()}
   def replicate_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReplicateKey", input, options)
   end
@@ -6298,8 +6258,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, retire_grant_errors()}
   def retire_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RetireGrant", input, options)
   end
@@ -6364,8 +6323,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, revoke_grant_errors()}
   def revoke_grant(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RevokeGrant", input, options)
   end
@@ -6465,8 +6423,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, rotate_key_on_demand_errors()}
   def rotate_key_on_demand(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RotateKeyOnDemand", input, options)
   end
@@ -6562,8 +6519,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, schedule_key_deletion_errors()}
   def schedule_key_deletion(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ScheduleKeyDeletion", input, options)
   end
@@ -6649,8 +6605,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, sign_errors()}
   def sign(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Sign", input, options)
   end
@@ -6724,8 +6679,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -6791,8 +6745,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -6882,8 +6835,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end
@@ -7013,8 +6965,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_custom_key_store_errors()}
   def update_custom_key_store(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCustomKeyStore", input, options)
   end
@@ -7055,8 +7006,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_key_description_errors()}
   def update_key_description(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateKeyDescription", input, options)
   end
@@ -7166,8 +7116,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, update_primary_region_errors()}
   def update_primary_region(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePrimaryRegion", input, options)
   end
@@ -7239,8 +7188,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, verify_errors()}
   def verify(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Verify", input, options)
   end
@@ -7290,8 +7238,7 @@ defmodule AWS.KMS do
           | {:error, term()}
           | {:error, verify_mac_errors()}
   def verify_mac(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "VerifyMac", input, options)
   end

@@ -1111,6 +1111,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      s3_vectors_configuration() :: %{
+        "indexArn" => String.t(),
+        "indexName" => String.t(),
+        "vectorBucketArn" => String.t()
+      }
+
+  """
+  @type s3_vectors_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_flow_versions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t()
@@ -2368,6 +2381,7 @@ defmodule AWS.BedrockAgent do
         "pineconeConfiguration" => pinecone_configuration(),
         "rdsConfiguration" => rds_configuration(),
         "redisEnterpriseCloudConfiguration" => redis_enterprise_cloud_configuration(),
+        "s3VectorsConfiguration" => s3_vectors_configuration(),
         "type" => list(any())
       }
 
@@ -5355,41 +5369,33 @@ defmodule AWS.BedrockAgent do
   sources, software applications, user conversations, and APIs to carry out tasks
   to help customers.
 
-    *
-  Specify the following fields for security purposes.
+    * Specify the following fields for security purposes.
 
-      *
+      * `agentResourceRoleArn` – The Amazon Resource Name
+  (ARN) of the role with permissions to invoke API operations on an agent.
 
-  `agentResourceRoleArn` – The Amazon Resource Name (ARN) of the role with
-  permissions to invoke API operations on an agent.
+      * (Optional) `customerEncryptionKeyArn` – The Amazon
+  Resource Name (ARN) of a KMS key to encrypt the creation of the agent.
 
-      *
-  (Optional) `customerEncryptionKeyArn` – The Amazon Resource Name (ARN) of a KMS
-  key to encrypt the creation of the agent.
+      * (Optional) `idleSessionTTLinSeconds` – Specify the
+  number of seconds for which the agent should maintain session information. After
+  this time expires, the subsequent `InvokeAgent` request begins a new session.
 
-      *
-  (Optional) `idleSessionTTLinSeconds` – Specify the number of seconds for which
-  the agent should maintain session information. After this time expires, the
-  subsequent `InvokeAgent` request begins a new session.
+    * To enable your agent to retain conversational context across
+  multiple sessions, include a `memoryConfiguration` object. For more information,
+  see [Configure memory](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html).
 
-    *
-  To enable your agent to retain conversational context across multiple sessions,
-  include a `memoryConfiguration` object.
-  For more information, see [Configure memory](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html).
+    * To override the default prompt behavior for agent orchestration
+  and to use advanced prompts, include a `promptOverrideConfiguration` object. For
+  more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
 
-    *
-  To override the default prompt behavior for agent orchestration and to use
-  advanced prompts, include a `promptOverrideConfiguration` object.
-  For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html).
-
-    *
-  If your agent fails to be created, the response returns a list of
+    * If your agent fails to be created, the response returns a list of
   `failureReasons` alongside a list of `recommendedActions` for you to
   troubleshoot.
 
-    *
-  The agent instructions will not be honored if your agent has only one knowledge
-  base, uses default prompts, has no action group, and user input is disabled.
+    * The agent instructions will not be honored if your agent has only
+  one knowledge base, uses default prompts, has no action group, and user input is
+  disabled.
   """
   @spec create_agent(map(), create_agent_request(), list()) ::
           {:ok, create_agent_response(), any()}
@@ -5425,14 +5431,12 @@ defmodule AWS.BedrockAgent do
   them.
 
   To allow your agent to request the user for additional information when trying
-  to complete a task,
-  add an action group with the `parentActionGroupSignature` field set to
-  `AMAZON.UserInput`.
+  to complete a task, add an action group with the `parentActionGroupSignature`
+  field set to `AMAZON.UserInput`.
 
   To allow your agent to generate, run, and troubleshoot code when trying to
-  complete a task,
-  add an action group with the `parentActionGroupSignature` field set to
-  `AMAZON.CodeInterpreter`.
+  complete a task, add an action group with the `parentActionGroupSignature` field
+  set to `AMAZON.CodeInterpreter`.
 
   You must leave the `description`, `apiSchema`, and `actionGroupExecutor` fields
   blank for this action group. During orchestration, if your agent determines that
@@ -5652,36 +5656,30 @@ defmodule AWS.BedrockAgent do
   Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
   base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create).
 
-    *
-  Provide the `name` and an optional `description`.
+    * Provide the `name` and an optional `description`.
 
-    *
-  Provide the Amazon Resource Name (ARN) with permissions to create a knowledge
-  base in the `roleArn` field.
+    * Provide the Amazon Resource Name (ARN) with permissions to create
+  a knowledge base in the `roleArn` field.
 
-    *
-  Provide the embedding model to use in the `embeddingModelArn` field in the
-  `knowledgeBaseConfiguration` object.
+    * Provide the embedding model to use in the `embeddingModelArn`
+  field in the `knowledgeBaseConfiguration` object.
 
-    *
-  Provide the configuration for your vector store in the `storageConfiguration`
-  object.
+    * Provide the configuration for your vector store in the
+  `storageConfiguration` object.
 
-      *
-  For an Amazon OpenSearch Service database, use the
+      * For an Amazon OpenSearch Service database, use the
   `opensearchServerlessConfiguration` object. For more information, see [Create a vector store in Amazon OpenSearch
   Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html).
 
-      *
-  For an Amazon Aurora database, use the `RdsConfiguration` object. For more
-  information, see [Create a vector store in Amazon Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
+      * For an Amazon Aurora database, use the
+  `RdsConfiguration` object. For more information, see [Create a vector store in Amazon
+  Aurora](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html).
 
-      *
-  For a Pinecone database, use the `pineconeConfiguration` object. For more
-  information, see [Create a vector store in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html).
+      * For a Pinecone database, use the
+  `pineconeConfiguration` object. For more information, see [Create a vector store in
+  Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html).
 
-      *
-  For a Redis Enterprise Cloud database, use the
+      * For a Redis Enterprise Cloud database, use the
   `redisEnterpriseCloudConfiguration` object. For more information, see [Create a vector store in Redis Enterprise
   Cloud](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html).
   """
@@ -7751,17 +7749,11 @@ defmodule AWS.BedrockAgent do
 
   You can change the following fields:
 
-    *
+    * `name`
 
-  `name`
+    * `description`
 
-    *
-
-  `description`
-
-    *
-
-  `roleArn`
+    * `roleArn`
 
   You can't change the `knowledgeBaseConfiguration` or `storageConfiguration`
   fields, so you must specify the same configurations as when you created the

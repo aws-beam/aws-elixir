@@ -1445,8 +1445,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_budget_errors()}
   def create_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBudget", input, options)
   end
@@ -1461,8 +1460,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_budget_action_errors()}
   def create_budget_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBudgetAction", input, options)
   end
@@ -1478,8 +1476,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_notification_errors()}
   def create_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNotification", input, options)
   end
@@ -1496,8 +1493,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, create_subscriber_errors()}
   def create_subscriber(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSubscriber", input, options)
   end
@@ -1516,8 +1512,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_budget_errors()}
   def delete_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBudget", input, options)
   end
@@ -1532,8 +1527,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_budget_action_errors()}
   def delete_budget_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBudgetAction", input, options)
   end
@@ -1550,8 +1544,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_notification_errors()}
   def delete_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNotification", input, options)
   end
@@ -1567,8 +1560,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, delete_subscriber_errors()}
   def delete_subscriber(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSubscriber", input, options)
   end
@@ -1587,8 +1579,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_errors()}
   def describe_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudget", input, options)
   end
@@ -1603,8 +1594,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_action_errors()}
   def describe_budget_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetAction", input, options)
   end
@@ -1623,8 +1613,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_action_histories_errors()}
   def describe_budget_action_histories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionHistories", input, options)
   end
@@ -1643,8 +1632,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_actions_for_account_errors()}
   def describe_budget_actions_for_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForAccount", input, options)
   end
@@ -1663,8 +1651,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_actions_for_budget_errors()}
   def describe_budget_actions_for_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetActionsForBudget", input, options)
   end
@@ -1682,8 +1669,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_notifications_for_account_errors()}
   def describe_budget_notifications_for_account(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetNotificationsForAccount", input, options)
   end
@@ -1703,8 +1689,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budget_performance_history_errors()}
   def describe_budget_performance_history(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgetPerformanceHistory", input, options)
   end
@@ -1723,8 +1708,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_budgets_errors()}
   def describe_budgets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBudgets", input, options)
   end
@@ -1742,8 +1726,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_notifications_for_budget_errors()}
   def describe_notifications_for_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNotificationsForBudget", input, options)
   end
@@ -1761,8 +1744,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, describe_subscribers_for_notification_errors()}
   def describe_subscribers_for_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSubscribersForNotification", input, options)
   end
@@ -1777,8 +1759,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, execute_budget_action_errors()}
   def execute_budget_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteBudgetAction", input, options)
   end
@@ -1792,8 +1773,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1807,8 +1787,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1822,8 +1801,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1858,8 +1836,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_budget_errors()}
   def update_budget(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBudget", input, options)
   end
@@ -1874,8 +1851,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_budget_action_errors()}
   def update_budget_action(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateBudgetAction", input, options)
   end
@@ -1889,8 +1865,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_notification_errors()}
   def update_notification(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNotification", input, options)
   end
@@ -1904,8 +1879,7 @@ defmodule AWS.Budgets do
           | {:error, term()}
           | {:error, update_subscriber_errors()}
   def update_subscriber(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateSubscriber", input, options)
   end

@@ -801,8 +801,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, copy_backup_to_region_errors()}
   def copy_backup_to_region(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CopyBackupToRegion", input, options)
   end
@@ -820,8 +819,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -839,8 +837,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateHsm", input, options)
   end
@@ -862,8 +859,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -884,8 +880,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -907,8 +902,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHsm", input, options)
   end
@@ -931,8 +925,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -961,8 +954,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
   end
@@ -988,8 +980,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -1006,8 +997,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1030,8 +1020,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, initialize_cluster_errors()}
   def initialize_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InitializeCluster", input, options)
   end
@@ -1057,8 +1046,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1075,8 +1063,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, modify_backup_attributes_errors()}
   def modify_backup_attributes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyBackupAttributes", input, options)
   end
@@ -1093,8 +1080,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -1136,8 +1122,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -1158,8 +1143,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, restore_backup_errors()}
   def restore_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreBackup", input, options)
   end
@@ -1176,8 +1160,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1194,8 +1177,7 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

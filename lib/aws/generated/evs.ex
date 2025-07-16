@@ -638,8 +638,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, create_environment_errors()}
   def create_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironment", input, options)
   end
@@ -672,8 +671,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, create_environment_host_errors()}
   def create_environment_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateEnvironmentHost", input, options)
   end
@@ -694,8 +692,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, delete_environment_errors()}
   def delete_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironment", input, options)
   end
@@ -713,8 +710,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, delete_environment_host_errors()}
   def delete_environment_host(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteEnvironmentHost", input, options)
   end
@@ -728,8 +724,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, get_environment_errors()}
   def get_environment(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnvironment", input, options)
   end
@@ -743,8 +738,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environment_hosts_errors()}
   def list_environment_hosts(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentHosts", input, options)
   end
@@ -758,8 +752,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environment_vlans_errors()}
   def list_environment_vlans(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironmentVlans", input, options)
   end
@@ -774,8 +767,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_environments_errors()}
   def list_environments(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEnvironments", input, options)
   end
@@ -789,8 +781,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -812,8 +803,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -827,8 +817,7 @@ defmodule AWS.Evs do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

@@ -1127,8 +1127,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_keyspace_errors()}
   def create_keyspace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateKeyspace", input, options)
   end
@@ -1152,8 +1151,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -1174,8 +1172,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, create_type_errors()}
   def create_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateType", input, options)
   end
@@ -1189,8 +1186,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_keyspace_errors()}
   def delete_keyspace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteKeyspace", input, options)
   end
@@ -1212,8 +1208,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -1232,8 +1227,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, delete_type_errors()}
   def delete_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteType", input, options)
   end
@@ -1250,8 +1244,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_keyspace_errors()}
   def get_keyspace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetKeyspace", input, options)
   end
@@ -1269,8 +1262,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_errors()}
   def get_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTable", input, options)
   end
@@ -1303,8 +1295,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_table_auto_scaling_settings_errors()}
   def get_table_auto_scaling_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableAutoScalingSettings", input, options)
   end
@@ -1326,8 +1317,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, get_type_errors()}
   def get_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetType", input, options)
   end
@@ -1341,8 +1331,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_keyspaces_errors()}
   def list_keyspaces(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListKeyspaces", input, options)
   end
@@ -1359,8 +1348,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -1378,8 +1366,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1398,8 +1385,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, list_types_errors()}
   def list_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTypes", input, options)
   end
@@ -1454,8 +1440,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, restore_table_errors()}
   def restore_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTable", input, options)
   end
@@ -1478,8 +1463,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1493,8 +1477,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1567,8 +1550,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_keyspace_errors()}
   def update_keyspace(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateKeyspace", input, options)
   end
@@ -1586,8 +1568,7 @@ defmodule AWS.Keyspaces do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end

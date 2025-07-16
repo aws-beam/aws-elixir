@@ -4447,8 +4447,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_entities_to_experience_errors()}
   def associate_entities_to_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociateEntitiesToExperience", input, options)
   end
@@ -4468,8 +4467,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, associate_personas_to_entities_errors()}
   def associate_personas_to_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AssociatePersonasToEntities", input, options)
   end
@@ -4498,8 +4496,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_document_errors()}
   def batch_delete_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteDocument", input, options)
   end
@@ -4521,8 +4518,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_delete_featured_results_set_errors()}
   def batch_delete_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteFeaturedResultsSet", input, options)
   end
@@ -4550,8 +4546,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_get_document_status_errors()}
   def batch_get_document_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetDocumentStatus", input, options)
   end
@@ -4583,8 +4578,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, batch_put_document_errors()}
   def batch_put_document(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchPutDocument", input, options)
   end
@@ -4608,8 +4602,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, clear_query_suggestions_errors()}
   def clear_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ClearQuerySuggestions", input, options)
   end
@@ -4667,8 +4660,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_access_control_configuration_errors()}
   def create_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccessControlConfiguration", input, options)
   end
@@ -4695,8 +4687,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_data_source_errors()}
   def create_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataSource", input, options)
   end
@@ -4716,8 +4707,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_experience_errors()}
   def create_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateExperience", input, options)
   end
@@ -4738,8 +4728,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_faq_errors()}
   def create_faq(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFaq", input, options)
   end
@@ -4762,8 +4751,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_featured_results_set_errors()}
   def create_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateFeaturedResultsSet", input, options)
   end
@@ -4791,8 +4779,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_index_errors()}
   def create_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
   end
@@ -4827,8 +4814,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_query_suggestions_block_list_errors()}
   def create_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateQuerySuggestionsBlockList", input, options)
   end
@@ -4849,8 +4835,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, create_thesaurus_errors()}
   def create_thesaurus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateThesaurus", input, options)
   end
@@ -4875,8 +4860,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_access_control_configuration_errors()}
   def delete_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccessControlConfiguration", input, options)
   end
@@ -4902,8 +4886,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_data_source_errors()}
   def delete_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataSource", input, options)
   end
@@ -4921,8 +4904,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_experience_errors()}
   def delete_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteExperience", input, options)
   end
@@ -4936,8 +4918,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_faq_errors()}
   def delete_faq(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteFaq", input, options)
   end
@@ -4956,8 +4937,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_index_errors()}
   def delete_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteIndex", input, options)
   end
@@ -4990,8 +4970,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_principal_mapping_errors()}
   def delete_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePrincipalMapping", input, options)
   end
@@ -5016,8 +4995,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_query_suggestions_block_list_errors()}
   def delete_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteQuerySuggestionsBlockList", input, options)
   end
@@ -5031,8 +5009,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, delete_thesaurus_errors()}
   def delete_thesaurus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteThesaurus", input, options)
   end
@@ -5056,8 +5033,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_access_control_configuration_errors()}
   def describe_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccessControlConfiguration", input, options)
   end
@@ -5071,8 +5047,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_data_source_errors()}
   def describe_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDataSource", input, options)
   end
@@ -5091,8 +5066,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_experience_errors()}
   def describe_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExperience", input, options)
   end
@@ -5106,8 +5080,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_faq_errors()}
   def describe_faq(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFaq", input, options)
   end
@@ -5126,8 +5099,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_featured_results_set_errors()}
   def describe_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeFeaturedResultsSet", input, options)
   end
@@ -5141,8 +5113,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_index_errors()}
   def describe_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeIndex", input, options)
   end
@@ -5168,8 +5139,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_principal_mapping_errors()}
   def describe_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePrincipalMapping", input, options)
   end
@@ -5194,8 +5164,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_block_list_errors()}
   def describe_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsBlockList", input, options)
   end
@@ -5219,8 +5188,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_query_suggestions_config_errors()}
   def describe_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeQuerySuggestionsConfig", input, options)
   end
@@ -5234,8 +5202,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, describe_thesaurus_errors()}
   def describe_thesaurus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeThesaurus", input, options)
   end
@@ -5259,8 +5226,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_entities_from_experience_errors()}
   def disassociate_entities_from_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociateEntitiesFromExperience", input, options)
   end
@@ -5284,8 +5250,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, disassociate_personas_from_entities_errors()}
   def disassociate_personas_from_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisassociatePersonasFromEntities", input, options)
   end
@@ -5302,8 +5267,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_query_suggestions_errors()}
   def get_query_suggestions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQuerySuggestions", input, options)
   end
@@ -5320,8 +5284,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, get_snapshots_errors()}
   def get_snapshots(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSnapshots", input, options)
   end
@@ -5345,8 +5308,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_access_control_configurations_errors()}
   def list_access_control_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccessControlConfigurations", input, options)
   end
@@ -5360,8 +5322,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_source_sync_jobs_errors()}
   def list_data_source_sync_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataSourceSyncJobs", input, options)
   end
@@ -5375,8 +5336,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_data_sources_errors()}
   def list_data_sources(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataSources", input, options)
   end
@@ -5391,8 +5351,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_entity_personas_errors()}
   def list_entity_personas(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEntityPersonas", input, options)
   end
@@ -5412,8 +5371,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experience_entities_errors()}
   def list_experience_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExperienceEntities", input, options)
   end
@@ -5432,8 +5390,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_experiences_errors()}
   def list_experiences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExperiences", input, options)
   end
@@ -5447,8 +5404,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_faqs_errors()}
   def list_faqs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFaqs", input, options)
   end
@@ -5468,8 +5424,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_featured_results_sets_errors()}
   def list_featured_results_sets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFeaturedResultsSets", input, options)
   end
@@ -5491,8 +5446,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_groups_older_than_ordering_id_errors()}
   def list_groups_older_than_ordering_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupsOlderThanOrderingId", input, options)
   end
@@ -5506,8 +5460,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_indices_errors()}
   def list_indices(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListIndices", input, options)
   end
@@ -5531,8 +5484,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_query_suggestions_block_lists_errors()}
   def list_query_suggestions_block_lists(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQuerySuggestionsBlockLists", input, options)
   end
@@ -5549,8 +5501,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5564,8 +5515,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, list_thesauri_errors()}
   def list_thesauri(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListThesauri", input, options)
   end
@@ -5600,8 +5550,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, put_principal_mapping_errors()}
   def put_principal_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPrincipalMapping", input, options)
   end
@@ -5659,8 +5608,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -5722,8 +5670,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, retrieve_errors()}
   def retrieve(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Retrieve", input, options)
   end
@@ -5746,8 +5693,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, start_data_source_sync_job_errors()}
   def start_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDataSourceSyncJob", input, options)
   end
@@ -5764,8 +5710,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, stop_data_source_sync_job_errors()}
   def stop_data_source_sync_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDataSourceSyncJob", input, options)
   end
@@ -5783,8 +5728,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, submit_feedback_errors()}
   def submit_feedback(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SubmitFeedback", input, options)
   end
@@ -5802,8 +5746,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5817,8 +5760,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5874,8 +5816,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_access_control_configuration_errors()}
   def update_access_control_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccessControlConfiguration", input, options)
   end
@@ -5889,8 +5830,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_data_source_errors()}
   def update_data_source(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDataSource", input, options)
   end
@@ -5908,8 +5848,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_experience_errors()}
   def update_experience(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateExperience", input, options)
   end
@@ -5931,8 +5870,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_featured_results_set_errors()}
   def update_featured_results_set(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateFeaturedResultsSet", input, options)
   end
@@ -5946,8 +5884,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_index_errors()}
   def update_index(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateIndex", input, options)
   end
@@ -5978,8 +5915,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_block_list_errors()}
   def update_query_suggestions_block_list(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsBlockList", input, options)
   end
@@ -6008,8 +5944,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_query_suggestions_config_errors()}
   def update_query_suggestions_config(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateQuerySuggestionsConfig", input, options)
   end
@@ -6023,8 +5958,7 @@ defmodule AWS.Kendra do
           | {:error, term()}
           | {:error, update_thesaurus_errors()}
   def update_thesaurus(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateThesaurus", input, options)
   end

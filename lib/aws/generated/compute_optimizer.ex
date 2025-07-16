@@ -2639,8 +2639,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, delete_recommendation_preferences_errors()}
   def delete_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRecommendationPreferences", input, options)
   end
@@ -2663,8 +2662,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, describe_recommendation_export_jobs_errors()}
   def describe_recommendation_export_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRecommendationExportJobs", input, options)
   end
@@ -2693,8 +2691,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_auto_scaling_group_recommendations_errors()}
   def export_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportAutoScalingGroupRecommendations", input, options)
   end
@@ -2722,8 +2719,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_e_c_s_service_recommendations_errors()}
   def export_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportECSServiceRecommendations", input, options)
   end
@@ -2752,8 +2748,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_ebs_volume_recommendations_errors()}
   def export_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportEBSVolumeRecommendations", input, options)
   end
@@ -2782,8 +2777,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_ec2_instance_recommendations_errors()}
   def export_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportEC2InstanceRecommendations", input, options)
   end
@@ -2809,8 +2803,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_idle_recommendations_errors()}
   def export_idle_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportIdleRecommendations", input, options)
   end
@@ -2839,8 +2832,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_lambda_function_recommendations_errors()}
   def export_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportLambdaFunctionRecommendations", input, options)
   end
@@ -2866,8 +2858,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_license_recommendations_errors()}
   def export_license_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportLicenseRecommendations", input, options)
   end
@@ -2898,8 +2889,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, export_rds_database_recommendations_errors()}
   def export_rds_database_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportRDSDatabaseRecommendations", input, options)
   end
@@ -2924,8 +2914,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_auto_scaling_group_recommendations_errors()}
   def get_auto_scaling_group_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAutoScalingGroupRecommendations", input, options)
   end
@@ -2944,8 +2933,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_e_c_s_service_recommendation_projected_metrics_errors()}
   def get_e_c_s_service_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -2976,8 +2964,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_e_c_s_service_recommendations_errors()}
   def get_e_c_s_service_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetECSServiceRecommendations", input, options)
   end
@@ -2997,8 +2984,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ebs_volume_recommendations_errors()}
   def get_ebs_volume_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEBSVolumeRecommendations", input, options)
   end
@@ -3022,8 +3008,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ec2_instance_recommendations_errors()}
   def get_ec2_instance_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEC2InstanceRecommendations", input, options)
   end
@@ -3048,8 +3033,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_ec2_recommendation_projected_metrics_errors()}
   def get_ec2_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEC2RecommendationProjectedMetrics", input, options)
   end
@@ -3076,8 +3060,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_effective_recommendation_preferences_errors()}
   def get_effective_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEffectiveRecommendationPreferences", input, options)
   end
@@ -3098,8 +3081,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_enrollment_status_errors()}
   def get_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnrollmentStatus", input, options)
   end
@@ -3121,8 +3103,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_enrollment_statuses_for_organization_errors()}
   def get_enrollment_statuses_for_organization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetEnrollmentStatusesForOrganization", input, options)
   end
@@ -3143,8 +3124,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_idle_recommendations_errors()}
   def get_idle_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetIdleRecommendations", input, options)
   end
@@ -3168,8 +3148,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_lambda_function_recommendations_errors()}
   def get_lambda_function_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLambdaFunctionRecommendations", input, options)
   end
@@ -3190,8 +3169,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_license_recommendations_errors()}
   def get_license_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLicenseRecommendations", input, options)
   end
@@ -3210,8 +3188,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_rds_database_recommendation_projected_metrics_errors()}
   def get_rds_database_recommendation_projected_metrics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(
       client,
@@ -3243,8 +3220,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_rds_database_recommendations_errors()}
   def get_rds_database_recommendations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRDSDatabaseRecommendations", input, options)
   end
@@ -3269,8 +3245,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_recommendation_preferences_errors()}
   def get_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRecommendationPreferences", input, options)
   end
@@ -3316,8 +3291,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, get_recommendation_summaries_errors()}
   def get_recommendation_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRecommendationSummaries", input, options)
   end
@@ -3337,8 +3311,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, put_recommendation_preferences_errors()}
   def put_recommendation_preferences(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRecommendationPreferences", input, options)
   end
@@ -3369,8 +3342,7 @@ defmodule AWS.ComputeOptimizer do
           | {:error, term()}
           | {:error, update_enrollment_status_errors()}
   def update_enrollment_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateEnrollmentStatus", input, options)
   end

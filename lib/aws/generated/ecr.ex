@@ -2712,8 +2712,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, batch_check_layer_availability_errors()}
   def batch_check_layer_availability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchCheckLayerAvailability", input, options)
   end
@@ -2739,8 +2738,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, batch_delete_image_errors()}
   def batch_delete_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchDeleteImage", input, options)
   end
@@ -2761,8 +2759,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, batch_get_image_errors()}
   def batch_get_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetImage", input, options)
   end
@@ -2780,8 +2777,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, batch_get_repository_scanning_configuration_errors()}
   def batch_get_repository_scanning_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetRepositoryScanningConfiguration", input, options)
   end
@@ -2808,8 +2804,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, complete_layer_upload_errors()}
   def complete_layer_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CompleteLayerUpload", input, options)
   end
@@ -2829,8 +2824,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, create_pull_through_cache_rule_errors()}
   def create_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePullThroughCacheRule", input, options)
   end
@@ -2848,8 +2842,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, create_repository_errors()}
   def create_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepository", input, options)
   end
@@ -2875,8 +2868,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, create_repository_creation_template_errors()}
   def create_repository_creation_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateRepositoryCreationTemplate", input, options)
   end
@@ -2890,8 +2882,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -2905,8 +2896,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_pull_through_cache_rule_errors()}
   def delete_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePullThroughCacheRule", input, options)
   end
@@ -2920,8 +2910,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_registry_policy_errors()}
   def delete_registry_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRegistryPolicy", input, options)
   end
@@ -2939,8 +2928,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_repository_errors()}
   def delete_repository(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepository", input, options)
   end
@@ -2958,8 +2946,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_repository_creation_template_errors()}
   def delete_repository_creation_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryCreationTemplate", input, options)
   end
@@ -2973,8 +2960,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, delete_repository_policy_errors()}
   def delete_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteRepositoryPolicy", input, options)
   end
@@ -2992,8 +2978,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_image_replication_status_errors()}
   def describe_image_replication_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageReplicationStatus", input, options)
   end
@@ -3007,8 +2992,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_image_scan_findings_errors()}
   def describe_image_scan_findings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImageScanFindings", input, options)
   end
@@ -3038,8 +3022,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_images_errors()}
   def describe_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImages", input, options)
   end
@@ -3057,8 +3040,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_pull_through_cache_rules_errors()}
   def describe_pull_through_cache_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePullThroughCacheRules", input, options)
   end
@@ -3076,8 +3058,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_registry_errors()}
   def describe_registry(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRegistry", input, options)
   end
@@ -3091,8 +3072,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_repositories_errors()}
   def describe_repositories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRepositories", input, options)
   end
@@ -3114,8 +3094,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, describe_repository_creation_templates_errors()}
   def describe_repository_creation_templates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRepositoryCreationTemplates", input, options)
   end
@@ -3129,8 +3108,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_account_setting_errors()}
   def get_account_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountSetting", input, options)
   end
@@ -3155,8 +3133,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_authorization_token_errors()}
   def get_authorization_token(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAuthorizationToken", input, options)
   end
@@ -3181,8 +3158,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_download_url_for_layer_errors()}
   def get_download_url_for_layer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDownloadUrlForLayer", input, options)
   end
@@ -3196,8 +3172,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLifecyclePolicy", input, options)
   end
@@ -3212,8 +3187,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_lifecycle_policy_preview_errors()}
   def get_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLifecyclePolicyPreview", input, options)
   end
@@ -3227,8 +3201,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_registry_policy_errors()}
   def get_registry_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegistryPolicy", input, options)
   end
@@ -3246,8 +3219,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_registry_scanning_configuration_errors()}
   def get_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRegistryScanningConfiguration", input, options)
   end
@@ -3261,8 +3233,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, get_repository_policy_errors()}
   def get_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetRepositoryPolicy", input, options)
   end
@@ -3286,8 +3257,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, initiate_layer_upload_errors()}
   def initiate_layer_upload(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InitiateLayerUpload", input, options)
   end
@@ -3309,8 +3279,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, list_images_errors()}
   def list_images(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImages", input, options)
   end
@@ -3324,8 +3293,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3339,8 +3307,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_account_setting_errors()}
   def put_account_setting(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAccountSetting", input, options)
   end
@@ -3364,8 +3331,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_image_errors()}
   def put_image(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutImage", input, options)
   end
@@ -3390,8 +3356,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_image_scanning_configuration_errors()}
   def put_image_scanning_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutImageScanningConfiguration", input, options)
   end
@@ -3409,8 +3374,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_image_tag_mutability_errors()}
   def put_image_tag_mutability(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutImageTagMutability", input, options)
   end
@@ -3427,8 +3391,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_lifecycle_policy_errors()}
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLifecyclePolicy", input, options)
   end
@@ -3447,8 +3410,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_registry_policy_errors()}
   def put_registry_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRegistryPolicy", input, options)
   end
@@ -3466,8 +3428,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_registry_scanning_configuration_errors()}
   def put_registry_scanning_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRegistryScanningConfiguration", input, options)
   end
@@ -3497,8 +3458,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, put_replication_configuration_errors()}
   def put_replication_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutReplicationConfiguration", input, options)
   end
@@ -3516,8 +3476,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, set_repository_policy_errors()}
   def set_repository_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetRepositoryPolicy", input, options)
   end
@@ -3540,8 +3499,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, start_image_scan_errors()}
   def start_image_scan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartImageScan", input, options)
   end
@@ -3558,8 +3516,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, start_lifecycle_policy_preview_errors()}
   def start_lifecycle_policy_preview(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartLifecyclePolicyPreview", input, options)
   end
@@ -3576,8 +3533,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3591,8 +3547,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3606,8 +3561,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, update_pull_through_cache_rule_errors()}
   def update_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePullThroughCacheRule", input, options)
   end
@@ -3625,8 +3579,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, update_repository_creation_template_errors()}
   def update_repository_creation_template(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateRepositoryCreationTemplate", input, options)
   end
@@ -3650,8 +3603,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, upload_layer_part_errors()}
   def upload_layer_part(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UploadLayerPart", input, options)
   end
@@ -3676,8 +3628,7 @@ defmodule AWS.ECR do
           | {:error, term()}
           | {:error, validate_pull_through_cache_rule_errors()}
   def validate_pull_through_cache_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidatePullThroughCacheRule", input, options)
   end

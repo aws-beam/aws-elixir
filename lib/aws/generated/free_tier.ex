@@ -331,8 +331,7 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_account_activity_errors()}
   def get_account_activity(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountActivity", input, options)
   end
@@ -347,8 +346,7 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_account_plan_state_errors()}
   def get_account_plan_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAccountPlanState", input, options)
   end
@@ -362,8 +360,7 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, get_free_tier_usage_errors()}
   def get_free_tier_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetFreeTierUsage", input, options)
   end
@@ -379,8 +376,7 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, list_account_activities_errors()}
   def list_account_activities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccountActivities", input, options)
   end
@@ -394,8 +390,7 @@ defmodule AWS.FreeTier do
           | {:error, term()}
           | {:error, upgrade_account_plan_errors()}
   def upgrade_account_plan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpgradeAccountPlan", input, options)
   end

@@ -1966,8 +1966,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_call_analytics_category_errors()}
   def create_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCallAnalyticsCategory", input, options)
   end
@@ -1996,8 +1995,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_language_model_errors()}
   def create_language_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateLanguageModel", input, options)
   end
@@ -2028,8 +2026,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_medical_vocabulary_errors()}
   def create_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateMedicalVocabulary", input, options)
   end
@@ -2059,8 +2056,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_vocabulary_errors()}
   def create_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVocabulary", input, options)
   end
@@ -2088,8 +2084,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, create_vocabulary_filter_errors()}
   def create_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateVocabularyFilter", input, options)
   end
@@ -2107,8 +2102,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_call_analytics_category_errors()}
   def delete_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCallAnalyticsCategory", input, options)
   end
@@ -2126,8 +2120,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_call_analytics_job_errors()}
   def delete_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCallAnalyticsJob", input, options)
   end
@@ -2145,8 +2138,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_language_model_errors()}
   def delete_language_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLanguageModel", input, options)
   end
@@ -2164,8 +2156,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_scribe_job_errors()}
   def delete_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMedicalScribeJob", input, options)
   end
@@ -2187,8 +2178,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_transcription_job_errors()}
   def delete_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMedicalTranscriptionJob", input, options)
   end
@@ -2206,8 +2196,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_medical_vocabulary_errors()}
   def delete_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMedicalVocabulary", input, options)
   end
@@ -2225,8 +2214,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_transcription_job_errors()}
   def delete_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTranscriptionJob", input, options)
   end
@@ -2244,8 +2232,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_vocabulary_errors()}
   def delete_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVocabulary", input, options)
   end
@@ -2263,8 +2250,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, delete_vocabulary_filter_errors()}
   def delete_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteVocabularyFilter", input, options)
   end
@@ -2289,8 +2275,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, describe_language_model_errors()}
   def describe_language_model(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLanguageModel", input, options)
   end
@@ -2306,8 +2291,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_call_analytics_category_errors()}
   def get_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCallAnalyticsCategory", input, options)
   end
@@ -2337,8 +2321,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_call_analytics_job_errors()}
   def get_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCallAnalyticsJob", input, options)
   end
@@ -2362,8 +2345,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_scribe_job_errors()}
   def get_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMedicalScribeJob", input, options)
   end
@@ -2386,8 +2368,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_transcription_job_errors()}
   def get_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMedicalTranscriptionJob", input, options)
   end
@@ -2408,8 +2389,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_medical_vocabulary_errors()}
   def get_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMedicalVocabulary", input, options)
   end
@@ -2436,8 +2416,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_transcription_job_errors()}
   def get_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTranscriptionJob", input, options)
   end
@@ -2459,8 +2438,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_vocabulary_errors()}
   def get_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVocabulary", input, options)
   end
@@ -2476,8 +2454,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, get_vocabulary_filter_errors()}
   def get_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetVocabularyFilter", input, options)
   end
@@ -2496,8 +2473,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_call_analytics_categories_errors()}
   def list_call_analytics_categories(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCallAnalyticsCategories", input, options)
   end
@@ -2517,8 +2493,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_call_analytics_jobs_errors()}
   def list_call_analytics_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCallAnalyticsJobs", input, options)
   end
@@ -2538,8 +2513,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_language_models_errors()}
   def list_language_models(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListLanguageModels", input, options)
   end
@@ -2559,8 +2533,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_scribe_jobs_errors()}
   def list_medical_scribe_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMedicalScribeJobs", input, options)
   end
@@ -2580,8 +2553,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_transcription_jobs_errors()}
   def list_medical_transcription_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMedicalTranscriptionJobs", input, options)
   end
@@ -2602,8 +2574,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_medical_vocabularies_errors()}
   def list_medical_vocabularies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListMedicalVocabularies", input, options)
   end
@@ -2621,8 +2592,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -2642,8 +2612,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_transcription_jobs_errors()}
   def list_transcription_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTranscriptionJobs", input, options)
   end
@@ -2663,8 +2632,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_vocabularies_errors()}
   def list_vocabularies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVocabularies", input, options)
   end
@@ -2684,8 +2652,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, list_vocabulary_filters_errors()}
   def list_vocabulary_filters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListVocabularyFilters", input, options)
   end
@@ -2758,8 +2725,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_call_analytics_job_errors()}
   def start_call_analytics_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCallAnalyticsJob", input, options)
   end
@@ -2824,8 +2790,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_medical_scribe_job_errors()}
   def start_medical_scribe_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMedicalScribeJob", input, options)
   end
@@ -2889,8 +2854,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_medical_transcription_job_errors()}
   def start_medical_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartMedicalTranscriptionJob", input, options)
   end
@@ -2939,8 +2903,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, start_transcription_job_errors()}
   def start_transcription_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartTranscriptionJob", input, options)
   end
@@ -2958,8 +2921,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -2976,8 +2938,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -2999,8 +2960,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_call_analytics_category_errors()}
   def update_call_analytics_category(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCallAnalyticsCategory", input, options)
   end
@@ -3019,8 +2979,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_medical_vocabulary_errors()}
   def update_medical_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateMedicalVocabulary", input, options)
   end
@@ -3039,8 +2998,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_vocabulary_errors()}
   def update_vocabulary(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVocabulary", input, options)
   end
@@ -3058,8 +3016,7 @@ defmodule AWS.Transcribe do
           | {:error, term()}
           | {:error, update_vocabulary_filter_errors()}
   def update_vocabulary_filter(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateVocabularyFilter", input, options)
   end

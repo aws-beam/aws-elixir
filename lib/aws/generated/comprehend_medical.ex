@@ -1276,8 +1276,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, describe_entities_detection_v2_job_errors()}
   def describe_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEntitiesDetectionV2Job", input, options)
   end
@@ -1294,8 +1293,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, describe_icd10_cm_inference_job_errors()}
   def describe_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeICD10CMInferenceJob", input, options)
   end
@@ -1312,8 +1310,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, describe_phi_detection_job_errors()}
   def describe_phi_detection_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePHIDetectionJob", input, options)
   end
@@ -1330,8 +1327,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, describe_rx_norm_inference_job_errors()}
   def describe_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeRxNormInferenceJob", input, options)
   end
@@ -1352,8 +1348,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, describe_s_n_o_m_e_d_c_t_inference_job_errors()}
   def describe_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSNOMEDCTInferenceJob", input, options)
   end
@@ -1375,8 +1370,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, detect_entities_errors()}
   def detect_entities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectEntities", input, options)
   end
@@ -1407,8 +1401,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, detect_entities_v2_errors()}
   def detect_entities_v2(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectEntitiesV2", input, options)
   end
@@ -1427,8 +1420,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, detect_phi_errors()}
   def detect_phi(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DetectPHI", input, options)
   end
@@ -1449,8 +1441,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, infer_icd10_cm_errors()}
   def infer_icd10_cm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InferICD10CM", input, options)
   end
@@ -1470,8 +1461,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, infer_rx_norm_errors()}
   def infer_rx_norm(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InferRxNorm", input, options)
   end
@@ -1488,8 +1478,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, infer_s_n_o_m_e_d_c_t_errors()}
   def infer_s_n_o_m_e_d_c_t(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "InferSNOMEDCT", input, options)
   end
@@ -1503,8 +1492,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, list_entities_detection_v2_jobs_errors()}
   def list_entities_detection_v2_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEntitiesDetectionV2Jobs", input, options)
   end
@@ -1518,8 +1506,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, list_icd10_cm_inference_jobs_errors()}
   def list_icd10_cm_inference_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListICD10CMInferenceJobs", input, options)
   end
@@ -1534,8 +1521,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, list_phi_detection_jobs_errors()}
   def list_phi_detection_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPHIDetectionJobs", input, options)
   end
@@ -1549,8 +1535,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, list_rx_norm_inference_jobs_errors()}
   def list_rx_norm_inference_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListRxNormInferenceJobs", input, options)
   end
@@ -1569,8 +1554,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, list_s_n_o_m_e_d_c_t_inference_jobs_errors()}
   def list_s_n_o_m_e_d_c_t_inference_jobs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSNOMEDCTInferenceJobs", input, options)
   end
@@ -1588,8 +1572,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, start_entities_detection_v2_job_errors()}
   def start_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartEntitiesDetectionV2Job", input, options)
   end
@@ -1608,8 +1591,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, start_icd10_cm_inference_job_errors()}
   def start_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartICD10CMInferenceJob", input, options)
   end
@@ -1626,8 +1608,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, start_phi_detection_job_errors()}
   def start_phi_detection_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartPHIDetectionJob", input, options)
   end
@@ -1646,8 +1627,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, start_rx_norm_inference_job_errors()}
   def start_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRxNormInferenceJob", input, options)
   end
@@ -1669,8 +1649,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, start_s_n_o_m_e_d_c_t_inference_job_errors()}
   def start_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSNOMEDCTInferenceJob", input, options)
   end
@@ -1684,8 +1663,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, stop_entities_detection_v2_job_errors()}
   def stop_entities_detection_v2_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopEntitiesDetectionV2Job", input, options)
   end
@@ -1699,8 +1677,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, stop_icd10_cm_inference_job_errors()}
   def stop_icd10_cm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopICD10CMInferenceJob", input, options)
   end
@@ -1714,8 +1691,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, stop_phi_detection_job_errors()}
   def stop_phi_detection_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopPHIDetectionJob", input, options)
   end
@@ -1729,8 +1705,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, stop_rx_norm_inference_job_errors()}
   def stop_rx_norm_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopRxNormInferenceJob", input, options)
   end
@@ -1749,8 +1724,7 @@ defmodule AWS.ComprehendMedical do
           | {:error, term()}
           | {:error, stop_s_n_o_m_e_d_c_t_inference_job_errors()}
   def stop_s_n_o_m_e_d_c_t_inference_job(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopSNOMEDCTInferenceJob", input, options)
   end

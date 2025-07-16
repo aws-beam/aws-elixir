@@ -876,8 +876,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, activate_pipeline_errors()}
   def activate_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ActivatePipeline", input, options)
   end
@@ -891,8 +890,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -938,8 +936,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, create_pipeline_errors()}
   def create_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePipeline", input, options)
   end
@@ -960,8 +957,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, deactivate_pipeline_errors()}
   def deactivate_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeactivatePipeline", input, options)
   end
@@ -1011,8 +1007,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, delete_pipeline_errors()}
   def delete_pipeline(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePipeline", input, options)
   end
@@ -1085,8 +1080,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_objects_errors()}
   def describe_objects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeObjects", input, options)
   end
@@ -1167,8 +1161,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, describe_pipelines_errors()}
   def describe_pipelines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePipelines", input, options)
   end
@@ -1215,8 +1208,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, evaluate_expression_errors()}
   def evaluate_expression(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EvaluateExpression", input, options)
   end
@@ -1295,8 +1287,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, get_pipeline_definition_errors()}
   def get_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPipelineDefinition", input, options)
   end
@@ -1342,8 +1333,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, list_pipelines_errors()}
   def list_pipelines(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPipelines", input, options)
   end
@@ -1445,8 +1435,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, poll_for_task_errors()}
   def poll_for_task(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PollForTask", input, options)
   end
@@ -1627,8 +1616,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, put_pipeline_definition_errors()}
   def put_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutPipelineDefinition", input, options)
   end
@@ -1680,8 +1668,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, query_objects_errors()}
   def query_objects(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "QueryObjects", input, options)
   end
@@ -1695,8 +1682,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -1757,8 +1743,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_progress_errors()}
   def report_task_progress(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReportTaskProgress", input, options)
   end
@@ -1808,8 +1793,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, report_task_runner_heartbeat_errors()}
   def report_task_runner_heartbeat(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ReportTaskRunnerHeartbeat", input, options)
   end
@@ -1860,8 +1844,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_status_errors()}
   def set_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetStatus", input, options)
   end
@@ -1910,8 +1893,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, set_task_status_errors()}
   def set_task_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetTaskStatus", input, options)
   end
@@ -2078,8 +2060,7 @@ defmodule AWS.DataPipeline do
           | {:error, term()}
           | {:error, validate_pipeline_definition_errors()}
   def validate_pipeline_definition(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ValidatePipelineDefinition", input, options)
   end

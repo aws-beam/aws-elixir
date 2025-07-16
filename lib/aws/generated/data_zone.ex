@@ -490,6 +490,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      s3_properties_patch() :: %{
+        "s3AccessGrantLocationId" => String.t(),
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type s3_properties_patch() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_subscription_target_output() :: %{
         "applicableAssetTypes" => list(String.t()),
         "authorizedPrincipals" => list(String.t()),
@@ -980,9 +992,9 @@ defmodule AWS.DataZone do
         optional("environmentAccountRegion") => [String.t()],
         optional("environmentBlueprintIdentifier") => [String.t()],
         optional("environmentConfigurationId") => [String.t()],
+        optional("environmentProfileIdentifier") => String.t(),
         optional("glossaryTerms") => list(String.t()),
         optional("userParameters") => list(environment_parameter()),
-        required("environmentProfileIdentifier") => String.t(),
         required("name") => [String.t()],
         required("projectIdentifier") => String.t()
       }
@@ -4169,6 +4181,20 @@ defmodule AWS.DataZone do
 
   """
   @type list_tags_for_resource_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_properties_output() :: %{
+        "errorMessage" => [String.t()],
+        "s3AccessGrantLocationId" => String.t(),
+        "s3Uri" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type s3_properties_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -7576,6 +7602,18 @@ defmodule AWS.DataZone do
 
   """
   @type lake_formation_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_properties_input() :: %{
+        "s3AccessGrantLocationId" => String.t(),
+        "s3Uri" => String.t()
+      }
+
+  """
+  @type s3_properties_input() :: %{String.t() => any()}
 
   @typedoc """
 

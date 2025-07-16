@@ -857,8 +857,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -875,8 +874,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_membership_errors()}
   def create_group_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGroupMembership", input, options)
   end
@@ -890,8 +888,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -905,8 +902,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -920,8 +916,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteGroupMembership", input, options)
   end
@@ -935,8 +930,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -957,8 +951,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -979,8 +972,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGroupMembership", input, options)
   end
@@ -1001,8 +993,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -1022,8 +1013,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_id_errors()}
   def get_group_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGroupId", input, options)
   end
@@ -1043,8 +1033,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_membership_id_errors()}
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetGroupMembershipId", input, options)
   end
@@ -1064,8 +1053,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_user_id_errors()}
   def get_user_id(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetUserId", input, options)
   end
@@ -1086,8 +1074,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, is_member_in_groups_errors()}
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "IsMemberInGroups", input, options)
   end
@@ -1108,8 +1095,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupMemberships", input, options)
   end
@@ -1134,8 +1120,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_for_member_errors()}
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroupMembershipsForMember", input, options)
   end
@@ -1159,8 +1144,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -1184,8 +1168,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -1200,8 +1183,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -1216,8 +1198,7 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

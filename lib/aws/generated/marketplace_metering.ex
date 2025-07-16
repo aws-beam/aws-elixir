@@ -578,8 +578,7 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, batch_meter_usage_errors()}
   def batch_meter_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchMeterUsage", input, options)
   end
@@ -614,8 +613,7 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, meter_usage_errors()}
   def meter_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "MeterUsage", input, options)
   end
@@ -684,8 +682,7 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, register_usage_errors()}
   def register_usage(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RegisterUsage", input, options)
   end
@@ -724,8 +721,7 @@ defmodule AWS.MarketplaceMetering do
           | {:error, term()}
           | {:error, resolve_customer_errors()}
   def resolve_customer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ResolveCustomer", input, options)
   end

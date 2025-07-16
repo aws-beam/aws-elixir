@@ -617,8 +617,7 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
@@ -660,8 +659,7 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_terms_errors()}
   def get_agreement_terms(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAgreementTerms", input, options)
   end
@@ -752,8 +750,7 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, search_agreements_errors()}
   def search_agreements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SearchAgreements", input, options)
   end

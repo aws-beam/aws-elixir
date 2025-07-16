@@ -2893,8 +2893,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, batch_get_named_query_errors()}
   def batch_get_named_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetNamedQuery", input, options)
   end
@@ -2916,8 +2915,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, batch_get_prepared_statement_errors()}
   def batch_get_prepared_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetPreparedStatement", input, options)
   end
@@ -2939,8 +2937,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, batch_get_query_execution_errors()}
   def batch_get_query_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetQueryExecution", input, options)
   end
@@ -2961,8 +2958,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, cancel_capacity_reservation_errors()}
   def cancel_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelCapacityReservation", input, options)
   end
@@ -2978,8 +2974,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_capacity_reservation_errors()}
   def create_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateCapacityReservation", input, options)
   end
@@ -3014,8 +3009,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_data_catalog_errors()}
   def create_data_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDataCatalog", input, options)
   end
@@ -3032,8 +3026,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_named_query_errors()}
   def create_named_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNamedQuery", input, options)
   end
@@ -3051,8 +3044,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_notebook_errors()}
   def create_notebook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateNotebook", input, options)
   end
@@ -3066,8 +3058,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_prepared_statement_errors()}
   def create_prepared_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePreparedStatement", input, options)
   end
@@ -3088,8 +3079,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_presigned_notebook_url_errors()}
   def create_presigned_notebook_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePresignedNotebookUrl", input, options)
   end
@@ -3106,8 +3096,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, create_work_group_errors()}
   def create_work_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkGroup", input, options)
   end
@@ -3129,8 +3118,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_capacity_reservation_errors()}
   def delete_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCapacityReservation", input, options)
   end
@@ -3144,8 +3132,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_data_catalog_errors()}
   def delete_data_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDataCatalog", input, options)
   end
@@ -3161,8 +3148,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_named_query_errors()}
   def delete_named_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNamedQuery", input, options)
   end
@@ -3176,8 +3162,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_notebook_errors()}
   def delete_notebook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteNotebook", input, options)
   end
@@ -3192,8 +3177,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_prepared_statement_errors()}
   def delete_prepared_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeletePreparedStatement", input, options)
   end
@@ -3210,8 +3194,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, delete_work_group_errors()}
   def delete_work_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkGroup", input, options)
   end
@@ -3225,8 +3208,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, export_notebook_errors()}
   def export_notebook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportNotebook", input, options)
   end
@@ -3240,8 +3222,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_calculation_execution_errors()}
   def get_calculation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCalculationExecution", input, options)
   end
@@ -3255,8 +3236,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_calculation_execution_code_errors()}
   def get_calculation_execution_code(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCalculationExecutionCode", input, options)
   end
@@ -3274,8 +3254,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_calculation_execution_status_errors()}
   def get_calculation_execution_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCalculationExecutionStatus", input, options)
   end
@@ -3294,8 +3273,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_capacity_assignment_configuration_errors()}
   def get_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCapacityAssignmentConfiguration", input, options)
   end
@@ -3309,8 +3287,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_capacity_reservation_errors()}
   def get_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCapacityReservation", input, options)
   end
@@ -3324,8 +3301,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_data_catalog_errors()}
   def get_data_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDataCatalog", input, options)
   end
@@ -3339,8 +3315,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_database_errors()}
   def get_database(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetDatabase", input, options)
   end
@@ -3357,8 +3332,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_named_query_errors()}
   def get_named_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNamedQuery", input, options)
   end
@@ -3372,8 +3346,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_notebook_metadata_errors()}
   def get_notebook_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetNotebookMetadata", input, options)
   end
@@ -3388,8 +3361,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_prepared_statement_errors()}
   def get_prepared_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPreparedStatement", input, options)
   end
@@ -3408,8 +3380,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_query_execution_errors()}
   def get_query_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueryExecution", input, options)
   end
@@ -3441,8 +3412,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_query_results_errors()}
   def get_query_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueryResults", input, options)
   end
@@ -3469,8 +3439,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_query_runtime_statistics_errors()}
   def get_query_runtime_statistics(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetQueryRuntimeStatistics", input, options)
   end
@@ -3486,8 +3455,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_session_errors()}
   def get_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSession", input, options)
   end
@@ -3501,8 +3469,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_session_status_errors()}
   def get_session_status(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetSessionStatus", input, options)
   end
@@ -3516,8 +3483,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_table_metadata_errors()}
   def get_table_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetTableMetadata", input, options)
   end
@@ -3531,8 +3497,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, get_work_group_errors()}
   def get_work_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetWorkGroup", input, options)
   end
@@ -3553,8 +3518,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, import_notebook_errors()}
   def import_notebook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportNotebook", input, options)
   end
@@ -3570,8 +3534,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_application_d_p_u_sizes_errors()}
   def list_application_d_p_u_sizes(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListApplicationDPUSizes", input, options)
   end
@@ -3588,8 +3551,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_calculation_executions_errors()}
   def list_calculation_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCalculationExecutions", input, options)
   end
@@ -3603,8 +3565,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_capacity_reservations_errors()}
   def list_capacity_reservations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCapacityReservations", input, options)
   end
@@ -3621,8 +3582,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_data_catalogs_errors()}
   def list_data_catalogs(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDataCatalogs", input, options)
   end
@@ -3636,8 +3596,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatabases", input, options)
   end
@@ -3653,8 +3612,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_engine_versions_errors()}
   def list_engine_versions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListEngineVersions", input, options)
   end
@@ -3673,8 +3631,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_executors_errors()}
   def list_executors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExecutors", input, options)
   end
@@ -3692,8 +3649,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_named_queries_errors()}
   def list_named_queries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNamedQueries", input, options)
   end
@@ -3707,8 +3663,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_notebook_metadata_errors()}
   def list_notebook_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNotebookMetadata", input, options)
   end
@@ -3728,8 +3683,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_notebook_sessions_errors()}
   def list_notebook_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNotebookSessions", input, options)
   end
@@ -3743,8 +3697,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_prepared_statements_errors()}
   def list_prepared_statements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListPreparedStatements", input, options)
   end
@@ -3765,8 +3718,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_query_executions_errors()}
   def list_query_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListQueryExecutions", input, options)
   end
@@ -3785,8 +3737,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_sessions_errors()}
   def list_sessions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
   end
@@ -3800,8 +3751,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_table_metadata_errors()}
   def list_table_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTableMetadata", input, options)
   end
@@ -3815,8 +3765,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3830,8 +3779,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, list_work_groups_errors()}
   def list_work_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkGroups", input, options)
   end
@@ -3854,8 +3802,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, put_capacity_assignment_configuration_errors()}
   def put_capacity_assignment_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutCapacityAssignmentConfiguration", input, options)
   end
@@ -3879,8 +3826,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, start_calculation_execution_errors()}
   def start_calculation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartCalculationExecution", input, options)
   end
@@ -3902,8 +3848,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, start_query_execution_errors()}
   def start_query_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartQueryExecution", input, options)
   end
@@ -3920,8 +3865,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, start_session_errors()}
   def start_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartSession", input, options)
   end
@@ -3946,8 +3890,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, stop_calculation_execution_errors()}
   def stop_calculation_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopCalculationExecution", input, options)
   end
@@ -3964,8 +3907,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, stop_query_execution_errors()}
   def stop_query_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopQueryExecution", input, options)
   end
@@ -3997,8 +3939,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4018,8 +3959,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, terminate_session_errors()}
   def terminate_session(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateSession", input, options)
   end
@@ -4033,8 +3973,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4050,8 +3989,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_capacity_reservation_errors()}
   def update_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCapacityReservation", input, options)
   end
@@ -4065,8 +4003,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_data_catalog_errors()}
   def update_data_catalog(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDataCatalog", input, options)
   end
@@ -4083,8 +4020,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_named_query_errors()}
   def update_named_query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNamedQuery", input, options)
   end
@@ -4098,8 +4034,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_notebook_errors()}
   def update_notebook(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNotebook", input, options)
   end
@@ -4113,8 +4048,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_notebook_metadata_errors()}
   def update_notebook_metadata(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateNotebookMetadata", input, options)
   end
@@ -4128,8 +4062,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_prepared_statement_errors()}
   def update_prepared_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdatePreparedStatement", input, options)
   end
@@ -4146,8 +4079,7 @@ defmodule AWS.Athena do
           | {:error, term()}
           | {:error, update_work_group_errors()}
   def update_work_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWorkGroup", input, options)
   end

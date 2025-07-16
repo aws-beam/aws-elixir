@@ -703,8 +703,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, create_container_errors()}
   def create_container(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateContainer", input, options)
   end
@@ -723,8 +722,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_container_errors()}
   def delete_container(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainer", input, options)
   end
@@ -738,8 +736,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_container_policy_errors()}
   def delete_container_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteContainerPolicy", input, options)
   end
@@ -759,8 +756,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_cors_policy_errors()}
   def delete_cors_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCorsPolicy", input, options)
   end
@@ -776,8 +772,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -794,8 +789,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_metric_policy_errors()}
   def delete_metric_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteMetricPolicy", input, options)
   end
@@ -819,8 +813,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, describe_container_errors()}
   def describe_container(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContainer", input, options)
   end
@@ -838,8 +831,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_container_policy_errors()}
   def get_container_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetContainerPolicy", input, options)
   end
@@ -859,8 +851,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_cors_policy_errors()}
   def get_cors_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetCorsPolicy", input, options)
   end
@@ -874,8 +865,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetLifecyclePolicy", input, options)
   end
@@ -889,8 +879,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_metric_policy_errors()}
   def get_metric_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetMetricPolicy", input, options)
   end
@@ -917,8 +906,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, list_containers_errors()}
   def list_containers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContainers", input, options)
   end
@@ -932,8 +920,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -956,8 +943,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_container_policy_errors()}
   def put_container_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutContainerPolicy", input, options)
   end
@@ -992,8 +978,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_cors_policy_errors()}
   def put_cors_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutCorsPolicy", input, options)
   end
@@ -1014,8 +999,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_lifecycle_policy_errors()}
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutLifecyclePolicy", input, options)
   end
@@ -1032,8 +1016,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_metric_policy_errors()}
   def put_metric_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutMetricPolicy", input, options)
   end
@@ -1050,8 +1033,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, start_access_logging_errors()}
   def start_access_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartAccessLogging", input, options)
   end
@@ -1069,8 +1051,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, stop_access_logging_errors()}
   def stop_access_logging(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopAccessLogging", input, options)
   end
@@ -1091,8 +1072,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1108,8 +1088,7 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

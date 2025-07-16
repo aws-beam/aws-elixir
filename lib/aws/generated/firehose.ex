@@ -2179,8 +2179,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, create_delivery_stream_errors()}
   def create_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateDeliveryStream", input, options)
   end
@@ -2217,8 +2216,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, delete_delivery_stream_errors()}
   def delete_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteDeliveryStream", input, options)
   end
@@ -2243,8 +2241,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, describe_delivery_stream_errors()}
   def describe_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeDeliveryStream", input, options)
   end
@@ -2267,8 +2264,7 @@ defmodule AWS.Firehose do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_delivery_streams(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDeliveryStreams", input, options)
   end
@@ -2285,8 +2281,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, list_tags_for_delivery_stream_errors()}
   def list_tags_for_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForDeliveryStream", input, options)
   end
@@ -2369,8 +2364,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_errors()}
   def put_record(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRecord", input, options)
   end
@@ -2478,8 +2472,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, put_record_batch_errors()}
   def put_record_batch(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutRecordBatch", input, options)
   end
@@ -2547,8 +2540,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, start_delivery_stream_encryption_errors()}
   def start_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDeliveryStreamEncryption", input, options)
   end
@@ -2588,8 +2580,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, stop_delivery_stream_encryption_errors()}
   def stop_delivery_stream_encryption(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopDeliveryStreamEncryption", input, options)
   end
@@ -2620,8 +2611,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, tag_delivery_stream_errors()}
   def tag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagDeliveryStream", input, options)
   end
@@ -2642,8 +2632,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, untag_delivery_stream_errors()}
   def untag_delivery_stream(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagDeliveryStream", input, options)
   end
@@ -2698,8 +2687,7 @@ defmodule AWS.Firehose do
           | {:error, term()}
           | {:error, update_destination_errors()}
   def update_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateDestination", input, options)
   end

@@ -3148,8 +3148,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_access_errors()}
   def create_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAccess", input, options)
   end
@@ -3175,8 +3174,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_agreement_errors()}
   def create_agreement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateAgreement", input, options)
   end
@@ -3200,8 +3198,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_connector_errors()}
   def create_connector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateConnector", input, options)
   end
@@ -3215,8 +3212,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_profile_errors()}
   def create_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateProfile", input, options)
   end
@@ -3235,8 +3231,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_server_errors()}
   def create_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateServer", input, options)
   end
@@ -3258,8 +3253,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -3274,8 +3268,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_web_app_errors()}
   def create_web_app(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWebApp", input, options)
   end
@@ -3294,8 +3287,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, create_workflow_errors()}
   def create_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateWorkflow", input, options)
   end
@@ -3310,8 +3302,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_access_errors()}
   def delete_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAccess", input, options)
   end
@@ -3325,8 +3316,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_agreement_errors()}
   def delete_agreement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteAgreement", input, options)
   end
@@ -3340,8 +3330,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_certificate_errors()}
   def delete_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteCertificate", input, options)
   end
@@ -3355,8 +3344,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_connector_errors()}
   def delete_connector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteConnector", input, options)
   end
@@ -3370,8 +3358,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_host_key_errors()}
   def delete_host_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteHostKey", input, options)
   end
@@ -3385,8 +3372,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_profile_errors()}
   def delete_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteProfile", input, options)
   end
@@ -3402,8 +3388,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_server_errors()}
   def delete_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteServer", input, options)
   end
@@ -3417,8 +3402,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_ssh_public_key_errors()}
   def delete_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSshPublicKey", input, options)
   end
@@ -3437,8 +3421,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -3452,8 +3435,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_web_app_errors()}
   def delete_web_app(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWebApp", input, options)
   end
@@ -3468,8 +3450,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_web_app_customization_errors()}
   def delete_web_app_customization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWebAppCustomization", input, options)
   end
@@ -3483,8 +3464,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, delete_workflow_errors()}
   def delete_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteWorkflow", input, options)
   end
@@ -3503,8 +3483,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_access_errors()}
   def describe_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAccess", input, options)
   end
@@ -3518,8 +3497,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
@@ -3533,8 +3511,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_certificate_errors()}
   def describe_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCertificate", input, options)
   end
@@ -3548,8 +3525,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_connector_errors()}
   def describe_connector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeConnector", input, options)
   end
@@ -3570,8 +3546,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_execution_errors()}
   def describe_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExecution", input, options)
   end
@@ -3586,8 +3561,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_host_key_errors()}
   def describe_host_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeHostKey", input, options)
   end
@@ -3601,8 +3575,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_profile_errors()}
   def describe_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeProfile", input, options)
   end
@@ -3621,8 +3594,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_security_policy_errors()}
   def describe_security_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityPolicy", input, options)
   end
@@ -3640,8 +3612,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_server_errors()}
   def describe_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeServer", input, options)
   end
@@ -3659,8 +3630,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -3674,8 +3644,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_web_app_errors()}
   def describe_web_app(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWebApp", input, options)
   end
@@ -3689,8 +3658,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_web_app_customization_errors()}
   def describe_web_app_customization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWebAppCustomization", input, options)
   end
@@ -3704,8 +3672,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, describe_workflow_errors()}
   def describe_workflow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeWorkflow", input, options)
   end
@@ -3726,8 +3693,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, import_certificate_errors()}
   def import_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportCertificate", input, options)
   end
@@ -3741,8 +3707,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, import_host_key_errors()}
   def import_host_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportHostKey", input, options)
   end
@@ -3761,8 +3726,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, import_ssh_public_key_errors()}
   def import_ssh_public_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportSshPublicKey", input, options)
   end
@@ -3776,8 +3740,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_accesses_errors()}
   def list_accesses(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAccesses", input, options)
   end
@@ -3797,8 +3760,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_agreements_errors()}
   def list_agreements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListAgreements", input, options)
   end
@@ -3818,8 +3780,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_certificates_errors()}
   def list_certificates(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListCertificates", input, options)
   end
@@ -3833,8 +3794,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_connectors_errors()}
   def list_connectors(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListConnectors", input, options)
   end
@@ -3851,8 +3811,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_executions_errors()}
   def list_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExecutions", input, options)
   end
@@ -3873,8 +3832,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_file_transfer_results_errors()}
   def list_file_transfer_results(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListFileTransferResults", input, options)
   end
@@ -3889,8 +3847,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_host_keys_errors()}
   def list_host_keys(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListHostKeys", input, options)
   end
@@ -3909,8 +3866,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_profiles_errors()}
   def list_profiles(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListProfiles", input, options)
   end
@@ -3929,8 +3885,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_security_policies_errors()}
   def list_security_policies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecurityPolicies", input, options)
   end
@@ -3945,8 +3900,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_servers_errors()}
   def list_servers(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListServers", input, options)
   end
@@ -3963,8 +3917,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3979,8 +3932,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -3995,8 +3947,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_web_apps_errors()}
   def list_web_apps(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWebApps", input, options)
   end
@@ -4011,8 +3962,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, list_workflows_errors()}
   def list_workflows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListWorkflows", input, options)
   end
@@ -4030,8 +3980,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, send_workflow_step_state_errors()}
   def send_workflow_step_state(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SendWorkflowStepState", input, options)
   end
@@ -4080,8 +4029,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, start_directory_listing_errors()}
   def start_directory_listing(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartDirectoryListing", input, options)
   end
@@ -4113,8 +4061,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, start_file_transfer_errors()}
   def start_file_transfer(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartFileTransfer", input, options)
   end
@@ -4128,8 +4075,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, start_remote_delete_errors()}
   def start_remote_delete(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRemoteDelete", input, options)
   end
@@ -4143,8 +4089,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, start_remote_move_errors()}
   def start_remote_move(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartRemoteMove", input, options)
   end
@@ -4168,8 +4113,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, start_server_errors()}
   def start_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartServer", input, options)
   end
@@ -4197,8 +4141,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, stop_server_errors()}
   def stop_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopServer", input, options)
   end
@@ -4217,8 +4160,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4236,8 +4178,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, test_connection_errors()}
   def test_connection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestConnection", input, options)
   end
@@ -4291,8 +4232,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, test_identity_provider_errors()}
   def test_identity_provider(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TestIdentityProvider", input, options)
   end
@@ -4311,8 +4251,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4327,8 +4266,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_access_errors()}
   def update_access(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAccess", input, options)
   end
@@ -4352,8 +4290,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_agreement_errors()}
   def update_agreement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateAgreement", input, options)
   end
@@ -4367,8 +4304,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_certificate_errors()}
   def update_certificate(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateCertificate", input, options)
   end
@@ -4385,8 +4321,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_connector_errors()}
   def update_connector(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateConnector", input, options)
   end
@@ -4401,8 +4336,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_host_key_errors()}
   def update_host_key(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateHostKey", input, options)
   end
@@ -4419,8 +4353,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_profile_errors()}
   def update_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateProfile", input, options)
   end
@@ -4437,8 +4370,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_server_errors()}
   def update_server(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateServer", input, options)
   end
@@ -4471,8 +4403,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end
@@ -4489,8 +4420,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_web_app_errors()}
   def update_web_app(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWebApp", input, options)
   end
@@ -4506,8 +4436,7 @@ defmodule AWS.Transfer do
           | {:error, term()}
           | {:error, update_web_app_customization_errors()}
   def update_web_app_customization(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateWebAppCustomization", input, options)
   end

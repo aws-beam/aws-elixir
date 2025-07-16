@@ -3080,8 +3080,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_instance_fleet_errors()}
   def add_instance_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddInstanceFleet", input, options)
   end
@@ -3095,8 +3094,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_instance_groups_errors()}
   def add_instance_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddInstanceGroups", input, options)
   end
@@ -3140,8 +3138,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_job_flow_steps_errors()}
   def add_job_flow_steps(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddJobFlowSteps", input, options)
   end
@@ -3161,8 +3158,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -3186,8 +3182,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, cancel_steps_errors()}
   def cancel_steps(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelSteps", input, options)
   end
@@ -3201,8 +3196,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_persistent_app_ui_errors()}
   def create_persistent_app_ui(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreatePersistentAppUI", input, options)
   end
@@ -3218,8 +3212,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_security_configuration_errors()}
   def create_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateSecurityConfiguration", input, options)
   end
@@ -3233,8 +3226,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_studio_errors()}
   def create_studio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStudio", input, options)
   end
@@ -3255,8 +3247,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, create_studio_session_mapping_errors()}
   def create_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateStudioSessionMapping", input, options)
   end
@@ -3270,8 +3261,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_security_configuration_errors()}
   def delete_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteSecurityConfiguration", input, options)
   end
@@ -3285,8 +3275,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_studio_errors()}
   def delete_studio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStudio", input, options)
   end
@@ -3300,8 +3289,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, delete_studio_session_mapping_errors()}
   def delete_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteStudioSessionMapping", input, options)
   end
@@ -3317,8 +3305,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_cluster_errors()}
   def describe_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeCluster", input, options)
   end
@@ -3360,8 +3347,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_job_flows_errors()}
   def describe_job_flows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeJobFlows", input, options)
   end
@@ -3375,8 +3361,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_notebook_execution_errors()}
   def describe_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeNotebookExecution", input, options)
   end
@@ -3390,8 +3375,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_persistent_app_ui_errors()}
   def describe_persistent_app_ui(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribePersistentAppUI", input, options)
   end
@@ -3410,8 +3394,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_release_label_errors()}
   def describe_release_label(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeReleaseLabel", input, options)
   end
@@ -3426,8 +3409,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_security_configuration_errors()}
   def describe_security_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeSecurityConfiguration", input, options)
   end
@@ -3441,8 +3423,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_step_errors()}
   def describe_step(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStep", input, options)
   end
@@ -3457,8 +3438,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, describe_studio_errors()}
   def describe_studio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStudio", input, options)
   end
@@ -3471,8 +3451,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetAutoTerminationPolicy", input, options)
   end
@@ -3496,8 +3475,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_block_public_access_configuration_errors()}
   def get_block_public_access_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetBlockPublicAccessConfiguration", input, options)
   end
@@ -3517,8 +3495,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_cluster_session_credentials_errors()}
   def get_cluster_session_credentials(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetClusterSessionCredentials", input, options)
   end
@@ -3531,8 +3508,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def get_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetManagedScalingPolicy", input, options)
   end
@@ -3550,8 +3526,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_on_cluster_app_ui_presigned_url_errors()}
   def get_on_cluster_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetOnClusterAppUIPresignedURL", input, options)
   end
@@ -3569,8 +3544,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_persistent_app_ui_presigned_url_errors()}
   def get_persistent_app_ui_presigned_url(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetPersistentAppUIPresignedURL", input, options)
   end
@@ -3585,8 +3559,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, get_studio_session_mapping_errors()}
   def get_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStudioSessionMapping", input, options)
   end
@@ -3600,8 +3573,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_bootstrap_actions_errors()}
   def list_bootstrap_actions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBootstrapActions", input, options)
   end
@@ -3624,8 +3596,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_clusters_errors()}
   def list_clusters(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListClusters", input, options)
   end
@@ -3642,8 +3613,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instance_fleets_errors()}
   def list_instance_fleets(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceFleets", input, options)
   end
@@ -3657,8 +3627,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instance_groups_errors()}
   def list_instance_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstanceGroups", input, options)
   end
@@ -3678,8 +3647,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_instances_errors()}
   def list_instances(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInstances", input, options)
   end
@@ -3700,8 +3668,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_notebook_executions_errors()}
   def list_notebook_executions(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListNotebookExecutions", input, options)
   end
@@ -3716,8 +3683,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_release_labels_errors()}
   def list_release_labels(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListReleaseLabels", input, options)
   end
@@ -3737,8 +3703,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_security_configurations_errors()}
   def list_security_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSecurityConfigurations", input, options)
   end
@@ -3760,8 +3725,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_steps_errors()}
   def list_steps(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSteps", input, options)
   end
@@ -3776,8 +3740,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_studio_session_mappings_errors()}
   def list_studio_session_mappings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStudioSessionMappings", input, options)
   end
@@ -3795,8 +3758,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_studios_errors()}
   def list_studios(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStudios", input, options)
   end
@@ -3813,8 +3775,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, list_supported_instance_types_errors()}
   def list_supported_instance_types(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSupportedInstanceTypes", input, options)
   end
@@ -3830,8 +3791,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -3853,8 +3813,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_instance_fleet_errors()}
   def modify_instance_fleet(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceFleet", input, options)
   end
@@ -3873,8 +3832,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, modify_instance_groups_errors()}
   def modify_instance_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ModifyInstanceGroups", input, options)
   end
@@ -3893,8 +3851,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_auto_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAutoScalingPolicy", input, options)
   end
@@ -3919,8 +3876,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutAutoTerminationPolicy", input, options)
   end
@@ -3944,8 +3900,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, put_block_public_access_configuration_errors()}
   def put_block_public_access_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutBlockPublicAccessConfiguration", input, options)
   end
@@ -3965,8 +3920,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def put_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutManagedScalingPolicy", input, options)
   end
@@ -3980,8 +3934,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_auto_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveAutoScalingPolicy", input, options)
   end
@@ -3994,8 +3947,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_auto_termination_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveAutoTerminationPolicy", input, options)
   end
@@ -4008,8 +3960,7 @@ defmodule AWS.EMR do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def remove_managed_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveManagedScalingPolicy", input, options)
   end
@@ -4031,8 +3982,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -4080,8 +4030,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, run_job_flow_errors()}
   def run_job_flow(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RunJobFlow", input, options)
   end
@@ -4109,8 +4058,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_keep_job_flow_alive_when_no_steps_errors()}
   def set_keep_job_flow_alive_when_no_steps(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetKeepJobFlowAliveWhenNoSteps", input, options)
   end
@@ -4146,8 +4094,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_termination_protection_errors()}
   def set_termination_protection(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetTerminationProtection", input, options)
   end
@@ -4180,8 +4127,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_unhealthy_node_replacement_errors()}
   def set_unhealthy_node_replacement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetUnhealthyNodeReplacement", input, options)
   end
@@ -4218,8 +4164,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, set_visible_to_all_users_errors()}
   def set_visible_to_all_users(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "SetVisibleToAllUsers", input, options)
   end
@@ -4233,8 +4178,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, start_notebook_execution_errors()}
   def start_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StartNotebookExecution", input, options)
   end
@@ -4248,8 +4192,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, stop_notebook_execution_errors()}
   def stop_notebook_execution(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "StopNotebookExecution", input, options)
   end
@@ -4276,8 +4219,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, terminate_job_flows_errors()}
   def terminate_job_flows(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TerminateJobFlows", input, options)
   end
@@ -4292,8 +4234,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, update_studio_errors()}
   def update_studio(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStudio", input, options)
   end
@@ -4308,8 +4249,7 @@ defmodule AWS.EMR do
           | {:error, term()}
           | {:error, update_studio_session_mapping_errors()}
   def update_studio_session_mapping(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateStudioSessionMapping", input, options)
   end

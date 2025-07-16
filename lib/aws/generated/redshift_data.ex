@@ -694,8 +694,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
@@ -716,8 +715,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, cancel_statement_errors()}
   def cancel_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CancelStatement", input, options)
   end
@@ -742,8 +740,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, describe_statement_errors()}
   def describe_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeStatement", input, options)
   end
@@ -806,8 +803,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -870,8 +866,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
@@ -895,8 +890,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, get_statement_result_errors()}
   def get_statement_result(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStatementResult", input, options)
   end
@@ -919,8 +913,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, get_statement_result_v2_errors()}
   def get_statement_result_v2(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetStatementResultV2", input, options)
   end
@@ -981,8 +974,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_databases_errors()}
   def list_databases(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListDatabases", input, options)
   end
@@ -1043,8 +1035,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_schemas_errors()}
   def list_schemas(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListSchemas", input, options)
   end
@@ -1076,8 +1067,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_statements_errors()}
   def list_statements(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListStatements", input, options)
   end
@@ -1140,8 +1130,7 @@ defmodule AWS.RedshiftData do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end

@@ -741,8 +741,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, batch_get_invoice_profile_errors()}
   def batch_get_invoice_profile(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetInvoiceProfile", input, options)
   end
@@ -756,8 +755,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, create_invoice_unit_errors()}
   def create_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateInvoiceUnit", input, options)
   end
@@ -771,8 +769,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, delete_invoice_unit_errors()}
   def delete_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteInvoiceUnit", input, options)
   end
@@ -786,8 +783,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, get_invoice_unit_errors()}
   def get_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetInvoiceUnit", input, options)
   end
@@ -801,8 +797,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_summaries_errors()}
   def list_invoice_summaries(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInvoiceSummaries", input, options)
   end
@@ -817,8 +812,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_invoice_units_errors()}
   def list_invoice_units(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListInvoiceUnits", input, options)
   end
@@ -832,8 +826,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -847,8 +840,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -862,8 +854,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -878,8 +869,7 @@ defmodule AWS.Invoicing do
           | {:error, term()}
           | {:error, update_invoice_unit_errors()}
   def update_invoice_unit(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateInvoiceUnit", input, options)
   end

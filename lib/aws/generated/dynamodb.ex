@@ -3806,8 +3806,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_execute_statement_errors()}
   def batch_execute_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchExecuteStatement", input, options)
   end
@@ -3893,8 +3892,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_get_item_errors()}
   def batch_get_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchGetItem", input, options)
   end
@@ -4017,8 +4015,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, batch_write_item_errors()}
   def batch_write_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "BatchWriteItem", input, options)
   end
@@ -4071,8 +4068,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_backup_errors()}
   def create_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateBackup", input, options)
   end
@@ -4151,8 +4147,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_global_table_errors()}
   def create_global_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateGlobalTable", input, options)
   end
@@ -4184,8 +4179,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, create_table_errors()}
   def create_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "CreateTable", input, options)
   end
@@ -4202,8 +4196,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -4235,8 +4228,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_item_errors()}
   def delete_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteItem", input, options)
   end
@@ -4271,8 +4263,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4310,8 +4301,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, delete_table_errors()}
   def delete_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DeleteTable", input, options)
   end
@@ -4328,8 +4318,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_backup_errors()}
   def describe_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeBackup", input, options)
   end
@@ -4362,8 +4351,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_continuous_backups_errors()}
   def describe_continuous_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContinuousBackups", input, options)
   end
@@ -4379,8 +4367,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_contributor_insights_errors()}
   def describe_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeContributorInsights", input, options)
   end
@@ -4396,8 +4383,7 @@ defmodule AWS.DynamoDB do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_endpoints(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeEndpoints", input, options)
   end
@@ -4411,8 +4397,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_export_errors()}
   def describe_export(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeExport", input, options)
   end
@@ -4437,8 +4422,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_global_table_errors()}
   def describe_global_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGlobalTable", input, options)
   end
@@ -4463,8 +4447,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_global_table_settings_errors()}
   def describe_global_table_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeGlobalTableSettings", input, options)
   end
@@ -4478,8 +4461,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_import_errors()}
   def describe_import(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeImport", input, options)
   end
@@ -4497,8 +4479,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_kinesis_streaming_destination_errors()}
   def describe_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeKinesisStreamingDestination", input, options)
   end
@@ -4593,8 +4574,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_limits_errors()}
   def describe_limits(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeLimits", input, options)
   end
@@ -4618,8 +4598,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_table_errors()}
   def describe_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTable", input, options)
   end
@@ -4637,8 +4616,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_table_replica_auto_scaling_errors()}
   def describe_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTableReplicaAutoScaling", input, options)
   end
@@ -4652,8 +4630,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, describe_time_to_live_errors()}
   def describe_time_to_live(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DescribeTimeToLive", input, options)
   end
@@ -4674,8 +4651,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, disable_kinesis_streaming_destination_errors()}
   def disable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "DisableKinesisStreamingDestination", input, options)
   end
@@ -4696,8 +4672,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, enable_kinesis_streaming_destination_errors()}
   def enable_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "EnableKinesisStreamingDestination", input, options)
   end
@@ -4728,8 +4703,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, execute_statement_errors()}
   def execute_statement(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteStatement", input, options)
   end
@@ -4754,8 +4728,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, execute_transaction_errors()}
   def execute_transaction(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExecuteTransaction", input, options)
   end
@@ -4773,8 +4746,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, export_table_to_point_in_time_errors()}
   def export_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ExportTableToPointInTime", input, options)
   end
@@ -4797,8 +4769,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, get_item_errors()}
   def get_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetItem", input, options)
   end
@@ -4850,8 +4821,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -4865,8 +4835,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, import_table_errors()}
   def import_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ImportTable", input, options)
   end
@@ -4899,8 +4868,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_backups_errors()}
   def list_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListBackups", input, options)
   end
@@ -4916,8 +4884,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_contributor_insights_errors()}
   def list_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListContributorInsights", input, options)
   end
@@ -4931,8 +4898,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_exports_errors()}
   def list_exports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListExports", input, options)
   end
@@ -4957,8 +4923,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_global_tables_errors()}
   def list_global_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListGlobalTables", input, options)
   end
@@ -4972,8 +4937,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_imports_errors()}
   def list_imports(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListImports", input, options)
   end
@@ -4992,8 +4956,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_tables_errors()}
   def list_tables(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTables", input, options)
   end
@@ -5013,8 +4976,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, list_tags_of_resource_errors()}
   def list_tags_of_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "ListTagsOfResource", input, options)
   end
@@ -5060,8 +5022,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, put_item_errors()}
   def put_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutItem", input, options)
   end
@@ -5099,8 +5060,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -5178,8 +5138,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, query_errors()}
   def query(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Query", input, options)
   end
@@ -5219,8 +5178,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, restore_table_from_backup_errors()}
   def restore_table_from_backup(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTableFromBackup", input, options)
   end
@@ -5288,8 +5246,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, restore_table_to_point_in_time_errors()}
   def restore_table_to_point_in_time(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "RestoreTableToPointInTime", input, options)
   end
@@ -5352,8 +5309,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, scan_errors()}
   def scan(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "Scan", input, options)
   end
@@ -5394,8 +5350,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5438,8 +5393,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, transact_get_items_errors()}
   def transact_get_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TransactGetItems", input, options)
   end
@@ -5528,8 +5482,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, transact_write_items_errors()}
   def transact_write_items(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "TransactWriteItems", input, options)
   end
@@ -5566,8 +5519,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5598,8 +5550,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_continuous_backups_errors()}
   def update_continuous_backups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContinuousBackups", input, options)
   end
@@ -5626,8 +5577,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_contributor_insights_errors()}
   def update_contributor_insights(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateContributorInsights", input, options)
   end
@@ -5684,8 +5634,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_global_table_errors()}
   def update_global_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGlobalTable", input, options)
   end
@@ -5710,8 +5659,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_global_table_settings_errors()}
   def update_global_table_settings(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateGlobalTableSettings", input, options)
   end
@@ -5736,8 +5684,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_item_errors()}
   def update_item(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateItem", input, options)
   end
@@ -5755,8 +5702,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_kinesis_streaming_destination_errors()}
   def update_kinesis_streaming_destination(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateKinesisStreamingDestination", input, options)
   end
@@ -5791,8 +5737,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_table_errors()}
   def update_table(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTable", input, options)
   end
@@ -5810,8 +5755,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_table_replica_auto_scaling_errors()}
   def update_table_replica_auto_scaling(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTableReplicaAutoScaling", input, options)
   end
@@ -5858,8 +5802,7 @@ defmodule AWS.DynamoDB do
           | {:error, term()}
           | {:error, update_time_to_live_errors()}
   def update_time_to_live(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+    meta = metadata()
 
     Request.request_post(client, meta, "UpdateTimeToLive", input, options)
   end

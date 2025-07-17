@@ -709,6 +709,21 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_custom_model_deployment_request() :: %{
+        optional("clientRequestToken") => String.t(),
+        optional("description") => String.t(),
+        optional("tags") => list(tag()),
+        required("modelArn") => String.t(),
+        required("modelDeploymentName") => String.t()
+      }
+
+  """
+  @type create_custom_model_deployment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_model_customization_jobs_request() :: %{
         optional("creationTimeAfter") => non_neg_integer(),
         optional("creationTimeBefore") => non_neg_integer(),
@@ -769,6 +784,15 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      delete_custom_model_deployment_request() :: %{}
+
+  """
+  @type delete_custom_model_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_guardrail_response() :: %{
         "createdAt" => non_neg_integer(),
         "guardrailArn" => String.t(),
@@ -818,6 +842,15 @@ defmodule AWS.Bedrock do
 
   """
   @type automated_evaluation_custom_metric_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_model_deployment_request() :: %{}
+
+  """
+  @type get_custom_model_deployment_request() :: %{}
 
   @typedoc """
 
@@ -1083,6 +1116,25 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_custom_model_deployments_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("modelArnEquals") => String.t(),
+        optional("nameContains") => String.t(),
+        optional("nextToken") => String.t(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
+  """
+  @type list_custom_model_deployments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_import_job_summary() :: %{
         "creationTime" => non_neg_integer(),
         "endTime" => non_neg_integer(),
@@ -1257,6 +1309,18 @@ defmodule AWS.Bedrock do
 
   """
   @type get_foundation_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_model_deployments_response() :: %{
+        "modelDeploymentSummaries" => list(custom_model_deployment_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_custom_model_deployments_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1548,6 +1612,23 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      custom_model_deployment_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "customModelDeploymentArn" => String.t(),
+        "customModelDeploymentName" => String.t(),
+        "failureMessage" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "modelArn" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type custom_model_deployment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_config() :: %{
         "bucketName" => String.t(),
         "keyPrefix" => String.t()
@@ -1656,6 +1737,15 @@ defmodule AWS.Bedrock do
 
   """
   @type guardrail_managed_words() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_model_deployment_response() :: %{}
+
+  """
+  @type delete_custom_model_deployment_response() :: %{}
 
   @typedoc """
 
@@ -2491,6 +2581,24 @@ defmodule AWS.Bedrock do
 
   """
   @type list_foundation_models_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_model_deployment_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "customModelDeploymentArn" => String.t(),
+        "description" => String.t(),
+        "failureMessage" => String.t(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "modelArn" => String.t(),
+        "modelDeploymentName" => String.t(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_custom_model_deployment_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3333,6 +3441,17 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_custom_model_deployment_response() :: %{
+        "customModelDeploymentArn" => String.t()
+      }
+
+  """
+  @type create_custom_model_deployment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       training_data_config() :: %{
         "invocationLogsConfig" => invocation_logs_config(),
         "s3Uri" => String.t()
@@ -3563,6 +3682,15 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type create_custom_model_deployment_errors() ::
+          too_many_tags_exception()
+          | throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+
   @type create_evaluation_job_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3680,6 +3808,14 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type delete_custom_model_deployment_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type delete_foundation_model_agreement_errors() ::
           throttling_exception()
           | validation_exception()
@@ -3746,6 +3882,13 @@ defmodule AWS.Bedrock do
           | resource_not_found_exception()
 
   @type get_custom_model_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | resource_not_found_exception()
+
+  @type get_custom_model_deployment_errors() ::
           throttling_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3851,6 +3994,12 @@ defmodule AWS.Bedrock do
           | validation_exception()
           | internal_server_exception()
           | resource_not_found_exception()
+
+  @type list_custom_model_deployments_errors() ::
+          throttling_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
 
   @type list_custom_models_errors() ::
           throttling_exception()
@@ -4130,7 +4279,53 @@ defmodule AWS.Bedrock do
       custom_headers ++ headers,
       input,
       options,
-      200
+      202
+    )
+  end
+
+  @doc """
+  Deploys a custom model for on-demand inference in Amazon Bedrock.
+
+  After you deploy your custom model, you use the deployment's Amazon Resource
+  Name (ARN) as the `modelId` parameter when you submit prompts and generate
+  responses with model inference.
+
+  For more information about setting up on-demand inference for custom models, see
+  [Set up inference for a custom model](https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html).
+
+  The following actions are related to the `CreateCustomModelDeployment`
+  operation:
+
+    *
+  [GetCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html)     *
+  [ListCustomModelDeployments](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModelDeployments.html)
+
+    *
+  [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html)
+  """
+  @spec create_custom_model_deployment(map(), create_custom_model_deployment_request(), list()) ::
+          {:ok, create_custom_model_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_custom_model_deployment_errors()}
+  def create_custom_model_deployment(%Client{} = client, input, options \\ []) do
+    url_path = "/model-customization/custom-model-deployments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -4601,6 +4796,60 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes a custom model deployment.
+
+  This operation stops the deployment and removes it from your account. After
+  deletion, the deployment ARN can no longer be used for inference requests.
+
+  The following actions are related to the `DeleteCustomModelDeployment`
+  operation:
+
+    *
+  [CreateCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html)     *
+  [GetCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html)
+
+    *
+  [ListCustomModelDeployments](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModelDeployments.html)
+  """
+  @spec delete_custom_model_deployment(
+          map(),
+          String.t(),
+          delete_custom_model_deployment_request(),
+          list()
+        ) ::
+          {:ok, delete_custom_model_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_custom_model_deployment_errors()}
+  def delete_custom_model_deployment(
+        %Client{} = client,
+        custom_model_deployment_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/model-customization/custom-model-deployments/#{AWS.Util.encode_uri(custom_model_deployment_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete the model access agreement for the specified model.
   """
   @spec delete_foundation_model_agreement(
@@ -4951,6 +5200,43 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Retrieves information about a custom model deployment, including its status,
+  configuration, and metadata.
+
+  Use this operation to monitor the deployment status and retrieve details needed
+  for inference requests.
+
+  The following actions are related to the `GetCustomModelDeployment` operation:
+
+    *
+  [CreateCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html)     *
+  [ListCustomModelDeployments](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListCustomModelDeployments.html)
+
+    *
+  [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html)
+  """
+  @spec get_custom_model_deployment(map(), String.t(), list()) ::
+          {:ok, get_custom_model_deployment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_custom_model_deployment_errors()}
+  def get_custom_model_deployment(
+        %Client{} = client,
+        custom_model_deployment_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/model-customization/custom-model-deployments/#{AWS.Util.encode_uri(custom_model_deployment_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets information about an evaluation job, such as the status of the job.
   """
   @spec get_evaluation_job(map(), String.t(), list()) ::
@@ -5250,6 +5536,126 @@ defmodule AWS.Bedrock do
     url_path = "/use-case-for-model-access"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists custom model deployments in your account.
+
+  You can filter the results by creation time, name, status, and associated model.
+  Use this operation to manage and monitor your custom model deployments.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+
+  The following actions are related to the `ListCustomModelDeployments` operation:
+
+    *
+  [CreateCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html)     *
+  [GetCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetCustomModelDeployment.html)
+
+    *
+  [DeleteCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModelDeployment.html)
+  """
+  @spec list_custom_model_deployments(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_custom_model_deployments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_custom_model_deployments_errors()}
+  def list_custom_model_deployments(
+        %Client{} = client,
+        created_after \\ nil,
+        created_before \\ nil,
+        max_results \\ nil,
+        model_arn_equals \\ nil,
+        name_contains \\ nil,
+        next_token \\ nil,
+        sort_by \\ nil,
+        sort_order \\ nil,
+        status_equals \\ nil,
+        options \\ []
+      ) do
+    url_path = "/model-customization/custom-model-deployments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status_equals) do
+        [{"statusEquals", status_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortOrder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_by) do
+        [{"sortBy", sort_by} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name_contains) do
+        [{"nameContains", name_contains} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(model_arn_equals) do
+        [{"modelArnEquals", model_arn_equals} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_before) do
+        [{"createdBefore", created_before} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(created_after) do
+        [{"createdAfter", created_after} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

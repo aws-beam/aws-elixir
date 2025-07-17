@@ -2910,9 +2910,9 @@ defmodule AWS.Glue do
         optional("Name") => String.t(),
         optional("OpenTableFormatInput") => open_table_format_input(),
         optional("PartitionIndexes") => list(partition_index()),
+        optional("TableInput") => table_input(),
         optional("TransactionId") => String.t(),
-        required("DatabaseName") => String.t(),
-        required("TableInput") => table_input()
+        required("DatabaseName") => String.t()
       }
       
   """

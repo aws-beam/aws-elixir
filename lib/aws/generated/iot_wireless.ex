@@ -7,10 +7,12 @@ defmodule AWS.IoTWireless do
   internet-connected
   wireless devices and the AWS Cloud.
 
-  To onboard both LoRaWAN and Sidewalk devices to AWS
-  IoT, use the IoT Wireless API. These wireless devices use the Low Power Wide
-  Area
-  Networking (LPWAN) communication protocol to communicate with AWS IoT.
+  To onboard both
+  [LoRaWAN](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/iot-lorawan.html) and
+  [Sidewalk](https://docs.aws.amazon.com/iot-wireless/latest/developerguide/iot-sidewalk.html)
+  devices to AWS IoT, use the IoT Wireless API. These wireless
+  devices use the Low Power Wide Area Networking (LPWAN) communication protocol to
+  communicate with AWS IoT.
 
   Using the API, you can perform create, read, update, and delete operations for
   your

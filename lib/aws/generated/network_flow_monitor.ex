@@ -4,29 +4,23 @@
 defmodule AWS.NetworkFlowMonitor do
   @moduledoc """
   Network Flow Monitor is a feature of Amazon CloudWatch Network Monitoring that
-  provides visibility into the performance of
-  network flows for your Amazon Web Services workloads, between instances in
-  subnets, as well as to and
-  from Amazon Web Services.
+  provides visibility into the performance of network flows for your Amazon Web
+  Services workloads, between instances in subnets, as well as to and from Amazon
+  Web Services.
 
   Lightweight agents that you install on the instances capture performance metrics
   for your network flows, such as packet loss and latency, and send them to the
-  Network Flow Monitor backend. Then, you can
-  view and analyze metrics from the top contributors for each metric type, to help
-  troubleshoot issues.
+  Network Flow Monitor backend. Then, you can view and analyze metrics from the
+  top contributors for each metric type, to help troubleshoot issues.
 
   In addition, when you create a monitor, Network Flow Monitor provides a network
-  health indicator (NHI)
-  that informs you whether there were Amazon Web Services network issues for one
-  or more of the network flows
-  tracked by a monitor, during a time period that you choose. By using this value,
-  you can independently determine
-  if the Amazon Web Services network is impacting your workload during a specific
-  time frame, to help you focus
-  troubleshooting efforts.
+  health indicator (NHI) that informs you whether there were Amazon Web Services
+  network issues for one or more of the network flows tracked by a monitor, during
+  a time period that you choose. By using this value, you can independently
+  determine if the Amazon Web Services network is impacting your workload during a
+  specific time frame, to help you focus troubleshooting efforts.
 
-  To learn more about Network Flow Monitor, see the
-  [Network Flow Monitor User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor.html)
+  To learn more about Network Flow Monitor, see the [Network Flow Monitor User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-NetworkFlowMonitor.html)
   in the Amazon CloudWatch User Guide.
   """
 
@@ -1073,14 +1067,13 @@ defmodule AWS.NetworkFlowMonitor do
 
   @doc """
   Create a monitor for specific network flows between local and remote resources,
-  so that you can monitor
-  network performance for one or several of your workloads.
+  so that you can monitor network performance for one or several of your
+  workloads.
 
-  For each monitor, Network Flow Monitor publishes detailed
-  end-to-end performance metrics and a network health indicators (NHI) that
-  informs you whether there were
-  Amazon Web Services network issues for one or more of the network flows tracked
-  by a monitor, during a time period that you choose.
+  For each monitor, Network Flow Monitor publishes detailed end-to-end performance
+  metrics and a network health indicators (NHI) that informs you whether there
+  were Amazon Web Services network issues for one or more of the network flows
+  tracked by a monitor, during a time period that you choose.
   """
   @spec create_monitor(map(), create_monitor_input(), list()) ::
           {:ok, create_monitor_output(), any()}
@@ -1110,15 +1103,14 @@ defmodule AWS.NetworkFlowMonitor do
 
   @doc """
   Create a scope of resources that you want to be available for Network Flow
-  Monitor to generate metrics for,
-  when you have active agents on those resources sending metrics reports to the
-  Network Flow Monitor backend.
+  Monitor to generate metrics for, when you have active agents on those resources
+  sending metrics reports to the Network Flow Monitor backend.
 
   This call returns a scope ID to identify the scope.
 
   When you create a scope, you enable permissions for Network Flow Monitor. The
-  scope is set to the
-  resources for the Amazon Web Services that enables the feature.
+  scope is set to the resources for the Amazon Web Services that enables the
+  feature.
   """
   @spec create_scope(map(), create_scope_input(), list()) ::
           {:ok, create_scope_output(), any()}
@@ -1208,9 +1200,8 @@ defmodule AWS.NetworkFlowMonitor do
   Gets information about a monitor in Network Flow Monitor based on a monitor
   name.
 
-  The information returned includes
-  the Amazon Resource Name (ARN), create time, modified time, resources included
-  in the monitor, and status information.
+  The information returned includes the Amazon Resource Name (ARN), create time,
+  modified time, resources included in the monitor, and status information.
   """
   @spec get_monitor(map(), String.t(), list()) ::
           {:ok, get_monitor_output(), any()}
@@ -1231,22 +1222,17 @@ defmodule AWS.NetworkFlowMonitor do
   Return the data for a query with the Network Flow Monitor query interface.
 
   You specify the query that you want to return results for by providing a query
-  ID
-  and a monitor name. This query returns the top contributors for a specific
+  ID and a monitor name. This query returns the top contributors for a specific
   monitor.
 
   Create a query ID for this call by calling the corresponding API call to start
-  the query,
-  `StartQueryMonitorTopContributors`. Use the scope ID that was returned
-  for your account by `CreateScope`.
+  the query, `StartQueryMonitorTopContributors`. Use the scope ID that was
+  returned for your account by `CreateScope`.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec get_query_results_monitor_top_contributors(
           map(),
@@ -1297,28 +1283,21 @@ defmodule AWS.NetworkFlowMonitor do
   Return the data for a query with the Network Flow Monitor query interface.
 
   You specify the query that you want to return results for by providing a query
-  ID
-  and a monitor name.
+  ID and a monitor name.
 
   This query returns the top contributors for a scope for workload insights.
-  Workload
-  insights provide a high level view of network flow performance data collected by
-  agents.
-  To return the data for the top contributors, see
+  Workload insights provide a high level view of network flow performance data
+  collected by agents. To return the data for the top contributors, see
   `GetQueryResultsWorkloadInsightsTopContributorsData`.
 
   Create a query ID for this call by calling the corresponding API call to start
-  the query,
-  `StartQueryWorkloadInsightsTopContributors`. Use the scope ID that was returned
-  for your account by `CreateScope`.
+  the query, `StartQueryWorkloadInsightsTopContributors`. Use the scope ID that
+  was returned for your account by `CreateScope`.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec get_query_results_workload_insights_top_contributors(
           map(),
@@ -1372,29 +1351,21 @@ defmodule AWS.NetworkFlowMonitor do
   and a scope ID.
 
   This query returns the data for top contributors for workload insights for a
-  specific scope.
-  Workload insights provide a high level view of network flow performance data
-  collected by agents
-  for a scope. To return just the top contributors, see
-  `GetQueryResultsWorkloadInsightsTopContributors`.
+  specific scope. Workload insights provide a high level view of network flow
+  performance data collected by agents for a scope. To return just the top
+  contributors, see `GetQueryResultsWorkloadInsightsTopContributors`.
 
   Create a query ID for this call by calling the corresponding API call to start
-  the query,
-  `StartQueryWorkloadInsightsTopContributorsData`. Use the scope ID that was
-  returned
-  for your account by `CreateScope`.
+  the query, `StartQueryWorkloadInsightsTopContributorsData`. Use the scope ID
+  that was returned for your account by `CreateScope`.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
 
   The top contributor network flows overall are for a specific metric type, for
-  example, the
-  number of retransmissions.
+  example, the number of retransmissions.
   """
   @spec get_query_results_workload_insights_top_contributors_data(
           map(),
@@ -1448,15 +1419,12 @@ defmodule AWS.NetworkFlowMonitor do
   This call returns the query status for the top contributors for a monitor.
 
   When you create a query, use this call to check the status of the query to make
-  sure that it has
-  has `SUCCEEDED` before you review the results. Use the same query ID that you
-  used for
-  the corresponding API call to start (create) the query,
-  `StartQueryMonitorTopContributors`.
+  sure that it has has `SUCCEEDED` before you review the results. Use the same
+  query ID that you used for the corresponding API call to start (create) the
+  query, `StartQueryMonitorTopContributors`.
 
   When you run a query, use this call to check the status of the query to make
-  sure that the query
-  has `SUCCEEDED` before you review the results.
+  sure that the query has `SUCCEEDED` before you review the results.
   """
   @spec get_query_status_monitor_top_contributors(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_status_monitor_top_contributors_output(), any()}
@@ -1488,19 +1456,14 @@ defmodule AWS.NetworkFlowMonitor do
   insights.
 
   When you start a query, use this call to check the status of the query to make
-  sure that it has
-  has `SUCCEEDED` before you review the results. Use the same query ID that you
-  used for
-  the corresponding API call to start the query,
+  sure that it has has `SUCCEEDED` before you review the results. Use the same
+  query ID that you used for the corresponding API call to start the query,
   `StartQueryWorkloadInsightsTopContributors`.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec get_query_status_workload_insights_top_contributors(map(), String.t(), String.t(), list()) ::
           {:ok, get_query_status_workload_insights_top_contributors_output(), any()}
@@ -1532,23 +1495,17 @@ defmodule AWS.NetworkFlowMonitor do
   insights.
 
   When you start a query, use this call to check the status of the query to make
-  sure that it has
-  has `SUCCEEDED` before you review the results. Use the same query ID that you
-  used for
-  the corresponding API call to start the query,
+  sure that it has has `SUCCEEDED` before you review the results. Use the same
+  query ID that you used for the corresponding API call to start the query,
   `StartQueryWorkloadInsightsTopContributorsData`.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
 
   The top contributor network flows overall are for a specific metric type, for
-  example, the
-  number of retransmissions.
+  example, the number of retransmissions.
   """
   @spec get_query_status_workload_insights_top_contributors_data(
           map(),
@@ -1601,8 +1558,8 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   List all monitors in an account.
 
-  Optionally, you can list only monitors that have a specific status, by
-  using the `STATUS` parameter.
+  Optionally, you can list only monitors that have a specific status, by using the
+  `STATUS` parameter.
   """
   @spec list_monitors(map(), String.t() | nil, String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_monitors_output(), any()}
@@ -1698,24 +1655,18 @@ defmodule AWS.NetworkFlowMonitor do
 
   @doc """
   Create a query that you can use with the Network Flow Monitor query interface to
-  return the top
-  contributors for a monitor.
+  return the top contributors for a monitor.
 
   Specify the monitor that you want to create the query for.
 
-  The call returns a query ID that you can use with
-  [
+  The call returns a query ID that you can use with [
   GetQueryResultsMonitorTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsMonitorTopContributors.html)
-
   to run the query and return the top contributors for a specific monitor.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable APIs for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable APIs
+  for the top contributors that you want to be returned.
   """
   @spec start_query_monitor_top_contributors(
           map(),
@@ -1754,20 +1705,15 @@ defmodule AWS.NetworkFlowMonitor do
 
   Specify the scope that you want to create a query for.
 
-  The call returns a query ID that you can use with
-  [
+  The call returns a query ID that you can use with [
   GetQueryResultsWorkloadInsightsTopContributors](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributors.html)
-
   to run the query and return the top contributors for the workload insights for a
   scope.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable APIs for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable APIs
+  for the top contributors that you want to be returned.
   """
   @spec start_query_workload_insights_top_contributors(
           map(),
@@ -1807,25 +1753,19 @@ defmodule AWS.NetworkFlowMonitor do
 
   @doc """
   Create a query with the Network Flow Monitor query interface that you can run to
-  return data for
-  workload insights top contributors.
+  return data for workload insights top contributors.
 
   Specify the scope that you want to create a query for.
 
-  The call returns a query ID that you can use with
-  [
+  The call returns a query ID that you can use with [
   GetQueryResultsWorkloadInsightsTopContributorsData](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsWorkloadInsightsTopContributorsData.html)
-
   to run the query and return the data for the top contributors for the workload
   insights for a scope.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec start_query_workload_insights_top_contributors_data(
           map(),
@@ -1866,16 +1806,13 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Stop a top contributors query for a monitor.
 
-  Specify the query that you want to stop by providing a query ID
-  and a monitor name.
+  Specify the query that you want to stop by providing a query ID and a monitor
+  name.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec stop_query_monitor_top_contributors(
           map(),
@@ -1920,16 +1857,12 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Stop a top contributors query for workload insights.
 
-  Specify the query that you want to stop by providing a query ID
-  and a scope ID.
+  Specify the query that you want to stop by providing a query ID and a scope ID.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec stop_query_workload_insights_top_contributors(
           map(),
@@ -1974,16 +1907,12 @@ defmodule AWS.NetworkFlowMonitor do
   @doc """
   Stop a top contributors data query for workload insights.
 
-  Specify the query that you want to stop by providing a query ID
-  and a scope ID.
+  Specify the query that you want to stop by providing a query ID and a scope ID.
 
   Top contributors in Network Flow Monitor are network flows with the highest
-  values for a specific
-  metric type. Top contributors can be across all workload insights, for a given
-  scope, or for
-  a specific monitor. Use the applicable call for the top contributors that you
-  want to be
-  returned.
+  values for a specific metric type. Top contributors can be across all workload
+  insights, for a given scope, or for a specific monitor. Use the applicable call
+  for the top contributors that you want to be returned.
   """
   @spec stop_query_workload_insights_top_contributors_data(
           map(),
@@ -2119,9 +2048,8 @@ defmodule AWS.NetworkFlowMonitor do
 
   @doc """
   Update a scope to add or remove resources that you want to be available for
-  Network Flow Monitor to generate metrics for,
-  when you have active agents on those resources sending metrics reports to the
-  Network Flow Monitor backend.
+  Network Flow Monitor to generate metrics for, when you have active agents on
+  those resources sending metrics reports to the Network Flow Monitor backend.
   """
   @spec update_scope(map(), String.t(), update_scope_input(), list()) ::
           {:ok, update_scope_output(), any()}

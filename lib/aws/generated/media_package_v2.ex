@@ -371,6 +371,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       put_origin_endpoint_policy_request() :: %{
+        optional("CdnAuthConfiguration") => cdn_auth_configuration(),
         required("Policy") => String.t()
       }
 
@@ -653,6 +654,18 @@ defmodule AWS.MediaPackageV2 do
 
   """
   @type resource_not_found_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cdn_auth_configuration() :: %{
+        "CdnIdentifierSecretArns" => list(String.t()),
+        "SecretsRoleArn" => [String.t()]
+      }
+
+  """
+  @type cdn_auth_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1511,6 +1524,7 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       get_origin_endpoint_policy_response() :: %{
+        "CdnAuthConfiguration" => cdn_auth_configuration(),
         "ChannelGroupName" => String.t(),
         "ChannelName" => String.t(),
         "OriginEndpointName" => String.t(),

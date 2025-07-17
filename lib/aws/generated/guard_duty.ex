@@ -1384,6 +1384,7 @@ defmodule AWS.GuardDuty do
 
       update_ip_set_request() :: %{
         optional("Activate") => boolean(),
+        optional("ExpectedBucketOwner") => String.t(),
         optional("Location") => String.t(),
         optional("Name") => String.t()
       }
@@ -2018,6 +2019,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_threat_intel_set_response() :: %{
+        "ExpectedBucketOwner" => String.t(),
         "Format" => list(any()),
         "Location" => String.t(),
         "Name" => String.t(),
@@ -2060,6 +2062,7 @@ defmodule AWS.GuardDuty do
 
       update_threat_intel_set_request() :: %{
         optional("Activate") => boolean(),
+        optional("ExpectedBucketOwner") => String.t(),
         optional("Location") => String.t(),
         optional("Name") => String.t()
       }
@@ -3189,6 +3192,7 @@ defmodule AWS.GuardDuty do
 
       create_threat_intel_set_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
         optional("Tags") => map(),
         required("Activate") => boolean(),
         required("Format") => list(any()),
@@ -3329,6 +3333,7 @@ defmodule AWS.GuardDuty do
 
       create_ip_set_request() :: %{
         optional("ClientToken") => String.t(),
+        optional("ExpectedBucketOwner") => String.t(),
         optional("Tags") => map(),
         required("Activate") => boolean(),
         required("Format") => list(any()),
@@ -3412,6 +3417,7 @@ defmodule AWS.GuardDuty do
   ## Example:
 
       get_ip_set_response() :: %{
+        "ExpectedBucketOwner" => String.t(),
         "Format" => list(any()),
         "Location" => String.t(),
         "Name" => String.t(),
@@ -4783,7 +4789,8 @@ defmodule AWS.GuardDuty do
 
   @type create_filter_errors() :: bad_request_exception() | internal_server_error_exception()
 
-  @type create_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+  @type create_ip_set_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type create_malware_protection_plan_errors() ::
           bad_request_exception()
@@ -4800,7 +4807,7 @@ defmodule AWS.GuardDuty do
           bad_request_exception() | internal_server_error_exception()
 
   @type create_threat_intel_set_errors() ::
-          bad_request_exception() | internal_server_error_exception()
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type decline_invitations_errors() ::
           bad_request_exception() | internal_server_error_exception()
@@ -4954,7 +4961,8 @@ defmodule AWS.GuardDuty do
   @type update_findings_feedback_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
-  @type update_ip_set_errors() :: bad_request_exception() | internal_server_error_exception()
+  @type update_ip_set_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type update_malware_protection_plan_errors() ::
           bad_request_exception()
@@ -4975,7 +4983,7 @@ defmodule AWS.GuardDuty do
           bad_request_exception() | internal_server_error_exception()
 
   @type update_threat_intel_set_errors() ::
-          bad_request_exception() | internal_server_error_exception()
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   def metadata do
     %{

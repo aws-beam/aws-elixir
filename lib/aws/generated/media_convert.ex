@@ -678,10 +678,13 @@ defmodule AWS.MediaConvert do
         "Bitrate" => integer(),
         "CodecProfile" => list(any()),
         "CodingMode" => list(any()),
+        "LoudnessMeasurementMode" => list(any()),
+        "RapInterval" => integer(),
         "RateControlMode" => list(any()),
         "RawFormat" => list(any()),
         "SampleRate" => integer(),
         "Specification" => list(any()),
+        "TargetLoudnessRange" => integer(),
         "VbrQuality" => list(any())
       }
 

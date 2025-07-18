@@ -19859,6 +19859,7 @@ defmodule AWS.EC2 do
         "SriovNetSupport" => String.t(),
         "RootDeviceName" => String.t(),
         "ProductCodes" => list(product_code()),
+        "FreeTierEligible" => boolean(),
         "Tags" => list(tag()),
         "CreationDate" => String.t(),
         "ImageAllowed" => boolean(),

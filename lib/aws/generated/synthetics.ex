@@ -90,6 +90,18 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      dependency() :: %{
+        "Reference" => String.t(),
+        "Type" => list(any())
+      }
+
+  """
+  @type dependency() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_canaries_response() :: %{
         "Canaries" => list(canary()),
         "NextToken" => String.t()
@@ -595,6 +607,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       canary_code_output() :: %{
+        "Dependencies" => list(dependency()),
         "Handler" => String.t(),
         "SourceLocationArn" => String.t()
       }
@@ -1000,6 +1013,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       canary_code_input() :: %{
+        "Dependencies" => list(dependency()),
         "Handler" => String.t(),
         "S3Bucket" => String.t(),
         "S3Key" => String.t(),

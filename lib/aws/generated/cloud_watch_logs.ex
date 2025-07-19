@@ -668,6 +668,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      fields_data() :: %{
+        "data" => binary()
+      }
+      
+  """
+  @type fields_data() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_search_encryption_policy() :: %{
         "policyName" => String.t(),
         "status" => open_search_resource_status()
@@ -2393,6 +2404,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_log_object_response() :: %{
+        "fieldStream" => list()
+      }
+      
+  """
+  @type get_log_object_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_live_tail_request() :: %{
         optional("logEventFilterPattern") => String.t(),
         optional("logStreamNamePrefixes") => list(String.t()),
@@ -2961,6 +2983,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_log_object_request() :: %{
+        optional("unmask") => boolean(),
+        required("logObjectPointer") => String.t()
+      }
+      
+  """
+  @type get_log_object_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       anomaly_detector() :: %{
         "anomalyDetectorArn" => String.t(),
         "anomalyDetectorStatus" => list(any()),
@@ -3022,6 +3056,17 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type delete_delivery_destination_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_streaming_exception() :: %{
+        "message" => String.t()
+      }
+      
+  """
+  @type internal_streaming_exception() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3712,6 +3757,13 @@ defmodule AWS.CloudWatchLogs do
           | invalid_parameter_exception()
           | service_unavailable_exception()
           | resource_not_found_exception()
+
+  @type get_log_object_errors() ::
+          limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | access_denied_exception()
+          | resource_not_found_exception()
+          | invalid_operation_exception()
 
   @type get_log_record_errors() ::
           limit_exceeded_exception()
@@ -5375,6 +5427,31 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Retrieves a large logging object (LLO) and streams it back.
+
+  This API is used to fetch the content of large portions of log events that have
+  been ingested through the PutOpenTelemetryLogs API.
+  When log events contain fields that would cause the total event size to exceed
+  1MB, CloudWatch Logs automatically processes up to 10 fields, starting with the
+  largest fields. Each field is truncated as needed to keep
+  the total event size as close to 1MB as possible. The excess portions are stored
+  as Large Log Objects (LLOs) and these fields are processed separately and LLO
+  reference system fields (in the format `@ptr.$[path.to.field]`) are added. The path in the reference field reflects the original JSON structure
+  where the large field was located. For example, this could be
+  `@ptr.$['input']['message']`, `@ptr.$['AAA']['BBB']['CCC']['DDD']`, `@ptr.$['AAA']`, or any other path matching your log structure.
+  """
+  @spec get_log_object(map(), get_log_object_request(), list()) ::
+          {:ok, get_log_object_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_log_object_errors()}
+  def get_log_object(%Client{} = client, input, options \\ []) do
+    meta = metadata() |> Map.put_new(:host_prefix, "streaming-")
+
+    Request.request_post(client, meta, "GetLogObject", input, options)
+  end
+
+  @doc """
   Retrieves all of the fields and values of a single log event.
 
   All fields are retrieved,
@@ -5595,10 +5672,11 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
-  Creates an account-level data protection policy, subscription filter policy, or
-  field
-  index policy that applies to all log groups or a subset of log groups in the
-  account.
+  Creates an account-level data protection policy, subscription filter policy,
+  field index
+  policy, transformer policy, or metric extraction policy that applies to all log
+  groups or a
+  subset of log groups in the account.
 
   To use this operation, you must be signed on with the correct permissions
   depending on the
@@ -5620,6 +5698,11 @@ defmodule AWS.CloudWatchLogs do
 
     *
   To create a field index policy, you must have the `logs:PutIndexPolicy` and
+  `logs:PutAccountPolicy` permissions.
+
+    *
+  To create a metric extraction policy, you must have the
+  `logs:PutMetricExtractionPolicy` and
   `logs:PutAccountPolicy` permissions.
 
   ## Data protection policy
@@ -5844,6 +5927,90 @@ defmodule AWS.CloudWatchLogs do
   account-level policy that
   you create with
   [PutAccountPolicy](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html).
+
+  ## Metric extraction policy
+
+  A metric extraction policy controls whether CloudWatch Metrics can be created
+  through the
+  Embedded Metrics Format (EMF) for log groups in your account. By default, EMF
+  metric creation
+  is enabled for all log groups. You can use metric extraction policies to disable
+  EMF metric
+  creation for your entire account or specific log groups.
+
+  When a policy disables EMF metric creation for a log group, log events in the
+  EMF format
+  are still ingested, but no CloudWatch Metrics are created from them.
+
+  Creating a policy disables metrics for AWS features that use EMF to create
+  metrics, such
+  as CloudWatch Container Insights and CloudWatch Application Signals. To prevent
+  turning off
+  those features by accident, we recommend that you exclude the underlying
+  log-groups through a
+  selection-criteria such as
+
+  ```
+  LogGroupNamePrefix NOT IN ["/aws/containerinsights", "/aws/ecs/containerinsights", "/aws/application-signals/data"]
+  ```
+
+  .
+
+  Each account can have either one account-level metric extraction policy that
+  applies to
+  all log groups, or up to 5 policies that are each scoped to a subset of log
+  groups with the
+  `selectionCriteria` parameter. The selection criteria supports filtering by
+  `LogGroupName` and
+  `LogGroupNamePrefix` using the operators `IN` and `NOT IN`. You can specify up
+  to 50 values in each
+  `IN` or `NOT IN` list.
+
+  The selection criteria can be specified in these formats:
+
+  `LogGroupName IN ["log-group-1", "log-group-2"]` 
+
+  `LogGroupNamePrefix NOT IN ["/aws/prefix1", "/aws/prefix2"]`
+
+  If you have multiple account-level metric extraction policies with selection
+  criteria, no
+  two of them can have overlapping criteria. For example, if you have one policy
+  with selection
+  criteria `LogGroupNamePrefix IN ["my-log"]`, you can't have another metric extraction policy
+  with selection criteria `LogGroupNamePrefix IN ["/my-log-prod"]` or
+
+  ```
+  LogGroupNamePrefix IN
+  ["/my-logging"]
+  ```
+
+  , as the set of log groups matching these prefixes would be a subset of the log
+  groups matching the first policy's prefix, creating an overlap.
+
+  When using `NOT IN`, only one policy with this operator is allowed per account.
+
+  When combining policies with `IN` and `NOT IN` operators, the overlap check
+  ensures that
+  policies don't have conflicting effects. Two policies with `IN` and `NOT IN`
+  operators do not
+  overlap if and only if every value in the `IN `policy is completely contained
+  within some value
+  in the `NOT IN` policy. For example:
+
+    *
+  If you have a `NOT IN` policy for prefix `"/aws/lambda"`, you can create an `IN`
+  policy for
+  the exact log group name `"/aws/lambda/function1"` because the set of log groups
+  matching
+  `"/aws/lambda/function1"` is a subset of the log groups matching
+  `"/aws/lambda"`.
+
+    *
+  If you have a `NOT IN` policy for prefix `"/aws/lambda"`, you cannot create an
+  `IN` policy
+  for prefix `"/aws"` because the set of log groups matching `"/aws"` is not a
+  subset of the log
+  groups matching `"/aws/lambda"`.
   """
   @spec put_account_policy(map(), put_account_policy_request(), list()) ::
           {:ok, put_account_policy_response(), any()}
@@ -6876,17 +7043,11 @@ defmodule AWS.CloudWatchLogs do
   To add tags, use
   [TagResource](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html).
 
-  CloudWatch Logs doesn't support IAM policies that prevent users from assigning
-  specified
-  tags to log groups using the
-
-  ```
-  aws:Resource/*key-name*
-
-  ```
-
-  or
-  `aws:TagKeys` condition keys.
+  When using IAM policies to control tag management for CloudWatch Logs log
+  groups, the
+  condition keys `aws:Resource/key-name` and `aws:TagKeys` cannot be used to
+  restrict which tags
+  users can assign.
   """
   @spec untag_log_group(map(), untag_log_group_request(), list()) ::
           {:ok, nil, any()}

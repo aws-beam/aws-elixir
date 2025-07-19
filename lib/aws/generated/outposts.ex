@@ -376,6 +376,19 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      get_outpost_billing_information_output() :: %{
+        "ContractEndDate" => String.t(),
+        "NextToken" => String.t(),
+        "Subscriptions" => list(subscription())
+      }
+
+  """
+  @type get_outpost_billing_information_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_site_rack_physical_properties_input() :: %{
         optional("FiberOpticCableType") => list(any()),
         optional("MaximumSupportedWeightLbs") => list(any()),
@@ -806,6 +819,18 @@ defmodule AWS.Outposts do
 
   ## Example:
 
+      get_outpost_billing_information_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t()
+      }
+
+  """
+  @type get_outpost_billing_information_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_outpost_output() :: %{}
 
   """
@@ -969,6 +994,24 @@ defmodule AWS.Outposts do
 
   """
   @type list_capacity_tasks_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription() :: %{
+        "BeginDate" => non_neg_integer(),
+        "EndDate" => non_neg_integer(),
+        "MonthlyRecurringPrice" => float(),
+        "OrderIds" => list(String.t()),
+        "SubscriptionId" => String.t(),
+        "SubscriptionStatus" => list(any()),
+        "SubscriptionType" => list(any()),
+        "UpfrontPrice" => float()
+      }
+
+  """
+  @type subscription() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1311,7 +1354,10 @@ defmodule AWS.Outposts do
           | not_found_exception()
 
   @type get_catalog_item_errors() ::
-          validation_exception() | internal_server_exception() | not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
 
   @type get_connection_errors() ::
           validation_exception()
@@ -1327,6 +1373,9 @@ defmodule AWS.Outposts do
           | access_denied_exception()
           | internal_server_exception()
           | not_found_exception()
+
+  @type get_outpost_billing_information_errors() ::
+          access_denied_exception() | internal_server_exception() | not_found_exception()
 
   @type get_outpost_instance_types_errors() ::
           validation_exception()
@@ -1377,7 +1426,10 @@ defmodule AWS.Outposts do
           | not_found_exception()
 
   @type list_catalog_items_errors() ::
-          validation_exception() | internal_server_exception() | not_found_exception()
+          validation_exception()
+          | access_denied_exception()
+          | internal_server_exception()
+          | not_found_exception()
 
   @type list_orders_errors() ::
           validation_exception()
@@ -1770,6 +1822,50 @@ defmodule AWS.Outposts do
     url_path = "/outposts/#{AWS.Util.encode_uri(outpost_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets current and historical billing information about the specified Outpost.
+  """
+  @spec get_outpost_billing_information(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, get_outpost_billing_information_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_outpost_billing_information_errors()}
+  def get_outpost_billing_information(
+        %Client{} = client,
+        outpost_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/outpost/#{AWS.Util.encode_uri(outpost_identifier)}/billing-information"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2493,7 +2589,8 @@ defmodule AWS.Outposts do
   @doc """
   Starts the specified capacity task.
 
-  You can have one active capacity task for each order and each Outpost.
+  You can have one active capacity task for each order
+  and each Outpost.
   """
   @spec start_capacity_task(map(), String.t(), start_capacity_task_input(), list()) ::
           {:ok, start_capacity_task_output(), any()}

@@ -2630,7 +2630,8 @@ defmodule AWS.AuditManager do
           | resource_not_found_exception()
 
   @type register_organization_admin_account_errors() ::
-          validation_exception()
+          throttling_exception()
+          | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
           | resource_not_found_exception()

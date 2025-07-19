@@ -1476,6 +1476,7 @@ defmodule AWS.MediaConvert do
         "ProgramNumber" => integer(),
         "PsiControl" => list(any()),
         "SupplementalImps" => list(String.t()),
+        "TamsSettings" => input_tams_settings(),
         "TimecodeSource" => list(any()),
         "TimecodeStart" => String.t(),
         "VideoGenerator" => input_video_generator(),
@@ -3773,6 +3774,20 @@ defmodule AWS.MediaConvert do
 
   """
   @type imsc_destination_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_tams_settings() :: %{
+        "AuthConnectionArn" => String.t(),
+        "GapHandling" => list(any()),
+        "SourceId" => String.t(),
+        "Timerange" => String.t()
+      }
+
+  """
+  @type input_tams_settings() :: %{String.t() => any()}
 
   @typedoc """
 

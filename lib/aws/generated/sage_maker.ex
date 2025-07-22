@@ -2131,6 +2131,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      s3_file_system() :: %{
+        "S3Uri" => String.t()
+      }
+      
+  """
+  @type s3_file_system() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       clarify_shap_baseline_config() :: %{
         "MimeType" => String.t(),
         "ShapBaseline" => String.t(),
@@ -2370,6 +2381,18 @@ defmodule AWS.SageMaker do
       
   """
   @type list_notebook_instances_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_file_system_config() :: %{
+        "MountPath" => String.t(),
+        "S3Uri" => String.t()
+      }
+      
+  """
+  @type s3_file_system_config() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -11937,6 +11960,7 @@ defmodule AWS.SageMaker do
         "CognitoConfig" => cognito_config(),
         "CreateDate" => non_neg_integer(),
         "FailureReason" => String.t(),
+        "IpAddressType" => list(any()),
         "LastUpdatedDate" => non_neg_integer(),
         "OidcConfig" => oidc_config_for_response(),
         "SourceIpConfig" => source_ip_config(),
@@ -13883,6 +13907,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_workforce_request() :: %{
+        optional("IpAddressType") => list(any()),
         optional("OidcConfig") => oidc_config(),
         optional("SourceIpConfig") => source_ip_config(),
         optional("WorkforceVpcConfig") => workforce_vpc_config_request(),
@@ -14551,6 +14576,7 @@ defmodule AWS.SageMaker do
       
       create_workforce_request() :: %{
         optional("CognitoConfig") => cognito_config(),
+        optional("IpAddressType") => list(any()),
         optional("OidcConfig") => oidc_config(),
         optional("SourceIpConfig") => source_ip_config(),
         optional("Tags") => list(tag()),

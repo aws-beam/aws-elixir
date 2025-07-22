@@ -464,6 +464,17 @@ defmodule AWS.Deadline do
 
   ## Example:
 
+      vpc_configuration() :: %{
+        "resourceConfigurationArns" => list(String.t())
+      }
+
+  """
+  @type vpc_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_job_entity_response() :: %{
         "entities" => list(list()),
         "errors" => list(list())
@@ -835,7 +846,8 @@ defmodule AWS.Deadline do
       service_managed_ec2_fleet_configuration() :: %{
         "instanceCapabilities" => service_managed_ec2_instance_capabilities(),
         "instanceMarketOptions" => service_managed_ec2_instance_market_options(),
-        "storageProfileId" => String.t()
+        "storageProfileId" => String.t(),
+        "vpcConfiguration" => vpc_configuration()
       }
 
   """
@@ -1019,6 +1031,7 @@ defmodule AWS.Deadline do
 
       step_search_summary() :: %{
         "createdAt" => non_neg_integer(),
+        "createdBy" => String.t(),
         "endedAt" => non_neg_integer(),
         "jobId" => String.t(),
         "lifecycleStatus" => list(any()),
@@ -1031,7 +1044,9 @@ defmodule AWS.Deadline do
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
-        "taskRunStatusCounts" => map()
+        "taskRunStatusCounts" => map(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
       }
 
   """
@@ -1425,7 +1440,9 @@ defmodule AWS.Deadline do
         "startedAt" => non_neg_integer(),
         "stepId" => String.t(),
         "targetRunStatus" => list(any()),
-        "taskId" => String.t()
+        "taskId" => String.t(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
       }
 
   """
@@ -3805,7 +3822,9 @@ defmodule AWS.Deadline do
         "targetTaskRunStatus" => list(any()),
         "taskFailureRetryCount" => integer(),
         "taskRunStatus" => list(any()),
-        "taskRunStatusCounts" => map()
+        "taskRunStatusCounts" => map(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t()
       }
 
   """

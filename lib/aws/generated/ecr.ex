@@ -169,6 +169,7 @@ defmodule AWS.ECR do
       
       put_image_tag_mutability_response() :: %{
         "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
         "registryId" => String.t(),
         "repositoryName" => String.t()
       }
@@ -293,6 +294,18 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      image_tag_mutability_exclusion_filter() :: %{
+        "filter" => String.t(),
+        "filterType" => list(any())
+      }
+      
+  """
+  @type image_tag_mutability_exclusion_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image_not_found_exception() :: %{
         "message" => String.t()
       }
@@ -309,6 +322,7 @@ defmodule AWS.ECR do
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
         optional("imageTagMutability") => list(any()),
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
         optional("lifecyclePolicy") => String.t(),
         optional("repositoryPolicy") => String.t(),
         optional("resourceTags") => list(tag()),
@@ -922,6 +936,7 @@ defmodule AWS.ECR do
         "description" => String.t(),
         "encryptionConfiguration" => encryption_configuration_for_repository_creation_template(),
         "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
         "lifecyclePolicy" => String.t(),
         "prefix" => String.t(),
         "repositoryPolicy" => String.t(),
@@ -1093,6 +1108,7 @@ defmodule AWS.ECR do
         "encryptionConfiguration" => encryption_configuration(),
         "imageScanningConfiguration" => image_scanning_configuration(),
         "imageTagMutability" => list(any()),
+        "imageTagMutabilityExclusionFilters" => list(image_tag_mutability_exclusion_filter()),
         "registryId" => String.t(),
         "repositoryArn" => String.t(),
         "repositoryName" => String.t(),
@@ -1464,6 +1480,7 @@ defmodule AWS.ECR do
         optional("encryptionConfiguration") => encryption_configuration(),
         optional("imageScanningConfiguration") => image_scanning_configuration(),
         optional("imageTagMutability") => list(any()),
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
         optional("registryId") => String.t(),
         optional("tags") => list(tag()),
         required("repositoryName") => String.t()
@@ -1584,6 +1601,7 @@ defmodule AWS.ECR do
   ## Example:
       
       put_image_tag_mutability_request() :: %{
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
         optional("registryId") => String.t(),
         required("imageTagMutability") => list(any()),
         required("repositoryName") => String.t()
@@ -2238,6 +2256,7 @@ defmodule AWS.ECR do
         optional("description") => String.t(),
         optional("encryptionConfiguration") => encryption_configuration_for_repository_creation_template(),
         optional("imageTagMutability") => list(any()),
+        optional("imageTagMutabilityExclusionFilters") => list(image_tag_mutability_exclusion_filter()),
         optional("lifecyclePolicy") => String.t(),
         optional("repositoryPolicy") => String.t(),
         optional("resourceTags") => list(tag()),

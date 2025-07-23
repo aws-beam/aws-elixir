@@ -863,6 +863,7 @@ defmodule AWS.EMR do
   ## Example:
       
       modify_cluster_output() :: %{
+        "ExtendedSupport" => boolean(),
         "StepConcurrencyLevel" => integer()
       }
       
@@ -1143,6 +1144,7 @@ defmodule AWS.EMR do
         "KerberosAttributes" => kerberos_attributes(),
         "EbsRootVolumeThroughput" => integer(),
         "ServiceRole" => String.t(),
+        "ExtendedSupport" => boolean(),
         "PlacementGroups" => list(placement_group_config()),
         "RequestedAmiVersion" => String.t(),
         "NormalizedInstanceHours" => integer(),
@@ -2116,6 +2118,7 @@ defmodule AWS.EMR do
   ## Example:
       
       modify_cluster_input() :: %{
+        optional("ExtendedSupport") => boolean(),
         optional("StepConcurrencyLevel") => integer(),
         required("ClusterId") => String.t()
       }
@@ -2875,6 +2878,7 @@ defmodule AWS.EMR do
         optional("EbsRootVolumeIops") => integer(),
         optional("EbsRootVolumeSize") => integer(),
         optional("EbsRootVolumeThroughput") => integer(),
+        optional("ExtendedSupport") => boolean(),
         optional("JobFlowRole") => String.t(),
         optional("KerberosAttributes") => kerberos_attributes(),
         optional("LogEncryptionKmsKeyId") => String.t(),

@@ -1791,6 +1791,18 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      match_offset() :: %{
+        "endOffset" => [integer()],
+        "startOffset" => [integer()]
+      }
+
+  """
+  @type match_offset() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       subscription_target_summary() :: %{
         "applicableAssetTypes" => list(String.t()),
         "authorizedPrincipals" => list(String.t()),
@@ -2268,6 +2280,7 @@ defmodule AWS.DataZone do
       asset_item_additional_attributes() :: %{
         "formsOutput" => list(form_output()),
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "matchRationale" => list(list()),
         "readOnlyFormsOutput" => list(form_output())
       }
 
@@ -2735,6 +2748,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       glossary_term_item() :: %{
+        "additionalAttributes" => glossary_term_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "domainId" => String.t(),
@@ -3039,6 +3053,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      aggregation_output_item() :: %{
+        "count" => [integer()],
+        "displayValue" => String.t(),
+        "value" => String.t()
+      }
+
+  """
+  @type aggregation_output_item() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_metadata_generation_run_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
@@ -3253,6 +3280,19 @@ defmodule AWS.DataZone do
 
   """
   @type is_null_expression() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_match_item() :: %{
+        "attribute" => String.t(),
+        "matchOffsets" => list(match_offset()),
+        "text" => [String.t()]
+      }
+
+  """
+  @type text_match_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3575,7 +3615,8 @@ defmodule AWS.DataZone do
 
       asset_listing_item_additional_attributes() :: %{
         "forms" => String.t(),
-        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output())
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
+        "matchRationale" => list(list())
       }
 
   """
@@ -3806,6 +3847,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       search_listings_output() :: %{
+        "aggregates" => list(aggregation_output()),
         "items" => list(list()),
         "nextToken" => String.t(),
         "totalMatchCount" => [integer()]
@@ -3813,6 +3855,19 @@ defmodule AWS.DataZone do
 
   """
   @type search_listings_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_output() :: %{
+        "attribute" => String.t(),
+        "displayValue" => String.t(),
+        "items" => list(aggregation_output_item())
+      }
+
+  """
+  @type aggregation_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4474,6 +4529,7 @@ defmodule AWS.DataZone do
 
       search_listings_input() :: %{
         optional("additionalAttributes") => list(list(any())()),
+        optional("aggregations") => list(aggregation_list_item()),
         optional("filters") => list(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -4535,6 +4591,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       glossary_item() :: %{
+        "additionalAttributes" => glossary_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "description" => String.t(),
@@ -4767,6 +4824,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_product_result_item() :: %{
+        "additionalAttributes" => data_product_item_additional_attributes(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t(),
         "description" => String.t(),
@@ -4981,6 +5039,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glossary_term_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type glossary_term_item_additional_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       notification_output() :: %{
         "actionLink" => String.t(),
         "creationTimestamp" => [non_neg_integer()],
@@ -5047,7 +5116,8 @@ defmodule AWS.DataZone do
   ## Example:
 
       data_product_listing_item_additional_attributes() :: %{
-        "forms" => String.t()
+        "forms" => String.t(),
+        "matchRationale" => list(list())
       }
 
   """
@@ -5368,6 +5438,18 @@ defmodule AWS.DataZone do
 
   """
   @type get_environment_credentials_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_list_item() :: %{
+        "attribute" => String.t(),
+        "displayValue" => String.t()
+      }
+
+  """
+  @type aggregation_list_item() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -6958,6 +7040,17 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      glossary_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type glossary_item_additional_attributes() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_listing_input() :: %{}
 
   """
@@ -7481,6 +7574,17 @@ defmodule AWS.DataZone do
 
   """
   @type delete_project_profile_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type data_product_item_additional_attributes() :: %{String.t() => any()}
 
   @typedoc """
 

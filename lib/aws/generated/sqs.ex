@@ -54,8 +54,7 @@ defmodule AWS.SQS do
 
     *
 
-  [Amazon SQS in the *Command Line Interface*
-  ](http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html)
+  [Amazon SQS in the Command Line Interface](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/index.html)
 
     *
 
@@ -1430,8 +1429,8 @@ defmodule AWS.SQS do
   You can't change the queue type after you create it and you can't convert
   an existing standard queue into a FIFO queue. You must either create a new
   FIFO queue for your application or delete your existing standard queue and
-  recreate it as a FIFO queue. For more information, see [Moving From a Standard Queue to a FIFO
-  Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving)
+  recreate it as a FIFO queue. For more information, see [Moving From a standard queue to a FIFO
+  queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-moving)
   in the
   *Amazon SQS Developer Guide*.
 
@@ -1904,7 +1903,7 @@ defmodule AWS.SQS do
 
   Amazon SQS does not throw an exception or completely reject the message if it
   contains invalid characters. Instead, it replaces those invalid characters with
-  `U+FFFD` before storing the message in the queue, as long as the message body
+  U+FFFD before storing the message in the queue, as long as the message body
   contains at least one valid character.
   """
   @spec send_message(map(), send_message_request(), list()) ::
@@ -1953,7 +1952,7 @@ defmodule AWS.SQS do
 
   Amazon SQS does not throw an exception or completely reject the message if it
   contains invalid characters. Instead, it replaces those invalid characters with
-  `U+FFFD` before storing the message in the queue, as long as the message body
+  U+FFFD before storing the message in the queue, as long as the message body
   contains at least one valid character.
 
   If you don't specify the `DelaySeconds` parameter for an entry, Amazon SQS uses

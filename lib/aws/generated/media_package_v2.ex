@@ -60,7 +60,8 @@ defmodule AWS.MediaPackageV2 do
   ## Example:
 
       input_switch_configuration() :: %{
-        "MQCSInputSwitching" => [boolean()]
+        "MQCSInputSwitching" => [boolean()],
+        "PreferredInput" => [integer()]
       }
 
   """
@@ -2234,8 +2235,7 @@ defmodule AWS.MediaPackageV2 do
   end
 
   @doc """
-  Retrieves the specified channel that's configured in AWS Elemental MediaPackage,
-  including the origin endpoints that are associated with it.
+  Retrieves the specified channel that's configured in AWS Elemental MediaPackage.
   """
   @spec get_channel(map(), String.t(), String.t(), list()) ::
           {:ok, get_channel_response(), any()}
@@ -2256,8 +2256,7 @@ defmodule AWS.MediaPackageV2 do
 
   @doc """
   Retrieves the specified channel group that's configured in AWS Elemental
-  MediaPackage, including the channels and origin endpoints that are associated
-  with it.
+  MediaPackage.
   """
   @spec get_channel_group(map(), String.t(), list()) ::
           {:ok, get_channel_group_response(), any()}
@@ -2419,8 +2418,7 @@ defmodule AWS.MediaPackageV2 do
 
   @doc """
   Retrieves all channels in a specific channel group that are configured in AWS
-  Elemental MediaPackage, including the origin endpoints that are associated with
-  it.
+  Elemental MediaPackage.
   """
   @spec list_channels(map(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, list_channels_response(), any()}

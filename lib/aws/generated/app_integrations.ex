@@ -88,6 +88,18 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      iframe_config() :: %{
+        "Allow" => list(String.t()),
+        "Sandbox" => list(String.t())
+      }
+
+  """
+  @type iframe_config() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unsupported_operation_exception() :: %{
         "Message" => String.t()
       }
@@ -240,6 +252,17 @@ defmodule AWS.AppIntegrations do
 
   ## Example:
 
+      contact_handling() :: %{
+        "Scope" => list(any())
+      }
+
+  """
+  @type contact_handling() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_event_integration_associations_response() :: %{
         "EventIntegrationAssociations" => list(event_integration_association()),
         "NextToken" => String.t()
@@ -378,8 +401,12 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       create_application_request() :: %{
+        optional("ApplicationConfig") => application_config(),
         optional("ClientToken") => String.t(),
         optional("Description") => String.t(),
+        optional("IframeConfig") => iframe_config(),
+        optional("InitializationTimeout") => integer(),
+        optional("IsService") => boolean(),
         optional("Permissions") => list(String.t()),
         optional("Publications") => list(publication()),
         optional("Subscriptions") => list(subscription()),
@@ -514,8 +541,12 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       update_application_request() :: %{
+        optional("ApplicationConfig") => application_config(),
         optional("ApplicationSourceConfig") => application_source_config(),
         optional("Description") => String.t(),
+        optional("IframeConfig") => iframe_config(),
+        optional("InitializationTimeout") => integer(),
+        optional("IsService") => boolean(),
         optional("Name") => String.t(),
         optional("Permissions") => list(String.t()),
         optional("Publications") => list(publication()),
@@ -552,11 +583,15 @@ defmodule AWS.AppIntegrations do
   ## Example:
 
       get_application_response() :: %{
+        "ApplicationConfig" => application_config(),
         "ApplicationSourceConfig" => application_source_config(),
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "Description" => String.t(),
         "Id" => String.t(),
+        "IframeConfig" => iframe_config(),
+        "InitializationTimeout" => integer(),
+        "IsService" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Namespace" => String.t(),
@@ -736,6 +771,7 @@ defmodule AWS.AppIntegrations do
         "Arn" => String.t(),
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t(),
+        "IsService" => boolean(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t(),
         "Namespace" => String.t()
@@ -791,6 +827,17 @@ defmodule AWS.AppIntegrations do
 
   """
   @type list_event_integrations_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_config() :: %{
+        "ContactHandling" => contact_handling()
+      }
+
+  """
+  @type application_config() :: %{String.t() => any()}
 
   @typedoc """
 

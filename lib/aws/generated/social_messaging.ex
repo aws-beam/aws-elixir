@@ -119,6 +119,34 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      update_whats_app_message_template_input() :: %{
+        optional("templateCategory") => String.t(),
+        optional("templateComponents") => binary(),
+        required("id") => String.t(),
+        required("metaTemplateId") => String.t()
+      }
+
+  """
+  @type update_whats_app_message_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_whats_app_message_template_input() :: %{
+        optional("deleteAllLanguages") => boolean(),
+        optional("metaTemplateId") => String.t(),
+        required("id") => String.t(),
+        required("templateName") => String.t()
+      }
+
+  """
+  @type delete_whats_app_message_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       whats_app_signup_callback_result() :: %{
         "associateInProgressToken" => String.t(),
         "linkedAccountsWithIncompleteSetup" => map()
@@ -173,6 +201,29 @@ defmodule AWS.SocialMessaging do
 
   """
   @type put_whats_app_business_account_event_destinations_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_template_input() :: %{
+        required("id") => String.t(),
+        required("metaTemplateId") => String.t()
+      }
+
+  """
+  @type get_whats_app_message_template_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_whats_app_message_template_output() :: %{
+        "template" => String.t()
+      }
+
+  """
+  @type get_whats_app_message_template_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -265,6 +316,28 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      create_whats_app_message_template_from_library_output() :: %{
+        "category" => String.t(),
+        "metaTemplateId" => String.t(),
+        "templateStatus" => [String.t()]
+      }
+
+  """
+  @type create_whats_app_message_template_from_library_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_whats_app_message_template_output() :: %{}
+
+  """
+  @type update_whats_app_message_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => String.t()
       }
@@ -276,12 +349,52 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_template_library_output() :: %{
+        "metaLibraryTemplates" => list(meta_library_template_definition()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_whats_app_template_library_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_output() :: %{
+        "category" => String.t(),
+        "metaTemplateId" => String.t(),
+        "templateStatus" => [String.t()]
+      }
+
+  """
+  @type create_whats_app_message_template_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_linked_whats_app_business_account_input() :: %{
         required("id") => String.t()
       }
 
   """
   @type get_linked_whats_app_business_account_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      library_template_body_inputs() :: %{
+        "addContactNumber" => boolean(),
+        "addLearnMoreLink" => boolean(),
+        "addSecurityRecommendation" => boolean(),
+        "addTrackPackageLink" => boolean(),
+        "codeExpirationMinutes" => integer()
+      }
+
+  """
+  @type library_template_body_inputs() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -342,6 +455,58 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      template_summary() :: %{
+        "metaTemplateId" => String.t(),
+        "templateCategory" => String.t(),
+        "templateLanguage" => String.t(),
+        "templateName" => String.t(),
+        "templateQualityScore" => String.t(),
+        "templateStatus" => String.t()
+      }
+
+  """
+  @type template_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_media_input() :: %{
+        optional("sourceS3File") => s3_file(),
+        required("id") => String.t()
+      }
+
+  """
+  @type create_whats_app_message_template_media_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_from_library_input() :: %{
+        required("id") => String.t(),
+        required("metaLibraryTemplate") => meta_library_template()
+      }
+
+  """
+  @type create_whats_app_message_template_from_library_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_whats_app_message_templates_output() :: %{
+        "nextToken" => String.t(),
+        "templates" => list(template_summary())
+      }
+
+  """
+  @type list_whats_app_message_templates_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_parameters_exception() :: %{
         "message" => String.t()
       }
@@ -392,6 +557,22 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      library_template_button_input() :: %{
+        "otpType" => String.t(),
+        "phoneNumber" => String.t(),
+        "supportedApps" => list(map()),
+        "type" => String.t(),
+        "url" => map(),
+        "zeroTapTermsAccepted" => boolean()
+      }
+
+  """
+  @type library_template_button_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       post_whats_app_message_media_output() :: %{
         "mediaId" => String.t()
       }
@@ -427,6 +608,20 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_template_library_input() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("id") => String.t()
+      }
+
+  """
+  @type list_whats_app_template_library_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_output() :: %{
         "statusCode" => [integer()]
       }
@@ -444,6 +639,23 @@ defmodule AWS.SocialMessaging do
 
   """
   @type delete_whats_app_message_media_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      library_template_button_list() :: %{
+        "otpType" => String.t(),
+        "phoneNumber" => String.t(),
+        "supportedApps" => list(map()),
+        "text" => String.t(),
+        "type" => String.t(),
+        "url" => String.t(),
+        "zeroTapTermsAccepted" => boolean()
+      }
+
+  """
+  @type library_template_button_list() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -481,6 +693,15 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      delete_whats_app_message_template_output() :: %{}
+
+  """
+  @type delete_whats_app_message_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t()
       }
@@ -503,12 +724,37 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      list_whats_app_message_templates_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("id") => String.t()
+      }
+
+  """
+  @type list_whats_app_message_templates_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_output() :: %{
         "statusCode" => [integer()]
       }
 
   """
   @type untag_resource_output() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_input() :: %{
+        required("id") => String.t(),
+        required("templateDefinition") => binary()
+      }
+
+  """
+  @type create_whats_app_message_template_input() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -530,6 +776,7 @@ defmodule AWS.SocialMessaging do
 
       whats_app_phone_number_detail() :: %{
         "arn" => String.t(),
+        "dataLocalizationRegion" => String.t(),
         "displayPhoneNumber" => String.t(),
         "displayPhoneNumberName" => String.t(),
         "metaPhoneNumberId" => String.t(),
@@ -547,6 +794,7 @@ defmodule AWS.SocialMessaging do
 
       whats_app_phone_number_summary() :: %{
         "arn" => String.t(),
+        "dataLocalizationRegion" => String.t(),
         "displayPhoneNumber" => String.t(),
         "displayPhoneNumberName" => String.t(),
         "metaPhoneNumberId" => String.t(),
@@ -574,8 +822,20 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      limit_exceeded_exception() :: %{
+        "message" => String.t()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       whats_app_signup_callback() :: %{
-        "accessToken" => [String.t()]
+        "accessToken" => [String.t()],
+        "callbackUrl" => [String.t()]
       }
 
   """
@@ -622,12 +882,59 @@ defmodule AWS.SocialMessaging do
 
   ## Example:
 
+      meta_library_template_definition() :: %{
+        "templateBody" => String.t(),
+        "templateButtons" => list(library_template_button_list()),
+        "templateCategory" => String.t(),
+        "templateHeader" => String.t(),
+        "templateId" => String.t(),
+        "templateIndustry" => list(String.t()),
+        "templateLanguage" => String.t(),
+        "templateName" => String.t(),
+        "templateTopic" => String.t(),
+        "templateUseCase" => String.t()
+      }
+
+  """
+  @type meta_library_template_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_linked_whats_app_business_account_phone_number_input() :: %{
         required("id") => String.t()
       }
 
   """
   @type get_linked_whats_app_business_account_phone_number_input() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      meta_library_template() :: %{
+        "libraryTemplateBodyInputs" => library_template_body_inputs(),
+        "libraryTemplateButtonInputs" => list(library_template_button_input()),
+        "libraryTemplateName" => String.t(),
+        "templateCategory" => String.t(),
+        "templateLanguage" => String.t(),
+        "templateName" => String.t()
+      }
+
+  """
+  @type meta_library_template() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_whats_app_message_template_media_output() :: %{
+        "metaHeaderHandle" => [String.t()]
+      }
+
+  """
+  @type create_whats_app_message_template_media_output() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -643,7 +950,31 @@ defmodule AWS.SocialMessaging do
   @type waba_setup_finalization() :: %{String.t() => any()}
 
   @type associate_whats_app_business_account_errors() ::
-          invalid_parameters_exception() | throttled_request_exception() | dependency_exception()
+          limit_exceeded_exception()
+          | invalid_parameters_exception()
+          | throttled_request_exception()
+          | dependency_exception()
+
+  @type create_whats_app_message_template_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
+
+  @type create_whats_app_message_template_from_library_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
+
+  @type create_whats_app_message_template_media_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
 
   @type delete_whats_app_message_media_errors() ::
           invalid_parameters_exception()
@@ -651,6 +982,13 @@ defmodule AWS.SocialMessaging do
           | resource_not_found_exception()
           | internal_service_exception()
           | access_denied_by_meta_exception()
+          | dependency_exception()
+
+  @type delete_whats_app_message_template_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
           | dependency_exception()
 
   @type disassociate_whats_app_business_account_errors() ::
@@ -681,6 +1019,13 @@ defmodule AWS.SocialMessaging do
           | access_denied_by_meta_exception()
           | dependency_exception()
 
+  @type get_whats_app_message_template_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
+
   @type list_linked_whats_app_business_accounts_errors() ::
           invalid_parameters_exception()
           | throttled_request_exception()
@@ -691,6 +1036,20 @@ defmodule AWS.SocialMessaging do
           invalid_parameters_exception()
           | throttled_request_exception()
           | internal_service_exception()
+
+  @type list_whats_app_message_templates_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
+
+  @type list_whats_app_template_library_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
 
   @type post_whats_app_message_media_errors() ::
           invalid_parameters_exception()
@@ -721,6 +1080,13 @@ defmodule AWS.SocialMessaging do
           invalid_parameters_exception()
           | throttled_request_exception()
           | internal_service_exception()
+
+  @type update_whats_app_message_template_errors() ::
+          invalid_parameters_exception()
+          | throttled_request_exception()
+          | resource_not_found_exception()
+          | internal_service_exception()
+          | dependency_exception()
 
   def metadata do
     %{
@@ -773,6 +1139,106 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Creates a new WhatsApp message template from a custom definition.
+  """
+  @spec create_whats_app_message_template(
+          map(),
+          create_whats_app_message_template_input(),
+          list()
+        ) ::
+          {:ok, create_whats_app_message_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_message_template_errors()}
+  def create_whats_app_message_template(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template/put"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a new WhatsApp message template using a template from Meta's template
+  library.
+  """
+  @spec create_whats_app_message_template_from_library(
+          map(),
+          create_whats_app_message_template_from_library_input(),
+          list()
+        ) ::
+          {:ok, create_whats_app_message_template_from_library_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_message_template_from_library_errors()}
+  def create_whats_app_message_template_from_library(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template/create"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Uploads media for use in a WhatsApp message template.
+  """
+  @spec create_whats_app_message_template_media(
+          map(),
+          create_whats_app_message_template_media_input(),
+          list()
+        ) ::
+          {:ok, create_whats_app_message_template_media_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_whats_app_message_template_media_errors()}
+  def create_whats_app_message_template_media(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template/media"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Delete a media object from the WhatsApp service.
 
   If the object is still in an Amazon S3 bucket you should delete it from there
@@ -792,6 +1258,47 @@ defmodule AWS.SocialMessaging do
       [
         {"mediaId", "mediaId"},
         {"originationPhoneNumberId", "originationPhoneNumberId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a WhatsApp message template.
+  """
+  @spec delete_whats_app_message_template(
+          map(),
+          delete_whats_app_message_template_input(),
+          list()
+        ) ::
+          {:ok, delete_whats_app_message_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_whats_app_message_template_errors()}
+  def delete_whats_app_message_template(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"deleteAllLanguages", "deleteAllTemplates"},
+        {"id", "id"},
+        {"metaTemplateId", "metaTemplateId"},
+        {"templateName", "templateName"}
       ]
       |> Request.build_params(input)
 
@@ -936,6 +1443,38 @@ defmodule AWS.SocialMessaging do
   end
 
   @doc """
+  Retrieves a specific WhatsApp message template.
+  """
+  @spec get_whats_app_message_template(map(), String.t(), String.t(), list()) ::
+          {:ok, get_whats_app_message_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_whats_app_message_template_errors()}
+  def get_whats_app_message_template(%Client{} = client, id, meta_template_id, options \\ []) do
+    url_path = "/v1/whatsapp/template"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(meta_template_id) do
+        [{"metaTemplateId", meta_template_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List all WhatsApp Business Accounts linked to your Amazon Web Services account.
   """
   @spec list_linked_whats_app_business_accounts(map(), String.t() | nil, String.t() | nil, list()) ::
@@ -995,6 +1534,91 @@ defmodule AWS.SocialMessaging do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists WhatsApp message templates for a specific WhatsApp Business Account.
+  """
+  @spec list_whats_app_message_templates(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_whats_app_message_templates_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_message_templates_errors()}
+  def list_whats_app_message_templates(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/whatsapp/template/list"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(id) do
+        [{"id", id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists templates available in Meta's template library for WhatsApp messaging.
+  """
+  @spec list_whats_app_template_library(map(), list_whats_app_template_library_input(), list()) ::
+          {:ok, list_whats_app_template_library_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_whats_app_template_library_errors()}
+  def list_whats_app_template_library(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template/library"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"id", "id"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1150,6 +1774,39 @@ defmodule AWS.SocialMessaging do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/v1/tags/untag-resource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an existing WhatsApp message template.
+  """
+  @spec update_whats_app_message_template(
+          map(),
+          update_whats_app_message_template_input(),
+          list()
+        ) ::
+          {:ok, update_whats_app_message_template_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_whats_app_message_template_errors()}
+  def update_whats_app_message_template(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/whatsapp/template"
     headers = []
     custom_headers = []
     query_params = []

@@ -290,6 +290,7 @@ defmodule AWS.DirectConnect do
       create_interconnect_request() :: %{
         optional("lagId") => String.t(),
         optional("providerName") => String.t(),
+        optional("requestMACSec") => boolean(),
         optional("tags") => list(tag()),
         required("bandwidth") => String.t(),
         required("interconnectName") => String.t(),
@@ -458,6 +459,7 @@ defmodule AWS.DirectConnect do
         "awsDeviceV2" => String.t(),
         "awsLogicalDeviceId" => String.t(),
         "bandwidth" => String.t(),
+        "encryptionMode" => String.t(),
         "hasLogicalRedundancy" => list(any()),
         "interconnectId" => String.t(),
         "interconnectName" => String.t(),
@@ -466,6 +468,9 @@ defmodule AWS.DirectConnect do
         "lagId" => String.t(),
         "loaIssueTime" => non_neg_integer(),
         "location" => String.t(),
+        "macSecCapable" => boolean(),
+        "macSecKeys" => list(mac_sec_key()),
+        "portEncryptionStatus" => String.t(),
         "providerName" => String.t(),
         "region" => String.t(),
         "tags" => list(tag())
@@ -830,6 +835,7 @@ defmodule AWS.DirectConnect do
         "macSecCapable" => boolean(),
         "macSecKeys" => list(mac_sec_key()),
         "ownerAccount" => String.t(),
+        "partnerInterconnectMacSecCapable" => boolean(),
         "partnerName" => String.t(),
         "portEncryptionStatus" => String.t(),
         "providerName" => String.t(),
@@ -2279,7 +2285,7 @@ defmodule AWS.DirectConnect do
 
   @doc """
   Associates a MAC Security (MACsec) Connection Key Name (CKN)/ Connectivity
-  Association Key (CAK) pair with an Direct Connect dedicated connection.
+  Association Key (CAK) pair with a Direct Connect connection.
 
   You must supply either the `secretARN,` or the CKN/CAK (`ckn` and `cak`) pair in
   the request.
@@ -3369,8 +3375,8 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Removes the association between a MAC Security (MACsec) security key and an
-  Direct Connect dedicated connection.
+  Removes the association between a MAC Security (MACsec) security key and a
+  Direct Connect connection.
   """
   @spec disassociate_mac_sec_key(map(), disassociate_mac_sec_key_request(), list()) ::
           {:ok, disassociate_mac_sec_key_response(), any()}
@@ -3475,7 +3481,7 @@ defmodule AWS.DirectConnect do
   end
 
   @doc """
-  Updates the Direct Connect dedicated connection configuration.
+  Updates the Direct Connect connection configuration.
 
   You can update the following parameters for a connection:
 

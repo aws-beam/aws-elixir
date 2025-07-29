@@ -33,6 +33,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      asset_property_binding_value() :: %{
+        "assetId" => String.t(),
+        "propertyId" => String.t()
+      }
+
+  """
+  @type asset_property_binding_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       siemens_i_e() :: %{
         "iotCoreThingName" => String.t()
       }
@@ -72,6 +84,7 @@ defmodule AWS.IoTSiteWise do
       action_summary() :: %{
         "actionDefinitionId" => String.t(),
         "actionId" => String.t(),
+        "resolveTo" => resolve_to(),
         "targetResource" => target_resource()
       }
 
@@ -295,6 +308,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      update_computation_model_response() :: %{
+        "computationModelStatus" => computation_model_status()
+      }
+
+  """
+  @type update_computation_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_asset_property_aggregates_response() :: %{
         "aggregatedValues" => list(aggregated_value()),
         "nextToken" => String.t()
@@ -349,6 +373,15 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type dataset_source() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_execution_request() :: %{}
+
+  """
+  @type describe_execution_request() :: %{}
 
   @typedoc """
 
@@ -435,6 +468,39 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type asset_model_hierarchy() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      computation_model_status() :: %{
+        "error" => error_details(),
+        "state" => list(any())
+      }
+
+  """
+  @type computation_model_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_response() :: %{
+        "actionDefinitions" => list(action_definition()),
+        "computationModelArn" => String.t(),
+        "computationModelConfiguration" => computation_model_configuration(),
+        "computationModelCreationDate" => non_neg_integer(),
+        "computationModelDataBinding" => map(),
+        "computationModelDescription" => String.t(),
+        "computationModelId" => String.t(),
+        "computationModelLastUpdateDate" => non_neg_integer(),
+        "computationModelName" => String.t(),
+        "computationModelStatus" => computation_model_status(),
+        "computationModelVersion" => String.t()
+      }
+
+  """
+  @type describe_computation_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -627,6 +693,7 @@ defmodule AWS.IoTSiteWise do
         "actionId" => String.t(),
         "actionPayload" => action_payload(),
         "executionTime" => non_neg_integer(),
+        "resolveTo" => resolve_to(),
         "targetResource" => target_resource()
       }
 
@@ -652,6 +719,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type property_value_null_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_computation_model_request() :: %{
+        optional("clientToken") => String.t()
+      }
+
+  """
+  @type delete_computation_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -817,6 +895,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      list_computation_model_resolve_to_resources_response() :: %{
+        "computationModelResolveToResourceSummaries" => list(computation_model_resolve_to_resource_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_computation_model_resolve_to_resources_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_asset_property_value_request() :: %{
         optional("assetId") => String.t(),
         optional("propertyAlias") => String.t(),
@@ -854,6 +944,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type asset_model_composite_model() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_binding_value_filter() :: %{
+        "assetModelId" => String.t()
+      }
+
+  """
+  @type asset_model_binding_value_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -900,6 +1001,27 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      describe_execution_response() :: %{
+        "actionType" => String.t(),
+        "executionDetails" => map(),
+        "executionEndTime" => non_neg_integer(),
+        "executionEntityVersion" => String.t(),
+        "executionId" => String.t(),
+        "executionResult" => map(),
+        "executionStartTime" => non_neg_integer(),
+        "executionStatus" => execution_status(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource(),
+        "targetResourceVersion" => String.t()
+      }
+
+  """
+  @type describe_execution_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_asset_property_value_history_skipped_entry() :: %{
         "completionStatus" => list(any()),
         "entryId" => String.t(),
@@ -908,6 +1030,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_get_asset_property_value_history_skipped_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_models_response() :: %{
+        "computationModelSummaries" => list(computation_model_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_computation_models_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1137,6 +1271,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      computation_model_anomaly_detection_configuration() :: %{
+        "inputProperties" => String.t(),
+        "resultProperty" => String.t()
+      }
+
+  """
+  @type computation_model_anomaly_detection_configuration() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_project_response() :: %{}
 
   """
@@ -1214,6 +1360,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      execution_status() :: %{
+        "state" => list(any())
+      }
+
+  """
+  @type execution_status() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_associated_assets_request() :: %{
         optional("hierarchyId") => String.t(),
         optional("maxResults") => integer(),
@@ -1266,7 +1423,8 @@ defmodule AWS.IoTSiteWise do
   ## Example:
 
       target_resource() :: %{
-        "assetId" => String.t()
+        "assetId" => String.t(),
+        "computationModelId" => String.t()
       }
 
   """
@@ -1288,10 +1446,38 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      create_computation_model_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("computationModelDescription") => String.t(),
+        optional("tags") => map(),
+        required("computationModelConfiguration") => computation_model_configuration(),
+        required("computationModelDataBinding") => map(),
+        required("computationModelName") => String.t()
+      }
+
+  """
+  @type create_computation_model_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_action_request() :: %{}
 
   """
   @type describe_action_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_data_binding_usages_response() :: %{
+        "dataBindingUsageSummaries" => list(computation_model_data_binding_usage_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_computation_model_data_binding_usages_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1343,6 +1529,25 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      execution_summary() :: %{
+        "actionType" => String.t(),
+        "executionEndTime" => non_neg_integer(),
+        "executionEntityVersion" => String.t(),
+        "executionId" => String.t(),
+        "executionStartTime" => non_neg_integer(),
+        "executionStatus" => execution_status(),
+        "resolveTo" => resolve_to(),
+        "targetResource" => target_resource(),
+        "targetResourceVersion" => String.t()
+      }
+
+  """
+  @type execution_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_asset_response() :: %{
         "assetStatus" => asset_status()
       }
@@ -1371,6 +1576,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_get_asset_property_value_error_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      computation_model_data_binding_usage_summary() :: %{
+        "computationModelIds" => list(String.t()),
+        "matchedDataBinding" => matched_data_binding()
+      }
+
+  """
+  @type computation_model_data_binding_usage_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1521,6 +1738,19 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      computation_model_data_binding_value() :: %{
+        "assetModelProperty" => asset_model_property_binding_value(),
+        "assetProperty" => asset_property_binding_value(),
+        "list" => list(computation_model_data_binding_value())
+      }
+
+  """
+  @type computation_model_data_binding_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_asset_property_aggregates_success_entry() :: %{
         "aggregatedValues" => list(aggregated_value()),
         "entryId" => String.t()
@@ -1641,6 +1871,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      list_executions_response() :: %{
+        "executionSummaries" => list(execution_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_executions_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       dataset_summary() :: %{
         "arn" => String.t(),
         "creationDate" => non_neg_integer(),
@@ -1665,6 +1907,25 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type asset_composite_model_path_segment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      computation_model_summary() :: %{
+        "arn" => String.t(),
+        "creationDate" => non_neg_integer(),
+        "description" => String.t(),
+        "id" => String.t(),
+        "lastUpdateDate" => non_neg_integer(),
+        "name" => String.t(),
+        "status" => computation_model_status(),
+        "type" => list(any()),
+        "version" => String.t()
+      }
+
+  """
+  @type computation_model_summary() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1700,6 +1961,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type source_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_model_resolve_to_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_computation_model_resolve_to_resources_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1987,12 +2260,40 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      list_computation_model_data_binding_usages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        required("dataBindingValueFilter") => data_binding_value_filter()
+      }
+
+  """
+  @type list_computation_model_data_binding_usages_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_asset_response() :: %{
         "assetStatus" => asset_status()
       }
 
   """
   @type delete_asset_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_computation_model_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("computationModelDescription") => String.t(),
+        required("computationModelConfiguration") => computation_model_configuration(),
+        required("computationModelDataBinding") => map(),
+        required("computationModelName") => String.t()
+      }
+
+  """
+  @type update_computation_model_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2145,6 +2446,8 @@ defmodule AWS.IoTSiteWise do
       list_actions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
+        optional("resolveToResourceId") => String.t(),
+        optional("resolveToResourceType") => list(any()),
         required("targetResourceId") => String.t(),
         required("targetResourceType") => list(any())
       }
@@ -2199,6 +2502,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type update_dataset_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_model_property_binding_value_filter() :: %{
+        "assetModelId" => String.t(),
+        "propertyId" => String.t()
+      }
+
+  """
+  @type asset_model_property_binding_value_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2268,6 +2583,20 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      data_binding_value_filter() :: %{
+        "asset" => asset_binding_value_filter(),
+        "assetModel" => asset_model_binding_value_filter(),
+        "assetModelProperty" => asset_model_property_binding_value_filter(),
+        "assetProperty" => asset_property_binding_value_filter()
+      }
+
+  """
+  @type data_binding_value_filter() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_asset_property_value_history_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t(),
@@ -2276,6 +2605,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type batch_get_asset_property_value_history_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_computation_model_response() :: %{
+        "computationModelStatus" => computation_model_status()
+      }
+
+  """
+  @type delete_computation_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2368,6 +2708,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type describe_asset_property_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_binding_value_filter() :: %{
+        "assetId" => String.t()
+      }
+
+  """
+  @type asset_binding_value_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2482,6 +2833,28 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type describe_asset_model_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_execution_summary_response() :: %{
+        "computationModelExecutionSummary" => map(),
+        "computationModelId" => String.t(),
+        "resolveTo" => resolve_to()
+      }
+
+  """
+  @type describe_computation_model_execution_summary_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_computation_model_request() :: %{}
+
+  """
+  @type describe_computation_model_request() :: %{}
 
   @typedoc """
 
@@ -2672,6 +3045,19 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type asset_model_composite_model_path_segment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_computation_model_response() :: %{
+        "computationModelArn" => String.t(),
+        "computationModelId" => String.t(),
+        "computationModelStatus" => computation_model_status()
+      }
+
+  """
+  @type create_computation_model_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3235,6 +3621,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      asset_model_property_binding_value() :: %{
+        "assetModelId" => String.t(),
+        "propertyId" => String.t()
+      }
+
+  """
+  @type asset_model_property_binding_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "message" => String.t()
       }
@@ -3367,6 +3765,18 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type create_dashboard_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_property_binding_value_filter() :: %{
+        "assetId" => String.t(),
+        "propertyId" => String.t()
+      }
+
+  """
+  @type asset_property_binding_value_filter() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3539,6 +3949,18 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      describe_computation_model_execution_summary_request() :: %{
+        optional("resolveToResourceId") => String.t(),
+        optional("resolveToResourceType") => list(any())
+      }
+
+  """
+  @type describe_computation_model_execution_summary_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       logging_options() :: %{
         "level" => list(any())
       }
@@ -3607,6 +4029,29 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type asset_model_property_definition() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      matched_data_binding() :: %{
+        "value" => data_binding_value()
+      }
+
+  """
+  @type matched_data_binding() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_binding_value() :: %{
+        "assetModelProperty" => asset_model_property_binding_value(),
+        "assetProperty" => asset_property_binding_value()
+      }
+
+  """
+  @type data_binding_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3689,6 +4134,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type variable_value() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolve_to() :: %{
+        "assetId" => String.t()
+      }
+
+  """
+  @type resolve_to() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3803,6 +4259,7 @@ defmodule AWS.IoTSiteWise do
 
       execute_action_request() :: %{
         optional("clientToken") => String.t(),
+        optional("resolveTo") => resolve_to(),
         required("actionDefinitionId") => String.t(),
         required("actionPayload") => action_payload(),
         required("targetResource") => target_resource()
@@ -3869,6 +4326,19 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type list_dashboards_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_computation_models_request() :: %{
+        optional("computationModelType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_computation_models_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -3952,6 +4422,17 @@ defmodule AWS.IoTSiteWise do
 
   ## Example:
 
+      computation_model_resolve_to_resource_summary() :: %{
+        "resolveTo" => resolve_to()
+      }
+
+  """
+  @type computation_model_resolve_to_resource_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_default_encryption_configuration_request() :: %{
         optional("kmsKeyId") => String.t(),
         required("encryptionType") => list(any())
@@ -4010,6 +4491,17 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type get_asset_property_aggregates_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      computation_model_configuration() :: %{
+        "anomalyDetection" => computation_model_anomaly_detection_configuration()
+      }
+
+  """
+  @type computation_model_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4096,6 +4588,23 @@ defmodule AWS.IoTSiteWise do
 
   """
   @type invoke_assistant_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_executions_request() :: %{
+        optional("actionType") => String.t(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("resolveToResourceId") => String.t(),
+        optional("resolveToResourceType") => list(any()),
+        required("targetResourceId") => String.t(),
+        required("targetResourceType") => list(any())
+      }
+
+  """
+  @type list_executions_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -4278,6 +4787,15 @@ defmodule AWS.IoTSiteWise do
           | conflicting_operation_exception()
           | internal_failure_exception()
 
+  @type create_computation_model_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
   @type create_dashboard_errors() ::
           limit_exceeded_exception()
           | throttling_exception()
@@ -4339,6 +4857,13 @@ defmodule AWS.IoTSiteWise do
   @type delete_asset_model_composite_model_errors() ::
           precondition_failed_exception()
           | throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
+  @type delete_computation_model_errors() ::
+          throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | conflicting_operation_exception()
@@ -4432,6 +4957,18 @@ defmodule AWS.IoTSiteWise do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type describe_computation_model_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type describe_computation_model_execution_summary_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
   @type describe_dashboard_errors() ::
           throttling_exception()
           | invalid_request_exception()
@@ -4446,6 +4983,12 @@ defmodule AWS.IoTSiteWise do
 
   @type describe_default_encryption_configuration_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
+
+  @type describe_execution_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
 
   @type describe_gateway_errors() ::
           throttling_exception()
@@ -4619,11 +5162,29 @@ defmodule AWS.IoTSiteWise do
           | resource_not_found_exception()
           | internal_failure_exception()
 
+  @type list_computation_model_data_binding_usages_errors() ::
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+
+  @type list_computation_model_resolve_to_resources_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+
+  @type list_computation_models_errors() ::
+          throttling_exception() | invalid_request_exception() | internal_failure_exception()
+
   @type list_dashboards_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
 
   @type list_datasets_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
+
+  @type list_executions_errors() ::
+          throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
 
   @type list_gateways_errors() ::
           throttling_exception() | invalid_request_exception() | internal_failure_exception()
@@ -4730,6 +5291,15 @@ defmodule AWS.IoTSiteWise do
 
   @type update_asset_property_errors() ::
           throttling_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
+          | conflicting_operation_exception()
+          | internal_failure_exception()
+
+  @type update_computation_model_errors() ::
+          resource_already_exists_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
           | invalid_request_exception()
           | resource_not_found_exception()
           | conflicting_operation_exception()
@@ -5309,9 +5879,18 @@ defmodule AWS.IoTSiteWise do
   For more information about how to configure storage settings, see
   [PutStorageConfiguration](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html).
 
-  Bulk import is designed to store historical data to IoT SiteWise. It does not
-  trigger
-  computations or notifications on IoT SiteWise warm or cold tier storage.
+  Bulk import is designed to store historical data to IoT SiteWise.
+
+    
+  Newly ingested data in the hot tier triggers notifications and computations.
+
+    
+  After data moves from the hot tier to the warm or cold tier based on retention
+  settings,
+  it does not trigger computations or notifications.
+
+    
+  Data older than 7 days does not trigger computations or notifications.
   """
   @spec create_bulk_import_job(map(), create_bulk_import_job_request(), list()) ::
           {:ok, create_bulk_import_job_response(), any()}
@@ -5325,6 +5904,35 @@ defmodule AWS.IoTSiteWise do
     query_params = []
 
     meta = metadata() |> Map.put_new(:host_prefix, "data.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Create a computation model with a configuration and data binding.
+  """
+  @spec create_computation_model(map(), create_computation_model_request(), list()) ::
+          {:ok, create_computation_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_computation_model_errors()}
+  def create_computation_model(%Client{} = client, input, options \\ []) do
+    url_path = "/computation-models"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
 
     Request.request_rest(
       client,
@@ -5674,6 +6282,42 @@ defmodule AWS.IoTSiteWise do
       ]
       |> Request.build_params(input)
 
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"clientToken", "clientToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes a computation model.
+
+  This action can't be undone.
+  """
+  @spec delete_computation_model(map(), String.t(), delete_computation_model_request(), list()) ::
+          {:ok, delete_computation_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_computation_model_errors()}
+  def delete_computation_model(%Client{} = client, computation_model_id, input, options \\ []) do
+    url_path = "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}"
+    headers = []
     custom_headers = []
 
     {query_params, input} =
@@ -6162,6 +6806,70 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves information about a computation model.
+  """
+  @spec describe_computation_model(map(), String.t(), list()) ::
+          {:ok, describe_computation_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_computation_model_errors()}
+  def describe_computation_model(%Client{} = client, computation_model_id, options \\ []) do
+    url_path = "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the execution summary of a computation model.
+  """
+  @spec describe_computation_model_execution_summary(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, describe_computation_model_execution_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_computation_model_execution_summary_errors()}
+  def describe_computation_model_execution_summary(
+        %Client{} = client,
+        computation_model_id,
+        resolve_to_resource_id \\ nil,
+        resolve_to_resource_type \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}/execution-summary"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a dashboard.
   """
   @spec describe_dashboard(map(), String.t(), list()) ::
@@ -6222,6 +6930,24 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Retrieves information about the execution.
+  """
+  @spec describe_execution(map(), String.t(), list()) ::
+          {:ok, describe_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_execution_errors()}
+  def describe_execution(%Client{} = client, execution_id, options \\ []) do
+    url_path = "/executions/#{AWS.Util.encode_uri(execution_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a gateway.
   """
   @spec describe_gateway(map(), String.t(), list()) ::
@@ -6240,16 +6966,33 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
-  Retrieves information about a gateway capability configuration.
+  Each gateway capability defines data sources for a gateway.
 
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
-  [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
+  This is the namespace of the gateway capability.
+
+  . The namespace follows the format `service:capability:version`, where:
+
+    *
+
+  `service` - The service providing the capability, or `iotsitewise`.
+
+    *
+
+  `capability` - The specific capability type. Options include: `opcuacollector`
+  for the OPC UA data source collector, or `publisher` for data publisher
+  capability.
+
+    *
+
+  `version` - The version number of the capability. Option include `2` for Classic
+  streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
+
+  After updating a capability configuration, the sync status becomes `OUT_OF_SYNC`
+  until the gateway processes the configuration.Use
+  `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the
+  configuration was applied.
+
+  A gateway can have multiple capability configurations with different namespaces.
   """
   @spec describe_gateway_capability_configuration(map(), String.t(), String.t(), list()) ::
           {:ok, describe_gateway_capability_configuration_response(), any()}
@@ -7150,7 +7893,16 @@ defmodule AWS.IoTSiteWise do
   @doc """
   Retrieves a paginated list of actions for a specific target resource.
   """
-  @spec list_actions(map(), String.t() | nil, String.t() | nil, String.t(), String.t(), list()) ::
+  @spec list_actions(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t(),
+          list()
+        ) ::
           {:ok, list_actions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -7159,6 +7911,8 @@ defmodule AWS.IoTSiteWise do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        resolve_to_resource_id \\ nil,
+        resolve_to_resource_type \\ nil,
         target_resource_id,
         target_resource_type,
         options \\ []
@@ -7177,6 +7931,20 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(target_resource_id) do
         [{"targetResourceId", target_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
       else
         query_params
       end
@@ -7737,6 +8505,142 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+
+  Lists all data binding usages for computation models.
+
+  This allows to identify where specific data bindings are being
+  utilized across the computation models.
+  This track dependencies between data sources and computation models.
+  """
+  @spec list_computation_model_data_binding_usages(
+          map(),
+          list_computation_model_data_binding_usages_request(),
+          list()
+        ) ::
+          {:ok, list_computation_model_data_binding_usages_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_computation_model_data_binding_usages_errors()}
+  def list_computation_model_data_binding_usages(%Client{} = client, input, options \\ []) do
+    url_path = "/computation-models/data-binding-usages"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists all distinct resources that are resolved from the executed actions of the
+  computation model.
+  """
+  @spec list_computation_model_resolve_to_resources(
+          map(),
+          String.t(),
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_computation_model_resolve_to_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_computation_model_resolve_to_resources_errors()}
+  def list_computation_model_resolve_to_resources(
+        %Client{} = client,
+        computation_model_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}/resolve-to-resources"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a paginated list of summaries of all computation models.
+  """
+  @spec list_computation_models(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          list()
+        ) ::
+          {:ok, list_computation_models_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_computation_models_errors()}
+  def list_computation_models(
+        %Client{} = client,
+        computation_model_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/computation-models"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(computation_model_type) do
+        [{"computationModelType", computation_model_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a paginated list of dashboards for an IoT SiteWise Monitor project.
   """
   @spec list_dashboards(map(), String.t() | nil, String.t() | nil, String.t(), list()) ::
@@ -7817,6 +8721,93 @@ defmodule AWS.IoTSiteWise do
     query_params =
       if !is_nil(max_results) do
         [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a paginated list of summaries of all executions.
+  """
+  @spec list_executions(
+          map(),
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t() | nil,
+          String.t(),
+          String.t(),
+          list()
+        ) ::
+          {:ok, list_executions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_executions_errors()}
+  def list_executions(
+        %Client{} = client,
+        action_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resolve_to_resource_id \\ nil,
+        resolve_to_resource_type \\ nil,
+        target_resource_id,
+        target_resource_type,
+        options \\ []
+      ) do
+    url_path = "/executions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(target_resource_type) do
+        [{"targetResourceType", target_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(target_resource_id) do
+        [{"targetResourceId", target_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_type) do
+        [{"resolveToResourceType", resolve_to_resource_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resolve_to_resource_id) do
+        [{"resolveToResourceId", resolve_to_resource_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(action_type) do
+        [{"actionType", action_type} | query_params]
       else
         query_params
       end
@@ -8481,6 +9472,35 @@ defmodule AWS.IoTSiteWise do
   end
 
   @doc """
+  Updates the computation model.
+  """
+  @spec update_computation_model(map(), String.t(), update_computation_model_request(), list()) ::
+          {:ok, update_computation_model_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_computation_model_errors()}
+  def update_computation_model(%Client{} = client, computation_model_id, input, options \\ []) do
+    url_path = "/computation-models/#{AWS.Util.encode_uri(computation_model_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "api.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Updates an IoT SiteWise Monitor dashboard.
   """
   @spec update_dashboard(map(), String.t(), update_dashboard_request(), list()) ::
@@ -8571,14 +9591,36 @@ defmodule AWS.IoTSiteWise do
   Updates a gateway capability configuration or defines a new capability
   configuration.
 
-  Each gateway capability defines data sources for a gateway. A capability
-  configuration
-  can contain multiple data source configurations. If you define OPC-UA sources
-  for a gateway in
-  the IoT SiteWise console, all of your OPC-UA sources are stored in one
-  capability configuration. To
-  list all capability configurations for a gateway, use
-  [DescribeGateway](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGateway.html).
+  Each gateway capability defines data sources for a gateway.
+
+  Important workflow notes:
+
+  Each gateway capability defines data sources for a gateway. This is the
+  namespace of the gateway capability.
+
+  . The namespace follows the format `service:capability:version`, where:
+
+    *
+
+  `service` - The service providing the capability, or `iotsitewise`.
+
+    *
+
+  `capability` - The specific capability type. Options include: `opcuacollector`
+  for the OPC UA data source collector, or `publisher` for data publisher
+  capability.
+
+    *
+
+  `version` - The version number of the capability. Option include `2` for Classic
+  streams, V2 gateways, and `3` for MQTT-enabled, V3 gateways.
+
+  After updating a capability configuration, the sync status becomes `OUT_OF_SYNC`
+  until the gateway processes the configuration.Use
+  `DescribeGatewayCapabilityConfiguration` to check the sync status and verify the
+  configuration was applied.
+
+  A gateway can have multiple capability configurations with different namespaces.
   """
   @spec update_gateway_capability_configuration(
           map(),

@@ -133,6 +133,7 @@ defmodule AWS.OSIS do
         "PipelineArn" => String.t(),
         "PipelineConfigurationBody" => String.t(),
         "PipelineName" => String.t(),
+        "PipelineRoleArn" => String.t(),
         "ServiceVpcEndpoints" => list(service_vpc_endpoint()),
         "Status" => list(any()),
         "StatusReason" => pipeline_status_reason(),
@@ -285,6 +286,7 @@ defmodule AWS.OSIS do
         optional("BufferOptions") => buffer_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
         optional("LogPublishingOptions") => log_publishing_options(),
+        optional("PipelineRoleArn") => String.t(),
         optional("Tags") => list(tag()),
         optional("VpcOptions") => vpc_options(),
         required("MaxUnits") => integer(),
@@ -306,7 +308,8 @@ defmodule AWS.OSIS do
         optional("LogPublishingOptions") => log_publishing_options(),
         optional("MaxUnits") => integer(),
         optional("MinUnits") => integer(),
-        optional("PipelineConfigurationBody") => String.t()
+        optional("PipelineConfigurationBody") => String.t(),
+        optional("PipelineRoleArn") => String.t()
       }
 
   """

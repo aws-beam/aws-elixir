@@ -2829,10 +2829,12 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       update_configured_table_input() :: %{
+        optional("allowedColumns") => list(String.t()),
         optional("analysisMethod") => list(any()),
         optional("description") => String.t(),
         optional("name") => String.t(),
-        optional("selectedAnalysisMethods") => list(list(any())())
+        optional("selectedAnalysisMethods") => list(list(any())()),
+        optional("tableReference") => list()
       }
 
   """
@@ -4534,6 +4536,7 @@ defmodule AWS.CleanRooms do
           | validation_exception()
           | access_denied_exception()
           | internal_server_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | conflict_exception()
 
@@ -5094,11 +5097,11 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Creates a privacy budget template for a specified membership.
+  Creates a privacy budget template for a specified collaboration.
 
-  Each membership can have only one privacy budget template, but it can be deleted
-  and recreated. If you need to change the privacy budget template for a
-  membership, use the `UpdatePrivacyBudgetTemplate` operation.
+  Each collaboration can have only one privacy budget template. If you need to
+  change the privacy budget template, use the `UpdatePrivacyBudgetTemplate`
+  operation.
   """
   @spec create_privacy_budget_template(
           map(),
@@ -5578,7 +5581,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Deletes a privacy budget template for a specified membership.
+  Deletes a privacy budget template for a specified collaboration.
   """
   @spec delete_privacy_budget_template(
           map(),
@@ -7571,7 +7574,7 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
-  Updates the privacy budget template for the specified membership.
+  Updates the privacy budget template for the specified collaboration.
   """
   @spec update_privacy_budget_template(
           map(),

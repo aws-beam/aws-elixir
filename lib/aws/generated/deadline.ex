@@ -3933,6 +3933,7 @@ defmodule AWS.Deadline do
 
       create_monitor_request() :: %{
         optional("clientToken") => String.t(),
+        optional("tags") => map(),
         required("displayName") => String.t(),
         required("identityCenterInstanceArn") => String.t(),
         required("roleArn") => String.t(),

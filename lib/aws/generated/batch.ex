@@ -117,6 +117,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      terminate_service_job_request() :: %{
+        required("jobId") => String.t(),
+        required("reason") => String.t()
+      }
+
+  """
+  @type terminate_service_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_jobs_by_consumable_resource_summary() :: %{
         "consumableResourceProperties" => consumable_resource_properties(),
         "createdAt" => float(),
@@ -206,6 +218,17 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      latest_service_job_attempt() :: %{
+        "serviceResourceId" => service_resource_id()
+      }
+
+  """
+  @type latest_service_job_attempt() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_host_path() :: %{
         "path" => String.t()
       }
@@ -224,6 +247,15 @@ defmodule AWS.Batch do
 
   """
   @type create_compute_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_environment_response() :: %{}
+
+  """
+  @type delete_service_environment_response() :: %{}
 
   @typedoc """
 
@@ -320,6 +352,15 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      terminate_service_job_response() :: %{}
+
+  """
+  @type terminate_service_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_scheduling_policy_request() :: %{
         required("arn") => String.t()
       }
@@ -393,6 +434,21 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      create_service_environment_request() :: %{
+        optional("state") => list(any()),
+        optional("tags") => map(),
+        required("capacityLimits") => list(capacity_limit()),
+        required("serviceEnvironmentName") => String.t(),
+        required("serviceEnvironmentType") => list(any())
+      }
+
+  """
+  @type create_service_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       network_interface() :: %{
         "attachmentId" => String.t(),
         "ipv6Address" => String.t(),
@@ -422,6 +478,30 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      update_service_environment_response() :: %{
+        "serviceEnvironmentArn" => String.t(),
+        "serviceEnvironmentName" => String.t()
+      }
+
+  """
+  @type update_service_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_jobs_response() :: %{
+        "jobSummaryList" => list(service_job_summary()),
+        "nextToken" => String.t()
+      }
+
+  """
+  @type list_service_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_jobs_response() :: %{
         "jobSummaryList" => list(job_summary()),
         "nextToken" => String.t()
@@ -429,6 +509,33 @@ defmodule AWS.Batch do
 
   """
   @type list_jobs_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_environment_order() :: %{
+        "order" => integer(),
+        "serviceEnvironment" => String.t()
+      }
+
+  """
+  @type service_environment_order() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_jobs_request() :: %{
+        optional("filters") => list(key_values_pair()),
+        optional("jobQueue") => String.t(),
+        optional("jobStatus") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t()
+      }
+
+  """
+  @type list_service_jobs_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -476,9 +583,11 @@ defmodule AWS.Batch do
         "computeEnvironmentOrder" => list(compute_environment_order()),
         "jobQueueArn" => String.t(),
         "jobQueueName" => String.t(),
+        "jobQueueType" => list(any()),
         "jobStateTimeLimitActions" => list(job_state_time_limit_action()),
         "priority" => integer(),
         "schedulingPolicyArn" => String.t(),
+        "serviceEnvironmentOrder" => list(service_environment_order()),
         "state" => list(any()),
         "status" => list(any()),
         "statusReason" => String.t(),
@@ -560,6 +669,31 @@ defmodule AWS.Batch do
 
   """
   @type describe_job_definitions_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_job_evaluate_on_exit() :: %{
+        "action" => list(any()),
+        "onStatusReason" => String.t()
+      }
+
+  """
+  @type service_job_evaluate_on_exit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submit_service_job_response() :: %{
+        "jobArn" => String.t(),
+        "jobId" => String.t(),
+        "jobName" => String.t()
+      }
+
+  """
+  @type submit_service_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -651,6 +785,17 @@ defmodule AWS.Batch do
 
   """
   @type eks_properties_override() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_job_timeout() :: %{
+        "attemptDurationSeconds" => integer()
+      }
+
+  """
+  @type service_job_timeout() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -748,6 +893,26 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      submit_service_job_request() :: %{
+        optional("clientToken") => String.t(),
+        optional("retryStrategy") => service_job_retry_strategy(),
+        optional("schedulingPriority") => integer(),
+        optional("shareIdentifier") => String.t(),
+        optional("tags") => map(),
+        optional("timeoutConfig") => service_job_timeout(),
+        required("jobName") => String.t(),
+        required("jobQueue") => String.t(),
+        required("serviceJobType") => list(any()),
+        required("serviceRequestPayload") => String.t()
+      }
+
+  """
+  @type submit_service_job_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       task_container_details() :: %{
         "command" => list(String.t()),
         "dependsOn" => list(task_container_dependency()),
@@ -779,12 +944,35 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      create_service_environment_response() :: %{
+        "serviceEnvironmentArn" => String.t(),
+        "serviceEnvironmentName" => String.t()
+      }
+
+  """
+  @type create_service_environment_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       client_exception() :: %{
         "message" => String.t()
       }
 
   """
   @type client_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_environment_request() :: %{
+        required("serviceEnvironment") => String.t()
+      }
+
+  """
+  @type delete_service_environment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -797,6 +985,18 @@ defmodule AWS.Batch do
 
   """
   @type create_job_queue_response() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_resource_id() :: %{
+        "name" => list(any()),
+        "value" => String.t()
+      }
+
+  """
+  @type service_resource_id() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -949,6 +1149,7 @@ defmodule AWS.Batch do
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
         optional("priority") => integer(),
         optional("schedulingPolicyArn") => String.t(),
+        optional("serviceEnvironmentOrder") => list(service_environment_order()),
         optional("state") => list(any()),
         required("jobQueue") => String.t()
       }
@@ -1122,6 +1323,19 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      update_service_environment_request() :: %{
+        optional("capacityLimits") => list(capacity_limit()),
+        optional("state") => list(any()),
+        required("serviceEnvironment") => String.t()
+      }
+
+  """
+  @type update_service_environment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       container_summary() :: %{
         "exitCode" => integer(),
         "reason" => String.t()
@@ -1140,6 +1354,31 @@ defmodule AWS.Batch do
 
   """
   @type delete_consumable_resource_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_environments_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t(),
+        optional("serviceEnvironments") => list(String.t())
+      }
+
+  """
+  @type describe_service_environments_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_job_retry_strategy() :: %{
+        "attempts" => integer(),
+        "evaluateOnExit" => list(service_job_evaluate_on_exit())
+      }
+
+  """
+  @type service_job_retry_strategy() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1257,6 +1496,23 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_environment_detail() :: %{
+        "capacityLimits" => list(capacity_limit()),
+        "serviceEnvironmentArn" => String.t(),
+        "serviceEnvironmentName" => String.t(),
+        "serviceEnvironmentType" => list(any()),
+        "state" => list(any()),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type service_environment_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       compute_resource_update() :: %{
         "allocationStrategy" => list(any()),
         "bidPercentage" => integer(),
@@ -1295,6 +1551,18 @@ defmodule AWS.Batch do
 
   """
   @type eks_container_security_context() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_environments_response() :: %{
+        "nextToken" => String.t(),
+        "serviceEnvironments" => list(service_environment_detail())
+      }
+
+  """
+  @type describe_service_environments_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1444,6 +1712,20 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_attempt_detail() :: %{
+        "serviceResourceId" => service_resource_id(),
+        "startedAt" => float(),
+        "statusReason" => String.t(),
+        "stoppedAt" => float()
+      }
+
+  """
+  @type service_job_attempt_detail() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_consumable_resource_response() :: %{}
 
   """
@@ -1569,6 +1851,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      capacity_limit() :: %{
+        "capacityUnit" => String.t(),
+        "maxCapacity" => integer()
+      }
+
+  """
+  @type capacity_limit() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_attempt_container_detail() :: %{
         "containerID" => String.t(),
         "exitCode" => integer(),
@@ -1590,6 +1884,17 @@ defmodule AWS.Batch do
 
   """
   @type eks_persistent_volume_claim() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_job_request() :: %{
+        required("jobId") => String.t()
+      }
+
+  """
+  @type describe_service_job_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1681,6 +1986,35 @@ defmodule AWS.Batch do
 
   """
   @type eks_container_resource_requirements() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_job_response() :: %{
+        "attempts" => list(service_job_attempt_detail()),
+        "createdAt" => float(),
+        "isTerminated" => boolean(),
+        "jobArn" => String.t(),
+        "jobId" => String.t(),
+        "jobName" => String.t(),
+        "jobQueue" => String.t(),
+        "latestAttempt" => latest_service_job_attempt(),
+        "retryStrategy" => service_job_retry_strategy(),
+        "schedulingPriority" => integer(),
+        "serviceJobType" => list(any()),
+        "serviceRequestPayload" => String.t(),
+        "shareIdentifier" => String.t(),
+        "startedAt" => float(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "stoppedAt" => float(),
+        "tags" => map(),
+        "timeoutConfig" => service_job_timeout()
+      }
+
+  """
+  @type describe_service_job_response() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2039,6 +2373,27 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      service_job_summary() :: %{
+        "createdAt" => float(),
+        "jobArn" => String.t(),
+        "jobId" => String.t(),
+        "jobName" => String.t(),
+        "latestAttempt" => latest_service_job_attempt(),
+        "serviceJobType" => list(any()),
+        "shareIdentifier" => String.t(),
+        "startedAt" => float(),
+        "status" => list(any()),
+        "statusReason" => String.t(),
+        "stoppedAt" => float()
+      }
+
+  """
+  @type service_job_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+
       consumable_resource_summary() :: %{
         "consumableResourceArn" => String.t(),
         "consumableResourceName" => String.t(),
@@ -2055,11 +2410,13 @@ defmodule AWS.Batch do
   ## Example:
 
       create_job_queue_request() :: %{
+        optional("computeEnvironmentOrder") => list(compute_environment_order()),
+        optional("jobQueueType") => list(any()),
         optional("jobStateTimeLimitActions") => list(job_state_time_limit_action()),
         optional("schedulingPolicyArn") => String.t(),
+        optional("serviceEnvironmentOrder") => list(service_environment_order()),
         optional("state") => list(any()),
         optional("tags") => map(),
-        required("computeEnvironmentOrder") => list(compute_environment_order()),
         required("jobQueueName") => String.t(),
         required("priority") => integer()
       }
@@ -2326,6 +2683,8 @@ defmodule AWS.Batch do
 
   @type create_scheduling_policy_errors() :: server_exception() | client_exception()
 
+  @type create_service_environment_errors() :: server_exception() | client_exception()
+
   @type delete_compute_environment_errors() :: server_exception() | client_exception()
 
   @type delete_consumable_resource_errors() :: server_exception() | client_exception()
@@ -2333,6 +2692,8 @@ defmodule AWS.Batch do
   @type delete_job_queue_errors() :: server_exception() | client_exception()
 
   @type delete_scheduling_policy_errors() :: server_exception() | client_exception()
+
+  @type delete_service_environment_errors() :: server_exception() | client_exception()
 
   @type deregister_job_definition_errors() :: server_exception() | client_exception()
 
@@ -2348,6 +2709,10 @@ defmodule AWS.Batch do
 
   @type describe_scheduling_policies_errors() :: server_exception() | client_exception()
 
+  @type describe_service_environments_errors() :: server_exception() | client_exception()
+
+  @type describe_service_job_errors() :: server_exception() | client_exception()
+
   @type get_job_queue_snapshot_errors() :: server_exception() | client_exception()
 
   @type list_consumable_resources_errors() :: server_exception() | client_exception()
@@ -2358,15 +2723,21 @@ defmodule AWS.Batch do
 
   @type list_scheduling_policies_errors() :: server_exception() | client_exception()
 
+  @type list_service_jobs_errors() :: server_exception() | client_exception()
+
   @type list_tags_for_resource_errors() :: server_exception() | client_exception()
 
   @type register_job_definition_errors() :: server_exception() | client_exception()
 
   @type submit_job_errors() :: server_exception() | client_exception()
 
+  @type submit_service_job_errors() :: server_exception() | client_exception()
+
   @type tag_resource_errors() :: server_exception() | client_exception()
 
   @type terminate_job_errors() :: server_exception() | client_exception()
+
+  @type terminate_service_job_errors() :: server_exception() | client_exception()
 
   @type untag_resource_errors() :: server_exception() | client_exception()
 
@@ -2377,6 +2748,8 @@ defmodule AWS.Batch do
   @type update_job_queue_errors() :: server_exception() | client_exception()
 
   @type update_scheduling_policy_errors() :: server_exception() | client_exception()
+
+  @type update_service_environment_errors() :: server_exception() | client_exception()
 
   def metadata do
     %{
@@ -2688,6 +3061,38 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Creates a service environment for running service jobs.
+
+  Service environments define capacity limits for specific service types such as
+  SageMaker Training jobs.
+  """
+  @spec create_service_environment(map(), create_service_environment_request(), list()) ::
+          {:ok, create_service_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_service_environment_errors()}
+  def create_service_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/createserviceenvironment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes an Batch compute environment.
 
   Before you can delete a compute environment, you must set its state to
@@ -2805,6 +3210,39 @@ defmodule AWS.Batch do
           | {:error, delete_scheduling_policy_errors()}
   def delete_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/deleteschedulingpolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a Service environment.
+
+  Before you can delete a service environment, you must first set its state to
+  `DISABLED` with the `UpdateServiceEnvironment` API operation and disassociate it
+  from any job queues with the `UpdateJobQueue` API operation.
+  """
+  @spec delete_service_environment(map(), delete_service_environment_request(), list()) ::
+          {:ok, delete_service_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_service_environment_errors()}
+  def delete_service_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/deleteserviceenvironment"
     headers = []
     custom_headers = []
     query_params = []
@@ -3038,6 +3476,64 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Describes one or more of your service environments.
+  """
+  @spec describe_service_environments(map(), describe_service_environments_request(), list()) ::
+          {:ok, describe_service_environments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_service_environments_errors()}
+  def describe_service_environments(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describeserviceenvironments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  The details of a service job.
+  """
+  @spec describe_service_job(map(), describe_service_job_request(), list()) ::
+          {:ok, describe_service_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_service_job_errors()}
+  def describe_service_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/describeservicejob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Provides a list of the first 100 `RUNNABLE` jobs associated to a single job
   queue.
   """
@@ -3202,6 +3698,35 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Returns a list of service jobs for a specified job queue.
+  """
+  @spec list_service_jobs(map(), list_service_jobs_request(), list()) ::
+          {:ok, list_service_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_service_jobs_errors()}
+  def list_service_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/listservicejobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the tags for an Batch resource.
 
   Batch resources that support tags are compute environments, jobs, job
@@ -3302,6 +3827,38 @@ defmodule AWS.Batch do
   end
 
   @doc """
+  Submits a service job to a specified job queue to run on SageMaker AI.
+
+  A service job is a unit of work that you submit to Batch for execution on
+  SageMaker AI.
+  """
+  @spec submit_service_job(map(), submit_service_job_request(), list()) ::
+          {:ok, submit_service_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, submit_service_job_errors()}
+  def submit_service_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/submitservicejob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Associates the specified tags to a resource with the specified `resourceArn`.
 
   If existing tags on a resource aren't specified in the request parameters, they
@@ -3354,6 +3911,35 @@ defmodule AWS.Batch do
           | {:error, terminate_job_errors()}
   def terminate_job(%Client{} = client, input, options \\ []) do
     url_path = "/v1/terminatejob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Terminates a service job in a job queue.
+  """
+  @spec terminate_service_job(map(), terminate_service_job_request(), list()) ::
+          {:ok, terminate_service_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, terminate_service_job_errors()}
+  def terminate_service_job(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/terminateservicejob"
     headers = []
     custom_headers = []
     query_params = []
@@ -3504,6 +4090,38 @@ defmodule AWS.Batch do
           | {:error, update_scheduling_policy_errors()}
   def update_scheduling_policy(%Client{} = client, input, options \\ []) do
     url_path = "/v1/updateschedulingpolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a service environment.
+
+  You can update the state of a service environment from `ENABLED` to `DISABLED`
+  to prevent new service jobs from being placed in the service environment.
+  """
+  @spec update_service_environment(map(), update_service_environment_request(), list()) ::
+          {:ok, update_service_environment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_service_environment_errors()}
+  def update_service_environment(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/updateserviceenvironment"
     headers = []
     custom_headers = []
     query_params = []

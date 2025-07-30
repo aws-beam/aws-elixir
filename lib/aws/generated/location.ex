@@ -1050,7 +1050,7 @@ defmodule AWS.Location do
 
       circle() :: %{
         "Center" => list([float()]()),
-        "Radius" => [float()]
+        "Radius" => float()
       }
 
   """
@@ -1873,7 +1873,7 @@ defmodule AWS.Location do
   ## Example:
 
       positional_accuracy() :: %{
-        "Horizontal" => [float()]
+        "Horizontal" => float()
       }
 
   """
@@ -2057,6 +2057,7 @@ defmodule AWS.Location do
       geofence_geometry() :: %{
         "Circle" => circle(),
         "Geobuf" => binary(),
+        "MultiPolygon" => list(list(list(list([float()]())())())()),
         "Polygon" => list(list(list([float()]())())())
       }
 
@@ -2972,7 +2973,8 @@ defmodule AWS.Location do
   optional `Accuracy` of a `DevicePositionUpdate`.
 
   The `DeviceID` is used as a string to represent the device. You do not
-  need to have a `Tracker` associated with the `DeviceID`.
+  need to have a `Tracker` associated with the
+  `DeviceID`.
   """
   @spec batch_evaluate_geofences(map(), String.t(), batch_evaluate_geofences_request(), list()) ::
           {:ok, batch_evaluate_geofences_response(), any()}
@@ -3125,7 +3127,7 @@ defmodule AWS.Location do
 
   @doc """
 
-  [Calculates a route](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html)
+  [Calculates a route](https://docs.aws.amazon.com/location/previous/developerguide/calculate-route.html)
   given the following required parameters:
   `DeparturePosition` and `DestinationPosition`.
 
@@ -3142,7 +3144,7 @@ defmodule AWS.Location do
     *
 
   [Specifying a departure
-  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  time](https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html)
   using either `DepartureTime` or
   `DepartNow`. This calculates a route based on predictive traffic
   data at the given time.
@@ -3153,7 +3155,7 @@ defmodule AWS.Location do
 
     *
 
-  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  [Specifying a travel mode](https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html)
   using TravelMode sets the transportation mode used to calculate
   the routes. This also lets you specify additional route preferences in
   `CarModeOptions` if traveling by `Car`, or
@@ -3195,7 +3197,7 @@ defmodule AWS.Location do
 
   @doc """
 
-  [ Calculates a route matrix](https://docs.aws.amazon.com/location/latest/developerguide/calculate-route-matrix.html)
+  [ Calculates a route matrix](https://docs.aws.amazon.com/location/previous/developerguide/calculate-route-matrix.html)
   given the following required parameters:
   `DeparturePositions` and `DestinationPositions`.
 
@@ -3224,7 +3226,7 @@ defmodule AWS.Location do
     *
 
   [ Specifying a departure
-  time](https://docs.aws.amazon.com/location/latest/developerguide/departure-time.html)
+  time](https://docs.aws.amazon.com/location/previous/developerguide/departure-time.html)
   using either `DepartureTime` or
   `DepartNow`. This calculates routes based on predictive traffic
   data at the given time.
@@ -3235,7 +3237,7 @@ defmodule AWS.Location do
 
     *
 
-  [Specifying a travel mode](https://docs.aws.amazon.com/location/latest/developerguide/travel-mode.html)
+  [Specifying a travel mode](https://docs.aws.amazon.com/location/previous/developerguide/travel-mode.html)
   using TravelMode sets the transportation mode used to calculate
   the routes. This also lets you specify additional route preferences in
   `CarModeOptions` if traveling by `Car`, or
@@ -3308,7 +3310,7 @@ defmodule AWS.Location do
   grant
   actions for Amazon Location resources to the API key bearer.
 
-  For more information, see [Using API keys](https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html).
+  For more information, see [Using API keys](https://docs.aws.amazon.com/location/previous/developerguide/using-apikeys.html).
   """
   @spec create_key(map(), create_key_request(), list()) ::
           {:ok, create_key_response(), any()}
@@ -3839,19 +3841,31 @@ defmodule AWS.Location do
   end
 
   @doc """
-  Evaluates device positions against
-  geofence geometries from a given geofence collection.
+  This action forecasts future geofence events that are likely to occur within a
+  specified time horizon if a device continues moving at its current speed.
 
-  The event forecasts three states for which
-  a device can be in relative to a geofence:
+  Each
+  forecasted event is associated with a geofence from a provided geofence
+  collection. A
+  forecast event can have one of the following states:
 
-  `ENTER`: If a device is outside of a geofence, but would breach the fence if the
-  device is moving at its current speed within time horizon window.
+  `ENTER`: The device position is outside the referenced geofence, but the
+  device may cross into the geofence during the forecasting time horizon if it
+  maintains
+  its current speed.
 
-  `EXIT`: If a device is inside of a geofence, but would breach the fence if the
-  device is moving at its current speed within time horizon window.
+  `EXIT`: The device position is inside the referenced geofence, but the
+  device may leave the geofence during the forecasted time horizon if the device
+  maintains
+  it's current speed.
 
-  `IDLE`: If a device is inside of a geofence, and the device is not moving.
+  `IDLE`:The device is inside the geofence, and it will remain inside the
+  geofence through the end of the time horizon if the device maintains it's
+  current
+  speed.
+
+  Heading direction is not considered in the current version. The API takes a
+  conservative approach and includes events that can occur for any heading.
   """
   @spec forecast_geofence_events(map(), String.t(), forecast_geofence_events_request(), list()) ::
           {:ok, forecast_geofence_events_response(), any()}
@@ -3954,7 +3968,8 @@ defmodule AWS.Location do
   Retrieves the geofence details from a geofence collection.
 
   The returned geometry will always match the geometry format used when the
-  geofence was created.
+  geofence
+  was created.
   """
   @spec get_geofence(map(), String.t(), String.t(), list()) ::
           {:ok, get_geofence_response(), any()}
@@ -4159,6 +4174,10 @@ defmodule AWS.Location do
 
     
   Data provider specified in the place index resource
+
+  If your Place index resource is configured with Grab as your geolocation
+  provider and Storage as Intended use, the GetPlace operation is unavailable. For
+  more information, see [AWS service terms](http://aws.amazon.com/service-terms).
   """
   @spec get_place(map(), String.t(), String.t(), String.t() | nil, String.t() | nil, list()) ::
           {:ok, get_place_response(), any()}
@@ -4922,6 +4941,10 @@ defmodule AWS.Location do
   Verifies the integrity of the device's position by determining if it was
   reported behind a proxy, and by comparing it to an inferred position estimated
   based on the device's state.
+
+  The Location Integrity SDK provides enhanced
+  features related to device verification, and it is available for use by request.
+  To get access to the SDK, contact [Sales Support](https://aws.amazon.com/contact-us/sales-support/?pg=locationprice&cta=herobtn).
   """
   @spec verify_device_position(map(), String.t(), verify_device_position_request(), list()) ::
           {:ok, verify_device_position_response(), any()}

@@ -282,6 +282,19 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      update_hybrid_ad_request() :: %{
+        optional("HybridAdministratorAccountUpdate") => hybrid_administrator_account_update(),
+        optional("SelfManagedInstancesSettings") => hybrid_customer_instances_settings(),
+        required("DirectoryId") => String.t()
+      }
+      
+  """
+  @type update_hybrid_ad_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       unshare_directory_request() :: %{
         required("DirectoryId") => String.t(),
         required("UnshareTarget") => unshare_target()
@@ -367,6 +380,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      hybrid_update_activities() :: %{
+        "HybridAdministratorAccount" => list(hybrid_update_info_entry()),
+        "SelfManagedInstances" => list(hybrid_update_info_entry())
+      }
+      
+  """
+  @type hybrid_update_activities() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reject_shared_directory_request() :: %{
         required("SharedDirectoryId") => String.t()
       }
@@ -437,6 +462,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_ad_assessment_result() :: %{
+        "Assessment" => assessment(),
+        "AssessmentReports" => list(assessment_report())
+      }
+      
+  """
+  @type describe_ad_assessment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       share_directory_request() :: %{
         optional("ShareNotes") => String.t(),
         required("DirectoryId") => String.t(),
@@ -446,6 +483,19 @@ defmodule AWS.Directory do
       
   """
   @type share_directory_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_hybrid_ad_update_request() :: %{
+        optional("NextToken") => String.t(),
+        optional("UpdateType") => list(any()),
+        required("DirectoryId") => String.t()
+      }
+      
+  """
+  @type describe_hybrid_ad_update_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -635,6 +685,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      ad_assessment_limit_exceeded_exception() :: %{
+        "Message" => String.t(),
+        "RequestId" => String.t()
+      }
+      
+  """
+  @type ad_assessment_limit_exceeded_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       enable_radius_request() :: %{
         required("DirectoryId") => String.t(),
         required("RadiusSettings") => radius_settings()
@@ -752,6 +814,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_ad_assessment_request() :: %{
+        required("AssessmentId") => String.t()
+      }
+      
+  """
+  @type describe_ad_assessment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       remove_region_result() :: %{}
       
   """
@@ -822,6 +895,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      start_ad_assessment_result() :: %{
+        "AssessmentId" => String.t()
+      }
+      
+  """
+  @type start_ad_assessment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_update_directory_result() :: %{
         "NextToken" => String.t(),
         "UpdateActivities" => list(update_info_entry())
@@ -829,6 +913,18 @@ defmodule AWS.Directory do
       
   """
   @type describe_update_directory_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_ad_assessment_request() :: %{
+        optional("AssessmentConfiguration") => assessment_configuration(),
+        optional("DirectoryId") => String.t()
+      }
+      
+  """
+  @type start_ad_assessment_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -997,6 +1093,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      hybrid_customer_instances_settings() :: %{
+        "CustomerDnsIps" => list(String.t()),
+        "InstanceIds" => list(String.t())
+      }
+      
+  """
+  @type hybrid_customer_instances_settings() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_snapshot_limits_request() :: %{
         required("DirectoryId") => String.t()
       }
@@ -1138,6 +1246,23 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      assessment_validation() :: %{
+        "Category" => String.t(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "Name" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t(),
+        "StatusCode" => String.t(),
+        "StatusReason" => String.t()
+      }
+      
+  """
+  @type assessment_validation() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       directory_does_not_exist_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -1163,6 +1288,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      list_ad_assessments_result() :: %{
+        "Assessments" => list(assessment_summary()),
+        "NextToken" => String.t()
+      }
+      
+  """
+  @type list_ad_assessments_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       incompatible_settings_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -1179,6 +1316,21 @@ defmodule AWS.Directory do
       
   """
   @type enable_directory_data_access_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      assessment_configuration() :: %{
+        "CustomerDnsIps" => list(String.t()),
+        "DnsName" => String.t(),
+        "InstanceIds" => list(String.t()),
+        "SecurityGroupIds" => list(String.t()),
+        "VpcSettings" => directory_vpc_settings()
+      }
+      
+  """
+  @type assessment_configuration() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1354,6 +1506,17 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      delete_ad_assessment_result() :: %{
+        "AssessmentId" => String.t()
+      }
+      
+  """
+  @type delete_ad_assessment_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_shared_directories_result() :: %{
         "NextToken" => String.t(),
         "SharedDirectories" => list(shared_directory())
@@ -1410,6 +1573,7 @@ defmodule AWS.Directory do
         "DirectoryId" => String.t(),
         "DnsIpAddrs" => list(String.t()),
         "Edition" => list(any()),
+        "HybridSettings" => hybrid_settings_description(),
         "LaunchTime" => non_neg_integer(),
         "Name" => String.t(),
         "OsVersion" => list(any()),
@@ -1525,6 +1689,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      update_hybrid_ad_result() :: %{
+        "AssessmentId" => String.t(),
+        "DirectoryId" => String.t()
+      }
+      
+  """
+  @type update_hybrid_ad_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_certificate_request() :: %{
         optional("ClientCertAuthSettings") => client_cert_auth_settings(),
         optional("Type") => list(any()),
@@ -1610,6 +1786,31 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      assessment() :: %{
+        "AssessmentId" => String.t(),
+        "CustomerDnsIps" => list(String.t()),
+        "DirectoryId" => String.t(),
+        "DnsName" => String.t(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "ReportType" => String.t(),
+        "SecurityGroupIds" => list(String.t()),
+        "SelfManagedInstanceIds" => list(String.t()),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t(),
+        "StatusCode" => String.t(),
+        "StatusReason" => String.t(),
+        "SubnetIds" => list(String.t()),
+        "Version" => String.t(),
+        "VpcId" => String.t()
+      }
+      
+  """
+  @type assessment() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       connect_directory_result() :: %{
         "DirectoryId" => String.t()
       }
@@ -1676,6 +1877,30 @@ defmodule AWS.Directory do
       
   """
   @type restore_from_snapshot_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ad_assessment_request() :: %{
+        required("AssessmentId") => String.t()
+      }
+      
+  """
+  @type delete_ad_assessment_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ad_assessments_request() :: %{
+        optional("DirectoryId") => String.t(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t()
+      }
+      
+  """
+  @type list_ad_assessments_request() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1827,12 +2052,35 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      hybrid_settings_description() :: %{
+        "SelfManagedDnsIpAddrs" => list(String.t()),
+        "SelfManagedInstanceIds" => list(String.t())
+      }
+      
+  """
+  @type hybrid_settings_description() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_snapshot_result() :: %{
         "SnapshotId" => String.t()
       }
       
   """
   @type delete_snapshot_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_administrator_account_update() :: %{
+        "SecretArn" => String.t()
+      }
+      
+  """
+  @type hybrid_administrator_account_update() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -1942,6 +2190,18 @@ defmodule AWS.Directory do
       
   """
   @type access_denied_exception() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hybrid_update_value() :: %{
+        "DnsIps" => list(String.t()),
+        "InstanceIds" => list(String.t())
+      }
+      
+  """
+  @type hybrid_update_value() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2159,6 +2419,18 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      describe_hybrid_ad_update_result() :: %{
+        "NextToken" => String.t(),
+        "UpdateActivities" => hybrid_update_activities()
+      }
+      
+  """
+  @type describe_hybrid_ad_update_result() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       attribute() :: %{
         "Name" => String.t(),
         "Value" => String.t()
@@ -2304,6 +2576,24 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      hybrid_update_info_entry() :: %{
+        "AssessmentId" => String.t(),
+        "InitiatedBy" => String.t(),
+        "LastUpdatedDateTime" => non_neg_integer(),
+        "NewValue" => hybrid_update_value(),
+        "PreviousValue" => hybrid_update_value(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t()
+      }
+      
+  """
+  @type hybrid_update_info_entry() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       certificate_does_not_exist_exception() :: %{
         "Message" => String.t(),
         "RequestId" => String.t()
@@ -2386,6 +2676,29 @@ defmodule AWS.Directory do
       
   """
   @type enable_client_authentication_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      assessment_report() :: %{
+        "DomainControllerIp" => String.t(),
+        "Validations" => list(assessment_validation())
+      }
+      
+  """
+  @type assessment_report() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hybrid_ad_result() :: %{
+        "DirectoryId" => String.t()
+      }
+      
+  """
+  @type create_hybrid_ad_result() :: %{String.t() => any()}
 
   @typedoc """
 
@@ -2601,6 +2914,24 @@ defmodule AWS.Directory do
 
   ## Example:
       
+      assessment_summary() :: %{
+        "AssessmentId" => String.t(),
+        "CustomerDnsIps" => list(String.t()),
+        "DirectoryId" => String.t(),
+        "DnsName" => String.t(),
+        "LastUpdateDateTime" => non_neg_integer(),
+        "ReportType" => String.t(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t()
+      }
+      
+  """
+  @type assessment_summary() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_radius_result() :: %{}
       
   """
@@ -2642,6 +2973,19 @@ defmodule AWS.Directory do
       
   """
   @type update_radius_request() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hybrid_ad_request() :: %{
+        optional("Tags") => list(tag()),
+        required("AssessmentId") => String.t(),
+        required("SecretArn") => String.t()
+      }
+      
+  """
+  @type create_hybrid_ad_request() :: %{String.t() => any()}
 
   @type accept_shared_directory_errors() ::
           entity_does_not_exist_exception()
@@ -2719,6 +3063,15 @@ defmodule AWS.Directory do
           | service_exception()
           | client_exception()
 
+  @type create_hybrid_ad_errors() ::
+          directory_limit_exceeded_exception()
+          | entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | service_exception()
+          | client_exception()
+          | ad_assessment_limit_exceeded_exception()
+          | unsupported_operation_exception()
+
   @type create_log_subscription_errors() ::
           entity_does_not_exist_exception()
           | service_exception()
@@ -2748,6 +3101,13 @@ defmodule AWS.Directory do
           | client_exception()
           | unsupported_operation_exception()
           | entity_already_exists_exception()
+
+  @type delete_ad_assessment_errors() ::
+          entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | service_exception()
+          | client_exception()
+          | unsupported_operation_exception()
 
   @type delete_conditional_forwarder_errors() ::
           directory_unavailable_exception()
@@ -2794,6 +3154,13 @@ defmodule AWS.Directory do
           | invalid_parameter_exception()
           | service_exception()
           | client_exception()
+
+  @type describe_ad_assessment_errors() ::
+          entity_does_not_exist_exception()
+          | invalid_parameter_exception()
+          | service_exception()
+          | client_exception()
+          | unsupported_operation_exception()
 
   @type describe_certificate_errors() ::
           certificate_does_not_exist_exception()
@@ -2846,6 +3213,14 @@ defmodule AWS.Directory do
           | invalid_parameter_exception()
           | service_exception()
           | client_exception()
+
+  @type describe_hybrid_ad_update_errors() ::
+          invalid_parameter_exception()
+          | service_exception()
+          | invalid_next_token_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | unsupported_operation_exception()
 
   @type describe_ldaps_settings_errors() ::
           invalid_parameter_exception()
@@ -2987,6 +3362,13 @@ defmodule AWS.Directory do
   @type get_snapshot_limits_errors() ::
           entity_does_not_exist_exception() | service_exception() | client_exception()
 
+  @type list_ad_assessments_errors() ::
+          invalid_parameter_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | unsupported_operation_exception()
+
   @type list_certificates_errors() ::
           invalid_parameter_exception()
           | service_exception()
@@ -3093,6 +3475,14 @@ defmodule AWS.Directory do
           | unsupported_operation_exception()
           | invalid_target_exception()
 
+  @type start_ad_assessment_errors() ::
+          invalid_parameter_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | ad_assessment_limit_exceeded_exception()
+          | unsupported_operation_exception()
+
   @type start_schema_extension_errors() ::
           directory_unavailable_exception()
           | entity_does_not_exist_exception()
@@ -3126,6 +3516,14 @@ defmodule AWS.Directory do
           | directory_in_desired_state_exception()
           | unsupported_operation_exception()
           | snapshot_limit_exceeded_exception()
+
+  @type update_hybrid_ad_errors() ::
+          invalid_parameter_exception()
+          | service_exception()
+          | directory_does_not_exist_exception()
+          | client_exception()
+          | ad_assessment_limit_exceeded_exception()
+          | unsupported_operation_exception()
 
   @type update_number_of_domain_controllers_errors() ::
           directory_unavailable_exception()
@@ -3377,6 +3775,28 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Creates a hybrid directory that connects your self-managed Active Directory (AD)
+  infrastructure and Amazon Web Services.
+
+  You must have a successful directory assessment using `StartADAssessment` to
+  validate your environment compatibility before you
+  use this operation.
+
+  Updates are applied asynchronously. Use `DescribeDirectories` to
+  monitor the progress of directory creation.
+  """
+  @spec create_hybrid_ad(map(), create_hybrid_ad_request(), list()) ::
+          {:ok, create_hybrid_ad_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_hybrid_ad_errors()}
+  def create_hybrid_ad(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "CreateHybridAD", input, options)
+  end
+
+  @doc """
   Creates a subscription to forward real-time Directory Service domain controller
   security
   logs to the specified Amazon CloudWatch log group in your Amazon Web Services
@@ -3459,6 +3879,27 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "CreateTrust", input, options)
+  end
+
+  @doc """
+  Deletes a directory assessment and all associated data.
+
+  This operation permanently
+  removes the assessment results, validation reports, and configuration
+  information.
+
+  You cannot delete system-initiated assessments. You can delete customer-created
+  assessments even if they are in progress.
+  """
+  @spec delete_ad_assessment(map(), delete_ad_assessment_request(), list()) ::
+          {:ok, delete_ad_assessment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_ad_assessment_errors()}
+  def delete_ad_assessment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DeleteADAssessment", input, options)
   end
 
   @doc """
@@ -3570,6 +4011,25 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "DeregisterEventTopic", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a directory assessment, including its
+  current
+  status, validation results, and configuration details.
+
+  Use this operation to monitor
+  assessment progress and review results.
+  """
+  @spec describe_ad_assessment(map(), describe_ad_assessment_request(), list()) ::
+          {:ok, describe_ad_assessment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_ad_assessment_errors()}
+  def describe_ad_assessment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeADAssessment", input, options)
   end
 
   @doc """
@@ -3706,6 +4166,24 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "DescribeEventTopics", input, options)
+  end
+
+  @doc """
+  Retrieves information about update activities for a hybrid directory.
+
+  This operation
+  provides details about configuration changes, administrator account updates, and
+  self-managed instance settings (IDs and DNS IPs).
+  """
+  @spec describe_hybrid_ad_update(map(), describe_hybrid_ad_update_request(), list()) ::
+          {:ok, describe_hybrid_ad_update_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_hybrid_ad_update_errors()}
+  def describe_hybrid_ad_update(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "DescribeHybridADUpdate", input, options)
   end
 
   @doc """
@@ -4008,6 +4486,24 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Retrieves a list of directory assessments for the specified directory or all
+  assessments in your account.
+
+  Use this operation to monitor assessment status and manage
+  multiple assessments.
+  """
+  @spec list_ad_assessments(map(), list_ad_assessments_request(), list()) ::
+          {:ok, list_ad_assessments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_ad_assessments_errors()}
+  def list_ad_assessments(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "ListADAssessments", input, options)
+  end
+
+  @doc """
   For the specified directory, lists all the certificates registered for a secure
   LDAP or
   client certificate authentication.
@@ -4281,6 +4777,45 @@ defmodule AWS.Directory do
   end
 
   @doc """
+  Initiates a directory assessment to validate your self-managed AD environment
+  for
+  hybrid domain join.
+
+  The assessment checks compatibility and connectivity of the
+  self-managed AD environment.
+
+  A directory assessment is automatically created when you create a hybrid
+  directory.
+  There are two types of assessments: `CUSTOMER` and `SYSTEM`. Your
+  Amazon Web Services account has a limit of 100 `CUSTOMER` directory assessments.
+
+  The assessment process typically takes 30 minutes or more to complete. The
+  assessment
+  process is asynchronous and you can monitor it with
+  `DescribeADAssessment`.
+
+  The `InstanceIds` must have a one-to-one correspondence with
+  `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
+  is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then
+  the
+  input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
+  paired with [i-10243420, i-10243410].
+
+  Note: You must provide exactly one `DirectoryId` or
+  `AssessmentConfiguration`.
+  """
+  @spec start_ad_assessment(map(), start_ad_assessment_request(), list()) ::
+          {:ok, start_ad_assessment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_ad_assessment_errors()}
+  def start_ad_assessment(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "StartADAssessment", input, options)
+  end
+
+  @doc """
   Applies a schema extension to a Microsoft AD directory.
   """
   @spec start_schema_extension(map(), start_schema_extension_request(), list()) ::
@@ -4336,6 +4871,37 @@ defmodule AWS.Directory do
     meta = metadata()
 
     Request.request_post(client, meta, "UpdateDirectorySetup", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing hybrid directory.
+
+  You can recover hybrid
+  directory administrator account or modify self-managed instance settings.
+
+  Updates are applied asynchronously. Use `DescribeHybridADUpdate` to
+  monitor the progress of configuration changes.
+
+  The `InstanceIds` must have a one-to-one correspondence with
+  `CustomerDnsIps`, meaning that if the IP address for instance i-10243410
+  is 10.24.34.100 and the IP address for instance i-10243420 is 10.24.34.200, then
+  the
+  input arrays must maintain the same order relationship, either [10.24.34.100, 10.24.34.200] paired with [i-10243410, i-10243420] or [10.24.34.200, 10.24.34.100]
+  paired with [i-10243420, i-10243410].
+
+  You must provide at least one update to
+  `UpdateHybridADRequest$HybridAdministratorAccountUpdate` or
+  `UpdateHybridADRequest$SelfManagedInstancesSettings`.
+  """
+  @spec update_hybrid_ad(map(), update_hybrid_ad_request(), list()) ::
+          {:ok, update_hybrid_ad_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_hybrid_ad_errors()}
+  def update_hybrid_ad(%Client{} = client, input, options \\ []) do
+    meta = metadata()
+
+    Request.request_post(client, meta, "UpdateHybridAD", input, options)
   end
 
   @doc """

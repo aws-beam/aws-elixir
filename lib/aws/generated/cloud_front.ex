@@ -3096,7 +3096,8 @@ defmodule AWS.CloudFront do
   ## Example:
 
       s3_origin_config() :: %{
-        "OriginAccessIdentity" => String.t()
+        "OriginAccessIdentity" => String.t(),
+        "OriginReadTimeout" => integer()
       }
 
   """
@@ -5149,6 +5150,7 @@ defmodule AWS.CloudFront do
         "OriginAccessControlId" => String.t(),
         "OriginPath" => String.t(),
         "OriginShield" => origin_shield(),
+        "ResponseCompletionTimeout" => integer(),
         "S3OriginConfig" => s3_origin_config(),
         "VpcOriginConfig" => vpc_origin_config()
       }
@@ -8883,6 +8885,11 @@ defmodule AWS.CloudFront do
 
     * The default, minimum, and maximum time to live (TTL) values that
   you want objects to stay in the CloudFront cache.
+
+  If your minimum TTL is greater than 0, CloudFront will cache content for at
+  least the duration specified in the cache policy's minimum TTL, even if the
+  `Cache-Control: no-cache`, `no-store`, or `private` directives are present in
+  the origin headers.
 
   The headers, cookies, and query strings that are included in the cache key are
   also included in requests that CloudFront sends to the origin. CloudFront sends
@@ -13563,6 +13570,11 @@ defmodule AWS.CloudFront do
 
     3. Call `UpdateCachePolicy` by providing the entire cache policy
   configuration, including the fields that you modified and those that you didn't.
+
+  If your minimum TTL is greater than 0, CloudFront will cache content for at
+  least the duration specified in the cache policy's minimum TTL, even if the
+  `Cache-Control: no-cache`, `no-store`, or `private` directives are present in
+  the origin headers.
   """
   @spec update_cache_policy(map(), String.t(), update_cache_policy_request(), list()) ::
           {:ok, update_cache_policy_result(), any()}

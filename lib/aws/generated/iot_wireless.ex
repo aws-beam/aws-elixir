@@ -2934,12 +2934,16 @@ defmodule AWS.IoTWireless do
         "DrMin" => integer(),
         "HrAllowed" => boolean(),
         "MinGwDiversity" => integer(),
+        "NbTransMax" => integer(),
+        "NbTransMin" => integer(),
         "NwkGeoLoc" => boolean(),
         "PrAllowed" => boolean(),
         "RaAllowed" => boolean(),
         "ReportDevStatusBattery" => boolean(),
         "ReportDevStatusMargin" => boolean(),
         "TargetPer" => integer(),
+        "TxPowerIndexMax" => integer(),
+        "TxPowerIndexMin" => integer(),
         "UlBucketSize" => integer(),
         "UlRate" => integer(),
         "UlRatePolicy" => String.t()
@@ -4190,8 +4194,12 @@ defmodule AWS.IoTWireless do
         "AddGwMetadata" => boolean(),
         "DrMax" => integer(),
         "DrMin" => integer(),
+        "NbTransMax" => integer(),
+        "NbTransMin" => integer(),
         "PrAllowed" => boolean(),
-        "RaAllowed" => boolean()
+        "RaAllowed" => boolean(),
+        "TxPowerIndexMax" => integer(),
+        "TxPowerIndexMin" => integer()
       }
 
   """

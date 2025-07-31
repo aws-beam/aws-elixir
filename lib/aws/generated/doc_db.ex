@@ -27,6 +27,7 @@ defmodule AWS.DocDB do
         optional("EngineVersion") => String.t(),
         optional("KmsKeyId") => String.t(),
         optional("Port") => integer(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
         optional("Tags") => list(tag()),
         optional("VpcSecurityGroupIds") => list(String.t()),
@@ -625,6 +626,7 @@ defmodule AWS.DocDB do
         optional("Port") => integer(),
         optional("RestoreToTime") => non_neg_integer(),
         optional("RestoreType") => String.t(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
         optional("Tags") => list(tag()),
         optional("UseLatestRestorableTime") => boolean(),
@@ -1317,6 +1319,18 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      serverless_v2_features_support() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_features_support() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_upgrade_dependency_failure_fault() :: %{
         "message" => String.t()
       }
@@ -1429,6 +1443,7 @@ defmodule AWS.DocDB do
         "Engine" => String.t(),
         "EngineVersion" => String.t(),
         "ExportableLogTypes" => list(String.t()),
+        "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
         "SupportedCACertificateIdentifiers" => list(String.t()),
         "SupportsCertificateRotationWithoutRestart" => boolean(),
         "SupportsLogExportsToCloudwatchLogs" => boolean(),
@@ -1575,6 +1590,7 @@ defmodule AWS.DocDB do
         optional("PreSignedUrl") => String.t(),
         optional("PreferredBackupWindow") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageEncrypted") => boolean(),
         optional("StorageType") => String.t(),
         optional("Tags") => list(tag()),
@@ -1906,6 +1922,7 @@ defmodule AWS.DocDB do
         "BackupRetentionPeriod" => integer(),
         "KmsKeyId" => String.t(),
         "ReadReplicaIdentifiers" => list(String.t()),
+        "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
         "EnabledCloudwatchLogsExports" => list(String.t()),
         "ClusterCreateTime" => non_neg_integer(),
         "PercentProgress" => String.t(),
@@ -2259,6 +2276,18 @@ defmodule AWS.DocDB do
 
   ## Example:
       
+      serverless_v2_scaling_configuration_info() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_scaling_configuration_info() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       db_subnet_group() :: %{
         "DBSubnetGroupArn" => String.t(),
         "DBSubnetGroupDescription" => String.t(),
@@ -2373,6 +2402,7 @@ defmodule AWS.DocDB do
         optional("PreferredBackupWindow") => String.t(),
         optional("PreferredMaintenanceWindow") => String.t(),
         optional("RotateMasterUserPassword") => boolean(),
+        optional("ServerlessV2ScalingConfiguration") => serverless_v2_scaling_configuration(),
         optional("StorageType") => String.t(),
         optional("VpcSecurityGroupIds") => list(String.t()),
         required("DBClusterIdentifier") => String.t()
@@ -2495,6 +2525,18 @@ defmodule AWS.DocDB do
       
   """
   @type modify_db_instance_message() :: %{String.t() => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_scaling_configuration() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_scaling_configuration() :: %{String.t() => any()}
 
   @typedoc """
 

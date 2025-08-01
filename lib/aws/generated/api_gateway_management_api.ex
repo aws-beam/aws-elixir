@@ -141,7 +141,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec delete_connection(
           map(),
           String.t() | Atom.t(),
-          String.t(),
+          String.t() | Atom.t(),
           delete_connection_request(),
           list()
         ) ::
@@ -173,7 +173,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @doc """
   Get information about the connection with the provided id.
   """
-  @spec get_connection(map(), String.t(), String.t() | Atom.t(), list()) ::
+  @spec get_connection(map(), String.t() | Atom.t(), String.t() | Atom.t(), list()) ::
           {:ok, get_connection_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
@@ -194,7 +194,7 @@ defmodule AWS.ApiGatewayManagementApi do
   @spec post_to_connection(
           map(),
           String.t() | Atom.t(),
-          String.t(),
+          String.t() | Atom.t(),
           post_to_connection_request(),
           list()
         ) ::
